@@ -257,10 +257,17 @@ async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {
 async function reconcileActivation(admin: Admin, sellerId: string) {
   const { data: seller } = await admin
     .from("seller_profiles")
-    .select("id, connect_charges_enabled, connect_details_submitted, is_paused")
+    .select("id, connect_charges_enabled, connect_details_submitted, is_paused, pause_reason")
     .eq("id", sellerId)
     .maybeSingle();
   if (!seller) return;
+
+  // This function only manages the onboarding pause. A compliance pause
+  // (revenue_cap / license_expired / admin) is lifted only by an admin or the yearly
+  // revenue reset — never by a subscription webhook.
+  if (seller.is_paused && seller.pause_reason && seller.pause_reason !== "onboarding_incomplete") {
+    return;
+  }
 
   const { data: sub } = await admin
     .from("subscriptions")
@@ -278,5 +285,7 @@ async function reconcileActivation(admin: Admin, sellerId: string) {
       is_paused: !shouldBeLive,
       pause_reason: shouldBeLive ? null : "onboarding_incomplete",
     })
-    .eq("id", sellerId);
+    .eq("id", sellerId)
+    // Extra guard against a race with a compliance pause landing between the read and the write.
+    .or("pause_reason.is.null,pause_reason.eq.onboarding_incomplete");
 }

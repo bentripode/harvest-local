@@ -143,13 +143,15 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
-supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders + pipeline
+supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients
 src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
 src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/state.ts                   US states + the same-state geofence predicate
 src/lib/orders/{pricing,status,queries}.ts   server re-pricing · status map · order reads
+src/lib/compliance.ts                  revenue-status / license / notification reads
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/app/(auth)/                        login, signup, email confirm
@@ -157,14 +159,25 @@ src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
+src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
+src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
 
-**Phase 2 (in progress):** buyer checkout is a Stripe **Checkout Session** →
-destination charge with `on_behalf_of` the seller (seller = MoR) + `automatic_tax`
-(`liability: { type: 'account' }`). Order starts `pending_payment`; the
-`checkout.session.completed` / `async_payment_succeeded` webhook moves it to `new`,
-finalises `tax_total`/`total` from the session, and decrements stock. Sellers advance the
-pipeline only through `advance_order_status()` (SQL, SECURITY DEFINER); every transition is
-logged to `order_status_history` by trigger. `npm run stripe:tax -- --account <acct> --state <XX>`
-sets up test-mode Stripe Tax.
+**Phase 2 — buyer checkout:** a Stripe **Checkout Session** → destination charge with
+`on_behalf_of` the seller (seller = MoR) + `automatic_tax` (`liability: { type: 'account' }`).
+Order starts `pending_payment`; the `checkout.session.completed` / `async_payment_succeeded`
+webhook moves it to `new`, finalises `tax_total`/`total` from the session, decrements stock.
+Sellers advance the pipeline only through `advance_order_status()` (SQL, SECURITY DEFINER);
+every transition is logged to `order_status_history` by trigger.
+`npm run stripe:tax -- --account <acct> --state <XX>` sets up test-mode Stripe Tax.
+
+**Phase 2 — compliance guardrails (Inngest).** `advanceOrderStatusAction` emits
+`harvest/order.completed`. `revenue-cap-check` calls `record_order_revenue()` which tallies
+`seller_revenue_tracking` and, if the yearly goods total crosses
+`state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_reason = 'revenue_cap'`
+**atomically in SQL** (guardrail lives at the data layer). `license-expiry-scan` (daily cron)
+sends T-30/7/1 reminders and calls `expire_seller_license()` at expiry (→ `pause_reason =
+'license_expired'`). A compliance pause is never lifted by the Stripe webhook's
+`reconcileActivation` — only by an admin or the yearly reset. `notifications` rows are queued
+here; Resend/Twilio delivery is Phase 3. Local dev: `npm run inngest:dev` (no keys).

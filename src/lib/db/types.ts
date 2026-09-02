@@ -69,10 +69,18 @@ type OrderMoneyKeys =
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
   public: Omit<Generated["public"], "Tables"> & {
-    Tables: Omit<GenTables, "products" | "orders" | "order_items"> & {
+    Tables: Omit<
+      GenTables,
+      "products" | "orders" | "order_items" | "state_cottage_food_rules" | "seller_revenue_tracking"
+    > & {
       products: ProductsFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
+      state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
+      seller_revenue_tracking: MoneyFixed<
+        GenTables["seller_revenue_tracking"],
+        "gross_revenue" | "cap_amount"
+      >;
     };
   };
 };
@@ -89,10 +97,22 @@ export type Product = Row<"products">;
 export type Order = Row<"orders">;
 export type OrderItem = Row<"order_items">;
 export type OrderStatusHistory = Row<"order_status_history">;
+export type Notification = Row<"notifications">;
+export type SellerLicense = Row<"seller_licenses">;
+export type StateCottageFoodRule = Row<"state_cottage_food_rules">;
+export type SellerRevenueTracking = Row<"seller_revenue_tracking">;
 
 export type Role = Profile["role"];
 export type ProductStatus = Product["status"];
 export type SubscriptionStatus = Subscription["status"];
+export type NotificationChannel = Notification["channel"];
+export type LicenseType = SellerLicense["license_type"];
+export type LicenseStatus = SellerLicense["verification_status"];
+export type PauseReason =
+  | "onboarding_incomplete"
+  | "revenue_cap"
+  | "license_expired"
+  | "admin";
 
 export type OrderStatus =
   | "pending_payment"

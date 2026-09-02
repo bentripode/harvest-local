@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { inngest } from "@/lib/inngest/client";
 import type { OrderStatus } from "@/lib/db/types";
 
 const schema = z.object({
@@ -42,7 +43,7 @@ export async function advanceOrderStatusAction(
   if (!parsed.success) return { error: "Invalid request." };
 
   const supabase = await createClient();
-  const { error } = await supabase.rpc("advance_order_status", {
+  const { data, error } = await supabase.rpc("advance_order_status", {
     p_order_id: parsed.data.orderId,
     p_to_status: parsed.data.toStatus,
     p_note: parsed.data.note ?? undefined,
@@ -56,6 +57,20 @@ export async function advanceOrderStatusAction(
           ? "You can't change this order."
           : error.message,
     };
+  }
+
+  // The transition is committed. Fire the completion event for the compliance jobs
+  // (revenue-cap tally + auto-pause); a send failure must not surface as a user error.
+  if (parsed.data.toStatus === "completed") {
+    const order = Array.isArray(data) ? data[0] : data;
+    if (order) {
+      await inngest
+        .send({
+          name: "harvest/order.completed",
+          data: { orderId: order.id, sellerId: order.seller_id },
+        })
+        .catch((err) => console.error("[inngest] harvest/order.completed send failed:", err));
+    }
   }
 
   revalidatePath("/seller/orders");

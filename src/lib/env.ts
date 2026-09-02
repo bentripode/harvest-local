@@ -28,6 +28,15 @@ const serverSchema = z.object({
   STRIPE_SUBSCRIPTION_PRICE_ID: z.string().startsWith("price_"),
   STRIPE_SELLER_TRIAL_DAYS: z.coerce.number().int().positive().default(90),
 
+  // Inngest (background jobs). Neither is needed for local dev with `npm run inngest:dev`.
+  INNGEST_EVENT_KEY: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  INNGEST_SIGNING_KEY: z
+    .string()
+    .startsWith("signkey-")
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+
   // App
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
 

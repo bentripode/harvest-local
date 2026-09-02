@@ -1,10 +1,13 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { requireUser } from "@/lib/auth";
+import { PauseBanner } from "@/components/pause-banner";
+import { getSellerContext } from "@/lib/auth";
+import { getUnreadNotificationCount } from "@/lib/compliance";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { profile } = await requireUser("/seller");
+  const { profile, seller } = await getSellerContext();
+  const unread = seller ? await getUnreadNotificationCount(profile.id) : 0;
 
   return (
     <div className="flex min-h-full flex-col">
@@ -24,6 +27,14 @@ export default async function DashboardLayout({ children }: { children: React.Re
               <Link href="/seller/orders" className="hover:text-foreground">
                 Orders
               </Link>
+              <Link href="/seller/compliance" className="hover:text-foreground">
+                Compliance
+                {unread > 0 ? (
+                  <span className="bg-primary text-primary-foreground ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums">
+                    {unread}
+                  </span>
+                ) : null}
+              </Link>
             </nav>
           </div>
           <div className="flex items-center gap-3">
@@ -38,6 +49,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
           </div>
         </div>
       </header>
+      <PauseBanner seller={seller} />
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-10">{children}</main>
     </div>
   );

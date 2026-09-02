@@ -133,6 +133,50 @@ export type Database = {
           },
         ]
       }
+      notifications: {
+        Row: {
+          channel: string
+          created_at: string
+          id: string
+          payload: Json
+          read_at: string | null
+          sent_at: string | null
+          status: string
+          template: string
+          user_id: string
+        }
+        Insert: {
+          channel: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          read_at?: string | null
+          sent_at?: string | null
+          status?: string
+          template: string
+          user_id: string
+        }
+        Update: {
+          channel?: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          read_at?: string | null
+          sent_at?: string | null
+          status?: string
+          template?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notifications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       order_items: {
         Row: {
           category_snapshot: string | null
@@ -241,6 +285,7 @@ export type Database = {
           fulfillment_type: string
           id: string
           promo_code_id: string | null
+          revenue_recorded_at: string | null
           seller_id: string
           seller_state: string
           status: string
@@ -262,6 +307,7 @@ export type Database = {
           fulfillment_type?: string
           id?: string
           promo_code_id?: string | null
+          revenue_recorded_at?: string | null
           seller_id: string
           seller_state: string
           status?: string
@@ -283,6 +329,7 @@ export type Database = {
           fulfillment_type?: string
           id?: string
           promo_code_id?: string | null
+          revenue_recorded_at?: string | null
           seller_id?: string
           seller_state?: string
           status?: string
@@ -482,6 +529,56 @@ export type Database = {
         }
         Relationships: []
       }
+      seller_licenses: {
+        Row: {
+          created_at: string
+          document_path: string | null
+          expiration_date: string
+          id: string
+          issued_date: string | null
+          issuing_state: string
+          license_number: string | null
+          license_type: string
+          seller_id: string
+          updated_at: string
+          verification_status: string
+        }
+        Insert: {
+          created_at?: string
+          document_path?: string | null
+          expiration_date: string
+          id?: string
+          issued_date?: string | null
+          issuing_state: string
+          license_number?: string | null
+          license_type: string
+          seller_id: string
+          updated_at?: string
+          verification_status?: string
+        }
+        Update: {
+          created_at?: string
+          document_path?: string | null
+          expiration_date?: string
+          id?: string
+          issued_date?: string | null
+          issuing_state?: string
+          license_number?: string | null
+          license_type?: string
+          seller_id?: string
+          updated_at?: string
+          verification_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_licenses_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_profiles: {
         Row: {
           avg_rating: number | null
@@ -561,6 +658,85 @@ export type Database = {
             foreignKeyName: "seller_profiles_profile_id_fkey"
             columns: ["profile_id"]
             isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_revenue_tracking: {
+        Row: {
+          cap_amount: number | null
+          gross_revenue: number
+          id: string
+          is_over_cap: boolean
+          period_year: number
+          seller_id: string
+          state: string
+          updated_at: string
+        }
+        Insert: {
+          cap_amount?: number | null
+          gross_revenue?: number
+          id?: string
+          is_over_cap?: boolean
+          period_year: number
+          seller_id: string
+          state: string
+          updated_at?: string
+        }
+        Update: {
+          cap_amount?: number | null
+          gross_revenue?: number
+          id?: string
+          is_over_cap?: boolean
+          period_year?: number
+          seller_id?: string
+          state?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_revenue_tracking_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      state_cottage_food_rules: {
+        Row: {
+          allowed_categories: Json | null
+          notes: string | null
+          requires_license: boolean
+          revenue_cap: number | null
+          state_code: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          allowed_categories?: Json | null
+          notes?: string | null
+          requires_license?: boolean
+          revenue_cap?: number | null
+          state_code: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          allowed_categories?: Json | null
+          notes?: string | null
+          requires_license?: boolean
+          revenue_cap?: number | null
+          state_code?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "state_cottage_food_rules_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -688,6 +864,7 @@ export type Database = {
           fulfillment_type: string
           id: string
           promo_code_id: string | null
+          revenue_recorded_at: string | null
           seller_id: string
           seller_state: string
           status: string
@@ -709,7 +886,21 @@ export type Database = {
         Args: { p_product_id: string; p_qty: number }
         Returns: undefined
       }
+      expire_seller_license: {
+        Args: { p_license_id: string }
+        Returns: boolean
+      }
       is_platform_context: { Args: never; Returns: boolean }
+      mark_notifications_read: { Args: never; Returns: undefined }
+      record_order_revenue: {
+        Args: { p_order_id: string }
+        Returns: {
+          cap: number
+          gross: number
+          over: boolean
+          paused: boolean
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
