@@ -143,15 +143,28 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
-supabase/migrations/                   Phase 1: core tables, RLS, seed
+supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders + pipeline
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients
-src/lib/stripe/{client,config}.ts      Stripe SDK instance + price/coupon constants
+src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
 src/lib/money.ts                       server-side money helpers (cents)
-src/lib/auth.ts                        requireUser / requireRole / getProfile
+src/lib/geo/state.ts                   US states + the same-state geofence predicate
+src/lib/orders/{pricing,status,queries}.ts   server re-pricing · status map · order reads
+src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/app/(auth)/                        login, signup, email confirm
+src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
+src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 ```
+
+**Phase 2 (in progress):** buyer checkout is a Stripe **Checkout Session** →
+destination charge with `on_behalf_of` the seller (seller = MoR) + `automatic_tax`
+(`liability: { type: 'account' }`). Order starts `pending_payment`; the
+`checkout.session.completed` / `async_payment_succeeded` webhook moves it to `new`,
+finalises `tax_total`/`total` from the session, and decrements stock. Sellers advance the
+pipeline only through `advance_order_status()` (SQL, SECURITY DEFINER); every transition is
+logged to `order_status_history` by trigger. `npm run stripe:tax -- --account <acct> --state <XX>`
+sets up test-mode Stripe Tax.

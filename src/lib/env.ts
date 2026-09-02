@@ -45,9 +45,26 @@ const clientSchema = serverSchema.pick({
 
 const isServer = typeof window === "undefined";
 
+/**
+ * On the server `process.env` holds every variable. In the browser bundle it does NOT —
+ * only `process.env.NEXT_PUBLIC_*` expressions the bundler can see as literal member
+ * accesses get inlined at build time; `process.env` as a whole object is empty there.
+ * So on the client we hand the schema an explicit object, one static reference per var.
+ */
+function clientEnvSource() {
+  return {
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    NEXT_PUBLIC_MAPBOX_TOKEN: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
+  };
+}
+
 function loadEnv() {
-  const schema = isServer ? serverSchema : clientSchema;
-  const parsed = schema.safeParse(process.env);
+  const parsed = isServer
+    ? serverSchema.safeParse(process.env)
+    : clientSchema.safeParse(clientEnvSource());
 
   if (!parsed.success) {
     const issues = parsed.error.issues

@@ -4,6 +4,7 @@ import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe/client";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { env } from "@/lib/env";
+import { cents, toDecimalString } from "@/lib/money";
 import type { Json, SubscriptionStatus } from "@/lib/db/types";
 
 /**
@@ -82,6 +83,18 @@ export async function POST(request: NextRequest) {
         await handleSubscription(admin, event.data.object as Stripe.Subscription);
         break;
 
+      case "checkout.session.completed":
+      case "checkout.session.async_payment_succeeded":
+        // The buyer paid (or, for async methods, the payment cleared). This — never the
+        // browser success redirect — is what moves an order from pending_payment to new.
+        await handleCheckoutCompleted(admin, event.data.object as Stripe.Checkout.Session);
+        break;
+
+      case "checkout.session.async_payment_failed":
+      case "checkout.session.expired":
+        await handleCheckoutFailed(admin, event.data.object as Stripe.Checkout.Session);
+        break;
+
       default:
         // Acknowledged and recorded, no handler yet.
         break;
@@ -144,6 +157,62 @@ async function handleAccountUpdated(admin: Admin, accountId: string) {
     .eq("id", seller.id);
 
   await reconcileActivation(admin, seller.id);
+}
+
+/**
+ * Buyer checkout succeeded. Idempotent: the event ledger dedupes redeliveries, and the guarded
+ * `status = pending_payment` predicate on the UPDATE means only the first successful call does
+ * work (inventory decrement included). Money finalises HERE — `tax_total` / `total` come from the
+ * Checkout Session because Stripe Tax is the server-side tax computation.
+ */
+async function handleCheckoutCompleted(admin: Admin, session: Stripe.Checkout.Session) {
+  if (session.payment_status === "unpaid") return; // async method — wait for async_payment_succeeded
+
+  const orderId = session.client_reference_id ?? session.metadata?.order_id ?? null;
+  if (!orderId) return;
+
+  const paymentIntentId =
+    typeof session.payment_intent === "string"
+      ? session.payment_intent
+      : (session.payment_intent?.id ?? null);
+
+  const { data: advanced } = await admin
+    .from("orders")
+    .update({
+      status: "new",
+      stripe_payment_intent_id: paymentIntentId,
+      tax_total: toDecimalString(cents(session.total_details?.amount_tax ?? 0)),
+      total: toDecimalString(cents(session.amount_total ?? 0)),
+    })
+    .eq("id", orderId)
+    .eq("status", "pending_payment")
+    .select("id");
+
+  if (!advanced || advanced.length === 0) return; // unknown order, or already advanced
+
+  const { data: items } = await admin
+    .from("order_items")
+    .select("product_id, quantity")
+    .eq("order_id", orderId);
+
+  for (const item of items ?? []) {
+    await admin.rpc("decrement_product_quantity", {
+      p_product_id: item.product_id,
+      p_qty: item.quantity,
+    });
+  }
+}
+
+/** Checkout was abandoned (session expired) or an async payment failed — release the pending order. */
+async function handleCheckoutFailed(admin: Admin, session: Stripe.Checkout.Session) {
+  const orderId = session.client_reference_id ?? session.metadata?.order_id ?? null;
+  if (!orderId) return;
+
+  await admin
+    .from("orders")
+    .update({ status: "cancelled" })
+    .eq("id", orderId)
+    .eq("status", "pending_payment");
 }
 
 async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {

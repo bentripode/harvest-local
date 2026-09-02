@@ -8,8 +8,8 @@
  *
  * Two deliberate corrections to the generator's output:
  *  1. Postgres `numeric` crosses the wire as a *string*, but the generator types it `number`.
- *     `products.price` is corrected back to `string` so money stays exact end to end
- *     (see `src/lib/money.ts`). Add other numeric columns here as code starts touching them.
+ *     Every money column is corrected back to `string` so money stays exact end to end
+ *     (see `src/lib/money.ts`).
  *  2. `products.images` (jsonb) is given its real element shape instead of `Json`.
  */
 import type { Database as Generated } from "./database.types";
@@ -23,27 +23,56 @@ export interface ProductImage {
   alt?: string;
 }
 
-type GenProducts = Generated["public"]["Tables"]["products"];
+type GenTables = Generated["public"]["Tables"];
+
+/** `number` (or `number | null`, etc.) → `string`, preserving null/undefined via distribution. */
+type NumToStr<T> = T extends number ? string : T;
+
+/**
+ * Rewrite the listed money keys of a table's Row/Insert/Update from `number` to `string`
+ * (Postgres `numeric` crosses the wire as text). Homomorphic mapping keeps `?` optionality.
+ */
+type MoneyFixed<
+  T extends { Row: object; Insert: object; Update: object; Relationships: unknown },
+  K extends string,
+> = {
+  Row: { [P in keyof T["Row"]]: P extends K ? NumToStr<T["Row"][P]> : T["Row"][P] };
+  Insert: { [P in keyof T["Insert"]]: P extends K ? NumToStr<T["Insert"][P]> : T["Insert"][P] };
+  Update: { [P in keyof T["Update"]]: P extends K ? NumToStr<T["Update"][P]> : T["Update"][P] };
+  Relationships: T["Relationships"];
+};
+
+type ProductsFixed = {
+  Row: Omit<GenTables["products"]["Row"], "price" | "images"> & {
+    price: string;
+    images: ProductImage[];
+  };
+  Insert: Omit<GenTables["products"]["Insert"], "price" | "images"> & {
+    price: string;
+    images?: ProductImage[];
+  };
+  Update: Omit<GenTables["products"]["Update"], "price" | "images"> & {
+    price?: string;
+    images?: ProductImage[];
+  };
+  Relationships: GenTables["products"]["Relationships"];
+};
+
+type OrderMoneyKeys =
+  | "subtotal"
+  | "discount_total"
+  | "delivery_fee"
+  | "tax_total"
+  | "total"
+  | "delivery_distance_miles";
 
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
   public: Omit<Generated["public"], "Tables"> & {
-    Tables: Omit<Generated["public"]["Tables"], "products"> & {
-      products: {
-        Row: Omit<GenProducts["Row"], "price" | "images"> & {
-          price: string;
-          images: ProductImage[];
-        };
-        Insert: Omit<GenProducts["Insert"], "price" | "images"> & {
-          price: string;
-          images?: ProductImage[];
-        };
-        Update: Omit<GenProducts["Update"], "price" | "images"> & {
-          price?: string;
-          images?: ProductImage[];
-        };
-        Relationships: GenProducts["Relationships"];
-      };
+    Tables: Omit<GenTables, "products" | "orders" | "order_items"> & {
+      products: ProductsFixed;
+      orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
+      order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
     };
   };
 };
@@ -57,7 +86,22 @@ export type Subscription = Row<"subscriptions">;
 export type Category = Row<"categories">;
 export type Tag = Row<"tags">;
 export type Product = Row<"products">;
+export type Order = Row<"orders">;
+export type OrderItem = Row<"order_items">;
+export type OrderStatusHistory = Row<"order_status_history">;
 
 export type Role = Profile["role"];
 export type ProductStatus = Product["status"];
 export type SubscriptionStatus = Subscription["status"];
+
+export type OrderStatus =
+  | "pending_payment"
+  | "new"
+  | "preparing"
+  | "ready"
+  | "out_for_delivery"
+  | "completed"
+  | "cancelled"
+  | "disputed";
+
+export type FulfillmentType = "pickup" | "delivery";

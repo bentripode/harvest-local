@@ -53,11 +53,18 @@ function Button({
   const classes = cn(buttonVariants({ variant, size, className }))
 
   if (asChild && React.isValidElement(children)) {
+    const child = children as React.ReactElement
+    // Base UI's Button assumes it renders a native <button>. When `asChild` hands it
+    // something else (a Next.js <Link>, a plain <a>, etc.) it logs "expected a native
+    // <button>" in dev. Tell it what it's actually rendering so the warning stops and
+    // it applies the right (non-native) button semantics.
+    const isNativeButton = child.type === "button"
     return (
       <ButtonPrimitive
         data-slot="button"
         className={classes}
-        render={children as React.ReactElement}
+        nativeButton={isNativeButton}
+        render={child}
         {...props}
       />
     )
