@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   checks:
+    # Keep this name stable — the `main` branch-protection ruleset requires this exact check.
     name: lint · build · typecheck
     runs-on: ubuntu-latest
 
@@ -42,6 +43,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Test
+        run: npm test
 
       # Build before typecheck: `tsconfig.json` includes `.next/types/**`, so a
       # complete typed-routes check needs fresh build output.

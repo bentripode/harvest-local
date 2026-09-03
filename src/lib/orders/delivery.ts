@@ -3,7 +3,8 @@ import "server-only";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { routing } from "@/lib/geo/routing";
 import type { GeoPoint } from "@/lib/geo/geocode";
-import { cents, toCents, type Cents } from "@/lib/money";
+import type { Cents } from "@/lib/money";
+import { deliveryFeeCents } from "@/lib/orders/delivery-fee";
 
 /**
  * Server-side delivery-fee quote. Straight-line radius check in PostGIS (`delivery_route_inputs`),
@@ -39,13 +40,9 @@ export async function quoteDelivery(sellerId: string, buyer: GeoPoint): Promise<
   );
   if (!route) return { ok: false, reason: "no_route" };
 
-  const base = toCents(row.base_fee ?? 0);
-  const perMile = toCents(row.per_mile_fee ?? 0);
-  const billableMiles = Math.max(1, Math.ceil(route.distanceMiles));
-
   return {
     ok: true,
-    feeCents: cents(base + perMile * billableMiles),
+    feeCents: deliveryFeeCents(row.base_fee, row.per_mile_fee, route.distanceMiles),
     distanceMiles: Math.round(route.distanceMiles * 10) / 10,
   };
 }

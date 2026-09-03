@@ -174,6 +174,7 @@ See `CLAUDE.md` § Commands for the full list. Most-used: `npm run dev:all`, `np
 ## Known limitations
 
 - **Twilio / SMS** not wired — `notification-dispatch` has a stubbed `sms` branch.
-- No automated test suite.
+- `npm test` (Vitest) covers the guardrail logic — money math, the geofence predicate, the
+  promo-code schema, cart re-pricing, and webhook idempotency. No integration/e2e suite yet.
 - Messaging uses a poll unless Supabase Postgres Changes is enabled (§2.A).
 - The hosted dev project contains E2E test data (a sample seller, buyers, orders, etc.).

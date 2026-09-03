@@ -60,6 +60,7 @@ npm run dev:all                   # Next (:3000) + stripe listen + Inngest dev s
 | `npm run dev` | Next dev server only (:3000) |
 | `npm run build` / `npm start` | Production build / serve |
 | `npm run lint` / `npm run typecheck` | ESLint / `tsc --noEmit` |
+| `npm test` | Vitest — guardrail unit tests (money math, geofence, promo-code schema, cart pricing, webhook idempotency) |
 | `npm run db:push` | Apply Supabase migrations to the linked project |
 | `npm run db:types` | Regenerate `src/lib/db/database.types.ts` |
 | `npm run stripe:setup` | Create the subscription Price + referral coupons (idempotent) |

@@ -121,6 +121,9 @@ Ratelimit in `src/proxy.ts` or per-action.
 
 ☐ Error tracking (Sentry) + uptime/alerting on `/api/webhooks/stripe` and `/api/inngest`.
 
+☐ Extend the test suite (`npm test`) beyond the guardrail units it covers today — an integration
+pass against a throwaway Supabase branch for the SECURITY DEFINER functions and RLS policies.
+
 ☐ Load-test the map/discovery queries once there are hundreds of sellers; add a search engine
 (Typesense/Algolia, synced via Inngest) only if faceted search becomes the bottleneck.
 
