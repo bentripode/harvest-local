@@ -3,7 +3,7 @@ import "server-only";
 import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
-import { stripeConfig } from "@/lib/stripe/config";
+import { getReferralConfig } from "@/lib/referrals/settings";
 
 /**
  * On `order -> completed`: activate the order's referral and count it toward the seller's open
@@ -62,17 +62,21 @@ export const referralActivate = inngest.createFunction(
       throw new Error("Reward earned but the seller has no subscription id on file.");
     }
 
+    // Single source of truth for the reward coupon: platform_settings (where the threshold also
+    // comes from), falling back to the code default.
+    const { rewardCoupon } = await getReferralConfig(admin);
+
     await step.run("attach-free-month-coupon", async () => {
       await stripe.subscriptions.update(
         result.reward_subscription as string,
-        { discounts: [{ coupon: stripeConfig.freeMonthCouponId }] },
+        { discounts: [{ coupon: rewardCoupon }] },
         { idempotencyKey: `reward:${result.reward_cycle_id}` },
       );
       // Marks reward_granted = true AND reward_stripe_coupon_id in one statement — only reached
       // once the coupon is on the subscription.
       const { error } = await admin.rpc("set_referral_reward_coupon", {
         p_cycle_id: result.reward_cycle_id as string,
-        p_coupon_id: stripeConfig.freeMonthCouponId,
+        p_coupon_id: rewardCoupon,
       });
       if (error) throw new Error(error.message);
     });

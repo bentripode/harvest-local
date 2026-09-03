@@ -22,13 +22,22 @@ export async function ensureBuyerDiscountCoupon(percent: number): Promise<string
   try {
     await stripe.coupons.retrieve(id);
   } catch {
-    await stripe.coupons.create({
-      id,
-      percent_off: pct,
-      duration: "once",
-      name: `Harvest Local referral — ${pct}% off`,
-      metadata: { purpose: "buyer_referral_discount" },
-    });
+    try {
+      await stripe.coupons.create(
+        {
+          id,
+          percent_off: pct,
+          duration: "once",
+          name: `Harvest Local referral — ${pct}% off`,
+          metadata: { purpose: "buyer_referral_discount" },
+        },
+        { idempotencyKey: `buyer-coupon:${id}` },
+      );
+    } catch {
+      // Another checkout raced us to the same fixed id, or a transient error. If it exists now
+      // we're fine; otherwise this rethrows the real failure.
+      await stripe.coupons.retrieve(id);
+    }
   }
 
   cache.set(pct, id);

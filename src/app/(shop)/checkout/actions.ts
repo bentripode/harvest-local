@@ -206,6 +206,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   let promoCodeId: string | null = null;
   let discountCoupon: string | undefined;
   let discountCents = 0;
+  let couponFailed = false;
   const submittedCode = payload.promoCode?.trim();
   if (submittedCode) {
     const v = await validatePromoCode({
@@ -217,8 +218,14 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
     if (!v.ok) redirect("/checkout?error=promo");
     promoCodeId = v.promoCodeId!;
     discountCents = v.discountCents!;
-    discountCoupon = await ensureBuyerDiscountCoupon(v.discountPercent!);
+    try {
+      discountCoupon = await ensureBuyerDiscountCoupon(v.discountPercent!);
+    } catch (err) {
+      console.error("[checkout] buyer discount coupon unavailable:", err);
+      couponFailed = true;
+    }
   }
+  if (couponFailed) redirect("/checkout?error=promo");
 
   const admin = createAdminClient();
   const subtotal = toDecimalString(priced.subtotal);

@@ -76,20 +76,32 @@ export default async function SellerReferralsPage() {
           )}
 
           {progress.contributing.length > 0 ? (
-            <ul className="divide-y border-t pt-2 text-sm">
-              {progress.contributing.map((r) => (
-                <li key={r.id} className="flex justify-between gap-4 py-1.5">
-                  <span>
-                    {r.buyerName} · order {r.orderId.slice(0, 8)}
-                  </span>
-                  <span className="text-muted-foreground tabular-nums">
-                    {r.activatedAt
-                      ? new Date(r.activatedAt).toLocaleDateString(undefined, { dateStyle: "medium" })
-                      : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <>
+              <ul className="divide-y border-t pt-2 text-sm">
+                {progress.contributing.map((r) => (
+                  <li key={r.id} className="flex justify-between gap-4 py-1.5">
+                    <span>
+                      {r.buyerName} · order {r.orderId.slice(0, 8)}
+                    </span>
+                    <span className="text-muted-foreground tabular-nums">
+                      {r.activatedAt
+                        ? new Date(r.activatedAt).toLocaleDateString(undefined, { dateStyle: "medium" })
+                        : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-muted-foreground text-xs">
+                Discounts given this cycle:{" "}
+                {formatUsd(
+                  progress.contributing.reduce((n, r) => n + toCents(r.discountAmount), 0),
+                )}
+              </p>
+            </>
+          ) : progress.cycle ? (
+            <p className="text-muted-foreground border-t pt-2 text-xs">
+              A referral counts once the buyer&apos;s order is marked completed.
+            </p>
           ) : null}
         </CardContent>
       </Card>
@@ -123,16 +135,6 @@ export default async function SellerReferralsPage() {
         <PromoCodeForm />
       </section>
 
-      {progress.contributing.length === 0 && progress.cycle ? (
-        <p className="text-muted-foreground text-xs">
-          A referral counts once the buyer&apos;s order is marked completed. Discounts given so far
-          this cycle:{" "}
-          {formatUsd(
-            progress.contributing.reduce((n, r) => n + toCents(r.discountAmount), 0),
-          )}
-          .
-        </p>
-      ) : null}
     </div>
   );
 }

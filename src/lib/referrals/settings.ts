@@ -1,7 +1,10 @@
 import "server-only";
 
+import type { SupabaseClient } from "@supabase/supabase-js";
+
 import { createClient } from "@/lib/supabase/server";
 import { stripeConfig } from "@/lib/stripe/config";
+import type { Database } from "@/lib/db/types";
 
 /**
  * The referral knobs, all admin-configured in `platform_settings` (no admin UI until Phase 5).
@@ -23,8 +26,14 @@ const DEFAULTS: ReferralConfig = {
   minOrderCents: 0,
 };
 
-export async function getReferralConfig(): Promise<ReferralConfig> {
-  const supabase = await createClient();
+/**
+ * Pass a client for a non-request context (Inngest jobs, webhooks) — it can't use the
+ * cookie-scoped server client. Defaults to the request client otherwise.
+ */
+export async function getReferralConfig(
+  client?: SupabaseClient<Database>,
+): Promise<ReferralConfig> {
+  const supabase = client ?? (await createClient());
   const { data } = await supabase
     .from("platform_settings")
     .select("key, value")
