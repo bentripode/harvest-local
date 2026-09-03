@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { OrderStatusTimeline } from "@/components/order-status-timeline";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
+import { ReviewForm, ExistingReview } from "@/components/review-form";
 import { requireUser } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
+import { getReviewForOrder } from "@/lib/reviews/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
@@ -21,6 +23,8 @@ export default async function BuyerOrderPage({
 
   const order = await getOrder(id);
   if (!order || order.buyer?.id !== user.id) notFound();
+
+  const review = order.status === "completed" ? await getReviewForOrder(id) : null;
 
   const checkout = typeof sp.checkout === "string" ? sp.checkout : null;
   const pending = order.status === "pending_payment";
@@ -97,6 +101,19 @@ export default async function BuyerOrderPage({
           history={order.history}
         />
       </section>
+
+      {order.status === "completed" ? (
+        <section className="rounded-lg border p-4">
+          <h2 className="mb-3 text-sm font-medium">
+            {review ? "Your review" : `Review ${order.seller?.business_name ?? "this seller"}`}
+          </h2>
+          {review ? (
+            <ExistingReview orderId={order.id} review={review} />
+          ) : (
+            <ReviewForm orderId={order.id} />
+          )}
+        </section>
+      ) : null}
 
       <Link href="/orders" className="text-muted-foreground text-sm hover:underline">
         ← All orders

@@ -110,6 +110,7 @@ export type SellerRevenueTracking = Row<"seller_revenue_tracking">;
 export type PromoCode = Row<"promo_codes">;
 export type Referral = Row<"referrals">;
 export type ReferralCycle = Row<"referral_cycles">;
+export type Review = Row<"reviews">;
 
 export type ReferralStatus = "pending" | "active" | "invalidated";
 

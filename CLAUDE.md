@@ -108,7 +108,10 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 - A `reviews` row is insertable **only** when the reviewer is the `buyer_id` of an `orders` row with
   `status = 'completed'`, and there is **one review per order** (`reviews.order_id` is unique).
-- Enforce in an RLS policy / `BEFORE INSERT` trigger — **not** application code alone.
+- Enforced at the data layer: the `reviews_verify_buyer` `BEFORE INSERT` trigger (fires for every
+  insert, RLS bypass included) + the `order_id` unique constraint. RLS additionally scopes writes to
+  `reviewer_id = auth.uid()`. `seller_profiles.avg_rating` is rolled up by a SECURITY DEFINER
+  `AFTER INSERT/DELETE` trigger (`recompute_seller_rating`).
 
 ---
 
@@ -158,6 +161,7 @@ src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address s
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
+src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)

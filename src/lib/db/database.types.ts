@@ -715,6 +715,58 @@ export type Database = {
           },
         ]
       }
+      reviews: {
+        Row: {
+          body: string | null
+          created_at: string
+          id: string
+          order_id: string
+          rating: number
+          reviewer_id: string
+          seller_id: string
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          id?: string
+          order_id: string
+          rating: number
+          reviewer_id: string
+          seller_id: string
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          id?: string
+          order_id?: string
+          rating?: number
+          reviewer_id?: string
+          seller_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reviews_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: true
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reviews_reviewer_id_fkey"
+            columns: ["reviewer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reviews_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_licenses: {
         Row: {
           created_at: string
@@ -1134,6 +1186,10 @@ export type Database = {
           p_seller_id: string
         }
         Returns: string
+      }
+      recompute_seller_rating: {
+        Args: { p_seller_id: string }
+        Returns: undefined
       }
       record_order_revenue: {
         Args: { p_order_id: string }

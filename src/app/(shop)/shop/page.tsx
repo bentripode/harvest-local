@@ -46,7 +46,7 @@ export default async function ShopPage() {
   const { data: sellers } = await supabase
     .from("seller_profiles")
     .select(
-      "id, business_name, storefront_slug, bio, home_state, products:products(id, title, price, images, quantity_available, status, seller_id)",
+      "id, business_name, storefront_slug, bio, home_state, avg_rating, products:products(id, title, price, images, quantity_available, status, seller_id)",
     )
     .eq("is_paused", false)
     .eq("home_state", profile.home_state)
@@ -80,10 +80,15 @@ export default async function ShopPage() {
           {storefronts.map((s) => (
             <section key={s.id} className="space-y-3">
               <div className="flex items-baseline justify-between gap-3">
-                <h2 className="text-lg font-medium">
+                <h2 className="flex items-baseline gap-2 text-lg font-medium">
                   <Link href={`/s/${s.storefront_slug}`} className="hover:underline">
                     {s.business_name}
                   </Link>
+                  {s.avg_rating != null ? (
+                    <span className="text-muted-foreground text-sm font-normal">
+                      ★ {Number(s.avg_rating).toFixed(1)}
+                    </span>
+                  ) : null}
                 </h2>
                 <Link href={`/s/${s.storefront_slug}`} className="text-muted-foreground text-sm hover:underline">
                   View storefront →

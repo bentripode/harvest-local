@@ -4,8 +4,11 @@ import { notFound } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { AddToCart } from "@/components/add-to-cart";
+import { StarRating } from "@/components/star-rating";
+import { ReviewList } from "@/components/review-list";
 import { getProfile, getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
 import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
 import type { Product } from "@/lib/db/types";
@@ -24,7 +27,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   if (!seller || seller.is_paused) notFound();
 
-  const [{ data: products }, user, profile] = await Promise.all([
+  const [{ data: products }, user, profile, reviewSummary, reviews] = await Promise.all([
     supabase
       .from("products")
       .select("*")
@@ -33,6 +36,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
       .order("created_at", { ascending: false }),
     getUser(),
     getProfile(),
+    getSellerReviewSummary(seller.id),
+    getSellerReviews(seller.id),
   ]);
 
   const list = (products ?? []) as Product[];
@@ -43,11 +48,21 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     <div className="space-y-8">
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">{seller.business_name}</h1>
-        <p className="text-muted-foreground text-sm">
-          {stateName(seller.home_state)}
-          {seller.delivery_enabled
-            ? ` · pickup or local delivery${seller.delivery_radius_miles ? ` within ${seller.delivery_radius_miles} mi` : ""}`
-            : " · pickup"}
+        <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
+          <span>
+            {stateName(seller.home_state)}
+            {seller.delivery_enabled
+              ? ` · pickup or local delivery${seller.delivery_radius_miles ? ` within ${seller.delivery_radius_miles} mi` : ""}`
+              : " · pickup"}
+          </span>
+          {reviewSummary.count > 0 && reviewSummary.avg != null ? (
+            <span className="inline-flex items-center gap-1">
+              · <StarRating value={reviewSummary.avg} />
+              <span>
+                {reviewSummary.avg.toFixed(1)} ({reviewSummary.count})
+              </span>
+            </span>
+          ) : null}
         </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
       </header>
@@ -122,6 +137,15 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ))}
         </ul>
       )}
+
+      {reviews.length > 0 ? (
+        <section className="space-y-3">
+          <h2 className="text-sm font-medium">
+            Reviews{reviewSummary.count > 0 ? ` (${reviewSummary.count})` : ""}
+          </h2>
+          <ReviewList reviews={reviews} />
+        </section>
+      ) : null}
     </div>
   );
 }
