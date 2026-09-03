@@ -31,15 +31,18 @@ export interface CheckoutSessionInput {
   sellerAccountId: string;
   siteUrl: string;
   customerEmail?: string;
+  /** Stripe Coupon id for the buyer referral discount (see src/lib/stripe/coupons.ts). */
+  discountCoupon?: string;
 }
 
 export function buildCheckoutSessionParams(
   input: CheckoutSessionInput,
 ): Stripe.Checkout.SessionCreateParams {
-  const { orderId, lines, sellerAccountId, siteUrl, customerEmail } = input;
+  const { orderId, lines, sellerAccountId, siteUrl, customerEmail, discountCoupon } = input;
 
   return {
     mode: "payment",
+    ...(discountCoupon ? { discounts: [{ coupon: discountCoupon }] } : {}),
     line_items: lines.map((line) => ({
       quantity: line.quantity,
       price_data: {

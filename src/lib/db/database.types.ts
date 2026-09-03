@@ -356,6 +356,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "orders_promo_code_id_fkey"
+            columns: ["promo_code_id"]
+            isOneToOne: false
+            referencedRelation: "promo_codes"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "orders_seller_id_fkey"
             columns: ["seller_id"]
             isOneToOne: false
@@ -528,6 +535,176 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      promo_codes: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          is_active: boolean
+          seller_id: string
+          times_used: number
+          updated_at: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          seller_id: string
+          times_used?: number
+          updated_at?: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          seller_id?: string
+          times_used?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promo_codes_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      referral_cycles: {
+        Row: {
+          active_referral_count: number
+          closed_at: string | null
+          created_at: string
+          id: string
+          period_end: string
+          period_start: string
+          reward_granted: boolean
+          reward_stripe_coupon_id: string | null
+          seller_id: string
+          subscription_id: string
+        }
+        Insert: {
+          active_referral_count?: number
+          closed_at?: string | null
+          created_at?: string
+          id?: string
+          period_end: string
+          period_start: string
+          reward_granted?: boolean
+          reward_stripe_coupon_id?: string | null
+          seller_id: string
+          subscription_id: string
+        }
+        Update: {
+          active_referral_count?: number
+          closed_at?: string | null
+          created_at?: string
+          id?: string
+          period_end?: string
+          period_start?: string
+          reward_granted?: boolean
+          reward_stripe_coupon_id?: string | null
+          seller_id?: string
+          subscription_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "referral_cycles_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "referral_cycles_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      referrals: {
+        Row: {
+          activated_at: string | null
+          buyer_id: string
+          created_at: string
+          cycle_id: string | null
+          discount_amount: number
+          id: string
+          invalidated_at: string | null
+          order_id: string
+          promo_code_id: string
+          seller_id: string
+          status: string
+        }
+        Insert: {
+          activated_at?: string | null
+          buyer_id: string
+          created_at?: string
+          cycle_id?: string | null
+          discount_amount?: number
+          id?: string
+          invalidated_at?: string | null
+          order_id: string
+          promo_code_id: string
+          seller_id: string
+          status?: string
+        }
+        Update: {
+          activated_at?: string | null
+          buyer_id?: string
+          created_at?: string
+          cycle_id?: string | null
+          discount_amount?: number
+          id?: string
+          invalidated_at?: string | null
+          order_id?: string
+          promo_code_id?: string
+          seller_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "referrals_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "referrals_cycle_id_fkey"
+            columns: ["cycle_id"]
+            isOneToOne: false
+            referencedRelation: "referral_cycles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "referrals_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: true
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "referrals_promo_code_id_fkey"
+            columns: ["promo_code_id"]
+            isOneToOne: false
+            referencedRelation: "promo_codes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "referrals_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       seller_licenses: {
         Row: {
@@ -851,6 +1028,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      activate_referral_for_order: {
+        Args: { p_order_id: string }
+        Returns: {
+          cycle_count: number
+          cycle_threshold: number
+          granted: boolean
+          reward_cycle_id: string
+          reward_seller_id: string
+          reward_subscription: string
+        }[]
+      }
       advance_order_status: {
         Args: { p_note?: string; p_order_id: string; p_to_status: string }
         Returns: {
@@ -882,16 +1070,50 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      create_referral_for_order: {
+        Args: { p_order_id: string }
+        Returns: boolean
+      }
       decrement_product_quantity: {
         Args: { p_product_id: string; p_qty: number }
         Returns: undefined
+      }
+      ensure_open_referral_cycle: {
+        Args: { p_seller_id: string }
+        Returns: string
       }
       expire_seller_license: {
         Args: { p_license_id: string }
         Returns: boolean
       }
+      finalize_paid_order: {
+        Args: {
+          p_discount_total: string
+          p_order_id: string
+          p_payment_intent_id: string
+          p_tax_total: string
+          p_total: string
+        }
+        Returns: boolean
+      }
+      invalidate_referral_for_order: {
+        Args: { p_order_id: string; p_reason?: string }
+        Returns: {
+          ref_seller_id: string
+          reward_at_risk: boolean
+          was_active: boolean
+        }[]
+      }
       is_platform_context: { Args: never; Returns: boolean }
       mark_notifications_read: { Args: never; Returns: undefined }
+      open_referral_cycle: {
+        Args: {
+          p_period_end: string
+          p_period_start: string
+          p_seller_id: string
+        }
+        Returns: string
+      }
       record_order_revenue: {
         Args: { p_order_id: string }
         Returns: {
@@ -900,6 +1122,10 @@ export type Database = {
           over: boolean
           paused: boolean
         }[]
+      }
+      set_referral_reward_coupon: {
+        Args: { p_coupon_id: string; p_cycle_id: string }
+        Returns: undefined
       }
     }
     Enums: {

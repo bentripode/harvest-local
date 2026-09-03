@@ -151,7 +151,9 @@ src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/state.ts                   US states + the same-state geofence predicate
 src/lib/orders/{pricing,status,queries}.ts   server re-pricing · status map · order reads
 src/lib/compliance.ts                  revenue-status / license / notification reads
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry)
+src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
+src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/app/(auth)/                        login, signup, email confirm
@@ -159,6 +161,7 @@ src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
+src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
@@ -173,11 +176,27 @@ every transition is logged to `order_status_history` by trigger.
 `npm run stripe:tax -- --account <acct> --state <XX>` sets up test-mode Stripe Tax.
 
 **Phase 2 — compliance guardrails (Inngest).** `advanceOrderStatusAction` emits
-`harvest/order.completed`. `revenue-cap-check` calls `record_order_revenue()` which tallies
-`seller_revenue_tracking` and, if the yearly goods total crosses
-`state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_reason = 'revenue_cap'`
-**atomically in SQL** (guardrail lives at the data layer). `license-expiry-scan` (daily cron)
-sends T-30/7/1 reminders and calls `expire_seller_license()` at expiry (→ `pause_reason =
-'license_expired'`). A compliance pause is never lifted by the Stripe webhook's
+`harvest/order.completed` (and `harvest/order.cancelled`). `revenue-cap-check` calls
+`record_order_revenue()` which tallies `seller_revenue_tracking` and, if the yearly goods total
+crosses `state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_reason =
+'revenue_cap'` **atomically in SQL** (guardrail lives at the data layer). `license-expiry-scan`
+(daily cron) sends T-30/7/1 reminders and calls `expire_seller_license()` at expiry (→
+`pause_reason = 'license_expired'`). A compliance pause is never lifted by the Stripe webhook's
 `reconcileActivation` — only by an admin or the yearly reset. `notifications` rows are queued
 here; Resend/Twilio delivery is Phase 3. Local dev: `npm run inngest:dev` (no keys).
+
+**Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
+`validatePromoCode` (own DB owns attribution) → `discounts: [{ coupon }]` on the Checkout Session
+(reusable `buyer-referral-pct-<n>` coupon from `ensureBuyerDiscountCoupon`) → seller receives the
+discounted total. `checkout.session.completed` webhook snapshots `discount_total` and calls
+`create_referral_for_order()` (status `pending`). Order → `completed` fires
+`harvest/order.completed` → `referral-activate` calls `activate_referral_for_order()` (atomic:
+status `active`, `referral_cycles.active_referral_count += 1`, and at the threshold sets
+`reward_granted`) → attaches `FREE_MONTH_100` to the subscription (`idempotencyKey =
+reward:<cycle_id>`). Cycles rotate on `open_referral_cycle()` from `handleSubscription` /
+`invoice.paid` (count resets, `reward_granted` preserved on the closed cycle). `order.cancelled`
+→ `referral-invalidate` (decrement, never revoke an issued coupon — flag admins). Anti-abuse:
+self-referral block, one non-invalidated referral per buyer+seller+cycle (app check + partial
+unique index), `referral_min_order`. Config in `platform_settings`
+(`buyer_referral_discount`, `seller_referral_reward`, `referral_min_order`); `npm run stripe:setup`
+creates the coupons.

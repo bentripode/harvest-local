@@ -59,18 +59,17 @@ export async function advanceOrderStatusAction(
     };
   }
 
-  // The transition is committed. Fire the completion event for the compliance jobs
-  // (revenue-cap tally + auto-pause); a send failure must not surface as a user error.
-  if (parsed.data.toStatus === "completed") {
-    const order = Array.isArray(data) ? data[0] : data;
-    if (order) {
-      await inngest
-        .send({
-          name: "harvest/order.completed",
-          data: { orderId: order.id, sellerId: order.seller_id },
-        })
-        .catch((err) => console.error("[inngest] harvest/order.completed send failed:", err));
-    }
+  // The transition is committed. Fire the matching event for the background jobs (revenue-cap
+  // tally + auto-pause on completed; referral activate/invalidate). A send failure must never
+  // surface as a user error.
+  const order = Array.isArray(data) ? data[0] : data;
+  if (order && (parsed.data.toStatus === "completed" || parsed.data.toStatus === "cancelled")) {
+    await inngest
+      .send({
+        name: parsed.data.toStatus === "completed" ? "harvest/order.completed" : "harvest/order.cancelled",
+        data: { orderId: order.id, sellerId: order.seller_id },
+      })
+      .catch((err) => console.error("[inngest] order event send failed:", err));
   }
 
   revalidatePath("/seller/orders");

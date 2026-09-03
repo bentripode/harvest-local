@@ -13,6 +13,10 @@ const TEMPLATE_COPY: Record<string, (p: Record<string, unknown>) => string> = {
     `Your ${label(p.license_type)} expires in ${p.days_left} day${p.days_left === 1 ? "" : "s"} (${p.expiration_date}). Renew it to avoid a pause.`,
   license_expired: (p) =>
     `Your ${label(p.license_type)} expired on ${p.expiration_date}. Your storefront is paused until it's renewed and re-verified.`,
+  referral_reward_earned: (p) =>
+    `You hit ${p.threshold} verified referrals this cycle — a free month is applied to your next invoice.`,
+  referral_reward_review: (p) =>
+    `A referral for seller ${String(p.seller_id ?? "").slice(0, 8)} was invalidated after a reward was granted — review for possible abuse.`,
 };
 
 function label(t: unknown): string {

@@ -59,22 +59,38 @@ async function main() {
   }
   console.log(`Price:   ${price.id}  ($${(price.unit_amount ?? 0) / 100}/mo)`);
 
-  // Reward coupon
-  try {
-    const coupon = await stripe.coupons.retrieve(COUPON_ID);
-    console.log(`Coupon:  ${coupon.id} (exists)`);
-  } catch {
-    const coupon = await stripe.coupons.create({
-      id: COUPON_ID,
-      percent_off: 100,
-      duration: "once",
-      name: "Referral reward — one free month",
-    });
-    console.log(`Coupon:  ${coupon.id} (created)`);
-  }
+  // Seller reward coupon (100% off next invoice)
+  await ensureCoupon(COUPON_ID, {
+    percent_off: 100,
+    duration: "once",
+    name: "Referral reward — one free month",
+  });
+
+  // Buyer referral discount coupon for the current default rate (others are created on demand
+  // by src/lib/stripe/coupons.ts). Keep in sync with platform_settings.buyer_referral_discount.
+  const BUYER_PCT = 10;
+  await ensureCoupon(`buyer-referral-pct-${BUYER_PCT}`, {
+    percent_off: BUYER_PCT,
+    duration: "once",
+    name: `Harvest Local referral — ${BUYER_PCT}% off`,
+    metadata: { purpose: "buyer_referral_discount" },
+  });
 
   console.log("\nAdd this to .env.local:");
   console.log(`STRIPE_SUBSCRIPTION_PRICE_ID="${price.id}"`);
+}
+
+async function ensureCoupon(
+  id: string,
+  params: Omit<Stripe.CouponCreateParams, "id">,
+): Promise<void> {
+  try {
+    const c = await stripe.coupons.retrieve(id);
+    console.log(`Coupon:  ${c.id} (exists)`);
+  } catch {
+    const c = await stripe.coupons.create({ id, ...params });
+    console.log(`Coupon:  ${c.id} (created)`);
+  }
 }
 
 main().catch((err) => {

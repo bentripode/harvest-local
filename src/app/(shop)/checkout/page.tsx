@@ -6,19 +6,23 @@ import Link from "next/link";
 import { useCart } from "@/components/cart-provider";
 import { CheckoutButton } from "@/components/checkout-button";
 import { StatePicker } from "@/components/state-picker";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { formatUsd } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
 import { repriceCartAction, type RepriceResult } from "@/app/(shop)/checkout/actions";
 
 export default function CheckoutPage() {
   const { cart, ready } = useCart();
+  const [codeInput, setCodeInput] = useState("");
+  const [appliedCode, setAppliedCode] = useState("");
 
   const cartKey = useMemo(
     () =>
       cart && cart.items.length > 0
-        ? `${cart.sellerId}|${cart.items.map((i) => `${i.productId}x${i.quantity}`).join(",")}`
+        ? `${cart.sellerId}|${cart.items.map((i) => `${i.productId}x${i.quantity}`).join(",")}|${appliedCode}`
         : "",
-    [cart],
+    [cart, appliedCode],
   );
 
   const [priced, setPriced] = useState<{ key: string; result: RepriceResult }>({
@@ -32,13 +36,14 @@ export default function CheckoutPage() {
     repriceCartAction({
       sellerId: cart.sellerId,
       items: cart.items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+      promoCode: appliedCode || undefined,
     }).then((result) => {
       if (!cancelled) setPriced({ key: cartKey, result });
     });
     return () => {
       cancelled = true;
     };
-  }, [cartKey, cart]);
+  }, [cartKey, cart, appliedCode]);
 
   if (!ready) return <p className="text-muted-foreground text-sm">Loading…</p>;
 
@@ -72,6 +77,7 @@ export default function CheckoutPage() {
   const needsState = !result.buyerState;
   const stateMismatch = !needsState && !result.inState;
   const blocked = needsState || stateMismatch || !result.sellerLive;
+  const promoOk = result.promo?.ok === true ? result.promo : null;
 
   return (
     <div className="mx-auto max-w-xl space-y-6">
@@ -93,11 +99,58 @@ export default function CheckoutPage() {
         ))}
       </ul>
 
+      <div className="space-y-2">
+        <p className="text-sm font-medium">Referral code</p>
+        {promoOk ? (
+          <div className="flex items-center justify-between rounded-md border border-green-600/30 bg-green-50 p-2.5 text-sm dark:bg-green-950/40">
+            <span>
+              <strong>{promoOk.code}</strong> applied — you save {formatUsd(promoOk.discountCents)}
+            </span>
+            <button
+              type="button"
+              className="text-muted-foreground hover:text-foreground text-xs underline"
+              onClick={() => {
+                setAppliedCode("");
+                setCodeInput("");
+              }}
+            >
+              Remove
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Input
+              value={codeInput}
+              onChange={(e) => setCodeInput(e.target.value.toUpperCase())}
+              placeholder="Have a code from this seller?"
+              className="flex-1"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setAppliedCode(codeInput.trim())}
+              disabled={!codeInput.trim()}
+            >
+              Apply
+            </Button>
+          </div>
+        )}
+        {result.promo && !result.promo.ok ? (
+          <p className="text-destructive text-sm">{result.promo.error}</p>
+        ) : null}
+      </div>
+
       <div className="space-y-1 border-t pt-3 text-sm">
         <div className="flex justify-between">
           <span className="text-muted-foreground">Subtotal</span>
           <span className="tabular-nums">{formatUsd(result.subtotal ?? 0)}</span>
         </div>
+        {promoOk ? (
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">Discount ({promoOk.code})</span>
+            <span className="tabular-nums">− {formatUsd(promoOk.discountCents)}</span>
+          </div>
+        ) : null}
         <div className="flex justify-between">
           <span className="text-muted-foreground">Sales tax</span>
           <span className="text-muted-foreground">calculated by Stripe at payment</span>
@@ -124,7 +177,7 @@ export default function CheckoutPage() {
         </p>
       ) : null}
 
-      <CheckoutButton disabled={blocked} />
+      <CheckoutButton disabled={blocked} promoCode={promoOk?.code} />
       <p className="text-muted-foreground text-center text-xs">
         You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.
       </p>

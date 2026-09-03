@@ -8,13 +8,22 @@ import { startCheckoutAction } from "@/app/(shop)/checkout/actions";
  * Serialises the localStorage basket into a hidden field and posts it to `startCheckoutAction`,
  * which re-prices everything server-side and redirects to Stripe.
  */
-export function CheckoutButton({ disabled, label = "Pay with Stripe" }: { disabled?: boolean; label?: string }) {
+export function CheckoutButton({
+  disabled,
+  label = "Pay with Stripe",
+  promoCode,
+}: {
+  disabled?: boolean;
+  label?: string;
+  promoCode?: string;
+}) {
   const { cart } = useCart();
 
   const payload = cart
     ? JSON.stringify({
         sellerId: cart.sellerId,
         items: cart.items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+        ...(promoCode ? { promoCode } : {}),
       })
     : "";
 

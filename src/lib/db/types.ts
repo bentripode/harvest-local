@@ -71,7 +71,12 @@ export type Database = Omit<Generated, "public"> & {
   public: Omit<Generated["public"], "Tables"> & {
     Tables: Omit<
       GenTables,
-      "products" | "orders" | "order_items" | "state_cottage_food_rules" | "seller_revenue_tracking"
+      | "products"
+      | "orders"
+      | "order_items"
+      | "state_cottage_food_rules"
+      | "seller_revenue_tracking"
+      | "referrals"
     > & {
       products: ProductsFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
@@ -81,6 +86,7 @@ export type Database = Omit<Generated, "public"> & {
         GenTables["seller_revenue_tracking"],
         "gross_revenue" | "cap_amount"
       >;
+      referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
     };
   };
 };
@@ -101,6 +107,11 @@ export type Notification = Row<"notifications">;
 export type SellerLicense = Row<"seller_licenses">;
 export type StateCottageFoodRule = Row<"state_cottage_food_rules">;
 export type SellerRevenueTracking = Row<"seller_revenue_tracking">;
+export type PromoCode = Row<"promo_codes">;
+export type Referral = Row<"referrals">;
+export type ReferralCycle = Row<"referral_cycles">;
+
+export type ReferralStatus = "pending" | "active" | "invalidated";
 
 export type Role = Profile["role"];
 export type ProductStatus = Product["status"];

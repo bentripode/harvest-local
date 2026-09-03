@@ -13,6 +13,8 @@ import { env } from "@/lib/env";
 import { toDecimalString } from "@/lib/money";
 import { CartError, priceCart, type PricableProduct } from "@/lib/orders/pricing";
 import { isUsState, sameState, US_STATES } from "@/lib/geo/state";
+import { validatePromoCode } from "@/lib/referrals/validate";
+import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
 
 /** `{ productId, quantity }[]` for one seller — the only cart data the client is trusted to send. */
 const cartPayloadSchema = z.object({
@@ -21,6 +23,7 @@ const cartPayloadSchema = z.object({
     .array(z.object({ productId: z.string().uuid(), quantity: z.number().int().min(1).max(99) }))
     .min(1)
     .max(50),
+  promoCode: z.string().max(32).optional(),
 });
 
 export type CartPayload = z.infer<typeof cartPayloadSchema>;
@@ -76,11 +79,13 @@ export interface RepriceResult {
   sellerLive?: boolean;
   lines?: { title: string; quantity: number; unitPrice: number; lineTotal: number }[];
   subtotal?: number;
+  /** Present only when a promo code was submitted. */
+  promo?: { ok: true; code: string; discountCents: number } | { ok: false; error: string };
 }
 
 /** Called from the checkout page (client) to render an authoritative, server-priced review. */
 export async function repriceCartAction(input: unknown): Promise<RepriceResult> {
-  const { profile } = await requireUser("/checkout");
+  const { user, profile } = await requireUser("/checkout");
 
   const parsed = cartPayloadSchema.safeParse(input);
   if (!parsed.success) return { ok: false, error: "Your basket looks invalid. Try again." };
@@ -98,6 +103,20 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
   const sellerLive =
     !seller.is_paused && seller.connect_charges_enabled && !!seller.stripe_account_id;
 
+  let promo: RepriceResult["promo"];
+  const submittedCode = parsed.data.promoCode?.trim();
+  if (submittedCode) {
+    const v = await validatePromoCode({
+      code: submittedCode,
+      cartSellerId: seller.id,
+      buyerId: user.id,
+      subtotalCents: priced.subtotal,
+    });
+    promo = v.ok
+      ? { ok: true, code: v.code!, discountCents: v.discountCents! }
+      : { ok: false, error: v.reason ?? "That code isn't valid." };
+  }
+
   return {
     ok: true,
     buyerState: profile.home_state,
@@ -113,6 +132,7 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
       unitPrice: l.unitPrice,
       lineTotal: l.lineTotal,
     })),
+    promo,
   };
 }
 
@@ -178,6 +198,23 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   }
   if (!sameState(buyerState, seller.home_state)) redirect("/checkout?error=state_mismatch");
 
+  // Referral code (optional). Re-validated server-side; the discount is applied by Stripe via a
+  // reusable coupon and the real `discount_total` is snapshotted by the webhook.
+  let promoCodeId: string | null = null;
+  let discountCoupon: string | undefined;
+  const submittedCode = payload.promoCode?.trim();
+  if (submittedCode) {
+    const v = await validatePromoCode({
+      code: submittedCode,
+      cartSellerId: seller.id,
+      buyerId: user.id,
+      subtotalCents: priced.subtotal,
+    });
+    if (!v.ok) redirect("/checkout?error=promo");
+    promoCodeId = v.promoCodeId!;
+    discountCoupon = await ensureBuyerDiscountCoupon(v.discountPercent!);
+  }
+
   const admin = createAdminClient();
   const subtotal = toDecimalString(priced.subtotal);
 
@@ -195,6 +232,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       total: subtotal,
       buyer_state: buyerState,
       seller_state: seller.home_state,
+      promo_code_id: promoCodeId,
     })
     .select("id")
     .single();
@@ -223,6 +261,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
         sellerAccountId: seller.stripe_account_id,
         siteUrl: env.NEXT_PUBLIC_SITE_URL,
         customerEmail: user.email,
+        discountCoupon,
       }),
       { idempotencyKey: `checkout:${order.id}` },
     );

@@ -3,6 +3,7 @@ import type Stripe from "stripe";
 
 import { stripe } from "@/lib/stripe/client";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { inngest } from "@/lib/inngest/client";
 import { env } from "@/lib/env";
 import { cents, toDecimalString } from "@/lib/money";
 import type { Json, SubscriptionStatus } from "@/lib/db/types";
@@ -95,6 +96,18 @@ export async function POST(request: NextRequest) {
         await handleCheckoutFailed(admin, event.data.object as Stripe.Checkout.Session);
         break;
 
+      case "charge.refunded":
+        await handleChargeRefunded(admin, event.data.object as Stripe.Charge);
+        break;
+
+      case "charge.dispute.created":
+        await handleDisputeCreated(admin, event.data.object as Stripe.Dispute);
+        break;
+
+      case "invoice.paid":
+        await handleInvoicePaid(admin, event.data.object as Stripe.Invoice);
+        break;
+
       default:
         // Acknowledged and recorded, no handler yet.
         break;
@@ -160,10 +173,11 @@ async function handleAccountUpdated(admin: Admin, accountId: string) {
 }
 
 /**
- * Buyer checkout succeeded. Idempotent: the event ledger dedupes redeliveries, and the guarded
- * `status = pending_payment` predicate on the UPDATE means only the first successful call does
- * work (inventory decrement included). Money finalises HERE — `tax_total` / `total` come from the
- * Checkout Session because Stripe Tax is the server-side tax computation.
+ * Buyer checkout succeeded. All of the finalisation — status `pending_payment -> new`, money from
+ * the Checkout Session (`tax_total` / `total` come from Stripe because Stripe Tax is the
+ * server-side tax computation), the inventory decrement, and the pending referral for a promo
+ * order — happens in ONE guarded, atomic SQL function. That makes a Stripe redelivery safe even
+ * after a partially-completed prior attempt: it either no-ops or redoes the whole thing (rule 2).
  */
 async function handleCheckoutCompleted(admin: Admin, session: Stripe.Checkout.Session) {
   if (session.payment_status === "unpaid") return; // async method — wait for async_payment_succeeded
@@ -176,31 +190,14 @@ async function handleCheckoutCompleted(admin: Admin, session: Stripe.Checkout.Se
       ? session.payment_intent
       : (session.payment_intent?.id ?? null);
 
-  const { data: advanced } = await admin
-    .from("orders")
-    .update({
-      status: "new",
-      stripe_payment_intent_id: paymentIntentId,
-      tax_total: toDecimalString(cents(session.total_details?.amount_tax ?? 0)),
-      total: toDecimalString(cents(session.amount_total ?? 0)),
-    })
-    .eq("id", orderId)
-    .eq("status", "pending_payment")
-    .select("id");
-
-  if (!advanced || advanced.length === 0) return; // unknown order, or already advanced
-
-  const { data: items } = await admin
-    .from("order_items")
-    .select("product_id, quantity")
-    .eq("order_id", orderId);
-
-  for (const item of items ?? []) {
-    await admin.rpc("decrement_product_quantity", {
-      p_product_id: item.product_id,
-      p_qty: item.quantity,
-    });
-  }
+  const { error } = await admin.rpc("finalize_paid_order", {
+    p_order_id: orderId,
+    p_payment_intent_id: paymentIntentId ?? "",
+    p_discount_total: toDecimalString(cents(session.total_details?.amount_discount ?? 0)),
+    p_tax_total: toDecimalString(cents(session.total_details?.amount_tax ?? 0)),
+    p_total: toDecimalString(cents(session.amount_total ?? 0)),
+  });
+  if (error) throw new Error(`finalize_paid_order: ${error.message}`);
 }
 
 /** Checkout was abandoned (session expired) or an async payment failed — release the pending order. */
@@ -213,6 +210,58 @@ async function handleCheckoutFailed(admin: Admin, session: Stripe.Checkout.Sessi
     .update({ status: "cancelled" })
     .eq("id", orderId)
     .eq("status", "pending_payment");
+}
+
+/**
+ * A paid order's charge was FULLY refunded (partial refunds don't unwind fulfilment) or a dispute
+ * was opened. Move the order to a terminal state and — per ARCHITECTURE §3.4 — invalidate any
+ * referral it earned: `referral-invalidate` decrements the seller's cycle and flags an admin if a
+ * granted reward is now under threshold. Never revokes an already-issued reward coupon.
+ * Requires the `charge.refunded` and `charge.dispute.created` events on the webhook endpoint.
+ */
+async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
+  if (charge.amount_refunded < charge.amount) return; // partial refund — leave fulfilment alone
+  await unwindOrderForCharge(admin, charge.payment_intent, "cancelled");
+}
+
+async function handleDisputeCreated(admin: Admin, dispute: Stripe.Dispute) {
+  await unwindOrderForCharge(admin, dispute.payment_intent, "disputed");
+}
+
+async function unwindOrderForCharge(
+  admin: Admin,
+  paymentIntent: string | Stripe.PaymentIntent | null,
+  toStatus: "cancelled" | "disputed",
+) {
+  const pi = typeof paymentIntent === "string" ? paymentIntent : (paymentIntent?.id ?? null);
+  if (!pi) return;
+
+  const { data: order } = await admin
+    .from("orders")
+    .select("id, seller_id, status, promo_code_id")
+    .eq("stripe_payment_intent_id", pi)
+    .maybeSingle();
+  if (!order) return;
+
+  // Guarded transition; on a redelivery the order is already terminal and this no-ops.
+  if (order.status !== toStatus && order.status !== "cancelled") {
+    await admin
+      .from("orders")
+      .update({ status: toStatus })
+      .eq("id", order.id)
+      .eq("status", order.status);
+  }
+
+  // Fire regardless of the transition result — invalidate_referral_for_order is idempotent, so a
+  // redelivered refund event safely re-confirms an already-invalidated referral.
+  if (order.promo_code_id) {
+    await inngest
+      .send({
+        name: "harvest/order.refunded",
+        data: { orderId: order.id, sellerId: order.seller_id },
+      })
+      .catch((err) => console.error("[inngest] harvest/order.refunded send failed:", err));
+  }
 }
 
 async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {
@@ -248,6 +297,38 @@ async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {
 
   await admin.from("subscriptions").upsert(row, { onConflict: "seller_id" });
   await reconcileActivation(admin, sellerId);
+
+  // Referral cycle tracks the subscription period. Idempotent per (seller, period_start), so this
+  // opens the first cycle and rotates it (count resets) whenever the billing period advances (§3.3).
+  if (row.current_period_start && row.current_period_end) {
+    await admin.rpc("open_referral_cycle", {
+      p_seller_id: sellerId,
+      p_period_start: row.current_period_start,
+      p_period_end: row.current_period_end,
+    });
+  }
+}
+
+/** Belt-and-suspenders cycle reset (§3.3) — fires alongside the renewal `subscription.updated`. */
+async function handleInvoicePaid(admin: Admin, invoice: Stripe.Invoice) {
+  // The top-level `invoice.subscription` was removed in the API version this project pins; the id
+  // now lives under the invoice's parent.
+  const sub = invoice.parent?.subscription_details?.subscription ?? null;
+  const subId = typeof sub === "string" ? sub : (sub?.id ?? null);
+  if (!subId) return;
+
+  const { data: subRow } = await admin
+    .from("subscriptions")
+    .select("seller_id, current_period_start, current_period_end")
+    .eq("stripe_subscription_id", subId)
+    .maybeSingle();
+  if (!subRow?.current_period_start || !subRow.current_period_end) return;
+
+  await admin.rpc("open_referral_cycle", {
+    p_seller_id: subRow.seller_id,
+    p_period_start: subRow.current_period_start,
+    p_period_end: subRow.current_period_end,
+  });
 }
 
 /**

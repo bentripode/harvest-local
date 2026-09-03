@@ -25,3 +25,14 @@ export interface OrderCompletedEvent {
   name: "harvest/order.completed";
   data: { orderId: string; sellerId: string };
 }
+
+export interface OrderCancelledEvent {
+  name: "harvest/order.cancelled";
+  data: { orderId: string; sellerId: string };
+}
+
+/** A paid order was fully refunded or disputed (from the Stripe webhook). */
+export interface OrderRefundedEvent {
+  name: "harvest/order.refunded";
+  data: { orderId: string; sellerId: string };
+}
