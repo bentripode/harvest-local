@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# One run per ref; a new push cancels an in-flight run for the same branch/PR.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: lint · build · typecheck
+    runs-on: ubuntu-latest
+
+    # `src/lib/env.ts` validates the environment at import time, and `next build`
+    # imports it while collecting routes. These are format-valid placeholders — no
+    # real service is contacted (every data-fetching route opts into dynamic
+    # rendering via `cookies()`, so nothing hits Supabase/Stripe at build time).
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+      SUPABASE_SERVICE_ROLE_KEY: placeholder-service-role-key
+      STRIPE_SECRET_KEY: sk_test_placeholder
+      STRIPE_WEBHOOK_SECRET: whsec_placeholder
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
+      STRIPE_SUBSCRIPTION_PRICE_ID: price_placeholder
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # Build before typecheck: `tsconfig.json` includes `.next/types/**`, so a
+      # complete typed-routes check needs fresh build output.
+      - name: Build
+        run: npm run build
+
+      - name: Typecheck
+        run: npm run typecheck
