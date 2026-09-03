@@ -300,3 +300,10 @@ the `refunds` row + sets the report `refunded`. **Never touches order state** �
 webhook does the unwind (`→ cancelled` + referral-invalidate), upserts the `refunds` mirror with
 `ignoreDuplicates` (so a dashboard-issued refund also lands), and queues `refund_issued` to the buyer
 + seller. Order pages show a "Refunded − $X" line. Not built: partial refunds.
+
+**Phase 5 — platform analytics.** `/admin/analytics` — `getPlatformStats()`
+(`src/lib/admin/analytics.ts`) reads all orders / refunds / seller_profiles / profiles /
+subscriptions via the **service-role client** (allowed: it's behind the `/admin` layout's
+`requireRole("admin")`), aggregated in JS. GMV (Σ `total` of completed orders) all-time + 30d, AOV,
+refund total, MRR (`active` subs × $20 — trialing = $0), paying/trialing seller counts, total/live/
+active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Analytics.
