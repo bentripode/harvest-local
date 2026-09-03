@@ -162,6 +162,8 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
+src/lib/messages/queries.ts            conversation list / thread / unread-count reads
+src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
@@ -262,3 +264,21 @@ schema, no RPC). 30-day revenue (`sum(total)` of `completed` orders, bucketed by
 a vs-prior-30 trend, completed-order count, AOV, pickup/delivery split, delivery fees + referral
 discounts, a 90-day lens, a dependency-free SVG daily-revenue chart, and top 5 products. Not built:
 storefront/product view tracking → conversion rate, date-range picker, CSV export.
+
+**Phase 4 — reviews.** ARCHITECTURE §2.7. `reviews` (one per order, `order_id` unique). Verified-
+buyer rule (rule 4) at the data layer: `reviews_verify_buyer` BEFORE INSERT (fires for every insert)
+requires a `completed` order by that buyer for that seller; RLS scopes writes to
+`reviewer_id = auth.uid()`, reads public, reviewer deletes own. `seller_profiles.avg_rating` rolled
+up by a SECURITY DEFINER AFTER INSERT/DELETE trigger. Surfaced on the buyer order page, storefront
+(header + list), shop listing, seller overview.
+
+**Phase 4 — in-app messaging.** ARCHITECTURE §2.6. `conversations` (one per buyer+seller+order;
+`order_id` NULL = general) + `messages`. Clients never write `conversations` (`get_or_create_
+conversation` RPC) or update `messages` (`mark_conversation_read` RPC). RLS = "participant"
+(`buyer_id = auth.uid()` OR `seller_id ∈ my seller_profiles`), via the SECURITY DEFINER
+`is_conversation_participant`. `/messages` (own layout, both roles) — inbox + thread. `MessageThread`
+uses Supabase Realtime (Postgres Changes) **plus a 4s visible-tab poll**; the poll is the reliable
+path — **Postgres Changes must be enabled for `messages` in the Supabase dashboard** for the instant
+path to work (`messages` is in `supabase_realtime` with `replica identity full`, but the hosted
+project wasn't streaming it). Unread badge in both nav headers. Not built: message→email
+notification, typing/presence, attachments, seller review responses.

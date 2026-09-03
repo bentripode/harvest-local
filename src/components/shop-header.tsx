@@ -7,7 +7,15 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/cart-provider";
 
 /** Header for the buyer-facing shop. Shows a live basket count from `useCart`. */
-export function ShopHeader({ user, isSeller }: { user: User | null; isSeller: boolean }) {
+export function ShopHeader({
+  user,
+  isSeller,
+  unreadMessages = 0,
+}: {
+  user: User | null;
+  isSeller: boolean;
+  unreadMessages?: number;
+}) {
   const { itemCount, ready } = useCart();
 
   return (
@@ -22,9 +30,19 @@ export function ShopHeader({ user, isSeller }: { user: User | null; isSeller: bo
               Shop
             </Link>
             {user ? (
-              <Link href="/orders" className="hover:text-foreground">
-                My orders
-              </Link>
+              <>
+                <Link href="/orders" className="hover:text-foreground">
+                  My orders
+                </Link>
+                <Link href="/messages" className="hover:text-foreground">
+                  Messages
+                  {unreadMessages > 0 ? (
+                    <span className="bg-primary text-primary-foreground ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums">
+                      {unreadMessages}
+                    </span>
+                  ) : null}
+                </Link>
+              </>
             ) : null}
           </nav>
         </div>

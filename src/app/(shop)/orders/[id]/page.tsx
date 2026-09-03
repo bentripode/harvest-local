@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { OrderStatusTimeline } from "@/components/order-status-timeline";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
 import { ReviewForm, ExistingReview } from "@/components/review-form";
+import { MessageSellerButton } from "@/components/message-seller-button";
 import { requireUser } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
 import { getReviewForOrder } from "@/lib/reviews/queries";
@@ -57,9 +58,14 @@ export default async function BuyerOrderPage({
             {stateName(order.seller_state)}
           </p>
         </div>
-        <Badge variant={order.status === "completed" ? "default" : "secondary"}>
-          {ORDER_STATUS_LABELS[order.status as OrderStatus] ?? order.status}
-        </Badge>
+        <div className="flex shrink-0 flex-col items-end gap-2">
+          <Badge variant={order.status === "completed" ? "default" : "secondary"}>
+            {ORDER_STATUS_LABELS[order.status as OrderStatus] ?? order.status}
+          </Badge>
+          {!pending ? (
+            <MessageSellerButton orderId={order.id} label="Message seller" variant="ghost" />
+          ) : null}
+        </div>
       </div>
 
       <section className="rounded-lg border">

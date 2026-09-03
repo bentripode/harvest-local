@@ -4,10 +4,14 @@ import { Button } from "@/components/ui/button";
 import { PauseBanner } from "@/components/pause-banner";
 import { getSellerContext } from "@/lib/auth";
 import { getUnreadNotificationCount } from "@/lib/compliance";
+import { getUnreadMessageCount } from "@/lib/messages/queries";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const { profile, seller } = await getSellerContext();
-  const unread = seller ? await getUnreadNotificationCount(profile.id) : 0;
+  const [unread, unreadMessages] = await Promise.all([
+    seller ? getUnreadNotificationCount(profile.id) : Promise.resolve(0),
+    getUnreadMessageCount(profile.id),
+  ]);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -39,6 +43,14 @@ export default async function DashboardLayout({ children }: { children: React.Re
             </Link>
             <Link href="/seller/settings" className="hover:text-foreground shrink-0">
               Settings
+            </Link>
+            <Link href="/messages" className="hover:text-foreground shrink-0">
+              Messages
+              {unreadMessages > 0 ? (
+                <span className="bg-primary text-primary-foreground ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums">
+                  {unreadMessages}
+                </span>
+              ) : null}
             </Link>
           </nav>
           <div className="flex shrink-0 items-center gap-3">

@@ -111,6 +111,8 @@ export type PromoCode = Row<"promo_codes">;
 export type Referral = Row<"referrals">;
 export type ReferralCycle = Row<"referral_cycles">;
 export type Review = Row<"reviews">;
+export type Conversation = Row<"conversations">;
+export type Message = Row<"messages">;
 
 export type ReferralStatus = "pending" | "active" | "invalidated";
 

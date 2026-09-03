@@ -133,6 +133,97 @@ export type Database = {
           },
         ]
       }
+      conversations: {
+        Row: {
+          buyer_id: string
+          created_at: string
+          id: string
+          last_message_at: string | null
+          order_id: string | null
+          seller_id: string
+        }
+        Insert: {
+          buyer_id: string
+          created_at?: string
+          id?: string
+          last_message_at?: string | null
+          order_id?: string | null
+          seller_id: string
+        }
+        Update: {
+          buyer_id?: string
+          created_at?: string
+          id?: string
+          last_message_at?: string | null
+          order_id?: string | null
+          seller_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "conversations_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "conversations_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "conversations_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages: {
+        Row: {
+          body: string
+          conversation_id: string
+          created_at: string
+          id: string
+          read_at: string | null
+          sender_id: string
+        }
+        Insert: {
+          body: string
+          conversation_id: string
+          created_at?: string
+          id?: string
+          read_at?: string | null
+          sender_id: string
+        }
+        Update: {
+          body?: string
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          read_at?: string | null
+          sender_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "conversations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_sender_id_fkey"
+            columns: ["sender_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notifications: {
         Row: {
           attempt_count: number
@@ -1169,6 +1260,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      get_or_create_conversation: {
+        Args: { p_order_id?: string; p_seller_id: string }
+        Returns: string
+      }
       invalidate_referral_for_order: {
         Args: { p_order_id: string; p_reason?: string }
         Returns: {
@@ -1177,7 +1272,15 @@ export type Database = {
           was_active: boolean
         }[]
       }
+      is_conversation_participant: {
+        Args: { p_conversation_id: string }
+        Returns: boolean
+      }
       is_platform_context: { Args: never; Returns: boolean }
+      mark_conversation_read: {
+        Args: { p_conversation_id: string }
+        Returns: undefined
+      }
       mark_notifications_read: { Args: never; Returns: undefined }
       open_referral_cycle: {
         Args: {

@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { OrderStatusTimeline } from "@/components/order-status-timeline";
 import { OrderActions } from "@/components/order-actions";
+import { MessageSellerButton } from "@/components/message-seller-button";
 import { getSellerContext } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
@@ -41,9 +42,12 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
             {stateName(order.seller_state)}
           </p>
         </div>
-        <Badge variant={order.status === "completed" ? "default" : "secondary"}>
-          {ORDER_STATUS_LABELS[order.status as OrderStatus] ?? order.status}
-        </Badge>
+        <div className="flex shrink-0 flex-col items-end gap-2">
+          <Badge variant={order.status === "completed" ? "default" : "secondary"}>
+            {ORDER_STATUS_LABELS[order.status as OrderStatus] ?? order.status}
+          </Badge>
+          <MessageSellerButton orderId={order.id} label="Message buyer" variant="ghost" />
+        </div>
       </div>
 
       <section className="rounded-lg border">

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { AddToCart } from "@/components/add-to-cart";
 import { StarRating } from "@/components/star-rating";
 import { ReviewList } from "@/components/review-list";
+import { MessageSellerButton } from "@/components/message-seller-button";
 import { getProfile, getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
@@ -65,6 +66,11 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ) : null}
         </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
+        {canOrder ? (
+          <div className="pt-2">
+            <MessageSellerButton sellerId={seller.id} label={`Message ${seller.business_name}`} />
+          </div>
+        ) : null}
       </header>
 
       {!user ? (
