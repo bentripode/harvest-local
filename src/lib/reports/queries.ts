@@ -6,6 +6,7 @@ export interface AdminReport {
   id: string;
   orderId: string;
   orderRef: string;
+  orderTotal: string;
   status: string;
   reason: string;
   description: string | null;
@@ -13,6 +14,7 @@ export interface AdminReport {
   reporterRole: "buyer" | "seller";
   counterpartyName: string;
   resolutionNote: string | null;
+  refundAmount: string | null;
   createdAt: string;
 }
 
@@ -28,14 +30,19 @@ export async function getReportQueue(): Promise<AdminReport[]> {
     .order("created_at", { ascending: false });
   if (!reports || reports.length === 0) return [];
 
-  const { data: orders } = await supabase
-    .from("orders")
-    .select(
-      "id, buyer_id, buyer:profiles!orders_buyer_id_fkey(display_name), seller:seller_profiles!orders_seller_id_fkey(business_name)",
-    )
-    .in("id", [...new Set(reports.map((r) => r.order_id))]);
+  const orderIds = [...new Set(reports.map((r) => r.order_id))];
+  const [{ data: orders }, { data: refunds }] = await Promise.all([
+    supabase
+      .from("orders")
+      .select(
+        "id, buyer_id, total, buyer:profiles!orders_buyer_id_fkey(display_name), seller:seller_profiles!orders_seller_id_fkey(business_name)",
+      )
+      .in("id", orderIds),
+    supabase.from("refunds").select("order_id, amount").in("order_id", orderIds),
+  ]);
 
   const orderById = new Map((orders ?? []).map((o) => [o.id, o]));
+  const refundByOrder = new Map((refunds ?? []).map((r) => [r.order_id, r.amount]));
 
   return reports.map((r) => {
     const o = orderById.get(r.order_id);
@@ -46,6 +53,7 @@ export async function getReportQueue(): Promise<AdminReport[]> {
       id: r.id,
       orderId: r.order_id,
       orderRef: r.order_id.slice(0, 8),
+      orderTotal: (o?.total as string | undefined) ?? "0",
       status: r.status,
       reason: r.reason,
       description: r.description,
@@ -54,6 +62,7 @@ export async function getReportQueue(): Promise<AdminReport[]> {
       reporterRole: reporterIsBuyer ? "buyer" : "seller",
       counterpartyName: reporterIsBuyer ? sellerName : buyerName,
       resolutionNote: r.resolution_note,
+      refundAmount: refundByOrder.get(r.order_id) ?? null,
       createdAt: r.created_at,
     };
   });

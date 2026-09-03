@@ -1,8 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { RefundButton } from "@/components/refund-button";
 import { getReportQueue } from "@/lib/reports/queries";
 import { REPORT_REASONS, REPORT_STATUS_LABELS } from "@/lib/reports/reasons";
+import { formatUsd, toCents } from "@/lib/money";
 import { updateReportAction } from "./actions";
 
 export const metadata = { title: "Reports — Admin" };
@@ -76,26 +78,40 @@ function Section({
                   <span className="font-medium">Resolution:</span> {r.resolutionNote}
                 </p>
               ) : null}
+              {r.refundAmount ? (
+                <p className="mt-2 text-sm text-green-700">
+                  Refunded {formatUsd(toCents(r.refundAmount))}
+                </p>
+              ) : null}
 
               {!closed ? (
-                <form action={updateReportAction} className="mt-3 space-y-2">
-                  <input type="hidden" name="reportId" value={r.id} />
-                  <Textarea
-                    name="resolutionNote"
-                    rows={2}
-                    maxLength={2000}
-                    defaultValue={r.resolutionNote ?? ""}
-                    placeholder="Resolution note (shown to the reporter)"
-                    className="text-sm"
-                  />
-                  <div className="flex flex-wrap gap-2">
-                    {(["investigating", "resolved", "refunded"] as const).map((s) => (
-                      <Button key={s} type="submit" name="status" value={s} size="sm" variant="outline">
-                        Mark {REPORT_STATUS_LABELS[s].toLowerCase()}
-                      </Button>
-                    ))}
-                  </div>
-                </form>
+                <div className="mt-3 space-y-3">
+                  <form action={updateReportAction} className="space-y-2">
+                    <input type="hidden" name="reportId" value={r.id} />
+                    <Textarea
+                      name="resolutionNote"
+                      rows={2}
+                      maxLength={2000}
+                      defaultValue={r.resolutionNote ?? ""}
+                      placeholder="Resolution note (shown to the reporter)"
+                      className="text-sm"
+                    />
+                    <div className="flex flex-wrap gap-2">
+                      {(["investigating", "resolved"] as const).map((s) => (
+                        <Button key={s} type="submit" name="status" value={s} size="sm" variant="outline">
+                          Mark {REPORT_STATUS_LABELS[s].toLowerCase()}
+                        </Button>
+                      ))}
+                    </div>
+                  </form>
+                  {!r.refundAmount ? (
+                    <RefundButton
+                      orderId={r.orderId}
+                      reportId={r.id}
+                      amountLabel={formatUsd(toCents(r.orderTotal))}
+                    />
+                  ) : null}
+                </div>
               ) : null}
             </li>
           ))}

@@ -77,6 +77,7 @@ export type Database = Omit<Generated, "public"> & {
       | "state_cottage_food_rules"
       | "seller_revenue_tracking"
       | "referrals"
+      | "refunds"
     > & {
       products: ProductsFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
@@ -87,6 +88,7 @@ export type Database = Omit<Generated, "public"> & {
         "gross_revenue" | "cap_amount"
       >;
       referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
+      refunds: MoneyFixed<GenTables["refunds"], "amount">;
     };
   };
 };
@@ -114,6 +116,7 @@ export type Review = Row<"reviews">;
 export type Conversation = Row<"conversations">;
 export type Message = Row<"messages">;
 export type Report = Row<"reports">;
+export type Refund = Row<"refunds">;
 
 export type ReferralStatus = "pending" | "active" | "invalidated";
 

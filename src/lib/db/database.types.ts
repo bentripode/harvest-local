@@ -806,6 +806,61 @@ export type Database = {
           },
         ]
       }
+      refunds: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          initiated_by: string | null
+          order_id: string
+          reason: string | null
+          report_id: string | null
+          stripe_refund_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          id?: string
+          initiated_by?: string | null
+          order_id: string
+          reason?: string | null
+          report_id?: string | null
+          stripe_refund_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          initiated_by?: string | null
+          order_id?: string
+          reason?: string | null
+          report_id?: string | null
+          stripe_refund_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "refunds_initiated_by_fkey"
+            columns: ["initiated_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "refunds_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: true
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "refunds_report_id_fkey"
+            columns: ["report_id"]
+            isOneToOne: false
+            referencedRelation: "reports"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       reports: {
         Row: {
           created_at: string

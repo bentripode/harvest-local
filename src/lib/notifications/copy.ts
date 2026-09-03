@@ -28,6 +28,8 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `A referral reward for order ${s(p.order_id).slice(0, 8)} was earned but the free-month coupon failed to attach — attach it manually. (${s(p.error)})`,
   report_filed: (p) =>
     `A ${label(p.reason)} report was filed on order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) — triage it in the admin queue.`,
+  refund_issued: (p) =>
+    `Order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) was refunded ${usd(p.amount)}. The order is cancelled.`,
 };
 
 /** The one-line text for a template, or the raw template name if unknown. */

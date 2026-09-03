@@ -93,6 +93,12 @@ export default async function BuyerOrderPage({
           ) : null}
           <Row label="Sales tax" value={formatUsd(toCents(order.tax_total))} />
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
+          {order.refund ? (
+            <Row
+              label="Refunded"
+              value={`− ${formatUsd(toCents(order.refund.amount))}`}
+            />
+          ) : null}
         </div>
       </section>
 

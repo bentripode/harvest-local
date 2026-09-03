@@ -59,6 +59,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/admin",
     ctaLabel: "Open admin queue",
   },
+  refund_issued: {
+    subject: () => "Your order was refunded",
+    ctaPath: "/orders",
+    ctaLabel: "View orders",
+  },
 };
 
 /** Returns null for an unknown template (the dispatcher fails the row rather than sending junk). */

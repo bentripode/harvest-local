@@ -4,6 +4,7 @@ import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe/client";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { inngest } from "@/lib/inngest/client";
+import { queueNotificationForEach } from "@/lib/notifications/queue";
 import { env } from "@/lib/env";
 import { cents, toDecimalString } from "@/lib/money";
 import type { Json, SubscriptionStatus } from "@/lib/db/types";
@@ -221,35 +222,77 @@ async function handleCheckoutFailed(admin: Admin, session: Stripe.Checkout.Sessi
  */
 async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
   if (charge.amount_refunded < charge.amount) return; // partial refund — leave fulfilment alone
-  await unwindOrderForCharge(admin, charge.payment_intent, "cancelled");
+
+  const result = await unwindOrderForCharge(admin, charge.payment_intent, "cancelled");
+  if (!result) return;
+
+  // Mirror the refund only if our admin action didn't already record it (covers refunds issued
+  // straight from the Stripe dashboard). `ignoreDuplicates` so we never clobber the action's row.
+  await admin.from("refunds").upsert(
+    {
+      order_id: result.order.id,
+      stripe_refund_id: charge.refunds?.data?.[0]?.id ?? charge.id,
+      amount: toDecimalString(cents(charge.amount_refunded)),
+    },
+    { onConflict: "order_id", ignoreDuplicates: true },
+  );
+
+  // Notify both parties once — only when this delivery is the one that unwound the order.
+  if (result.transitioned) {
+    const amount = toDecimalString(cents(charge.amount_refunded));
+    const recipients = [result.order.buyer_id, result.order.seller_profile_id].filter(
+      (id): id is string => !!id,
+    );
+    await queueNotificationForEach(admin, recipients, {
+      template: "refund_issued",
+      payload: { order_id: result.order.id, amount, business_name: result.order.business_name },
+    });
+  }
 }
 
 async function handleDisputeCreated(admin: Admin, dispute: Stripe.Dispute) {
   await unwindOrderForCharge(admin, dispute.payment_intent, "disputed");
 }
 
+interface UnwoundOrder {
+  order: {
+    id: string;
+    buyer_id: string;
+    seller_profile_id: string | null;
+    business_name: string | null;
+  };
+  transitioned: boolean;
+}
+
 async function unwindOrderForCharge(
   admin: Admin,
   paymentIntent: string | Stripe.PaymentIntent | null,
   toStatus: "cancelled" | "disputed",
-) {
+): Promise<UnwoundOrder | null> {
   const pi = typeof paymentIntent === "string" ? paymentIntent : (paymentIntent?.id ?? null);
-  if (!pi) return;
+  if (!pi) return null;
 
   const { data: order } = await admin
     .from("orders")
-    .select("id, seller_id, status, promo_code_id")
+    .select(
+      "id, buyer_id, seller_id, status, promo_code_id, seller:seller_profiles!orders_seller_id_fkey(profile_id, business_name)",
+    )
     .eq("stripe_payment_intent_id", pi)
     .maybeSingle();
-  if (!order) return;
+  if (!order) return null;
+
+  const seller = order.seller as { profile_id?: string; business_name?: string } | null;
 
   // Guarded transition; on a redelivery the order is already terminal and this no-ops.
+  let transitioned = false;
   if (order.status !== toStatus && order.status !== "cancelled") {
-    await admin
+    const { data } = await admin
       .from("orders")
       .update({ status: toStatus })
       .eq("id", order.id)
-      .eq("status", order.status);
+      .eq("status", order.status)
+      .select("id");
+    transitioned = !!data && data.length > 0;
   }
 
   // Fire regardless of the transition result — invalidate_referral_for_order is idempotent, so a
@@ -262,6 +305,16 @@ async function unwindOrderForCharge(
       })
       .catch((err) => console.error("[inngest] harvest/order.refunded send failed:", err));
   }
+
+  return {
+    order: {
+      id: order.id,
+      buyer_id: order.buyer_id,
+      seller_profile_id: seller?.profile_id ?? null,
+      business_name: seller?.business_name ?? null,
+    },
+    transitioned,
+  };
 }
 
 async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {

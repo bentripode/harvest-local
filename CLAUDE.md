@@ -291,4 +291,12 @@ reporter must be the order's buyer or own its seller_profile, and the order must
 updates. `submitReportAction` (`src/app/reports/actions.ts`, shared by both order pages) inserts +
 `queueNotificationForEach` a `report_filed` to admins. Read-only-ish admin queue at `/admin`
 (`requireRole("admin")`, own layout; "Admin" nav link shows only for `role = 'admin'`) — status +
-resolution-note updates, no refund button yet.
+resolution-note updates.
+
+**Phase 5 — admin refunds.** `refunds` table (§2.7; `unique(order_id)`, party-or-admin read, no
+client write). `issueRefundAction` (admin): `stripe.refunds.create({ payment_intent, reverse_transfer:
+true })` (pulls the money back from the seller/MoR), `idempotencyKey: refund:<order_id>`, then records
+the `refunds` row + sets the report `refunded`. **Never touches order state** — the `charge.refunded`
+webhook does the unwind (`→ cancelled` + referral-invalidate), upserts the `refunds` mirror with
+`ignoreDuplicates` (so a dashboard-issued refund also lands), and queues `refund_issued` to the buyer
++ seller. Order pages show a "Refunded − $X" line. Not built: partial refunds.
