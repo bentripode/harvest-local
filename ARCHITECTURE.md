@@ -662,6 +662,18 @@ milestones, not walls.
   during development so you can build the webhook-driven logic without deploying.
 - Accounts/keys: Supabase, Stripe (test mode), Mapbox, Resend, Twilio, Inngest.
 
+**Deployed Stripe webhook endpoints** (`stripe listen` forwards everything, so this list only
+matters once there's a real endpoint at `https://<domain>/api/webhooks/stripe`). The handler's
+signature check tries both secrets, so events can sit on either endpoint — the split below is the
+tidy default:
+
+| Endpoint | Secret env var | Enabled events |
+|---|---|---|
+| Account (platform) | `STRIPE_WEBHOOK_SECRET` | `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`, `charge.dispute.created`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `customer.subscription.paused`, `customer.subscription.resumed`, `invoice.paid` |
+| Connect (connected accounts) | `STRIPE_CONNECT_WEBHOOK_SECRET` | `account.updated` |
+
+Keep this in sync with the `switch` in `src/app/api/webhooks/stripe/route.ts`.
+
 ### 6.3 Set Claude Code up for success
 The single biggest lever is a strong **`CLAUDE.md`** at the repo root. Claude Code reads it every
 session. Put in it:
