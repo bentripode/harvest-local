@@ -95,8 +95,14 @@ Never write an order, or code a path that could write an order, that crosses sta
   application code (`src/lib/money.ts`). No floating-point arithmetic on money.
 - Order money fields are **snapshots** captured at checkout (`unit_price`, `subtotal`,
   `discount_total`, `delivery_fee`, `tax_total`, `total`) — never recomputed from live product rows.
-- The buyer referral discount is our own order math (admin-set % from `platform_settings`). The seller
-  free-month reward is a Stripe 100%-off coupon. Don't mix the two mechanisms.
+  `tax_total` / `total` are provisional until the payment webhook finalises them from the Stripe
+  session (`finalize_paid_order`); everything else is frozen at checkout.
+- The buyer referral **discount amount** is our own order math (admin-set % from `platform_settings`,
+  computed in `validatePromoCode`, snapshotted into `discount_total` at checkout). A reusable
+  `percent_off` Coupon rides the Checkout Session **only** as the transport so Stripe Tax applies to
+  the discounted base; the webhook reconciles `discount_total` against the session's
+  `amount_discount`. The seller free-month reward is a separate Stripe 100%-off Coupon on the
+  subscription — don't conflate the two.
 
 ### 4. Reviews only from verified buyers of completed orders.
 
@@ -143,7 +149,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
-supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance
+supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance · Phase 3: referrals, finalize_paid_order
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients
 src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
@@ -170,9 +176,13 @@ src/app/api/inngest/route.ts           Inngest serve endpoint
 **Phase 2 — buyer checkout:** a Stripe **Checkout Session** → destination charge with
 `on_behalf_of` the seller (seller = MoR) + `automatic_tax` (`liability: { type: 'account' }`).
 Order starts `pending_payment`; the `checkout.session.completed` / `async_payment_succeeded`
-webhook moves it to `new`, finalises `tax_total`/`total` from the session, decrements stock.
-Sellers advance the pipeline only through `advance_order_status()` (SQL, SECURITY DEFINER);
-every transition is logged to `order_status_history` by trigger.
+webhook calls **`finalize_paid_order()`** — one guarded, atomic SQL function that moves the order to
+`new`, finalises `discount_total`/`tax_total`/`total` from the session, decrements stock, and (for a
+promo order) logs the pending referral. Guarded on `status = 'pending_payment'`, so a Stripe
+redelivery — even after a partially-completed prior attempt — is a clean no-op or a clean full redo.
+`charge.refunded` (full only) / `charge.dispute.created` move the order to `cancelled` / `disputed`
+and emit `harvest/order.refunded`. Sellers advance the pipeline only through `advance_order_status()`
+(SQL, SECURITY DEFINER); every transition is logged to `order_status_history` by trigger.
 `npm run stripe:tax -- --account <acct> --state <XX>` sets up test-mode Stripe Tax.
 
 **Phase 2 — compliance guardrails (Inngest).** `advanceOrderStatusAction` emits
@@ -186,17 +196,27 @@ crosses `state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_re
 here; Resend/Twilio delivery is Phase 3. Local dev: `npm run inngest:dev` (no keys).
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
-`validatePromoCode` (own DB owns attribution) → `discounts: [{ coupon }]` on the Checkout Session
-(reusable `buyer-referral-pct-<n>` coupon from `ensureBuyerDiscountCoupon`) → seller receives the
-discounted total. `checkout.session.completed` webhook snapshots `discount_total` and calls
-`create_referral_for_order()` (status `pending`). Order → `completed` fires
-`harvest/order.completed` → `referral-activate` calls `activate_referral_for_order()` (atomic:
-status `active`, `referral_cycles.active_referral_count += 1`, and at the threshold sets
-`reward_granted`) → attaches `FREE_MONTH_100` to the subscription (`idempotencyKey =
-reward:<cycle_id>`). Cycles rotate on `open_referral_cycle()` from `handleSubscription` /
-`invoice.paid` (count resets, `reward_granted` preserved on the closed cycle). `order.cancelled`
-→ `referral-invalidate` (decrement, never revoke an issued coupon — flag admins). Anti-abuse:
-self-referral block, one non-invalidated referral per buyer+seller+cycle (app check + partial
-unique index), `referral_min_order`. Config in `platform_settings`
-(`buyer_referral_discount`, `seller_referral_reward`, `referral_min_order`); `npm run stripe:setup`
-creates the coupons.
+`validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a
+LIKE on raw input; our DB owns attribution). The discount amount is our own math and is snapshotted
+into `discount_total` at checkout; a reusable `buyer-referral-pct-<n>` Coupon
+(`ensureBuyerDiscountCoupon`) goes on the Checkout Session purely so Stripe Tax hits the discounted
+base. `finalize_paid_order()` (see Phase 2) logs the `pending` referral via
+`create_referral_for_order()`. Order → `completed` fires `harvest/order.completed` →
+`referral-activate`: `activate_referral_for_order()` sets the referral `active` and
+`referral_cycles.active_referral_count += 1` atomically, and **reports** whether the cycle just hit
+the threshold — it does **not** touch `reward_granted`. The function then attaches the reward Coupon
+(id from `platform_settings.seller_referral_reward.coupon` via `getReferralConfig`, `idempotencyKey =
+reward:<cycle_id>`) and only then does `set_referral_reward_coupon()` flip `reward_granted` +
+`reward_stripe_coupon_id` **together** — so `reward_granted` always implies the coupon is really
+attached. A permanently failed attach leaves the cycle honestly un-granted and re-attempts on the
+next activation; `onFailure` flags admins. Cycles rotate via `open_referral_cycle()` from
+`handleSubscription` / `invoice.paid` (which reads
+`invoice.parent.subscription_details.subscription`) **only on a strictly-later `period_start`** — an
+equal/earlier boundary keeps the in-progress cycle and its count; `reward_granted` is preserved on a
+closed cycle. `harvest/order.cancelled` (seller board — referral still `pending`) or
+`harvest/order.refunded` (`charge.refunded` / `charge.dispute.created` — referral may be `active`) →
+`referral-invalidate` (decrement, never revoke an issued coupon — flag admins if a granted reward
+drops below threshold). Anti-abuse: self-referral block, one non-invalidated referral per
+buyer+seller+cycle (app check + partial unique index), `referral_min_order`. Config in
+`platform_settings` (`buyer_referral_discount`, `seller_referral_reward` = `{threshold, coupon}`,
+`referral_min_order`); `npm run stripe:setup` creates the coupons.
