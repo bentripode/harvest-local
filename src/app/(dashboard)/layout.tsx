@@ -12,39 +12,37 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <div className="flex min-h-full flex-col">
       <header className="border-b">
-        <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-6">
-          <div className="flex items-center gap-6">
-            <Link href="/" className="font-semibold tracking-tight">
-              Harvest Local
+        <div className="mx-auto flex h-14 w-full max-w-5xl items-center gap-4 px-6">
+          <Link href="/" className="shrink-0 font-semibold tracking-tight">
+            Harvest Local
+          </Link>
+          <nav className="text-muted-foreground flex min-w-0 flex-1 items-center gap-4 overflow-x-auto text-sm whitespace-nowrap">
+            <Link href="/seller" className="hover:text-foreground shrink-0">
+              Overview
             </Link>
-            <nav className="text-muted-foreground flex items-center gap-4 text-sm">
-              <Link href="/seller" className="hover:text-foreground">
-                Overview
-              </Link>
-              <Link href="/seller/products" className="hover:text-foreground">
-                Products
-              </Link>
-              <Link href="/seller/orders" className="hover:text-foreground">
-                Orders
-              </Link>
-              <Link href="/seller/referrals" className="hover:text-foreground">
-                Referrals
-              </Link>
-              <Link href="/seller/compliance" className="hover:text-foreground">
-                Compliance
-                {unread > 0 ? (
-                  <span className="bg-primary text-primary-foreground ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums">
-                    {unread}
-                  </span>
-                ) : null}
-              </Link>
-              <Link href="/seller/settings" className="hover:text-foreground">
-                Settings
-              </Link>
-            </nav>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-muted-foreground hidden text-sm sm:inline">
+            <Link href="/seller/products" className="hover:text-foreground shrink-0">
+              Products
+            </Link>
+            <Link href="/seller/orders" className="hover:text-foreground shrink-0">
+              Orders
+            </Link>
+            <Link href="/seller/referrals" className="hover:text-foreground shrink-0">
+              Referrals
+            </Link>
+            <Link href="/seller/compliance" className="hover:text-foreground shrink-0">
+              Compliance
+              {unread > 0 ? (
+                <span className="bg-primary text-primary-foreground ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums">
+                  {unread}
+                </span>
+              ) : null}
+            </Link>
+            <Link href="/seller/settings" className="hover:text-foreground shrink-0">
+              Settings
+            </Link>
+          </nav>
+          <div className="flex shrink-0 items-center gap-3">
+            <span className="text-muted-foreground hidden text-sm md:inline">
               {profile.display_name}
             </span>
             <form action="/auth/signout" method="post">
