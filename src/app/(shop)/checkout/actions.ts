@@ -10,7 +10,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
 import { buildCheckoutSessionParams } from "@/lib/stripe/checkout";
 import { env } from "@/lib/env";
-import { toDecimalString } from "@/lib/money";
+import { cents, toDecimalString } from "@/lib/money";
 import { CartError, priceCart, type PricableProduct } from "@/lib/orders/pricing";
 import { isUsState, sameState, US_STATES } from "@/lib/geo/state";
 import { validatePromoCode } from "@/lib/referrals/validate";
@@ -198,10 +198,14 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   }
   if (!sameState(buyerState, seller.home_state)) redirect("/checkout?error=state_mismatch");
 
-  // Referral code (optional). Re-validated server-side; the discount is applied by Stripe via a
-  // reusable coupon and the real `discount_total` is snapshotted by the webhook.
+  // Referral code (optional). The discount amount is OUR order math (admin-set % from
+  // platform_settings, computed in validatePromoCode) and is snapshotted into the order now. A
+  // matching reusable Coupon is attached to the Checkout Session purely as the transport so Stripe
+  // Tax computes on the discounted base; the webhook reconciles `discount_total` against the
+  // session's `amount_discount` (authoritative — that's what was actually charged).
   let promoCodeId: string | null = null;
   let discountCoupon: string | undefined;
+  let discountCents = 0;
   const submittedCode = payload.promoCode?.trim();
   if (submittedCode) {
     const v = await validatePromoCode({
@@ -212,11 +216,16 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
     });
     if (!v.ok) redirect("/checkout?error=promo");
     promoCodeId = v.promoCodeId!;
+    discountCents = v.discountCents!;
     discountCoupon = await ensureBuyerDiscountCoupon(v.discountPercent!);
   }
 
   const admin = createAdminClient();
   const subtotal = toDecimalString(priced.subtotal);
+  const discountTotal = toDecimalString(cents(discountCents));
+  // Pre-tax total; `tax_total` and the final `total` are finalised by the webhook from the
+  // Stripe-computed session (same as a no-promo order).
+  const preTaxTotal = toDecimalString(cents(priced.subtotal - discountCents));
 
   const { data: order, error: orderError } = await admin
     .from("orders")
@@ -226,10 +235,10 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       status: "pending_payment",
       fulfillment_type: "pickup",
       subtotal,
-      discount_total: "0.00",
+      discount_total: discountTotal,
       delivery_fee: "0.00",
       tax_total: "0.00",
-      total: subtotal,
+      total: preTaxTotal,
       buyer_state: buyerState,
       seller_state: seller.home_state,
       promo_code_id: promoCodeId,
