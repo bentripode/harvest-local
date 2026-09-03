@@ -282,3 +282,13 @@ path — **Postgres Changes must be enabled for `messages` in the Supabase dashb
 path to work (`messages` is in `supabase_realtime` with `replica identity full`, but the hosted
 project wasn't streaming it). Unread badge in both nav headers. Not built: message→email
 notification, typing/presence, attachments, seller review responses.
+
+**Phase 4 — reports / flagging.** ARCHITECTURE §2.7 (the `refunds` table + Stripe refunds are
+Phase 5). `reports` (one per order per reporter, `unique(order_id, reporter_id)`; `reason` enum,
+`status` open→investigating→resolved/refunded). `reports_verify_reporter` BEFORE INSERT: the
+reporter must be the order's buyer or own its seller_profile, and the order must be past
+`pending_payment`. RLS: reporter reads own OR `is_admin()`; reporter files own; only `is_admin()`
+updates. `submitReportAction` (`src/app/reports/actions.ts`, shared by both order pages) inserts +
+`queueNotificationForEach` a `report_filed` to admins. Read-only-ish admin queue at `/admin`
+(`requireRole("admin")`, own layout; "Admin" nav link shows only for `role = 'admin'`) — status +
+resolution-note updates, no refund button yet.

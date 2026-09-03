@@ -5,8 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { OrderStatusTimeline } from "@/components/order-status-timeline";
 import { OrderActions } from "@/components/order-actions";
 import { MessageSellerButton } from "@/components/message-seller-button";
+import { ReportOrderForm, ExistingReport } from "@/components/report-order-form";
 import { getSellerContext } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
+import { getReportForOrder } from "@/lib/reports/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
@@ -20,6 +22,9 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
 
   const order = await getOrder(id);
   if (!order || order.seller?.id !== seller.id) notFound();
+
+  const report =
+    order.status !== "pending_payment" ? await getReportForOrder(id, profile.id) : null;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -103,6 +108,12 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
           history={order.history}
         />
       </section>
+
+      {order.status !== "pending_payment" ? (
+        <section className="rounded-lg border p-4">
+          {report ? <ExistingReport report={report} /> : <ReportOrderForm orderId={order.id} />}
+        </section>
+      ) : null}
     </div>
   );
 }

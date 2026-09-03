@@ -54,6 +54,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller",
     ctaLabel: "Open dashboard",
   },
+  report_filed: {
+    subject: () => "New order report",
+    ctaPath: "/admin",
+    ctaLabel: "Open admin queue",
+  },
 };
 
 /** Returns null for an unknown template (the dispatcher fails the row rather than sending junk). */

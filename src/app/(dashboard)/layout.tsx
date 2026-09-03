@@ -52,6 +52,11 @@ export default async function DashboardLayout({ children }: { children: React.Re
                 </span>
               ) : null}
             </Link>
+            {profile.role === "admin" ? (
+              <Link href="/admin" className="hover:text-foreground shrink-0">
+                Admin
+              </Link>
+            ) : null}
           </nav>
           <div className="flex shrink-0 items-center gap-3">
             <span className="text-muted-foreground hidden text-sm md:inline">

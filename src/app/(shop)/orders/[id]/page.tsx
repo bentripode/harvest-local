@@ -6,9 +6,11 @@ import { OrderStatusTimeline } from "@/components/order-status-timeline";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
 import { ReviewForm, ExistingReview } from "@/components/review-form";
 import { MessageSellerButton } from "@/components/message-seller-button";
+import { ReportOrderForm, ExistingReport } from "@/components/report-order-form";
 import { requireUser } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
 import { getReviewForOrder } from "@/lib/reviews/queries";
+import { getReportForOrder } from "@/lib/reports/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
@@ -26,6 +28,8 @@ export default async function BuyerOrderPage({
   if (!order || order.buyer?.id !== user.id) notFound();
 
   const review = order.status === "completed" ? await getReviewForOrder(id) : null;
+  const report =
+    order.status !== "pending_payment" ? await getReportForOrder(id, user.id) : null;
 
   const checkout = typeof sp.checkout === "string" ? sp.checkout : null;
   const pending = order.status === "pending_payment";
@@ -118,6 +122,12 @@ export default async function BuyerOrderPage({
           ) : (
             <ReviewForm orderId={order.id} />
           )}
+        </section>
+      ) : null}
+
+      {order.status !== "pending_payment" ? (
+        <section className="rounded-lg border p-4">
+          {report ? <ExistingReport report={report} /> : <ReportOrderForm orderId={order.id} />}
         </section>
       ) : null}
 
