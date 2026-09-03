@@ -37,6 +37,15 @@ const serverSchema = z.object({
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
 
+  // Email (Resend). Optional — with no key, notification-dispatch logs instead of sending.
+  RESEND_API_KEY: z
+    .string()
+    .startsWith("re_")
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+  EMAIL_FROM: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+
   // App
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
 

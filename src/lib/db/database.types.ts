@@ -135,8 +135,10 @@ export type Database = {
       }
       notifications: {
         Row: {
+          attempt_count: number
           channel: string
           created_at: string
+          error: string | null
           id: string
           payload: Json
           read_at: string | null
@@ -146,8 +148,10 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          attempt_count?: number
           channel: string
           created_at?: string
+          error?: string | null
           id?: string
           payload?: Json
           read_at?: string | null
@@ -157,8 +161,10 @@ export type Database = {
           user_id: string
         }
         Update: {
+          attempt_count?: number
           channel?: string
           created_at?: string
+          error?: string | null
           id?: string
           payload?: Json
           read_at?: string | null

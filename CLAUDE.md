@@ -159,7 +159,8 @@ src/lib/orders/{pricing,status,queries}.ts   server re-pricing · status map · 
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
+src/lib/notifications/                  queue (channel fan-out) · copy (in-app lines) · templates (email) · send (Resend)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/app/(auth)/                        login, signup, email confirm
@@ -192,8 +193,19 @@ crosses `state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_re
 'revenue_cap'` **atomically in SQL** (guardrail lives at the data layer). `license-expiry-scan`
 (daily cron) sends T-30/7/1 reminders and calls `expire_seller_license()` at expiry (→
 `pause_reason = 'license_expired'`). A compliance pause is never lifted by the Stripe webhook's
-`reconcileActivation` — only by an admin or the yearly reset. `notifications` rows are queued
-here; Resend/Twilio delivery is Phase 3. Local dev: `npm run inngest:dev` (no keys).
+`reconcileActivation` — only by an admin or the yearly reset. Local dev: `npm run inngest:dev`
+(no keys).
+
+**Phase 3 — notification delivery.** Producers call `queueNotification()` /
+`queueNotificationForEach()` (`src/lib/notifications/queue.ts`), which fans a template out to one
+`notifications` row per channel (default `in_app` + `email`) and nudges `harvest/notification.queued`.
+`notification-dispatch` (Inngest — that event + a `*/2` cron backstop) sends the non-`in_app` rows:
+resolves the address (`auth.admin.getUserById` for email), renders via
+`src/lib/notifications/templates.ts` (copy from `copy.ts`, shared with the in-app panel), sends
+through Resend (`send.ts` — logs instead when `RESEND_API_KEY` is unset), marks `sent` / bumps
+`attempt_count` / `failed` past 5. Optimistic `attempt_count` claim + Resend idempotency key
+(`notification.id`) make overlapping runs safe. **SMS (Twilio), a `notification_prefs` opt-out
+table, and buyer order-status emails are not built yet.**
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a

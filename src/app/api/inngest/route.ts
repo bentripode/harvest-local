@@ -5,6 +5,7 @@ import { revenueCapCheck } from "@/lib/inngest/functions/revenue-cap";
 import { licenseExpiryScan } from "@/lib/inngest/functions/license-expiry";
 import { referralActivate } from "@/lib/inngest/functions/referral-activate";
 import { referralInvalidate } from "@/lib/inngest/functions/referral-invalidate";
+import { notificationDispatch } from "@/lib/inngest/functions/notification-dispatch";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -13,5 +14,11 @@ import { referralInvalidate } from "@/lib/inngest/functions/referral-invalidate"
  */
 export const { GET, POST, PUT } = serve({
   client: inngest,
-  functions: [revenueCapCheck, licenseExpiryScan, referralActivate, referralInvalidate],
+  functions: [
+    revenueCapCheck,
+    licenseExpiryScan,
+    referralActivate,
+    referralInvalidate,
+    notificationDispatch,
+  ],
 });

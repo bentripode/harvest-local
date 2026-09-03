@@ -2,6 +2,7 @@ import "server-only";
 
 import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { queueNotificationForEach } from "@/lib/notifications/queue";
 
 /**
  * On `order -> cancelled` (seller board, still `pending`) or `order.refunded` (Stripe webhook, a
@@ -38,15 +39,11 @@ export const referralInvalidate = inngest.createFunction(
     await step.run("flag-admin-review", async () => {
       const { data: admins } = await admin.from("profiles").select("id").eq("role", "admin");
       if (!admins?.length) return { queued: 0 };
-      const { error } = await admin.from("notifications").insert(
-        admins.map((a) => ({
-          user_id: a.id,
-          channel: "in_app" as const,
-          template: "referral_reward_review",
-          payload: { seller_id: result.ref_seller_id, order_id: orderId, reason },
-        })),
+      await queueNotificationForEach(
+        admin,
+        admins.map((a) => a.id),
+        { template: "referral_reward_review", payload: { seller_id: result.ref_seller_id, order_id: orderId, reason } },
       );
-      if (error) throw new Error(error.message);
       return { queued: admins.length };
     });
 

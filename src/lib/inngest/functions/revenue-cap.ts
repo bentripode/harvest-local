@@ -2,6 +2,7 @@ import "server-only";
 
 import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { queueNotificationForEach } from "@/lib/notifications/queue";
 
 /**
  * On `order -> completed`, add the order's goods total to the seller's yearly gross-revenue
@@ -42,9 +43,7 @@ export const revenueCapCheck = inngest.createFunction(
 
       const { data: admins } = await admin.from("profiles").select("id").eq("role", "admin");
 
-      const recipients = [
-        ...new Set([seller.profile_id, ...(admins ?? []).map((a) => a.id)]),
-      ];
+      const recipients = [seller.profile_id, ...(admins ?? []).map((a) => a.id)];
       const payload = {
         seller_id: seller.id,
         business_name: seller.business_name,
@@ -53,16 +52,11 @@ export const revenueCapCheck = inngest.createFunction(
         cap: result.cap,
       };
 
-      const { error } = await admin.from("notifications").insert(
-        recipients.map((user_id) => ({
-          user_id,
-          channel: "in_app" as const,
-          template: "revenue_cap_reached",
-          payload,
-        })),
-      );
-      if (error) throw new Error(error.message);
-      return { queued: recipients.length };
+      await queueNotificationForEach(admin, recipients, {
+        template: "revenue_cap_reached",
+        payload,
+      });
+      return { queued: new Set(recipients).size };
     });
 
     return { paused: true, gross: result.gross, cap: result.cap };

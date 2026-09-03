@@ -2,6 +2,7 @@ import "server-only";
 
 import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { queueNotification } from "@/lib/notifications/queue";
 import type { Json } from "@/lib/db/types";
 
 type Admin = ReturnType<typeof createAdminClient>;
@@ -89,7 +90,7 @@ export const licenseExpiryScan = inngest.createFunction(
   },
 );
 
-/** Insert one in-app notification for a seller. Returns false when it was a deduped no-op. */
+/** Queue one notification (in-app + email) for a seller. Returns false when it was a deduped no-op. */
 async function queue(
   admin: Admin,
   sellerId: string,
@@ -104,15 +105,10 @@ async function queue(
     .maybeSingle();
   if (!seller) return false;
 
-  const { error } = await admin.from("notifications").insert({
-    user_id: seller.profile_id,
-    channel: "in_app",
+  return queueNotification(admin, {
+    userId: seller.profile_id,
     template,
     payload,
+    tolerateDuplicate,
   });
-  if (error) {
-    if (tolerateDuplicate && /duplicate key|unique constraint/i.test(error.message)) return false;
-    throw new Error(error.message);
-  }
-  return true;
 }

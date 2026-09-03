@@ -4,6 +4,7 @@ import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
 import { getReferralConfig } from "@/lib/referrals/settings";
+import { queueNotification, queueNotificationForEach } from "@/lib/notifications/queue";
 
 /**
  * On `order -> completed`: activate the order's referral and count it toward the seller's open
@@ -31,13 +32,10 @@ export const referralActivate = inngest.createFunction(
       console.error(`[referral-activate] permanently failed for order ${orderId}: ${error.message}`);
       const { data: admins } = await admin.from("profiles").select("id").eq("role", "admin");
       if (!admins?.length) return;
-      await admin.from("notifications").insert(
-        admins.map((a) => ({
-          user_id: a.id,
-          channel: "in_app" as const,
-          template: "referral_reward_attach_failed",
-          payload: { order_id: orderId, error: error.message },
-        })),
+      await queueNotificationForEach(
+        admin,
+        admins.map((a) => a.id),
+        { template: "referral_reward_attach_failed", payload: { order_id: orderId, error: error.message } },
       );
     },
   },
@@ -88,13 +86,11 @@ export const referralActivate = inngest.createFunction(
         .eq("id", result.reward_seller_id as string)
         .maybeSingle();
       if (!seller) return { queued: 0 };
-      const { error } = await admin.from("notifications").insert({
-        user_id: seller.profile_id,
-        channel: "in_app",
+      await queueNotification(admin, {
+        userId: seller.profile_id,
         template: "referral_reward_earned",
         payload: { cycle_id: result.reward_cycle_id, threshold: result.cycle_threshold },
       });
-      if (error) throw new Error(error.message);
       return { queued: 1 };
     });
 

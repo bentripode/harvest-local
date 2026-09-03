@@ -36,3 +36,9 @@ export interface OrderRefundedEvent {
   name: "harvest/order.refunded";
   data: { orderId: string; sellerId: string };
 }
+
+/** Nudge for `notification-dispatch` — new email/sms rows are waiting. No payload. */
+export interface NotificationQueuedEvent {
+  name: "harvest/notification.queued";
+  data: Record<string, never>;
+}
