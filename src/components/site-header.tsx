@@ -1,9 +1,11 @@
 import Link from "next/link";
-import type { User } from "@supabase/supabase-js";
 
 import { Button } from "@/components/ui/button";
+import type { Profile } from "@/lib/db/types";
 
-export function SiteHeader({ user }: { user: User | null }) {
+export function SiteHeader({ profile }: { profile: Profile | null }) {
+  const isSeller = profile?.role === "seller" || profile?.role === "admin";
+
   return (
     <header className="border-b">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-6">
@@ -11,10 +13,12 @@ export function SiteHeader({ user }: { user: User | null }) {
           Harvest Local
         </Link>
         <nav className="flex items-center gap-2">
-          {user ? (
+          {profile ? (
             <>
               <Button asChild variant="ghost" size="sm">
-                <Link href="/seller">Storefront</Link>
+                <Link href={isSeller ? "/seller" : "/shop"}>
+                  {isSeller ? "Storefront" : "Shop"}
+                </Link>
               </Button>
               <form action="/auth/signout" method="post">
                 <Button variant="outline" size="sm" type="submit">

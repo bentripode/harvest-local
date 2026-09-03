@@ -2,14 +2,15 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
-import { getAccessMode, getUser } from "@/lib/auth";
+import { getAccessMode, getProfile } from "@/lib/auth";
 
 export default async function HomePage() {
-  const [user, accessMode] = await Promise.all([getUser(), getAccessMode()]);
+  const [profile, accessMode] = await Promise.all([getProfile(), getAccessMode()]);
+  const isSeller = profile?.role === "seller" || profile?.role === "admin";
 
   return (
     <>
-      <SiteHeader user={user} />
+      <SiteHeader profile={profile} />
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 px-6 py-24 text-center">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
           A local map for farmers, artisans &amp; makers
@@ -30,16 +31,24 @@ export default async function HomePage() {
         ) : null}
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button asChild size="lg">
-            <Link href={user ? "/seller" : "/signup?role=seller"}>
-              {user ? "Go to your storefront" : "Start selling"}
-            </Link>
-          </Button>
-          {!user ? (
-            <Button asChild variant="outline" size="lg">
-              <Link href="/login">Sign in</Link>
+          {!profile ? (
+            <>
+              <Button asChild size="lg">
+                <Link href="/signup?role=seller">Start selling</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/login">Sign in</Link>
+              </Button>
+            </>
+          ) : isSeller ? (
+            <Button asChild size="lg">
+              <Link href="/seller">Go to your storefront</Link>
             </Button>
-          ) : null}
+          ) : (
+            <Button asChild size="lg">
+              <Link href="/shop">Browse local sellers</Link>
+            </Button>
+          )}
         </div>
       </main>
     </>

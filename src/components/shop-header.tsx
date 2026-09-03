@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/cart-provider";
 
 /** Header for the buyer-facing shop. Shows a live basket count from `useCart`. */
-export function ShopHeader({ user }: { user: User | null }) {
+export function ShopHeader({ user, isSeller }: { user: User | null; isSeller: boolean }) {
   const { itemCount, ready } = useCart();
 
   return (
@@ -34,9 +34,11 @@ export function ShopHeader({ user }: { user: User | null }) {
           </Button>
           {user ? (
             <>
-              <Button asChild variant="ghost" size="sm">
-                <Link href="/seller">Sell</Link>
-              </Button>
+              {isSeller ? (
+                <Button asChild variant="ghost" size="sm">
+                  <Link href="/seller">Sell</Link>
+                </Button>
+              ) : null}
               <form action="/auth/signout" method="post">
                 <Button variant="outline" size="sm" type="submit">
                   Sign out
