@@ -34,10 +34,14 @@ export default async function HomePage() {
           {!profile ? (
             <>
               <Button asChild size="lg">
-                <Link href="/signup?role=seller">Start selling</Link>
+                <Link href={accessMode === "public" ? "/signup?role=buyer" : "/signup?role=seller"}>
+                  {accessMode === "public" ? "Sign up to shop" : "Start selling"}
+                </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/login">Sign in</Link>
+                <Link href={accessMode === "public" ? "/signup?role=seller" : "/login"}>
+                  {accessMode === "public" ? "Sell on Harvest Local" : "Sign in"}
+                </Link>
               </Button>
             </>
           ) : isSeller ? (

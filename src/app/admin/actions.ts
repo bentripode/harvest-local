@@ -9,6 +9,22 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
 import { cents, formatUsd, toDecimalString } from "@/lib/money";
 
+/** Flip the launch gate. `public` opens the marketplace to buyers; `sellers_only` is early access. */
+export async function setAccessModeAction(formData: FormData): Promise<void> {
+  const { user } = await requireRole("admin");
+  const mode = z.enum(["sellers_only", "public"]).safeParse(formData.get("mode"));
+  if (!mode.success) return;
+
+  const supabase = await createClient();
+  await supabase
+    .from("platform_settings")
+    .update({ value: { mode: mode.data }, updated_by: user.id })
+    .eq("key", "access_mode");
+
+  revalidatePath("/", "layout");
+  revalidatePath("/admin/settings");
+}
+
 export async function updateReportAction(formData: FormData): Promise<void> {
   const { user } = await requireRole("admin");
 

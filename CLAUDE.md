@@ -306,4 +306,10 @@ webhook does the unwind (`→ cancelled` + referral-invalidate), upserts the `re
 subscriptions via the **service-role client** (allowed: it's behind the `/admin` layout's
 `requireRole("admin")`), aggregated in JS. GMV (Σ `total` of completed orders) all-time + 30d, AOV,
 refund total, MRR (`active` subs × $20 — trialing = $0), paying/trialing seller counts, total/live/
-active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Analytics.
+active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Analytics · Settings.
+
+**Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
+`platform_settings.access_mode` `sellers_only` ↔ `public` (RLS already allows admin writes),
+`revalidatePath("/", "layout")`. `public` removes the home-page early-access notice and swaps the
+logged-out CTA to "Sign up to shop" / "Sell on Harvest Local" (`sellers_only` → "Start selling" /
+"Sign in"). `access_mode` is presentational only — nothing hard-gates buyers from `/shop`.
