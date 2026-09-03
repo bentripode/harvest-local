@@ -157,6 +157,7 @@ src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
+src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
@@ -250,3 +251,10 @@ seller state; the `orders_same_state_only` CHECK + guard hold). Needs `MAPBOX_TO
 Directions); with none set, delivery is unavailable and pickup is unaffected. `src/lib/geo/routing.ts`
 keeps the provider swappable. Not built: saved-address book, delivery time windows, buyer
 order-status emails.
+
+**Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
+`getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS (no
+schema, no RPC). 30-day revenue (`sum(total)` of `completed` orders, bucketed by `created_at`) with
+a vs-prior-30 trend, completed-order count, AOV, pickup/delivery split, delivery fees + referral
+discounts, a 90-day lens, a dependency-free SVG daily-revenue chart, and top 5 products. Not built:
+storefront/product view tracking → conversion rate, date-range picker, CSV export.

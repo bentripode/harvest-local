@@ -4,13 +4,17 @@ import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SellerStatsPanel } from "@/components/seller-stats";
 import { getSellerContext } from "@/lib/auth";
+import { getSellerDashboardStats } from "@/lib/analytics/queries";
 
 export default async function SellerOverviewPage() {
   const { profile, seller, subscription, onboardingComplete } = await getSellerContext();
 
   if (profile.role === "buyer") redirect("/");
-  if (!onboardingComplete) redirect("/seller/onboarding");
+  if (!onboardingComplete || !seller) redirect("/seller/onboarding");
+
+  const stats = await getSellerDashboardStats(seller.id);
 
   const trialEnds = subscription?.trial_end
     ? new Date(subscription.trial_end).toLocaleDateString(undefined, { dateStyle: "medium" })
@@ -29,6 +33,8 @@ export default async function SellerOverviewPage() {
           {seller?.is_paused ? "Paused" : "Live"}
         </Badge>
       </div>
+
+      <SellerStatsPanel stats={stats} />
 
       <div className="grid gap-4 sm:grid-cols-3">
         <Card>
