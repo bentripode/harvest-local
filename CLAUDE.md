@@ -152,6 +152,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
+LAUNCH.md                              production go-live checklist (env, Stripe live, Inngest Cloud, Resend, admin, hardening)
 supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance · Phase 3: referrals, finalize_paid_order
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients
