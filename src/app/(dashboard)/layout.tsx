@@ -38,6 +38,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
                   </span>
                 ) : null}
               </Link>
+              <Link href="/seller/settings" className="hover:text-foreground">
+                Settings
+              </Link>
             </nav>
           </div>
           <div className="flex items-center gap-3">

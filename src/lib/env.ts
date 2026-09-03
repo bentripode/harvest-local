@@ -49,8 +49,11 @@ const serverSchema = z.object({
   // App
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
 
-  // Mapbox (Phase 1 map / geocoding — optional until the map lands)
+  // Mapbox. NEXT_PUBLIC_ token is for the browser map (GL JS). MAPBOX_TOKEN is an optional
+  // server-side token (Geocoding + Directions, for delivery quoting) — falls back to the public
+  // one. With neither set, delivery is unavailable and pickup is unaffected.
   NEXT_PUBLIC_MAPBOX_TOKEN: z.string().optional(),
+  MAPBOX_TOKEN: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
 });
 
 const clientSchema = serverSchema.pick({

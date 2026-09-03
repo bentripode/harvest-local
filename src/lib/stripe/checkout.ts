@@ -33,16 +33,34 @@ export interface CheckoutSessionInput {
   customerEmail?: string;
   /** Stripe Coupon id for the buyer referral discount (see src/lib/stripe/coupons.ts). */
   discountCoupon?: string;
+  /** Local-delivery fee in cents. 0 / omitted = pickup. Rides the session as a shipping option so
+   *  Stripe Tax applies delivery tax and the seller (MoR) receives it. */
+  deliveryFeeCents?: number;
 }
 
 export function buildCheckoutSessionParams(
   input: CheckoutSessionInput,
 ): Stripe.Checkout.SessionCreateParams {
   const { orderId, lines, sellerAccountId, siteUrl, customerEmail, discountCoupon } = input;
+  const deliveryFeeCents = input.deliveryFeeCents ?? 0;
 
   return {
     mode: "payment",
     ...(discountCoupon ? { discounts: [{ coupon: discountCoupon }] } : {}),
+    ...(deliveryFeeCents > 0
+      ? {
+          shipping_options: [
+            {
+              shipping_rate_data: {
+                type: "fixed_amount",
+                fixed_amount: { amount: deliveryFeeCents, currency: "usd" },
+                display_name: "Local delivery",
+                tax_behavior: "exclusive",
+              },
+            },
+          ],
+        }
+      : {}),
     line_items: lines.map((line) => ({
       quantity: line.quantity,
       price_data: {

@@ -285,6 +285,7 @@ export type Database = {
           buyer_state: string
           created_at: string
           delivery_address_id: string | null
+          delivery_address_text: string | null
           delivery_distance_miles: number | null
           delivery_fee: number
           discount_total: number
@@ -307,6 +308,7 @@ export type Database = {
           buyer_state: string
           created_at?: string
           delivery_address_id?: string | null
+          delivery_address_text?: string | null
           delivery_distance_miles?: number | null
           delivery_fee?: number
           discount_total?: number
@@ -329,6 +331,7 @@ export type Database = {
           buyer_state?: string
           created_at?: string
           delivery_address_id?: string | null
+          delivery_address_text?: string | null
           delivery_distance_miles?: number | null
           delivery_fee?: number
           discount_total?: number
@@ -1052,6 +1055,7 @@ export type Database = {
           buyer_state: string
           created_at: string
           delivery_address_id: string | null
+          delivery_address_text: string | null
           delivery_distance_miles: number | null
           delivery_fee: number
           discount_total: number
@@ -1083,6 +1087,17 @@ export type Database = {
       decrement_product_quantity: {
         Args: { p_product_id: string; p_qty: number }
         Returns: undefined
+      }
+      delivery_route_inputs: {
+        Args: { p_lat: number; p_lng: number; p_seller_id: string }
+        Returns: {
+          base_fee: number
+          deliverable: boolean
+          per_mile_fee: number
+          pickup_lat: number
+          pickup_lng: number
+          straight_miles: number
+        }[]
       }
       ensure_open_referral_cycle: {
         Args: { p_seller_id: string }
@@ -1132,6 +1147,20 @@ export type Database = {
       set_referral_reward_coupon: {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
+      }
+      upsert_address: {
+        Args: {
+          p_city?: string
+          p_id?: string
+          p_label?: string
+          p_lat?: number
+          p_line1?: string
+          p_line2?: string
+          p_lng?: number
+          p_postal?: string
+          p_state?: string
+        }
+        Returns: string
       }
     }
     Enums: {

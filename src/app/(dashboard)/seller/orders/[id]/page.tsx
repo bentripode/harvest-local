@@ -37,7 +37,8 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
               dateStyle: "medium",
               timeStyle: "short",
             })}{" "}
-            · Pickup · {stateName(order.seller_state)}
+            · {order.fulfillment_type === "delivery" ? "Delivery" : "Pickup"} ·{" "}
+            {stateName(order.seller_state)}
           </p>
         </div>
         <Badge variant={order.status === "completed" ? "default" : "secondary"}>
@@ -58,10 +59,28 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
         </ul>
         <div className="space-y-1 border-t p-3 text-sm">
           <Row label="Subtotal" value={formatUsd(toCents(order.subtotal))} />
+          {toCents(order.discount_total) > 0 ? (
+            <Row label="Discount" value={`− ${formatUsd(toCents(order.discount_total))}`} />
+          ) : null}
+          {toCents(order.delivery_fee) > 0 ? (
+            <Row label="Local delivery" value={formatUsd(toCents(order.delivery_fee))} />
+          ) : null}
           <Row label="Sales tax" value={formatUsd(toCents(order.tax_total))} />
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
         </div>
       </section>
+
+      {order.fulfillment_type === "delivery" && order.delivery_address_text ? (
+        <section className="rounded-lg border p-4 text-sm">
+          <h2 className="mb-1 font-medium">Deliver to</h2>
+          <p className="text-muted-foreground">{order.delivery_address_text}</p>
+          {order.delivery_distance_miles != null ? (
+            <p className="text-muted-foreground text-xs">
+              {order.delivery_distance_miles} driving miles from your pickup address
+            </p>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="rounded-lg border p-4">
         <h2 className="mb-3 text-sm font-medium">Move this order along</h2>

@@ -154,8 +154,8 @@ src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients
 src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
 src/lib/money.ts                       server-side money helpers (cents)
-src/lib/geo/state.ts                   US states + the same-state geofence predicate
-src/lib/orders/{pricing,status,queries}.ts   server re-pricing · status map · order reads
+src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
+src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
@@ -170,6 +170,7 @@ src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
 src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
+src/app/(dashboard)/seller/settings/   pickup address + local-delivery config
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -232,3 +233,20 @@ drops below threshold). Anti-abuse: self-referral block, one non-invalidated ref
 buyer+seller+cycle (app check + partial unique index), `referral_min_order`. Config in
 `platform_settings` (`buyer_referral_discount`, `seller_referral_reward` = `{threshold, coupon}`,
 `referral_min_order`); `npm run stripe:setup` creates the coupons.
+
+**Phase 3 — local delivery + mileage fees.** Seller sets a pickup address + `delivery_enabled` /
+radius / `delivery_base_fee` / `delivery_per_mile_fee` on `/seller/settings`
+(`saveDeliverySettingsAction` geocodes via Mapbox → `upsert_address()` RPC, the only way to write a
+PostGIS point through PostgREST; a trigger blocks `delivery_enabled` without a pickup address).
+Checkout: the buyer picks pickup or delivery + an address; `repriceCartAction` / `startCheckoutAction`
+call `resolveDelivery()` → `geocodeAddress()` + `quoteDelivery()`. `quoteDelivery` runs
+`delivery_route_inputs()` (SECURITY DEFINER, service-role — PostGIS straight-line radius check +
+returns the seller's pickup coords) then the Mapbox driving distance; `fee = base + per_mile *
+ceil(miles)`, min 1 mi, all cents. The fee is **snapshotted** into `orders.delivery_fee` (our math,
+like `discount_total`), the address frozen into `orders.delivery_address_text`, and it rides the
+Stripe session as a `shipping_options` fixed rate so Stripe Tax handles delivery tax and the seller
+(MoR) receives it. For delivery, `orders.buyer_state` = the delivery address state (still ==
+seller state; the `orders_same_state_only` CHECK + guard hold). Needs `MAPBOX_TOKEN` (Geocoding +
+Directions); with none set, delivery is unavailable and pickup is unaffected. `src/lib/geo/routing.ts`
+keeps the provider swappable. Not built: saved-address book, delivery time windows, buyer
+order-status emails.

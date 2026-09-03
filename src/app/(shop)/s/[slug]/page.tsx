@@ -16,7 +16,9 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   const { data: seller } = await supabase
     .from("seller_profiles")
-    .select("id, business_name, storefront_slug, bio, home_state, is_paused")
+    .select(
+      "id, business_name, storefront_slug, bio, home_state, is_paused, delivery_enabled, delivery_radius_miles",
+    )
     .eq("storefront_slug", slug)
     .maybeSingle();
 
@@ -41,7 +43,12 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     <div className="space-y-8">
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">{seller.business_name}</h1>
-        <p className="text-muted-foreground text-sm">{stateName(seller.home_state)}</p>
+        <p className="text-muted-foreground text-sm">
+          {stateName(seller.home_state)}
+          {seller.delivery_enabled
+            ? ` · pickup or local delivery${seller.delivery_radius_miles ? ` within ${seller.delivery_radius_miles} mi` : ""}`
+            : " · pickup"}
+        </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
       </header>
 

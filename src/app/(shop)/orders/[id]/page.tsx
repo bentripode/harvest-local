@@ -48,8 +48,9 @@ export default async function BuyerOrderPage({
           </h1>
           <p className="text-muted-foreground text-sm">
             Order {order.id.slice(0, 8)} ·{" "}
-            {new Date(order.created_at).toLocaleDateString(undefined, { dateStyle: "medium" })} ·
-            Pickup · {stateName(order.seller_state)}
+            {new Date(order.created_at).toLocaleDateString(undefined, { dateStyle: "medium" })} ·{" "}
+            {order.fulfillment_type === "delivery" ? "Delivery" : "Pickup"} ·{" "}
+            {stateName(order.seller_state)}
           </p>
         </div>
         <Badge variant={order.status === "completed" ? "default" : "secondary"}>
@@ -73,10 +74,20 @@ export default async function BuyerOrderPage({
           {toCents(order.discount_total) > 0 ? (
             <Row label="Discount" value={`− ${formatUsd(toCents(order.discount_total))}`} />
           ) : null}
+          {toCents(order.delivery_fee) > 0 ? (
+            <Row label="Local delivery" value={formatUsd(toCents(order.delivery_fee))} />
+          ) : null}
           <Row label="Sales tax" value={formatUsd(toCents(order.tax_total))} />
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
         </div>
       </section>
+
+      {order.fulfillment_type === "delivery" && order.delivery_address_text ? (
+        <section className="rounded-lg border p-4 text-sm">
+          <h2 className="mb-1 font-medium">Delivery address</h2>
+          <p className="text-muted-foreground">{order.delivery_address_text}</p>
+        </section>
+      ) : null}
 
       <section className="rounded-lg border p-4">
         <h2 className="mb-3 text-sm font-medium">Status</h2>
