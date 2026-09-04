@@ -158,6 +158,26 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ---
 
+### 6. A seller may not list food where their state bans online food sales.
+
+- Delaware, Hawaii, Michigan, Mississippi and Nevada prohibit online cottage-food orders under
+  **every** program they run; six more ban it under one program and allow it under another. The
+  predicate is `state_allows_online_food_sales(state)`, derived from `state_food_programs` — never a
+  hardcoded state list, so correcting a program in the admin surface moves the gate with it.
+- Enforced by the `products_guard_online_food_sales` BEFORE INSERT/UPDATE trigger
+  (`20260904180000_online_food_sales_gate.sql`): a product in a `requires_food_permit` category
+  cannot reach `active` or `sold_out` for a seller in a banned state. `draft` is allowed through on
+  purpose — it keeps the seller's work and gives the migration's backfill somewhere to park existing
+  listings without destroying them.
+- **This is not a storefront pause.** Pausing would take down the legal candle listings alongside
+  the illegal bread. The food listing is what's prohibited, so the food listing is what's blocked;
+  non-food selling continues untouched.
+- `describeFoodSalesBlock()` in the product actions is the friendly half — the seller reads a
+  sentence, not a constraint violation. `FoodSalesNotice` says the same thing up front on
+  `/seller/products` and `/seller/compliance`.
+
+---
+
 ## Conventions
 
 - **TypeScript strict.** No `any` without a written reason. Validate external input with Zod at the
@@ -222,7 +242,7 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
-src/lib/compliance/programs.ts         per-state cottage-food programs (the compliance reference data)
+src/lib/compliance/{programs,food-sales}.ts   per-state programs · the online-food-sales gate reads
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads

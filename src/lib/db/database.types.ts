@@ -1833,6 +1833,10 @@ export type Database = {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
       }
+      state_allows_online_food_sales: {
+        Args: { p_state_code: string }
+        Returns: boolean
+      }
       sync_seller_license_pause: {
         Args: { p_seller_id: string }
         Returns: string

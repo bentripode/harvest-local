@@ -23,6 +23,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   license_expiring: "license_reminders",
   license_expired: "compliance",
   license_required: "compliance",
+  state_bans_online_food: "compliance",
   license_verified: "compliance",
   license_rejected: "compliance",
   revenue_cap_reached: "compliance",

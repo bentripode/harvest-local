@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DocumentUploadForm } from "@/components/document-upload-form";
+import { FoodSalesNotice } from "@/components/food-sales-notice";
 import { NotificationsPanel } from "@/components/notifications-panel";
 import { getSellerContext } from "@/lib/auth";
 import {
@@ -12,6 +13,7 @@ import {
   getSellerLicenses,
   sellerSellsCottageFood,
 } from "@/lib/compliance";
+import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
 import { licenseTypeLabel } from "@/lib/licenses/labels";
 import {
   buildDocumentChecklist,
@@ -51,11 +53,12 @@ export default async function CompliancePage() {
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications, sellsCottageFood] = await Promise.all([
+  const [revenue, licenses, notifications, sellsCottageFood, foodSales] = await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
     getInAppNotifications(profile.id),
     sellerSellsCottageFood(seller.id),
+    getFoodSalesStatus(seller.id),
   ]);
 
   const checklist = buildDocumentChecklist(licenses, sellsCottageFood);
@@ -78,6 +81,8 @@ export default async function CompliancePage() {
           your license expiry, and pause your storefront automatically if either is crossed.
         </p>
       </div>
+
+      <FoodSalesNotice status={foodSales} />
 
       <Card>
         <CardHeader className="pb-2">

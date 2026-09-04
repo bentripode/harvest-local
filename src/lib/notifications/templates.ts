@@ -39,6 +39,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "Renew license",
   },
+  state_bans_online_food: {
+    subject: () => "Your food listings have been unpublished",
+    ctaPath: "/seller/products",
+    ctaLabel: "View listings",
+  },
   license_required: {
     subject: () => "Your storefront is paused — a verified license is required",
     ctaPath: "/seller/compliance",

@@ -8,6 +8,8 @@ import { createClient } from "@/lib/supabase/server";
 import { getSellerContext } from "@/lib/auth";
 import { formatUsd, toCents } from "@/lib/money";
 import type { Product } from "@/lib/db/types";
+import { FoodSalesNotice } from "@/components/food-sales-notice";
+import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
 import { deleteProductAction, setProductStatusAction } from "./actions";
 
 export default async function ProductsPage() {
@@ -16,11 +18,14 @@ export default async function ProductsPage() {
   if (!seller) redirect("/seller/onboarding");
 
   const supabase = await createClient();
-  const { data: products } = await supabase
-    .from("products")
-    .select("*")
-    .eq("seller_id", seller.id)
-    .order("created_at", { ascending: false });
+  const [{ data: products }, foodSales] = await Promise.all([
+    supabase
+      .from("products")
+      .select("*")
+      .eq("seller_id", seller.id)
+      .order("created_at", { ascending: false }),
+    getFoodSalesStatus(seller.id),
+  ]);
 
   return (
     <div className="space-y-6">
@@ -37,6 +42,8 @@ export default async function ProductsPage() {
           <Link href="/seller/products/new">New product</Link>
         </Button>
       </div>
+
+      <FoodSalesNotice status={foodSales} />
 
       {!products?.length ? (
         <div className="text-muted-foreground rounded-lg border border-dashed p-10 text-center text-sm">

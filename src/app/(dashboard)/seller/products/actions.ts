@@ -7,6 +7,7 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
+import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
 import type { ProductImage } from "@/lib/db/types";
 
 export interface ProductFormState {
@@ -61,6 +62,15 @@ function parse(formData: FormData) {
   });
 }
 
+
+/**
+ * The state gate, checked here so the seller reads a sentence rather than a constraint violation.
+ * `products_guard_online_food_sales` enforces it regardless — this is the friendly half.
+ */
+async function foodSalesBlock(sellerId: string, categoryId: string): Promise<string | null> {
+  return describeFoodSalesBlock(sellerId, categoryId);
+}
+
 export async function createProductAction(
   _prev: ProductFormState,
   formData: FormData,
@@ -70,9 +80,12 @@ export async function createProductAction(
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Check the form." };
 
   const sellerId = await getSellerId(user.id);
-  const supabase = await createClient();
   const d = parsed.data;
 
+  const blocked = await foodSalesBlock(sellerId, d.categoryId);
+  if (blocked) return { error: blocked };
+
+  const supabase = await createClient();
   const { data: product, error } = await supabase
     .from("products")
     .insert({
@@ -108,9 +121,12 @@ export async function updateProductAction(
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Check the form." };
 
   const sellerId = await getSellerId(user.id);
-  const supabase = await createClient();
   const d = parsed.data;
 
+  const blocked = await foodSalesBlock(sellerId, d.categoryId);
+  if (blocked) return { error: blocked };
+
+  const supabase = await createClient();
   const { error } = await supabase
     .from("products")
     .update({
