@@ -142,6 +142,8 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npm run dev` | Next dev server (Turbopack) on :3000 |
 | `npm run build` / `npm start` | Production build / serve |
 | `npm run lint` | ESLint |
+| `npm test` | Vitest unit pass (pure logic; `test/integration/**` excluded) |
+| `npm run test:integration` | DB pass — SECURITY DEFINER fns, triggers, RLS against a real Postgres. Skips unless `INTEGRATION_SUPABASE_URL` / `_ANON_KEY` / `_SERVICE_ROLE_KEY` are set. See `test/integration/README.md` |
 | `npx supabase start` | Local Postgres + Auth + Storage (needs Docker) |
 | `npx supabase db reset` | Drop, recreate, re-run all migrations + seed |
 | `npx supabase migration new <name>` | New migration file |
@@ -155,6 +157,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
 LAUNCH.md                              production go-live checklist (env, Stripe live, Inngest Cloud, Resend, admin, hardening)
+test/                                  Vitest units (pure logic) · test/integration/ = the DB pass (see its README)
 supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance · Phase 3: referrals, finalize_paid_order
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients

@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:integration": "vitest run --config vitest.integration.config.mts",
     "db:reset": "supabase db reset --local",
     "db:push": "supabase db push",
     "db:types": "supabase gen types typescript --linked > src/lib/db/database.types.ts",

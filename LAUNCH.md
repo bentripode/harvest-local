@@ -138,8 +138,15 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 `503 {status:"degraded"}`). Point the monitor at `https://<domain>/api/health` and alert on any
 non-200.
 
-☐ Extend the test suite (`npm test`) beyond the guardrail units it covers today — an integration
-pass against a throwaway Supabase branch for the SECURITY DEFINER functions and RLS policies.
+◑ Extend the test suite beyond the guardrail units. The **harness is in place**:
+`npm run test:integration` (`test/integration/`, see its README) runs the SECURITY DEFINER functions,
+triggers and RLS policies against a real Postgres — it skips loudly when the
+`INTEGRATION_SUPABASE_*` vars are unset, so `npm test` and CI are unaffected. Starter suites cover
+the four critical rules (`orders_same_state_only`, `finalize_paid_order` idempotency,
+`advance_order_status` authz + transition map, `reviews_verify_buyer`) plus core RLS and the column
+guards. **Still to do:** point it at a throwaway Supabase branch and actually run it — the suites
+have never been executed — then work through the "Not covered yet" list (referral chain, compliance
+functions, messaging RPCs, rate limiter, storage RLS).
 
 ☐ Load-test the map/discovery queries once there are hundreds of sellers; add a search engine
 (Typesense/Algolia, synced via Inngest) only if faceted search becomes the bottleneck.
