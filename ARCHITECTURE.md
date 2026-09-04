@@ -455,6 +455,8 @@ create table state_cottage_food_rules (
   state_code        char(2) primary key,
   revenue_cap       numeric(12,2),          -- annual gross cap; null = no cap
   requires_license  boolean not null default false,
+  verified_at       timestamptz,            -- null = still the seeded placeholder, do not trust
+  verified_by       uuid references profiles(id) on delete set null,
   allowed_categories jsonb,
   notes             text
 );

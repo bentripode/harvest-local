@@ -1259,6 +1259,8 @@ export type Database = {
           state_code: string
           updated_at: string
           updated_by: string | null
+          verified_at: string | null
+          verified_by: string | null
         }
         Insert: {
           allowed_categories?: Json | null
@@ -1268,6 +1270,8 @@ export type Database = {
           state_code: string
           updated_at?: string
           updated_by?: string | null
+          verified_at?: string | null
+          verified_by?: string | null
         }
         Update: {
           allowed_categories?: Json | null
@@ -1277,11 +1281,20 @@ export type Database = {
           state_code?: string
           updated_at?: string
           updated_by?: string | null
+          verified_at?: string | null
+          verified_by?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "state_cottage_food_rules_updated_by_fkey"
             columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "state_cottage_food_rules_verified_by_fkey"
+            columns: ["verified_by"]
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]

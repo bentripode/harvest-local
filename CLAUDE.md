@@ -197,6 +197,7 @@ src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address s
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels}.ts   admin license-review queue reads · license-type labels
+src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
@@ -218,6 +219,7 @@ src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
 src/app/admin/licenses/                license review queue + [id]/document signed-URL redirect
+src/app/admin/states/                  per-state cap / licence-required editor
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -408,7 +410,18 @@ route handlers don't run the `/admin` layout, so that handler carries its own ad
 subscriptions via the **service-role client** (allowed: it's behind the `/admin` layout's
 `requireRole("admin")`), aggregated in JS. GMV (Σ `total` of completed orders) all-time + 30d, AOV,
 refund total, MRR (`active` subs × $20 — trialing = $0), paying/trialing seller counts, total/live/
-active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Licenses · Analytics · Settings.
+active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Licenses · Analytics · States · Settings.
+
+**Phase 5 — state rules editor.** `/admin/states` edits `state_cottage_food_rules` (cap,
+`requires_license`, notes) through the request client — RLS ("cottage rules: admin write") is the
+gate and there is no guard trigger, so no service role. **Saving is the verification act**: it
+stamps `verified_at` / `verified_by` (`20260904120000_state_rules_verification.sql`), which is what
+separates a real figure from the seeded placeholder. All 51 rows shipped with the same invented
+$50,000 cap and `requires_license = false`, and `record_order_revenue` pauses a storefront the
+moment its yearly gross crosses whatever is in that column — so an unverified row is a guardrail
+firing on a number nobody checked. The page says so, and `/seller/compliance` only calls the cap a
+placeholder when `verified_at` is null (`getRevenueStatus().capVerified`).
+
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
 `platform_settings.access_mode` `sellers_only` ↔ `public` (RLS already allows admin writes),
