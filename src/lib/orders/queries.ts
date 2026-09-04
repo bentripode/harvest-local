@@ -20,14 +20,15 @@ export interface OrderDetail extends Order {
   buyer: { id: string; display_name: string } | null;
   items: OrderItem[];
   history: OrderStatusHistory[];
-  refund: { amount: string; created_at: string } | null;
+  /** Zero or more — an order can be refunded across several partial refunds. */
+  refunds: { amount: string; created_at: string }[];
 }
 
 const LIST_SELECT =
   "*, seller:seller_profiles(business_name, storefront_slug), buyer:profiles(display_name), item_count:order_items(count)";
 
 const DETAIL_SELECT =
-  "*, seller:seller_profiles(id, business_name, storefront_slug), buyer:profiles(id, display_name), items:order_items(*), history:order_status_history(*), refund:refunds(amount, created_at)";
+  "*, seller:seller_profiles(id, business_name, storefront_slug), buyer:profiles(id, display_name), items:order_items(*), history:order_status_history(*), refunds:refunds(amount, created_at)";
 
 export async function getBuyerOrders(buyerId: string): Promise<OrderListRow[]> {
   const supabase = await createClient();
@@ -61,11 +62,18 @@ export async function getOrder(orderId: string): Promise<OrderDetail | null> {
   if (!data) return null;
 
   const detail = data as unknown as OrderDetail & {
-    refund: { amount: string; created_at: string }[] | { amount: string; created_at: string } | null;
+    refunds:
+      | { amount: string; created_at: string }[]
+      | { amount: string; created_at: string }
+      | null;
   };
   detail.history = [...detail.history].sort(
     (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime(),
   );
-  detail.refund = Array.isArray(detail.refund) ? (detail.refund[0] ?? null) : detail.refund;
+  detail.refunds = Array.isArray(detail.refunds)
+    ? detail.refunds
+    : detail.refunds
+      ? [detail.refunds]
+      : [];
   return detail as OrderDetail;
 }

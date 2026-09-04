@@ -334,19 +334,21 @@ updates. `submitReportAction` (`src/app/reports/actions.ts`, shared by both orde
 (`requireRole("admin")`, own layout; "Admin" nav link shows only for `role = 'admin'`) — status +
 resolution-note updates.
 
-**Phase 5 — admin refunds.** `refunds` table (§2.7; `unique(order_id)` — **one refund per order**,
-party-or-admin read, no client write). `issueRefundAction` (admin): refunds the full total, or a
-smaller `amount` (dollars, validated ≤ total server-side → cents) for a **partial**;
-`stripe.refunds.create({ payment_intent, reverse_transfer: true, amount? })` (pulls the money back
-from the seller/MoR proportionally), `idempotencyKey: refund:<order_id>`, then records the `refunds`
-row + sets the report `refunded`. **Never touches order state.** The `charge.refunded` webhook:
-`fetchOrderForCharge` → for a **full** refund `unwindOrder` (`→ cancelled` + referral-invalidate),
-for a **partial** it leaves order status + referral alone; either way it mirrors the refund, links
-the oldest open report into `refunds.report_id` + resolves it (only when no `refunds` row exists
-yet — a dashboard refund), and queues `refund_issued` to buyer + seller (`cancelled` flag in the
-payload; deduped by `notifications_refund_issued_ux` + `tolerateDuplicate`, so redeliveries and the
-full/partial paths never double-send). `charge.dispute.created` → `unwindOrder(→ disputed)`. Order
-pages show "Refunded − $X" / "Partially refunded − $X". Not built: multiple partial refunds per order.
+**Phase 5 — admin refunds.** `refunds` table (§2.7; party-or-admin read, no client write). An order
+can be refunded across **several partial refunds** — one row per Stripe `Refund`, keyed on
+`unique(stripe_refund_id)` (the `unique(order_id)` was dropped). `issueRefundAction` (admin): sums
+existing `refunds`, validates the new `amount` (dollars → cents) ≤ the **remaining** balance,
+`stripe.refunds.create({ payment_intent, reverse_transfer: true, amount? })` (omit `amount` = "the
+rest"; pulls back from the seller/MoR proportionally), `idempotencyKey:
+refund:<order_id>:<already-refunded-cents>` (advances as refunds accumulate → dedupes a double
+submit), records the row (`onConflict: stripe_refund_id`) + resolves the report. **Never touches
+order state.** The `charge.refunded` webhook: `fetchOrderForCharge`, take the triggering refund
+(`charge.refunds.data[0]`), mirror it if `stripe_refund_id` is new, link+resolve the oldest open
+report, and queue `refund_issued` (payload carries `refund_id` + this refund's `amount` + a
+`cancelled` flag; deduped per refund by `notifications_refund_issued_ux` + `tolerateDuplicate`).
+When the **cumulative** `charge.amount_refunded` reaches the charge total → `unwindOrder(→ cancelled)`
++ referral-invalidate. `charge.dispute.created` → `unwindOrder(→ disputed)`. Order pages sum the
+refunds → "Refunded − $X" / "Partially refunded (N) − $X".
 
 **Phase 5 — platform analytics.** `/admin/analytics` — `getPlatformStats()`
 (`src/lib/admin/analytics.ts`) reads all orders / refunds / seller_profiles / profiles /

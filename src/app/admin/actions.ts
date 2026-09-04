@@ -59,11 +59,12 @@ export interface RefundState {
 }
 
 /**
- * Refund an order's destination charge — the full total, or a smaller `amount` (dollars) for a
- * partial. `reverse_transfer` pulls the money back from the seller (merchant of record)
- * proportionally. Stripe processes it; the `charge.refunded` webhook mirrors the refund, notifies
- * the parties, and (full refunds only) unwinds the order — this action never touches order state
- * (CLAUDE.md rule 2). One refund per order.
+ * Refund an order's destination charge — up to the amount not already refunded. Omit `amount` (or
+ * pass the remaining balance) for a "refund the rest"; a smaller `amount` (dollars) is a further
+ * partial. `reverse_transfer` pulls the money back from the seller (MoR) proportionally. Stripe
+ * processes it; the `charge.refunded` webhook mirrors the refund, notifies the parties, and (once
+ * the cumulative refund reaches the total) unwinds the order — this action never touches order
+ * state (CLAUDE.md rule 2).
  */
 export async function issueRefundAction(
   _prev: RefundState,
@@ -93,22 +94,24 @@ export async function issueRefundAction(
   if (!order.stripe_payment_intent_id) return { error: "This order has no captured payment." };
 
   const orderTotalCents = toCents(order.total);
+
+  const { data: priorRows } = await admin
+    .from("refunds")
+    .select("amount")
+    .eq("order_id", orderId);
+  const alreadyCents = (priorRows ?? []).reduce((n, r) => n + toCents(r.amount), 0);
+  const remainingCents = orderTotalCents - alreadyCents;
+  if (remainingCents <= 0) return { error: "This order is already fully refunded." };
+
   let amountCents: number | undefined;
   if (amount != null) {
     amountCents = toCents(amount);
     if (amountCents <= 0) return { error: "Enter a refund amount." };
-    if (amountCents > orderTotalCents) {
-      return { error: `That's more than the order total (${formatUsd(orderTotalCents)}).` };
+    if (amountCents > remainingCents) {
+      return { error: `Only ${formatUsd(remainingCents)} is left to refund.` };
     }
   }
-  const isFull = amountCents == null || amountCents >= orderTotalCents;
-
-  const { data: existing } = await admin
-    .from("refunds")
-    .select("id")
-    .eq("order_id", orderId)
-    .maybeSingle();
-  if (existing) return { error: "This order has already been refunded." };
+  const isRest = amountCents == null || amountCents >= remainingCents;
 
   let refund: { id: string; amount: number };
   try {
@@ -116,15 +119,19 @@ export async function issueRefundAction(
       {
         payment_intent: order.stripe_payment_intent_id,
         reverse_transfer: true,
-        ...(isFull ? {} : { amount: amountCents }),
+        ...(isRest ? {} : { amount: amountCents }),
       },
-      { idempotencyKey: `refund:${orderId}` },
+      // Deterministic per cumulative-refunded position: dedupes a double-submit from the same page
+      // state, advances once a refund is recorded.
+      { idempotencyKey: `refund:${orderId}:${alreadyCents}` },
     );
     refund = { id: r.id, amount: r.amount };
   } catch (err) {
     console.error("[admin] stripe.refunds.create failed:", err);
     return { error: err instanceof Error ? err.message : "Stripe refused the refund." };
   }
+
+  const nowFull = alreadyCents + refund.amount >= orderTotalCents;
 
   await admin.from("refunds").upsert(
     {
@@ -135,11 +142,11 @@ export async function issueRefundAction(
       reason: note || null,
       initiated_by: user.id,
     },
-    { onConflict: "order_id" },
+    { onConflict: "stripe_refund_id", ignoreDuplicates: true },
   );
 
   if (reportId) {
-    const verb = isFull ? "Refunded" : "Partially refunded";
+    const verb = nowFull ? "Refunded" : "Partially refunded";
     await admin
       .from("reports")
       .update({

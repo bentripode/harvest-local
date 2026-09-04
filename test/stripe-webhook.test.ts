@@ -162,7 +162,7 @@ const refundEvent = {
       amount: 2000,
       amount_refunded: 2000,
       payment_intent: "pi_1",
-      refunds: { data: [{ id: "re_1" }] },
+      refunds: { data: [{ id: "re_1", amount: 2000 }] },
     },
   },
 };
@@ -275,7 +275,21 @@ describe("POST /api/webhooks/stripe", () => {
   });
 });
 
-describe("charge.refunded → refunds.report_id backfill", () => {
+/** A `charge.refunded` event for a single Stripe Refund of `refundCents`, cumulative `cumulativeCents`. */
+function refundEventFor(refundId: string, refundCents: number, cumulativeCents: number) {
+  return {
+    ...refundEvent,
+    data: {
+      object: {
+        ...refundEvent.data.object,
+        amount_refunded: cumulativeCents,
+        refunds: { data: [{ id: refundId, amount: refundCents }] },
+      },
+    },
+  };
+}
+
+describe("charge.refunded → refund mirror + report backfill", () => {
   it("links and resolves the open report for a Stripe-dashboard refund", async () => {
     h.current = makeAdmin(refundCfg({ openReport: { id: "report_1" } }));
     h.constructEvent.mockReturnValue(refundEvent);
@@ -337,27 +351,44 @@ describe("charge.refunded → refunds.report_id backfill", () => {
     );
   });
 
-  it("mirrors a partial refund without touching order status, and marks it not cancelled", async () => {
+  it("mirrors a partial refund at its own amount, leaves order status alone, not cancelled", async () => {
     h.current = makeAdmin(refundCfg());
-    h.constructEvent.mockReturnValue({
-      ...refundEvent,
-      data: { object: { ...refundEvent.data.object, amount_refunded: 500 } },
-    });
+    h.constructEvent.mockReturnValue(refundEventFor("re_p1", 500, 500));
 
     await POST(req(JSON.stringify(refundEvent), "good"));
 
-    // Refund is still mirrored, at the partial amount.
     const refundUpsert = h.current.calls.upserts.find((u) => u.table === "refunds");
-    expect(refundUpsert?.value).toMatchObject({ order_id: "order_1", amount: "5.00" });
-
-    // Order status is left alone.
+    expect(refundUpsert?.value).toMatchObject({
+      order_id: "order_1",
+      stripe_refund_id: "re_p1",
+      amount: "5.00",
+    });
     expect(h.current.calls.updates.some((u) => u.table === "orders")).toBe(false);
 
     expect(queueNotificationForEach).toHaveBeenCalledWith(
       expect.anything(),
       expect.anything(),
       expect.objectContaining({
-        payload: expect.objectContaining({ cancelled: false, amount: "5.00" }),
+        payload: expect.objectContaining({ refund_id: "re_p1", cancelled: false, amount: "5.00" }),
+      }),
+    );
+  });
+
+  it("cancels the order on the partial that brings the cumulative refund to the total", async () => {
+    h.current = makeAdmin(refundCfg());
+    // second partial: this refund is $15, cumulative is now the full $20
+    h.constructEvent.mockReturnValue(refundEventFor("re_p2", 1500, 2000));
+
+    await POST(req(JSON.stringify(refundEvent), "good"));
+
+    expect(h.current.calls.updates.find((u) => u.table === "orders")?.value).toMatchObject({
+      status: "cancelled",
+    });
+    expect(queueNotificationForEach).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.objectContaining({
+        payload: expect.objectContaining({ refund_id: "re_p2", cancelled: true, amount: "15.00" }),
       }),
     );
   });

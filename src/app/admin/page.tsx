@@ -105,8 +105,13 @@ function Section({
                       ))}
                     </div>
                   </form>
-                  {!r.refundAmount ? (
-                    <RefundButton orderId={r.orderId} reportId={r.id} orderTotal={r.orderTotal} />
+                  {toCents(r.refundAmount ?? "0") < toCents(r.orderTotal) ? (
+                    <RefundButton
+                      orderId={r.orderId}
+                      reportId={r.id}
+                      orderTotal={r.orderTotal}
+                      alreadyRefunded={r.refundAmount ?? "0"}
+                    />
                   ) : null}
                 </div>
               ) : null}

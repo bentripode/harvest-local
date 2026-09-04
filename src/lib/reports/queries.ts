@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { cents, toCents, toDecimalString } from "@/lib/money";
 
 export interface AdminReport {
   id: string;
@@ -42,7 +43,11 @@ export async function getReportQueue(): Promise<AdminReport[]> {
   ]);
 
   const orderById = new Map((orders ?? []).map((o) => [o.id, o]));
-  const refundByOrder = new Map((refunds ?? []).map((r) => [r.order_id, r.amount]));
+  // An order can have several partial refunds — sum them (as a decimal string).
+  const refundedByOrder = new Map<string, number>();
+  for (const r of refunds ?? []) {
+    refundedByOrder.set(r.order_id, (refundedByOrder.get(r.order_id) ?? 0) + toCents(r.amount));
+  }
 
   return reports.map((r) => {
     const o = orderById.get(r.order_id);
@@ -62,7 +67,10 @@ export async function getReportQueue(): Promise<AdminReport[]> {
       reporterRole: reporterIsBuyer ? "buyer" : "seller",
       counterpartyName: reporterIsBuyer ? sellerName : buyerName,
       resolutionNote: r.resolution_note,
-      refundAmount: refundByOrder.get(r.order_id) ?? null,
+      refundAmount:
+        refundedByOrder.has(r.order_id)
+          ? toDecimalString(cents(refundedByOrder.get(r.order_id)!))
+          : null,
       createdAt: r.created_at,
     };
   });
