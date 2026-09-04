@@ -8,17 +8,19 @@ import { SellerStatsPanel } from "@/components/seller-stats";
 import { StarRating } from "@/components/star-rating";
 import { ReviewList } from "@/components/review-list";
 import { getSellerContext } from "@/lib/auth";
-import { getSellerDashboardStats } from "@/lib/analytics/queries";
+import { getSellerDashboardStats, parseWindowDays, WINDOW_DAYS } from "@/lib/analytics/queries";
 import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
 
-export default async function SellerOverviewPage() {
+export default async function SellerOverviewPage({ searchParams }: PageProps<"/seller">) {
   const { profile, seller, subscription, onboardingComplete } = await getSellerContext();
 
   if (profile.role === "buyer") redirect("/");
   if (!onboardingComplete || !seller) redirect("/seller/onboarding");
 
+  const windowDays = parseWindowDays((await searchParams).range);
+
   const [stats, reviewSummary, reviews] = await Promise.all([
-    getSellerDashboardStats(seller.id),
+    getSellerDashboardStats(seller.id, windowDays),
     getSellerReviewSummary(seller.id),
     getSellerReviews(seller.id, 5),
   ]);
@@ -49,6 +51,22 @@ export default async function SellerOverviewPage() {
         </Badge>
       </div>
 
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="text-sm font-medium">Sales</h2>
+        <div className="flex gap-1 text-sm">
+          {WINDOW_DAYS.map((d) => (
+            <Link
+              key={d}
+              href={d === 30 ? "/seller" : `/seller?range=${d}`}
+              className={`rounded-md px-2 py-1 ${
+                windowDays === d ? "bg-muted font-medium" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {d === 365 ? "1 year" : `${d} days`}
+            </Link>
+          ))}
+        </div>
+      </div>
       <SellerStatsPanel stats={stats} />
 
       <div className="grid gap-4 sm:grid-cols-3">
