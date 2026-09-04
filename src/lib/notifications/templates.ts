@@ -60,7 +60,7 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaLabel: "Open admin queue",
   },
   refund_issued: {
-    subject: () => "Your order was refunded",
+    subject: (p) => (p.cancelled === false ? "Your order was partially refunded" : "Your order was refunded"),
     ctaPath: "/orders",
     ctaLabel: "View orders",
   },

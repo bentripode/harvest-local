@@ -321,15 +321,19 @@ updates. `submitReportAction` (`src/app/reports/actions.ts`, shared by both orde
 (`requireRole("admin")`, own layout; "Admin" nav link shows only for `role = 'admin'`) — status +
 resolution-note updates.
 
-**Phase 5 — admin refunds.** `refunds` table (§2.7; `unique(order_id)`, party-or-admin read, no
-client write). `issueRefundAction` (admin): `stripe.refunds.create({ payment_intent, reverse_transfer:
-true })` (pulls the money back from the seller/MoR), `idempotencyKey: refund:<order_id>`, then records
-the `refunds` row + sets the report `refunded`. **Never touches order state** — the `charge.refunded`
-webhook does the unwind (`→ cancelled` + referral-invalidate), and when no `refunds` row exists yet
-(a dashboard-issued refund — `issueRefundAction` never ran) it mirrors the refund, links the oldest
-open report on the order into `refunds.report_id`, and resolves that report `refunded` (status-guarded
-so a redelivery no-ops). Then queues `refund_issued` to the buyer + seller. Order pages show a
-"Refunded − $X" line. Not built: partial refunds.
+**Phase 5 — admin refunds.** `refunds` table (§2.7; `unique(order_id)` — **one refund per order**,
+party-or-admin read, no client write). `issueRefundAction` (admin): refunds the full total, or a
+smaller `amount` (dollars, validated ≤ total server-side → cents) for a **partial**;
+`stripe.refunds.create({ payment_intent, reverse_transfer: true, amount? })` (pulls the money back
+from the seller/MoR proportionally), `idempotencyKey: refund:<order_id>`, then records the `refunds`
+row + sets the report `refunded`. **Never touches order state.** The `charge.refunded` webhook:
+`fetchOrderForCharge` → for a **full** refund `unwindOrder` (`→ cancelled` + referral-invalidate),
+for a **partial** it leaves order status + referral alone; either way it mirrors the refund, links
+the oldest open report into `refunds.report_id` + resolves it (only when no `refunds` row exists
+yet — a dashboard refund), and queues `refund_issued` to buyer + seller (`cancelled` flag in the
+payload; deduped by `notifications_refund_issued_ux` + `tolerateDuplicate`, so redeliveries and the
+full/partial paths never double-send). `charge.dispute.created` → `unwindOrder(→ disputed)`. Order
+pages show "Refunded − $X" / "Partially refunded − $X". Not built: multiple partial refunds per order.
 
 **Phase 5 — platform analytics.** `/admin/analytics` — `getPlatformStats()`
 (`src/lib/admin/analytics.ts`) reads all orders / refunds / seller_profiles / profiles /

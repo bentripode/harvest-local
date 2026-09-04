@@ -29,7 +29,9 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
   report_filed: (p) =>
     `A ${label(p.reason)} report was filed on order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) — triage it in the admin queue.`,
   refund_issued: (p) =>
-    `Order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) was refunded ${usd(p.amount)}. The order is cancelled.`,
+    `Order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) was ${
+      p.cancelled === false ? "partially " : ""
+    }refunded ${usd(p.amount)}.${p.cancelled === false ? "" : " The order is cancelled."}`,
   new_message: (p) =>
     `${s(p.sender_name, "Someone")} sent you a message${
       p.order_ref ? ` about order ${s(p.order_ref)}` : ""

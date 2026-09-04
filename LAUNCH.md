@@ -66,7 +66,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (27 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (28 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -169,3 +169,4 @@ Tracked across the phase commits:
 - ✅ **Saved address book** for buyers — `/account` manages saved addresses; the checkout delivery form has a dropdown to pick one. Delivery **time windows** not built.
 - **Realtime for messaging** takes over automatically once §3's Postgres Changes toggle is on.
 - ✅ **`refunds.report_id` backfill** — the `charge.refunded` webhook now links the oldest open report on the order into the mirror row and resolves it, for refunds issued straight from the Stripe dashboard.
+- ✅ **Partial refunds** — `issueRefundAction` takes an amount (≤ total); a partial mirrors the refund + emails both parties but doesn't cancel the order or invalidate the referral. One refund per order (multiple partials on one order not supported).
