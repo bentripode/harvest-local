@@ -42,6 +42,9 @@ export function ShopHeader({
                     </span>
                   ) : null}
                 </Link>
+                <Link href="/account" className="hover:text-foreground">
+                  Account
+                </Link>
               </>
             ) : null}
           </nav>

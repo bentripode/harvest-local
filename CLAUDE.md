@@ -176,7 +176,7 @@ src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/instrumentation*.ts                 Sentry init (server/edge/client) · onRequestError · inert without SENTRY_DSN
 src/app/(auth)/                        login, signup, email confirm
-src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders
+src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders, /account (address book + notification emails)
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
@@ -226,8 +226,8 @@ Per-user **email opt-outs**: `queueNotification` reads `profiles.notification_pr
 inserting — `in_app` is never filtered. `src/lib/notifications/categories.ts` owns the template →
 category map and `emailEnabled()`; `payments` (refund) + `compliance` (license-expired / revenue-cap)
 are **not** suppressible and skip the profile read entirely. Sellers/admins toggle theirs on
-`/seller/settings` (`saveNotificationPrefsAction`); the buyer-facing `order_updates` toggle needs a
-buyer account page (not built). **SMS (Twilio) is not built yet.**
+`/seller/settings` (`saveNotificationPrefsAction`); buyers toggle `order_updates` on `/account`.
+**SMS (Twilio) is not built yet.**
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a
@@ -269,7 +269,9 @@ Stripe session as a `shipping_options` fixed rate so Stripe Tax handles delivery
 (MoR) receives it. For delivery, `orders.buyer_state` = the delivery address state (still ==
 seller state; the `orders_same_state_only` CHECK + guard hold). Needs `MAPBOX_TOKEN` (Geocoding +
 Directions); with none set, delivery is unavailable and pickup is unaffected. `src/lib/geo/routing.ts`
-keeps the provider swappable. Not built: saved-address book, delivery time windows.
+keeps the provider swappable. Buyers save reusable addresses on `/account` (`addresses` table +
+`upsert_address` RPC + "addresses: owner all" RLS — no schema change); wiring a saved-address picker
+into checkout is still open, as is delivery time windows.
 
 **Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
 `getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS. 30-day
