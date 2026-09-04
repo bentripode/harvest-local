@@ -60,6 +60,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `license-gate.test.ts` | `sync_seller_license_pause` / `seller_has_required_documents` — the required set (ID + tax ID, plus the permit once a food product is listed), the `products` trigger that re-derives it, the document/expiry CHECK constraints, and the pause precedence against `revenue_cap` / `admin` / `onboarding_incomplete` |
 | `state-rules.test.ts` | `state_cottage_food_rules` RLS — public read, a seller cannot raise their own state's cap or insert a new state, an admin can set it and stamp `verified_at` |
 | `tax-id-protection.test.ts` | the column-level SELECT grant on `seller_licenses` — neither the owning seller nor an admin can read `tax_id_encrypted` (nor `select *`), while the last 4 stays readable; `tax_id_audit` is admin-read, no-client-write, and `tax_id_key_id` is likewise unreadable by clients |
+| `state-programs.test.ts` | `state_food_programs` — the seed (51 jurisdictions covered, all unverified, provenance on every row, the five online-banned states, CA's three programs, CO's per-product cap) and its RLS: public read, a seller cannot unban their own state or insert a program, an admin can |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found
