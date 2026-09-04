@@ -97,6 +97,18 @@ type ReviewsFixed = {
   Relationships: GenTables["reviews"]["Relationships"];
 };
 
+/**
+ * `seller_view_counts` + `record_storefront_view` — storefront-view rollup for the seller
+ * dashboard's conversion rate. Manually declared until `npm run db:types` picks up the
+ * 20260904030000_storefront_views migration.
+ */
+type SellerViewCountsTable = {
+  Row: { seller_id: string; day: string; views: number };
+  Insert: { seller_id: string; day?: string; views?: number };
+  Update: { seller_id?: string; day?: string; views?: number };
+  Relationships: [];
+};
+
 type OrderMoneyKeys =
   | "subtotal"
   | "discount_total"
@@ -107,7 +119,7 @@ type OrderMoneyKeys =
 
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
-  public: Omit<Generated["public"], "Tables"> & {
+  public: Omit<Generated["public"], "Tables" | "Functions"> & {
     Tables: Omit<
       GenTables,
       | "profiles"
@@ -123,6 +135,7 @@ export type Database = Omit<Generated, "public"> & {
       profiles: ProfilesFixed;
       products: ProductsFixed;
       reviews: ReviewsFixed;
+      seller_view_counts: SellerViewCountsTable;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
@@ -132,6 +145,12 @@ export type Database = Omit<Generated, "public"> & {
       >;
       referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
       refunds: MoneyFixed<GenTables["refunds"], "amount">;
+    };
+    Functions: Generated["public"]["Functions"] & {
+      record_storefront_view: {
+        Args: { p_seller_id: string };
+        Returns: undefined;
+      };
     };
   };
 };

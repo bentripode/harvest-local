@@ -25,6 +25,9 @@ export interface SellerStats {
     deliveryOrders: number;
     deliveryRevenueCents: number;
     discountsCents: number;
+    views: number;
+    /** completed orders ÷ storefront views, as a percentage; null with no views. */
+    conversionPct: number | null;
   };
   prev30: StatWindow;
   last90: StatWindow;
@@ -51,7 +54,9 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
   const since30 = new Date(now - 30 * DAY_MS).toISOString();
   const since60 = new Date(now - 60 * DAY_MS).toISOString();
 
-  const [{ data: orderData }, { data: itemData }] = await Promise.all([
+  const since30Day = since30.slice(0, 10);
+
+  const [{ data: orderData }, { data: itemData }, { data: viewData }] = await Promise.all([
     supabase
       .from("orders")
       .select("total, discount_total, delivery_fee, fulfillment_type, status, created_at")
@@ -64,6 +69,11 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
       .eq("orders.seller_id", sellerId)
       .eq("orders.status", "completed")
       .gte("orders.created_at", since30),
+    supabase
+      .from("seller_view_counts")
+      .select("views")
+      .eq("seller_id", sellerId)
+      .gte("day", since30Day),
   ]);
 
   const orders = (orderData ?? []) as OrderRow[];
@@ -77,6 +87,8 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
     deliveryOrders: 0,
     deliveryRevenueCents: 0,
     discountsCents: 0,
+    views: 0,
+    conversionPct: null as number | null,
   };
   const prev30 = blankWindow();
   const last90 = blankWindow();
@@ -116,6 +128,10 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
 
   last30.aovCents = last30.orders > 0 ? Math.round(last30.revenueCents / last30.orders) : 0;
 
+  last30.views = ((viewData ?? []) as { views: number }[]).reduce((s, v) => s + (v.views ?? 0), 0);
+  last30.conversionPct =
+    last30.views > 0 ? Math.round((last30.orders / last30.views) * 1000) / 10 : null;
+
   const daily = [...dailyMap.entries()]
     .map(([date, c]) => ({ date, cents: c }))
     .sort((a, b) => a.date.localeCompare(b.date));
@@ -143,6 +159,6 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
     last90,
     daily,
     topProducts,
-    hasData: last90.orders > 0 || last30.cancelled > 0,
+    hasData: last90.orders > 0 || last30.cancelled > 0 || last30.views > 0,
   };
 }
