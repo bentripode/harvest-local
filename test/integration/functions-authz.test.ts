@@ -191,4 +191,19 @@ describeDb("SECURITY DEFINER authorization", () => {
     expect(row?.line1).toBe("1 Main St");
     expect(row?.user_id).toBe(buyer.id);
   });
+
+  // -- the license gate (service-role only) --------------------------------
+  it("sync_seller_license_pause is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("sync_seller_license_pause", {
+      p_seller_id: "00000000-0000-0000-0000-000000000000",
+    });
+    expect(error).not.toBeNull();
+  });
+
+  it("seller_has_valid_license is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("seller_has_valid_license", {
+      p_seller_id: "00000000-0000-0000-0000-000000000000",
+    });
+    expect(error).not.toBeNull();
+  });
 });

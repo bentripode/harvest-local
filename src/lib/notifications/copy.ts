@@ -20,10 +20,16 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `Your ${label(p.license_type)} expires in ${s(p.days_left)} day${p.days_left === 1 ? "" : "s"} (${s(p.expiration_date)}). Renew it to avoid a pause.`,
   license_expired: (p) =>
     `Your ${label(p.license_type)} expired on ${s(p.expiration_date)}. Your storefront is paused until it's renewed and re-verified.`,
+  license_required: () =>
+    `Your storefront is paused until a license is verified. Upload your cottage-food permit or ID on the compliance page and an admin will review it.`,
   license_verified: (p) =>
-    `Your ${label(p.license_type)} is verified — on file until ${s(p.expiration_date)}.${p.note ? ` ${s(p.note)}` : ""}`,
+    `Your ${label(p.license_type)} is verified — on file until ${s(p.expiration_date)}.${
+      p.storefront_paused ? "" : " Your storefront is live."
+    }${p.note ? ` ${s(p.note)}` : ""}`,
   license_rejected: (p) =>
-    `Your ${label(p.license_type)} wasn't accepted: ${s(p.note, "no reason given")}. Upload a corrected document on the compliance page.`,
+    `Your ${label(p.license_type)} wasn't accepted: ${s(p.note, "no reason given")}. Upload a corrected document on the compliance page.${
+      p.storefront_paused ? " Your storefront stays paused until a license is verified." : ""
+    }`,
   referral_reward_earned: (p) =>
     `You hit ${s(p.threshold)} verified referrals this cycle — a free month is applied to your next invoice.`,
   referral_reward_review: (p) =>

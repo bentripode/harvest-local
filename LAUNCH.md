@@ -67,9 +67,14 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-✅ Migrations applied to the **dev** project — all 33, and `database.types.ts` regenerated from the
-live schema. For the project you actually launch on: `npx supabase db push` (33 migrations as of
-launch), then `npm run db:types` after any change.
+✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
+schema. For the project you actually launch on: `npx supabase db push` (34 migrations as of launch),
+then `npm run db:types` after any change.
+
+☐ `20260904110000_license_gate.sql` is **not yet applied** — push it, then `npm run db:types` (the
+two new functions are layered into `src/lib/db/types.ts` by hand until that regen). **Its backfill
+pauses every live storefront without a verified license** and emails those sellers a
+`license_required`. Scoped to `pause_reason is null`, so it never re-pauses one an admin reinstated.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
 already in the `supabase_realtime` publication with `replica identity full`, but the hosted project
@@ -88,6 +93,8 @@ Then `/admin`, `/admin/licenses`, `/admin/analytics`, `/admin/settings` become r
 
 ☐ **Work through the licenses already on file.** Every license uploaded so far sits `pending`, which
 means `license-expiry-scan` cannot see any of them — verify or reject each at `/admin/licenses`.
+Until a seller has a verified one their storefront stays paused (`license_unverified`), so do this
+before flipping `access_mode` to `public` or the marketplace opens empty.
 
 ---
 
@@ -144,8 +151,8 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **45 tests, all
-passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **45 tests
+passing** against the dev project, plus the license-gate suite added since (not yet run). It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,
 `reviews_verify_buyer`), core RLS + the column guards, and the authorization of every

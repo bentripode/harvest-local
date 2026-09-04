@@ -22,6 +22,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   referral_reward_earned: "referrals",
   license_expiring: "license_reminders",
   license_expired: "compliance",
+  license_required: "compliance",
   license_verified: "compliance",
   license_rejected: "compliance",
   revenue_cap_reached: "compliance",

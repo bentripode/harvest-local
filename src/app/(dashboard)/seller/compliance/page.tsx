@@ -95,7 +95,7 @@ export default async function CompliancePage() {
         <h2 className="text-sm font-medium">Licenses &amp; IDs</h2>
         {licenses.length === 0 ? (
           <p className="text-muted-foreground rounded-lg border border-dashed p-4 text-sm">
-            No licenses on file.
+            No licenses on file — your storefront stays paused until an admin verifies one.
           </p>
         ) : (
           <ul className="divide-y rounded-lg border">

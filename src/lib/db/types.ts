@@ -12,6 +12,8 @@
  *     (see `src/lib/money.ts`).
  *  2. jsonb columns are given their real shape instead of `Json` — `products.images`,
  *     `profiles.notification_prefs`, `seller_profiles.delivery_windows`.
+ *  3. function returns that are genuinely nullable — the generator emits every `Returns` as
+ *     non-nullable (`sync_seller_license_pause`).
  */
 import type { Database as Generated } from "./database.types";
 import type { NotificationPrefs } from "@/lib/notifications/categories";
@@ -99,9 +101,19 @@ type OrderMoneyKeys =
   | "total"
   | "delivery_distance_miles";
 
+/**
+ * `sync_seller_license_pause` returns the seller's resulting `pause_reason`, which is **null when
+ * the storefront is live** — the generator types every function return as non-nullable, so this is
+ * correction 4, the same class as the numeric and jsonb fixes above. A regen won't reintroduce it.
+ */
+type FunctionsFixed = Omit<Generated["public"]["Functions"], "sync_seller_license_pause"> & {
+  sync_seller_license_pause: { Args: { p_seller_id: string }; Returns: string | null };
+};
+
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
-  public: Omit<Generated["public"], "Tables"> & {
+  public: Omit<Generated["public"], "Tables" | "Functions"> & {
+    Functions: FunctionsFixed;
     Tables: Omit<
       GenTables,
       | "profiles"
@@ -165,6 +177,7 @@ export type LicenseType = SellerLicense["license_type"];
 export type LicenseStatus = SellerLicense["verification_status"];
 export type PauseReason =
   | "onboarding_incomplete"
+  | "license_unverified"
   | "revenue_cap"
   | "license_expired"
   | "admin";
