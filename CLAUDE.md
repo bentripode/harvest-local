@@ -280,7 +280,14 @@ Directions); with none set, delivery is unavailable and pickup is unaffected. `s
 keeps the provider swappable. Buyers save reusable addresses on `/account` (`addresses` table +
 `upsert_address` RPC + "addresses: owner all" RLS — no schema change) and pick one from a dropdown
 in the checkout delivery form (`getMyDeliveryAddressesAction` → populates the fields; the fee is
-still quoted server-side from the submitted text). Delivery time windows not built.
+still quoted server-side from the submitted text).
+
+**Delivery time windows.** A delivery-enabled seller lists free-text window labels
+(`seller_profiles.delivery_windows` jsonb; parsed by `parseWindows` in `src/lib/orders/delivery-windows.ts`
+— one per line, deduped, ≤12, ≤80 chars) in the `/seller/settings` form. If a seller has windows,
+the buyer **must** pick one at checkout (`startCheckoutAction` re-checks the choice is in the list)
+and it's frozen into `orders.delivery_window`, shown on the buyer order page + both seller order
+views. Windows don't touch pricing or the Stripe session — pure fulfilment metadata.
 
 **Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
 `getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS. 30-day

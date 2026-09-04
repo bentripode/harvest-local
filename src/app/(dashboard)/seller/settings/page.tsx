@@ -72,6 +72,7 @@ export default async function SellerSettingsPage() {
               radiusMiles: seller.delivery_radius_miles ?? 10,
               baseFee: Number(seller.delivery_base_fee ?? 0),
               perMileFee: Number(seller.delivery_per_mile_fee ?? 0),
+              windows: seller.delivery_windows ?? [],
             }}
           />
         </CardContent>

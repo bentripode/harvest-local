@@ -74,6 +74,9 @@ function Group({
                     timeStyle: "short",
                   })}{" "}
                   · {o.item_count?.[0]?.count ?? 0} item(s)
+                  {o.fulfillment_type === "delivery"
+                    ? ` · delivery${o.delivery_window ? ` (${o.delivery_window})` : ""}`
+                    : ""}
                 </p>
               </div>
               <Badge variant={o.status === "completed" ? "default" : "secondary"}>

@@ -108,6 +108,9 @@ export default async function BuyerOrderPage({
         <section className="rounded-lg border p-4 text-sm">
           <h2 className="mb-1 font-medium">Delivery address</h2>
           <p className="text-muted-foreground">{order.delivery_address_text}</p>
+          {order.delivery_window ? (
+            <p className="text-muted-foreground mt-1">Window: {order.delivery_window}</p>
+          ) : null}
         </section>
       ) : null}
 

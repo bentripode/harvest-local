@@ -6,10 +6,12 @@ import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   saveDeliverySettingsAction,
   type DeliverySettingsState,
 } from "@/app/(dashboard)/seller/settings/actions";
+import { MAX_WINDOWS } from "@/lib/orders/delivery-windows";
 
 interface Initial {
   line1: string;
@@ -20,6 +22,7 @@ interface Initial {
   radiusMiles: number;
   baseFee: number;
   perMileFee: number;
+  windows: string[];
 }
 
 export function DeliverySettingsForm({
@@ -113,6 +116,21 @@ export function DeliverySettingsForm({
             Buyers within the radius are charged base + per-mile × driving miles (rounded up).
           </p>
         ) : null}
+
+        <div className={deliveryEnabled ? "space-y-2" : "hidden"}>
+          <Label htmlFor="windows">Delivery time windows (optional)</Label>
+          <Textarea
+            id="windows"
+            name="windows"
+            rows={4}
+            defaultValue={initial.windows.join("\n")}
+            placeholder={"Saturdays 9am–12pm\nSaturdays 2–5pm\nSundays 10am–1pm"}
+          />
+          <p className="text-muted-foreground text-xs">
+            One per line (up to {MAX_WINDOWS}). Buyers choosing delivery pick one at checkout. Leave
+            blank to skip.
+          </p>
+        </div>
       </fieldset>
 
       {state.error ? <p className="text-destructive text-sm">{state.error}</p> : null}

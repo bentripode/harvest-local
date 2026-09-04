@@ -61,6 +61,20 @@ type ProfilesFixed = {
   Relationships: GenTables["profiles"]["Relationships"];
 };
 
+/** `seller_profiles.delivery_windows` (jsonb) — buyer-selectable delivery window labels. */
+type SellerProfilesFixed = {
+  Row: Omit<GenTables["seller_profiles"]["Row"], "delivery_windows"> & {
+    delivery_windows: string[];
+  };
+  Insert: Omit<GenTables["seller_profiles"]["Insert"], "delivery_windows"> & {
+    delivery_windows?: string[];
+  };
+  Update: Omit<GenTables["seller_profiles"]["Update"], "delivery_windows"> & {
+    delivery_windows?: string[];
+  };
+  Relationships: GenTables["seller_profiles"]["Relationships"];
+};
+
 type ProductsFixed = {
   Row: Omit<GenTables["products"]["Row"], "price" | "images"> & {
     price: string;
@@ -117,12 +131,27 @@ type OrderMoneyKeys =
   | "total"
   | "delivery_distance_miles";
 
+/** `orders` with money columns fixed to `string` AND `delivery_window` (new text column). */
+type OrdersFixed = {
+  Row: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Row"], "delivery_window"> & {
+    delivery_window: string | null;
+  };
+  Insert: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Insert"], "delivery_window"> & {
+    delivery_window?: string | null;
+  };
+  Update: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Update"], "delivery_window"> & {
+    delivery_window?: string | null;
+  };
+  Relationships: GenTables["orders"]["Relationships"];
+};
+
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
   public: Omit<Generated["public"], "Tables" | "Functions"> & {
     Tables: Omit<
       GenTables,
       | "profiles"
+      | "seller_profiles"
       | "products"
       | "orders"
       | "order_items"
@@ -133,10 +162,11 @@ export type Database = Omit<Generated, "public"> & {
       | "reviews"
     > & {
       profiles: ProfilesFixed;
+      seller_profiles: SellerProfilesFixed;
       products: ProductsFixed;
       reviews: ReviewsFixed;
       seller_view_counts: SellerViewCountsTable;
-      orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
+      orders: OrdersFixed;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
       seller_revenue_tracking: MoneyFixed<
