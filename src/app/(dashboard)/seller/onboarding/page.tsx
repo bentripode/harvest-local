@@ -3,7 +3,9 @@ import { redirect } from "next/navigation";
 import { CheckCircle2, Circle } from "lucide-react";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { getSellerContext } from "@/lib/auth";
+import { getChosenProgram } from "@/lib/compliance/onboarding";
 import {
   ConnectButton,
   StorefrontForm,
@@ -22,12 +24,15 @@ export default async function OnboardingPage({ searchParams }: PageProps<"/selle
   const connectDone = !!seller?.connect_details_submitted && !!seller?.connect_charges_enabled;
   const subDone = !!subscription && ["trialing", "active"].includes(subscription.status);
 
+  const chosenProgram = seller ? await getChosenProgram(seller.id) : null;
+  const foodProgramDone = !!chosenProgram;
+
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Set up your storefront</h1>
         <p className="text-muted-foreground text-sm">
-          Three steps and you&apos;re live. Your first 90 days are free.
+          Four steps and you&apos;re live. Your first 90 days are free.
         </p>
       </div>
 
@@ -93,6 +98,27 @@ export default async function OnboardingPage({ searchParams }: PageProps<"/selle
           </div>
         ) : (
           <SubscriptionButton>Start 90-day free trial</SubscriptionButton>
+        )}
+      </Step>
+
+      <Step
+        n={4}
+        title="How your state regulates homemade food"
+        done={foodProgramDone}
+        locked={!storefrontDone}
+        description="What you may sell, what permits you need, and whether online orders are allowed where you live."
+      >
+        {foodProgramDone ? (
+          <p className="text-muted-foreground text-sm">
+            {chosenProgram?.name} ·{" "}
+            <Link href="/seller/onboarding/program" className="underline">
+              change
+            </Link>
+          </p>
+        ) : (
+          <Button asChild size="sm">
+            <Link href="/seller/onboarding/program">Check my state&apos;s rules</Link>
+          </Button>
         )}
       </Step>
 

@@ -1140,6 +1140,7 @@ export type Database = {
           delivery_per_mile_fee: number
           delivery_radius_miles: number | null
           delivery_windows: Json
+          food_program_id: string | null
           home_state: string
           id: string
           is_paused: boolean
@@ -1163,6 +1164,7 @@ export type Database = {
           delivery_per_mile_fee?: number
           delivery_radius_miles?: number | null
           delivery_windows?: Json
+          food_program_id?: string | null
           home_state: string
           id?: string
           is_paused?: boolean
@@ -1186,6 +1188,7 @@ export type Database = {
           delivery_per_mile_fee?: number
           delivery_radius_miles?: number | null
           delivery_windows?: Json
+          food_program_id?: string | null
           home_state?: string
           id?: string
           is_paused?: boolean
@@ -1197,6 +1200,13 @@ export type Database = {
           updated_at?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "seller_profiles_food_program_id_fkey"
+            columns: ["food_program_id"]
+            isOneToOne: false
+            referencedRelation: "state_food_programs"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "seller_profiles_pickup_address_id_fkey"
             columns: ["pickup_address_id"]
@@ -1836,8 +1846,16 @@ export type Database = {
         Args: { p_product_ids?: string[]; p_seller_id: string }
         Returns: undefined
       }
+      seller_allows_online_food_sales: {
+        Args: { p_seller_id: string }
+        Returns: boolean
+      }
       seller_has_required_documents: {
         Args: { p_seller_id: string }
+        Returns: boolean
+      }
+      seller_permits_food_axis: {
+        Args: { p_axis: string; p_seller_id: string }
         Returns: boolean
       }
       seller_sells_cottage_food: {

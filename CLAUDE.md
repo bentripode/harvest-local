@@ -191,9 +191,11 @@ Never write an order, or code a path that could write an order, that crosses sta
   produce is not one of the six axes at all, and "Juice & Cider" could be acidified, refrigerated or
   neither. Those are left unmapped rather than guessed — a wrong mapping either blocks legal trade
   or permits illegal trade — and `/admin/programs` counts them so the gap is visible.
-- Permissive while a seller has no chosen program: if ANY program in the state allows the axis, the
-  seller could in principle enrol in that one. This tightens to their actual program when program
-  selection lands in onboarding.
+- **The seller's chosen program decides it when they have one.** `seller_permits_food_axis()` /
+  `seller_allows_online_food_sales()` read `seller_profiles.food_program_id` and check that program
+  alone; with no choice recorded they fall back to "does any program in the state permit it", so
+  nothing regresses for a seller mid-onboarding. California is the sharp case: Class A bans meat,
+  MEHKO allows it, and the same listing is legal or not depending on which one the seller is on.
 
 ---
 
@@ -261,7 +263,7 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
-src/lib/compliance/{programs,food-sales,categories}.ts   per-state programs · online-sales gate · category-axis gate
+src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · online-sales gate · category gate · program choice
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
@@ -278,7 +280,7 @@ src/proxy.ts                           Supabase session refresh (was middleware.
 src/instrumentation*.ts                 Sentry init (server/edge/client) · onRequestError · inert without SENTRY_DSN
 src/app/(auth)/                        login, signup, email confirm
 src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders, /account (address book + email/SMS prefs)
-src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
+src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription · /program = state rules wizard
 src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC) + /export CSV
 src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
@@ -520,6 +522,20 @@ rather than asking the seller for it. Fields are optional until the label genera
 in exchange for something. Net weight and allergens also show on the storefront: a buyer-safety fact
 belongs on the shelf, not only on the label. Production date and lot code are deliberately absent —
 they are per-batch, so label printing will ask.
+
+
+**Phase 5 — food program onboarding.** `/seller/onboarding/program` is step 4 of onboarding and the
+place the law gets taught by asking questions. The seller's state comes from their storefront
+details, so the page opens by saying outright if that state bans online food sales; otherwise it
+asks **what they want to make** (marketplace categories, mapped to axes through
+`categories.food_axes`) and shows which of their state's programs cover it, with the trade-offs in
+their terms — cap, licence, inspection, training — and links to the actual application and training
+course where the seed has them. Programs that don't fit stay visible and are marked rather than
+disappearing. The choice writes `seller_profiles.food_program_id`
+(`20260904210000_seller_food_program.sql`), guarded so a program from another state is refused and
+so moving state clears the choice rather than blocking the move. That column is what makes rules 6
+and 7 precise. `src/lib/compliance/onboarding.ts` holds the reads and the plain-language
+`programRequirements()` / `programSummary()`.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
