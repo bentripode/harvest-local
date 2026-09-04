@@ -76,24 +76,32 @@ describeDb("advance_order_status", () => {
     expect(error!.message).toMatch(/illegal order transition/i);
   });
 
-  it("rejects a seller who doesn't own the order", async () => {
-    const order = await newOrder("new");
-    const { error } = await outsider.db.rpc("advance_order_status", {
-      p_order_id: order.id,
+  /** Asserts the caller neither got a success nor actually moved the order. */
+  async function expectRefused(db: TestUser["db"], orderId: string) {
+    const { error } = await db.rpc("advance_order_status", {
+      p_order_id: orderId,
       p_to_status: "preparing",
     });
+    const { data: after } = await adminDb()
+      .from("orders")
+      .select("status")
+      .eq("id", orderId)
+      .single();
+
+    // The status must not have moved, whichever layer refuses.
+    expect(after?.status).toBe("new");
     expect(error).not.toBeNull();
     expect(error!.message).toMatch(/not authorized/i);
+  }
+
+  it("rejects a seller who doesn't own the order", async () => {
+    const order = await newOrder("new");
+    await expectRefused(outsider.db, order.id);
   });
 
   it("rejects the buyer", async () => {
     const order = await newOrder("new");
-    const { error } = await buyer.db.rpc("advance_order_status", {
-      p_order_id: order.id,
-      p_to_status: "preparing",
-    });
-    expect(error).not.toBeNull();
-    expect(error!.message).toMatch(/not authorized/i);
+    await expectRefused(buyer.db, order.id);
   });
 
   it("allows no transitions out of a terminal state", async () => {

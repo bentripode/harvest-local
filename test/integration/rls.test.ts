@@ -1,6 +1,7 @@
 import { afterAll, beforeAll, expect, it } from "vitest";
 
 import {
+  adminDb,
   anonDb,
   cleanupAll,
   createOrder,
@@ -18,6 +19,7 @@ describeDb("row-level security", () => {
   let buyerA: TestUser;
   let buyerB: TestUser;
   let sellerUser: TestUser;
+  let pausedSellerUser: TestUser;
   let seller: { id: string };
   let orderA: { id: string };
 
@@ -25,6 +27,7 @@ describeDb("row-level security", () => {
     buyerA = await createTestUser({ homeState: "TX" });
     buyerB = await createTestUser({ homeState: "TX" });
     sellerUser = await createTestUser({ role: "seller", homeState: "TX" });
+    pausedSellerUser = await createTestUser({ role: "seller", homeState: "TX" });
     seller = await createSeller(sellerUser.id, { homeState: "TX" });
     orderA = await createOrder({ buyerId: buyerA.id, sellerId: seller.id, buyerState: "TX" });
   });
@@ -83,12 +86,25 @@ describeDb("row-level security", () => {
   });
 
   it("seller_profiles_guard_columns blocks a seller un-pausing themselves", async () => {
-    const { error } = await sellerUser.db
+    // Must actually CHANGE the column — `is distinct from` makes a same-value write a no-op, so the
+    // fixture is paused first (createSeller defaults to live so checkout guards pass).
+    const paused = await createSeller(pausedSellerUser.id, { homeState: "TX", isPaused: true });
+
+    const { error } = await pausedSellerUser.db
       .from("seller_profiles")
-      .update({ is_paused: false, pause_reason: null })
-      .eq("id", seller.id);
+      .update({ is_paused: false })
+      .eq("id", paused.id);
+
     expect(error).not.toBeNull();
     expect(error!.message).toMatch(/protected seller_profiles columns/i);
+
+    // And it really is still paused.
+    const { data } = await adminDb()
+      .from("seller_profiles")
+      .select("is_paused")
+      .eq("id", paused.id)
+      .single();
+    expect(data?.is_paused).toBe(true);
   });
 
   it("a seller can still update their own delivery settings", async () => {
@@ -97,6 +113,14 @@ describeDb("row-level security", () => {
       .update({ delivery_base_fee: 3.5 })
       .eq("id", seller.id);
     expect(error).toBeNull();
+
+    // Read back — an RLS-filtered update returns no error but changes nothing, so assert the value.
+    const { data } = await adminDb()
+      .from("seller_profiles")
+      .select("delivery_base_fee")
+      .eq("id", seller.id)
+      .single();
+    expect(Number(data?.delivery_base_fee)).toBe(3.5);
   });
 
   it("check_rate_limit is not reachable by an authenticated client", async () => {
