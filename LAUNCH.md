@@ -131,8 +131,11 @@ explicit `captureException` in the Stripe webhook's catch (it returns 500 rather
 build-time `SENTRY_ORG` / `SENTRY_PROJECT` / `SENTRY_AUTH_TOKEN` on Vercel for readable stack traces).
 Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/inngest`.
 
-☐ Uptime/health monitoring (Better Stack, Pingdom, or similar) hitting a lightweight endpoint —
-Sentry catches thrown errors, not "the deployment is down / webhooks are 500ing in bulk".
+☐ Uptime/health monitoring (Better Stack, Pingdom, or similar) — Sentry catches thrown errors, not
+"the deployment is down / webhooks are 500ing in bulk". The app exposes **`GET /api/health`**
+(unauthenticated, side-effect free: one timed `platform_settings` read → `200 {status:"ok"}` or
+`503 {status:"degraded"}`). Point the monitor at `https://<domain>/api/health` and alert on any
+non-200.
 
 ☐ Extend the test suite (`npm test`) beyond the guardrail units it covers today — an integration
 pass against a throwaway Supabase branch for the SECURITY DEFINER functions and RLS policies.
