@@ -138,12 +138,42 @@ describeDb("tax id protection", () => {
     expect(error).not.toBeNull();
   });
 
-  it("only the three known actions are accepted", async () => {
+  it("only the known actions are accepted", async () => {
     const { error } = await admin.from("tax_id_audit").insert({
       license_id: licenseId,
       seller_id: sellerId,
       action: "exfiltrated",
     });
     expect(error).not.toBeNull();
+  });
+
+  it("accepts a rekeyed action", async () => {
+    const { error } = await admin.from("tax_id_audit").insert({
+      license_id: licenseId,
+      seller_id: sellerId,
+      action: "rekeyed",
+      note: "Re-encrypted from key 1 to key 2.",
+    });
+    expect(error).toBeNull();
+  });
+
+  // -- the key id ------------------------------------------------------------
+  it("a seller cannot select which key encrypted their row", async () => {
+    const { error } = await sellerUser.db
+      .from("seller_licenses")
+      .select("tax_id_key_id")
+      .eq("id", licenseId);
+    expect(error).not.toBeNull();
+  });
+
+  it("the service role can, which is how rotation progress is counted", async () => {
+    await admin.from("seller_licenses").update({ tax_id_key_id: 1 }).eq("id", licenseId);
+    const { data, error } = await admin
+      .from("seller_licenses")
+      .select("tax_id_key_id")
+      .eq("id", licenseId)
+      .single();
+    expect(error).toBeNull();
+    expect(data?.tax_id_key_id).toBe(1);
   });
 });
