@@ -166,6 +166,7 @@ Tracked across the phase commits:
 - ✅ **`notification_prefs`** — per-category email opt-out on `profiles.notification_prefs`, enforced in `queueNotification`; sellers/admins toggle on `/seller/settings`, buyers on `/account`.
 - ✅ **Seller responses to reviews** — one public reply per review (`reviews.response`), edit form on the seller overview, read-only on the storefront + buyer order page.
 - ✅ **Storefront view tracking** → conversion rate (completed orders ÷ views) on the seller dashboard; `seller_view_counts` rollup fed by a per-session client beacon. Per-*product* views still not tracked.
+- ✅ **Analytics date range** — the seller dashboard has a 30 / 90 / 365-day selector (`?range=`); every stat compares against the prior equal period.
 - ✅ **Seller order CSV** — `GET /seller/orders/export` streams an RLS-scoped CSV; "Export CSV" link on the order board.
 - ✅ **Saved address book** for buyers — `/account` manages saved addresses; the checkout delivery form has a dropdown to pick one.
 - ✅ **Delivery time windows** — seller lists free-text window labels on `/seller/settings` (`seller_profiles.delivery_windows`); buyer picks one at checkout (required if the seller has any), frozen into `orders.delivery_window` and shown on the order views.

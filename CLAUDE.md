@@ -290,17 +290,17 @@ and it's frozen into `orders.delivery_window`, shown on the buyer order page + b
 views. Windows don't touch pricing or the Stripe session — pure fulfilment metadata.
 
 **Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
-`getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS. 30-day
-revenue (`sum(total)` of `completed` orders, bucketed by `created_at`) with a vs-prior-30 trend,
-completed-order count, AOV, pickup/delivery split, delivery fees + referral discounts, a 90-day
-lens, a dependency-free SVG daily-revenue chart, and top 5 products. **Storefront views + conversion
-rate** (completed orders ÷ views, 30d): the storefront page fires `record_storefront_view` (SECURITY
-DEFINER RPC, `anon`-callable) from `TrackStorefrontView` once per browser session — not for the
-owner's own visits — into the per-day `seller_view_counts` rollup, which `getSellerDashboardStats`
-reads. The count is advisory (seller-only, no money effect), so the RPC is unthrottled.
-`GET /seller/orders/export` streams the seller's orders as CSV (`src/lib/orders/csv.ts`, pure;
-RLS-scoped read); "Export CSV" link on the order board. Not built: per-product views, date-range
-picker, chart CSV.
+`getSellerDashboardStats(sellerId, windowDays)` — RLS-scoped reads of `orders` / `order_items`
+aggregated in JS. The window is **30 / 90 / 365 days** (`?range=` on `/seller`, `parseWindowDays`);
+every figure is compared against the equally-long period before it. Revenue (`sum(total)` of
+`completed` orders) with a vs-prior trend, completed-order count, AOV, pickup/delivery split,
+delivery fees + referral discounts, a dependency-free SVG revenue chart (daily ≤90d, weekly for a
+year), and top 5 products. **Storefront views + conversion rate** (completed orders ÷ views): the
+storefront page fires `record_storefront_view` (SECURITY DEFINER RPC, `anon`-callable) from
+`TrackStorefrontView` once per browser session — not for the owner's own visits — into the per-day
+`seller_view_counts` rollup. Advisory (seller-only, no money effect), so the RPC is unthrottled.
+`GET /seller/orders/export` streams the seller's orders as CSV (`src/lib/orders/csv.ts`, pure).
+Not built: per-product views, chart CSV.
 
 **Phase 4 — reviews.** ARCHITECTURE §2.7. `reviews` (one per order, `order_id` unique). Verified-
 buyer rule (rule 4) at the data layer: `reviews_verify_buyer` BEFORE INSERT (fires for every insert)

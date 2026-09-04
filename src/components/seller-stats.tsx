@@ -18,60 +18,66 @@ export function SellerStatsPanel({ stats }: { stats: SellerStats }) {
     );
   }
 
-  const { last30, prev30, last90 } = stats;
+  const { current, prior, windowDays } = stats;
+  const w = `${windowDays} days`;
   const trend =
-    prev30.revenueCents > 0
-      ? Math.round(((last30.revenueCents - prev30.revenueCents) / prev30.revenueCents) * 100)
+    prior.revenueCents > 0
+      ? Math.round(((current.revenueCents - prior.revenueCents) / prior.revenueCents) * 100)
       : null;
 
   return (
     <div className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-3">
-        <Stat label="Revenue · 30 days" value={formatUsd(last30.revenueCents)}>
+        <Stat label={`Revenue · ${w}`} value={formatUsd(current.revenueCents)}>
           {trend !== null ? (
             <span className={trend >= 0 ? "text-green-600" : "text-destructive"}>
-              {trend >= 0 ? "▲" : "▼"} {Math.abs(trend)}% vs prior 30
+              {trend >= 0 ? "▲" : "▼"} {Math.abs(trend)}% vs prior {windowDays}d
             </span>
           ) : (
             <span className="text-muted-foreground">no prior-period sales</span>
           )}
         </Stat>
-        <Stat label="Completed orders · 30 days" value={String(last30.orders)}>
-          {last30.cancelled > 0 ? (
-            <span className="text-muted-foreground">{last30.cancelled} cancelled</span>
+        <Stat label={`Completed orders · ${w}`} value={String(current.orders)}>
+          {current.cancelled > 0 ? (
+            <span className="text-muted-foreground">{current.cancelled} cancelled</span>
           ) : null}
         </Stat>
         <Stat
-          label="Average order · 30 days"
-          value={last30.orders > 0 ? formatUsd(last30.aovCents) : "—"}
+          label={`Average order · ${w}`}
+          value={current.orders > 0 ? formatUsd(current.aovCents) : "—"}
         />
       </div>
 
       <Card>
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Daily revenue · 30 days</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Revenue · {windowDays <= 90 ? "daily" : "weekly"} · {w}
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <RevenueBars daily={stats.daily} />
+          <RevenueBars series={stats.series} />
 
           <div className="grid gap-x-8 gap-y-2 border-t pt-3 text-sm sm:grid-cols-2">
-            <Row label="Storefront views · 30 days" value={String(last30.views)} />
+            <Row label={`Storefront views · ${w}`} value={String(current.views)} />
             <Row
               label="Conversion (completed ÷ views)"
-              value={last30.conversionPct != null ? `${last30.conversionPct}%` : "—"}
+              value={current.conversionPct != null ? `${current.conversionPct}%` : "—"}
             />
-            <Row label="Pickup / delivery orders" value={`${last30.pickupOrders} / ${last30.deliveryOrders}`} />
-            <Row label="Delivery fees collected" value={formatUsd(last30.deliveryRevenueCents)} />
-            <Row label="Referral discounts given" value={formatUsd(last30.discountsCents)} />
             <Row
-              label="Revenue · 90 days"
-              value={`${formatUsd(last90.revenueCents)} · ${last90.orders} orders`}
+              label="Pickup / delivery orders"
+              value={`${current.pickupOrders} / ${current.deliveryOrders}`}
+            />
+            <Row label="Delivery fees collected" value={formatUsd(current.deliveryRevenueCents)} />
+            <Row label="Referral discounts given" value={formatUsd(current.discountsCents)} />
+            <Row
+              label={`Prior ${windowDays}d revenue`}
+              value={`${formatUsd(prior.revenueCents)} · ${prior.orders} orders`}
             />
           </div>
 
           {stats.topProducts.length > 0 ? (
             <div className="border-t pt-3">
-              <p className="mb-2 text-sm font-medium">Top products · 30 days</p>
+              <p className="mb-2 text-sm font-medium">Top products · {w}</p>
               <ul className="divide-y text-sm">
                 {stats.topProducts.map((p) => (
                   <li key={p.title} className="flex justify-between gap-4 py-1.5">
@@ -121,13 +127,13 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
-/** Dependency-free daily revenue bars. Theme-aware via `currentColor`. */
-function RevenueBars({ daily }: { daily: { date: string; cents: number }[] }) {
-  const max = Math.max(1, ...daily.map((d) => d.cents));
+/** Dependency-free revenue bars. Theme-aware via `currentColor`. */
+function RevenueBars({ series }: { series: { label: string; cents: number }[] }) {
+  const max = Math.max(1, ...series.map((d) => d.cents));
   const W = 100;
   const H = 32;
-  const gap = 0.8;
-  const barW = (W - gap * (daily.length - 1)) / daily.length;
+  const gap = series.length > 60 ? 0.2 : 0.8;
+  const barW = (W - gap * (series.length - 1)) / series.length;
 
   return (
     <svg
@@ -135,13 +141,13 @@ function RevenueBars({ daily }: { daily: { date: string; cents: number }[] }) {
       preserveAspectRatio="none"
       className="text-primary h-16 w-full"
       role="img"
-      aria-label="Daily revenue for the last 30 days"
+      aria-label={`Revenue over ${series.length} periods`}
     >
-      {daily.map((d, i) => {
+      {series.map((d, i) => {
         const h = d.cents > 0 ? Math.max(1.2, (d.cents / max) * H) : 0.6;
         return (
           <rect
-            key={d.date}
+            key={i}
             x={i * (barW + gap)}
             y={H - h}
             width={barW}

@@ -4,13 +4,21 @@ import { createClient } from "@/lib/supabase/server";
 import { toCents } from "@/lib/money";
 
 /**
- * Seller dashboard analytics — derived entirely from `orders` / `order_items`, read as the
- * signed-in seller (RLS scopes it). No schema, no service role. "Revenue" means the `total` of
- * orders that reached `completed`, bucketed by `created_at` (local-food orders complete within
- * days; a dedicated completion timestamp is a later refinement).
+ * Seller dashboard analytics — derived entirely from `orders` / `order_items` / `seller_view_counts`,
+ * read as the signed-in seller (RLS scopes it). "Revenue" means the `total` of orders that reached
+ * `completed`, bucketed by `created_at`. The window is 30 / 90 / 365 days; everything is compared
+ * against the equally-long period before it.
  */
 
 const DAY_MS = 86_400_000;
+
+export const WINDOW_DAYS = [30, 90, 365] as const;
+export type WindowDays = (typeof WINDOW_DAYS)[number];
+
+export function parseWindowDays(raw: unknown): WindowDays {
+  const n = Number(raw);
+  return (WINDOW_DAYS as readonly number[]).includes(n) ? (n as WindowDays) : 30;
+}
 
 export interface StatWindow {
   revenueCents: number;
@@ -18,7 +26,8 @@ export interface StatWindow {
 }
 
 export interface SellerStats {
-  last30: StatWindow & {
+  windowDays: WindowDays;
+  current: StatWindow & {
     cancelled: number;
     aovCents: number;
     pickupOrders: number;
@@ -29,9 +38,9 @@ export interface SellerStats {
     /** completed orders ÷ storefront views, as a percentage; null with no views. */
     conversionPct: number | null;
   };
-  prev30: StatWindow;
-  last90: StatWindow;
-  daily: { date: string; cents: number }[];
+  prior: StatWindow;
+  /** Revenue buckets across the window — daily for ≤90d, weekly for 365d. Oldest first. */
+  series: { label: string; cents: number }[];
   topProducts: { title: string; units: number; revenueCents: number }[];
   hasData: boolean;
 }
@@ -45,16 +54,18 @@ interface OrderRow {
   created_at: string;
 }
 
-const utcDay = (iso: string) => iso.slice(0, 10);
+const mmdd = (iso: string) => iso.slice(5, 10);
 
-export async function getSellerDashboardStats(sellerId: string): Promise<SellerStats> {
+export async function getSellerDashboardStats(
+  sellerId: string,
+  windowDays: WindowDays = 30,
+): Promise<SellerStats> {
   const supabase = await createClient();
   const now = Date.now();
-  const since90 = new Date(now - 90 * DAY_MS).toISOString();
-  const since30 = new Date(now - 30 * DAY_MS).toISOString();
-  const since60 = new Date(now - 60 * DAY_MS).toISOString();
-
-  const since30Day = since30.slice(0, 10);
+  const since = now - windowDays * DAY_MS;
+  const sincePrior = now - 2 * windowDays * DAY_MS;
+  const sinceIso = new Date(since).toISOString();
+  const sincePriorIso = new Date(sincePrior).toISOString();
 
   const [{ data: orderData }, { data: itemData }, { data: viewData }] = await Promise.all([
     supabase
@@ -62,25 +73,25 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
       .select("total, discount_total, delivery_fee, fulfillment_type, status, created_at")
       .eq("seller_id", sellerId)
       .neq("status", "pending_payment")
-      .gte("created_at", since90),
+      .gte("created_at", sincePriorIso),
     supabase
       .from("order_items")
       .select("title_snapshot, quantity, line_total, orders!inner(seller_id, status, created_at)")
       .eq("orders.seller_id", sellerId)
       .eq("orders.status", "completed")
-      .gte("orders.created_at", since30),
+      .gte("orders.created_at", sinceIso),
     supabase
       .from("seller_view_counts")
       .select("views")
       .eq("seller_id", sellerId)
-      .gte("day", since30Day),
+      .gte("day", sinceIso.slice(0, 10)),
   ]);
 
   const orders = (orderData ?? []) as OrderRow[];
 
-  const blankWindow = () => ({ revenueCents: 0, orders: 0 });
-  const last30 = {
-    ...blankWindow(),
+  const current = {
+    revenueCents: 0,
+    orders: 0,
     cancelled: 0,
     aovCents: 0,
     pickupOrders: 0,
@@ -90,53 +101,51 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
     views: 0,
     conversionPct: null as number | null,
   };
-  const prev30 = blankWindow();
-  const last90 = blankWindow();
+  const prior: StatWindow = { revenueCents: 0, orders: 0 };
 
-  const dailyMap = new Map<string, number>();
-  for (let i = 0; i < 30; i++) {
-    dailyMap.set(utcDay(new Date(now - i * DAY_MS).toISOString()), 0);
-  }
+  // Revenue series: daily up to 90 days, weekly for a year.
+  const bucketDays = windowDays <= 90 ? 1 : 7;
+  const bucketCount = Math.ceil(windowDays / bucketDays);
+  const buckets = Array.from({ length: bucketCount }, (_, i) => ({
+    // Bucket i covers [now - (i+1)*span, now - i*span); i=0 is the most recent.
+    startIso: new Date(now - (i + 1) * bucketDays * DAY_MS + DAY_MS).toISOString(),
+    cents: 0,
+  }));
 
   for (const o of orders) {
     const t = new Date(o.created_at).getTime();
     const completed = o.status === "completed";
     const cents = completed ? toCents(o.total) : 0;
 
-    if (completed) {
-      last90.revenueCents += cents;
-      last90.orders += 1;
-    }
-
-    if (t >= now - 30 * DAY_MS) {
+    if (t >= since) {
       if (completed) {
-        last30.revenueCents += cents;
-        last30.orders += 1;
-        last30.deliveryRevenueCents += toCents(o.delivery_fee);
-        last30.discountsCents += toCents(o.discount_total);
-        if (o.fulfillment_type === "delivery") last30.deliveryOrders += 1;
-        else last30.pickupOrders += 1;
-        const day = utcDay(o.created_at);
-        if (dailyMap.has(day)) dailyMap.set(day, (dailyMap.get(day) ?? 0) + cents);
+        current.revenueCents += cents;
+        current.orders += 1;
+        current.deliveryRevenueCents += toCents(o.delivery_fee);
+        current.discountsCents += toCents(o.discount_total);
+        if (o.fulfillment_type === "delivery") current.deliveryOrders += 1;
+        else current.pickupOrders += 1;
+
+        const bucketIdx = Math.floor((now - t) / (bucketDays * DAY_MS));
+        if (bucketIdx >= 0 && bucketIdx < bucketCount) buckets[bucketIdx].cents += cents;
       }
-      if (o.status === "cancelled") last30.cancelled += 1;
-    } else if (t >= new Date(since60).getTime() && t < now - 30 * DAY_MS && completed) {
-      prev30.revenueCents += cents;
-      prev30.orders += 1;
+      if (o.status === "cancelled") current.cancelled += 1;
+    } else if (t >= sincePrior && completed) {
+      prior.revenueCents += cents;
+      prior.orders += 1;
     }
   }
 
-  last30.aovCents = last30.orders > 0 ? Math.round(last30.revenueCents / last30.orders) : 0;
+  current.aovCents = current.orders > 0 ? Math.round(current.revenueCents / current.orders) : 0;
+  current.views = ((viewData ?? []) as { views: number }[]).reduce((s, v) => s + (v.views ?? 0), 0);
+  current.conversionPct =
+    current.views > 0 ? Math.round((current.orders / current.views) * 1000) / 10 : null;
 
-  last30.views = ((viewData ?? []) as { views: number }[]).reduce((s, v) => s + (v.views ?? 0), 0);
-  last30.conversionPct =
-    last30.views > 0 ? Math.round((last30.orders / last30.views) * 1000) / 10 : null;
+  const series = buckets
+    .slice()
+    .reverse()
+    .map((b) => ({ label: mmdd(b.startIso), cents: b.cents }));
 
-  const daily = [...dailyMap.entries()]
-    .map(([date, c]) => ({ date, cents: c }))
-    .sort((a, b) => a.date.localeCompare(b.date));
-
-  // Top products, last 30d completed orders.
   const byTitle = new Map<string, { units: number; revenueCents: number }>();
   for (const it of (itemData ?? []) as {
     title_snapshot: string;
@@ -154,11 +163,11 @@ export async function getSellerDashboardStats(sellerId: string): Promise<SellerS
     .slice(0, 5);
 
   return {
-    last30,
-    prev30,
-    last90,
-    daily,
+    windowDays,
+    current,
+    prior,
+    series,
     topProducts,
-    hasData: last90.orders > 0 || last30.cancelled > 0 || last30.views > 0,
+    hasData: current.orders > 0 || prior.orders > 0 || current.cancelled > 0 || current.views > 0,
   };
 }
