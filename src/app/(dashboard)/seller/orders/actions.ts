@@ -59,17 +59,34 @@ export async function advanceOrderStatusAction(
     };
   }
 
-  // The transition is committed. Fire the matching event for the background jobs (revenue-cap
-  // tally + auto-pause on completed; referral activate/invalidate). A send failure must never
+  // The transition is committed. Fire the events for the background jobs. A send failure must never
   // surface as a user error.
   const order = Array.isArray(data) ? data[0] : data;
-  if (order && (parsed.data.toStatus === "completed" || parsed.data.toStatus === "cancelled")) {
+  if (order) {
+    // Every transition emails the buyer.
     await inngest
       .send({
-        name: parsed.data.toStatus === "completed" ? "harvest/order.completed" : "harvest/order.cancelled",
-        data: { orderId: order.id, sellerId: order.seller_id },
+        name: "harvest/order.status_changed",
+        data: {
+          orderId: order.id,
+          buyerId: order.buyer_id,
+          sellerId: order.seller_id,
+          toStatus: parsed.data.toStatus,
+          fulfillmentType: order.fulfillment_type as "pickup" | "delivery",
+        },
       })
-      .catch((err) => console.error("[inngest] order event send failed:", err));
+      .catch((err) => console.error("[inngest] order.status_changed send failed:", err));
+
+    // `completed` / `cancelled` also drive the compliance tally + auto-pause and referral
+    // activate/invalidate.
+    if (parsed.data.toStatus === "completed" || parsed.data.toStatus === "cancelled") {
+      await inngest
+        .send({
+          name: parsed.data.toStatus === "completed" ? "harvest/order.completed" : "harvest/order.cancelled",
+          data: { orderId: order.id, sellerId: order.seller_id },
+        })
+        .catch((err) => console.error("[inngest] order event send failed:", err));
+    }
   }
 
   revalidatePath("/seller/orders");

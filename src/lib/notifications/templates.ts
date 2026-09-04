@@ -18,8 +18,8 @@ type Payload = Record<string, unknown>;
 
 interface TemplateMeta {
   subject: (p: Payload) => string;
-  /** Path on the site the CTA button links to. */
-  ctaPath: string;
+  /** Path on the site the CTA button links to — a string, or a fn of the payload for a deep link. */
+  ctaPath: string | ((p: Payload) => string);
   ctaLabel: string;
 }
 
@@ -64,6 +64,24 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/orders",
     ctaLabel: "View orders",
   },
+  order_status_changed: {
+    subject: (p) => {
+      switch (String(p.status)) {
+        case "ready":
+          return "Your order is ready";
+        case "out_for_delivery":
+          return "Your order is out for delivery";
+        case "completed":
+          return "Your order is complete";
+        case "cancelled":
+          return "Your order was cancelled";
+        default:
+          return "An update on your order";
+      }
+    },
+    ctaPath: (p) => `/orders/${String(p.order_id ?? "")}`,
+    ctaLabel: "View order",
+  },
 };
 
 /** Returns null for an unknown template (the dispatcher fails the row rather than sending junk). */
@@ -72,7 +90,8 @@ export function renderEmail(template: string, payload: Payload): RenderedEmail |
   if (!meta) return null;
 
   const text = notificationText(template, payload);
-  const cta = `${env.NEXT_PUBLIC_SITE_URL}${meta.ctaPath}`;
+  const ctaPath = typeof meta.ctaPath === "function" ? meta.ctaPath(payload) : meta.ctaPath;
+  const cta = `${env.NEXT_PUBLIC_SITE_URL}${ctaPath}`;
 
   return {
     subject: meta.subject(payload),
