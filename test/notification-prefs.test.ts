@@ -1,6 +1,16 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { emailEnabled } from "@/lib/notifications/categories";
+import { emailEnabled, smsEnabled } from "@/lib/notifications/categories";
+
+describe("smsEnabled", () => {
+  it("is opt-in and only for SMS-eligible categories", () => {
+    expect(smsEnabled({ "sms:order_updates": true }, "order_status_changed")).toBe(true);
+    expect(smsEnabled({}, "order_status_changed")).toBe(false);
+    expect(smsEnabled(null, "order_status_changed")).toBe(false);
+    // new_message isn't in SMS_CATEGORIES
+    expect(smsEnabled({ "sms:messages": true }, "new_message")).toBe(false);
+  });
+});
 
 describe("emailEnabled", () => {
   it("always sends non-suppressible categories (payments, compliance)", () => {
@@ -133,5 +143,29 @@ describe("queueNotification + prefs", () => {
 
     expect(h.profileReads).toBe(0);
     expect(h.inserted.map((r) => r.channel).sort()).toEqual(["email", "in_app"]);
+  });
+
+  it("drops the sms channel when the recipient hasn't opted in", async () => {
+    await queueNotification(admin, {
+      userId: "buyer-1",
+      template: "order_status_changed",
+      payload: {},
+      channels: ["email", "sms"],
+    });
+
+    expect(h.inserted.map((r) => r.channel).sort()).toEqual(["email"]);
+  });
+
+  it("keeps the sms channel for an opted-in recipient", async () => {
+    h.prefs = { "sms:order_updates": true };
+
+    await queueNotification(admin, {
+      userId: "buyer-1",
+      template: "order_status_changed",
+      payload: {},
+      channels: ["email", "sms"],
+    });
+
+    expect(h.inserted.map((r) => r.channel).sort()).toEqual(["email", "sms"]);
   });
 });

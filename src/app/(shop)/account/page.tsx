@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AddressBook } from "@/components/address-book";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
+import { SmsPrefsForm } from "@/components/sms-prefs-form";
 import { getUser, getProfile } from "@/lib/auth";
 import { getMyAddresses } from "@/lib/addresses/queries";
 import {
@@ -29,7 +30,7 @@ export default async function AccountPage() {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Your account</h1>
         <p className="text-muted-foreground text-sm">
-          Delivery addresses and notification emails.
+          Delivery addresses, notification emails, and text messages.
         </p>
       </div>
 
@@ -57,6 +58,21 @@ export default async function AccountPage() {
           <NotificationPrefsForm
             categories={emailCategories}
             prefs={profile?.notification_prefs ?? {}}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium">Text messages</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground mb-4 text-sm">
+            Opt in to get order updates by text (US numbers only). Everything is also emailed.
+          </p>
+          <SmsPrefsForm
+            phone={profile?.phone ?? null}
+            orderTextsOn={profile?.notification_prefs?.["sms:order_updates"] === true}
           />
         </CardContent>
       </Card>

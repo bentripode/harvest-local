@@ -170,13 +170,13 @@ src/app/messages/                      buyer↔seller inbox + thread (own layout
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
-src/lib/notifications/                  queue (channel fan-out + email opt-out) · categories (template→category, prefs) · copy (in-app lines) · templates (email) · send (Resend)
+src/lib/notifications/                  queue (channel fan-out + email opt-out / SMS opt-in) · categories (template→category, prefs, smsEnabled) · copy (in-app lines) · templates (email) · send (Resend) · sms (Twilio)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/instrumentation*.ts                 Sentry init (server/edge/client) · onRequestError · inert without SENTRY_DSN
 src/app/(auth)/                        login, signup, email confirm
-src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders, /account (address book + notification emails)
+src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders, /account (address book + email/SMS prefs)
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC) + /export CSV
@@ -213,15 +213,16 @@ crosses `state_cottage_food_rules.revenue_cap`, sets `is_paused = true, pause_re
 `queueNotificationForEach()` (`src/lib/notifications/queue.ts`), which fans a template out to one
 `notifications` row per channel (default `in_app` + `email`) and nudges `harvest/notification.queued`.
 `notification-dispatch` (Inngest — that event + a `*/2` cron backstop) sends the non-`in_app` rows:
-resolves the address (`auth.admin.getUserById` for email), renders via
-`src/lib/notifications/templates.ts` (copy from `copy.ts`, shared with the in-app panel), sends
-through Resend (`send.ts` — logs instead when `RESEND_API_KEY` is unset), marks `sent` / bumps
-`attempt_count` / `failed` past 5. Optimistic `attempt_count` claim + Resend idempotency key
-(`notification.id`) make overlapping runs safe. Every `advance_order_status` transition emits
-`harvest/order.status_changed` → `order-status-notify` (Inngest) queues an `order_status_changed`
-**email** to the buyer (email only — no buyer in-app panel). `sendMessageAction` emits
-`harvest/message.sent` → `message-notify` emails the recipient a `new_message` **only when it's
-their sole unread message in the thread** (deduped on `message_id` by a partial unique index).
+`email` → resolve address (`auth.admin.getUserById`) + render (`templates.ts`) + Resend
+(`send.ts` — logs when `RESEND_API_KEY` unset), keyed on `notification.id`; `sms` → `profiles.phone`
++ the `copy.ts` one-liner + Twilio (`sms.ts`, a keyless `fetch` to the Messages REST endpoint — logs
+when any `TWILIO_*` var is unset). Marks `sent` / bumps `attempt_count` / `failed` past 5; optimistic
+`attempt_count` claim guards concurrent runs (Twilio has no idempotency key, so a crash mid-send can
+re-text). Every `advance_order_status` transition emits `harvest/order.status_changed` →
+`order-status-notify` (Inngest) queues `order_status_changed` on `["email", "sms"]` to the buyer (no
+buyer in-app panel; `sms` dropped unless opted in). `sendMessageAction` emits `harvest/message.sent`
+→ `message-notify` emails the recipient a `new_message` **only when it's their sole unread message in
+the thread** (deduped on `message_id`).
 
 Per-user **email opt-outs**: `queueNotification` reads `profiles.notification_prefs` (jsonb,
 `{category: false}` = opted out) and drops the `email` channel for a suppressed category before
@@ -229,7 +230,12 @@ inserting — `in_app` is never filtered. `src/lib/notifications/categories.ts` 
 category map and `emailEnabled()`; `payments` (refund) + `compliance` (license-expired / revenue-cap)
 are **not** suppressible and skip the profile read entirely. Sellers/admins toggle theirs on
 `/seller/settings` (`saveNotificationPrefsAction`); buyers on `/account`; the `messages` category
-(`audience: "all"`) shows on both. **SMS (Twilio) is not built yet.**
+(`audience: "all"`) shows on both.
+
+**SMS is opt-IN** — `notification_prefs["sms:<category>"] = true` (only `order_updates` is
+SMS-eligible, `SMS_CATEGORIES`). `queueNotification` drops the `sms` channel unless `smsEnabled()`.
+Buyers add a US number + toggle "text me order updates" on `/account` (`saveSmsPrefsAction` →
+`profiles.phone` E.164 + the pref). No phone verification yet.
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a

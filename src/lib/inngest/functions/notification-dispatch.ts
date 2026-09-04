@@ -3,7 +3,9 @@ import "server-only";
 import { inngest } from "@/lib/inngest/client";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { renderEmail } from "@/lib/notifications/templates";
+import { notificationText } from "@/lib/notifications/copy";
 import { sendEmail } from "@/lib/notifications/send";
+import { sendSms } from "@/lib/notifications/sms";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
@@ -112,7 +114,16 @@ async function deliver(admin: Admin, row: QueueRow): Promise<void> {
   }
 
   if (row.channel === "sms") {
-    throw new Error("sms delivery is not configured yet");
+    const { data: profile, error } = await admin
+      .from("profiles")
+      .select("phone")
+      .eq("id", row.user_id)
+      .single();
+    if (error) throw new Error(error.message);
+    if (!profile.phone) throw new Error("recipient has no phone number");
+
+    await sendSms({ to: profile.phone, body: notificationText(row.template, payload) });
+    return;
   }
 
   throw new Error(`unknown notification channel "${row.channel}"`);

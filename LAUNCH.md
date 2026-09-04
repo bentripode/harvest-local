@@ -25,6 +25,7 @@ every one at boot, so a missing/malformed value fails the deploy loudly.
 | `INNGEST_EVENT_KEY` / `INNGEST_SIGNING_KEY` | from Inngest Cloud (§4) |
 | `RESEND_API_KEY` | live `re_…` (§5) |
 | `EMAIL_FROM` | `Harvest Local <notifications@your-verified-domain>` (§5) |
+| `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` | optional — buyer order-update SMS. Unset ⇒ texts are logged, not sent |
 | `MAPBOX_TOKEN` | a **secret, URL-unrestricted** token with Geocoding + Directions scopes (server-side delivery quoting) |
 | `NEXT_PUBLIC_MAPBOX_TOKEN` | a **public** token (URL-restricted to your domain) for the browser map |
 | `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` | the project DSN from sentry.io (same value both). Unset ⇒ Sentry inert (§7) |
@@ -161,7 +162,7 @@ Tracked across the phase commits:
 
 - ✅ **Buyer order-status emails** — every `advance_order_status` transition emits `harvest/order.status_changed` → `order-status-notify` queues an `order_status_changed` email to the buyer.
 - ✅ **Message → email** — `sendMessageAction` emits `harvest/message.sent` → `message-notify` emails the recipient a `new_message` when it's their only unread in the thread (deduped on `message_id`).
-- **SMS via Twilio** — `notification-dispatch` has the `sms` branch stubbed; add the SDK + `TWILIO_*` env.
+- ✅ **SMS via Twilio** — `notification-dispatch` texts via `src/lib/notifications/sms.ts` (keyless `fetch` to the Messages REST API; logs when `TWILIO_*` unset). Buyers opt in on `/account` (phone + toggle); only `order_status_changed` is SMS-eligible. Set `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` to go live. No phone verification; SMS→email/other categories not wired.
 - ✅ **`notification_prefs`** — per-category email opt-out on `profiles.notification_prefs`, enforced in `queueNotification`; sellers/admins toggle on `/seller/settings`, buyers on `/account`.
 - ✅ **Seller responses to reviews** — one public reply per review (`reviews.response`), edit form on the seller overview, read-only on the storefront + buyer order page.
 - ✅ **Storefront view tracking** → conversion rate (completed orders ÷ views) on the seller dashboard; `seller_view_counts` rollup fed by a per-session client beacon. Per-*product* views still not tracked.
