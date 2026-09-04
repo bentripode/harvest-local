@@ -66,7 +66,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (26 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (27 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -160,6 +160,7 @@ URLs) is not built yet.
 Tracked across the phase commits:
 
 - ✅ **Buyer order-status emails** — every `advance_order_status` transition emits `harvest/order.status_changed` → `order-status-notify` queues an `order_status_changed` email to the buyer.
+- ✅ **Message → email** — `sendMessageAction` emits `harvest/message.sent` → `message-notify` emails the recipient a `new_message` when it's their only unread in the thread (deduped on `message_id`).
 - **SMS via Twilio** — `notification-dispatch` has the `sms` branch stubbed; add the SDK + `TWILIO_*` env.
 - ✅ **`notification_prefs`** — per-category email opt-out on `profiles.notification_prefs`, enforced in `queueNotification`; sellers/admins toggle on `/seller/settings`, buyers on `/account`.
 - ✅ **Seller responses to reviews** — one public reply per review (`reviews.response`), edit form on the seller overview, read-only on the storefront + buyer order page.

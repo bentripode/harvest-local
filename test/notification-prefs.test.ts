@@ -19,6 +19,7 @@ describe("emailEnabled", () => {
     expect(emailEnabled({ order_updates: false }, "order_status_changed")).toBe(false);
     expect(emailEnabled({ referrals: false }, "referral_reward_earned")).toBe(false);
     expect(emailEnabled({ license_reminders: false }, "license_expiring")).toBe(false);
+    expect(emailEnabled({ messages: false }, "new_message")).toBe(false);
   });
 
   it("sends unknown templates rather than dropping them", () => {

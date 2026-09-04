@@ -52,3 +52,22 @@ describe("order_status_changed email", () => {
     expect(email!.text).toContain("https://harvestlocal.example/orders");
   });
 });
+
+describe("new_message", () => {
+  const p = { conversation_id: "conv-9", message_id: "m-1", sender_name: "Sarah's Bread", order_ref: "abcd1234" };
+
+  it("names the sender and the order in the copy", () => {
+    expect(notificationText("new_message", p)).toBe(
+      "Sarah's Bread sent you a message about order abcd1234.",
+    );
+    expect(notificationText("new_message", { ...p, order_ref: null })).toBe(
+      "Sarah's Bread sent you a message.",
+    );
+  });
+
+  it("emails a deep link to the conversation", () => {
+    const email = renderEmail("new_message", p);
+    expect(email!.subject).toBe("New message from Sarah's Bread");
+    expect(email!.text).toContain("https://harvestlocal.example/messages/conv-9");
+  });
+});

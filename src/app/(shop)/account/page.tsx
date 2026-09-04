@@ -19,9 +19,10 @@ export default async function AccountPage() {
 
   const [profile, addresses] = await Promise.all([getProfile(), getMyAddresses()]);
 
-  const emailCategories = SUPPRESSIBLE_CATEGORIES.filter(
-    (c: SuppressibleCategory) => CATEGORY_META[c].audience === "buyer",
-  );
+  const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
+    const { audience } = CATEGORY_META[c];
+    return audience === "buyer" || audience === "all";
+  });
 
   return (
     <div className="mx-auto max-w-xl space-y-8">

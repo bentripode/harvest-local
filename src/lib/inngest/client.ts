@@ -53,6 +53,12 @@ export interface OrderRefundedEvent {
   data: { orderId: string; sellerId: string };
 }
 
+/** A chat message was sent — `message-notify` emails the recipient if they have no other unread. */
+export interface MessageSentEvent {
+  name: "harvest/message.sent";
+  data: { conversationId: string; messageId: string; senderId: string };
+}
+
 /** Nudge for `notification-dispatch` — new email/sms rows are waiting. No payload. */
 export interface NotificationQueuedEvent {
   name: "harvest/notification.queued";
