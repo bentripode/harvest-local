@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const supabaseHost = (() => {
   try {
@@ -28,4 +29,15 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Wraps the config to instrument the build and (when SENTRY_AUTH_TOKEN + org/project are set)
+// upload source maps. With none of the Sentry env vars set it's a near no-op — the build still
+// works and runtime Sentry stays inert (see src/sentry.*.config.ts).
+export default withSentryConfig(nextConfig, {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  // Only upload source maps when we have a token (CI/prod); silent locally.
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  // No auth token → the plugin skips the upload step instead of failing the build.
+  sourcemaps: { disable: !process.env.SENTRY_AUTH_TOKEN },
+});

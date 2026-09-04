@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
+import * as Sentry from "@sentry/nextjs";
 
 import { stripe } from "@/lib/stripe/client";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -123,6 +124,11 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     const message = err instanceof Error ? err.message : "handler error";
     await admin.from("stripe_events").update({ error: message }).eq("id", event.id);
+    // The route returns 500 (not throws), so this never reaches `onRequestError` — report it here.
+    Sentry.captureException(err, {
+      tags: { area: "stripe-webhook", event_type: event.type },
+      extra: { event_id: event.id },
+    });
     // 500 => Stripe retries; the idempotency gate above lets the retry re-run cleanly.
     return NextResponse.json({ error: message }, { status: 500 });
   }

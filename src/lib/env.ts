@@ -46,6 +46,22 @@ const serverSchema = z.object({
     .transform((v) => (v ? v : undefined)),
   EMAIL_FROM: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
 
+  // Error tracking (Sentry). Optional — with no DSN the SDK is inert and the app is unchanged.
+  // SENTRY_ORG / SENTRY_PROJECT / SENTRY_AUTH_TOKEN are build-time only (source-map upload) and
+  // read directly in next.config.ts, not here.
+  SENTRY_DSN: z
+    .string()
+    .url()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+  NEXT_PUBLIC_SENTRY_DSN: z
+    .string()
+    .url()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+
   // App
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
 
@@ -62,6 +78,7 @@ const clientSchema = serverSchema.pick({
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: true,
   NEXT_PUBLIC_SITE_URL: true,
   NEXT_PUBLIC_MAPBOX_TOKEN: true,
+  NEXT_PUBLIC_SENTRY_DSN: true,
 });
 
 const isServer = typeof window === "undefined";
@@ -79,6 +96,7 @@ function clientEnvSource() {
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_MAPBOX_TOKEN: process.env.NEXT_PUBLIC_MAPBOX_TOKEN,
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   };
 }
 

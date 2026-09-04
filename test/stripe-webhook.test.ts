@@ -31,6 +31,7 @@ vi.mock("@/lib/supabase/admin", () => ({
 vi.mock("@/lib/inngest/client", () => ({
   inngest: { send: vi.fn().mockResolvedValue(undefined) },
 }));
+vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 vi.mock("@/lib/notifications/queue", () => ({
   queueNotification: vi.fn().mockResolvedValue(undefined),
   queueNotificationForEach: vi.fn().mockResolvedValue(undefined),

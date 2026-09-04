@@ -97,6 +97,13 @@ From https://resend.com:
 Not needed locally — `npm run inngest:dev` runs the Dev Server with no keys. `INNGEST_EVENT_KEY` /
 `INNGEST_SIGNING_KEY` are for a deploy (see `LAUNCH.md`).
 
+### F. Sentry (error tracking)
+
+Optional. Leave `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` blank for local dev — the SDK stays inert
+and the app behaves identically. To try it, create a project at https://sentry.io and paste the
+DSN into both vars. `SENTRY_ORG` / `SENTRY_PROJECT` / `SENTRY_AUTH_TOKEN` are only for source-map
+upload at build time and can stay blank locally.
+
 ---
 
 ## 3. Fill `.env.local`

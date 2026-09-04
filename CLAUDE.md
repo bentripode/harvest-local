@@ -174,6 +174,7 @@ src/lib/notifications/                  queue (channel fan-out) · copy (in-app 
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
+src/instrumentation*.ts                 Sentry init (server/edge/client) · onRequestError · inert without SENTRY_DSN
 src/app/(auth)/                        login, signup, email confirm
 src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription

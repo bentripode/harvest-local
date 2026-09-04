@@ -36,6 +36,7 @@ All five build phases (`ARCHITECTURE.md` §5) are code-complete and verified in 
 | Maps | Mapbox GL JS + Geocoding + Directions (mileage fees), behind a routing interface |
 | Background jobs | Inngest — referral activation, revenue-cap checks, license-expiry scans, notification dispatch |
 | Email / SMS | Resend (+ React Email) / Twilio (SMS branch stubbed) |
+| Error tracking | Sentry (`@sentry/nextjs`) — optional, inert without a DSN |
 | Hosting | Vercel (app) + Supabase (managed Postgres) |
 
 ## Getting started

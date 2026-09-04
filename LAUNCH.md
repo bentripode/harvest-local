@@ -27,6 +27,8 @@ every one at boot, so a missing/malformed value fails the deploy loudly.
 | `EMAIL_FROM` | `Harvest Local <notifications@your-verified-domain>` (§5) |
 | `MAPBOX_TOKEN` | a **secret, URL-unrestricted** token with Geocoding + Directions scopes (server-side delivery quoting) |
 | `NEXT_PUBLIC_MAPBOX_TOKEN` | a **public** token (URL-restricted to your domain) for the browser map |
+| `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` | the project DSN from sentry.io (same value both). Unset ⇒ Sentry inert (§7) |
+| `SENTRY_ORG` / `SENTRY_PROJECT` / `SENTRY_AUTH_TOKEN` | **build-time only**, for source-map upload — set on Vercel, not needed at runtime |
 
 ☐ No test/seed rows in prod: the E2E test data (Ben's Baked Bread, Tex Buyer, sample orders/reviews/
 messages/reports/refund) is in the hosted DB used for development. Launch against a clean project, or
@@ -122,7 +124,15 @@ Wired into checkout, cart re-price, promo-code attempts, messaging, and order re
 user. Tune `RATE_LIMITS` for production traffic; the map/discovery reads are still unthrottled
 (public, cacheable — revisit if scraped).
 
-☐ Error tracking (Sentry) + uptime/alerting on `/api/webhooks/stripe` and `/api/inngest`.
+✅ Error tracking wired — `@sentry/nextjs` via `src/instrumentation*.ts` + `withSentryConfig` in
+`next.config.ts`, `onRequestError` for server errors, `global-error.tsx` for the root boundary, an
+explicit `captureException` in the Stripe webhook's catch (it returns 500 rather than throwing).
+**To activate:** create a project at sentry.io, set `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` (and the
+build-time `SENTRY_ORG` / `SENTRY_PROJECT` / `SENTRY_AUTH_TOKEN` on Vercel for readable stack traces).
+Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/inngest`.
+
+☐ Uptime/health monitoring (Better Stack, Pingdom, or similar) hitting a lightweight endpoint —
+Sentry catches thrown errors, not "the deployment is down / webhooks are 500ing in bulk".
 
 ☐ Extend the test suite (`npm test`) beyond the guardrail units it covers today — an integration
 pass against a throwaway Supabase branch for the SECURITY DEFINER functions and RLS policies.
