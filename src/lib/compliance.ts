@@ -55,7 +55,7 @@ export async function getRevenueStatus(
  * `authenticated`, so a star-select would be a permission error — and the ciphertext has no
  * business reaching a page anyway.
  */
-export type SellerLicenseView = Omit<SellerLicense, "tax_id_encrypted">;
+export type SellerLicenseView = Omit<SellerLicense, "tax_id_encrypted" | "tax_id_key_id">;
 
 export async function getSellerLicenses(sellerId: string): Promise<SellerLicenseView[]> {
   const supabase = await createClient();

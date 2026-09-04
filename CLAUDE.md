@@ -139,6 +139,13 @@ Never write an order, or code a path that could write an order, that crosses sta
   is for non-sensitive document numbers only. Storing a tax ID writes a `tax_id_audit` row, and the
   `tax-id-retention` cron destroys numbers and documents 4 years past a seller's last sale. Anything
   that ever decrypts must write a `decrypted` audit row.
+- **Rotation:** `TAX_ID_ENCRYPTION_KEYS` is a keyring of `id:key` entries and the **highest id is
+  active**, so rotating is only "add a higher-numbered key" — there is no second variable to fall out
+  of sync. Ciphertext is `v2.<keyId>.<payload>` (`v1.<payload>` is pre-keyring history, read as key
+  1) and `seller_licenses.tax_id_key_id` mirrors that id so progress is countable without
+  decrypting. `tax-id-rekey` (nightly, or on `harvest/taxid.rekey.requested`) sweeps stale rows;
+  **an old key must stay in the list until /admin/settings shows nothing left on it**, or those rows
+  become unreadable.
 - **Precedence matters.** Pausing never renames an existing pause (`coalesce(pause_reason,
   'license_unverified')`), and unpausing lifts **only** `license_unverified` / `license_expired`,
   and only when Connect + a trialing/active subscription still hold. `revenue_cap` and `admin` are
@@ -214,7 +221,7 @@ src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address s
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
-src/lib/crypto/secret-box.ts           AES-256-GCM for the tax ID (no in-app decrypt path)
+src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -222,7 +229,7 @@ src/lib/messages/queries.ts            conversation list / thread / unread-count
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention, tax-id-rekey)
 src/lib/notifications/                  queue (channel fan-out + email opt-out / SMS opt-in) · categories (template→category, prefs, smsEnabled) · copy (in-app lines) · templates (email) · send (Resend) · sms (Twilio)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open

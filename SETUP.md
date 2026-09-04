@@ -86,7 +86,10 @@ From https://account.mapbox.com:
 
 ### D. Tax ID encryption
 
-- `TAX_ID_ENCRYPTION_KEY` — 32 bytes, base64: `openssl rand -base64 32`. Encrypts the SSN/EIN a
+- `TAX_ID_ENCRYPTION_KEYS` — `1:<key>`, where the key is 32 bytes, base64:
+  `openssl rand -base64 32`. It is a keyring (`id:key` entries, comma separated, highest id active)
+  so the key can be rotated later without downtime — see LAUNCH.md §4. `TAX_ID_ENCRYPTION_KEY`
+  without an id also works and means `1:<key>`. Encrypts the SSN/EIN a
   seller uploads on `/seller/compliance`. The key lives only in the environment, so Postgres holds
   ciphertext it cannot read. **With this unset the compliance form refuses to accept a tax ID**, and
   seller onboarding cannot complete — that is deliberate: the alternative is an SSN column in the

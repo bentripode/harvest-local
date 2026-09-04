@@ -9,6 +9,7 @@ import { notificationDispatch } from "@/lib/inngest/functions/notification-dispa
 import { orderStatusNotify } from "@/lib/inngest/functions/order-status-notify";
 import { messageNotify } from "@/lib/inngest/functions/message-notify";
 import { taxIdRetention } from "@/lib/inngest/functions/tax-id-retention";
+import { taxIdRekey } from "@/lib/inngest/functions/tax-id-rekey";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -26,5 +27,6 @@ export const { GET, POST, PUT } = serve({
     orderStatusNotify,
     messageNotify,
     taxIdRetention,
+    taxIdRekey,
   ],
 });

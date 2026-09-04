@@ -37,9 +37,19 @@ const serverSchema = z.object({
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
 
-  // Tax ID encryption (AES-256-GCM). 32 bytes, base64: `openssl rand -base64 32`.
-  // Optional so the app boots without it — but with it unset, the compliance form refuses to
-  // accept a tax ID rather than storing one in the clear. Required in production.
+  // Tax ID encryption (AES-256-GCM). 32 bytes each, base64: `openssl rand -base64 32`.
+  //
+  // TAX_ID_ENCRYPTION_KEYS is the keyring: `id:key` entries, comma separated, HIGHEST ID ACTIVE.
+  // Rotating = adding a higher-numbered key; keep the old ones until `tax-id-rekey` reports no
+  // rows left on them. TAX_ID_ENCRYPTION_KEY (singular) still works and means `1:<key>`.
+  //
+  // Both optional so the app boots without either — but with neither set, the compliance form
+  // refuses to accept a tax ID rather than storing one in the clear. Required in production.
+  TAX_ID_ENCRYPTION_KEYS: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
   TAX_ID_ENCRYPTION_KEY: z
     .string()
     .optional()

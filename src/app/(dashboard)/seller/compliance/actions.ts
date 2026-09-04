@@ -86,15 +86,18 @@ export async function addLicenseAction(
   // clear — a broken form is recoverable, a plaintext SSN column is not.
   const isTaxId = d.licenseType === "tax_id";
   let taxIdEncrypted: string | null = null;
+  let taxIdKeyId: number | null = null;
   let taxIdLast4: string | null = null;
   if (isTaxId && d.licenseNumber) {
     if (!encryptionConfigured()) {
-      console.error("[compliance] TAX_ID_ENCRYPTION_KEY is unset; refusing to store a tax ID.");
+      console.error("[compliance] no tax-ID encryption key configured; refusing to store a tax ID.");
       return {
         error: "We can't accept tax IDs right now. Please contact support — this is on our side.",
       };
     }
-    taxIdEncrypted = encryptSecret(d.licenseNumber);
+    const encrypted = encryptSecret(d.licenseNumber);
+    taxIdEncrypted = encrypted.ciphertext;
+    taxIdKeyId = encrypted.keyId;
     taxIdLast4 = lastFourDigits(d.licenseNumber);
   }
 
@@ -112,6 +115,7 @@ export async function addLicenseAction(
       expiration_date: d.expirationDate || null,
       document_path: d.documentPath,
       tax_id_encrypted: taxIdEncrypted,
+      tax_id_key_id: taxIdKeyId,
       tax_id_last4: taxIdLast4,
       // verification_status stays 'pending' — an admin verifies it at /admin/licenses.
     })

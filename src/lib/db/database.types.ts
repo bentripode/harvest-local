@@ -1049,6 +1049,7 @@ export type Database = {
           reviewed_by: string | null
           seller_id: string
           tax_id_encrypted: string | null
+          tax_id_key_id: number | null
           tax_id_last4: string | null
           updated_at: string
           verification_status: string
@@ -1068,6 +1069,7 @@ export type Database = {
           reviewed_by?: string | null
           seller_id: string
           tax_id_encrypted?: string | null
+          tax_id_key_id?: number | null
           tax_id_last4?: string | null
           updated_at?: string
           verification_status?: string
@@ -1087,6 +1089,7 @@ export type Database = {
           reviewed_by?: string | null
           seller_id?: string
           tax_id_encrypted?: string | null
+          tax_id_key_id?: number | null
           tax_id_last4?: string | null
           updated_at?: string
           verification_status?: string

@@ -23,7 +23,7 @@ every one at boot, so a missing/malformed value fails the deploy loudly.
 | `STRIPE_SUBSCRIPTION_PRICE_ID` | live `price_…` from `npm run stripe:setup` run against the live key |
 | `STRIPE_SELLER_TRIAL_DAYS` | `90` (or your call) |
 | `INNGEST_EVENT_KEY` / `INNGEST_SIGNING_KEY` | from Inngest Cloud (§4) |
-| `TAX_ID_ENCRYPTION_KEY` | **required** — `openssl rand -base64 32`. Encrypts seller SSN/EIN; unset means the compliance form refuses tax IDs and no seller can finish onboarding. Store it in the deployment secret manager, never in the repo, and keep an offline copy: lose it and the stored numbers are unrecoverable. |
+| `TAX_ID_ENCRYPTION_KEYS` | **required** — keyring of `id:key`, highest id active, e.g. `1:$(openssl rand -base64 32)`. Encrypts seller SSN/EIN; unset means the compliance form refuses tax IDs and no seller can finish onboarding. Store it in the deployment secret manager, never in the repo, and keep an offline copy: lose every key and the stored numbers are unrecoverable. (`TAX_ID_ENCRYPTION_KEY`, singular, still works and means `1:<key>`.) |
 | `RESEND_API_KEY` | live `re_…` (§5) |
 | `EMAIL_FROM` | `Harvest Local <notifications@your-verified-domain>` (§5) |
 | `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` | optional — buyer order-update SMS. Unset ⇒ texts are logged, not sent |
@@ -69,7 +69,7 @@ registrations for the states you operate in.
 ## 3. Supabase
 
 ✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
-schema. For the project you actually launch on: `npx supabase db push` (38 migrations as of launch),
+schema. For the project you actually launch on: `npx supabase db push` (39 migrations as of launch),
 then `npm run db:types` after any change.
 
 ☐ `20260904110000_license_gate.sql` is **not yet applied** — push it, then `npm run db:types` (the
@@ -113,8 +113,27 @@ functions — critically the **cron jobs**, which do NOT run without Inngest Clo
 - `license-expiry-scan` — daily `0 8 * * *` (T-30/7/1 reminders + auto-expire)
 - `notification-dispatch` — `*/2 * * * *` backstop for email delivery
 - `tax-id-retention` — daily `0 3 * * *` (destroys tax IDs + documents 4 years past a seller's last sale)
+- `tax-id-rekey` — daily `30 3 * * *` (moves stored tax IDs onto the current encryption key)
 
 ---
+
+### Rotating the tax-ID encryption key
+
+Do this on a schedule you decide, and immediately if a key is ever exposed.
+
+1. Generate one: `openssl rand -base64 32`.
+2. Add it to `TAX_ID_ENCRYPTION_KEYS` with an id **higher than every existing entry**, keeping
+   the old ones: `TAX_ID_ENCRYPTION_KEYS="2:<new>,1:<old>"`. Deploy. New uploads use key 2
+   immediately.
+3. Wait for `tax-id-rekey` (nightly at 03:30), or send `harvest/taxid.rekey.requested` from the
+   Inngest dashboard to run it now.
+4. Check **/admin/settings → Tax ID encryption**. It lists how many rows sit on each key.
+5. Once it says everything is on the active key, drop the old entry:
+   `TAX_ID_ENCRYPTION_KEYS="2:<new>"`. Deploy.
+
+**Do not skip step 4.** Removing a key while rows still reference it makes those tax IDs
+permanently unreadable — the affected sellers would have to re-upload. Keep the retired key
+offline for a while afterwards in case a restored backup predates the rotation.
 
 ## 5. Resend
 
@@ -158,7 +177,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **79 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **82 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,
