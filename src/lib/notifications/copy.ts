@@ -20,6 +20,8 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `Your ${label(p.license_type)} expires in ${s(p.days_left)} day${p.days_left === 1 ? "" : "s"} (${s(p.expiration_date)}). Renew it to avoid a pause.`,
   license_expired: (p) =>
     `Your ${label(p.license_type)} expired on ${s(p.expiration_date)}. Your storefront is paused until it's renewed and re-verified.`,
+  state_bans_online_food: (p) =>
+    `${s(p.state, "Your state")} doesn't allow homemade food to be sold through online orders, so your food listings have been unpublished. Non-food listings are unaffected.`,
   license_required: () =>
     `Your storefront is paused until a license is verified. Upload your cottage-food permit or ID on the compliance page and an admin will review it.`,
   license_verified: (p) =>
