@@ -2,9 +2,15 @@ import { redirect } from "next/navigation";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
+import { NotificationPrefsForm } from "@/components/notification-prefs-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
+import {
+  CATEGORY_META,
+  SUPPRESSIBLE_CATEGORIES,
+  type SuppressibleCategory,
+} from "@/lib/notifications/categories";
 
 export const metadata = { title: "Settings — Harvest Local" };
 
@@ -25,12 +31,18 @@ export default async function SellerSettingsPage() {
 
   const mapboxConfigured = !!(env.MAPBOX_TOKEN || env.NEXT_PUBLIC_MAPBOX_TOKEN);
 
+  // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
+  const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
+    const { audience } = CATEGORY_META[c];
+    return audience === "seller" || (audience === "admin" && profile.role === "admin");
+  });
+
   return (
     <div className="mx-auto max-w-xl space-y-8">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
         <p className="text-muted-foreground text-sm">
-          Your pickup address and local-delivery options.
+          Your pickup address, local-delivery options, and notification emails.
         </p>
       </div>
 
@@ -57,6 +69,21 @@ export default async function SellerSettingsPage() {
               baseFee: Number(seller.delivery_base_fee ?? 0),
               perMileFee: Number(seller.delivery_per_mile_fee ?? 0),
             }}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium">Notification emails</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground mb-4 text-sm">
+            In-app notifications and emails about a refund or a compliance pause are always sent.
+          </p>
+          <NotificationPrefsForm
+            categories={emailCategories}
+            prefs={profile.notification_prefs ?? {}}
           />
         </CardContent>
       </Card>

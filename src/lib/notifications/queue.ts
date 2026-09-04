@@ -3,6 +3,12 @@ import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 import { inngest } from "@/lib/inngest/client";
+import {
+  emailEnabled,
+  isSuppressible,
+  TEMPLATE_CATEGORY,
+  type NotificationPrefs,
+} from "@/lib/notifications/categories";
 import type { Database, Json } from "@/lib/db/types";
 
 /**
@@ -30,7 +36,24 @@ export async function queueNotification(
   admin: Admin,
   input: QueueNotificationInput,
 ): Promise<boolean> {
-  const channels = input.channels ?? DEFAULT_CHANNELS;
+  let channels = input.channels ?? DEFAULT_CHANNELS;
+
+  // Honour the recipient's per-category email opt-out (`profiles.notification_prefs`). Only a
+  // suppressible category needs the profile read; `payments` / `compliance` always email and
+  // `in_app` is never filtered.
+  const category = TEMPLATE_CATEGORY[input.template];
+  if (channels.includes("email") && category && isSuppressible(category)) {
+    const { data: profile } = await admin
+      .from("profiles")
+      .select("notification_prefs")
+      .eq("id", input.userId)
+      .maybeSingle();
+    if (!emailEnabled(profile?.notification_prefs as NotificationPrefs | undefined, input.template)) {
+      channels = channels.filter((c) => c !== "email");
+    }
+  }
+
+  if (channels.length === 0) return false;
 
   const { error } = await admin.from("notifications").insert(
     channels.map((channel) => ({

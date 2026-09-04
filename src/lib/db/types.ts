@@ -13,6 +13,7 @@
  *  2. `products.images` (jsonb) is given its real element shape instead of `Json`.
  */
 import type { Database as Generated } from "./database.types";
+import type { NotificationPrefs } from "@/lib/notifications/categories";
 
 export type { Json } from "./database.types";
 
@@ -40,6 +41,24 @@ type MoneyFixed<
   Insert: { [P in keyof T["Insert"]]: P extends K ? NumToStr<T["Insert"][P]> : T["Insert"][P] };
   Update: { [P in keyof T["Update"]]: P extends K ? NumToStr<T["Update"][P]> : T["Update"][P] };
   Relationships: T["Relationships"];
+};
+
+/**
+ * `notification_prefs` (jsonb) given its real shape. Manually declared until `npm run db:types` is
+ * re-run against a DB with the 20260904000000_notification_prefs migration applied — the generator
+ * will then emit it as `Json` and this override keeps the precise type.
+ */
+type ProfilesFixed = {
+  Row: Omit<GenTables["profiles"]["Row"], "notification_prefs"> & {
+    notification_prefs: NotificationPrefs;
+  };
+  Insert: Omit<GenTables["profiles"]["Insert"], "notification_prefs"> & {
+    notification_prefs?: NotificationPrefs;
+  };
+  Update: Omit<GenTables["profiles"]["Update"], "notification_prefs"> & {
+    notification_prefs?: NotificationPrefs;
+  };
+  Relationships: GenTables["profiles"]["Relationships"];
 };
 
 type ProductsFixed = {
@@ -71,6 +90,7 @@ export type Database = Omit<Generated, "public"> & {
   public: Omit<Generated["public"], "Tables"> & {
     Tables: Omit<
       GenTables,
+      | "profiles"
       | "products"
       | "orders"
       | "order_items"
@@ -79,6 +99,7 @@ export type Database = Omit<Generated, "public"> & {
       | "referrals"
       | "refunds"
     > & {
+      profiles: ProfilesFixed;
       products: ProductsFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
