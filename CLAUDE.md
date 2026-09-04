@@ -123,6 +123,17 @@ Never write an order, or code a path that could write an order, that crosses sta
   service-role key (`src/lib/supabase/admin.ts`) bypasses RLS and is used **only** in webhook
   handlers and trusted server jobs, never in a request handler driven by user input without an
   explicit authz check first.
+- **Authorization inside a SECURITY DEFINER function: never use `current_user`.** RLS is bypassed in
+  a SECURITY DEFINER body *and* `current_user` is the function **owner** (`postgres`), not the
+  caller — so `is_platform_context()` is always true there and is useless as a guard. This shipped a
+  real bypass in `advance_order_status` (any authenticated user could advance any order); see
+  `20260904090000_fix_advance_order_status_authz.sql`. Use **`auth.uid()`** for ownership and
+  **`is_service_role()`** for the trusted-caller escape hatch — both read the request JWT claims,
+  which are transaction-local and survive correctly. `is_platform_context()` stays as-is and is
+  **only** valid in SECURITY INVOKER guard *triggers* (`profiles_guard_role`,
+  `seller_profiles_guard_columns`, …), which rely on it returning true for `postgres` so SECURITY
+  DEFINER jobs can write protected columns. Any new function granted to `authenticated`/`anon` needs
+  a case in `test/integration/functions-authz.test.ts`.
 - **Server Functions / Actions** verify auth and authorization on every call (they are reachable by
   direct POST, not just via your UI). Use `requireUser()` / `requireRole()` from `src/lib/auth.ts`.
   Public write paths (checkout, cart re-price, promo attempts, messaging, reports) also call

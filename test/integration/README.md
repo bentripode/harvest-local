@@ -56,6 +56,21 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `order-pipeline.test.ts` | `advance_order_status` ownership + legal-transition map + `order_status_history` trigger |
 | `reviews.test.ts` | `reviews_verify_buyer` trigger, one-review-per-order, `avg_rating` rollup (rule 4) |
 | `rls.test.ts` | order visibility (anon / buyer / other buyer / seller), no client order writes, `profiles_guard_role`, `seller_profiles_guard_columns`, `check_rate_limit` grant |
+| `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
+
+## What the first run found
+
+A real authorization bypass. `advance_order_status` gated its ownership check on
+`not is_platform_context()`, which reads `current_user` — but inside a SECURITY DEFINER body
+`current_user` is the function **owner** (`postgres`), so it was true for every caller and the check
+never ran. The RPC is granted to `authenticated` and the anon key ships in the browser bundle, so any
+logged-in account could advance any order. Fixed in
+`supabase/migrations/20260904090000_fix_advance_order_status_authz.sql` by switching that one
+predicate to `is_service_role()`, which reads the request JWT claims instead.
+
+The lesson generalises: **inside a SECURITY DEFINER function, authorize on `auth.uid()` /
+`is_service_role()`, never on `current_user`.** RLS is bypassed there too, so the function must
+carry its own check. `functions-authz.test.ts` exists to keep every user-callable one honest.
 
 ## Not covered yet
 
@@ -70,7 +85,8 @@ Worth adding as the harness gets used:
 - Compliance: `record_order_revenue` crossing `state_cottage_food_rules.revenue_cap` → `is_paused`,
   and `expire_seller_license`.
 - `check_rate_limit` behaviour (allows N in a window, then denies with `retry_after`).
-- Messaging: `get_or_create_conversation`, `mark_conversation_read`, the participant RLS.
-- Delivery: `upsert_address` + `delivery_route_inputs` (needs PostGIS points).
+- Messaging: the participant RLS on `conversations` / `messages` (the RPCs themselves are covered).
+- Delivery: `delivery_route_inputs` and the PostGIS point `upsert_address` writes (its authorization
+  is covered; the geography round-trip isn't).
 - `record_storefront_view` bumping both `seller_view_counts` and `product_view_counts`.
 - Storage RLS on the private `seller-docs` bucket.

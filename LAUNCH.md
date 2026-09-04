@@ -67,8 +67,9 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (31 migrations as of launch). Regenerate types after any
-change: `npm run db:types`.
+✅ Migrations applied to the **dev** project — all 32, and `database.types.ts` regenerated from the
+live schema. For the project you actually launch on: `npx supabase db push` (32 migrations as of
+launch), then `npm run db:types` after any change.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
 already in the `supabase_realtime` publication with `replica identity full`, but the hosted project
@@ -138,15 +139,21 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 `503 {status:"degraded"}`). Point the monitor at `https://<domain>/api/health` and alert on any
 non-200.
 
-◑ Extend the test suite beyond the guardrail units. The **harness is in place**:
-`npm run test:integration` (`test/integration/`, see its README) runs the SECURITY DEFINER functions,
-triggers and RLS policies against a real Postgres — it skips loudly when the
-`INTEGRATION_SUPABASE_*` vars are unset, so `npm test` and CI are unaffected. Starter suites cover
-the four critical rules (`orders_same_state_only`, `finalize_paid_order` idempotency,
-`advance_order_status` authz + transition map, `reviews_verify_buyer`) plus core RLS and the column
-guards. **Still to do:** point it at a throwaway Supabase branch and actually run it — the suites
-have never been executed — then work through the "Not covered yet" list (referral chain, compliance
-functions, messaging RPCs, rate limiter, storage RLS).
+✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **36 tests, all
+passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
+so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
+`finalize_paid_order` idempotency, `advance_order_status` authz + transition map,
+`reviews_verify_buyer`), core RLS + the column guards, and the authorization of every
+user-callable SECURITY DEFINER function.
+
+> The first run of this suite found a real authorization bypass in `advance_order_status` — any
+> authenticated user could advance any order. Fixed in
+> `20260904090000_fix_advance_order_status_authz.sql`; see the CLAUDE.md note on
+> `is_service_role()` vs `is_platform_context()`.
+
+☐ Keep extending it — the README's "Not covered yet" list (referral chain, compliance functions,
+rate-limiter behaviour, delivery/PostGIS, storage RLS).
 
 ☐ Load-test the map/discovery queries once there are hundreds of sellers; add a search engine
 (Typesense/Algolia, synced via Inngest) only if faceted search becomes the bottleneck.
