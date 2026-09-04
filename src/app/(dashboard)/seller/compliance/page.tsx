@@ -85,9 +85,13 @@ export default async function CompliancePage() {
               </span>
             </p>
           )}
-          <p className="text-muted-foreground text-xs">
-            Cap figures are placeholders until an admin enters the verified limit for your state.
-          </p>
+          {revenue.capVerified ? null : (
+            <p className="text-muted-foreground text-xs">
+              This cap is a placeholder — an admin hasn&apos;t entered the verified limit for
+              {" "}
+              {stateName(revenue.state)} yet.
+            </p>
+          )}
         </CardContent>
       </Card>
 

@@ -14,6 +14,8 @@ export interface RevenueStatus {
   grossThisYear: string; // decimal string, dollars
   cap: string | null;
   overCap: boolean;
+  /** False while the state's rules are still the seeded placeholder (see /admin/states). */
+  capVerified: boolean;
 }
 
 export async function getRevenueStatus(
@@ -33,9 +35,9 @@ export async function getRevenueStatus(
       .maybeSingle(),
     supabase
       .from("state_cottage_food_rules")
-      .select("revenue_cap")
+      .select("revenue_cap, verified_at")
       .eq("state_code", state)
-      .maybeSingle<Pick<StateCottageFoodRule, "revenue_cap">>(),
+      .maybeSingle<Pick<StateCottageFoodRule, "revenue_cap" | "verified_at">>(),
   ]);
 
   return {
@@ -44,6 +46,7 @@ export async function getRevenueStatus(
     grossThisYear: tracking?.gross_revenue ?? "0.00",
     cap: rule?.revenue_cap ?? null,
     overCap: tracking?.is_over_cap ?? false,
+    capVerified: !!rule?.verified_at,
   };
 }
 

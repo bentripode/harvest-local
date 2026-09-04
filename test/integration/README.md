@@ -58,6 +58,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `rls.test.ts` | order visibility (anon / buyer / other buyer / seller), no client order writes, `profiles_guard_role`, `seller_profiles_guard_columns`, `check_rate_limit` grant |
 | `licenses.test.ts` | `seller_licenses_guard_status` — a seller can't verify their own license or forge the review trail, but can still edit the rest of the row; license RLS (owner / other seller / anon) |
 | `license-gate.test.ts` | `sync_seller_license_pause` — pauses without a verified/unexpired license, lifts the two license pauses on verification, never downgrades or lifts `revenue_cap` / `admin`, never resurrects an incomplete onboarding |
+| `state-rules.test.ts` | `state_cottage_food_rules` RLS — public read, a seller cannot raise their own state's cap or insert a new state, an admin can set it and stamp `verified_at` |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found

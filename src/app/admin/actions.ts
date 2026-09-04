@@ -266,3 +266,70 @@ export async function reviewLicenseAction(
   revalidatePath("/seller/compliance");
   return { ok: true };
 }
+
+export interface StateRuleState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save one state's cottage-food rules.
+ *
+ * Saving **is** the verification act: it stamps `verified_at` / `verified_by`, so the admin is
+ * asserting these are the state's real rules, not the seeded $50,000 placeholder. That matters
+ * because `record_order_revenue` pauses a storefront the moment its yearly gross crosses this cap.
+ *
+ * Written through the request client — RLS ("cottage rules: admin write") is the gate, and there is
+ * no guard trigger on this table, so there's no reason to reach for the service role.
+ */
+export async function saveStateRuleAction(
+  _prev: StateRuleState,
+  formData: FormData,
+): Promise<StateRuleState> {
+  const { user } = await requireRole("admin");
+
+  const parsed = z
+    .object({
+      stateCode: z.string().length(2).regex(/^[A-Z]{2}$/),
+      // Blank means "no cap in this state", which is a real answer — not the same as unverified.
+      revenueCap: z
+        .string()
+        .trim()
+        .max(20)
+        .optional()
+        .transform((v) => (v ? v : null)),
+      requiresLicense: z.coerce.boolean().optional(),
+      notes: z.string().trim().max(2000).optional().or(z.literal("")),
+    })
+    .safeParse(Object.fromEntries(formData));
+  if (!parsed.success) return { error: "Invalid request." };
+  const { stateCode, revenueCap, requiresLicense, notes } = parsed.data;
+
+  let cap: string | null = null;
+  if (revenueCap != null) {
+    const n = Number(revenueCap);
+    if (!Number.isFinite(n) || n < 0) return { error: "Enter a cap in dollars, or leave it blank." };
+    cap = toDecimalString(cents(Math.round(n * 100)));
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("state_cottage_food_rules")
+    .update({
+      revenue_cap: cap,
+      requires_license: !!requiresLicense,
+      notes: notes || null,
+      verified_at: new Date().toISOString(),
+      verified_by: user.id,
+      updated_by: user.id,
+    })
+    .eq("state_code", stateCode);
+  if (error) {
+    console.error("[admin] state rule save failed:", error);
+    return { error: "Could not save this state." };
+  }
+
+  revalidatePath("/admin/states");
+  revalidatePath("/seller/compliance");
+  return { ok: true };
+}
