@@ -66,7 +66,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (25 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (26 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -163,7 +163,7 @@ Tracked across the phase commits:
 - **SMS via Twilio** — `notification-dispatch` has the `sms` branch stubbed; add the SDK + `TWILIO_*` env.
 - ✅ **`notification_prefs`** — per-category email opt-out on `profiles.notification_prefs`, enforced in `queueNotification`; sellers/admins toggle on `/seller/settings`. Buyer-facing `order_updates` toggle still needs a buyer account page.
 - ✅ **Seller responses to reviews** — one public reply per review (`reviews.response`), edit form on the seller overview, read-only on the storefront + buyer order page.
-- **Storefront / product view tracking** → conversion rate on the seller dashboard.
+- ✅ **Storefront view tracking** → conversion rate (completed orders ÷ views) on the seller dashboard; `seller_view_counts` rollup fed by a per-session client beacon. Per-*product* views still not tracked.
 - **Saved address book** for buyers; delivery **time windows**.
 - **Realtime for messaging** takes over automatically once §3's Postgres Changes toggle is on.
 - ✅ **`refunds.report_id` backfill** — the `charge.refunded` webhook now links the oldest open report on the order into the mirror row and resolves it, for refunds issued straight from the Stripe dashboard.

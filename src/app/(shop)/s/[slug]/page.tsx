@@ -7,6 +7,7 @@ import { AddToCart } from "@/components/add-to-cart";
 import { StarRating } from "@/components/star-rating";
 import { ReviewList } from "@/components/review-list";
 import { MessageSellerButton } from "@/components/message-seller-button";
+import { TrackStorefrontView } from "@/components/track-storefront-view";
 import { getProfile, getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
@@ -21,7 +22,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "id, business_name, storefront_slug, bio, home_state, is_paused, delivery_enabled, delivery_radius_miles",
+      "id, profile_id, business_name, storefront_slug, bio, home_state, is_paused, delivery_enabled, delivery_radius_miles",
     )
     .eq("storefront_slug", slug)
     .maybeSingle();
@@ -44,9 +45,11 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const list = (products ?? []) as Product[];
   const buyerState = profile?.home_state ?? null;
   const canOrder = !!user && sameState(buyerState, seller.home_state);
+  const isOwner = !!user && user.id === seller.profile_id;
 
   return (
     <div className="space-y-8">
+      {isOwner ? null : <TrackStorefrontView sellerId={seller.id} />}
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">{seller.business_name}</h1>
         <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">

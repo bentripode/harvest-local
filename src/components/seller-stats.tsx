@@ -55,6 +55,11 @@ export function SellerStatsPanel({ stats }: { stats: SellerStats }) {
           <RevenueBars daily={stats.daily} />
 
           <div className="grid gap-x-8 gap-y-2 border-t pt-3 text-sm sm:grid-cols-2">
+            <Row label="Storefront views · 30 days" value={String(last30.views)} />
+            <Row
+              label="Conversion (completed ÷ views)"
+              value={last30.conversionPct != null ? `${last30.conversionPct}%` : "—"}
+            />
             <Row label="Pickup / delivery orders" value={`${last30.pickupOrders} / ${last30.deliveryOrders}`} />
             <Row label="Delivery fees collected" value={formatUsd(last30.deliveryRevenueCents)} />
             <Row label="Referral discounts given" value={formatUsd(last30.discountsCents)} />
