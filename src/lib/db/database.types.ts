@@ -1040,6 +1040,9 @@ export type Database = {
           issuing_state: string
           license_number: string | null
           license_type: string
+          review_note: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
           seller_id: string
           updated_at: string
           verification_status: string
@@ -1053,6 +1056,9 @@ export type Database = {
           issuing_state: string
           license_number?: string | null
           license_type: string
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           seller_id: string
           updated_at?: string
           verification_status?: string
@@ -1066,11 +1072,21 @@ export type Database = {
           issuing_state?: string
           license_number?: string | null
           license_type?: string
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           seller_id?: string
           updated_at?: string
           verification_status?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "seller_licenses_reviewed_by_fkey"
+            columns: ["reviewed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "seller_licenses_seller_id_fkey"
             columns: ["seller_id"]

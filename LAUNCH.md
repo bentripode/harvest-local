@@ -67,13 +67,9 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
-schema. For the project you actually launch on: `npx supabase db push` (33 migrations as of launch),
-then `npm run db:types` after any change.
-
-☐ `20260904100000_license_review.sql` is **not yet applied to the dev project** — push it, then
-`npm run db:types` (the three new `seller_licenses` columns are layered into `src/lib/db/types.ts`
-by hand until that regen).
+✅ Migrations applied to the **dev** project — all 33, and `database.types.ts` regenerated from the
+live schema. For the project you actually launch on: `npx supabase db push` (33 migrations as of
+launch), then `npm run db:types` after any change.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
 already in the `supabase_realtime` publication with `replica identity full`, but the hosted project
