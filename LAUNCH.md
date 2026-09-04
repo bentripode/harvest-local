@@ -144,7 +144,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **36 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **45 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,
