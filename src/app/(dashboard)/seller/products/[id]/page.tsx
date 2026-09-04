@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 
 import { ProductForm, type ProductFormValues } from "@/components/product-form";
+import { ingredientsToText } from "@/lib/products/labeling";
 import { createClient } from "@/lib/supabase/server";
 import { getSellerContext } from "@/lib/auth";
 import { getCategories, getTags } from "@/lib/catalog";
@@ -34,6 +35,10 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     status: p.status === "active" ? "active" : "draft",
     tagIds: (productTags ?? []).map((t) => t.tag_id),
     images: p.images ?? [],
+    ingredients: ingredientsToText(p.ingredients ?? []),
+    netWeightValue: p.net_weight_value ?? "",
+    netWeightUnit: p.net_weight_unit ?? "",
+    allergens: p.allergens ?? [],
   };
 
   return (

@@ -564,11 +564,15 @@ export type Database = {
       }
       products: {
         Row: {
+          allergens: string[]
           category_id: string
           created_at: string
           description: string | null
           id: string
           images: Json
+          ingredients: Json
+          net_weight_unit: string | null
+          net_weight_value: number | null
           price: number
           quantity_available: number | null
           search_tsv: unknown
@@ -580,11 +584,15 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          allergens?: string[]
           category_id: string
           created_at?: string
           description?: string | null
           id?: string
           images?: Json
+          ingredients?: Json
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
           price: number
           quantity_available?: number | null
           search_tsv?: unknown
@@ -596,11 +604,15 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          allergens?: string[]
           category_id?: string
           created_at?: string
           description?: string | null
           id?: string
           images?: Json
+          ingredients?: Json
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
           price?: number
           quantity_available?: number | null
           search_tsv?: unknown

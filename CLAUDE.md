@@ -243,6 +243,7 @@ src/lib/compliance.ts                  revenue-status / license / notification r
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
 src/lib/compliance/{programs,food-sales}.ts   per-state programs · the online-food-sales gate reads
+src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -485,6 +486,21 @@ lands unverified**: IJ is a summary, not statute, and its own pages say so. `sta
 created **empty on purpose** — disclaimer text is quoted statute that gets printed onto food, so it
 needs a complete verbatim capture. Nothing enforces any of this yet; `src/lib/compliance/programs.ts`
 is the read layer and `/admin/programs` shows the data and how much of it is unchecked.
+
+
+**Phase 5 — product label fields.** `products` gains `ingredients` (jsonb string array),
+`net_weight_value` + `net_weight_unit`, and `allergens` (`text[]`)
+(`20260904190000_product_label_fields.sql`) — the three things nearly every state requires on a
+homemade-food label that a product row could not previously express. **Ingredient order is
+meaningful** (states require descending order of predominance by weight, so the seller's order is
+the label's order — never re-sort it). The allergen vocabulary is the federal nine and is enforced
+by a CHECK: a misspelling that reaches a printed label is worse than one refused at write time.
+`src/lib/products/labeling.ts` is the pure half — `parseIngredients`, `parseAllergens`,
+`formatAllergens`, and `formatNetWeight`, which derives the metric equivalent NC/TN/CT require
+rather than asking the seller for it. Fields are optional until the label generator can require them
+in exchange for something. Net weight and allergens also show on the storefront: a buyer-safety fact
+belongs on the shelf, not only on the label. Production date and lot code are deliberately absent —
+they are per-batch, so label printing will ask.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips

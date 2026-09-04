@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
+import { isNetWeightUnit, parseAllergens, parseIngredients } from "@/lib/products/labeling";
 import type { ProductImage } from "@/lib/db/types";
 
 export interface ProductFormState {
@@ -35,6 +36,19 @@ const productSchema = z.object({
   status: z.enum(["draft", "active"]),
   tagIds: z.array(z.string().uuid()).default([]),
   images: z.array(imageSchema).default([]),
+  // Label fields. Optional until the label generator can require them in exchange for something.
+  ingredients: z.string().max(8000).optional().or(z.literal("")),
+  netWeightValue: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .refine((v) => !v || (Number.isFinite(Number(v)) && Number(v) > 0), "Enter a net weight above zero."),
+  netWeightUnit: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .refine((v) => !v || isNetWeightUnit(v), "Choose a unit."),
+  allergens: z.array(z.string()).default([]),
 });
 
 async function getSellerId(userId: string): Promise<string> {
@@ -59,9 +73,29 @@ function parse(formData: FormData) {
     status: formData.get("status"),
     tagIds: formData.getAll("tagIds").map(String),
     images: JSON.parse((formData.get("images") as string) || "[]"),
+    ingredients: formData.get("ingredients") ?? "",
+    netWeightValue: formData.get("netWeightValue") ?? "",
+    netWeightUnit: formData.get("netWeightUnit") ?? "",
+    allergens: formData.getAll("allergens").map(String),
   });
 }
 
+
+/** The three label fields, shaped the same way whichever action is writing them. */
+function labelFields(d: {
+  ingredients?: string;
+  netWeightValue?: string;
+  netWeightUnit?: string;
+  allergens: string[];
+}) {
+  const hasWeight = !!d.netWeightValue && !!d.netWeightUnit;
+  return {
+    ingredients: parseIngredients(d.ingredients ?? ""),
+    net_weight_value: hasWeight ? d.netWeightValue! : null,
+    net_weight_unit: hasWeight ? d.netWeightUnit! : null,
+    allergens: parseAllergens(d.allergens),
+  };
+}
 
 /**
  * The state gate, checked here so the seller reads a sentence rather than a constraint violation.
@@ -98,6 +132,7 @@ export async function createProductAction(
       quantity_available: d.quantityAvailable ? Number(d.quantityAvailable) : null,
       status: d.status,
       images: d.images as ProductImage[],
+      ...labelFields(d),
     })
     .select("id")
     .single();
@@ -138,6 +173,7 @@ export async function updateProductAction(
       quantity_available: d.quantityAvailable ? Number(d.quantityAvailable) : null,
       status: d.status,
       images: d.images as ProductImage[],
+      ...labelFields(d),
     })
     .eq("id", productId.data)
     .eq("seller_id", sellerId); // defense in depth on top of RLS
