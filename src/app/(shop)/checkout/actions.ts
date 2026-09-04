@@ -31,12 +31,13 @@ const cartPayloadSchema = z.object({
   promoCode: z.string().max(32).optional(),
   fulfillment: z.enum(["pickup", "delivery"]).default("pickup"),
   deliveryAddress: addressSchema.optional(),
+  deliveryWindow: z.string().trim().max(80).optional(),
 });
 
 export type CartPayload = z.infer<typeof cartPayloadSchema>;
 
 const SELLER_SELECT =
-  "id, profile_id, business_name, storefront_slug, home_state, is_paused, connect_charges_enabled, stripe_account_id, delivery_enabled";
+  "id, profile_id, business_name, storefront_slug, home_state, is_paused, connect_charges_enabled, stripe_account_id, delivery_enabled, delivery_windows";
 
 /** Load the seller + products for a payload and re-price server-side. Shared by review + checkout. */
 async function reprice(payload: CartPayload) {
@@ -124,6 +125,7 @@ export interface RepriceResult {
   inState?: boolean;
   sellerLive?: boolean;
   sellerDeliveryEnabled?: boolean;
+  sellerDeliveryWindows?: string[];
   lines?: { title: string; quantity: number; unitPrice: number; lineTotal: number }[];
   subtotal?: number;
   /** Present only when a promo code was submitted. */
@@ -197,6 +199,7 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
     inState: sameState(profile.home_state, seller.home_state),
     sellerLive,
     sellerDeliveryEnabled: seller.delivery_enabled,
+    sellerDeliveryWindows: seller.delivery_windows ?? [],
     subtotal: priced.subtotal,
     lines: priced.lines.map((l) => ({
       title: l.title,
@@ -280,6 +283,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   let deliveryFeeCents = 0;
   let deliveryDistance: number | null = null;
   let deliveryText: string | null = null;
+  let deliveryWindow: string | null = null;
   let buyerState = profile.home_state;
 
   if (isDelivery) {
@@ -290,6 +294,15 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
     deliveryDistance = d.distanceMiles;
     deliveryText = d.text;
     buyerState = d.state; // == seller.home_state (resolveDelivery enforces it)
+
+    // If the seller offers time windows, the buyer must have picked one of them.
+    const windows = seller.delivery_windows ?? [];
+    if (windows.length > 0) {
+      if (!payload.deliveryWindow || !windows.includes(payload.deliveryWindow)) {
+        redirect("/checkout?error=window");
+      }
+      deliveryWindow = payload.deliveryWindow;
+    }
   }
 
   // Referral code (optional). The discount amount is OUR order math (admin-set % from
@@ -347,6 +360,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       promo_code_id: promoCodeId,
       delivery_distance_miles: deliveryDistance == null ? null : String(deliveryDistance),
       delivery_address_text: deliveryText,
+      delivery_window: deliveryWindow,
     })
     .select("id")
     .single();

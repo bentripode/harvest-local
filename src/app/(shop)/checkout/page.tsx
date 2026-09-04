@@ -28,6 +28,7 @@ export default function CheckoutPage() {
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
+  const [deliveryWindow, setDeliveryWindow] = useState("");
   const [savedAddresses, setSavedAddresses] = useState<SavedAddress[]>([]);
 
   useEffect(() => {
@@ -119,7 +120,11 @@ export default function CheckoutPage() {
   const deliveryOk = result.delivery?.ok === true ? result.delivery : null;
   const deliveryError = result.delivery && !result.delivery.ok ? result.delivery.error : null;
 
-  const deliveryUnresolved = fulfillment === "delivery" && (!appliedAddr || !deliveryOk);
+  const deliveryWindows = result.sellerDeliveryWindows ?? [];
+  const windowRequired = fulfillment === "delivery" && deliveryWindows.length > 0;
+  const windowMissing = windowRequired && !deliveryWindow;
+  const deliveryUnresolved =
+    fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing);
   const blocked =
     needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
 
@@ -238,6 +243,25 @@ export default function CheckoutPage() {
               ) : deliveryError ? (
                 <p className="text-destructive text-sm">{deliveryError}</p>
               ) : null}
+
+              {deliveryWindows.length > 0 ? (
+                <div className="space-y-1.5 border-t pt-3">
+                  <Label htmlFor="d-window">Delivery window</Label>
+                  <select
+                    id="d-window"
+                    value={deliveryWindow}
+                    onChange={(e) => setDeliveryWindow(e.target.value)}
+                    className="border-input h-9 w-full rounded-md border bg-transparent px-2.5 text-sm"
+                  >
+                    <option value="">Choose a window…</option>
+                    {deliveryWindows.map((w) => (
+                      <option key={w} value={w}>
+                        {w}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>
@@ -336,6 +360,7 @@ export default function CheckoutPage() {
         promoCode={promoOk?.code}
         fulfillment={fulfillment}
         deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
+        deliveryWindow={windowRequired ? deliveryWindow : undefined}
       />
       <p className="text-muted-foreground text-center text-xs">
         You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.

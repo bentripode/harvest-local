@@ -7,6 +7,7 @@ import { requireRole, requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { addressSchema } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
+import { parseWindows } from "@/lib/orders/delivery-windows";
 import {
   SUPPRESSIBLE_CATEGORIES,
   type SuppressibleCategory,
@@ -101,6 +102,7 @@ export async function saveDeliverySettingsAction(
       delivery_radius_miles: d.radiusMiles,
       delivery_base_fee: Number(d.baseFee.toFixed(2)),
       delivery_per_mile_fee: Number(d.perMileFee.toFixed(2)),
+      delivery_windows: parseWindows(String(formData.get("windows") ?? "")),
     })
     .eq("id", seller.id);
   if (error) return { error: error.message };

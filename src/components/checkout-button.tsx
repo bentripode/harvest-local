@@ -16,12 +16,14 @@ export function CheckoutButton({
   promoCode,
   fulfillment = "pickup",
   deliveryAddress = null,
+  deliveryWindow,
 }: {
   disabled?: boolean;
   label?: string;
   promoCode?: string;
   fulfillment?: "pickup" | "delivery";
   deliveryAddress?: Address | null;
+  deliveryWindow?: string;
 }) {
   const { cart } = useCart();
 
@@ -40,6 +42,7 @@ export function CheckoutButton({
                 state: deliveryAddress.state,
                 postal: deliveryAddress.postal,
               },
+              ...(deliveryWindow ? { deliveryWindow } : {}),
             }
           : {}),
       })

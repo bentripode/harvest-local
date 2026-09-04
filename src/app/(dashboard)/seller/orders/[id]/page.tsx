@@ -91,6 +91,9 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
         <section className="rounded-lg border p-4 text-sm">
           <h2 className="mb-1 font-medium">Deliver to</h2>
           <p className="text-muted-foreground">{order.delivery_address_text}</p>
+          {order.delivery_window ? (
+            <p className="mt-1 font-medium">Window: {order.delivery_window}</p>
+          ) : null}
           {order.delivery_distance_miles != null ? (
             <p className="text-muted-foreground text-xs">
               {order.delivery_distance_miles} driving miles from your pickup address
