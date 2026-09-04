@@ -179,7 +179,7 @@ src/app/(auth)/                        login, signup, email confirm
 src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders, /account (address book + notification emails)
 src/app/(dashboard)/seller/onboarding/ Connect Accounts v2 + Billing subscription
 src/app/(dashboard)/seller/products/   product CRUD
-src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
+src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC) + /export CSV
 src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
@@ -284,8 +284,10 @@ lens, a dependency-free SVG daily-revenue chart, and top 5 products. **Storefron
 rate** (completed orders ÷ views, 30d): the storefront page fires `record_storefront_view` (SECURITY
 DEFINER RPC, `anon`-callable) from `TrackStorefrontView` once per browser session — not for the
 owner's own visits — into the per-day `seller_view_counts` rollup, which `getSellerDashboardStats`
-reads. The count is advisory (seller-only, no money effect), so the RPC is unthrottled. Not built:
-per-product views, date-range picker, CSV export.
+reads. The count is advisory (seller-only, no money effect), so the RPC is unthrottled.
+`GET /seller/orders/export` streams the seller's orders as CSV (`src/lib/orders/csv.ts`, pure;
+RLS-scoped read); "Export CSV" link on the order board. Not built: per-product views, date-range
+picker, chart CSV.
 
 **Phase 4 — reviews.** ARCHITECTURE §2.7. `reviews` (one per order, `order_id` unique). Verified-
 buyer rule (rule 4) at the data layer: `reviews_verify_buyer` BEFORE INSERT (fires for every insert)

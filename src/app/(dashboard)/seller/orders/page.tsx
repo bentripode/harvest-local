@@ -20,11 +20,22 @@ export default async function SellerOrdersPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Orders</h1>
-        <p className="text-muted-foreground text-sm">
-          Confirmed orders from buyers. Move each one along as you prepare it.
-        </p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">Orders</h1>
+          <p className="text-muted-foreground text-sm">
+            Confirmed orders from buyers. Move each one along as you prepare it.
+          </p>
+        </div>
+        {orders.length > 0 ? (
+          <a
+            href="/seller/orders/export"
+            download
+            className="text-muted-foreground hover:text-foreground shrink-0 rounded-md border px-3 py-1.5 text-sm"
+          >
+            Export CSV
+          </a>
+        ) : null}
       </div>
 
       <Group title="Active" empty="No open orders." orders={open} />
