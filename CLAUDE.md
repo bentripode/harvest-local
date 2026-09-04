@@ -178,6 +178,25 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ---
 
+### 7. A listing must be in a food category the seller's state permits.
+
+- `categories.food_axes` (`text[]`) maps our shopping taxonomy onto the six regulatory axes
+  `state_food_programs` grades. `state_permits_food_axis(state, axis)` is true unless **every**
+  program in the state bans it, and `products_guard_food_categories` refuses to publish a listing
+  whose axis is banned (`20260904200000_category_food_axes.sql`). Drafts pass, as with rule 6.
+- **Only an outright ban blocks.** `conditional` (Colorado: meat under 1,000 personally-raised
+  poultry), `list_only` and `limited` are qualifications — the listing goes through and the seller
+  is shown the qualification. `unclear` is missing data and must not stop a seller trading.
+- **An empty `food_axes` means no rule is known, not that the category is unregulated.** Fresh
+  produce is not one of the six axes at all, and "Juice & Cider" could be acidified, refrigerated or
+  neither. Those are left unmapped rather than guessed — a wrong mapping either blocks legal trade
+  or permits illegal trade — and `/admin/programs` counts them so the gap is visible.
+- Permissive while a seller has no chosen program: if ANY program in the state allows the axis, the
+  seller could in principle enrol in that one. This tightens to their actual program when program
+  selection lands in onboarding.
+
+---
+
 ## Conventions
 
 - **TypeScript strict.** No `any` without a written reason. Validate external input with Zod at the
@@ -242,7 +261,7 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
-src/lib/compliance/{programs,food-sales}.ts   per-state programs · the online-food-sales gate reads
+src/lib/compliance/{programs,food-sales,categories}.ts   per-state programs · online-sales gate · category-axis gate
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)

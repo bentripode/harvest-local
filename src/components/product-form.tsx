@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { createClient } from "@/lib/supabase/client";
 import type { Category, ProductImage, Tag } from "@/lib/db/types";
+import type { CategoryPermissions } from "@/lib/compliance/categories";
 import {
   MAJOR_ALLERGENS,
   NET_WEIGHT_UNITS,
@@ -44,11 +45,14 @@ export function ProductForm({
   categories,
   tags,
   initial,
+  categoryPermissions = {},
 }: {
   sellerId: string;
   categories: Category[];
   tags: Tag[];
   initial?: ProductFormValues;
+  /** What this seller's state permits, by category id. Empty = no restrictions known. */
+  categoryPermissions?: CategoryPermissions;
 }) {
   const isEdit = !!initial?.id;
   const [state, action] = useActionState<ProductFormState, FormData>(
@@ -62,6 +66,9 @@ export function ProductForm({
   const [images, setImages] = useState<ProductImage[]>(initial?.images ?? []);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
+
+  const permissionFor = (id: string) => categoryPermissions[id];
+  const chosen = permissionFor(categoryId);
 
   const topLevel = categories.filter((c) => c.parent_id === null);
   const subcategories = categories.filter((c) => c.parent_id === categoryId);
@@ -146,12 +153,22 @@ export function ProductForm({
             <option value="" disabled>
               Select a category
             </option>
-            {topLevel.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
+            {topLevel.map((c) => {
+              const permission = permissionFor(c.id);
+              return (
+                <option key={c.id} value={c.id} disabled={permission?.allowed === false}>
+                  {c.name}
+                  {permission?.allowed === false ? " — not allowed in your state" : ""}
+                </option>
+              );
+            })}
           </select>
+          {chosen?.allowed === false ? (
+            <p className="text-destructive text-xs">{chosen.reason}</p>
+          ) : null}
+          {chosen?.qualification ? (
+            <p className="text-muted-foreground text-xs">{chosen.qualification}</p>
+          ) : null}
         </div>
         <div className="space-y-2">
           <Label htmlFor="subcategoryId">Sub-category (optional)</Label>

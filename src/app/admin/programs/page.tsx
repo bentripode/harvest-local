@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { getAllStatePrograms, type StateProgramSummary } from "@/lib/compliance/programs";
+import { getUnmappedFoodCategories } from "@/lib/compliance/categories";
 import { stateName } from "@/lib/geo/state";
 import { formatUsd, toCents } from "@/lib/money";
 
@@ -10,7 +11,10 @@ export const metadata = { title: "Food programs — Admin" };
  * job of this page today is to make the data — and how much of it is unverified — visible.
  */
 export default async function AdminProgramsPage() {
-  const states = await getAllStatePrograms();
+  const [states, unmappedCategories] = await Promise.all([
+    getAllStatePrograms(),
+    getUnmappedFoodCategories(),
+  ]);
   const blocked = states.filter((s) => s.foodSalesBlocked);
   const programCount = states.reduce((n, s) => n + s.programs.length, 0);
   const unverified = states.reduce((n, s) => n + s.programs.filter((p) => !p.verified_at).length, 0);
@@ -36,6 +40,20 @@ export default async function AdminProgramsPage() {
             but a summary rather than statute, and its own pages say so. Nothing here should gate a
             real seller until a human has checked it against the state&apos;s own rules.
           </p>
+        ) : null}
+
+        {unmappedCategories.length > 0 ? (
+          <div className="rounded-lg border p-3 text-sm">
+            <p className="font-medium">
+              {unmappedCategories.length} food categories have no regulatory axis mapped
+            </p>
+            <p className="text-muted-foreground mt-1">
+              {unmappedCategories.map((c) => c.name).join(", ")} — the category gate does not fire
+              for these. Deciding which of the six axes a category implicates is a judgement, and a
+              wrong one either blocks legal trade or permits illegal trade, so they were left unset
+              rather than guessed. The licence and permit gates still apply.
+            </p>
+          </div>
         ) : null}
 
         {blocked.length > 0 ? (

@@ -98,6 +98,7 @@ export type Database = {
       categories: {
         Row: {
           created_at: string
+          food_axes: string[]
           id: string
           name: string
           parent_id: string | null
@@ -108,6 +109,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          food_axes?: string[]
           id?: string
           name: string
           parent_id?: string | null
@@ -118,6 +120,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          food_axes?: string[]
           id?: string
           name?: string
           parent_id?: string | null
@@ -1847,6 +1850,10 @@ export type Database = {
       }
       state_allows_online_food_sales: {
         Args: { p_state_code: string }
+        Returns: boolean
+      }
+      state_permits_food_axis: {
+        Args: { p_axis: string; p_state_code: string }
         Returns: boolean
       }
       sync_seller_license_pause: {
