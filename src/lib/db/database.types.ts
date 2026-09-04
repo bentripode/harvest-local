@@ -1316,6 +1316,213 @@ export type Database = {
           },
         ]
       }
+      state_food_programs: {
+        Row: {
+          application_url: string | null
+          cap_basis: string
+          cap_note: string | null
+          cat_acidified: string
+          cat_fermented: string
+          cat_low_acid_canned: string
+          cat_meat: string
+          cat_refrigerated: string
+          cat_shelf_stable: string
+          category_note: string | null
+          created_at: string
+          direct_delivery: string
+          id: string
+          inspection_required: boolean | null
+          license_note: string | null
+          license_required: string
+          license_threshold: number | null
+          local_preemption: boolean | null
+          mail_delivery: string
+          mail_note: string | null
+          name: string
+          online_orders: string
+          ordinal: number
+          recipe_approval: string
+          recipe_note: string | null
+          retail_allowed: boolean | null
+          revenue_cap: number | null
+          source_checked_at: string
+          source_url: string
+          state_code: string
+          training_note: string | null
+          training_required: string
+          training_url: string | null
+          updated_at: string
+          venue_note: string | null
+          verified_at: string | null
+          verified_by: string | null
+        }
+        Insert: {
+          application_url?: string | null
+          cap_basis?: string
+          cap_note?: string | null
+          cat_acidified?: string
+          cat_fermented?: string
+          cat_low_acid_canned?: string
+          cat_meat?: string
+          cat_refrigerated?: string
+          cat_shelf_stable?: string
+          category_note?: string | null
+          created_at?: string
+          direct_delivery?: string
+          id?: string
+          inspection_required?: boolean | null
+          license_note?: string | null
+          license_required?: string
+          license_threshold?: number | null
+          local_preemption?: boolean | null
+          mail_delivery?: string
+          mail_note?: string | null
+          name: string
+          online_orders?: string
+          ordinal: number
+          recipe_approval?: string
+          recipe_note?: string | null
+          retail_allowed?: boolean | null
+          revenue_cap?: number | null
+          source_checked_at: string
+          source_url: string
+          state_code: string
+          training_note?: string | null
+          training_required?: string
+          training_url?: string | null
+          updated_at?: string
+          venue_note?: string | null
+          verified_at?: string | null
+          verified_by?: string | null
+        }
+        Update: {
+          application_url?: string | null
+          cap_basis?: string
+          cap_note?: string | null
+          cat_acidified?: string
+          cat_fermented?: string
+          cat_low_acid_canned?: string
+          cat_meat?: string
+          cat_refrigerated?: string
+          cat_shelf_stable?: string
+          category_note?: string | null
+          created_at?: string
+          direct_delivery?: string
+          id?: string
+          inspection_required?: boolean | null
+          license_note?: string | null
+          license_required?: string
+          license_threshold?: number | null
+          local_preemption?: boolean | null
+          mail_delivery?: string
+          mail_note?: string | null
+          name?: string
+          online_orders?: string
+          ordinal?: number
+          recipe_approval?: string
+          recipe_note?: string | null
+          retail_allowed?: boolean | null
+          revenue_cap?: number | null
+          source_checked_at?: string
+          source_url?: string
+          state_code?: string
+          training_note?: string | null
+          training_required?: string
+          training_url?: string | null
+          updated_at?: string
+          venue_note?: string | null
+          verified_at?: string | null
+          verified_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "state_food_programs_state_code_fkey"
+            columns: ["state_code"]
+            isOneToOne: false
+            referencedRelation: "state_cottage_food_rules"
+            referencedColumns: ["state_code"]
+          },
+          {
+            foreignKeyName: "state_food_programs_verified_by_fkey"
+            columns: ["verified_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      state_label_rules: {
+        Row: {
+          created_at: string
+          disclaimer_all_caps: boolean
+          disclaimer_font_note: string | null
+          disclaimer_min_pt: number | null
+          disclaimer_text: string | null
+          metric_required: boolean
+          notes: string | null
+          placard_required: boolean
+          placard_text: string | null
+          program_id: string
+          required_elements: string[]
+          source_checked_at: string
+          source_url: string
+          updated_at: string
+          verified_at: string | null
+          verified_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          disclaimer_all_caps?: boolean
+          disclaimer_font_note?: string | null
+          disclaimer_min_pt?: number | null
+          disclaimer_text?: string | null
+          metric_required?: boolean
+          notes?: string | null
+          placard_required?: boolean
+          placard_text?: string | null
+          program_id: string
+          required_elements?: string[]
+          source_checked_at: string
+          source_url: string
+          updated_at?: string
+          verified_at?: string | null
+          verified_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          disclaimer_all_caps?: boolean
+          disclaimer_font_note?: string | null
+          disclaimer_min_pt?: number | null
+          disclaimer_text?: string | null
+          metric_required?: boolean
+          notes?: string | null
+          placard_required?: boolean
+          placard_text?: string | null
+          program_id?: string
+          required_elements?: string[]
+          source_checked_at?: string
+          source_url?: string
+          updated_at?: string
+          verified_at?: string | null
+          verified_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "state_label_rules_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: true
+            referencedRelation: "state_food_programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "state_label_rules_verified_by_fkey"
+            columns: ["verified_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       stripe_events: {
         Row: {
           account_id: string | null

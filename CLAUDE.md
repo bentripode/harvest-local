@@ -222,6 +222,7 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
+src/lib/compliance/programs.ts         per-state cottage-food programs (the compliance reference data)
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -245,6 +246,7 @@ src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
 src/app/admin/licenses/                license review queue + [id]/document signed-URL redirect
 src/app/admin/states/                  per-state cap / licence-required editor
+src/app/admin/programs/                seeded cottage-food programs, read-only for now
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -435,7 +437,7 @@ route handlers don't run the `/admin` layout, so that handler carries its own ad
 subscriptions via the **service-role client** (allowed: it's behind the `/admin` layout's
 `requireRole("admin")`), aggregated in JS. GMV (Σ `total` of completed orders) all-time + 30d, AOV,
 refund total, MRR (`active` subs × $20 — trialing = $0), paying/trialing seller counts, total/live/
-active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Licenses · Analytics · States · Settings.
+active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Licenses · Analytics · States · Programs · Settings.
 
 **Phase 5 — state rules editor.** `/admin/states` edits `state_cottage_food_rules` (cap,
 `requires_license`, notes) through the request client — RLS ("cottage rules: admin write") is the
@@ -446,6 +448,23 @@ $50,000 cap and `requires_license = false`, and `record_order_revenue` pauses a 
 moment its yearly gross crosses whatever is in that column — so an unverified row is a guardrail
 firing on a number nobody checked. The page says so, and `/seller/compliance` only calls the cap a
 placeholder when `verified_at` is null (`getRevenueStatus().capVerified`).
+
+
+**Phase 5 — state food programs (compliance reference data).** `state_food_programs`
+(`20260904170000_state_food_programs.sql`) holds **69 programs across 51 jurisdictions**, seeded
+from the Institute for Justice state pages read 2026-09-04. The shape matters: a seller operates in
+a **program within a state**, not in a state — CA/OR/UT/VT run three each and ten more run two, with
+different caps, permitted foods and online rules. Key columns: `online_orders`
+(`allowed|banned|unclear` — **DE, HI, MI, MS, NV ban it under every program**, so sellers there may
+list non-food only), `mail_delivery` + `mail_note`, `direct_delivery` (defaults `unclear` —
+whether delivering to a buyer's door counts as a permitted venue is a legal question the source
+does not answer), `cap_basis` (`annual_total|per_product|per_category` — CO caps per *product*, VA
+caps only acidified), `license_threshold` (MN 7,665 / VT 6,500 / VT 10,000 — triggers licensing
+rather than stopping sales), and the six category axes. Public read, admin write, and **every row
+lands unverified**: IJ is a summary, not statute, and its own pages say so. `state_label_rules` is
+created **empty on purpose** — disclaimer text is quoted statute that gets printed onto food, so it
+needs a complete verbatim capture. Nothing enforces any of this yet; `src/lib/compliance/programs.ts`
+is the read layer and `/admin/programs` shows the data and how much of it is unchecked.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips

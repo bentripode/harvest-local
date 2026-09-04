@@ -69,13 +69,19 @@ registrations for the states you operate in.
 ## 3. Supabase
 
 ✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
-schema. For the project you actually launch on: `npx supabase db push` (39 migrations as of launch),
+schema. For the project you actually launch on: `npx supabase db push` (40 migrations as of launch),
 then `npm run db:types` after any change.
 
 ☐ `20260904110000_license_gate.sql` is **not yet applied** — push it, then `npm run db:types` (the
 two new functions are layered into `src/lib/db/types.ts` by hand until that regen). **Its backfill
 pauses every live storefront without a verified license** and emails those sellers a
 `license_required`. Scoped to `pause_reason is null`, so it never re-pauses one an admin reinstated.
+
+☐ **Verify the 69 state food programs at `/admin/programs`.** Seeded from the Institute for
+Justice state pages (read 2026-09-04) and all unverified. It is a summary of the law, not the law:
+check each program a seller actually operates under against the state's own rules before any gate
+reads it. Washington's mail entry still says "temporarily allowed during the pandemic", which is a
+fair measure of how current the source can be.
 
 ☐ **Enter the real cottage-food rules at `/admin/states`.** All 51 states ship as the same
 invented $50,000 cap with no licence requirement, and `record_order_revenue` pauses a storefront
@@ -177,7 +183,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **82 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **95 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,
