@@ -9,15 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { createClient } from "@/lib/supabase/client";
 import { US_STATES, stateName } from "@/lib/geo/state";
+import { LICENSE_TYPES } from "@/lib/licenses/labels";
 import { addLicenseAction, type LicenseFormState } from "@/app/(dashboard)/seller/compliance/actions";
-
-const TYPES: { value: string; label: string }[] = [
-  { value: "cottage_food", label: "Cottage food permit" },
-  { value: "food_handler", label: "Food handler card" },
-  { value: "business_license", label: "Business license" },
-  { value: "id", label: "Government ID" },
-  { value: "other", label: "Other" },
-];
 
 function Submit({ uploading }: { uploading: boolean }) {
   const { pending } = useFormStatus();
@@ -75,7 +68,7 @@ export function LicenseForm({
             defaultValue="cottage_food"
             className="border-input h-8 w-full rounded-lg border bg-transparent px-2.5 text-sm"
           >
-            {TYPES.map((t) => (
+            {LICENSE_TYPES.map((t) => (
               <option key={t.value} value={t.value}>
                 {t.label}
               </option>

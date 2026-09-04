@@ -11,19 +11,12 @@ import {
   getRevenueStatus,
   getSellerLicenses,
 } from "@/lib/compliance";
+import { licenseTypeLabel } from "@/lib/licenses/labels";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
 import type { LicenseStatus } from "@/lib/db/types";
 
 export const metadata = { title: "Compliance — Harvest Local" };
-
-const LICENSE_TYPE_LABEL: Record<string, string> = {
-  cottage_food: "Cottage food permit",
-  food_handler: "Food handler card",
-  business_license: "Business license",
-  id: "Government ID",
-  other: "Other",
-};
 
 const STATUS_VARIANT: Record<LicenseStatus, "default" | "secondary" | "destructive"> = {
   verified: "default",
@@ -109,29 +102,36 @@ export default async function CompliancePage() {
             {licenses.map((l) => {
               const days = daysUntil(l.expiration_date);
               return (
-                <li key={l.id} className="flex flex-wrap items-center gap-3 p-3 text-sm">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium">
-                      {LICENSE_TYPE_LABEL[l.license_type] ?? l.license_type} · {stateName(l.issuing_state)}
-                    </p>
-                    <p className="text-muted-foreground">
-                      Expires {l.expiration_date}
-                      {l.verification_status !== "expired" ? (
-                        <>
-                          {" "}
-                          ·{" "}
-                          {days < 0
-                            ? "past due"
-                            : days === 0
-                              ? "today"
-                              : `in ${days} day${days === 1 ? "" : "s"}`}
-                        </>
-                      ) : null}
-                    </p>
+                <li key={l.id} className="space-y-2 p-3 text-sm">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium">
+                        {licenseTypeLabel(l.license_type)} · {stateName(l.issuing_state)}
+                      </p>
+                      <p className="text-muted-foreground">
+                        Expires {l.expiration_date}
+                        {l.verification_status !== "expired" ? (
+                          <>
+                            {" "}
+                            ·{" "}
+                            {days < 0
+                              ? "past due"
+                              : days === 0
+                                ? "today"
+                                : `in ${days} day${days === 1 ? "" : "s"}`}
+                          </>
+                        ) : null}
+                      </p>
+                    </div>
+                    <Badge variant={STATUS_VARIANT[l.verification_status as LicenseStatus]}>
+                      {l.verification_status}
+                    </Badge>
                   </div>
-                  <Badge variant={STATUS_VARIANT[l.verification_status as LicenseStatus]}>
-                    {l.verification_status}
-                  </Badge>
+                  {l.review_note ? (
+                    <p className="text-muted-foreground bg-muted/40 rounded-md border p-2">
+                      <span className="font-medium">From the reviewer:</span> {l.review_note}
+                    </p>
+                  ) : null}
                 </li>
               );
             })}

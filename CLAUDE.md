@@ -177,6 +177,7 @@ src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
+src/lib/licenses/{queries,labels}.ts   admin license-review queue reads · license-type labels
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
@@ -197,6 +198,7 @@ src/app/(dashboard)/seller/orders/     seller order board (advance_order_status 
 src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
+src/app/admin/licenses/                license review queue + [id]/document signed-URL redirect
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -366,12 +368,25 @@ When the **cumulative** `charge.amount_refunded` reaches the charge total → `u
 + referral-invalidate. `charge.dispute.created` → `unwindOrder(→ disputed)`. Order pages sum the
 refunds → "Refunded − $X" / "Partially refunded (N) − $X".
 
+**Phase 5 — license review.** Sellers upload cottage-food permits / IDs to the private `seller-docs`
+bucket; `/admin/licenses` is where an admin verifies or rejects them. `verification_status` and the
+review trail (`reviewed_at` / `reviewed_by` / `review_note`) are platform-only at the data layer
+(`seller_licenses_guard_status`), and `is_platform_context()` reads `current_user` — an admin over
+PostgREST is `authenticated`, so the "licenses: admin all" RLS policy is **not** enough to write
+them: `reviewLicenseAction` goes through the service-role client behind `requireRole("admin")`.
+Verifying is what arms `license-expiry-scan` (it scans `verified` rows only), so the action refuses
+to verify an already-lapsed document. A rejection must carry a note — the seller sees it on
+`/seller/compliance` — and either outcome queues a `license_verified` / `license_rejected`
+notification (category `compliance`, so not suppressible). The document itself is reached only via
+`GET /admin/licenses/<id>/document`, which mints a 60-second signed URL with the service-role client;
+route handlers don't run the `/admin` layout, so that handler carries its own admin check.
+
 **Phase 5 — platform analytics.** `/admin/analytics` — `getPlatformStats()`
 (`src/lib/admin/analytics.ts`) reads all orders / refunds / seller_profiles / profiles /
 subscriptions via the **service-role client** (allowed: it's behind the `/admin` layout's
 `requireRole("admin")`), aggregated in JS. GMV (Σ `total` of completed orders) all-time + 30d, AOV,
 refund total, MRR (`active` subs × $20 — trialing = $0), paying/trialing seller counts, total/live/
-active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Analytics · Settings.
+active-30d sellers, total/ordered buyers, 30d signups. Admin sub-nav: Reports · Licenses · Analytics · Settings.
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
 `platform_settings.access_mode` `sellers_only` ↔ `public` (RLS already allows admin writes),

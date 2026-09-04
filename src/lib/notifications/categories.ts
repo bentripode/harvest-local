@@ -22,6 +22,8 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   referral_reward_earned: "referrals",
   license_expiring: "license_reminders",
   license_expired: "compliance",
+  license_verified: "compliance",
+  license_rejected: "compliance",
   revenue_cap_reached: "compliance",
   new_message: "messages",
   referral_reward_review: "admin",
@@ -30,8 +32,9 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
 };
 
 /**
- * Categories a user may switch off. `payments` and `compliance` are deliberately absent — a refund
- * and a storefront-pausing compliance event always email, regardless of prefs.
+ * Categories a user may switch off. `payments` and `compliance` are deliberately absent — a refund,
+ * a storefront-pausing event, and an admin's license-review decision always email,
+ * regardless of prefs.
  */
 export const SUPPRESSIBLE_CATEGORIES = [
   "order_updates",

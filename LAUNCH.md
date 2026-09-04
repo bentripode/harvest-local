@@ -67,9 +67,13 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-✅ Migrations applied to the **dev** project — all 32, and `database.types.ts` regenerated from the
-live schema. For the project you actually launch on: `npx supabase db push` (32 migrations as of
-launch), then `npm run db:types` after any change.
+✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
+schema. For the project you actually launch on: `npx supabase db push` (33 migrations as of launch),
+then `npm run db:types` after any change.
+
+☐ `20260904100000_license_review.sql` is **not yet applied to the dev project** — push it, then
+`npm run db:types` (the three new `seller_licenses` columns are layered into `src/lib/db/types.ts`
+by hand until that regen).
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
 already in the `supabase_realtime` publication with `replica identity full`, but the hosted project
@@ -83,7 +87,11 @@ wasn't streaming it — until this is on, in-app messaging falls back to a 4-sec
 ```sql
 update public.profiles set role = 'admin' where id = '<the admin user's auth id>';
 ```
-Then `/admin`, `/admin/analytics`, `/admin/settings` become reachable and the "Admin" nav link shows.
+Then `/admin`, `/admin/licenses`, `/admin/analytics`, `/admin/settings` become reachable and the
+"Admin" nav link shows.
+
+☐ **Work through the licenses already on file.** Every license uploaded so far sits `pending`, which
+means `license-expiry-scan` cannot see any of them — verify or reject each at `/admin/licenses`.
 
 ---
 
@@ -165,8 +173,9 @@ rate-limiter behaviour, delivery/PostGIS, storage RLS).
 `storage.objects` policy (`(storage.foldername(name))[1] = seller_profiles.id`), and
 `20260904010000_seller_docs_bucket_hardening.sql` re-asserts `public = false` + the size/MIME limits
 idempotently (covers a bucket that pre-existed in the dashboard). After `db push`, spot-check in
-Storage → Settings that `seller-docs` shows **Private**. Admin doc viewing (server-minted signed
-URLs) is not built yet.
+Storage → Settings that `seller-docs` shows **Private**. Admins read the documents through
+`GET /admin/licenses/<id>/document`, which mints a 60-second signed URL server-side — there is still
+no public-read policy on the bucket.
 
 ---
 
@@ -186,4 +195,5 @@ Tracked across the phase commits:
 - ✅ **Delivery time windows** — seller lists free-text window labels on `/seller/settings` (`seller_profiles.delivery_windows`); buyer picks one at checkout (required if the seller has any), frozen into `orders.delivery_window` and shown on the order views.
 - **Realtime for messaging** takes over automatically once §3's Postgres Changes toggle is on.
 - ✅ **`refunds.report_id` backfill** — the `charge.refunded` webhook now links the oldest open report on the order into the mirror row and resolves it, for refunds issued straight from the Stripe dashboard.
+- ✅ **Admin license review** — `/admin/licenses` verifies or rejects the permits and IDs sellers upload, reading the document through a 60-second signed URL. Verifying is what puts a license in front of the daily expiry scan; a rejection carries a note the seller sees on `/seller/compliance`.
 - ✅ **Partial refunds** — `issueRefundAction` takes an amount; an order can be refunded across several partials (up to the total). A partial mirrors the refund + emails both parties; the order is cancelled + the referral invalidated only once the cumulative refund reaches the total. `refunds` keyed on `stripe_refund_id`.

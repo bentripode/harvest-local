@@ -39,6 +39,16 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "Renew license",
   },
+  license_verified: {
+    subject: (p) => `Your ${String(p.license_type ?? "license").replace(/_/g, " ")} is verified`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "View compliance",
+  },
+  license_rejected: {
+    subject: (p) => `Your ${String(p.license_type ?? "license").replace(/_/g, " ")} needs another look`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "Upload a new document",
+  },
   referral_reward_earned: {
     subject: () => "You earned a free month 🎉",
     ctaPath: "/seller/referrals",
