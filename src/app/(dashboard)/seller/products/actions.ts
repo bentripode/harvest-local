@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
+import { describeCategoryBlock } from "@/lib/compliance/categories";
 import { isNetWeightUnit, parseAllergens, parseIngredients } from "@/lib/products/labeling";
 import type { ProductImage } from "@/lib/db/types";
 
@@ -102,7 +103,12 @@ function labelFields(d: {
  * `products_guard_online_food_sales` enforces it regardless — this is the friendly half.
  */
 async function foodSalesBlock(sellerId: string, categoryId: string): Promise<string | null> {
-  return describeFoodSalesBlock(sellerId, categoryId);
+  // Two separate rules: whether the state permits online food sales at all, and whether it permits
+  // this kind of food. Either can refuse, and they have different explanations.
+  return (
+    (await describeFoodSalesBlock(sellerId, categoryId)) ??
+    (await describeCategoryBlock(sellerId, categoryId))
+  );
 }
 
 export async function createProductAction(
