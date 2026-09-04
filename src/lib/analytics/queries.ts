@@ -42,6 +42,8 @@ export interface SellerStats {
   /** Revenue buckets across the window — daily for ≤90d, weekly for 365d. Oldest first. */
   series: { label: string; cents: number }[];
   topProducts: { title: string; units: number; revenueCents: number }[];
+  /** Products by storefront impressions over the window (top 5). */
+  mostViewedProducts: { title: string; views: number }[];
   hasData: boolean;
 }
 
@@ -67,25 +69,32 @@ export async function getSellerDashboardStats(
   const sinceIso = new Date(since).toISOString();
   const sincePriorIso = new Date(sincePrior).toISOString();
 
-  const [{ data: orderData }, { data: itemData }, { data: viewData }] = await Promise.all([
-    supabase
-      .from("orders")
-      .select("total, discount_total, delivery_fee, fulfillment_type, status, created_at")
-      .eq("seller_id", sellerId)
-      .neq("status", "pending_payment")
-      .gte("created_at", sincePriorIso),
-    supabase
-      .from("order_items")
-      .select("title_snapshot, quantity, line_total, orders!inner(seller_id, status, created_at)")
-      .eq("orders.seller_id", sellerId)
-      .eq("orders.status", "completed")
-      .gte("orders.created_at", sinceIso),
-    supabase
-      .from("seller_view_counts")
-      .select("views")
-      .eq("seller_id", sellerId)
-      .gte("day", sinceIso.slice(0, 10)),
-  ]);
+  const sinceDay = sinceIso.slice(0, 10);
+  const [{ data: orderData }, { data: itemData }, { data: viewData }, { data: prodViewData }] =
+    await Promise.all([
+      supabase
+        .from("orders")
+        .select("total, discount_total, delivery_fee, fulfillment_type, status, created_at")
+        .eq("seller_id", sellerId)
+        .neq("status", "pending_payment")
+        .gte("created_at", sincePriorIso),
+      supabase
+        .from("order_items")
+        .select("title_snapshot, quantity, line_total, orders!inner(seller_id, status, created_at)")
+        .eq("orders.seller_id", sellerId)
+        .eq("orders.status", "completed")
+        .gte("orders.created_at", sinceIso),
+      supabase
+        .from("seller_view_counts")
+        .select("views")
+        .eq("seller_id", sellerId)
+        .gte("day", sinceDay),
+      supabase
+        .from("product_view_counts")
+        .select("views, products!inner(title, seller_id)")
+        .eq("products.seller_id", sellerId)
+        .gte("day", sinceDay),
+    ]);
 
   const orders = (orderData ?? []) as OrderRow[];
 
@@ -162,12 +171,29 @@ export async function getSellerDashboardStats(
     .sort((a, b) => b.revenueCents - a.revenueCents)
     .slice(0, 5);
 
+  const viewsByTitle = new Map<string, number>();
+  for (const row of (prodViewData ?? []) as { views: number; products: { title?: string } | null }[]) {
+    const title = row.products?.title;
+    if (!title) continue;
+    viewsByTitle.set(title, (viewsByTitle.get(title) ?? 0) + (row.views ?? 0));
+  }
+  const mostViewedProducts = [...viewsByTitle.entries()]
+    .map(([title, views]) => ({ title, views }))
+    .sort((a, b) => b.views - a.views)
+    .slice(0, 5);
+
   return {
     windowDays,
     current,
     prior,
     series,
     topProducts,
-    hasData: current.orders > 0 || prior.orders > 0 || current.cancelled > 0 || current.views > 0,
+    mostViewedProducts,
+    hasData:
+      current.orders > 0 ||
+      prior.orders > 0 ||
+      current.cancelled > 0 ||
+      current.views > 0 ||
+      mostViewedProducts.length > 0,
   };
 }

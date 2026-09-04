@@ -4,10 +4,11 @@ const h = vi.hoisted(() => ({
   orders: [] as unknown[],
   order_items: [] as unknown[],
   seller_view_counts: [] as unknown[],
+  product_view_counts: [] as unknown[],
 }));
 
 vi.mock("@/lib/supabase/server", () => {
-  type T = "orders" | "order_items" | "seller_view_counts";
+  type T = "orders" | "order_items" | "seller_view_counts" | "product_view_counts";
   const builder = (table: T) => {
     const b: Record<string, unknown> = {};
     Object.assign(b, {
@@ -42,6 +43,7 @@ beforeEach(() => {
   h.orders = [];
   h.order_items = [];
   h.seller_view_counts = [];
+  h.product_view_counts = [];
 });
 
 describe("parseWindowDays", () => {
@@ -108,6 +110,21 @@ describe("getSellerDashboardStats", () => {
     const s = await getSellerDashboardStats("seller-1", 30);
     expect(s.topProducts[0]).toEqual({ title: "Sourdough", units: 3, revenueCents: 1800 });
     expect(s.topProducts[1]).toEqual({ title: "Baguette", units: 4, revenueCents: 1600 });
+  });
+
+  it("ranks products by storefront impressions, summing across days", async () => {
+    h.product_view_counts = [
+      { views: 5, products: { title: "Sourdough" } },
+      { views: 3, products: { title: "Sourdough" } },
+      { views: 6, products: { title: "Baguette" } },
+      { views: 2, products: { title: null } }, // dropped
+    ];
+    const s = await getSellerDashboardStats("seller-1", 30);
+    expect(s.mostViewedProducts).toEqual([
+      { title: "Sourdough", views: 8 },
+      { title: "Baguette", views: 6 },
+    ]);
+    expect(s.hasData).toBe(true);
   });
 
   it("hasData is false with nothing to show", async () => {

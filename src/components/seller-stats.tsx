@@ -90,6 +90,22 @@ export function SellerStatsPanel({ stats }: { stats: SellerStats }) {
               </ul>
             </div>
           ) : null}
+
+          {stats.mostViewedProducts.length > 0 ? (
+            <div className="border-t pt-3">
+              <p className="mb-2 text-sm font-medium">Most viewed · {w}</p>
+              <ul className="divide-y text-sm">
+                {stats.mostViewedProducts.map((p) => (
+                  <li key={p.title} className="flex justify-between gap-4 py-1.5">
+                    <span className="truncate">{p.title}</span>
+                    <span className="text-muted-foreground tabular-nums whitespace-nowrap">
+                      {p.views} view{p.views === 1 ? "" : "s"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </CardContent>
       </Card>
     </div>
