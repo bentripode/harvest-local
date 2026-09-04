@@ -11,7 +11,7 @@
  *     Every money column is corrected back to `string` so money stays exact end to end
  *     (see `src/lib/money.ts`).
  *  2. jsonb columns are given their real shape instead of `Json` — `products.images`,
- *     `profiles.notification_prefs`, `seller_profiles.delivery_windows`.
+ *     `products.ingredients`, `profiles.notification_prefs`, `seller_profiles.delivery_windows`.
  *  3. function returns that are genuinely nullable — the generator emits every `Returns` as
  *     non-nullable (`sync_seller_license_pause`).
  */
@@ -78,17 +78,30 @@ type SellerProfilesFixed = {
 };
 
 type ProductsFixed = {
-  Row: Omit<GenTables["products"]["Row"], "price" | "images"> & {
+  Row: Omit<GenTables["products"]["Row"], "price" | "images" | "ingredients" | "net_weight_value"> & {
     price: string;
     images: ProductImage[];
+    ingredients: string[];
+    // numeric, so it arrives as a string like every other numeric — not money, but the same wire.
+    net_weight_value: string | null;
   };
-  Insert: Omit<GenTables["products"]["Insert"], "price" | "images"> & {
+  Insert: Omit<
+    GenTables["products"]["Insert"],
+    "price" | "images" | "ingredients" | "net_weight_value"
+  > & {
     price: string;
     images?: ProductImage[];
+    ingredients?: string[];
+    net_weight_value?: string | null;
   };
-  Update: Omit<GenTables["products"]["Update"], "price" | "images"> & {
+  Update: Omit<
+    GenTables["products"]["Update"],
+    "price" | "images" | "ingredients" | "net_weight_value"
+  > & {
     price?: string;
     images?: ProductImage[];
+    ingredients?: string[];
+    net_weight_value?: string | null;
   };
   Relationships: GenTables["products"]["Relationships"];
 };

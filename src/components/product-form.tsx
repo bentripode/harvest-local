@@ -12,6 +12,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { createClient } from "@/lib/supabase/client";
 import type { Category, ProductImage, Tag } from "@/lib/db/types";
 import {
+  MAJOR_ALLERGENS,
+  NET_WEIGHT_UNITS,
+  formatNetWeight,
+} from "@/lib/products/labeling";
+import {
   createProductAction,
   updateProductAction,
   type ProductFormState,
@@ -28,6 +33,10 @@ export interface ProductFormValues {
   status: "draft" | "active";
   tagIds: string[];
   images: ProductImage[];
+  ingredients: string;
+  netWeightValue: string;
+  netWeightUnit: string;
+  allergens: string[];
 }
 
 export function ProductForm({
@@ -48,6 +57,8 @@ export function ProductForm({
   );
 
   const [categoryId, setCategoryId] = useState(initial?.categoryId ?? "");
+  const [weightValue, setWeightValue] = useState(initial?.netWeightValue ?? "");
+  const [weightUnit, setWeightUnit] = useState(initial?.netWeightUnit ?? "");
   const [images, setImages] = useState<ProductImage[]>(initial?.images ?? []);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -160,6 +171,92 @@ export function ProductForm({
           </select>
         </div>
       </div>
+
+      <fieldset className="space-y-4 rounded-lg border p-4">
+        <legend className="px-1 text-sm font-medium">Label details</legend>
+        <p className="text-muted-foreground -mt-1 text-sm">
+          Most states require these on the label of any homemade food. They&apos;re optional here,
+          but a food label can&apos;t be produced without them.
+        </p>
+
+        <div className="space-y-2">
+          <Label htmlFor="ingredients">Ingredients</Label>
+          <Textarea
+            id="ingredients"
+            name="ingredients"
+            rows={4}
+            defaultValue={initial?.ingredients}
+            placeholder={"Wheat flour\nWater\nSourdough culture\nSea salt"}
+          />
+          <p className="text-muted-foreground text-xs">
+            One per line, <strong>most to least by weight</strong> — that order is what goes on the
+            label, so it isn&apos;t re-sorted. A comma-separated list on one line works too.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-[1fr_1.4fr]">
+          <div className="space-y-2">
+            <Label htmlFor="netWeightValue">Net quantity</Label>
+            <Input
+              id="netWeightValue"
+              name="netWeightValue"
+              type="number"
+              step="0.001"
+              min="0"
+              value={weightValue}
+              onChange={(e) => setWeightValue(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="netWeightUnit">Unit</Label>
+            <select
+              id="netWeightUnit"
+              name="netWeightUnit"
+              value={weightUnit}
+              onChange={(e) => setWeightUnit(e.target.value)}
+              className="border-input h-8 w-full rounded-lg border bg-transparent px-2.5 text-sm"
+            >
+              <option value="">Choose a unit</option>
+              {NET_WEIGHT_UNITS.map((u) => (
+                <option key={u.value} value={u.value}>
+                  {u.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        {formatNetWeight(weightValue, weightUnit) ? (
+          <p className="text-muted-foreground text-xs">
+            On the label: <span className="font-mono">{formatNetWeight(weightValue, weightUnit)}</span>
+            . Some states require the metric equivalent, so it&apos;s worked out for you.
+          </p>
+        ) : null}
+
+        <div className="space-y-2">
+          <span className="text-sm font-medium">Allergens</span>
+          <p className="text-muted-foreground text-xs">
+            Tick every one present. These nine are the ones federal law names, and most states
+            require them called out.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {MAJOR_ALLERGENS.map((a) => (
+              <label
+                key={a.value}
+                className="has-[:checked]:bg-primary has-[:checked]:text-primary-foreground flex cursor-pointer items-center gap-1.5 rounded-full border px-3 py-1 text-sm"
+              >
+                <input
+                  type="checkbox"
+                  name="allergens"
+                  value={a.value}
+                  defaultChecked={initial?.allergens.includes(a.value)}
+                  className="sr-only"
+                />
+                {a.label}
+              </label>
+            ))}
+          </div>
+        </div>
+      </fieldset>
 
       <fieldset className="space-y-2">
         <legend className="text-sm font-medium">Tags</legend>

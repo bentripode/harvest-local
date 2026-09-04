@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 
 import { Badge } from "@/components/ui/badge";
 import { AddToCart } from "@/components/add-to-cart";
@@ -125,7 +126,20 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                       · {p.quantity_available} available
                     </span>
                   ) : null}
+                  {formatNetWeight(p.net_weight_value, p.net_weight_unit) ? (
+                    <span className="text-muted-foreground font-normal">
+                      {" "}
+                      · {formatNetWeight(p.net_weight_value, p.net_weight_unit)}
+                    </span>
+                  ) : null}
                 </p>
+                {/* Allergens are a buyer-safety fact, not seller admin — show them on the shelf. */}
+                {formatAllergens(p.allergens ?? []) ? (
+                  <p className="text-muted-foreground pt-0.5 text-xs">
+                    <span className="font-medium">Contains:</span>{" "}
+                    {formatAllergens(p.allergens ?? [])}
+                  </p>
+                ) : null}
               </div>
               {canOrder ? (
                 <AddToCart

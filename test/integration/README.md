@@ -62,6 +62,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `tax-id-protection.test.ts` | the column-level SELECT grant on `seller_licenses` — neither the owning seller nor an admin can read `tax_id_encrypted` (nor `select *`), while the last 4 stays readable; `tax_id_audit` is admin-read, no-client-write, and `tax_id_key_id` is likewise unreadable by clients |
 | `state-programs.test.ts` | `state_food_programs` — the seed (51 jurisdictions covered, all unverified, provenance on every row, the five online-banned states, CA's three programs, CO's per-product cap) and its RLS: public read, a seller cannot unban their own state or insert a program, an admin can |
 | `online-food-gate.test.ts` | `products_guard_online_food_sales` — food listings refused in the five banned states (service role included), non-food and drafts untouched, category swaps caught, and the gate following the data when a program is unbanned |
+| `product-label-fields.test.ts` | the `products` label columns — ingredient order preserved, non-array refused, the nine federal allergens accepted and anything else (including a misspelling) refused, net weight requiring both value and unit |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found
