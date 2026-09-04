@@ -166,4 +166,4 @@ Tracked across the phase commits:
 - **Storefront / product view tracking** → conversion rate on the seller dashboard.
 - **Saved address book** for buyers; delivery **time windows**.
 - **Realtime for messaging** takes over automatically once §3's Postgres Changes toggle is on.
-- **`refunds.report_id` backfill** for refunds issued directly in the Stripe dashboard (the webhook mirror leaves it null).
+- ✅ **`refunds.report_id` backfill** — the `charge.refunded` webhook now links the oldest open report on the order into the mirror row and resolves it, for refunds issued straight from the Stripe dashboard.
