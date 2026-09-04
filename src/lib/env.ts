@@ -46,6 +46,22 @@ const serverSchema = z.object({
     .transform((v) => (v ? v : undefined)),
   EMAIL_FROM: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
 
+  // SMS (Twilio). Optional — with any of these unset, notification-dispatch logs instead of texting.
+  // TWILIO_FROM_NUMBER is E.164 (e.g. +15125550123).
+  TWILIO_ACCOUNT_SID: z
+    .string()
+    .startsWith("AC")
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+  TWILIO_AUTH_TOKEN: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  TWILIO_FROM_NUMBER: z
+    .string()
+    .regex(/^\+[1-9]\d{6,14}$/)
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+
   // Error tracking (Sentry). Optional — with no DSN the SDK is inert and the app is unchanged.
   // SENTRY_ORG / SENTRY_PROJECT / SENTRY_AUTH_TOKEN are build-time only (source-map upload) and
   // read directly in next.config.ts, not here.

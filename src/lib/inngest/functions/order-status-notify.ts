@@ -5,12 +5,11 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { queueNotification } from "@/lib/notifications/queue";
 
 /**
- * On every `advance_order_status` transition (`harvest/order.status_changed`), email the buyer that
+ * On every `advance_order_status` transition (`harvest/order.status_changed`), notify the buyer that
  * their order moved — Preparing / Ready / Out for delivery / Completed / Cancelled.
  *
- * Email only: there is no buyer-facing in-app panel today (the `notifications` in-app rows are read
- * by the seller compliance page). `queueNotification` nudges `notification-dispatch`, which renders
- * `order_status_changed` and sends via Resend keyed on the row id.
+ * Email, plus SMS for buyers who opted in on `/account` (`queueNotification` drops the `sms`
+ * channel otherwise). No `in_app`: there is no buyer-facing in-app panel today.
  *
  * A seller-board cancel is a distinct path from a Stripe refund (`charge.refunded` → `refund_issued`
  * to the buyer), so the two don't double up.
@@ -52,7 +51,7 @@ export const orderStatusNotify = inngest.createFunction(
           fulfillment_type: fulfillmentType,
           business_name: businessName,
         },
-        channels: ["email"],
+        channels: ["email", "sms"],
       });
     });
 

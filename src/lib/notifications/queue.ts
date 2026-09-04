@@ -6,6 +6,7 @@ import { inngest } from "@/lib/inngest/client";
 import {
   emailEnabled,
   isSuppressible,
+  smsEnabled,
   TEMPLATE_CATEGORY,
   type NotificationPrefs,
 } from "@/lib/notifications/categories";
@@ -38,18 +39,23 @@ export async function queueNotification(
 ): Promise<boolean> {
   let channels = input.channels ?? DEFAULT_CHANNELS;
 
-  // Honour the recipient's per-category email opt-out (`profiles.notification_prefs`). Only a
-  // suppressible category needs the profile read; `payments` / `compliance` always email and
-  // `in_app` is never filtered.
+  // Resolve the recipient's `notification_prefs` once if either channel needs it: a suppressible
+  // `email` category (opt-out) or any `sms` (opt-in). `in_app` is never filtered.
   const category = TEMPLATE_CATEGORY[input.template];
-  if (channels.includes("email") && category && isSuppressible(category)) {
+  const emailNeedsPrefs = channels.includes("email") && !!category && isSuppressible(category);
+  if (emailNeedsPrefs || channels.includes("sms")) {
     const { data: profile } = await admin
       .from("profiles")
       .select("notification_prefs")
       .eq("id", input.userId)
       .maybeSingle();
-    if (!emailEnabled(profile?.notification_prefs as NotificationPrefs | undefined, input.template)) {
+    const prefs = profile?.notification_prefs as NotificationPrefs | undefined;
+
+    if (channels.includes("email") && !emailEnabled(prefs, input.template)) {
       channels = channels.filter((c) => c !== "email");
+    }
+    if (channels.includes("sms") && !smsEnabled(prefs, input.template)) {
+      channels = channels.filter((c) => c !== "sms");
     }
   }
 

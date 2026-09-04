@@ -47,6 +47,17 @@ export function isSuppressible(category: NotificationCategory): category is Supp
   return (SUPPRESSIBLE_CATEGORIES as readonly string[]).includes(category);
 }
 
+/**
+ * Categories that can additionally be delivered by SMS. SMS is **opt-in** (US phone required) and
+ * costs money, so keep this list tight.
+ */
+export const SMS_CATEGORIES = ["order_updates"] as const;
+export type SmsCategory = (typeof SMS_CATEGORIES)[number];
+
+export function isSmsCategory(category: NotificationCategory): category is SmsCategory {
+  return (SMS_CATEGORIES as readonly string[]).includes(category);
+}
+
 export interface CategoryMeta {
   label: string;
   description: string;
@@ -85,8 +96,12 @@ export const CATEGORY_META: Record<SuppressibleCategory, CategoryMeta> = {
   },
 };
 
-/** The stored shape on `profiles.notification_prefs`. Only opt-outs are recorded. */
-export type NotificationPrefs = Partial<Record<NotificationCategory, boolean>>;
+/**
+ * The stored shape on `profiles.notification_prefs`. `{ [category]: false }` is an email opt-OUT
+ * (absent = opted in). `{ "sms:<category>": true }` is an SMS opt-IN (absent = no SMS).
+ */
+export type NotificationPrefs = Partial<Record<NotificationCategory, boolean>> &
+  Partial<Record<`sms:${NotificationCategory}`, boolean>>;
 
 /**
  * Whether an `email` notification for `template` should go to a user with these prefs.
@@ -99,4 +114,17 @@ export function emailEnabled(
   const category = TEMPLATE_CATEGORY[template];
   if (!category || !isSuppressible(category)) return true;
   return prefs?.[category] !== false;
+}
+
+/**
+ * Whether an `sms` notification for `template` should be queued. Opt-in: only when the category is
+ * SMS-eligible and the user set `sms:<category>` to true.
+ */
+export function smsEnabled(
+  prefs: NotificationPrefs | null | undefined,
+  template: string,
+): boolean {
+  const category = TEMPLATE_CATEGORY[template];
+  if (!category || !isSmsCategory(category)) return false;
+  return prefs?.[`sms:${category}`] === true;
 }

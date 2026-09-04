@@ -7,6 +7,7 @@ import { requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { addressSchema } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
+import type { NotificationPrefs } from "@/lib/notifications/categories";
 
 export interface AddressActionState {
   error?: string;
@@ -85,4 +86,56 @@ export async function deleteAddressAction(formData: FormData): Promise<void> {
   await supabase.from("addresses").delete().eq("id", id.data).eq("user_id", user.id);
 
   revalidatePath("/account");
+}
+
+export interface SmsPrefsState {
+  error?: string;
+  ok?: boolean;
+}
+
+/** Normalise a US number to E.164 (+1XXXXXXXXXX), or null when blank. */
+function normalizeUsPhone(raw: string): string | null | undefined {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const digits = trimmed.replace(/\D/g, "");
+  const ten = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits;
+  if (ten.length !== 10) return undefined; // invalid
+  return `+1${ten}`;
+}
+
+/**
+ * Save the buyer's mobile number and their opt-in for order-update texts
+ * (`notification_prefs["sms:order_updates"]`). Opt-in requires a number on file.
+ */
+export async function saveSmsPrefsAction(
+  _prev: SmsPrefsState,
+  formData: FormData,
+): Promise<SmsPrefsState> {
+  const { user } = await requireUser("/account");
+
+  const phone = normalizeUsPhone(String(formData.get("phone") ?? ""));
+  if (phone === undefined) return { error: "Enter a 10-digit US mobile number." };
+
+  const wantsOrderTexts = formData.get("sms_order_updates") === "on";
+  if (wantsOrderTexts && !phone) return { error: "Add a mobile number to get text updates." };
+
+  const supabase = await createClient();
+  const { data: current } = await supabase
+    .from("profiles")
+    .select("notification_prefs")
+    .eq("id", user.id)
+    .single();
+
+  const prefs: NotificationPrefs = { ...(current?.notification_prefs ?? {}) };
+  if (wantsOrderTexts) prefs["sms:order_updates"] = true;
+  else delete prefs["sms:order_updates"];
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ phone, notification_prefs: prefs })
+    .eq("id", user.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/account");
+  return { ok: true };
 }
