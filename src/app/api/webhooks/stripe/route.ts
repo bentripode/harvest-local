@@ -220,37 +220,41 @@ async function handleCheckoutFailed(admin: Admin, session: Stripe.Checkout.Sessi
 }
 
 /**
- * A paid order's charge was refunded (fully or partially) or a dispute was opened.
+ * A charge was refunded (in whole or in part — orders can be refunded across several `Refund`
+ * objects) or a dispute was opened.
  *
- * - **Full refund / dispute:** move the order to a terminal state and — per ARCHITECTURE §3.4 —
- *   invalidate any referral it earned (`referral-invalidate`, idempotent; never revokes an issued
- *   reward coupon).
- * - **Partial refund:** leave the order status and the referral alone.
+ * - **Cumulative refund reaches the charge total / dispute:** move the order to a terminal state
+ *   and — per ARCHITECTURE §3.4 — invalidate any referral it earned (`referral-invalidate`,
+ *   idempotent; never revokes an issued reward coupon).
+ * - **A partial that leaves a balance:** leave the order status and the referral alone.
  *
- * Both paths mirror the refund into `refunds`, resolve an open report on the order, and email both
- * parties `refund_issued` (deduped by a partial unique index, so redeliveries and the full/partial
- * paths never double up). Requires `charge.refunded` + `charge.dispute.created` on the endpoint.
+ * Every refund is mirrored (one `refunds` row per Stripe `Refund`, keyed on `stripe_refund_id`),
+ * resolves an open report on the order, and emails both parties `refund_issued` — deduped per
+ * refund by a partial unique index. Requires `charge.refunded` + `charge.dispute.created`.
  */
 async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
   const order = await fetchOrderForCharge(admin, charge.payment_intent);
   if (!order) return;
 
-  const fullRefund = charge.amount_refunded >= charge.amount;
-  const refundedCents = charge.amount_refunded;
+  // The refund that triggered this event — newest first in `charge.refunds.data`.
+  const latest = charge.refunds?.data?.[0];
+  const thisRefundId = latest?.id ?? charge.id;
+  const thisRefundCents = latest?.amount ?? charge.amount_refunded;
 
-  if (fullRefund) {
+  const nowFull = charge.amount_refunded >= charge.amount;
+  if (nowFull) {
     await unwindOrder(admin, order, "cancelled");
   }
 
-  // Mirror the refund unless our admin action already recorded it. A row missing here means a
-  // Stripe-dashboard-issued refund: `issueRefundAction` never ran, so link + resolve an open report.
+  // Mirror this specific refund unless it's already recorded (our admin action, or a redelivery).
   const { data: priorRefund } = await admin
     .from("refunds")
     .select("id")
-    .eq("order_id", order.id)
+    .eq("stripe_refund_id", thisRefundId)
     .maybeSingle();
 
   if (!priorRefund) {
+    // A dashboard-issued refund never ran `issueRefundAction`: link + resolve an open report.
     const { data: openReport } = await admin
       .from("reports")
       .select("id")
@@ -260,15 +264,14 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
       .limit(1)
       .maybeSingle();
 
-    // `ignoreDuplicates` keeps a concurrent redelivery from 500-ing on the unique(order_id).
     await admin.from("refunds").upsert(
       {
         order_id: order.id,
         report_id: openReport?.id ?? null,
-        stripe_refund_id: charge.refunds?.data?.[0]?.id ?? charge.id,
-        amount: toDecimalString(cents(refundedCents)),
+        stripe_refund_id: thisRefundId,
+        amount: toDecimalString(cents(thisRefundCents)),
       },
-      { onConflict: "order_id", ignoreDuplicates: true },
+      { onConflict: "stripe_refund_id", ignoreDuplicates: true },
     );
 
     if (openReport) {
@@ -276,7 +279,7 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
         .from("reports")
         .update({
           status: "refunded",
-          resolution_note: `${fullRefund ? "Refunded" : "Partially refunded"} ${formatUsd(cents(refundedCents))} in Stripe.`,
+          resolution_note: `${nowFull ? "Refunded" : "Partially refunded"} ${formatUsd(cents(thisRefundCents))} in Stripe.`,
           resolved_at: new Date().toISOString(),
         })
         .eq("id", openReport.id)
@@ -291,9 +294,10 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
     template: "refund_issued",
     payload: {
       order_id: order.id,
-      amount: toDecimalString(cents(refundedCents)),
+      refund_id: thisRefundId,
+      amount: toDecimalString(cents(thisRefundCents)),
       business_name: order.business_name,
-      cancelled: fullRefund,
+      cancelled: nowFull,
     },
     tolerateDuplicate: true,
   });

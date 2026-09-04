@@ -33,6 +33,7 @@ export default async function BuyerOrderPage({
 
   const checkout = typeof sp.checkout === "string" ? sp.checkout : null;
   const pending = order.status === "pending_payment";
+  const refundedCents = order.refunds.reduce((n, r) => n + toCents(r.amount), 0);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -93,12 +94,14 @@ export default async function BuyerOrderPage({
           ) : null}
           <Row label="Sales tax" value={formatUsd(toCents(order.tax_total))} />
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
-          {order.refund ? (
+          {refundedCents > 0 ? (
             <Row
               label={
-                toCents(order.refund.amount) < toCents(order.total) ? "Partially refunded" : "Refunded"
+                refundedCents < toCents(order.total)
+                  ? `Partially refunded${order.refunds.length > 1 ? ` (${order.refunds.length})` : ""}`
+                  : "Refunded"
               }
-              value={`− ${formatUsd(toCents(order.refund.amount))}`}
+              value={`− ${formatUsd(refundedCents)}`}
             />
           ) : null}
         </div>

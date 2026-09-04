@@ -12,21 +12,26 @@ export function RefundButton({
   orderId,
   reportId,
   orderTotal,
+  alreadyRefunded = "0",
 }: {
   orderId: string;
   reportId?: string;
   /** Order total as a decimal string (Postgres numeric). */
   orderTotal: string;
+  /** Sum of refunds already issued on this order, decimal string. */
+  alreadyRefunded?: string;
 }) {
   const [state, action] = useActionState<RefundState, FormData>(issueRefundAction, {});
-  const total = Number(orderTotal);
+  const remainingCents = toCents(orderTotal) - toCents(alreadyRefunded);
+  const remaining = remainingCents / 100;
+  const partiallyRefunded = toCents(alreadyRefunded) > 0;
 
   return (
     <form
       action={action}
       onSubmit={(e) => {
         const amount = (e.currentTarget.elements.namedItem("amount") as HTMLInputElement)?.value;
-        const label = amount ? formatUsd(toCents(amount)) : formatUsd(toCents(orderTotal));
+        const label = amount ? formatUsd(toCents(amount)) : formatUsd(remainingCents);
         if (!confirm(`Refund ${label} to the buyer and pull it back from the seller?`)) {
           e.preventDefault();
         }
@@ -41,15 +46,16 @@ export function RefundButton({
           type="number"
           step="0.01"
           min="0.01"
-          max={total.toFixed(2)}
-          defaultValue={total.toFixed(2)}
+          max={remaining.toFixed(2)}
+          defaultValue={remaining.toFixed(2)}
           className="h-8 w-28"
           aria-label="Refund amount in dollars"
         />
-        <SubmitButton total={formatUsd(toCents(orderTotal))} />
+        <SubmitButton total={formatUsd(remainingCents)} />
       </div>
       <p className="text-muted-foreground mt-1 text-xs">
-        The full total is a full refund (cancels the order); a smaller amount is a partial refund.
+        {partiallyRefunded ? `${formatUsd(remainingCents)} left. ` : ""}
+        Refunding the remaining balance cancels the order; a smaller amount is a further partial.
       </p>
       {state.error ? <p className="text-destructive mt-1 text-xs">{state.error}</p> : null}
     </form>

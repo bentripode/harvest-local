@@ -12,7 +12,8 @@ const h = vi.hoisted(() => ({
   order: { id: "order-1", status: "completed", total: "30.00", stripe_payment_intent_id: "pi_1" } as
     | Record<string, unknown>
     | null,
-  existingRefund: null as { id: string } | null,
+  priorRefunds: [] as { amount: string }[],
+  upserts: [] as unknown[],
 }));
 
 vi.mock("@/lib/stripe/client", () => ({
@@ -23,12 +24,19 @@ vi.mock("@/lib/supabase/admin", () => ({
   createAdminClient: () => ({
     from: (table: string) => ({
       select: () => ({
-        eq: () => ({
-          maybeSingle: async () =>
-            table === "orders" ? { data: h.order } : { data: h.existingRefund },
-        }),
+        // orders: `.eq(...).maybeSingle()` ; refunds: `.eq(...)` awaited for the prior-rows list
+        eq: () => {
+          const result =
+            table === "orders" ? { data: h.order } : { data: h.priorRefunds };
+          return Object.assign(Promise.resolve(result), {
+            maybeSingle: async () => result,
+          });
+        },
       }),
-      upsert: async () => ({ error: null }),
+      upsert: async (v: unknown) => {
+        h.upserts.push(v);
+        return { error: null };
+      },
       update: () => ({ eq: async () => ({ error: null }) }),
     }),
   }),
@@ -46,16 +54,18 @@ function fd(over: Record<string, string> = {}) {
 beforeEach(() => {
   h.refundsCreate.mockReset().mockResolvedValue({ id: "re_1", amount: 3000 });
   h.order = { id: "order-1", status: "completed", total: "30.00", stripe_payment_intent_id: "pi_1" };
-  h.existingRefund = null;
+  h.priorRefunds = [];
+  h.upserts = [];
 });
 
 describe("issueRefundAction", () => {
-  it("issues a full refund (no amount) — Stripe gets no `amount`", async () => {
+  it("refunds the full remaining balance (no amount) — Stripe gets no `amount`", async () => {
     const res = await issueRefundAction({}, fd());
     expect(res).toEqual({ ok: true });
-    const [params] = h.refundsCreate.mock.calls[0] as [Record<string, unknown>];
+    const [params, opts] = h.refundsCreate.mock.calls[0] as [Record<string, unknown>, { idempotencyKey: string }];
     expect(params).not.toHaveProperty("amount");
     expect(params).toMatchObject({ payment_intent: "pi_1", reverse_transfer: true });
+    expect(opts.idempotencyKey).toBe("refund:11111111-1111-4111-8111-111111111111:0");
   });
 
   it("passes a cents amount for a partial refund", async () => {
@@ -65,21 +75,27 @@ describe("issueRefundAction", () => {
     expect((h.refundsCreate.mock.calls[0][0] as Record<string, unknown>).amount).toBe(1250);
   });
 
-  it("treats an amount equal to the total as a full refund", async () => {
-    await issueRefundAction({}, fd({ amount: "30.00" }));
-    expect(h.refundsCreate.mock.calls[0][0]).not.toHaveProperty("amount");
-  });
-
-  it("rejects an amount over the order total without calling Stripe", async () => {
-    const res = await issueRefundAction({}, fd({ amount: "40" }));
-    expect(res.error).toContain("more than the order total");
+  it("validates against the REMAINING balance, and keys on the cumulative-refunded position", async () => {
+    h.priorRefunds = [{ amount: "20.00" }]; // $10 left of $30
+    const res = await issueRefundAction({}, fd({ amount: "12" }));
+    expect(res.error).toContain("Only $10.00 is left to refund");
     expect(h.refundsCreate).not.toHaveBeenCalled();
   });
 
-  it("refuses a second refund on the same order", async () => {
-    h.existingRefund = { id: "rf_1" };
+  it("allows a further partial while a balance remains", async () => {
+    h.priorRefunds = [{ amount: "20.00" }];
+    h.refundsCreate.mockResolvedValue({ id: "re_3", amount: 500 });
     const res = await issueRefundAction({}, fd({ amount: "5" }));
-    expect(res.error).toContain("already been refunded");
+    expect(res).toEqual({ ok: true });
+    const opts = h.refundsCreate.mock.calls[0][1] as { idempotencyKey: string };
+    expect(opts.idempotencyKey).toBe("refund:11111111-1111-4111-8111-111111111111:2000");
+    expect(h.upserts[0]).toMatchObject({ stripe_refund_id: "re_3", amount: "5.00" });
+  });
+
+  it("refuses once the order is already fully refunded", async () => {
+    h.priorRefunds = [{ amount: "30.00" }];
+    const res = await issueRefundAction({}, fd({ amount: "5" }));
+    expect(res.error).toContain("already fully refunded");
     expect(h.refundsCreate).not.toHaveBeenCalled();
   });
 });
