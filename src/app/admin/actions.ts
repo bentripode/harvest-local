@@ -7,7 +7,7 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
-import { cents, formatUsd, toDecimalString } from "@/lib/money";
+import { cents, formatUsd, toCents, toDecimalString } from "@/lib/money";
 
 /** Flip the launch gate. `public` opens the marketplace to buyers; `sellers_only` is early access. */
 export async function setAccessModeAction(formData: FormData): Promise<void> {
@@ -59,9 +59,11 @@ export interface RefundState {
 }
 
 /**
- * Full refund of an order's destination charge. `reverse_transfer` pulls the money back from the
- * seller (merchant of record). Stripe processes it; the `charge.refunded` webhook unwinds the
- * order and notifies the parties — this action never touches order state (CLAUDE.md rule 2).
+ * Refund an order's destination charge — the full total, or a smaller `amount` (dollars) for a
+ * partial. `reverse_transfer` pulls the money back from the seller (merchant of record)
+ * proportionally. Stripe processes it; the `charge.refunded` webhook mirrors the refund, notifies
+ * the parties, and (full refunds only) unwinds the order — this action never touches order state
+ * (CLAUDE.md rule 2). One refund per order.
  */
 export async function issueRefundAction(
   _prev: RefundState,
@@ -73,11 +75,12 @@ export async function issueRefundAction(
     .object({
       orderId: z.string().uuid(),
       reportId: z.string().uuid().optional(),
+      amount: z.coerce.number().positive().optional(),
       note: z.string().trim().max(2000).optional().or(z.literal("")),
     })
     .safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: "Invalid request." };
-  const { orderId, reportId, note } = parsed.data;
+  const { orderId, reportId, amount, note } = parsed.data;
 
   const admin = createAdminClient();
 
@@ -89,6 +92,17 @@ export async function issueRefundAction(
   if (!order) return { error: "Order not found." };
   if (!order.stripe_payment_intent_id) return { error: "This order has no captured payment." };
 
+  const orderTotalCents = toCents(order.total);
+  let amountCents: number | undefined;
+  if (amount != null) {
+    amountCents = toCents(amount);
+    if (amountCents <= 0) return { error: "Enter a refund amount." };
+    if (amountCents > orderTotalCents) {
+      return { error: `That's more than the order total (${formatUsd(orderTotalCents)}).` };
+    }
+  }
+  const isFull = amountCents == null || amountCents >= orderTotalCents;
+
   const { data: existing } = await admin
     .from("refunds")
     .select("id")
@@ -99,7 +113,11 @@ export async function issueRefundAction(
   let refund: { id: string; amount: number };
   try {
     const r = await stripe.refunds.create(
-      { payment_intent: order.stripe_payment_intent_id, reverse_transfer: true },
+      {
+        payment_intent: order.stripe_payment_intent_id,
+        reverse_transfer: true,
+        ...(isFull ? {} : { amount: amountCents }),
+      },
       { idempotencyKey: `refund:${orderId}` },
     );
     refund = { id: r.id, amount: r.amount };
@@ -121,11 +139,12 @@ export async function issueRefundAction(
   );
 
   if (reportId) {
+    const verb = isFull ? "Refunded" : "Partially refunded";
     await admin
       .from("reports")
       .update({
         status: "refunded",
-        resolution_note: note || `Refunded ${formatUsd(cents(refund.amount))}.`,
+        resolution_note: note || `${verb} ${formatUsd(cents(refund.amount))}.`,
         resolved_by: user.id,
         resolved_at: new Date().toISOString(),
       })

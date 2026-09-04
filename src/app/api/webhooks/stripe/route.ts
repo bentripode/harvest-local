@@ -220,32 +220,41 @@ async function handleCheckoutFailed(admin: Admin, session: Stripe.Checkout.Sessi
 }
 
 /**
- * A paid order's charge was FULLY refunded (partial refunds don't unwind fulfilment) or a dispute
- * was opened. Move the order to a terminal state and — per ARCHITECTURE §3.4 — invalidate any
- * referral it earned: `referral-invalidate` decrements the seller's cycle and flags an admin if a
- * granted reward is now under threshold. Never revokes an already-issued reward coupon.
- * Requires the `charge.refunded` and `charge.dispute.created` events on the webhook endpoint.
+ * A paid order's charge was refunded (fully or partially) or a dispute was opened.
+ *
+ * - **Full refund / dispute:** move the order to a terminal state and — per ARCHITECTURE §3.4 —
+ *   invalidate any referral it earned (`referral-invalidate`, idempotent; never revokes an issued
+ *   reward coupon).
+ * - **Partial refund:** leave the order status and the referral alone.
+ *
+ * Both paths mirror the refund into `refunds`, resolve an open report on the order, and email both
+ * parties `refund_issued` (deduped by a partial unique index, so redeliveries and the full/partial
+ * paths never double up). Requires `charge.refunded` + `charge.dispute.created` on the endpoint.
  */
 async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
-  if (charge.amount_refunded < charge.amount) return; // partial refund — leave fulfilment alone
+  const order = await fetchOrderForCharge(admin, charge.payment_intent);
+  if (!order) return;
 
-  const result = await unwindOrderForCharge(admin, charge.payment_intent, "cancelled");
-  if (!result) return;
+  const fullRefund = charge.amount_refunded >= charge.amount;
+  const refundedCents = charge.amount_refunded;
 
-  // Mirror the refund unless our admin action already recorded it. When there's no prior row this
-  // is a Stripe-dashboard-issued refund: `issueRefundAction` never ran, so nothing linked it to an
-  // open report or closed that report — do that here.
+  if (fullRefund) {
+    await unwindOrder(admin, order, "cancelled");
+  }
+
+  // Mirror the refund unless our admin action already recorded it. A row missing here means a
+  // Stripe-dashboard-issued refund: `issueRefundAction` never ran, so link + resolve an open report.
   const { data: priorRefund } = await admin
     .from("refunds")
     .select("id")
-    .eq("order_id", result.order.id)
+    .eq("order_id", order.id)
     .maybeSingle();
 
   if (!priorRefund) {
     const { data: openReport } = await admin
       .from("reports")
       .select("id")
-      .eq("order_id", result.order.id)
+      .eq("order_id", order.id)
       .in("status", ["open", "investigating"])
       .order("created_at", { ascending: true })
       .limit(1)
@@ -254,21 +263,20 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
     // `ignoreDuplicates` keeps a concurrent redelivery from 500-ing on the unique(order_id).
     await admin.from("refunds").upsert(
       {
-        order_id: result.order.id,
+        order_id: order.id,
         report_id: openReport?.id ?? null,
         stripe_refund_id: charge.refunds?.data?.[0]?.id ?? charge.id,
-        amount: toDecimalString(cents(charge.amount_refunded)),
+        amount: toDecimalString(cents(refundedCents)),
       },
       { onConflict: "order_id", ignoreDuplicates: true },
     );
 
-    // Status guard → a redelivery is a no-op.
     if (openReport) {
       await admin
         .from("reports")
         .update({
           status: "refunded",
-          resolution_note: `Refunded ${formatUsd(cents(charge.amount_refunded))} in Stripe.`,
+          resolution_note: `${fullRefund ? "Refunded" : "Partially refunded"} ${formatUsd(cents(refundedCents))} in Stripe.`,
           resolved_at: new Date().toISOString(),
         })
         .eq("id", openReport.id)
@@ -276,38 +284,40 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
     }
   }
 
-  // Notify both parties once — only when this delivery is the one that unwound the order.
-  if (result.transitioned) {
-    const amount = toDecimalString(cents(charge.amount_refunded));
-    const recipients = [result.order.buyer_id, result.order.seller_profile_id].filter(
-      (id): id is string => !!id,
-    );
-    await queueNotificationForEach(admin, recipients, {
-      template: "refund_issued",
-      payload: { order_id: result.order.id, amount, business_name: result.order.business_name },
-    });
-  }
+  const recipients = [order.buyer_id, order.seller_profile_id].filter(
+    (id): id is string => !!id,
+  );
+  await queueNotificationForEach(admin, recipients, {
+    template: "refund_issued",
+    payload: {
+      order_id: order.id,
+      amount: toDecimalString(cents(refundedCents)),
+      business_name: order.business_name,
+      cancelled: fullRefund,
+    },
+    tolerateDuplicate: true,
+  });
 }
 
 async function handleDisputeCreated(admin: Admin, dispute: Stripe.Dispute) {
-  await unwindOrderForCharge(admin, dispute.payment_intent, "disputed");
+  const order = await fetchOrderForCharge(admin, dispute.payment_intent);
+  if (order) await unwindOrder(admin, order, "disputed");
 }
 
-interface UnwoundOrder {
-  order: {
-    id: string;
-    buyer_id: string;
-    seller_profile_id: string | null;
-    business_name: string | null;
-  };
-  transitioned: boolean;
+interface ChargeOrder {
+  id: string;
+  buyer_id: string;
+  seller_id: string;
+  status: string;
+  promo_code_id: string | null;
+  seller_profile_id: string | null;
+  business_name: string | null;
 }
 
-async function unwindOrderForCharge(
+async function fetchOrderForCharge(
   admin: Admin,
   paymentIntent: string | Stripe.PaymentIntent | null,
-  toStatus: "cancelled" | "disputed",
-): Promise<UnwoundOrder | null> {
+): Promise<ChargeOrder | null> {
   const pi = typeof paymentIntent === "string" ? paymentIntent : (paymentIntent?.id ?? null);
   if (!pi) return null;
 
@@ -321,21 +331,28 @@ async function unwindOrderForCharge(
   if (!order) return null;
 
   const seller = order.seller as { profile_id?: string; business_name?: string } | null;
+  return {
+    id: order.id,
+    buyer_id: order.buyer_id,
+    seller_id: order.seller_id,
+    status: order.status,
+    promo_code_id: order.promo_code_id,
+    seller_profile_id: seller?.profile_id ?? null,
+    business_name: seller?.business_name ?? null,
+  };
+}
 
-  // Guarded transition; on a redelivery the order is already terminal and this no-ops.
-  let transitioned = false;
+/** Terminal-state transition (guarded, so a redelivery no-ops) + referral invalidation. */
+async function unwindOrder(admin: Admin, order: ChargeOrder, toStatus: "cancelled" | "disputed") {
   if (order.status !== toStatus && order.status !== "cancelled") {
-    const { data } = await admin
+    await admin
       .from("orders")
       .update({ status: toStatus })
       .eq("id", order.id)
-      .eq("status", order.status)
-      .select("id");
-    transitioned = !!data && data.length > 0;
+      .eq("status", order.status);
   }
 
-  // Fire regardless of the transition result — invalidate_referral_for_order is idempotent, so a
-  // redelivered refund event safely re-confirms an already-invalidated referral.
+  // `invalidate_referral_for_order` is idempotent, so a redelivery safely re-confirms.
   if (order.promo_code_id) {
     await inngest
       .send({
@@ -344,16 +361,6 @@ async function unwindOrderForCharge(
       })
       .catch((err) => console.error("[inngest] harvest/order.refunded send failed:", err));
   }
-
-  return {
-    order: {
-      id: order.id,
-      buyer_id: order.buyer_id,
-      seller_profile_id: seller?.profile_id ?? null,
-      business_name: seller?.business_name ?? null,
-    },
-    transitioned,
-  };
 }
 
 async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {

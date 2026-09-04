@@ -40,6 +40,7 @@ vi.mock("@/lib/notifications/queue", () => ({
 }));
 
 import { POST } from "@/app/api/webhooks/stripe/route";
+import { queueNotificationForEach } from "@/lib/notifications/queue";
 
 type Cfg = {
   insertError?: { code: string } | null;
@@ -317,8 +318,27 @@ describe("charge.refunded → refunds.report_id backfill", () => {
     expect(h.current.calls.updates.some((u) => u.table === "reports")).toBe(false);
   });
 
-  it("ignores a partial refund entirely", async () => {
-    h.current = makeAdmin(refundCfg({ openReport: { id: "report_1" } }));
+  it("cancels the order and notifies both parties on a full refund", async () => {
+    h.current = makeAdmin(refundCfg());
+    h.constructEvent.mockReturnValue(refundEvent);
+
+    await POST(req(JSON.stringify(refundEvent), "good"));
+
+    const orderUpdate = h.current.calls.updates.find((u) => u.table === "orders");
+    expect(orderUpdate?.value).toMatchObject({ status: "cancelled" });
+
+    expect(queueNotificationForEach).toHaveBeenCalledWith(
+      expect.anything(),
+      ["buyer_1", "seller_user_1"],
+      expect.objectContaining({
+        template: "refund_issued",
+        payload: expect.objectContaining({ order_id: "order_1", cancelled: true, amount: "20.00" }),
+      }),
+    );
+  });
+
+  it("mirrors a partial refund without touching order status, and marks it not cancelled", async () => {
+    h.current = makeAdmin(refundCfg());
     h.constructEvent.mockReturnValue({
       ...refundEvent,
       data: { object: { ...refundEvent.data.object, amount_refunded: 500 } },
@@ -326,7 +346,19 @@ describe("charge.refunded → refunds.report_id backfill", () => {
 
     await POST(req(JSON.stringify(refundEvent), "good"));
 
-    expect(h.current.calls.upserts).toHaveLength(0);
-    expect(h.current.calls.tables).not.toContain("refunds");
+    // Refund is still mirrored, at the partial amount.
+    const refundUpsert = h.current.calls.upserts.find((u) => u.table === "refunds");
+    expect(refundUpsert?.value).toMatchObject({ order_id: "order_1", amount: "5.00" });
+
+    // Order status is left alone.
+    expect(h.current.calls.updates.some((u) => u.table === "orders")).toBe(false);
+
+    expect(queueNotificationForEach).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.objectContaining({
+        payload: expect.objectContaining({ cancelled: false, amount: "5.00" }),
+      }),
+    );
   });
 });

@@ -77,7 +77,12 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
           <Row label="Sales tax" value={formatUsd(toCents(order.tax_total))} />
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
           {order.refund ? (
-            <Row label="Refunded" value={`− ${formatUsd(toCents(order.refund.amount))}`} />
+            <Row
+              label={
+                toCents(order.refund.amount) < toCents(order.total) ? "Partially refunded" : "Refunded"
+              }
+              value={`− ${formatUsd(toCents(order.refund.amount))}`}
+            />
           ) : null}
         </div>
       </section>

@@ -95,7 +95,9 @@ export default async function BuyerOrderPage({
           <Row label="Total" value={formatUsd(toCents(order.total))} strong />
           {order.refund ? (
             <Row
-              label="Refunded"
+              label={
+                toCents(order.refund.amount) < toCents(order.total) ? "Partially refunded" : "Refunded"
+              }
               value={`− ${formatUsd(toCents(order.refund.amount))}`}
             />
           ) : null}

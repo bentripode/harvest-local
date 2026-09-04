@@ -80,7 +80,8 @@ function Section({
               ) : null}
               {r.refundAmount ? (
                 <p className="mt-2 text-sm text-green-700">
-                  Refunded {formatUsd(toCents(r.refundAmount))}
+                  {toCents(r.refundAmount) < toCents(r.orderTotal) ? "Partially refunded" : "Refunded"}{" "}
+                  {formatUsd(toCents(r.refundAmount))}
                 </p>
               ) : null}
 
@@ -105,11 +106,7 @@ function Section({
                     </div>
                   </form>
                   {!r.refundAmount ? (
-                    <RefundButton
-                      orderId={r.orderId}
-                      reportId={r.id}
-                      amountLabel={formatUsd(toCents(r.orderTotal))}
-                    />
+                    <RefundButton orderId={r.orderId} reportId={r.id} orderTotal={r.orderTotal} />
                   ) : null}
                 </div>
               ) : null}
