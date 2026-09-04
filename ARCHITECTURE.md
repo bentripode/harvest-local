@@ -440,9 +440,12 @@ create table seller_licenses (
   issuing_state       char(2) not null,
   issued_date         date,
   expiration_date     date not null,
-  document_url        text,                 -- private Supabase Storage object
+  document_path       text,                 -- object key in the private `seller-docs` bucket
   verification_status text not null default 'pending'
                         check (verification_status in ('pending','verified','rejected','expired')),
+  reviewed_at         timestamptz,          -- the admin decision, below
+  reviewed_by         uuid references profiles(id) on delete set null,
+  review_note         text,                 -- shown to the seller; required to reject
   created_at          timestamptz not null default now()
 );
 create index seller_licenses_expiry_ix on seller_licenses (expiration_date, verification_status);
@@ -578,6 +581,10 @@ checks + jobs), never client-side alone.
   `seller_revenue_tracking.gross_revenue`. If it crosses the state's `revenue_cap`, set
   `seller_profiles.is_paused = true` with `pause_reason = 'revenue_cap'` and notify the seller + admin.
   Paused storefronts stop accepting checkouts (server guard) and drop off the map.
+- **License verification:** a seller uploads a document; an admin verifies or rejects it at
+  `/admin/licenses`. `verification_status` and the review columns are platform-only at the data
+  layer (`seller_licenses_guard_status`), so the decision cannot come from the seller. Verification
+  is the gate on the expiry scan below, which only looks at `verified` rows.
 - **License / ID expiration:** a daily Inngest cron scans `seller_licenses.expiration_date`. Send
   reminders at T-30 / T-7 / T-1 days; at expiry, mark `verification_status='expired'` and pause the
   storefront until renewed.

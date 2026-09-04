@@ -56,6 +56,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `order-pipeline.test.ts` | `advance_order_status` ownership + legal-transition map + `order_status_history` trigger |
 | `reviews.test.ts` | `reviews_verify_buyer` trigger, one-review-per-order, `avg_rating` rollup (rule 4) |
 | `rls.test.ts` | order visibility (anon / buyer / other buyer / seller), no client order writes, `profiles_guard_role`, `seller_profiles_guard_columns`, `check_rate_limit` grant |
+| `licenses.test.ts` | `seller_licenses_guard_status` — a seller can't verify their own license or forge the review trail, but can still edit the rest of the row; license RLS (owner / other seller / anon) |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found

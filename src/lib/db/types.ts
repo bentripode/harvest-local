@@ -75,6 +75,29 @@ type SellerProfilesFixed = {
   Relationships: GenTables["seller_profiles"]["Relationships"];
 };
 
+/**
+ * The review audit trail added by `20260904100000_license_review.sql` — layered on here until the
+ * next `npm run db:types` regen picks the columns up from the live schema.
+ */
+type SellerLicensesFixed = {
+  Row: GenTables["seller_licenses"]["Row"] & {
+    reviewed_at: string | null;
+    reviewed_by: string | null;
+    review_note: string | null;
+  };
+  Insert: GenTables["seller_licenses"]["Insert"] & {
+    reviewed_at?: string | null;
+    reviewed_by?: string | null;
+    review_note?: string | null;
+  };
+  Update: GenTables["seller_licenses"]["Update"] & {
+    reviewed_at?: string | null;
+    reviewed_by?: string | null;
+    review_note?: string | null;
+  };
+  Relationships: GenTables["seller_licenses"]["Relationships"];
+};
+
 type ProductsFixed = {
   Row: Omit<GenTables["products"]["Row"], "price" | "images"> & {
     price: string;
@@ -109,6 +132,7 @@ export type Database = Omit<Generated, "public"> & {
       | "products"
       | "orders"
       | "order_items"
+      | "seller_licenses"
       | "state_cottage_food_rules"
       | "seller_revenue_tracking"
       | "referrals"
@@ -117,6 +141,7 @@ export type Database = Omit<Generated, "public"> & {
       profiles: ProfilesFixed;
       seller_profiles: SellerProfilesFixed;
       products: ProductsFixed;
+      seller_licenses: SellerLicensesFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;

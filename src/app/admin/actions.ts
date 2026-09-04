@@ -8,6 +8,8 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { stripe } from "@/lib/stripe/client";
 import { cents, formatUsd, toCents, toDecimalString } from "@/lib/money";
+import { daysUntil } from "@/lib/compliance";
+import { queueNotification } from "@/lib/notifications/queue";
 
 /** Flip the launch gate. `public` opens the marketplace to buyers; `sellers_only` is early access. */
 export async function setAccessModeAction(formData: FormData): Promise<void> {
@@ -159,5 +161,98 @@ export async function issueRefundAction(
   }
 
   revalidatePath("/admin");
+  return { ok: true };
+}
+
+export interface LicenseReviewState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Verify or reject a seller's license document.
+ *
+ * `verification_status` and the review columns are platform-only at the data layer
+ * (`seller_licenses_guard_status`), and `is_platform_context()` reads `current_user` — an admin
+ * over PostgREST is `authenticated`, so the "licenses: admin all" RLS policy alone is not enough to
+ * write them. This goes through the service-role client, which is allowed here because
+ * `requireRole("admin")` runs first (CLAUDE.md: never on user-supplied ids *without* an explicit
+ * authz check).
+ *
+ * Verifying is what puts a license in front of `license-expiry-scan`, which only scans
+ * `verified` rows — so it is also what arms the T-30/7/1 reminders and the auto-pause at expiry.
+ */
+export async function reviewLicenseAction(
+  _prev: LicenseReviewState,
+  formData: FormData,
+): Promise<LicenseReviewState> {
+  const { user } = await requireRole("admin");
+
+  const parsed = z
+    .object({
+      licenseId: z.string().uuid(),
+      status: z.enum(["verified", "rejected"]),
+      note: z.string().trim().max(2000).optional().or(z.literal("")),
+    })
+    .safeParse(Object.fromEntries(formData));
+  if (!parsed.success) return { error: "Invalid request." };
+  const { licenseId, status, note } = parsed.data;
+
+  // A rejection the seller can't act on is worse than none — they only see this note.
+  if (status === "rejected" && !note) {
+    return { error: "Say why it was rejected — the seller sees this note." };
+  }
+
+  const admin = createAdminClient();
+
+  const { data: license } = await admin
+    .from("seller_licenses")
+    .select("id, seller_id, license_type, expiration_date, verification_status")
+    .eq("id", licenseId)
+    .maybeSingle();
+  if (!license) return { error: "License not found." };
+
+  // Verifying an already-lapsed document would arm the expiry scan to immediately re-expire it and
+  // pause the storefront. Reject it (or wait for the renewal) instead.
+  if (status === "verified" && daysUntil(license.expiration_date) < 0) {
+    return {
+      error: `This document expired on ${license.expiration_date} — ask the seller to upload a current one.`,
+    };
+  }
+
+  const { error } = await admin
+    .from("seller_licenses")
+    .update({
+      verification_status: status,
+      review_note: note || null,
+      reviewed_by: user.id,
+      reviewed_at: new Date().toISOString(),
+    })
+    .eq("id", licenseId);
+  if (error) {
+    console.error("[admin] license review update failed:", error);
+    return { error: "Could not save the decision." };
+  }
+
+  const { data: seller } = await admin
+    .from("seller_profiles")
+    .select("profile_id")
+    .eq("id", license.seller_id)
+    .maybeSingle();
+  if (seller) {
+    await queueNotification(admin, {
+      userId: seller.profile_id,
+      template: status === "verified" ? "license_verified" : "license_rejected",
+      payload: {
+        license_id: license.id,
+        license_type: license.license_type,
+        expiration_date: license.expiration_date,
+        note: note || null,
+      },
+    }).catch((err) => console.error("[admin] license review notification failed:", err));
+  }
+
+  revalidatePath("/admin/licenses");
+  revalidatePath("/seller/compliance");
   return { ok: true };
 }
