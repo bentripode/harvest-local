@@ -19,6 +19,7 @@ import { quoteDelivery } from "@/lib/orders/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
 import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
 import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
+import { getMyAddresses, type SavedAddress } from "@/lib/addresses/queries";
 
 /** The only cart data the client is trusted to send — every price is recomputed server-side. */
 const cartPayloadSchema = z.object({
@@ -392,4 +393,12 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
 
   if (!checkoutUrl) redirect(`/orders/${order.id}?checkout=error`);
   redirect(checkoutUrl);
+}
+
+/**
+ * The signed-in buyer's saved addresses, for the checkout delivery picker. Returns [] when logged
+ * out. Read-only — the delivery fee is still quoted server-side from whatever address is submitted.
+ */
+export async function getMyDeliveryAddressesAction(): Promise<SavedAddress[]> {
+  return getMyAddresses();
 }
