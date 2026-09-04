@@ -219,15 +219,17 @@ through Resend (`send.ts` — logs instead when `RESEND_API_KEY` is unset), mark
 `attempt_count` / `failed` past 5. Optimistic `attempt_count` claim + Resend idempotency key
 (`notification.id`) make overlapping runs safe. Every `advance_order_status` transition emits
 `harvest/order.status_changed` → `order-status-notify` (Inngest) queues an `order_status_changed`
-**email** to the buyer (email only — no buyer in-app panel).
+**email** to the buyer (email only — no buyer in-app panel). `sendMessageAction` emits
+`harvest/message.sent` → `message-notify` emails the recipient a `new_message` **only when it's
+their sole unread message in the thread** (deduped on `message_id` by a partial unique index).
 
 Per-user **email opt-outs**: `queueNotification` reads `profiles.notification_prefs` (jsonb,
 `{category: false}` = opted out) and drops the `email` channel for a suppressed category before
 inserting — `in_app` is never filtered. `src/lib/notifications/categories.ts` owns the template →
 category map and `emailEnabled()`; `payments` (refund) + `compliance` (license-expired / revenue-cap)
 are **not** suppressible and skip the profile read entirely. Sellers/admins toggle theirs on
-`/seller/settings` (`saveNotificationPrefsAction`); buyers toggle `order_updates` on `/account`.
-**SMS (Twilio) is not built yet.**
+`/seller/settings` (`saveNotificationPrefsAction`); buyers on `/account`; the `messages` category
+(`audience: "all"`) shows on both. **SMS (Twilio) is not built yet.**
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a
@@ -304,8 +306,8 @@ conversation` RPC) or update `messages` (`mark_conversation_read` RPC). RLS = "p
 uses Supabase Realtime (Postgres Changes) **plus a 4s visible-tab poll**; the poll is the reliable
 path — **Postgres Changes must be enabled for `messages` in the Supabase dashboard** for the instant
 path to work (`messages` is in `supabase_realtime` with `replica identity full`, but the hosted
-project wasn't streaming it). Unread badge in both nav headers. Not built: message→email
-notification, typing/presence, attachments.
+project wasn't streaming it). Unread badge in both nav headers. A new message emails the recipient
+(see the notification-delivery section — `message-notify`). Not built: typing/presence, attachments.
 
 **Phase 4 — reports / flagging.** ARCHITECTURE §2.7 (the `refunds` table + Stripe refunds are
 Phase 5). `reports` (one per order per reporter, `unique(order_id, reporter_id)`; `reason` enum,

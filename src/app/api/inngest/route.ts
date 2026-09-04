@@ -7,6 +7,7 @@ import { referralActivate } from "@/lib/inngest/functions/referral-activate";
 import { referralInvalidate } from "@/lib/inngest/functions/referral-invalidate";
 import { notificationDispatch } from "@/lib/inngest/functions/notification-dispatch";
 import { orderStatusNotify } from "@/lib/inngest/functions/order-status-notify";
+import { messageNotify } from "@/lib/inngest/functions/message-notify";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -22,5 +23,6 @@ export const { GET, POST, PUT } = serve({
     referralInvalidate,
     notificationDispatch,
     orderStatusNotify,
+    messageNotify,
   ],
 });

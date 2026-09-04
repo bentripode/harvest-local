@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import { requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { inngest } from "@/lib/inngest/client";
 import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
 
 export interface SentMessage {
@@ -89,6 +90,19 @@ export async function sendMessageAction(
         : error?.message ?? "Could not send.",
     };
   }
+
+  // Email the recipient if this is their only unread message in the thread (see message-notify).
+  // A send failure must never surface to the sender.
+  await inngest
+    .send({
+      name: "harvest/message.sent",
+      data: {
+        conversationId: parsed.data.conversationId,
+        messageId: data.id,
+        senderId: user.id,
+      },
+    })
+    .catch((err) => console.error("[inngest] message.sent send failed:", err));
 
   revalidatePath("/messages");
   return {

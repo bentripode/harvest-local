@@ -12,6 +12,7 @@ export type NotificationCategory =
   | "referrals"
   | "license_reminders"
   | "compliance"
+  | "messages"
   | "admin";
 
 /** `notifications.template` → the category it belongs to. */
@@ -22,6 +23,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   license_expiring: "license_reminders",
   license_expired: "compliance",
   revenue_cap_reached: "compliance",
+  new_message: "messages",
   referral_reward_review: "admin",
   referral_reward_attach_failed: "admin",
   report_filed: "admin",
@@ -33,6 +35,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
  */
 export const SUPPRESSIBLE_CATEGORIES = [
   "order_updates",
+  "messages",
   "referrals",
   "license_reminders",
   "admin",
@@ -47,8 +50,8 @@ export function isSuppressible(category: NotificationCategory): category is Supp
 export interface CategoryMeta {
   label: string;
   description: string;
-  /** Whose settings surface this belongs on. */
-  audience: "buyer" | "seller" | "admin";
+  /** Whose settings surface this belongs on. `all` = both the buyer and seller pages. */
+  audience: "buyer" | "seller" | "admin" | "all";
 }
 
 export const CATEGORY_META: Record<SuppressibleCategory, CategoryMeta> = {
@@ -57,6 +60,12 @@ export const CATEGORY_META: Record<SuppressibleCategory, CategoryMeta> = {
     description:
       "When a seller moves an order you placed along — preparing, ready, out for delivery, completed.",
     audience: "buyer",
+  },
+  messages: {
+    label: "New messages",
+    description:
+      "When someone messages you and you have no other unread messages in that conversation.",
+    audience: "all",
   },
   referrals: {
     label: "Referral rewards",

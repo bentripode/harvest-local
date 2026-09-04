@@ -64,6 +64,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/orders",
     ctaLabel: "View orders",
   },
+  new_message: {
+    subject: (p) => `New message from ${String(p.sender_name ?? "a Harvest Local user")}`,
+    ctaPath: (p) => `/messages/${String(p.conversation_id ?? "")}`,
+    ctaLabel: "Open conversation",
+  },
   order_status_changed: {
     subject: (p) => {
       switch (String(p.status)) {

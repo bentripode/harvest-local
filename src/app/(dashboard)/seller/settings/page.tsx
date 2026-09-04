@@ -34,7 +34,11 @@ export default async function SellerSettingsPage() {
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
     const { audience } = CATEGORY_META[c];
-    return audience === "seller" || (audience === "admin" && profile.role === "admin");
+    return (
+      audience === "seller" ||
+      audience === "all" ||
+      (audience === "admin" && profile.role === "admin")
+    );
   });
 
   return (
