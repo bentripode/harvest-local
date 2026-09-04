@@ -77,6 +77,26 @@ type ProductsFixed = {
   Relationships: GenTables["products"]["Relationships"];
 };
 
+/**
+ * `reviews.response` / `responded_at` — a seller's public reply. Manually declared until
+ * `npm run db:types` is re-run against a DB with the 20260904020000_review_responses migration.
+ */
+type ReviewsFixed = {
+  Row: Omit<GenTables["reviews"]["Row"], "response" | "responded_at"> & {
+    response: string | null;
+    responded_at: string | null;
+  };
+  Insert: Omit<GenTables["reviews"]["Insert"], "response" | "responded_at"> & {
+    response?: string | null;
+    responded_at?: string | null;
+  };
+  Update: Omit<GenTables["reviews"]["Update"], "response" | "responded_at"> & {
+    response?: string | null;
+    responded_at?: string | null;
+  };
+  Relationships: GenTables["reviews"]["Relationships"];
+};
+
 type OrderMoneyKeys =
   | "subtotal"
   | "discount_total"
@@ -98,9 +118,11 @@ export type Database = Omit<Generated, "public"> & {
       | "seller_revenue_tracking"
       | "referrals"
       | "refunds"
+      | "reviews"
     > & {
       profiles: ProfilesFixed;
       products: ProductsFixed;
+      reviews: ReviewsFixed;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
