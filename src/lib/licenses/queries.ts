@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createAdminClient } from "@/lib/supabase/admin";
+import { documentSpec, maskNumber } from "@/lib/licenses/requirements";
 import type { LicenseStatus, LicenseType } from "@/lib/db/types";
 
 /**
@@ -20,10 +21,13 @@ export interface AdminLicense {
   sellerIsPaused: boolean;
   sellerPauseReason: string | null;
   licenseType: LicenseType;
+  /** Already masked when the type is sensitive (a tax ID) — safe to render as-is. */
   licenseNumber: string | null;
-  issuingState: string;
+  /** Null for a tax ID, which has no issuing state we record. */
+  issuingState: string | null;
   issuedDate: string | null;
-  expirationDate: string;
+  /** Null for a tax ID — an SSN or EIN does not expire. */
+  expirationDate: string | null;
   hasDocument: boolean;
   status: LicenseStatus;
   reviewNote: string | null;
@@ -60,7 +64,11 @@ export async function getLicenseQueue(): Promise<AdminLicense[]> {
       sellerIsPaused: seller?.is_paused ?? false,
       sellerPauseReason: seller?.pause_reason ?? null,
       licenseType: l.license_type,
-      licenseNumber: l.license_number,
+      // An SSN never reaches the browser in full: the reviewer reads it off the document and
+      // checks the last 4 against this.
+      licenseNumber: documentSpec(l.license_type)?.numberSensitive
+        ? maskNumber(l.license_number)
+        : l.license_number,
       issuingState: l.issuing_state,
       issuedDate: l.issued_date,
       expirationDate: l.expiration_date,

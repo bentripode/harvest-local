@@ -115,13 +115,24 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ---
 
-### 5. A storefront is only live with a verified, unexpired license.
+### 5. A storefront is only live with every required document verified.
 
+- The required set is **Government ID + Tax ID**, plus a **Cottage Food Permit** for any seller
+  listing food. Whether they list food is *derived* from their product categories
+  (`categories.requires_food_permit` → `seller_sells_cottage_food()`), never self-declared — so a
+  trigger on `products` re-runs the gate whenever the catalogue changes.
 - `seller_profiles.is_paused` is the single lever — checkout, the storefront page and `/shop` all
   already gate on it, so the guardrail lives entirely in
   **`sync_seller_license_pause()`** (`20260904110000_license_gate.sql`), not in request handlers.
-- The gate predicate is `seller_has_valid_license()`: at least one `seller_licenses` row that is
-  `verification_status = 'verified'` **and** not past `expiration_date`.
+- The gate predicate is `seller_has_required_documents()`: every required type has a
+  `verification_status = 'verified'` row that is not past `expiration_date` (a tax ID has no expiry,
+  and no issuing state — both columns are nullable for that type alone, enforced by CHECK).
+- `src/lib/licenses/requirements.ts` is the seller-facing half of the same rules (the upload
+  checklist). Keep the two in step: it decides what the seller is *asked* for, the SQL function
+  decides whether the storefront may *open*.
+- **`seller_licenses.license_number` holds an SSN or EIN for `tax_id` rows.** It is rendered masked
+  to the last 4 everywhere (`maskNumber()`), and must never reach an export, a log, or a
+  notification payload.
 - **Precedence matters.** Pausing never renames an existing pause (`coalesce(pause_reason,
   'license_unverified')`), and unpausing lifts **only** `license_unverified` / `license_expired`,
   and only when Connect + a trialing/active subscription still hold. `revenue_cap` and `admin` are
@@ -196,7 +207,7 @@ src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
-src/lib/licenses/{queries,labels}.ts   admin license-review queue reads · license-type labels
+src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads

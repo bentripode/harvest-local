@@ -4,10 +4,11 @@
  */
 
 export const LICENSE_TYPES = [
+  { value: "id", label: "Government-issued ID" },
+  { value: "tax_id", label: "Tax ID" },
   { value: "cottage_food", label: "Cottage food permit" },
   { value: "food_handler", label: "Food handler card" },
   { value: "business_license", label: "Business license" },
-  { value: "id", label: "Government ID" },
   { value: "other", label: "Other" },
 ] as const;
 

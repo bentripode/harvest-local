@@ -214,7 +214,7 @@ export async function reviewLicenseAction(
 
   // Verifying an already-lapsed document would arm the expiry scan to immediately re-expire it and
   // pause the storefront. Reject it (or wait for the renewal) instead.
-  if (status === "verified" && daysUntil(license.expiration_date) < 0) {
+  if (status === "verified" && license.expiration_date && daysUntil(license.expiration_date) < 0) {
     return {
       error: `This document expired on ${license.expiration_date} — ask the seller to upload a current one.`,
     };

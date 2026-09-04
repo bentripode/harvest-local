@@ -3,11 +3,13 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 import { adminDb, cleanupAll, createSeller, createTestUser, describeDb, type Db } from "./helpers";
 
 /**
- * The license gate — `sync_seller_license_pause` (`20260904110000_license_gate.sql`).
+ * The license gate — `sync_seller_license_pause` / `seller_has_required_documents`
+ * (`20260904110000_license_gate.sql`, tightened by `20260904130000_seller_documents.sql`).
  *
- * A storefront may only be live with a verified, unexpired license. Pausing is the single lever:
- * checkout, the storefront page and `/shop` all gate on `seller_profiles.is_paused`, so the
- * precedence rules in this one function are what the whole guardrail rests on.
+ * A storefront may only be live once every required document is verified and unexpired: a
+ * Government ID and a Tax ID always, plus a Cottage Food Permit for any seller listing food.
+ * Pausing is the single lever — checkout, the storefront page and `/shop` all gate on
+ * `seller_profiles.is_paused` — so the precedence rules here are what the guardrail rests on.
  */
 describeDb("license gate", () => {
   const day = 86_400_000;
@@ -16,7 +18,7 @@ describeDb("license gate", () => {
 
   let admin: Db;
 
-  /** A live storefront with a trialing subscription — i.e. onboarding otherwise complete. */
+  /** A storefront with a trialing subscription — i.e. onboarding otherwise complete. */
   async function liveSeller(): Promise<string> {
     const user = await createTestUser({ role: "seller", homeState: "TX" });
     const seller = await createSeller(user.id, { homeState: "TX" });
@@ -29,23 +31,59 @@ describeDb("license gate", () => {
     return seller.id;
   }
 
-  async function addLicense(
+  async function addDocument(
     sellerId: string,
-    status: "pending" | "verified" | "rejected" | "expired",
-    expiration = future,
+    type: "id" | "tax_id" | "cottage_food",
+    status: "pending" | "verified" | "rejected" | "expired" = "verified",
+    expiration: string | null = future,
   ): Promise<string> {
     const { data, error } = await admin
       .from("seller_licenses")
       .insert({
         seller_id: sellerId,
-        license_type: "cottage_food",
-        issuing_state: "TX",
-        expiration_date: expiration,
+        license_type: type,
+        // A tax ID has neither, and the CHECK constraints allow that only for this type.
+        issuing_state: type === "tax_id" ? null : "TX",
+        expiration_date: type === "tax_id" ? null : expiration,
+        document_path: `${sellerId}/licenses/it-${type}.pdf`,
         verification_status: status,
       })
       .select("id")
       .single();
-    if (error || !data) throw new Error(`license fixture: ${error?.message}`);
+    if (error || !data) throw new Error(`document fixture (${type}): ${error?.message}`);
+    return data.id;
+  }
+
+  /** The two documents every seller needs, both verified. */
+  async function addBaseDocuments(sellerId: string): Promise<void> {
+    await addDocument(sellerId, "id");
+    await addDocument(sellerId, "tax_id");
+  }
+
+  /** A product in a category flagged `requires_food_permit`, which pulls in the permit. */
+  async function addFoodProduct(sellerId: string): Promise<string> {
+    const { data: cat, error: catErr } = await admin
+      .from("categories")
+      .select("id")
+      .eq("requires_food_permit", true)
+      .is("parent_id", null)
+      .limit(1)
+      .single();
+    if (catErr || !cat) throw new Error(`no food category seeded: ${catErr?.message}`);
+
+    const { data, error } = await admin
+      .from("products")
+      .insert({
+        seller_id: sellerId,
+        title: `IT Food ${Math.random().toString(36).slice(2, 8)}`,
+        price: "5.00",
+        category_id: cat.id,
+        status: "active",
+        quantity_available: 5,
+      })
+      .select("id")
+      .single();
+    if (error || !data) throw new Error(`food product fixture: ${error?.message}`);
     return data.id;
   }
 
@@ -70,7 +108,8 @@ describeDb("license gate", () => {
 
   afterAll(cleanupAll);
 
-  it("pauses a live storefront with no license on file", async () => {
+  // -- the required set ------------------------------------------------------
+  it("pauses a storefront with no documents at all", async () => {
     const sellerId = await liveSeller();
     expect(await sync(sellerId)).toBe("license_unverified");
     expect(await pauseState(sellerId)).toMatchObject({
@@ -79,43 +118,87 @@ describeDb("license gate", () => {
     });
   });
 
-  it("a pending license does not count", async () => {
+  it("one verified document is not enough", async () => {
     const sellerId = await liveSeller();
-    await addLicense(sellerId, "pending");
+    await addDocument(sellerId, "id");
     expect(await sync(sellerId)).toBe("license_unverified");
   });
 
-  it("a verified but lapsed license does not count", async () => {
+  it("ID + tax ID is enough for a seller who lists no food", async () => {
     const sellerId = await liveSeller();
-    await addLicense(sellerId, "verified", past);
-    expect(await sync(sellerId)).toBe("license_unverified");
-  });
-
-  it("a verified, unexpired license keeps the storefront live", async () => {
-    const sellerId = await liveSeller();
-    await addLicense(sellerId, "verified");
+    await addBaseDocuments(sellerId);
     expect(await sync(sellerId)).toBeNull();
     expect(await pauseState(sellerId)).toMatchObject({ is_paused: false, pause_reason: null });
   });
 
-  it("verifying a license lifts the license pause", async () => {
+  it("a pending document does not count", async () => {
     const sellerId = await liveSeller();
-    await sync(sellerId);
+    await addDocument(sellerId, "id", "pending");
+    await addDocument(sellerId, "tax_id");
+    expect(await sync(sellerId)).toBe("license_unverified");
+  });
+
+  it("a verified but lapsed document does not count", async () => {
+    const sellerId = await liveSeller();
+    await addDocument(sellerId, "id", "verified", past);
+    await addDocument(sellerId, "tax_id");
+    expect(await sync(sellerId)).toBe("license_unverified");
+  });
+
+  it("a tax ID with no expiry date is permanently valid", async () => {
+    const sellerId = await liveSeller();
+    await addBaseDocuments(sellerId);
+    const { data } = await admin
+      .from("seller_licenses")
+      .select("expiration_date")
+      .eq("seller_id", sellerId)
+      .eq("license_type", "tax_id")
+      .single();
+    expect(data?.expiration_date).toBeNull();
+    expect(await sync(sellerId)).toBeNull();
+  });
+
+  // -- the permit follows the catalogue -------------------------------------
+  it("listing a food product makes the permit required, and pauses the storefront", async () => {
+    const sellerId = await liveSeller();
+    await addBaseDocuments(sellerId);
+    expect(await sync(sellerId)).toBeNull();
+
+    // The trigger on `products` re-syncs, so this pauses without anyone calling sync().
+    await addFoodProduct(sellerId);
     expect((await pauseState(sellerId)).pause_reason).toBe("license_unverified");
-
-    await addLicense(sellerId, "verified");
-    expect(await sync(sellerId)).toBeNull();
-    expect(await pauseState(sellerId)).toMatchObject({ is_paused: false, pause_reason: null });
   });
 
-  it("a verified license also lifts an expiry pause", async () => {
+  it("verifying the permit reopens a food seller's storefront", async () => {
+    const sellerId = await liveSeller();
+    await addBaseDocuments(sellerId);
+    await addFoodProduct(sellerId);
+    expect((await pauseState(sellerId)).is_paused).toBe(true);
+
+    await addDocument(sellerId, "cottage_food");
+    expect(await sync(sellerId)).toBeNull();
+    expect((await pauseState(sellerId)).is_paused).toBe(false);
+  });
+
+  it("archiving the last food product drops the permit requirement", async () => {
+    const sellerId = await liveSeller();
+    await addBaseDocuments(sellerId);
+    const productId = await addFoodProduct(sellerId);
+    expect((await pauseState(sellerId)).is_paused).toBe(true);
+
+    await admin.from("products").update({ status: "archived" }).eq("id", productId);
+    expect((await pauseState(sellerId)).is_paused).toBe(false);
+  });
+
+  // -- precedence ------------------------------------------------------------
+  it("verifying the set lifts an expiry pause too", async () => {
     const sellerId = await liveSeller();
     await admin
       .from("seller_profiles")
       .update({ is_paused: true, pause_reason: "license_expired" })
       .eq("id", sellerId);
 
-    await addLicense(sellerId, "verified");
+    await addBaseDocuments(sellerId);
     expect(await sync(sellerId)).toBeNull();
   });
 
@@ -129,9 +212,9 @@ describeDb("license gate", () => {
     expect(await sync(sellerId)).toBe("revenue_cap");
   });
 
-  it("never lifts a revenue-cap pause, even with a verified license", async () => {
+  it("never lifts a revenue-cap pause, even with every document verified", async () => {
     const sellerId = await liveSeller();
-    await addLicense(sellerId, "verified");
+    await addBaseDocuments(sellerId);
     await admin
       .from("seller_profiles")
       .update({ is_paused: true, pause_reason: "revenue_cap" })
@@ -143,7 +226,7 @@ describeDb("license gate", () => {
 
   it("never lifts an admin pause", async () => {
     const sellerId = await liveSeller();
-    await addLicense(sellerId, "verified");
+    await addBaseDocuments(sellerId);
     await admin
       .from("seller_profiles")
       .update({ is_paused: true, pause_reason: "admin" })
@@ -159,7 +242,7 @@ describeDb("license gate", () => {
       .from("seller_profiles")
       .update({ pause_reason: "onboarding_incomplete" })
       .eq("id", seller.id);
-    await addLicense(seller.id, "verified");
+    await addBaseDocuments(seller.id);
 
     // No subscription row — onboarding is genuinely incomplete.
     expect(await sync(seller.id)).toBe("onboarding_incomplete");
@@ -170,8 +253,33 @@ describeDb("license gate", () => {
     const sellerId = await liveSeller();
     await admin.from("subscriptions").update({ status: "past_due" }).eq("seller_id", sellerId);
     await sync(sellerId);
-    await addLicense(sellerId, "verified");
+    await addBaseDocuments(sellerId);
 
     expect(await sync(sellerId)).toBe("license_unverified");
+  });
+
+  // -- the document constraints ---------------------------------------------
+  it("refuses a required document with no file attached", async () => {
+    const sellerId = await liveSeller();
+    const { error } = await admin.from("seller_licenses").insert({
+      seller_id: sellerId,
+      license_type: "id",
+      issuing_state: "TX",
+      expiration_date: future,
+      document_path: null,
+    });
+    expect(error).not.toBeNull();
+  });
+
+  it("refuses a dated document with no expiry date", async () => {
+    const sellerId = await liveSeller();
+    const { error } = await admin.from("seller_licenses").insert({
+      seller_id: sellerId,
+      license_type: "cottage_food",
+      issuing_state: "TX",
+      expiration_date: null,
+      document_path: `${sellerId}/licenses/it-nodate.pdf`,
+    });
+    expect(error).not.toBeNull();
   });
 });

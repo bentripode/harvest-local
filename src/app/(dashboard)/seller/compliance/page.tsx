@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LicenseForm } from "@/components/license-form";
+import { DocumentUploadForm } from "@/components/document-upload-form";
 import { NotificationsPanel } from "@/components/notifications-panel";
 import { getSellerContext } from "@/lib/auth";
 import {
@@ -10,8 +10,14 @@ import {
   getInAppNotifications,
   getRevenueStatus,
   getSellerLicenses,
+  sellerSellsCottageFood,
 } from "@/lib/compliance";
 import { licenseTypeLabel } from "@/lib/licenses/labels";
+import {
+  buildDocumentChecklist,
+  maskNumber,
+  type DocumentStatus,
+} from "@/lib/licenses/requirements";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
 import type { LicenseStatus } from "@/lib/db/types";
@@ -25,16 +31,39 @@ const STATUS_VARIANT: Record<LicenseStatus, "default" | "secondary" | "destructi
   expired: "destructive",
 };
 
+const CHECKLIST_VARIANT: Record<DocumentStatus, "default" | "secondary" | "destructive" | "outline"> =
+  {
+    verified: "default",
+    pending: "secondary",
+    rejected: "destructive",
+    expired: "destructive",
+    missing: "outline",
+  };
+
+function expiryPhrase(days: number): string {
+  if (days < 0) return "past due";
+  if (days === 0) return "today";
+  return `in ${days} day${days === 1 ? "" : "s"}`;
+}
+
 export default async function CompliancePage() {
   const { profile, seller } = await getSellerContext();
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications] = await Promise.all([
+  const [revenue, licenses, notifications, sellsCottageFood] = await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
     getInAppNotifications(profile.id),
+    sellerSellsCottageFood(seller.id),
   ]);
+
+  const checklist = buildDocumentChecklist(licenses, sellsCottageFood);
+  const required = checklist.filter((c) => c.required);
+  const outstanding = required.filter((c) => c.status !== "verified");
+  // Anything uploaded under the old generic form (food handler card, business license, …).
+  const checklistTypes = new Set<string>(checklist.map((c) => c.spec.type));
+  const otherLicenses = licenses.filter((l) => !checklistTypes.has(l.license_type));
 
   const grossCents = toCents(revenue.grossThisYear);
   const capCents = revenue.cap ? toCents(revenue.cap) : null;
@@ -96,57 +125,98 @@ export default async function CompliancePage() {
       </Card>
 
       <section className="space-y-3">
-        <h2 className="text-sm font-medium">Licenses &amp; IDs</h2>
-        {licenses.length === 0 ? (
-          <p className="text-muted-foreground rounded-lg border border-dashed p-4 text-sm">
-            No licenses on file — your storefront stays paused until an admin verifies one.
+        <div>
+          <h2 className="text-sm font-medium">Your documents</h2>
+          <p className="text-muted-foreground text-sm">
+            {outstanding.length === 0
+              ? "Everything we need is verified."
+              : `Your storefront stays paused until all ${required.length} are verified — ${outstanding.length} still outstanding.`}{" "}
+            {sellsCottageFood
+              ? "You list food, so we also need your cottage-food permit."
+              : "You don't list food yet, so no cottage-food permit is needed. Add a food product and it becomes required."}
           </p>
-        ) : (
-          <ul className="divide-y rounded-lg border">
-            {licenses.map((l) => {
-              const days = daysUntil(l.expiration_date);
-              return (
-                <li key={l.id} className="space-y-2 p-3 text-sm">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="min-w-0 flex-1">
-                      <p className="font-medium">
-                        {licenseTypeLabel(l.license_type)} · {stateName(l.issuing_state)}
-                      </p>
-                      <p className="text-muted-foreground">
-                        Expires {l.expiration_date}
-                        {l.verification_status !== "expired" ? (
-                          <>
-                            {" "}
-                            ·{" "}
-                            {days < 0
-                              ? "past due"
-                              : days === 0
-                                ? "today"
-                                : `in ${days} day${days === 1 ? "" : "s"}`}
-                          </>
-                        ) : null}
-                      </p>
-                    </div>
-                    <Badge variant={STATUS_VARIANT[l.verification_status as LicenseStatus]}>
-                      {l.verification_status}
-                    </Badge>
-                  </div>
-                  {l.review_note ? (
-                    <p className="text-muted-foreground bg-muted/40 rounded-md border p-2">
-                      <span className="font-medium">From the reviewer:</span> {l.review_note}
+        </div>
+
+        <ul className="space-y-3">
+          {checklist.map((item) => (
+            <li key={item.spec.type} className="rounded-lg border p-4">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-sm font-medium">
+                    {item.spec.label}{" "}
+                    {item.required ? null : (
+                      <span className="text-muted-foreground font-normal">— not needed yet</span>
+                    )}
+                  </p>
+                  <p className="text-muted-foreground text-sm">{item.spec.help}</p>
+                </div>
+                <Badge variant={CHECKLIST_VARIANT[item.status]}>
+                  {item.status === "missing" ? "not uploaded" : item.status}
+                </Badge>
+              </div>
+
+              {item.license ? (
+                <div className="text-muted-foreground mt-3 space-y-1 text-sm">
+                  {item.license.license_number ? (
+                    <p>
+                      {item.spec.numberLabel}:{" "}
+                      <span className="font-mono">
+                        {item.spec.numberSensitive
+                          ? maskNumber(item.license.license_number)
+                          : item.license.license_number}
+                      </span>
                     </p>
                   ) : null}
-                </li>
-              );
-            })}
-          </ul>
-        )}
+                  {item.license.expiration_date ? (
+                    <p>
+                      Expires {item.license.expiration_date}
+                      {item.status !== "expired"
+                        ? ` · ${expiryPhrase(daysUntil(item.license.expiration_date))}`
+                        : null}
+                    </p>
+                  ) : null}
+                  {item.license.review_note ? (
+                    <p className="bg-muted/40 rounded-md border p-2">
+                      <span className="font-medium">From the reviewer:</span>{" "}
+                      {item.license.review_note}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {item.status === "verified" ? null : (
+                <div className="mt-4 border-t pt-4">
+                  <DocumentUploadForm
+                    spec={item.spec}
+                    sellerId={seller.id}
+                    defaultState={seller.home_state}
+                    replacing={item.status === "rejected" || item.status === "expired"}
+                  />
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-medium">Add a license</h2>
-        <LicenseForm sellerId={seller.id} defaultState={seller.home_state} />
-      </section>
+      {otherLicenses.length > 0 ? (
+        <section className="space-y-3">
+          <h2 className="text-sm font-medium">Other documents on file</h2>
+          <ul className="divide-y rounded-lg border">
+            {otherLicenses.map((l) => (
+              <li key={l.id} className="flex flex-wrap items-center gap-3 p-3 text-sm">
+                <span className="min-w-0 flex-1 font-medium">
+                  {licenseTypeLabel(l.license_type)}
+                  {l.issuing_state ? ` · ${stateName(l.issuing_state)}` : ""}
+                </span>
+                <Badge variant={STATUS_VARIANT[l.verification_status as LicenseStatus]}>
+                  {l.verification_status}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section>
         <NotificationsPanel notifications={notifications} />

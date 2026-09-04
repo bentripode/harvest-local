@@ -436,8 +436,9 @@ async function handleInvoicePaid(admin: Admin, invoice: Stripe.Invoice) {
 
 /**
  * A storefront goes live only when Connect KYC is done, a trialing/active subscription exists, AND
- * a verified, unexpired license is on file. Without that last one, finishing onboarding would hand
- * a seller a live cottage-food storefront with no permit.
+ * every required document is verified (ID + tax ID, plus a cottage-food permit for a seller who
+ * lists food). Without that last one, finishing onboarding would hand a seller a live cottage-food
+ * storefront with no permit.
  * Idempotent: safe to call after any relevant webhook.
  */
 async function reconcileActivation(admin: Admin, sellerId: string) {
@@ -462,7 +463,7 @@ async function reconcileActivation(admin: Admin, sellerId: string) {
     .eq("seller_id", sellerId)
     .maybeSingle();
 
-  const { data: licenseOk } = await admin.rpc("seller_has_valid_license", {
+  const { data: licenseOk } = await admin.rpc("seller_has_required_documents", {
     p_seller_id: sellerId,
   });
 

@@ -64,8 +64,9 @@ function Section({
       ) : (
         <ul className="space-y-4">
           {licenses.map((l) => {
-            const days = daysUntil(l.expirationDate);
-            const lapsed = days < 0;
+            // A tax ID has no expiry date; only the dated documents can lapse.
+            const days = l.expirationDate ? daysUntil(l.expirationDate) : null;
+            const lapsed = days != null && days < 0;
             return (
               <li key={l.id} className="rounded-lg border p-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
@@ -73,7 +74,8 @@ function Section({
                     <div className="flex flex-wrap items-center gap-2">
                       <Badge variant={STATUS_VARIANT[l.status]}>{l.status}</Badge>
                       <span className="text-sm font-medium">
-                        {licenseTypeLabel(l.licenseType)} · {stateName(l.issuingState)}
+                        {licenseTypeLabel(l.licenseType)}
+                        {l.issuingState ? ` · ${stateName(l.issuingState)}` : ""}
                       </span>
                       {l.sellerIsPaused ? (
                         <Badge variant="destructive">
@@ -98,14 +100,18 @@ function Section({
                       {l.issuedDate ? <> · issued {l.issuedDate}</> : null} · submitted{" "}
                       {new Date(l.createdAt).toLocaleDateString(undefined, { dateStyle: "medium" })}
                     </p>
-                    <p className={lapsed ? "text-destructive text-sm" : "text-muted-foreground text-sm"}>
-                      Expires {l.expirationDate}
-                      {lapsed
-                        ? " — already lapsed"
-                        : days === 0
-                          ? " — today"
-                          : ` — in ${days} day${days === 1 ? "" : "s"}`}
-                    </p>
+                    {l.expirationDate == null ? (
+                      <p className="text-muted-foreground text-sm">No expiry date</p>
+                    ) : (
+                      <p className={lapsed ? "text-destructive text-sm" : "text-muted-foreground text-sm"}>
+                        Expires {l.expirationDate}
+                        {lapsed
+                          ? " — already lapsed"
+                          : days === 0
+                            ? " — today"
+                            : ` — in ${days} day${days === 1 ? "" : "s"}`}
+                      </p>
+                    )}
                   </div>
 
                   {l.hasDocument ? (
