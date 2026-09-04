@@ -11,9 +11,20 @@ export function PauseBanner({ seller }: { seller: SellerProfile | null }) {
   if (!seller?.is_paused) return null;
 
   const reason = seller.pause_reason;
-  if (reason !== "revenue_cap" && reason !== "license_expired" && reason !== "admin") return null;
+  if (
+    reason !== "license_unverified" &&
+    reason !== "revenue_cap" &&
+    reason !== "license_expired" &&
+    reason !== "admin"
+  ) {
+    return null;
+  }
 
   const copy = {
+    license_unverified: {
+      title: "Your storefront is paused — no verified license on file",
+      body: "Selling cottage-food goods needs a verified permit. Upload yours on the compliance page; an admin reviews it and your storefront reopens as soon as it's verified.",
+    },
     revenue_cap: {
       title: `Your storefront is paused — ${stateName(seller.home_state)} cottage-food sales cap reached`,
       body: "You've hit the annual gross-sales limit for your state. Your storefront is hidden and can't take orders. It reopens at the start of next year, or sooner if an admin adjusts your limit.",

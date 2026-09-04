@@ -1534,9 +1534,17 @@ export type Database = {
         Args: { p_product_ids?: string[]; p_seller_id: string }
         Returns: undefined
       }
+      seller_has_valid_license: {
+        Args: { p_seller_id: string }
+        Returns: boolean
+      }
       set_referral_reward_coupon: {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
+      }
+      sync_seller_license_pause: {
+        Args: { p_seller_id: string }
+        Returns: string
       }
       upsert_address: {
         Args: {

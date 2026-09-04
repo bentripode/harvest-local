@@ -234,6 +234,14 @@ export async function reviewLicenseAction(
     return { error: "Could not save the decision." };
   }
 
+  // The decision is the gate on the storefront: verifying lifts a license pause, and withdrawing a
+  // verification re-applies one. The SQL function owns the precedence rules (it never lifts a
+  // revenue_cap or admin pause) and hands back the resulting reason so the seller can be told.
+  const { data: pauseReason, error: syncError } = await admin.rpc("sync_seller_license_pause", {
+    p_seller_id: license.seller_id,
+  });
+  if (syncError) console.error("[admin] sync_seller_license_pause failed:", syncError);
+
   const { data: seller } = await admin
     .from("seller_profiles")
     .select("profile_id")
@@ -248,6 +256,8 @@ export async function reviewLicenseAction(
         license_type: license.license_type,
         expiration_date: license.expiration_date,
         note: note || null,
+        // Drives the "your storefront is live / is paused" half of the copy.
+        storefront_paused: pauseReason != null,
       },
     }).catch((err) => console.error("[admin] license review notification failed:", err));
   }

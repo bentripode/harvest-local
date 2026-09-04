@@ -39,6 +39,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "Renew license",
   },
+  license_required: {
+    subject: () => "Your storefront is paused — a verified license is required",
+    ctaPath: "/seller/compliance",
+    ctaLabel: "Upload a license",
+  },
   license_verified: {
     subject: (p) => `Your ${String(p.license_type ?? "license").replace(/_/g, " ")} is verified`,
     ctaPath: "/seller/compliance",

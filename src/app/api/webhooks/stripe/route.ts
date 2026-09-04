@@ -435,7 +435,9 @@ async function handleInvoicePaid(admin: Admin, invoice: Stripe.Invoice) {
 }
 
 /**
- * A storefront goes live only when Connect KYC is done AND a trialing/active subscription exists.
+ * A storefront goes live only when Connect KYC is done, a trialing/active subscription exists, AND
+ * a verified, unexpired license is on file. Without that last one, finishing onboarding would hand
+ * a seller a live cottage-food storefront with no permit.
  * Idempotent: safe to call after any relevant webhook.
  */
 async function reconcileActivation(admin: Admin, sellerId: string) {
@@ -446,9 +448,10 @@ async function reconcileActivation(admin: Admin, sellerId: string) {
     .maybeSingle();
   if (!seller) return;
 
-  // This function only manages the onboarding pause. A compliance pause
-  // (revenue_cap / license_expired / admin) is lifted only by an admin or the yearly
-  // revenue reset — never by a subscription webhook.
+  // This function only manages the onboarding pause. Every other pause outranks it:
+  // license_unverified / license_expired are lifted by sync_seller_license_pause when a document is
+  // verified, and revenue_cap / admin only by an admin or the yearly revenue reset — never by a
+  // subscription webhook.
   if (seller.is_paused && seller.pause_reason && seller.pause_reason !== "onboarding_incomplete") {
     return;
   }
@@ -459,15 +462,21 @@ async function reconcileActivation(admin: Admin, sellerId: string) {
     .eq("seller_id", sellerId)
     .maybeSingle();
 
+  const { data: licenseOk } = await admin.rpc("seller_has_valid_license", {
+    p_seller_id: sellerId,
+  });
+
   const subscriptionOk = !!sub && ["trialing", "active"].includes(sub.status);
   const connectOk = seller.connect_charges_enabled && seller.connect_details_submitted;
-  const shouldBeLive = subscriptionOk && connectOk;
+  const onboardingOk = subscriptionOk && connectOk;
+  const shouldBeLive = onboardingOk && licenseOk === true;
 
   await admin
     .from("seller_profiles")
     .update({
       is_paused: !shouldBeLive,
-      pause_reason: shouldBeLive ? null : "onboarding_incomplete",
+      // Name the step the seller still has to take: finish onboarding first, then the license.
+      pause_reason: shouldBeLive ? null : onboardingOk ? "license_unverified" : "onboarding_incomplete",
     })
     .eq("id", sellerId)
     // Extra guard against a race with a compliance pause landing between the read and the write.

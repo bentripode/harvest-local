@@ -585,6 +585,11 @@ checks + jobs), never client-side alone.
   `/admin/licenses`. `verification_status` and the review columns are platform-only at the data
   layer (`seller_licenses_guard_status`), so the decision cannot come from the seller. Verification
   is the gate on the expiry scan below, which only looks at `verified` rows.
+- **License gating:** a storefront is live only while it has a verified, unexpired license.
+  `sync_seller_license_pause()` owns the pause/unpause and its precedence against the other pause
+  reasons (`license_unverified` is the weakest; it never overrides `revenue_cap` / `admin` /
+  `onboarding_incomplete`). Unconditional, not keyed on `requires_license` — those rows are
+  placeholders.
 - **License / ID expiration:** a daily Inngest cron scans `seller_licenses.expiration_date`. Send
   reminders at T-30 / T-7 / T-1 days; at expiry, mark `verification_status='expired'` and pause the
   storefront until renewed.

@@ -115,6 +115,25 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ---
 
+### 5. A storefront is only live with a verified, unexpired license.
+
+- `seller_profiles.is_paused` is the single lever — checkout, the storefront page and `/shop` all
+  already gate on it, so the guardrail lives entirely in
+  **`sync_seller_license_pause()`** (`20260904110000_license_gate.sql`), not in request handlers.
+- The gate predicate is `seller_has_valid_license()`: at least one `seller_licenses` row that is
+  `verification_status = 'verified'` **and** not past `expiration_date`.
+- **Precedence matters.** Pausing never renames an existing pause (`coalesce(pause_reason,
+  'license_unverified')`), and unpausing lifts **only** `license_unverified` / `license_expired`,
+  and only when Connect + a trialing/active subscription still hold. `revenue_cap` and `admin` are
+  lifted by an admin or the yearly reset alone; `onboarding_incomplete` belongs to the webhook's
+  `reconcileActivation`, which now also requires a valid license before it will set a seller live.
+- Called from `reviewLicenseAction` (an admin verifying or withdrawing) and `reconcileActivation`.
+- The gate is deliberately **not** keyed on `state_cottage_food_rules.requires_license`: those rows
+  are seeded `false` as placeholders, so gating on them would enforce nothing. Revisit when real
+  per-state rules are entered.
+
+---
+
 ## Conventions
 
 - **TypeScript strict.** No `any` without a written reason. Validate external input with Zod at the
@@ -377,7 +396,10 @@ them: `reviewLicenseAction` goes through the service-role client behind `require
 Verifying is what arms `license-expiry-scan` (it scans `verified` rows only), so the action refuses
 to verify an already-lapsed document. A rejection must carry a note — the seller sees it on
 `/seller/compliance` — and either outcome queues a `license_verified` / `license_rejected`
-notification (category `compliance`, so not suppressible). The document itself is reached only via
+notification (category `compliance`, so not suppressible). Every decision then runs
+`sync_seller_license_pause()` (rule 5), so verifying a document is what reopens the storefront and
+withdrawing a verification is what closes it; `license_required` tells a seller paused this way what
+to do. The document itself is reached only via
 `GET /admin/licenses/<id>/document`, which mints a 60-second signed URL with the service-role client;
 route handlers don't run the `/admin` layout, so that handler carries its own admin check.
 
