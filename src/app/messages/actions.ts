@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import { requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
 
 export interface SentMessage {
   id: string;
@@ -22,7 +23,11 @@ export interface SendState {
 
 /** Open (or reuse) a thread with a seller — general, or scoped to an order — then go to it. */
 export async function startConversationAction(formData: FormData): Promise<void> {
-  await requireUser("/messages");
+  const { user } = await requireUser("/messages");
+
+  if (await tryRateLimit(`conversation:${user.id}`, RATE_LIMITS.conversation)) {
+    redirect("/messages");
+  }
 
   const parsed = z
     .object({
@@ -55,6 +60,9 @@ export async function sendMessageAction(
   formData: FormData,
 ): Promise<SendState> {
   const { user } = await requireUser("/messages");
+
+  const limited = await tryRateLimit(`message:${user.id}`, RATE_LIMITS.message, "send messages");
+  if (limited) return { error: limited };
 
   const parsed = z
     .object({

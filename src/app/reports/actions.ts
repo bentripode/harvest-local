@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { queueNotificationForEach } from "@/lib/notifications/queue";
 import { REPORT_REASONS } from "@/lib/reports/reasons";
+import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
 
 export interface ReportFormState {
   error?: string;
@@ -25,6 +26,9 @@ export async function submitReportAction(
   formData: FormData,
 ): Promise<ReportFormState> {
   const { user } = await requireUser("/orders");
+
+  const limited = await tryRateLimit(`report:${user.id}`, RATE_LIMITS.report, "file reports");
+  if (limited) return { error: limited };
 
   const parsed = schema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Pick a reason." };

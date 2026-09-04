@@ -674,6 +674,24 @@ export type Database = {
           },
         ]
       }
+      rate_limits: {
+        Row: {
+          bucket: string
+          count: number
+          window_start: string
+        }
+        Insert: {
+          bucket: string
+          count?: number
+          window_start: string
+        }
+        Update: {
+          bucket?: string
+          count?: number
+          window_start?: string
+        }
+        Relationships: []
+      }
       referral_cycles: {
         Row: {
           active_referral_count: number
@@ -1338,6 +1356,13 @@ export type Database = {
           isOneToOne: true
           isSetofReturn: false
         }
+      }
+      check_rate_limit: {
+        Args: { p_key: string; p_max: number; p_window_secs: number }
+        Returns: {
+          allowed: boolean
+          retry_after: number
+        }[]
       }
       create_referral_for_order: {
         Args: { p_order_id: string }

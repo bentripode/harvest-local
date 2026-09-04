@@ -64,7 +64,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (21 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (22 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -116,8 +116,11 @@ the buyer signup path.)
 
 ## 7. Hardening (do before real volume)
 
-☐ Rate-limit the public server actions (checkout, promo validation, messaging, reports) — e.g. Upstash
-Ratelimit in `src/proxy.ts` or per-action.
+✅ Rate-limiting on the public write paths — `src/lib/rate-limit.ts` (`tryRateLimit` +
+`RATE_LIMITS`) backed by the `check_rate_limit()` Postgres function (fixed window, fails open).
+Wired into checkout, cart re-price, promo-code attempts, messaging, and order reports, keyed per
+user. Tune `RATE_LIMITS` for production traffic; the map/discovery reads are still unthrottled
+(public, cacheable — revisit if scraped).
 
 ☐ Error tracking (Sentry) + uptime/alerting on `/api/webhooks/stripe` and `/api/inngest`.
 

@@ -125,6 +125,8 @@ Never write an order, or code a path that could write an order, that crosses sta
   explicit authz check first.
 - **Server Functions / Actions** verify auth and authorization on every call (they are reachable by
   direct POST, not just via your UI). Use `requireUser()` / `requireRole()` from `src/lib/auth.ts`.
+  Public write paths (checkout, cart re-price, promo attempts, messaging, reports) also call
+  `tryRateLimit()` from `src/lib/rate-limit.ts` right after the auth check, keyed per user.
 - **Migrations** live in `supabase/migrations/`, are additive, and small. One concern per migration.
   Never edit a migration that has been applied to a shared environment — add a new one.
 - **Feature-folder structure** under `src/app` using route groups: `(auth)`, `(dashboard)`. Shared
@@ -170,6 +172,7 @@ src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable perce
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
 src/lib/notifications/                  queue (channel fan-out) · copy (in-app lines) · templates (email) · send (Resend)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
+src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
 src/app/(auth)/                        login, signup, email confirm
 src/app/(shop)/                        buyer: /shop, /s/[slug] storefront, /cart, /checkout, /orders

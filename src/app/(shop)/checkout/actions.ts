@@ -18,6 +18,7 @@ import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
 import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
+import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
 
 /** The only cart data the client is trusted to send — every price is recomputed server-side. */
 const cartPayloadSchema = z.object({
@@ -136,6 +137,9 @@ export interface RepriceResult {
 export async function repriceCartAction(input: unknown): Promise<RepriceResult> {
   const { user, profile } = await requireUser("/checkout");
 
+  const limited = await tryRateLimit(`reprice:${user.id}`, RATE_LIMITS.reprice, "update your basket");
+  if (limited) return { ok: false, error: limited };
+
   const parsed = cartPayloadSchema.safeParse(input);
   if (!parsed.success) return { ok: false, error: "Your basket looks invalid. Try again." };
 
@@ -155,15 +159,24 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
   let promo: RepriceResult["promo"];
   const submittedCode = parsed.data.promoCode?.trim();
   if (submittedCode) {
-    const v = await validatePromoCode({
-      code: submittedCode,
-      cartSellerId: seller.id,
-      buyerId: user.id,
-      subtotalCents: priced.subtotal,
-    });
-    promo = v.ok
-      ? { ok: true, code: v.code!, discountCents: v.discountCents! }
-      : { ok: false, error: v.reason ?? "That code isn't valid." };
+    const promoLimited = await tryRateLimit(
+      `promo:${user.id}`,
+      RATE_LIMITS.promo,
+      "try referral codes",
+    );
+    if (promoLimited) {
+      promo = { ok: false, error: promoLimited };
+    } else {
+      const v = await validatePromoCode({
+        code: submittedCode,
+        cartSellerId: seller.id,
+        buyerId: user.id,
+        subtotalCents: priced.subtotal,
+      });
+      promo = v.ok
+        ? { ok: true, code: v.code!, discountCents: v.discountCents! }
+        : { ok: false, error: v.reason ?? "That code isn't valid." };
+    }
   }
 
   let delivery: RepriceResult["delivery"];
@@ -229,6 +242,10 @@ export async function setBuyerStateAction(
 export async function startCheckoutAction(formData: FormData): Promise<void> {
   const { user, profile } = await requireUser("/checkout");
 
+  if (await tryRateLimit(`checkout:${user.id}`, RATE_LIMITS.checkout)) {
+    redirect("/checkout?error=rate");
+  }
+
   let payload: CartPayload;
   try {
     payload = cartPayloadSchema.parse(JSON.parse(String(formData.get("cart") ?? "{}")));
@@ -285,6 +302,7 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   let couponFailed = false;
   const submittedCode = payload.promoCode?.trim();
   if (submittedCode) {
+    if (await tryRateLimit(`promo:${user.id}`, RATE_LIMITS.promo)) redirect("/checkout?error=promo");
     const v = await validatePromoCode({
       code: submittedCode,
       cartSellerId: seller.id,
