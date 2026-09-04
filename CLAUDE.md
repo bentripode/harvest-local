@@ -217,8 +217,10 @@ resolves the address (`auth.admin.getUserById` for email), renders via
 `src/lib/notifications/templates.ts` (copy from `copy.ts`, shared with the in-app panel), sends
 through Resend (`send.ts` — logs instead when `RESEND_API_KEY` is unset), marks `sent` / bumps
 `attempt_count` / `failed` past 5. Optimistic `attempt_count` claim + Resend idempotency key
-(`notification.id`) make overlapping runs safe. **SMS (Twilio), a `notification_prefs` opt-out
-table, and buyer order-status emails are not built yet.**
+(`notification.id`) make overlapping runs safe. Every `advance_order_status` transition emits
+`harvest/order.status_changed` → `order-status-notify` (Inngest) queues an `order_status_changed`
+**email** to the buyer (email only — no buyer in-app panel). **SMS (Twilio) and a
+`notification_prefs` opt-out table are not built yet.**
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a
@@ -260,8 +262,7 @@ Stripe session as a `shipping_options` fixed rate so Stripe Tax handles delivery
 (MoR) receives it. For delivery, `orders.buyer_state` = the delivery address state (still ==
 seller state; the `orders_same_state_only` CHECK + guard hold). Needs `MAPBOX_TOKEN` (Geocoding +
 Directions); with none set, delivery is unavailable and pickup is unaffected. `src/lib/geo/routing.ts`
-keeps the provider swappable. Not built: saved-address book, delivery time windows, buyer
-order-status emails.
+keeps the provider swappable. Not built: saved-address book, delivery time windows.
 
 **Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
 `getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS (no

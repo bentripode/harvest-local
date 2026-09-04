@@ -31,6 +31,22 @@ export interface OrderCancelledEvent {
   data: { orderId: string; sellerId: string };
 }
 
+/**
+ * A seller moved an order along the pipeline (`advance_order_status`). Fired for every transition
+ * so the buyer gets an email; `completed` / `cancelled` additionally fire their own events above
+ * for the compliance + referral jobs.
+ */
+export interface OrderStatusChangedEvent {
+  name: "harvest/order.status_changed";
+  data: {
+    orderId: string;
+    buyerId: string;
+    sellerId: string;
+    toStatus: "preparing" | "ready" | "out_for_delivery" | "completed" | "cancelled";
+    fulfillmentType: "pickup" | "delivery";
+  };
+}
+
 /** A paid order was fully refunded or disputed (from the Stripe webhook). */
 export interface OrderRefundedEvent {
   name: "harvest/order.refunded";

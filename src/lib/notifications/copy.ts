@@ -30,6 +30,26 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `A ${label(p.reason)} report was filed on order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) — triage it in the admin queue.`,
   refund_issued: (p) =>
     `Order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) was refunded ${usd(p.amount)}. The order is cancelled.`,
+  order_status_changed: (p) => {
+    const biz = s(p.business_name, "the seller");
+    const pickup = s(p.fulfillment_type) === "pickup";
+    switch (s(p.status)) {
+      case "preparing":
+        return `${biz} started preparing your order.`;
+      case "ready":
+        return pickup
+          ? `Your order from ${biz} is ready for pickup.`
+          : `Your order from ${biz} is packed and ready to go.`;
+      case "out_for_delivery":
+        return `Your order from ${biz} is out for delivery.`;
+      case "completed":
+        return `Your order from ${biz} is complete — thanks for buying local.`;
+      case "cancelled":
+        return `Your order from ${biz} was cancelled.`;
+      default:
+        return `Your order from ${biz} was updated.`;
+    }
+  },
 };
 
 /** The one-line text for a template, or the raw template name if unknown. */

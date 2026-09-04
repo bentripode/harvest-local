@@ -153,7 +153,7 @@ pass against a throwaway Supabase branch for the SECURITY DEFINER functions and 
 
 Tracked across the phase commits:
 
-- **Buyer order-status emails** — emit an event per `advance_order_status` transition → `queueNotification` the buyer.
+- ✅ **Buyer order-status emails** — every `advance_order_status` transition emits `harvest/order.status_changed` → `order-status-notify` queues an `order_status_changed` email to the buyer.
 - **SMS via Twilio** — `notification-dispatch` has the `sms` branch stubbed; add the SDK + `TWILIO_*` env.
 - **`notification_prefs`** — per-user per-category opt-out; email is currently on for all seller alerts.
 - **Seller responses to reviews.**
