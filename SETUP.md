@@ -84,7 +84,16 @@ From https://account.mapbox.com:
   fees. Falls back to the public one. With neither set, delivery checkout is unavailable and pickup is
   unaffected.
 
-### D. Resend (email notifications)
+### D. Tax ID encryption
+
+- `TAX_ID_ENCRYPTION_KEY` — 32 bytes, base64: `openssl rand -base64 32`. Encrypts the SSN/EIN a
+  seller uploads on `/seller/compliance`. The key lives only in the environment, so Postgres holds
+  ciphertext it cannot read. **With this unset the compliance form refuses to accept a tax ID**, and
+  seller onboarding cannot complete — that is deliberate: the alternative is an SSN column in the
+  clear. Losing the key means the stored numbers are unrecoverable (nothing reads them today, so
+  that costs a re-upload, not data).
+
+### E. Resend (email notifications)
 
 From https://resend.com:
 - `RESEND_API_KEY` (`re_…`). With no key, `notification-dispatch` logs emails instead of sending —
@@ -92,12 +101,12 @@ From https://resend.com:
 - `EMAIL_FROM` — leave the default `Harvest Local <onboarding@resend.dev>` for dev. Resend's sandbox
   sender only delivers to **your Resend account's own email address** until you verify a domain.
 
-### E. Inngest (background jobs)
+### F. Inngest (background jobs)
 
 Not needed locally — `npm run inngest:dev` runs the Dev Server with no keys. `INNGEST_EVENT_KEY` /
 `INNGEST_SIGNING_KEY` are for a deploy (see `LAUNCH.md`).
 
-### F. Sentry (error tracking)
+### G. Sentry (error tracking)
 
 Optional. Leave `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` blank for local dev — the SDK stays inert
 and the app behaves identically. To try it, create a project at https://sentry.io and paste the

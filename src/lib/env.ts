@@ -37,6 +37,15 @@ const serverSchema = z.object({
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
 
+  // Tax ID encryption (AES-256-GCM). 32 bytes, base64: `openssl rand -base64 32`.
+  // Optional so the app boots without it — but with it unset, the compliance form refuses to
+  // accept a tax ID rather than storing one in the clear. Required in production.
+  TAX_ID_ENCRYPTION_KEY: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+
   // Email (Resend). Optional — with no key, notification-dispatch logs instead of sending.
   RESEND_API_KEY: z
     .string()

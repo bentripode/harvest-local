@@ -74,14 +74,21 @@ export function requiredDocumentTypes(sellsCottageFood: boolean): RequiredDocume
 }
 
 /**
- * Last 4 only, for anything flagged `numberSensitive` — an SSN should never be rendered in full,
- * including to the admin reviewing it, who is reading the number off the document anyway.
+ * How a stored last-4 is rendered. A sensitive number is never held in full outside
+ * `tax_id_encrypted`, so this is the most any screen can show — including to the admin reviewing
+ * it, who reads the real number off the document in front of them.
  */
-export function maskNumber(value: string | null | undefined): string | null {
-  if (!value) return null;
-  const digits = value.replace(/\D/g, "");
-  if (digits.length <= 4) return "••••";
-  return `•••• ${digits.slice(-4)}`;
+export function formatLast4(last4: string | null | undefined): string | null {
+  if (!last4) return null;
+  return `•••• ${last4}`;
+}
+
+/** What to print next to `spec.numberLabel`, given the row. Null when there's nothing to show. */
+export function displayNumber(
+  spec: DocumentSpec,
+  license: Pick<ChecklistLicense, "license_number" | "tax_id_last4">,
+): string | null {
+  return spec.numberSensitive ? formatLast4(license.tax_id_last4) : license.license_number;
 }
 
 export type DocumentStatus = "missing" | "pending" | "verified" | "rejected" | "expired";
@@ -91,6 +98,8 @@ export interface ChecklistLicense {
   id: string;
   license_type: string;
   license_number: string | null;
+  /** The only readable part of a tax ID; null for every other type. */
+  tax_id_last4: string | null;
   expiration_date: string | null;
   verification_status: string;
   review_note: string | null;

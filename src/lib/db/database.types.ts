@@ -1043,10 +1043,13 @@ export type Database = {
           issuing_state: string | null
           license_number: string | null
           license_type: string
+          purged_at: string | null
           review_note: string | null
           reviewed_at: string | null
           reviewed_by: string | null
           seller_id: string
+          tax_id_encrypted: string | null
+          tax_id_last4: string | null
           updated_at: string
           verification_status: string
         }
@@ -1059,10 +1062,13 @@ export type Database = {
           issuing_state?: string | null
           license_number?: string | null
           license_type: string
+          purged_at?: string | null
           review_note?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           seller_id: string
+          tax_id_encrypted?: string | null
+          tax_id_last4?: string | null
           updated_at?: string
           verification_status?: string
         }
@@ -1075,10 +1081,13 @@ export type Database = {
           issuing_state?: string | null
           license_number?: string | null
           license_type?: string
+          purged_at?: string | null
           review_note?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           seller_id?: string
+          tax_id_encrypted?: string | null
+          tax_id_last4?: string | null
           updated_at?: string
           verification_status?: string
         }
@@ -1407,6 +1416,58 @@ export type Database = {
           slug?: string
         }
         Relationships: []
+      }
+      tax_id_audit: {
+        Row: {
+          action: string
+          actor_id: string | null
+          created_at: string
+          id: string
+          license_id: string | null
+          note: string | null
+          seller_id: string | null
+        }
+        Insert: {
+          action: string
+          actor_id?: string | null
+          created_at?: string
+          id?: string
+          license_id?: string | null
+          note?: string | null
+          seller_id?: string | null
+        }
+        Update: {
+          action?: string
+          actor_id?: string | null
+          created_at?: string
+          id?: string
+          license_id?: string | null
+          note?: string | null
+          seller_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tax_id_audit_actor_id_fkey"
+            columns: ["actor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tax_id_audit_license_id_fkey"
+            columns: ["license_id"]
+            isOneToOne: false
+            referencedRelation: "seller_licenses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tax_id_audit_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

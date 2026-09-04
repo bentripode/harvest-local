@@ -130,9 +130,15 @@ Never write an order, or code a path that could write an order, that crosses sta
 - `src/lib/licenses/requirements.ts` is the seller-facing half of the same rules (the upload
   checklist). Keep the two in step: it decides what the seller is *asked* for, the SQL function
   decides whether the storefront may *open*.
-- **`seller_licenses.license_number` holds an SSN or EIN for `tax_id` rows.** It is rendered masked
-  to the last 4 everywhere (`maskNumber()`), and must never reach an export, a log, or a
-  notification payload.
+- **The tax ID is encrypted and unreadable from any browser session.** `tax_id_encrypted` is
+  AES-256-GCM (`src/lib/crypto/secret-box.ts`, key in `TAX_ID_ENCRYPTION_KEY` — the app holds it,
+  Postgres never does), and SELECT is granted to `anon`/`authenticated` **column by column** with
+  that column left off the list, so even the owning seller and an admin get a permission error —
+  and `select *` on `seller_licenses` fails for those roles by design. Only `service_role` reads it,
+  and **nothing in the app decrypts today**: every screen renders `tax_id_last4`. `license_number`
+  is for non-sensitive document numbers only. Storing a tax ID writes a `tax_id_audit` row, and the
+  `tax-id-retention` cron destroys numbers and documents 4 years past a seller's last sale. Anything
+  that ever decrypts must write a `decrypted` audit row.
 - **Precedence matters.** Pausing never renames an existing pause (`coalesce(pause_reason,
   'license_unverified')`), and unpausing lifts **only** `license_unverified` / `license_expired`,
   and only when Connect + a trialing/active subscription still hold. `revenue_cap` and `admin` are
@@ -208,6 +214,7 @@ src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address s
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
+src/lib/crypto/secret-box.ts           AES-256-GCM for the tax ID (no in-app decrypt path)
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -215,7 +222,7 @@ src/lib/messages/queries.ts            conversation list / thread / unread-count
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention)
 src/lib/notifications/                  queue (channel fan-out + email opt-out / SMS opt-in) · categories (template→category, prefs, smsEnabled) · copy (in-app lines) · templates (email) · send (Resend) · sms (Twilio)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open

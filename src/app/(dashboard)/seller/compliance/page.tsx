@@ -15,7 +15,7 @@ import {
 import { licenseTypeLabel } from "@/lib/licenses/labels";
 import {
   buildDocumentChecklist,
-  maskNumber,
+  displayNumber,
   type DocumentStatus,
 } from "@/lib/licenses/requirements";
 import { formatUsd, toCents } from "@/lib/money";
@@ -157,14 +157,10 @@ export default async function CompliancePage() {
 
               {item.license ? (
                 <div className="text-muted-foreground mt-3 space-y-1 text-sm">
-                  {item.license.license_number ? (
+                  {displayNumber(item.spec, item.license) ? (
                     <p>
                       {item.spec.numberLabel}:{" "}
-                      <span className="font-mono">
-                        {item.spec.numberSensitive
-                          ? maskNumber(item.license.license_number)
-                          : item.license.license_number}
-                      </span>
+                      <span className="font-mono">{displayNumber(item.spec, item.license)}</span>
                     </p>
                   ) : null}
                   {item.license.expiration_date ? (

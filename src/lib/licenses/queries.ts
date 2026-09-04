@@ -1,7 +1,7 @@
 import "server-only";
 
 import { createAdminClient } from "@/lib/supabase/admin";
-import { documentSpec, maskNumber } from "@/lib/licenses/requirements";
+import { documentSpec, formatLast4 } from "@/lib/licenses/requirements";
 import type { LicenseStatus, LicenseType } from "@/lib/db/types";
 
 /**
@@ -42,7 +42,7 @@ export async function getLicenseQueue(): Promise<AdminLicense[]> {
   const { data: licenses } = await admin
     .from("seller_licenses")
     .select(
-      "id, seller_id, license_type, license_number, issuing_state, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, created_at",
+      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, created_at",
     )
     .order("created_at", { ascending: false });
   if (!licenses || licenses.length === 0) return [];
@@ -64,10 +64,11 @@ export async function getLicenseQueue(): Promise<AdminLicense[]> {
       sellerIsPaused: seller?.is_paused ?? false,
       sellerPauseReason: seller?.pause_reason ?? null,
       licenseType: l.license_type,
-      // An SSN never reaches the browser in full: the reviewer reads it off the document and
-      // checks the last 4 against this.
+      // An SSN never reaches the browser in full — it isn't even readable from this query, since
+      // `tax_id_encrypted` is revoked at the column level. The reviewer reads the real number off
+      // the document and checks these 4 digits against it.
       licenseNumber: documentSpec(l.license_type)?.numberSensitive
-        ? maskNumber(l.license_number)
+        ? formatLast4(l.tax_id_last4)
         : l.license_number,
       issuingState: l.issuing_state,
       issuedDate: l.issued_date,

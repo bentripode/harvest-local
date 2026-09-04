@@ -23,6 +23,7 @@ every one at boot, so a missing/malformed value fails the deploy loudly.
 | `STRIPE_SUBSCRIPTION_PRICE_ID` | live `price_…` from `npm run stripe:setup` run against the live key |
 | `STRIPE_SELLER_TRIAL_DAYS` | `90` (or your call) |
 | `INNGEST_EVENT_KEY` / `INNGEST_SIGNING_KEY` | from Inngest Cloud (§4) |
+| `TAX_ID_ENCRYPTION_KEY` | **required** — `openssl rand -base64 32`. Encrypts seller SSN/EIN; unset means the compliance form refuses tax IDs and no seller can finish onboarding. Store it in the deployment secret manager, never in the repo, and keep an offline copy: lose it and the stored numbers are unrecoverable. |
 | `RESEND_API_KEY` | live `re_…` (§5) |
 | `EMAIL_FROM` | `Harvest Local <notifications@your-verified-domain>` (§5) |
 | `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` | optional — buyer order-update SMS. Unset ⇒ texts are logged, not sent |
@@ -68,7 +69,7 @@ registrations for the states you operate in.
 ## 3. Supabase
 
 ✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
-schema. For the project you actually launch on: `npx supabase db push` (36 migrations as of launch),
+schema. For the project you actually launch on: `npx supabase db push` (38 migrations as of launch),
 then `npm run db:types` after any change.
 
 ☐ `20260904110000_license_gate.sql` is **not yet applied** — push it, then `npm run db:types` (the
@@ -111,6 +112,7 @@ before flipping `access_mode` to `public` or the marketplace opens empty.
 functions — critically the **cron jobs**, which do NOT run without Inngest Cloud:
 - `license-expiry-scan` — daily `0 8 * * *` (T-30/7/1 reminders + auto-expire)
 - `notification-dispatch` — `*/2 * * * *` backstop for email delivery
+- `tax-id-retention` — daily `0 3 * * *` (destroys tax IDs + documents 4 years past a seller's last sale)
 
 ---
 
@@ -156,7 +158,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **69 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **79 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,

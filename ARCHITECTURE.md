@@ -436,7 +436,10 @@ create table seller_licenses (
   id                  uuid primary key default gen_random_uuid(),
   seller_id           uuid not null references seller_profiles(id) on delete cascade,
   license_type        text not null,        -- 'id' | 'tax_id' | 'cottage_food' | 'food_handler' | ...
-  license_number      text,                 -- SSN/EIN when license_type = 'tax_id'; render masked
+  license_number      text,                 -- non-sensitive document numbers only
+  tax_id_encrypted    text,                 -- AES-256-GCM SSN/EIN; SELECT not granted to clients
+  tax_id_last4        char(4),              -- the only readable part
+  purged_at           timestamptz,          -- set by the tax-id-retention job
   issuing_state       char(2),              -- null only for 'tax_id'
   issued_date         date,
   expiration_date     date,                 -- null only for 'tax_id' (an SSN does not expire)

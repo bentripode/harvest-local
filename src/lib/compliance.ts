@@ -50,11 +50,21 @@ export async function getRevenueStatus(
   };
 }
 
-export async function getSellerLicenses(sellerId: string): Promise<SellerLicense[]> {
+/**
+ * Columns explicitly, never `*`: SELECT on `seller_licenses.tax_id_encrypted` is revoked from
+ * `authenticated`, so a star-select would be a permission error — and the ciphertext has no
+ * business reaching a page anyway.
+ */
+export type SellerLicenseView = Omit<SellerLicense, "tax_id_encrypted">;
+
+export async function getSellerLicenses(sellerId: string): Promise<SellerLicenseView[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("seller_licenses")
-    .select("*")
+    // One literal, not a concatenation — supabase-js infers the row shape from the string itself.
+    .select(
+      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, reviewed_by, purged_at, created_at, updated_at",
+    )
     .eq("seller_id", sellerId)
     .order("expiration_date", { ascending: true });
   return data ?? [];

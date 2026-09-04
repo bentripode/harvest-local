@@ -59,6 +59,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `licenses.test.ts` | `seller_licenses_guard_status` — a seller can't verify their own license or forge the review trail, but can still edit the rest of the row; license RLS (owner / other seller / anon) |
 | `license-gate.test.ts` | `sync_seller_license_pause` / `seller_has_required_documents` — the required set (ID + tax ID, plus the permit once a food product is listed), the `products` trigger that re-derives it, the document/expiry CHECK constraints, and the pause precedence against `revenue_cap` / `admin` / `onboarding_incomplete` |
 | `state-rules.test.ts` | `state_cottage_food_rules` RLS — public read, a seller cannot raise their own state's cap or insert a new state, an admin can set it and stamp `verified_at` |
+| `tax-id-protection.test.ts` | the column-level SELECT grant on `seller_licenses` — neither the owning seller nor an admin can read `tax_id_encrypted` (nor `select *`), while the last 4 stays readable; `tax_id_audit` is admin-read, no-client-write |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found
