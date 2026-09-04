@@ -310,9 +310,11 @@ resolution-note updates.
 client write). `issueRefundAction` (admin): `stripe.refunds.create({ payment_intent, reverse_transfer:
 true })` (pulls the money back from the seller/MoR), `idempotencyKey: refund:<order_id>`, then records
 the `refunds` row + sets the report `refunded`. **Never touches order state** — the `charge.refunded`
-webhook does the unwind (`→ cancelled` + referral-invalidate), upserts the `refunds` mirror with
-`ignoreDuplicates` (so a dashboard-issued refund also lands), and queues `refund_issued` to the buyer
-+ seller. Order pages show a "Refunded − $X" line. Not built: partial refunds.
+webhook does the unwind (`→ cancelled` + referral-invalidate), and when no `refunds` row exists yet
+(a dashboard-issued refund — `issueRefundAction` never ran) it mirrors the refund, links the oldest
+open report on the order into `refunds.report_id`, and resolves that report `refunded` (status-guarded
+so a redelivery no-ops). Then queues `refund_issued` to the buyer + seller. Order pages show a
+"Refunded − $X" line. Not built: partial refunds.
 
 **Phase 5 — platform analytics.** `/admin/analytics` — `getPlatformStats()`
 (`src/lib/admin/analytics.ts`) reads all orders / refunds / seller_profiles / profiles /

@@ -7,7 +7,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { inngest } from "@/lib/inngest/client";
 import { queueNotificationForEach } from "@/lib/notifications/queue";
 import { env } from "@/lib/env";
-import { cents, toDecimalString } from "@/lib/money";
+import { cents, formatUsd, toDecimalString } from "@/lib/money";
 import type { Json, SubscriptionStatus } from "@/lib/db/types";
 
 /**
@@ -232,16 +232,49 @@ async function handleChargeRefunded(admin: Admin, charge: Stripe.Charge) {
   const result = await unwindOrderForCharge(admin, charge.payment_intent, "cancelled");
   if (!result) return;
 
-  // Mirror the refund only if our admin action didn't already record it (covers refunds issued
-  // straight from the Stripe dashboard). `ignoreDuplicates` so we never clobber the action's row.
-  await admin.from("refunds").upsert(
-    {
-      order_id: result.order.id,
-      stripe_refund_id: charge.refunds?.data?.[0]?.id ?? charge.id,
-      amount: toDecimalString(cents(charge.amount_refunded)),
-    },
-    { onConflict: "order_id", ignoreDuplicates: true },
-  );
+  // Mirror the refund unless our admin action already recorded it. When there's no prior row this
+  // is a Stripe-dashboard-issued refund: `issueRefundAction` never ran, so nothing linked it to an
+  // open report or closed that report — do that here.
+  const { data: priorRefund } = await admin
+    .from("refunds")
+    .select("id")
+    .eq("order_id", result.order.id)
+    .maybeSingle();
+
+  if (!priorRefund) {
+    const { data: openReport } = await admin
+      .from("reports")
+      .select("id")
+      .eq("order_id", result.order.id)
+      .in("status", ["open", "investigating"])
+      .order("created_at", { ascending: true })
+      .limit(1)
+      .maybeSingle();
+
+    // `ignoreDuplicates` keeps a concurrent redelivery from 500-ing on the unique(order_id).
+    await admin.from("refunds").upsert(
+      {
+        order_id: result.order.id,
+        report_id: openReport?.id ?? null,
+        stripe_refund_id: charge.refunds?.data?.[0]?.id ?? charge.id,
+        amount: toDecimalString(cents(charge.amount_refunded)),
+      },
+      { onConflict: "order_id", ignoreDuplicates: true },
+    );
+
+    // Status guard → a redelivery is a no-op.
+    if (openReport) {
+      await admin
+        .from("reports")
+        .update({
+          status: "refunded",
+          resolution_note: `Refunded ${formatUsd(cents(charge.amount_refunded))} in Stripe.`,
+          resolved_at: new Date().toISOString(),
+        })
+        .eq("id", openReport.id)
+        .in("status", ["open", "investigating"]);
+    }
+  }
 
   // Notify both parties once — only when this delivery is the one that unwound the order.
   if (result.transitioned) {
