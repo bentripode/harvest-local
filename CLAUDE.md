@@ -123,6 +123,17 @@ Never write an order, or code a path that could write an order, that crosses sta
   service-role key (`src/lib/supabase/admin.ts`) bypasses RLS and is used **only** in webhook
   handlers and trusted server jobs, never in a request handler driven by user input without an
   explicit authz check first.
+- **Authorization inside a SECURITY DEFINER function: never use `current_user`.** RLS is bypassed in
+  a SECURITY DEFINER body *and* `current_user` is the function **owner** (`postgres`), not the
+  caller — so `is_platform_context()` is always true there and is useless as a guard. This shipped a
+  real bypass in `advance_order_status` (any authenticated user could advance any order); see
+  `20260904090000_fix_advance_order_status_authz.sql`. Use **`auth.uid()`** for ownership and
+  **`is_service_role()`** for the trusted-caller escape hatch — both read the request JWT claims,
+  which are transaction-local and survive correctly. `is_platform_context()` stays as-is and is
+  **only** valid in SECURITY INVOKER guard *triggers* (`profiles_guard_role`,
+  `seller_profiles_guard_columns`, …), which rely on it returning true for `postgres` so SECURITY
+  DEFINER jobs can write protected columns. Any new function granted to `authenticated`/`anon` needs
+  a case in `test/integration/functions-authz.test.ts`.
 - **Server Functions / Actions** verify auth and authorization on every call (they are reachable by
   direct POST, not just via your UI). Use `requireUser()` / `requireRole()` from `src/lib/auth.ts`.
   Public write paths (checkout, cart re-price, promo attempts, messaging, reports) also call
@@ -142,6 +153,8 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npm run dev` | Next dev server (Turbopack) on :3000 |
 | `npm run build` / `npm start` | Production build / serve |
 | `npm run lint` | ESLint |
+| `npm test` | Vitest unit pass (pure logic; `test/integration/**` excluded) |
+| `npm run test:integration` | DB pass — SECURITY DEFINER fns, triggers, RLS against a real Postgres. Skips unless `INTEGRATION_SUPABASE_URL` / `_ANON_KEY` / `_SERVICE_ROLE_KEY` are set. See `test/integration/README.md` |
 | `npx supabase start` | Local Postgres + Auth + Storage (needs Docker) |
 | `npx supabase db reset` | Drop, recreate, re-run all migrations + seed |
 | `npx supabase migration new <name>` | New migration file |
@@ -155,6 +168,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 ```
 ARCHITECTURE.md                        source of truth for schema + design decisions
 LAUNCH.md                              production go-live checklist (env, Stripe live, Inngest Cloud, Resend, admin, hardening)
+test/                                  Vitest units (pure logic) · test/integration/ = the DB pass (see its README)
 supabase/migrations/                   Phase 1: core tables, RLS, seed · Phase 2: orders+pipeline, compliance · Phase 3: referrals, finalize_paid_order
 src/lib/env.ts                         Zod-validated environment
 src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clients

@@ -379,6 +379,7 @@ export type Database = {
           delivery_address_text: string | null
           delivery_distance_miles: number | null
           delivery_fee: number
+          delivery_window: string | null
           discount_total: number
           fulfillment_type: string
           id: string
@@ -402,6 +403,7 @@ export type Database = {
           delivery_address_text?: string | null
           delivery_distance_miles?: number | null
           delivery_fee?: number
+          delivery_window?: string | null
           discount_total?: number
           fulfillment_type?: string
           id?: string
@@ -425,6 +427,7 @@ export type Database = {
           delivery_address_text?: string | null
           delivery_distance_miles?: number | null
           delivery_fee?: number
+          delivery_window?: string | null
           discount_total?: number
           fulfillment_type?: string
           id?: string
@@ -530,6 +533,32 @@ export type Database = {
           },
         ]
       }
+      product_view_counts: {
+        Row: {
+          day: string
+          product_id: string
+          views: number
+        }
+        Insert: {
+          day?: string
+          product_id: string
+          views?: number
+        }
+        Update: {
+          day?: string
+          product_id?: string
+          views?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_view_counts_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       products: {
         Row: {
           category_id: string
@@ -610,6 +639,7 @@ export type Database = {
           display_name: string
           home_state: string | null
           id: string
+          notification_prefs: Json
           phone: string | null
           role: string
           updated_at: string
@@ -620,6 +650,7 @@ export type Database = {
           display_name?: string
           home_state?: string | null
           id: string
+          notification_prefs?: Json
           phone?: string | null
           role?: string
           updated_at?: string
@@ -630,6 +661,7 @@ export type Database = {
           display_name?: string
           home_state?: string | null
           id?: string
+          notification_prefs?: Json
           phone?: string | null
           role?: string
           updated_at?: string
@@ -866,7 +898,7 @@ export type Database = {
           {
             foreignKeyName: "refunds_order_id_fkey"
             columns: ["order_id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "orders"
             referencedColumns: ["id"]
           },
@@ -947,6 +979,8 @@ export type Database = {
           id: string
           order_id: string
           rating: number
+          responded_at: string | null
+          response: string | null
           reviewer_id: string
           seller_id: string
         }
@@ -956,6 +990,8 @@ export type Database = {
           id?: string
           order_id: string
           rating: number
+          responded_at?: string | null
+          response?: string | null
           reviewer_id: string
           seller_id: string
         }
@@ -965,6 +1001,8 @@ export type Database = {
           id?: string
           order_id?: string
           rating?: number
+          responded_at?: string | null
+          response?: string | null
           reviewer_id?: string
           seller_id?: string
         }
@@ -1055,6 +1093,7 @@ export type Database = {
           delivery_enabled: boolean
           delivery_per_mile_fee: number
           delivery_radius_miles: number | null
+          delivery_windows: Json
           home_state: string
           id: string
           is_paused: boolean
@@ -1077,6 +1116,7 @@ export type Database = {
           delivery_enabled?: boolean
           delivery_per_mile_fee?: number
           delivery_radius_miles?: number | null
+          delivery_windows?: Json
           home_state: string
           id?: string
           is_paused?: boolean
@@ -1099,6 +1139,7 @@ export type Database = {
           delivery_enabled?: boolean
           delivery_per_mile_fee?: number
           delivery_radius_miles?: number | null
+          delivery_windows?: Json
           home_state?: string
           id?: string
           is_paused?: boolean
@@ -1160,6 +1201,32 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "seller_revenue_tracking_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_view_counts: {
+        Row: {
+          day: string
+          seller_id: string
+          views: number
+        }
+        Insert: {
+          day?: string
+          seller_id: string
+          views?: number
+        }
+        Update: {
+          day?: string
+          seller_id?: string
+          views?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_view_counts_seller_id_fkey"
             columns: ["seller_id"]
             isOneToOne: false
             referencedRelation: "seller_profiles"
@@ -1335,6 +1402,7 @@ export type Database = {
           delivery_address_text: string | null
           delivery_distance_miles: number | null
           delivery_fee: number
+          delivery_window: string | null
           discount_total: number
           fulfillment_type: string
           id: string
@@ -1419,6 +1487,7 @@ export type Database = {
         Returns: boolean
       }
       is_platform_context: { Args: never; Returns: boolean }
+      is_service_role: { Args: never; Returns: boolean }
       mark_conversation_read: {
         Args: { p_conversation_id: string }
         Returns: undefined
@@ -1444,6 +1513,10 @@ export type Database = {
           over: boolean
           paused: boolean
         }[]
+      }
+      record_storefront_view: {
+        Args: { p_product_ids?: string[]; p_seller_id: string }
+        Returns: undefined
       }
       set_referral_reward_coupon: {
         Args: { p_coupon_id: string; p_cycle_id: string }

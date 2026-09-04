@@ -6,11 +6,12 @@
  * friendly name lives here so a regen never wipes it. Import `Database` and all row aliases from
  * THIS module, not from `database.types` directly.
  *
- * Two deliberate corrections to the generator's output:
+ * Deliberate corrections to the generator's output:
  *  1. Postgres `numeric` crosses the wire as a *string*, but the generator types it `number`.
  *     Every money column is corrected back to `string` so money stays exact end to end
  *     (see `src/lib/money.ts`).
- *  2. `products.images` (jsonb) is given its real element shape instead of `Json`.
+ *  2. jsonb columns are given their real shape instead of `Json` — `products.images`,
+ *     `profiles.notification_prefs`, `seller_profiles.delivery_windows`.
  */
 import type { Database as Generated } from "./database.types";
 import type { NotificationPrefs } from "@/lib/notifications/categories";
@@ -44,9 +45,8 @@ type MoneyFixed<
 };
 
 /**
- * `notification_prefs` (jsonb) given its real shape. Manually declared until `npm run db:types` is
- * re-run against a DB with the 20260904000000_notification_prefs migration applied — the generator
- * will then emit it as `Json` and this override keeps the precise type.
+ * `notification_prefs` — the generator emits `Json`; this pins its real shape (correction 3, same
+ * class as `products.images`). Survives a `db:types` regen because it lives here.
  */
 type ProfilesFixed = {
   Row: Omit<GenTables["profiles"]["Row"], "notification_prefs"> & {
@@ -61,7 +61,7 @@ type ProfilesFixed = {
   Relationships: GenTables["profiles"]["Relationships"];
 };
 
-/** `seller_profiles.delivery_windows` (jsonb) — buyer-selectable delivery window labels. */
+/** `delivery_windows` — the generator emits `Json`; these are always window-label strings. */
 type SellerProfilesFixed = {
   Row: Omit<GenTables["seller_profiles"]["Row"], "delivery_windows"> & {
     delivery_windows: string[];
@@ -91,45 +91,6 @@ type ProductsFixed = {
   Relationships: GenTables["products"]["Relationships"];
 };
 
-/**
- * `reviews.response` / `responded_at` — a seller's public reply. Manually declared until
- * `npm run db:types` is re-run against a DB with the 20260904020000_review_responses migration.
- */
-type ReviewsFixed = {
-  Row: Omit<GenTables["reviews"]["Row"], "response" | "responded_at"> & {
-    response: string | null;
-    responded_at: string | null;
-  };
-  Insert: Omit<GenTables["reviews"]["Insert"], "response" | "responded_at"> & {
-    response?: string | null;
-    responded_at?: string | null;
-  };
-  Update: Omit<GenTables["reviews"]["Update"], "response" | "responded_at"> & {
-    response?: string | null;
-    responded_at?: string | null;
-  };
-  Relationships: GenTables["reviews"]["Relationships"];
-};
-
-/**
- * `seller_view_counts` + `record_storefront_view` — storefront-view rollup for the seller
- * dashboard's conversion rate. Manually declared until `npm run db:types` picks up the
- * 20260904030000_storefront_views migration.
- */
-type SellerViewCountsTable = {
-  Row: { seller_id: string; day: string; views: number };
-  Insert: { seller_id: string; day?: string; views?: number };
-  Update: { seller_id?: string; day?: string; views?: number };
-  Relationships: [];
-};
-
-type ProductViewCountsTable = {
-  Row: { product_id: string; day: string; views: number };
-  Insert: { product_id: string; day?: string; views?: number };
-  Update: { product_id?: string; day?: string; views?: number };
-  Relationships: [];
-};
-
 type OrderMoneyKeys =
   | "subtotal"
   | "discount_total"
@@ -138,23 +99,9 @@ type OrderMoneyKeys =
   | "total"
   | "delivery_distance_miles";
 
-/** `orders` with money columns fixed to `string` AND `delivery_window` (new text column). */
-type OrdersFixed = {
-  Row: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Row"], "delivery_window"> & {
-    delivery_window: string | null;
-  };
-  Insert: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Insert"], "delivery_window"> & {
-    delivery_window?: string | null;
-  };
-  Update: Omit<MoneyFixed<GenTables["orders"], OrderMoneyKeys>["Update"], "delivery_window"> & {
-    delivery_window?: string | null;
-  };
-  Relationships: GenTables["orders"]["Relationships"];
-};
-
 /** `Generated`, with the corrections described in the file header applied. */
 export type Database = Omit<Generated, "public"> & {
-  public: Omit<Generated["public"], "Tables" | "Functions"> & {
+  public: Omit<Generated["public"], "Tables"> & {
     Tables: Omit<
       GenTables,
       | "profiles"
@@ -166,15 +113,11 @@ export type Database = Omit<Generated, "public"> & {
       | "seller_revenue_tracking"
       | "referrals"
       | "refunds"
-      | "reviews"
     > & {
       profiles: ProfilesFixed;
       seller_profiles: SellerProfilesFixed;
       products: ProductsFixed;
-      reviews: ReviewsFixed;
-      seller_view_counts: SellerViewCountsTable;
-      product_view_counts: ProductViewCountsTable;
-      orders: OrdersFixed;
+      orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
       seller_revenue_tracking: MoneyFixed<
@@ -183,12 +126,6 @@ export type Database = Omit<Generated, "public"> & {
       >;
       referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
       refunds: MoneyFixed<GenTables["refunds"], "amount">;
-    };
-    Functions: Generated["public"]["Functions"] & {
-      record_storefront_view: {
-        Args: { p_seller_id: string; p_product_ids?: string[] };
-        Returns: undefined;
-      };
     };
   };
 };
