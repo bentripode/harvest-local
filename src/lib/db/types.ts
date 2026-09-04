@@ -123,6 +123,13 @@ type SellerViewCountsTable = {
   Relationships: [];
 };
 
+type ProductViewCountsTable = {
+  Row: { product_id: string; day: string; views: number };
+  Insert: { product_id: string; day?: string; views?: number };
+  Update: { product_id?: string; day?: string; views?: number };
+  Relationships: [];
+};
+
 type OrderMoneyKeys =
   | "subtotal"
   | "discount_total"
@@ -166,6 +173,7 @@ export type Database = Omit<Generated, "public"> & {
       products: ProductsFixed;
       reviews: ReviewsFixed;
       seller_view_counts: SellerViewCountsTable;
+      product_view_counts: ProductViewCountsTable;
       orders: OrdersFixed;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;
@@ -178,7 +186,7 @@ export type Database = Omit<Generated, "public"> & {
     };
     Functions: Generated["public"]["Functions"] & {
       record_storefront_view: {
-        Args: { p_seller_id: string };
+        Args: { p_seller_id: string; p_product_ids?: string[] };
         Returns: undefined;
       };
     };

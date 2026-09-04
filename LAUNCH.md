@@ -67,7 +67,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (30 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (31 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -165,7 +165,7 @@ Tracked across the phase commits:
 - ✅ **SMS via Twilio** — `notification-dispatch` texts via `src/lib/notifications/sms.ts` (keyless `fetch` to the Messages REST API; logs when `TWILIO_*` unset). Buyers opt in on `/account` (phone + toggle); only `order_status_changed` is SMS-eligible. Set `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER` to go live. No phone verification; SMS→email/other categories not wired.
 - ✅ **`notification_prefs`** — per-category email opt-out on `profiles.notification_prefs`, enforced in `queueNotification`; sellers/admins toggle on `/seller/settings`, buyers on `/account`.
 - ✅ **Seller responses to reviews** — one public reply per review (`reviews.response`), edit form on the seller overview, read-only on the storefront + buyer order page.
-- ✅ **Storefront view tracking** → conversion rate (completed orders ÷ views) on the seller dashboard; `seller_view_counts` rollup fed by a per-session client beacon. Per-*product* views still not tracked.
+- ✅ **Storefront + per-product view tracking** → conversion rate on the seller dashboard (`seller_view_counts`) plus a "Most viewed" product list (`product_view_counts`), both fed by the per-session storefront beacon.
 - ✅ **Analytics date range** — the seller dashboard has a 30 / 90 / 365-day selector (`?range=`); every stat compares against the prior equal period.
 - ✅ **Seller order CSV** — `GET /seller/orders/export` streams an RLS-scoped CSV; "Export CSV" link on the order board.
 - ✅ **Saved address book** for buyers — `/account` manages saved addresses; the checkout delivery form has a dropdown to pick one.

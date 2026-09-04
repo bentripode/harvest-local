@@ -299,8 +299,10 @@ year), and top 5 products. **Storefront views + conversion rate** (completed ord
 storefront page fires `record_storefront_view` (SECURITY DEFINER RPC, `anon`-callable) from
 `TrackStorefrontView` once per browser session — not for the owner's own visits — into the per-day
 `seller_view_counts` rollup. Advisory (seller-only, no money effect), so the RPC is unthrottled.
-`GET /seller/orders/export` streams the seller's orders as CSV (`src/lib/orders/csv.ts`, pure).
-Not built: per-product views, chart CSV.
+The `record_storefront_view` beacon also passes the ids of the products shown → per-product
+impression rollup (`product_view_counts`, RLS = seller reads own) → a "Most viewed" list on the
+dashboard. `GET /seller/orders/export` streams the seller's orders as CSV (`src/lib/orders/csv.ts`,
+pure). Not built: chart CSV.
 
 **Phase 4 — reviews.** ARCHITECTURE §2.7. `reviews` (one per order, `order_id` unique). Verified-
 buyer rule (rule 4) at the data layer: `reviews_verify_buyer` BEFORE INSERT (fires for every insert)

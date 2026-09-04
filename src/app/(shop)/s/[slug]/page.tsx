@@ -49,7 +49,9 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   return (
     <div className="space-y-8">
-      {isOwner ? null : <TrackStorefrontView sellerId={seller.id} />}
+      {isOwner ? null : (
+        <TrackStorefrontView sellerId={seller.id} productIds={list.map((p) => p.id)} />
+      )}
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">{seller.business_name}</h1>
         <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
