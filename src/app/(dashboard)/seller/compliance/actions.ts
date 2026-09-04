@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { US_STATES } from "@/lib/geo/state";
 import { documentSpec } from "@/lib/licenses/requirements";
+import { encryptSecret, encryptionConfigured, lastFourDigits } from "@/lib/crypto/secret-box";
 
 export interface LicenseFormState {
   error?: string;
@@ -80,19 +81,58 @@ export async function addLicenseAction(
   const id = await sellerId(user.id);
   if (!id) return { error: "Set up your storefront first." };
 
+  // A tax ID is encrypted before it touches the database, and only its last 4 stay readable. With
+  // no key configured we refuse the upload outright rather than fall back to storing an SSN in the
+  // clear — a broken form is recoverable, a plaintext SSN column is not.
+  const isTaxId = d.licenseType === "tax_id";
+  let taxIdEncrypted: string | null = null;
+  let taxIdLast4: string | null = null;
+  if (isTaxId && d.licenseNumber) {
+    if (!encryptionConfigured()) {
+      console.error("[compliance] TAX_ID_ENCRYPTION_KEY is unset; refusing to store a tax ID.");
+      return {
+        error: "We can't accept tax IDs right now. Please contact support — this is on our side.",
+      };
+    }
+    taxIdEncrypted = encryptSecret(d.licenseNumber);
+    taxIdLast4 = lastFourDigits(d.licenseNumber);
+  }
+
   const supabase = await createClient();
-  const { error } = await supabase.from("seller_licenses").insert({
-    seller_id: id,
-    license_type: d.licenseType,
-    license_number: d.licenseNumber || null,
-    // Null only for a tax ID; every other type validated one above.
-    issuing_state: d.issuingState || null,
-    issued_date: d.issuedDate || null,
-    expiration_date: d.expirationDate || null,
-    document_path: d.documentPath,
-    // verification_status stays 'pending' — an admin verifies it at /admin/licenses.
-  });
+  const { data: inserted, error } = await supabase
+    .from("seller_licenses")
+    .insert({
+      seller_id: id,
+      license_type: d.licenseType,
+      // The sensitive number never goes in this column — see the tax_id_* pair.
+      license_number: isTaxId ? null : d.licenseNumber || null,
+      // Null only for a tax ID; every other type validated one above.
+      issuing_state: d.issuingState || null,
+      issued_date: d.issuedDate || null,
+      expiration_date: d.expirationDate || null,
+      document_path: d.documentPath,
+      tax_id_encrypted: taxIdEncrypted,
+      tax_id_last4: taxIdLast4,
+      // verification_status stays 'pending' — an admin verifies it at /admin/licenses.
+    })
+    .select("id")
+    .single();
   if (error) return { error: error.message };
+
+  if (taxIdEncrypted) {
+    await createAdminClient()
+      .from("tax_id_audit")
+      .insert({
+        license_id: inserted?.id ?? null,
+        seller_id: id,
+        action: "stored",
+        actor_id: user.id,
+        note: "Uploaded by the seller.",
+      })
+      .then(({ error: auditError }) => {
+        if (auditError) console.error("[compliance] tax_id_audit insert failed:", auditError);
+      });
+  }
 
   // Re-uploading after a rejection shouldn't leave the storefront live on a stale verification, and
   // a first upload shouldn't wait for the admin to notice: keep the gate in step either way.

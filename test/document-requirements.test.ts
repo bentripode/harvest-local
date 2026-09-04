@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   buildDocumentChecklist,
-  maskNumber,
+  formatLast4,
   requiredDocumentTypes,
   type ChecklistLicense,
 } from "@/lib/licenses/requirements";
@@ -16,6 +16,7 @@ function license(over: Partial<ChecklistLicense> & { license_type: string }): Ch
   return {
     id: `lic-${Math.random().toString(36).slice(2)}`,
     license_number: null,
+    tax_id_last4: null,
     expiration_date: future,
     verification_status: "verified",
     review_note: null,
@@ -109,17 +110,13 @@ describe("buildDocumentChecklist", () => {
   });
 });
 
-describe("maskNumber", () => {
-  it("keeps only the last 4 digits", () => {
-    expect(maskNumber("123-45-6789")).toBe("•••• 6789");
+describe("formatLast4", () => {
+  it("renders the stored last 4", () => {
+    expect(formatLast4("6789")).toBe("•••• 6789");
   });
 
-  it("reveals nothing from a short value", () => {
-    expect(maskNumber("6789")).toBe("••••");
-  });
-
-  it("passes through nothing for an absent number", () => {
-    expect(maskNumber(null)).toBeNull();
-    expect(maskNumber("")).toBeNull();
+  it("shows nothing when there is no last 4 on file", () => {
+    expect(formatLast4(null)).toBeNull();
+    expect(formatLast4("")).toBeNull();
   });
 });

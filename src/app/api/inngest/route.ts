@@ -8,6 +8,7 @@ import { referralInvalidate } from "@/lib/inngest/functions/referral-invalidate"
 import { notificationDispatch } from "@/lib/inngest/functions/notification-dispatch";
 import { orderStatusNotify } from "@/lib/inngest/functions/order-status-notify";
 import { messageNotify } from "@/lib/inngest/functions/message-notify";
+import { taxIdRetention } from "@/lib/inngest/functions/tax-id-retention";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -24,5 +25,6 @@ export const { GET, POST, PUT } = serve({
     notificationDispatch,
     orderStatusNotify,
     messageNotify,
+    taxIdRetention,
   ],
 });
