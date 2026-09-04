@@ -435,11 +435,11 @@ create table refunds (
 create table seller_licenses (
   id                  uuid primary key default gen_random_uuid(),
   seller_id           uuid not null references seller_profiles(id) on delete cascade,
-  license_type        text not null,        -- 'cottage_food', 'business_id', 'food_handler', ...
-  license_number      text,
-  issuing_state       char(2) not null,
+  license_type        text not null,        -- 'id' | 'tax_id' | 'cottage_food' | 'food_handler' | ...
+  license_number      text,                 -- SSN/EIN when license_type = 'tax_id'; render masked
+  issuing_state       char(2),              -- null only for 'tax_id'
   issued_date         date,
-  expiration_date     date not null,
+  expiration_date     date,                 -- null only for 'tax_id' (an SSN does not expire)
   document_path       text,                 -- object key in the private `seller-docs` bucket
   verification_status text not null default 'pending'
                         check (verification_status in ('pending','verified','rejected','expired')),
@@ -587,7 +587,11 @@ checks + jobs), never client-side alone.
   `/admin/licenses`. `verification_status` and the review columns are platform-only at the data
   layer (`seller_licenses_guard_status`), so the decision cannot come from the seller. Verification
   is the gate on the expiry scan below, which only looks at `verified` rows.
-- **License gating:** a storefront is live only while it has a verified, unexpired license.
+- **Required documents:** Government ID + Tax ID for every seller, plus a Cottage Food Permit for
+  any seller listing a product in a category flagged `categories.requires_food_permit`. Derived from
+  the catalogue, so a trigger on `products` re-runs the gate when it changes.
+- **License gating:** a storefront is live only while every required document is verified and
+  unexpired.
   `sync_seller_license_pause()` owns the pause/unpause and its precedence against the other pause
   reasons (`license_unverified` is the weakest; it never overrides `revenue_cap` / `admin` /
   `onboarding_incomplete`). Unconditional, not keyed on `requires_license` — those rows are

@@ -101,6 +101,7 @@ export type Database = {
           id: string
           name: string
           parent_id: string | null
+          requires_food_permit: boolean
           slug: string
           sort_order: number
           tax_code: string | null
@@ -110,6 +111,7 @@ export type Database = {
           id?: string
           name: string
           parent_id?: string | null
+          requires_food_permit?: boolean
           slug: string
           sort_order?: number
           tax_code?: string | null
@@ -119,6 +121,7 @@ export type Database = {
           id?: string
           name?: string
           parent_id?: string | null
+          requires_food_permit?: boolean
           slug?: string
           sort_order?: number
           tax_code?: string | null
@@ -1034,10 +1037,10 @@ export type Database = {
         Row: {
           created_at: string
           document_path: string | null
-          expiration_date: string
+          expiration_date: string | null
           id: string
           issued_date: string | null
-          issuing_state: string
+          issuing_state: string | null
           license_number: string | null
           license_type: string
           review_note: string | null
@@ -1050,10 +1053,10 @@ export type Database = {
         Insert: {
           created_at?: string
           document_path?: string | null
-          expiration_date: string
+          expiration_date?: string | null
           id?: string
           issued_date?: string | null
-          issuing_state: string
+          issuing_state?: string | null
           license_number?: string | null
           license_type: string
           review_note?: string | null
@@ -1066,10 +1069,10 @@ export type Database = {
         Update: {
           created_at?: string
           document_path?: string | null
-          expiration_date?: string
+          expiration_date?: string | null
           id?: string
           issued_date?: string | null
-          issuing_state?: string
+          issuing_state?: string | null
           license_number?: string | null
           license_type?: string
           review_note?: string | null
@@ -1547,7 +1550,11 @@ export type Database = {
         Args: { p_product_ids?: string[]; p_seller_id: string }
         Returns: undefined
       }
-      seller_has_valid_license: {
+      seller_has_required_documents: {
+        Args: { p_seller_id: string }
+        Returns: boolean
+      }
+      seller_sells_cottage_food: {
         Args: { p_seller_id: string }
         Returns: boolean
       }

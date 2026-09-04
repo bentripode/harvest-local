@@ -200,8 +200,15 @@ describeDb("SECURITY DEFINER authorization", () => {
     expect(error).not.toBeNull();
   });
 
-  it("seller_has_valid_license is not reachable by an authenticated client", async () => {
-    const { error } = await buyer.db.rpc("seller_has_valid_license", {
+  it("seller_has_required_documents is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("seller_has_required_documents", {
+      p_seller_id: "00000000-0000-0000-0000-000000000000",
+    });
+    expect(error).not.toBeNull();
+  });
+
+  it("seller_sells_cottage_food is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("seller_sells_cottage_food", {
       p_seller_id: "00000000-0000-0000-0000-000000000000",
     });
     expect(error).not.toBeNull();

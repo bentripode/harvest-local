@@ -30,7 +30,9 @@ export const licenseExpiryScan = inngest.createFunction(
       const { data, error } = await admin
         .from("seller_licenses")
         .select("id, seller_id, license_type, expiration_date")
-        .eq("verification_status", "verified");
+        .eq("verification_status", "verified")
+        // A tax ID has no expiry date — nothing here can ever fire for it.
+        .not("expiration_date", "is", null);
       if (error) throw new Error(error.message);
       return data ?? [];
     });

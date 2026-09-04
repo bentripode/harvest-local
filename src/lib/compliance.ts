@@ -60,6 +60,31 @@ export async function getSellerLicenses(sellerId: string): Promise<SellerLicense
   return data ?? [];
 }
 
+/**
+ * Whether the seller lists any non-archived product in a food category — i.e. whether the
+ * cottage-food permit is part of their required set. Mirrors `seller_sells_cottage_food()`, which
+ * is the authority (it's what the storefront gate uses); this is the read for the seller's own
+ * checklist, run under their RLS rather than granting the function to `authenticated`.
+ */
+export async function sellerSellsCottageFood(sellerId: string): Promise<boolean> {
+  const supabase = await createClient();
+
+  const { data: products } = await supabase
+    .from("products")
+    .select("category_id")
+    .eq("seller_id", sellerId)
+    .neq("status", "archived");
+  const categoryIds = [...new Set((products ?? []).map((p) => p.category_id))];
+  if (categoryIds.length === 0) return false;
+
+  const { count } = await supabase
+    .from("categories")
+    .select("id", { count: "exact", head: true })
+    .in("id", categoryIds)
+    .eq("requires_food_permit", true);
+  return (count ?? 0) > 0;
+}
+
 export async function getInAppNotifications(userId: string): Promise<Notification[]> {
   const supabase = await createClient();
   const { data } = await supabase
