@@ -10,6 +10,8 @@ export interface ReviewListItem {
   body: string | null;
   reviewerName: string;
   createdAt: string;
+  response: string | null;
+  respondedAt: string | null;
 }
 
 export interface ReviewSummary {
@@ -27,7 +29,9 @@ export async function getSellerReviews(
   const supabase = await createClient();
   const { data } = await supabase
     .from("reviews")
-    .select("id, rating, body, created_at, reviewer:profiles!reviews_reviewer_id_fkey(display_name)")
+    .select(
+      "id, rating, body, created_at, response, responded_at, reviewer:profiles!reviews_reviewer_id_fkey(display_name)",
+    )
     .eq("seller_id", sellerId)
     .order("created_at", { ascending: false })
     .limit(limit);
@@ -38,6 +42,8 @@ export async function getSellerReviews(
     body: r.body,
     reviewerName: firstName((r.reviewer as { display_name?: string } | null)?.display_name),
     createdAt: r.created_at,
+    response: r.response,
+    respondedAt: r.responded_at,
   }));
 }
 
@@ -58,7 +64,7 @@ export async function getReviewForOrder(orderId: string) {
   const supabase = await createClient();
   const { data } = await supabase
     .from("reviews")
-    .select("id, rating, body, created_at")
+    .select("id, rating, body, created_at, response")
     .eq("order_id", orderId)
     .maybeSingle();
   return data;

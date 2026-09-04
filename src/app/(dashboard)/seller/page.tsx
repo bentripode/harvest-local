@@ -89,7 +89,7 @@ export default async function SellerOverviewPage() {
       {reviews.length > 0 ? (
         <section className="space-y-3">
           <h2 className="text-sm font-medium">Recent reviews</h2>
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} respondable />
         </section>
       ) : null}
     </div>

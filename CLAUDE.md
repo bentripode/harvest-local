@@ -283,7 +283,11 @@ buyer rule (rule 4) at the data layer: `reviews_verify_buyer` BEFORE INSERT (fir
 requires a `completed` order by that buyer for that seller; RLS scopes writes to
 `reviewer_id = auth.uid()`, reads public, reviewer deletes own. `seller_profiles.avg_rating` rolled
 up by a SECURITY DEFINER AFTER INSERT/DELETE trigger. Surfaced on the buyer order page, storefront
-(header + list), shop listing, seller overview.
+(header + list), shop listing, seller overview. A seller posts one public **reply** per review
+(`reviews.response` / `responded_at`): `respondToReviewAction`, gated by the "reviews: seller
+responds" UPDATE policy (owner of `seller_id`) + the `reviews_guard_columns` BEFORE UPDATE trigger
+that freezes every column but the two response ones. Edit form on the seller overview
+(`ReviewList respondable`); read-only on the storefront + buyer order page.
 
 **Phase 4 — in-app messaging.** ARCHITECTURE §2.6. `conversations` (one per buyer+seller+order;
 `order_id` NULL = general) + `messages`. Clients never write `conversations` (`get_or_create_
@@ -294,7 +298,7 @@ uses Supabase Realtime (Postgres Changes) **plus a 4s visible-tab poll**; the po
 path — **Postgres Changes must be enabled for `messages` in the Supabase dashboard** for the instant
 path to work (`messages` is in `supabase_realtime` with `replica identity full`, but the hosted
 project wasn't streaming it). Unread badge in both nav headers. Not built: message→email
-notification, typing/presence, attachments, seller review responses.
+notification, typing/presence, attachments.
 
 **Phase 4 — reports / flagging.** ARCHITECTURE §2.7 (the `refunds` table + Stripe refunds are
 Phase 5). `reports` (one per order per reporter, `unique(order_id, reporter_id)`; `reason` enum,

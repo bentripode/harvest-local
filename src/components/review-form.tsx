@@ -40,7 +40,7 @@ export function ExistingReview({
   review,
 }: {
   orderId: string;
-  review: { id: string; rating: number; body: string | null; created_at: string };
+  review: { id: string; rating: number; body: string | null; created_at: string; response?: string | null };
 }) {
   return (
     <div className="space-y-2">
@@ -51,6 +51,12 @@ export function ExistingReview({
         </span>
       </div>
       {review.body ? <p className="text-sm">{review.body}</p> : null}
+      {review.response ? (
+        <div className="border-muted border-l-2 pl-3">
+          <p className="text-muted-foreground text-xs font-medium">Response from the seller</p>
+          <p className="text-sm">{review.response}</p>
+        </div>
+      ) : null}
       <form action={deleteReviewAction}>
         <input type="hidden" name="reviewId" value={review.id} />
         <input type="hidden" name="orderId" value={orderId} />
