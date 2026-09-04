@@ -66,7 +66,7 @@ registrations for the states you operate in.
 
 ## 3. Supabase
 
-☐ Migrations applied: `npx supabase db push` (23 migrations as of launch). Regenerate types after any
+☐ Migrations applied: `npx supabase db push` (24 migrations as of launch). Regenerate types after any
 change: `npm run db:types`.
 
 ☐ **Realtime → enable Postgres Changes for `public.messages`** (Database → Replication). The table is
@@ -145,7 +145,13 @@ pass against a throwaway Supabase branch for the SECURITY DEFINER functions and 
 
 ☐ Review Supabase connection pooling (PgBouncer) settings for the expected concurrency.
 
-☐ Confirm the Supabase Storage `license-docs` bucket is private and RLS-scoped.
+✅ Storage: license / ID documents live in the **`seller-docs`** bucket (not `license-docs`).
+`20260901221902_phase1_storage_and_seed.sql` creates it `public = false` with an owner-folder-scoped
+`storage.objects` policy (`(storage.foldername(name))[1] = seller_profiles.id`), and
+`20260904010000_seller_docs_bucket_hardening.sql` re-asserts `public = false` + the size/MIME limits
+idempotently (covers a bucket that pre-existed in the dashboard). After `db push`, spot-check in
+Storage → Settings that `seller-docs` shows **Private**. Admin doc viewing (server-minted signed
+URLs) is not built yet.
 
 ---
 
