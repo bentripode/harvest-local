@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +15,7 @@ import {
   sellerSellsCottageFood,
 } from "@/lib/compliance";
 import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
+import { getChosenProgram, programRequirements, programSummary } from "@/lib/compliance/onboarding";
 import { licenseTypeLabel } from "@/lib/licenses/labels";
 import {
   buildDocumentChecklist,
@@ -53,12 +55,14 @@ export default async function CompliancePage() {
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications, sellsCottageFood, foodSales] = await Promise.all([
+  const [revenue, licenses, notifications, sellsCottageFood, foodSales, program] =
+    await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
     getInAppNotifications(profile.id),
     sellerSellsCottageFood(seller.id),
     getFoodSalesStatus(seller.id),
+    getChosenProgram(seller.id),
   ]);
 
   const checklist = buildDocumentChecklist(licenses, sellsCottageFood);
@@ -83,6 +87,59 @@ export default async function CompliancePage() {
       </div>
 
       <FoodSalesNotice status={foodSales} />
+
+      {foodSales?.allowed !== false ? (
+        <section className="space-y-2 rounded-lg border p-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="text-sm font-medium">Your food program</h2>
+            {program ? null : <Badge variant="outline">not chosen</Badge>}
+          </div>
+          {program ? (
+            <>
+              <p className="text-sm">
+                {program.name}{" "}
+                <span className="text-muted-foreground">· {programSummary(program)}</span>
+              </p>
+              {programRequirements(program).length > 0 ? (
+                <ul className="text-muted-foreground space-y-1 text-sm">
+                  {programRequirements(program).map((r) => (
+                    <li key={r.key}>
+                      {r.label}
+                      {r.detail ? ` — ${r.detail}` : ""}
+                      {r.url ? (
+                        <>
+                          {" "}
+                          <a
+                            href={r.url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="text-primary underline"
+                          >
+                            open
+                          </a>
+                        </>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              <Link href="/seller/onboarding/program" className="text-primary text-sm underline">
+                Change program
+              </Link>
+            </>
+          ) : (
+            <>
+              <p className="text-muted-foreground text-sm">
+                Your listings are being checked against your state as a whole. Telling us which
+                program you sell under makes that precise, and shows exactly which permits you need.
+              </p>
+              <Link href="/seller/onboarding/program" className="text-primary text-sm underline">
+                Choose your program
+              </Link>
+            </>
+          )}
+        </section>
+      ) : null}
 
       <Card>
         <CardHeader className="pb-2">

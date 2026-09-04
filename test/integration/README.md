@@ -64,6 +64,7 @@ Fixtures are prefixed `it-` so a stray row is obvious. Suites run one file at a 
 | `online-food-gate.test.ts` | `products_guard_online_food_sales` — food listings refused in the five banned states (service role included), non-food and drafts untouched, category swaps caught, and the gate following the data when a program is unbanned |
 | `product-label-fields.test.ts` | the `products` label columns — ingredient order preserved, non-array refused, the nine federal allergens accepted and anything else (including a misspelling) refused, net weight requiring both value and unit |
 | `category-gate.test.ts` | `products_guard_food_categories` — meat blocked in Texas but baked goods allowed, refrigerated blocked in Hawaii, a two-axis category blocked when either is banned, conditional treated as permitted, unknown axes refused, drafts allowed, unmapped categories skipped, and the gate following the data |
+| `seller-food-program.test.ts` | `seller_profiles.food_program_id` — a program from another state refused, the choice cleared when a seller moves, and both food gates switching from state-wide to program-specific (California Class A vs MEHKO on meat, Virginia's two programs on online orders) |
 | `functions-authz.test.ts` | authorization inside every SECURITY DEFINER function granted to `authenticated`/`anon`: `get_or_create_conversation`, `mark_conversation_read`, `mark_notifications_read`, `upsert_address` |
 
 ## What the first run found
