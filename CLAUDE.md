@@ -170,7 +170,7 @@ src/app/messages/                      buyer↔seller inbox + thread (own layout
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
 src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch)
-src/lib/notifications/                  queue (channel fan-out) · copy (in-app lines) · templates (email) · send (Resend)
+src/lib/notifications/                  queue (channel fan-out + email opt-out) · categories (template→category, prefs) · copy (in-app lines) · templates (email) · send (Resend)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
 src/proxy.ts                           Supabase session refresh (was middleware.ts)
@@ -182,7 +182,7 @@ src/app/(dashboard)/seller/products/   product CRUD
 src/app/(dashboard)/seller/orders/     seller order board (advance_order_status RPC)
 src/app/(dashboard)/seller/referrals/  promo codes + Referral Progress widget
 src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
-src/app/(dashboard)/seller/settings/   pickup address + local-delivery config
+src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -219,8 +219,15 @@ through Resend (`send.ts` — logs instead when `RESEND_API_KEY` is unset), mark
 `attempt_count` / `failed` past 5. Optimistic `attempt_count` claim + Resend idempotency key
 (`notification.id`) make overlapping runs safe. Every `advance_order_status` transition emits
 `harvest/order.status_changed` → `order-status-notify` (Inngest) queues an `order_status_changed`
-**email** to the buyer (email only — no buyer in-app panel). **SMS (Twilio) and a
-`notification_prefs` opt-out table are not built yet.**
+**email** to the buyer (email only — no buyer in-app panel).
+
+Per-user **email opt-outs**: `queueNotification` reads `profiles.notification_prefs` (jsonb,
+`{category: false}` = opted out) and drops the `email` channel for a suppressed category before
+inserting — `in_app` is never filtered. `src/lib/notifications/categories.ts` owns the template →
+category map and `emailEnabled()`; `payments` (refund) + `compliance` (license-expired / revenue-cap)
+are **not** suppressible and skip the profile read entirely. Sellers/admins toggle theirs on
+`/seller/settings` (`saveNotificationPrefsAction`); the buyer-facing `order_updates` toggle needs a
+buyer account page (not built). **SMS (Twilio) is not built yet.**
 
 **Phase 3 — referral engine.** Seller makes a `promo_codes` code; buyer enters it at checkout →
 `validatePromoCode` (validates the code shape with `promoCodeSchema`, then an `.eq` lookup — never a

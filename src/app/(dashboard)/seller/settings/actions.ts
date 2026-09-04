@@ -3,10 +3,15 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-import { requireRole } from "@/lib/auth";
+import { requireRole, requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { addressSchema } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
+import {
+  SUPPRESSIBLE_CATEGORIES,
+  type SuppressibleCategory,
+  type NotificationPrefs,
+} from "@/lib/notifications/categories";
 
 export interface DeliverySettingsState {
   error?: string;
@@ -98,6 +103,50 @@ export async function saveDeliverySettingsAction(
       delivery_per_mile_fee: Number(d.perMileFee.toFixed(2)),
     })
     .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  return { ok: true };
+}
+
+export interface NotificationPrefsState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save per-category email opt-outs. The form submits a hidden `fields` list of the categories it
+ * rendered (a checkbox is absent from FormData when unchecked, so we can't tell "off" from "not
+ * shown" without it). Only the submitted categories are touched — a seller saving here never
+ * clobbers a buyer-only category like `order_updates`.
+ */
+export async function saveNotificationPrefsAction(
+  _prev: NotificationPrefsState,
+  formData: FormData,
+): Promise<NotificationPrefsState> {
+  const { user, profile } = await requireUser();
+  const supabase = await createClient();
+
+  const submitted = String(formData.get("fields") ?? "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter((c): c is SuppressibleCategory =>
+      (SUPPRESSIBLE_CATEGORIES as readonly string[]).includes(c),
+    );
+
+  if (submitted.length === 0) return { error: "Nothing to save." };
+
+  const current: NotificationPrefs = { ...(profile.notification_prefs ?? {}) };
+  for (const category of submitted) {
+    const on = formData.get(`email_${category}`) === "on";
+    if (on) delete current[category];
+    else current[category] = false;
+  }
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ notification_prefs: current })
+    .eq("id", user.id);
   if (error) return { error: error.message };
 
   revalidatePath("/seller/settings");
