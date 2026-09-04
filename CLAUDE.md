@@ -270,8 +270,9 @@ Stripe session as a `shipping_options` fixed rate so Stripe Tax handles delivery
 seller state; the `orders_same_state_only` CHECK + guard hold). Needs `MAPBOX_TOKEN` (Geocoding +
 Directions); with none set, delivery is unavailable and pickup is unaffected. `src/lib/geo/routing.ts`
 keeps the provider swappable. Buyers save reusable addresses on `/account` (`addresses` table +
-`upsert_address` RPC + "addresses: owner all" RLS — no schema change); wiring a saved-address picker
-into checkout is still open, as is delivery time windows.
+`upsert_address` RPC + "addresses: owner all" RLS — no schema change) and pick one from a dropdown
+in the checkout delivery form (`getMyDeliveryAddressesAction` → populates the fields; the fee is
+still quoted server-side from the submitted text). Delivery time windows not built.
 
 **Phase 3 — seller analytics.** `/seller` overview renders `SellerStatsPanel` from
 `getSellerDashboardStats()` — RLS-scoped reads of `orders` / `order_items` aggregated in JS. 30-day

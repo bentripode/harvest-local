@@ -11,7 +11,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatUsd } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
-import { repriceCartAction, type RepriceResult } from "@/app/(shop)/checkout/actions";
+import {
+  repriceCartAction,
+  getMyDeliveryAddressesAction,
+  type RepriceResult,
+} from "@/app/(shop)/checkout/actions";
+import type { SavedAddress } from "@/lib/addresses/queries";
 
 type Address = { line1: string; line2: string; city: string; state: string; postal: string };
 
@@ -23,6 +28,27 @@ export default function CheckoutPage() {
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
+  const [savedAddresses, setSavedAddresses] = useState<SavedAddress[]>([]);
+
+  useEffect(() => {
+    getMyDeliveryAddressesAction()
+      .then(setSavedAddresses)
+      .catch(() => {});
+  }, []);
+
+  function chooseSaved(id: string) {
+    const s = savedAddresses.find((a) => a.id === id);
+    if (!s) return;
+    const next: Address = {
+      line1: s.line1,
+      line2: s.line2 ?? "",
+      city: s.city,
+      state: s.state,
+      postal: s.postal,
+    };
+    setAddr(next);
+    setAppliedAddr(next);
+  }
 
   const addrKey = appliedAddr ? JSON.stringify(appliedAddr) : "";
   const cartKey = useMemo(
@@ -140,6 +166,27 @@ export default function CheckoutPage() {
 
           {fulfillment === "delivery" ? (
             <div className="space-y-3 rounded-md border p-3">
+              {savedAddresses.length > 0 ? (
+                <div className="space-y-2">
+                  <Label htmlFor="d-saved">Use a saved address</Label>
+                  <select
+                    id="d-saved"
+                    defaultValue=""
+                    onChange={(e) => {
+                      if (e.target.value) chooseSaved(e.target.value);
+                    }}
+                    className="border-input h-9 w-full rounded-md border bg-transparent px-2.5 text-sm"
+                  >
+                    <option value="">Enter a new address…</option>
+                    {savedAddresses.map((a) => (
+                      <option key={a.id} value={a.id}>
+                        {a.label ? `${a.label} — ` : ""}
+                        {a.line1}, {a.city}, {a.state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
               <div className="space-y-2">
                 <Label htmlFor="d-line1">Street address</Label>
                 <Input
