@@ -7,6 +7,8 @@ import {
   parseAllergens,
   parseIngredients,
   MAX_INGREDIENTS,
+  missingLabelFields,
+  describeMissingLabelFields,
 } from "@/lib/products/labeling";
 
 describe("parseIngredients", () => {
@@ -115,5 +117,76 @@ describe("formatNetWeight", () => {
     expect(formatNetWeight(0, "oz")).toBeNull();
     expect(formatNetWeight(-5, "oz")).toBeNull();
     expect(formatNetWeight(24, "stones")).toBeNull();
+  });
+});
+
+describe("missingLabelFields", () => {
+  const food = {
+    isFoodCategory: true,
+    status: "active",
+    ingredients: ["Wheat flour", "Water"],
+    netWeightValue: "24",
+    netWeightUnit: "oz",
+  };
+
+  it("passes a complete food listing", () => {
+    expect(missingLabelFields(food)).toEqual([]);
+  });
+
+  it("names each missing field", () => {
+    expect(missingLabelFields({ ...food, ingredients: [] })).toEqual(["ingredients"]);
+    expect(missingLabelFields({ ...food, netWeightValue: null })).toEqual(["net weight"]);
+    expect(missingLabelFields({ ...food, ingredients: [], netWeightUnit: null })).toEqual([
+      "ingredients",
+      "net weight",
+    ]);
+  });
+
+  it("treats a weight with no unit as missing — half a net weight is not one", () => {
+    expect(missingLabelFields({ ...food, netWeightUnit: "" })).toEqual(["net weight"]);
+  });
+
+  it("lets a draft be saved half-finished, so the seller keeps their work", () => {
+    expect(
+      missingLabelFields({ ...food, status: "draft", ingredients: [], netWeightValue: null }),
+    ).toEqual([]);
+  });
+
+  it("exempts an archived listing, which is off the storefront", () => {
+    expect(missingLabelFields({ ...food, status: "archived", ingredients: [] })).toEqual([]);
+  });
+
+  it("guards sold_out too — it is still a published listing", () => {
+    expect(missingLabelFields({ ...food, status: "sold_out", ingredients: [] })).toEqual([
+      "ingredients",
+    ]);
+  });
+
+  it("asks nothing of a non-food listing — a candle has no ingredient panel", () => {
+    expect(
+      missingLabelFields({
+        ...food,
+        isFoodCategory: false,
+        ingredients: [],
+        netWeightValue: null,
+      }),
+    ).toEqual([]);
+  });
+});
+
+describe("describeMissingLabelFields", () => {
+  it("says nothing when nothing is missing", () => {
+    expect(describeMissingLabelFields([])).toBeNull();
+  });
+
+  it("reads as a sentence for one field and for two", () => {
+    expect(describeMissingLabelFields(["ingredients"])).toContain("needs its ingredients");
+    const both = describeMissingLabelFields(["ingredients", "net weight"]);
+    expect(both).toContain("ingredients and net weight");
+    expect(both).toContain("them");
+  });
+
+  it("offers the way out, so the seller is never stuck", () => {
+    expect(describeMissingLabelFields(["net weight"])).toContain("draft");
   });
 });

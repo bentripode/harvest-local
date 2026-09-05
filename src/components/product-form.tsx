@@ -61,6 +61,8 @@ export function ProductForm({
   );
 
   const [categoryId, setCategoryId] = useState(initial?.categoryId ?? "");
+  const [subcategoryId, setSubcategoryId] = useState(initial?.subcategoryId ?? "");
+  const [status, setStatus] = useState(initial?.status ?? "draft");
   const [weightValue, setWeightValue] = useState(initial?.netWeightValue ?? "");
   const [weightUnit, setWeightUnit] = useState(initial?.netWeightUnit ?? "");
   const [images, setImages] = useState<ProductImage[]>(initial?.images ?? []);
@@ -72,6 +74,14 @@ export function ProductForm({
 
   const topLevel = categories.filter((c) => c.parent_id === null);
   const subcategories = categories.filter((c) => c.parent_id === categoryId);
+
+  // Food-ness comes from the catalogue, matching `products_guard_label_fields`. Either level
+  // carrying the flag is enough. A listing only needs a complete label once it goes live, so a
+  // draft can still be saved half-finished.
+  const isFoodCategory = categories.some(
+    (c) => (c.id === categoryId || c.id === subcategoryId) && c.requires_food_permit,
+  );
+  const labelRequired = isFoodCategory && status === "active";
 
   async function handleUpload(files: FileList | null) {
     if (!files?.length) return;
@@ -147,7 +157,12 @@ export function ProductForm({
             name="categoryId"
             required
             value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
+            onChange={(e) => {
+              setCategoryId(e.target.value);
+              // The old sub-category belongs to the old parent — keeping it would submit a pairing
+              // that isn't offered, and would skew the food-category check.
+              setSubcategoryId("");
+            }}
             className="border-input bg-background h-9 w-full rounded-md border px-3 text-sm"
           >
             <option value="" disabled>
@@ -175,7 +190,8 @@ export function ProductForm({
           <select
             id="subcategoryId"
             name="subcategoryId"
-            defaultValue={initial?.subcategoryId ?? ""}
+            value={subcategoryId}
+            onChange={(e) => setSubcategoryId(e.target.value)}
             disabled={subcategories.length === 0}
             className="border-input bg-background h-9 w-full rounded-md border px-3 text-sm disabled:opacity-50"
           >
@@ -191,17 +207,28 @@ export function ProductForm({
 
       <fieldset className="space-y-4 rounded-lg border p-4">
         <legend className="px-1 text-sm font-medium">Label details</legend>
-        <p className="text-muted-foreground -mt-1 text-sm">
-          Most states require these on the label of any homemade food. They&apos;re optional here,
-          but a food label can&apos;t be produced without them.
-        </p>
+        {isFoodCategory ? (
+          <p className="text-muted-foreground -mt-1 text-sm">
+            Buyers are shown this label before they pay, so a food listing needs its ingredients and
+            net weight to go live. You can leave them for now and save as a draft.
+          </p>
+        ) : (
+          <p className="text-muted-foreground -mt-1 text-sm">
+            Most states require these on the label of any homemade food. This category isn&apos;t
+            food, so they&apos;re optional.
+          </p>
+        )}
 
         <div className="space-y-2">
-          <Label htmlFor="ingredients">Ingredients</Label>
+          <Label htmlFor="ingredients">
+            Ingredients
+            {labelRequired ? <span className="text-destructive"> *</span> : null}
+          </Label>
           <Textarea
             id="ingredients"
             name="ingredients"
             rows={4}
+            required={labelRequired}
             defaultValue={initial?.ingredients}
             placeholder={"Wheat flour\nWater\nSourdough culture\nSea salt"}
           />
@@ -213,22 +240,30 @@ export function ProductForm({
 
         <div className="grid gap-4 sm:grid-cols-[1fr_1.4fr]">
           <div className="space-y-2">
-            <Label htmlFor="netWeightValue">Net quantity</Label>
+            <Label htmlFor="netWeightValue">
+              Net quantity
+              {labelRequired ? <span className="text-destructive"> *</span> : null}
+            </Label>
             <Input
               id="netWeightValue"
               name="netWeightValue"
               type="number"
               step="0.001"
               min="0"
+              required={labelRequired}
               value={weightValue}
               onChange={(e) => setWeightValue(e.target.value)}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="netWeightUnit">Unit</Label>
+            <Label htmlFor="netWeightUnit">
+              Unit
+              {labelRequired ? <span className="text-destructive"> *</span> : null}
+            </Label>
             <select
               id="netWeightUnit"
               name="netWeightUnit"
+              required={labelRequired}
               value={weightUnit}
               onChange={(e) => setWeightUnit(e.target.value)}
               className="border-input h-8 w-full rounded-lg border bg-transparent px-2.5 text-sm"
@@ -330,7 +365,8 @@ export function ProductForm({
         <select
           id="status"
           name="status"
-          defaultValue={initial?.status ?? "draft"}
+          value={status}
+          onChange={(e) => setStatus(e.target.value as "draft" | "active")}
           className="border-input bg-background h-9 w-full rounded-md border px-3 text-sm"
         >
           <option value="draft">Draft — not visible to buyers</option>

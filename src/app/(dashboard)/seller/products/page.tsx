@@ -12,7 +12,13 @@ import { FoodSalesNotice } from "@/components/food-sales-notice";
 import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
 import { deleteProductAction, setProductStatusAction } from "./actions";
 
-export default async function ProductsPage() {
+export default async function ProductsPage({
+  searchParams,
+}: {
+  // Next 16: searchParams is async.
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
   const { profile, seller, onboardingComplete } = await getSellerContext();
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
@@ -47,6 +53,12 @@ export default async function ProductsPage() {
       </div>
 
       <FoodSalesNotice status={foodSales} />
+
+      {error ? (
+        <p className="border-destructive/40 bg-destructive/5 text-destructive rounded-lg border p-3 text-sm">
+          {error}
+        </p>
+      ) : null}
 
       {!products?.length ? (
         <div className="text-muted-foreground rounded-lg border border-dashed p-10 text-center text-sm">

@@ -9,7 +9,13 @@ import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
 import { describeCategoryBlock } from "@/lib/compliance/categories";
-import { isNetWeightUnit, parseAllergens, parseIngredients } from "@/lib/products/labeling";
+import {
+  describeMissingLabelFields,
+  isNetWeightUnit,
+  missingLabelFields,
+  parseAllergens,
+  parseIngredients,
+} from "@/lib/products/labeling";
 import type { ProductImage } from "@/lib/db/types";
 
 export interface ProductFormState {
@@ -99,6 +105,41 @@ function labelFields(d: {
 }
 
 /**
+ * The label gate, checked here so the seller reads a sentence rather than a constraint violation.
+ * `products_guard_label_fields` enforces it regardless — this is the friendly half.
+ *
+ * Food-ness comes from the catalogue, so it needs a read; a non-food listing short-circuits with no
+ * requirement at all.
+ */
+async function labelFieldsBlock(d: {
+  categoryId: string;
+  subcategoryId?: string;
+  status: string;
+  ingredients?: string;
+  netWeightValue?: string;
+  netWeightUnit?: string;
+}): Promise<string | null> {
+  if (d.status === "draft") return null;
+
+  const supabase = await createClient();
+  const ids = [d.categoryId, d.subcategoryId].filter(Boolean) as string[];
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("requires_food_permit")
+    .in("id", ids);
+
+  return describeMissingLabelFields(
+    missingLabelFields({
+      isFoodCategory: (categories ?? []).some((c) => c.requires_food_permit),
+      status: d.status,
+      ingredients: parseIngredients(d.ingredients ?? ""),
+      netWeightValue: d.netWeightValue,
+      netWeightUnit: d.netWeightUnit,
+    }),
+  );
+}
+
+/**
  * The state gate, checked here so the seller reads a sentence rather than a constraint violation.
  * `products_guard_online_food_sales` enforces it regardless — this is the friendly half.
  */
@@ -122,7 +163,7 @@ export async function createProductAction(
   const sellerId = await getSellerId(user.id);
   const d = parsed.data;
 
-  const blocked = await foodSalesBlock(sellerId, d.categoryId);
+  const blocked = (await foodSalesBlock(sellerId, d.categoryId)) ?? (await labelFieldsBlock(d));
   if (blocked) return { error: blocked };
 
   const supabase = await createClient();
@@ -164,7 +205,7 @@ export async function updateProductAction(
   const sellerId = await getSellerId(user.id);
   const d = parsed.data;
 
-  const blocked = await foodSalesBlock(sellerId, d.categoryId);
+  const blocked = (await foodSalesBlock(sellerId, d.categoryId)) ?? (await labelFieldsBlock(d));
   if (blocked) return { error: blocked };
 
   const supabase = await createClient();
@@ -191,14 +232,42 @@ export async function updateProductAction(
   redirect("/seller/products");
 }
 
+/**
+ * Both list actions are plain `void` form actions with nowhere to render a returned error, so a
+ * refusal used to be indistinguishable from success: the seller clicked, the page reloaded, and
+ * nothing had changed. Now the reason rides back on `?error=` and the list renders it.
+ */
+function backToProducts(message?: string): never {
+  revalidatePath("/seller/products");
+  if (!message) redirect("/seller/products");
+  // Postgres raises lowercase by convention; this is read as a sentence.
+  const sentence = message.charAt(0).toUpperCase() + message.slice(1);
+  redirect(`/seller/products?error=${encodeURIComponent(sentence)}`);
+}
+
 export async function deleteProductAction(formData: FormData): Promise<void> {
   const { user } = await requireRole("seller");
   const productId = z.string().uuid().parse(formData.get("productId"));
   const sellerId = await getSellerId(user.id);
   const supabase = await createClient();
 
-  await supabase.from("products").delete().eq("id", productId).eq("seller_id", sellerId);
-  revalidatePath("/seller/products");
+  const { error } = await supabase
+    .from("products")
+    .delete()
+    .eq("id", productId)
+    .eq("seller_id", sellerId);
+
+  // 23503: order_items.product_id is ON DELETE RESTRICT, on purpose — a sold product cannot be
+  // deleted out from under the orders that cite it. Archiving is the disposition that exists.
+  if (error?.code === "23503") {
+    backToProducts(
+      "This product has been ordered, so it can't be deleted — the orders that reference it would " +
+        "lose what was bought. Set it to Archived instead: it comes off your storefront for good " +
+        "and the order history stays intact.",
+    );
+  }
+  if (error) backToProducts(error.message);
+  backToProducts();
 }
 
 export async function setProductStatusAction(formData: FormData): Promise<void> {
@@ -208,12 +277,16 @@ export async function setProductStatusAction(formData: FormData): Promise<void> 
   const sellerId = await getSellerId(user.id);
   const supabase = await createClient();
 
-  await supabase
+  const { error } = await supabase
     .from("products")
     .update({ status })
     .eq("id", productId)
     .eq("seller_id", sellerId);
-  revalidatePath("/seller/products");
+
+  // Publishing from the list skips the form, so this is where the label guard is met. The trigger's
+  // message is already written for the seller; the hint says what to do about it.
+  if (error) backToProducts(error.hint ? `${error.message}. ${error.hint}` : error.message);
+  backToProducts();
 }
 
 type ServerSupabase = Awaited<ReturnType<typeof createClient>>;
