@@ -239,7 +239,10 @@ export async function updateProductAction(
  */
 function backToProducts(message?: string): never {
   revalidatePath("/seller/products");
-  redirect(message ? `/seller/products?error=${encodeURIComponent(message)}` : "/seller/products");
+  if (!message) redirect("/seller/products");
+  // Postgres raises lowercase by convention; this is read as a sentence.
+  const sentence = message.charAt(0).toUpperCase() + message.slice(1);
+  redirect(`/seller/products?error=${encodeURIComponent(sentence)}`);
 }
 
 export async function deleteProductAction(formData: FormData): Promise<void> {
