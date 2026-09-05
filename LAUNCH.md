@@ -82,7 +82,9 @@ Nebraska requires the disclaimer in any internet advertising; both are implement
 state is `predisclosure_required = false`, which records that nobody has looked — not that the rule
 is absent. Set it as each program is verified.
 
-☐ **Verify the 69 state food programs at `/admin/programs`.** Seeded from the Institute for
+☐ **Verify the 69 state food programs at `/admin/programs`.** Open a program to get the review
+form; saving it stamps `verified_at` with your id. Start with the states you actually have sellers
+in. Seeded from the Institute for
 Justice state pages (read 2026-09-04) and all unverified. It is a summary of the law, not the law:
 check each program a seller actually operates under against the state's own rules before any gate
 reads it. Washington's mail entry still says "temporarily allowed during the pandemic", which is a
@@ -189,7 +191,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **170 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **177 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,

@@ -289,7 +289,7 @@ src/app/(dashboard)/seller/compliance/ revenue-vs-cap, licenses, notifications
 src/app/(dashboard)/seller/settings/   pickup address + local-delivery config + notification-email opt-outs
 src/app/admin/licenses/                license review queue + [id]/document signed-URL redirect
 src/app/admin/states/                  per-state cap / licence-required editor
-src/app/admin/programs/                seeded cottage-food programs, read-only for now
+src/app/admin/programs/                cottage-food programs · [id] = the review + verify form
 src/app/api/webhooks/stripe/route.ts   the ONLY place Stripe state is applied
 src/app/api/inngest/route.ts           Inngest serve endpoint
 ```
@@ -506,8 +506,11 @@ caps only acidified), `license_threshold` (MN 7,665 / VT 6,500 / VT 10,000 — t
 rather than stopping sales), and the six category axes. Public read, admin write, and **every row
 lands unverified**: IJ is a summary, not statute, and its own pages say so. `state_label_rules` is
 created **empty on purpose** — disclaimer text is quoted statute that gets printed onto food, so it
-needs a complete verbatim capture. Nothing enforces any of this yet; `src/lib/compliance/programs.ts`
-is the read layer and `/admin/programs` shows the data and how much of it is unchecked.
+needs a complete verbatim capture. `/admin/programs` lists the data and how much is unchecked; `/admin/programs/[id]` is the review
+form. **`verified_at` is set by an admin saving that form and by nothing else** — no seed, no
+backfill, no job — and it records that a person checked the row against the STATE's rules, not
+against our copy of them, which is why the page puts the source link in front of them. Saving also
+refreshes `source_checked_at`.
 
 
 **Phase 5 — product label fields.** `products` gains `ingredients` (jsonb string array),
