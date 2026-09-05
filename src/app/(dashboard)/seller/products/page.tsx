@@ -18,14 +18,17 @@ export default async function ProductsPage() {
   if (!seller) redirect("/seller/onboarding");
 
   const supabase = await createClient();
-  const [{ data: products }, foodSales] = await Promise.all([
+  const [{ data: products }, foodSales, { data: foodCategories }] = await Promise.all([
     supabase
       .from("products")
       .select("*")
       .eq("seller_id", seller.id)
       .order("created_at", { ascending: false }),
     getFoodSalesStatus(seller.id),
+    supabase.from("categories").select("id").eq("requires_food_permit", true),
   ]);
+  // Only food needs a label, so only food gets the button.
+  const foodCategoryIds = new Set((foodCategories ?? []).map((c) => c.id));
 
   return (
     <div className="space-y-6">
@@ -52,7 +55,11 @@ export default async function ProductsPage() {
       ) : (
         <ul className="divide-y rounded-lg border">
           {products.map((product) => (
-            <ProductRow key={product.id} product={product as Product} />
+            <ProductRow
+              key={product.id}
+              product={product as Product}
+              isFood={foodCategoryIds.has(product.category_id)}
+            />
           ))}
         </ul>
       )}
@@ -60,7 +67,7 @@ export default async function ProductsPage() {
   );
 }
 
-function ProductRow({ product }: { product: Product }) {
+function ProductRow({ product, isFood }: { product: Product; isFood: boolean }) {
   const cover = product.images?.[0];
   return (
     <li className="flex items-center gap-4 p-4">
@@ -81,6 +88,11 @@ function ProductRow({ product }: { product: Product }) {
         <Button asChild variant="outline" size="sm">
           <Link href={`/seller/products/${product.id}`}>Edit</Link>
         </Button>
+        {isFood ? (
+          <Button asChild variant="outline" size="sm">
+            <Link href={`/seller/products/${product.id}/label`}>Label</Link>
+          </Button>
+        ) : null}
         <form action={setProductStatusAction}>
           <input type="hidden" name="productId" value={product.id} />
           <input

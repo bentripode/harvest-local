@@ -265,6 +265,7 @@ src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type la
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
 src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · online-sales gate · category gate · program choice
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
+src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -536,6 +537,22 @@ disappearing. The choice writes `seller_profiles.food_program_id`
 so moving state clears the choice rather than blocking the move. That column is what makes rules 6
 and 7 precise. `src/lib/compliance/onboarding.ts` holds the reads and the plain-language
 `programRequirements()` / `programSummary()`.
+
+
+**Phase 5 — label and placard generator.** `state_label_rules` is now seeded for all **69 programs**
+(`20260904220000_state_label_rules_seed.sql`) from a complete verbatim re-read of the source. Rules
+are per PROGRAM because two states differ internally: New Hampshire's licensed and unlicensed
+programs carry different disclaimers, and Iowa asks less of a Cottage Food Operation than of a Home
+Food Processing Establishment. **`disclaimer_text` is quoted statute — stored verbatim, printed
+as-is at `disclaimer_min_pt`, never paraphrased or regenerated.** `required_elements` is a fixed
+vocabulary with a CHECK, since a typo silently drops a required field off a label.
+`/seller/products/[id]/label` renders it: `renderLabel()` (`src/lib/labels/render.ts`, pure) merges
+product + seller + verified permit into the state's element list, derives the metric equivalent
+where required (CT/NC/TN), and emits a **`missing` list instead of a label** when the state requires
+something the seller hasn't filled in — naming each field and where to fix it. Printing is disabled
+until it's complete, and refused outright when the state's rule is unrecorded (LA, MA, MT, PA, UT).
+Production date and lot code are asked for at print time, being per-batch. Five states (AK, ID, MN,
+MO, NE) also get a point-of-sale placard.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
