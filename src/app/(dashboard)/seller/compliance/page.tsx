@@ -13,6 +13,7 @@ import {
   getRevenueStatus,
   getRevenueBuckets,
   getSellerLicenses,
+  sellerRequiresFoodPermit,
   sellerSellsCottageFood,
 } from "@/lib/compliance";
 import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
@@ -56,18 +57,19 @@ export default async function CompliancePage() {
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications, sellsCottageFood, foodSales, program, buckets] =
+  const [revenue, licenses, notifications, permitRequired, sellsFood, foodSales, program, buckets] =
     await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
     getInAppNotifications(profile.id),
+    sellerRequiresFoodPermit(seller.id, seller.home_state, seller.food_program_id),
     sellerSellsCottageFood(seller.id),
     getFoodSalesStatus(seller.id),
     getChosenProgram(seller.id),
     getRevenueBuckets(seller.id),
   ]);
 
-  const checklist = buildDocumentChecklist(licenses, sellsCottageFood);
+  const checklist = buildDocumentChecklist(licenses, permitRequired);
   const required = checklist.filter((c) => c.required);
   const outstanding = required.filter((c) => c.status !== "verified");
   // Anything uploaded under the old generic form (food handler card, business license, …).
@@ -216,9 +218,11 @@ export default async function CompliancePage() {
             {outstanding.length === 0
               ? "Everything we need is verified."
               : `Your storefront stays paused until all ${required.length} are verified — ${outstanding.length} still outstanding.`}{" "}
-            {sellsCottageFood
-              ? "You list food, so we also need your cottage-food permit."
-              : "You don't list food yet, so no cottage-food permit is needed. Add a food product and it becomes required."}
+            {permitRequired
+              ? `You list food and ${stateName(seller.home_state)} requires a permit for it, so we need that too.`
+              : sellsFood
+                ? `You list food, but we have no verified rule saying ${stateName(seller.home_state)} issues a cottage-food permit — so we're not asking you for one.`
+                : "You don't list food yet, so no cottage-food permit is needed."}
           </p>
         </div>
 

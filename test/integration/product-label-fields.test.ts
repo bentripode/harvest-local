@@ -143,6 +143,9 @@ describeDb("food listings need their label fields to publish", () => {
     ingredients: ["Wheat flour", "Water", "Sea salt"],
     net_weight_value: "24",
     net_weight_unit: "oz",
+    // Ticking an allergen answers the allergen question, so each case below isolates the field it
+    // names. The answer itself is covered in "a food listing needs an allergen answer".
+    allergens: ["wheat"],
   };
 
   async function insert(fields: Record<string, unknown>) {
@@ -242,5 +245,113 @@ describeDb("food listings need their label fields to publish", () => {
   it("asks nothing of a non-food listing", async () => {
     const { error } = await insert({ status: "active", category_id: craftCategoryId });
     expect(error).toBeNull();
+  });
+});
+
+/**
+ * An empty allergen list is not an answer (`20260905120000_allergen_declaration.sql`).
+ *
+ * `products.allergens = '{}'` carried two different claims — "contains none of the nine" and
+ * "nobody filled this in" — and once the pre-checkout disclosure renders the label to the buyer,
+ * the second silently becomes the first. `allergens_confirmed_at` is the seller actually saying it,
+ * and publishing a food listing now needs one or the other.
+ */
+describeDb("a food listing needs an allergen answer", () => {
+  let admin: Db;
+  let sellerId: string;
+  let foodCategoryId: string;
+  let craftCategoryId: string;
+
+  const label = {
+    ingredients: ["Water", "Sea salt"],
+    net_weight_value: "12",
+    net_weight_unit: "oz",
+  };
+
+  async function insert(fields: Record<string, unknown>) {
+    return admin
+      .from("products")
+      .insert({
+        seller_id: sellerId,
+        title: `IT ${Math.random().toString(36).slice(2, 8)}`,
+        price: "5.00",
+        category_id: foodCategoryId,
+        quantity_available: 3,
+        ...label,
+        ...fields,
+      })
+      .select("id")
+      .single();
+  }
+
+  beforeAll(async () => {
+    admin = adminDb();
+    const user = await createTestUser({ role: "seller", homeState: "TX" });
+    const seller = await createSeller(user.id, { homeState: "TX" });
+    sellerId = seller.id;
+
+    const { data: food } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    foodCategoryId = food!.id;
+
+    const { data: craft } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "crafts-candles")
+      .single();
+    craftCategoryId = craft!.id;
+  });
+
+  afterAll(cleanupAll);
+
+  it("refuses to publish with an empty, unconfirmed allergen list", async () => {
+    const { error } = await insert({ status: "active", allergens: [] });
+    expect(error?.message).toMatch(/allergen/i);
+  });
+
+  it("accepts a ticked allergen as the answer", async () => {
+    const { error } = await insert({ status: "active", allergens: ["wheat"] });
+    expect(error).toBeNull();
+  });
+
+  it("accepts an explicit declaration of none", async () => {
+    const { error } = await insert({
+      status: "active",
+      allergens: [],
+      allergens_confirmed_at: new Date().toISOString(),
+    });
+    expect(error).toBeNull();
+  });
+
+  it("lets an unanswered listing sit as a draft", async () => {
+    const { error } = await insert({ status: "draft", allergens: [] });
+    expect(error).toBeNull();
+  });
+
+  it("asks nothing of a non-food listing", async () => {
+    const { error } = await insert({
+      status: "active",
+      allergens: [],
+      category_id: craftCategoryId,
+    });
+    expect(error).toBeNull();
+  });
+
+  it("blocks withdrawing the answer from a live listing", async () => {
+    // Publishing then clearing the declaration would put the listing back to asserting a safety
+    // fact nobody stands behind — while it is still on the storefront.
+    const { data } = await insert({
+      status: "active",
+      allergens: [],
+      allergens_confirmed_at: new Date().toISOString(),
+    });
+    const { error } = await admin
+      .from("products")
+      .update({ allergens_confirmed_at: null })
+      .eq("id", data!.id);
+    expect(error).not.toBeNull();
   });
 });

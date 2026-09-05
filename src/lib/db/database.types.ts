@@ -568,6 +568,7 @@ export type Database = {
       products: {
         Row: {
           allergens: string[]
+          allergens_confirmed_at: string | null
           category_id: string
           created_at: string
           description: string | null
@@ -588,6 +589,7 @@ export type Database = {
         }
         Insert: {
           allergens?: string[]
+          allergens_confirmed_at?: string | null
           category_id: string
           created_at?: string
           description?: string | null
@@ -608,6 +610,7 @@ export type Database = {
         }
         Update: {
           allergens?: string[]
+          allergens_confirmed_at?: string | null
           category_id?: string
           created_at?: string
           description?: string | null

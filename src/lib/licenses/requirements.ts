@@ -1,10 +1,13 @@
 /**
  * The document set a seller must have verified before their storefront can go live.
  *
- * Government ID and Tax ID are always required; the cottage-food permit is required only when the
- * seller lists food, which is derived from their product categories (`seller_sells_cottage_food()`,
- * `20260904130000_seller_documents.sql`) rather than self-declared. Pure — the seller upload form,
- * the compliance checklist and the admin queue all render from here.
+ * Government ID and Tax ID are always required. The cottage-food permit needs two things to be
+ * true: the seller lists food (derived from their product categories via
+ * `seller_sells_cottage_food()`, never self-declared) AND their state verifiably issues such a
+ * permit at all (`seller_requires_food_permit()`,
+ * `20260905130000_permit_required_only_where_law_says.sql`). Texas is why the second condition
+ * exists — it issues none, so asking for one demanded a document that does not exist. Pure — the
+ * seller upload form, the compliance checklist and the admin queue all render from here.
  *
  * The data-layer counterpart is `seller_has_required_documents()`. Keep the two in step: this file
  * decides what the seller is asked for, that function decides whether the storefront may open.
@@ -69,8 +72,8 @@ export function documentSpec(type: string): DocumentSpec | undefined {
 }
 
 /** The types this seller must have verified. Mirrors `seller_has_required_documents()`. */
-export function requiredDocumentTypes(sellsCottageFood: boolean): RequiredDocumentType[] {
-  return DOCUMENT_SPECS.filter((d) => !d.conditional || sellsCottageFood).map((d) => d.type);
+export function requiredDocumentTypes(permitRequired: boolean): RequiredDocumentType[] {
+  return DOCUMENT_SPECS.filter((d) => !d.conditional || permitRequired).map((d) => d.type);
 }
 
 /**
@@ -133,12 +136,12 @@ function statusOf(license: ChecklistLicense): DocumentStatus {
 }
 
 /**
- * One row per document type, newest-best first. `sellsCottageFood` comes from the seller's
- * catalogue, so the permit appears as required only once they list food.
+ * One row per document type, newest-best first. `permitRequired` is the seller listing food AND
+ * their state verifiably issuing a permit at all — see `sellerRequiresFoodPermit`.
  */
 export function buildDocumentChecklist(
   licenses: ChecklistLicense[],
-  sellsCottageFood: boolean,
+  permitRequired: boolean,
 ): ChecklistItem[] {
   return DOCUMENT_SPECS.map((spec) => {
     const mine = licenses.filter((l) => l.license_type === spec.type);
@@ -160,7 +163,7 @@ export function buildDocumentChecklist(
 
     return {
       spec,
-      required: !spec.conditional || sellsCottageFood,
+      required: !spec.conditional || permitRequired,
       status: bestStatus,
       license: best,
     };

@@ -15,7 +15,10 @@ import type { CategoryPermissions } from "@/lib/compliance/categories";
 import {
   MAJOR_ALLERGENS,
   NET_WEIGHT_UNITS,
+  allergenWarnings,
+  describeAllergenWarning,
   formatNetWeight,
+  parseIngredients,
 } from "@/lib/products/labeling";
 import {
   createProductAction,
@@ -38,6 +41,7 @@ export interface ProductFormValues {
   netWeightValue: string;
   netWeightUnit: string;
   allergens: string[];
+  allergensConfirmed: boolean;
 }
 
 export function ProductForm({
@@ -65,6 +69,9 @@ export function ProductForm({
   const [status, setStatus] = useState(initial?.status ?? "draft");
   const [weightValue, setWeightValue] = useState(initial?.netWeightValue ?? "");
   const [weightUnit, setWeightUnit] = useState(initial?.netWeightUnit ?? "");
+  const [ingredientsText, setIngredientsText] = useState(initial?.ingredients ?? "");
+  const [allergens, setAllergens] = useState<string[]>(initial?.allergens ?? []);
+  const [allergensNone, setAllergensNone] = useState(initial?.allergensConfirmed ?? false);
   const [images, setImages] = useState<ProductImage[]>(initial?.images ?? []);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -82,6 +89,13 @@ export function ProductForm({
     (c) => (c.id === categoryId || c.id === subcategoryId) && c.requires_food_permit,
   );
   const labelRequired = isFoodCategory && status === "active";
+
+  // Advisory only — the ingredient text is free-form English, so this nudges and never blocks.
+  const warnings = isFoodCategory
+    ? allergenWarnings(parseIngredients(ingredientsText), allergens)
+    : [];
+  // Ticking an allergen is itself an answer; "none of the nine" only applies to an empty list.
+  const allergenAnswered = allergens.length > 0 || allergensNone;
 
   async function handleUpload(files: FileList | null) {
     if (!files?.length) return;
@@ -229,7 +243,8 @@ export function ProductForm({
             name="ingredients"
             rows={4}
             required={labelRequired}
-            defaultValue={initial?.ingredients}
+            value={ingredientsText}
+            onChange={(e) => setIngredientsText(e.target.value)}
             placeholder={"Wheat flour\nWater\nSourdough culture\nSea salt"}
           />
           <p className="text-muted-foreground text-xs">
@@ -285,7 +300,10 @@ export function ProductForm({
         ) : null}
 
         <div className="space-y-2">
-          <span className="text-sm font-medium">Allergens</span>
+          <span className="text-sm font-medium">
+            Allergens
+            {labelRequired ? <span className="text-destructive"> *</span> : null}
+          </span>
           <p className="text-muted-foreground text-xs">
             Tick every one present. These nine are the ones federal law names, and most states
             require them called out.
@@ -300,13 +318,59 @@ export function ProductForm({
                   type="checkbox"
                   name="allergens"
                   value={a.value}
-                  defaultChecked={initial?.allergens.includes(a.value)}
+                  checked={allergens.includes(a.value)}
+                  onChange={(e) => {
+                    setAllergens((prev) =>
+                      e.target.checked ? [...prev, a.value] : prev.filter((v) => v !== a.value),
+                    );
+                    // Ticking one contradicts "contains none", so the declaration steps aside.
+                    if (e.target.checked) setAllergensNone(false);
+                  }}
                   className="sr-only"
                 />
                 {a.label}
               </label>
             ))}
           </div>
+
+          {/*
+            An empty list used to mean both "contains none" and "never filled in", and the buyer
+            saw the first either way. This is the seller actually saying it.
+          */}
+          <label className="flex items-start gap-2 pt-1 text-sm">
+            <input
+              type="checkbox"
+              name="allergensNone"
+              checked={allergensNone}
+              disabled={allergens.length > 0}
+              onChange={(e) => setAllergensNone(e.target.checked)}
+              className="mt-0.5"
+            />
+            <span className={allergens.length > 0 ? "text-muted-foreground" : undefined}>
+              This product contains none of the nine.
+            </span>
+          </label>
+
+          {labelRequired && !allergenAnswered ? (
+            <p className="text-destructive text-xs">
+              Tick the allergens present, or confirm it contains none — an empty list on its own
+              can&apos;t go live, because the buyer reads it as &ldquo;no allergens&rdquo;.
+            </p>
+          ) : null}
+
+          {warnings.length > 0 ? (
+            <div className="border-destructive/40 bg-destructive/5 space-y-1 rounded-md border p-2">
+              <p className="text-xs font-medium">Worth a second look</p>
+              {warnings.map((w) => (
+                <p key={w.allergen} className="text-muted-foreground text-xs">
+                  {describeAllergenWarning(w)}
+                </p>
+              ))}
+              <p className="text-muted-foreground text-xs">
+                Reading your ingredients, not a rule — publish anyway if it&apos;s wrong.
+              </p>
+            </div>
+          ) : null}
         </div>
       </fieldset>
 

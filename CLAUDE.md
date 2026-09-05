@@ -568,9 +568,12 @@ isn't one) and counts it by `cap_basis`
 (`20260904230000_cap_variants.sql`, `20260904240000_program_cap_category.sql`):
 `annual_total` behaves as before; `per_product` and `per_category` tally into
 `seller_revenue_buckets` (one row per product or per regulatory axis), with each bucket carrying its
-own cap — **Colorado's $10,000 is per product, so a baker with six products has six caps**, and
-Virginia's $3,000 applies to `cap_category = 'acidified'` alone while everything else stays
-uncapped. Bucket amounts take a proportional share of the order's discounted total, so a bucket
+own cap — Virginia's $3,000 applies to `cap_category = 'acidified'` alone while everything else
+stays uncapped. **Colorado used to be the `per_product` example here and no longer is:** verifying
+Colo. Rev. Stat. § 25-4-1614 against the statute (2026-09-05) found a single **$150,000 annual**
+cap and no per-product figure anywhere in the current text, so that row is now `annual_total` and
+Virginia is the only `per_category` row left. The machinery stays because Virginia still needs it —
+but do not cite Colorado for it. Bucket amounts take a proportional share of the order's discounted total, so a bucket
 never counts more than the seller was paid. `license_threshold` is **not** a cap: crossing it stamps
 `seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Minnesota's $7,665
 and Vermont's $6,500 / $10,000 mean "get a licence", not "stop selling". `seller_revenue_tracking`
