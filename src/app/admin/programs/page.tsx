@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Badge } from "@/components/ui/badge";
 import { getAllStatePrograms, type StateProgramSummary } from "@/lib/compliance/programs";
 import { getUnmappedFoodCategories } from "@/lib/compliance/categories";
@@ -40,7 +42,8 @@ export default async function AdminProgramsPage() {
             </strong>{" "}
             Seeded from the Institute for Justice state pages on 4 September 2026 — a serious source,
             but a summary rather than statute, and its own pages say so. Nothing here should gate a
-            real seller until a human has checked it against the state&apos;s own rules.
+            real seller until a human has checked it against the state&apos;s own rules. Open a
+            program to review and verify it; start with the states you actually have sellers in.
           </p>
         ) : null}
 
@@ -104,7 +107,9 @@ function StateCard({ state }: { state: StateProgramSummary }) {
         {state.programs.map((p) => (
           <li key={p.id} className="space-y-1.5 p-3 text-sm">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-medium">{p.name}</span>
+              <Link href={`/admin/programs/${p.id}`} className="font-medium hover:underline">
+                {p.name}
+              </Link>
               <Badge variant={p.online_orders === "allowed" ? "default" : "destructive"}>
                 online {p.online_orders}
               </Badge>
