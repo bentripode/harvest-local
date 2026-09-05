@@ -468,7 +468,11 @@ them: `reviewLicenseAction` goes through the service-role client behind `require
 Verifying is what arms `license-expiry-scan` (it scans `verified` rows only), so the action refuses
 to verify an already-lapsed document. A rejection must carry a note — the seller sees it on
 `/seller/compliance` — and either outcome queues a `license_verified` / `license_rejected`
-notification (category `compliance`, so not suppressible). Every decision then runs
+notification (category `compliance`, so not suppressible). **A licence cannot be verified with no
+document attached** — `seller_licenses_guard_verification` blocks the transition and
+`reviewLicenseAction` says so in a sentence. `seller_licenses_document_required` already covers the
+three required types on new writes; the trigger covers the other types and rows that predate it.
+Rejecting a documentless licence stays allowed, so the seller learns why. Every decision then runs
 `sync_seller_license_pause()` (rule 5), so verifying a document is what reopens the storefront and
 withdrawing a verification is what closes it; `license_required` tells a seller paused this way what
 to do. The document itself is reached only via

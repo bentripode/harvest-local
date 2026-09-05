@@ -141,11 +141,16 @@ function Section({
                   </p>
                 ) : null}
 
-                {l.status !== "expired" ? (
+                {l.status === "expired" ? null : l.hasDocument ? (
                   <div className="mt-3">
                     <LicenseReviewForm licenseId={l.id} />
                   </div>
-                ) : null}
+                ) : (
+                  <p className="text-muted-foreground mt-3 text-sm">
+                    Nothing to review until the seller uploads the document. You can still reject it
+                    to tell them why.
+                  </p>
+                )}
               </li>
             );
           })}
