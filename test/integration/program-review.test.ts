@@ -15,7 +15,14 @@ describeDb("program review", () => {
   let adminUser: TestUser;
   let sellerUser: TestUser;
   let programId: string;
-  let original: Record<string, unknown>;
+  /** Just the columns this suite changes, so they can be restored with their real types. */
+  let original: {
+    online_orders: string;
+    cat_meat: string;
+    revenue_cap: string | null;
+    cap_basis: string;
+    cap_category: string | null;
+  };
 
   beforeAll(async () => {
     admin = adminDb();
@@ -24,12 +31,18 @@ describeDb("program review", () => {
 
     const { data } = await admin
       .from("state_food_programs")
-      .select("*")
+      .select("id, online_orders, cat_meat, revenue_cap, cap_basis, cap_category")
       .eq("state_code", "TX")
       .eq("ordinal", 1)
       .single();
     programId = data!.id;
-    original = data!;
+    original = {
+      online_orders: data!.online_orders,
+      cat_meat: data!.cat_meat,
+      revenue_cap: data!.revenue_cap,
+      cap_basis: data!.cap_basis,
+      cap_category: data!.cap_category,
+    };
   });
 
   afterAll(async () => {
