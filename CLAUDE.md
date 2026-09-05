@@ -273,7 +273,7 @@ src/lib/messages/queries.ts            conversation list / thread / unread-count
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention, tax-id-rekey)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention, tax-id-rekey, program-review-scan)
 src/lib/notifications/                  queue (channel fan-out + email opt-out / SMS opt-in) · categories (template→category, prefs, smsEnabled) · copy (in-app lines) · templates (email) · send (Resend) · sms (Twilio)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
@@ -553,6 +553,23 @@ something the seller hasn't filled in — naming each field and where to fix it.
 until it's complete, and refused outright when the state's rule is unrecorded (LA, MA, MT, PA, UT).
 Production date and lot code are asked for at print time, being per-batch. Five states (AK, ID, MN,
 MO, NE) also get a point-of-sale placard.
+
+
+**Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
+the seller's **chosen program** (falling back to `state_cottage_food_rules.revenue_cap` when there
+isn't one) and counts it by `cap_basis`
+(`20260904230000_cap_variants.sql`, `20260904240000_program_cap_category.sql`):
+`annual_total` behaves as before; `per_product` and `per_category` tally into
+`seller_revenue_buckets` (one row per product or per regulatory axis), with each bucket carrying its
+own cap — **Colorado's $10,000 is per product, so a baker with six products has six caps**, and
+Virginia's $3,000 applies to `cap_category = 'acidified'` alone while everything else stays
+uncapped. Bucket amounts take a proportional share of the order's discounted total, so a bucket
+never counts more than the seller was paid. `license_threshold` is **not** a cap: crossing it stamps
+`seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Minnesota's $7,665
+and Vermont's $6,500 / $10,000 mean "get a licence", not "stop selling". `seller_revenue_tracking`
+keeps the annual total whatever the basis, because that is what `/seller/compliance` shows.
+`program-review-scan` (Inngest, Mondays) counts programs never verified or verified over a year ago
+and emails admins; the same figure shows on `/admin/programs`.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips

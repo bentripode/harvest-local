@@ -137,6 +137,7 @@ export type Database = Omit<Generated, "public"> & {
       | "state_cottage_food_rules"
       | "state_food_programs"
       | "seller_revenue_tracking"
+      | "seller_revenue_buckets"
       | "referrals"
       | "refunds"
     > & {
@@ -152,6 +153,10 @@ export type Database = Omit<Generated, "public"> & {
       >;
       seller_revenue_tracking: MoneyFixed<
         GenTables["seller_revenue_tracking"],
+        "gross_revenue" | "cap_amount"
+      >;
+      seller_revenue_buckets: MoneyFixed<
+        GenTables["seller_revenue_buckets"],
         "gross_revenue" | "cap_amount"
       >;
       referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
