@@ -77,10 +77,10 @@ two new functions are layered into `src/lib/db/types.ts` by hand until that rege
 pauses every live storefront without a verified license** and emails those sellers a
 `license_required`. Scoped to `pause_reason is null`, so it never re-pauses one an admin reinstated.
 
-☐ **Texas: implement the pre-checkout label disclosure.** §437.0194(b)(2) requires the labelling
-information to be shown to the buyer BEFORE payment is accepted — on the product page, not only on
-the package. The storefront shows allergens and net weight; not the disclaimer or the full set.
-Found while checking Texas against the statute; every other state's page may carry a similar rule.
+☐ **Check whether other states require the label before payment.** Texas does (§437.0194(b)(2)) and
+Nebraska requires the disclaimer in any internet advertising; both are implemented. Every other
+state is `predisclosure_required = false`, which records that nobody has looked — not that the rule
+is absent. Set it as each program is verified.
 
 ☐ **Verify the 69 state food programs at `/admin/programs`.** Seeded from the Institute for
 Justice state pages (read 2026-09-04) and all unverified. It is a summary of the law, not the law:
@@ -189,7 +189,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **161 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **170 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,

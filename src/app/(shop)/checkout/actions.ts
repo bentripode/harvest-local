@@ -3,6 +3,10 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import {
+  getProductDisclosures,
+  type ProductDisclosure,
+} from "@/lib/labels/disclosure";
 
 import { requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
@@ -415,4 +419,19 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
  */
 export async function getMyDeliveryAddressesAction(): Promise<SavedAddress[]> {
   return getMyAddresses();
+}
+
+/**
+ * The label information a buyer must see before paying, for everything in their cart.
+ *
+ * Texas §437.0194(b)(2) requires it "before the operator accepts payment", so this is called from
+ * the checkout page rather than left to the package. Returns an empty map where the state has no
+ * such rule — the component then renders nothing.
+ */
+export async function getCartDisclosuresAction(
+  productIds: string[],
+): Promise<Record<string, ProductDisclosure>> {
+  const ids = z.array(z.string().uuid()).max(100).safeParse(productIds);
+  if (!ids.success) return {};
+  return getProductDisclosures(ids.data);
 }

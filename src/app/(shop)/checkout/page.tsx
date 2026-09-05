@@ -14,8 +14,11 @@ import { stateName } from "@/lib/geo/state";
 import {
   repriceCartAction,
   getMyDeliveryAddressesAction,
+  getCartDisclosuresAction,
   type RepriceResult,
 } from "@/app/(shop)/checkout/actions";
+import { LabelDisclosure } from "@/components/label-disclosure";
+import type { ProductDisclosure } from "@/lib/labels/disclosure";
 import type { SavedAddress } from "@/lib/addresses/queries";
 
 type Address = { line1: string; line2: string; city: string; state: string; postal: string };
@@ -26,6 +29,7 @@ export default function CheckoutPage() {
   const [appliedCode, setAppliedCode] = useState("");
 
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
+  const [disclosures, setDisclosures] = useState<Record<string, ProductDisclosure>>({});
   const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
   const [deliveryWindow, setDeliveryWindow] = useState("");
@@ -84,6 +88,24 @@ export default function CheckoutPage() {
       cancelled = true;
     };
   }, [cartKey, cart, appliedCode, fulfillment, appliedAddr]);
+
+  // Texas requires the label information before payment is accepted, so it is fetched as soon as
+  // the cart is known rather than left to the package. Must sit above the early returns below.
+  const productKey = (cart?.items ?? [])
+    .map((i) => i.productId)
+    .sort()
+    .join(",");
+  useEffect(() => {
+    const ids = productKey ? productKey.split(",") : [];
+    if (ids.length === 0) return;
+    let cancelled = false;
+    getCartDisclosuresAction(ids).then((d) => {
+      if (!cancelled) setDisclosures(d);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [productKey]);
 
   if (!ready) return <p className="text-muted-foreground text-sm">Loading…</p>;
 
@@ -353,6 +375,17 @@ export default function CheckoutPage() {
         <p className="text-destructive rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm">
           This seller isn&apos;t accepting orders right now.
         </p>
+      ) : null}
+
+      {cart.items.some((i) => disclosures[i.productId]?.required) ? (
+        <section className="space-y-2">
+          <h2 className="text-sm font-medium">
+            {stateName(result?.sellerState ?? "")} requires you to see the label before you buy
+          </h2>
+          {cart.items.map((i) => (
+            <LabelDisclosure key={i.productId} disclosure={disclosures[i.productId]} />
+          ))}
+        </section>
       ) : null}
 
       <CheckoutButton

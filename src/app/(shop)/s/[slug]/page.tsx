@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
+import { getProductDisclosures } from "@/lib/labels/disclosure";
+import { LabelDisclosure } from "@/components/label-disclosure";
 
 import { Badge } from "@/components/ui/badge";
 import { AddToCart } from "@/components/add-to-cart";
@@ -44,6 +46,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   ]);
 
   const list = (products ?? []) as Product[];
+  // Where the state requires the label before payment, the listing is the first chance to show it.
+  const disclosures = await getProductDisclosures(list.map((p) => p.id));
   const buyerState = profile?.home_state ?? null;
   const canOrder = !!user && sameState(buyerState, seller.home_state);
   const isOwner = !!user && user.id === seller.profile_id;
@@ -140,6 +144,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                     {formatAllergens(p.allergens ?? [])}
                   </p>
                 ) : null}
+                <LabelDisclosure disclosure={disclosures[p.id]} className="mt-2" />
               </div>
               {canOrder ? (
                 <AddToCart
