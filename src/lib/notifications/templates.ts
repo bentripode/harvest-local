@@ -74,6 +74,11 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller",
     ctaLabel: "Open dashboard",
   },
+  program_review_due: {
+    subject: () => "State food programs need reviewing",
+    ctaPath: "/admin/programs",
+    ctaLabel: "Open the programs list",
+  },
   report_filed: {
     subject: () => "New order report",
     ctaPath: "/admin",

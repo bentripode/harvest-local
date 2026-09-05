@@ -31,6 +31,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   referral_reward_review: "admin",
   referral_reward_attach_failed: "admin",
   report_filed: "admin",
+  program_review_due: "admin",
 };
 
 /**

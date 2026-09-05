@@ -124,3 +124,49 @@ export function daysUntil(dateStr: string): number {
   today.setUTCHours(0, 0, 0, 0);
   return Math.round((new Date(`${dateStr}T00:00:00Z`).getTime() - today.getTime()) / 86_400_000);
 }
+
+export interface RevenueBucket {
+  key: string;
+  label: string;
+  gross: string;
+  cap: string | null;
+  overCap: boolean;
+}
+
+/**
+ * Per-product and per-category tallies, for the states whose cap isn't an annual total — Colorado
+ * counts per product, Virginia caps only acidified foods. Empty for everyone else.
+ */
+export async function getRevenueBuckets(sellerId: string): Promise<RevenueBucket[]> {
+  const supabase = await createClient();
+  const year = new Date().getUTCFullYear();
+
+  const { data } = await supabase
+    .from("seller_revenue_buckets")
+    .select("basis, bucket_key, gross_revenue, cap_amount, is_over_cap")
+    .eq("seller_id", sellerId)
+    .eq("period_year", year);
+  if (!data || data.length === 0) return [];
+
+  // Per-product buckets are keyed by product id; resolve them to titles the seller recognises.
+  const productIds = data.filter((b) => b.basis === "per_product").map((b) => b.bucket_key);
+  const titles = new Map<string, string>();
+  if (productIds.length > 0) {
+    const { data: products } = await supabase
+      .from("products")
+      .select("id, title")
+      .in("id", productIds);
+    for (const p of products ?? []) titles.set(p.id, p.title);
+  }
+
+  return data.map((b) => ({
+    key: b.bucket_key,
+    label:
+      b.basis === "per_product"
+        ? (titles.get(b.bucket_key) ?? "A product you have since removed")
+        : `${b.bucket_key.replace(/_/g, " ")} foods`,
+    gross: b.gross_revenue,
+    cap: b.cap_amount,
+    overCap: b.is_over_cap,
+  }));
+}

@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { getAllStatePrograms, type StateProgramSummary } from "@/lib/compliance/programs";
 import { getUnmappedFoodCategories } from "@/lib/compliance/categories";
+import { getProgramReviewStatus } from "@/lib/compliance/programs";
 import { stateName } from "@/lib/geo/state";
 import { formatUsd, toCents } from "@/lib/money";
 
@@ -11,9 +12,10 @@ export const metadata = { title: "Food programs — Admin" };
  * job of this page today is to make the data — and how much of it is unverified — visible.
  */
 export default async function AdminProgramsPage() {
-  const [states, unmappedCategories] = await Promise.all([
+  const [states, unmappedCategories, review] = await Promise.all([
     getAllStatePrograms(),
     getUnmappedFoodCategories(),
+    getProgramReviewStatus(),
   ]);
   const blocked = states.filter((s) => s.foodSalesBlocked);
   const programCount = states.reduce((n, s) => n + s.programs.length, 0);
@@ -39,6 +41,14 @@ export default async function AdminProgramsPage() {
             Seeded from the Institute for Justice state pages on 4 September 2026 — a serious source,
             but a summary rather than statute, and its own pages say so. Nothing here should gate a
             real seller until a human has checked it against the state&apos;s own rules.
+          </p>
+        ) : null}
+
+        {review.overdue > 0 ? (
+          <p className="text-muted-foreground rounded-lg border p-3 text-sm">
+            <strong>{review.overdue}</strong> programs were last verified over a year ago. A weekly
+            job emails admins about these — laws change, and data that looks settled but isn&apos;t
+            is worse than an obvious gap.
           </p>
         ) : null}
 

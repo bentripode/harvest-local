@@ -1223,12 +1223,57 @@ export type Database = {
           },
         ]
       }
+      seller_revenue_buckets: {
+        Row: {
+          basis: string
+          bucket_key: string
+          cap_amount: number | null
+          gross_revenue: number
+          id: string
+          is_over_cap: boolean
+          period_year: number
+          seller_id: string
+          updated_at: string
+        }
+        Insert: {
+          basis: string
+          bucket_key: string
+          cap_amount?: number | null
+          gross_revenue?: number
+          id?: string
+          is_over_cap?: boolean
+          period_year: number
+          seller_id: string
+          updated_at?: string
+        }
+        Update: {
+          basis?: string
+          bucket_key?: string
+          cap_amount?: number | null
+          gross_revenue?: number
+          id?: string
+          is_over_cap?: boolean
+          period_year?: number
+          seller_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_revenue_buckets_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_revenue_tracking: {
         Row: {
           cap_amount: number | null
           gross_revenue: number
           id: string
           is_over_cap: boolean
+          license_threshold_crossed_at: string | null
           period_year: number
           seller_id: string
           state: string
@@ -1239,6 +1284,7 @@ export type Database = {
           gross_revenue?: number
           id?: string
           is_over_cap?: boolean
+          license_threshold_crossed_at?: string | null
           period_year: number
           seller_id: string
           state: string
@@ -1249,6 +1295,7 @@ export type Database = {
           gross_revenue?: number
           id?: string
           is_over_cap?: boolean
+          license_threshold_crossed_at?: string | null
           period_year?: number
           seller_id?: string
           state?: string
@@ -1345,6 +1392,7 @@ export type Database = {
         Row: {
           application_url: string | null
           cap_basis: string
+          cap_category: string | null
           cap_note: string | null
           cat_acidified: string
           cat_fermented: string
@@ -1384,6 +1432,7 @@ export type Database = {
         Insert: {
           application_url?: string | null
           cap_basis?: string
+          cap_category?: string | null
           cap_note?: string | null
           cat_acidified?: string
           cat_fermented?: string
@@ -1423,6 +1472,7 @@ export type Database = {
         Update: {
           application_url?: string | null
           cap_basis?: string
+          cap_category?: string | null
           cap_note?: string | null
           cat_acidified?: string
           cat_fermented?: string

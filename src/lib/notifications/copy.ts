@@ -38,6 +38,8 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `A referral for seller ${s(p.seller_id).slice(0, 8)} was invalidated after a reward was granted (${label(p.reason)}) — review for possible abuse.`,
   referral_reward_attach_failed: (p) =>
     `A referral reward for order ${s(p.order_id).slice(0, 8)} was earned but the free-month coupon failed to attach — attach it manually. (${s(p.error)})`,
+  program_review_due: (p) =>
+    `${s(p.stale)} state food programs need reviewing — ${s(p.never_verified)} never verified, ${s(p.overdue)} last checked over a year ago. These decide what sellers may list and what their labels say.`,
   report_filed: (p) =>
     `A ${label(p.reason)} report was filed on order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) — triage it in the admin queue.`,
   refund_issued: (p) =>

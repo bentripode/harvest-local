@@ -69,7 +69,7 @@ registrations for the states you operate in.
 ## 3. Supabase
 
 ✅ Migrations applied to the **dev** project, and `database.types.ts` regenerated from the live
-schema. For the project you actually launch on: `npx supabase db push` (45 migrations as of launch),
+schema. For the project you actually launch on: `npx supabase db push` (47 migrations as of launch),
 then `npm run db:types` after any change.
 
 ☐ `20260904110000_license_gate.sql` is **not yet applied** — push it, then `npm run db:types` (the
@@ -120,6 +120,7 @@ functions — critically the **cron jobs**, which do NOT run without Inngest Clo
 - `notification-dispatch` — `*/2 * * * *` backstop for email delivery
 - `tax-id-retention` — daily `0 3 * * *` (destroys tax IDs + documents 4 years past a seller's last sale)
 - `tax-id-rekey` — daily `30 3 * * *` (moves stored tax IDs onto the current encryption key)
+- `program-review-scan` — weekly `0 9 * * 1` (flags state programs never verified or over a year stale)
 
 ---
 
@@ -183,7 +184,7 @@ Then add Sentry alert rules for `area:stripe-webhook` and errors on `/api/innges
 non-200.
 
 ✅ Integration test suite — `npm run test:integration` (`test/integration/`, see its README) runs the
-SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **153 tests, all
+SECURITY DEFINER functions, triggers and RLS policies against a real Postgres. **161 tests, all
 passing** against the dev project. It skips loudly when the `INTEGRATION_SUPABASE_*` vars are unset,
 so `npm test` and CI are unaffected. Covers the four critical rules (`orders_same_state_only`,
 `finalize_paid_order` idempotency, `advance_order_status` authz + transition map,

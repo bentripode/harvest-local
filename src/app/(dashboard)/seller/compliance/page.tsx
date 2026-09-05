@@ -11,6 +11,7 @@ import {
   daysUntil,
   getInAppNotifications,
   getRevenueStatus,
+  getRevenueBuckets,
   getSellerLicenses,
   sellerSellsCottageFood,
 } from "@/lib/compliance";
@@ -55,7 +56,7 @@ export default async function CompliancePage() {
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications, sellsCottageFood, foodSales, program] =
+  const [revenue, licenses, notifications, sellsCottageFood, foodSales, program, buckets] =
     await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
@@ -63,6 +64,7 @@ export default async function CompliancePage() {
     sellerSellsCottageFood(seller.id),
     getFoodSalesStatus(seller.id),
     getChosenProgram(seller.id),
+    getRevenueBuckets(seller.id),
   ]);
 
   const checklist = buildDocumentChecklist(licenses, sellsCottageFood);
@@ -185,6 +187,27 @@ export default async function CompliancePage() {
           )}
         </CardContent>
       </Card>
+
+      {buckets.length > 0 ? (
+        <section className="space-y-2 rounded-lg border p-4">
+          <h2 className="text-sm font-medium">
+            Your state counts this cap separately for each{" "}
+            {buckets[0].key.length === 36 ? "product" : "kind of food"}
+          </h2>
+          <ul className="divide-y">
+            {buckets.map((b) => (
+              <li key={b.key} className="flex flex-wrap items-baseline justify-between gap-2 py-2 text-sm">
+                <span className={b.overCap ? "text-destructive font-medium" : ""}>{b.label}</span>
+                <span className="text-muted-foreground tabular-nums">
+                  {formatUsd(toCents(b.gross))}
+                  {b.cap ? ` of ${formatUsd(toCents(b.cap))}` : ""}
+                  {b.overCap ? " — over the cap" : ""}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section className="space-y-3">
         <div>
