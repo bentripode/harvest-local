@@ -11,7 +11,18 @@ import { reviewLicenseAction, type LicenseReviewState } from "@/app/admin/action
  * Verify / reject one license. The note is optional on a verification and required on a rejection
  * (the action enforces it) — it's the only explanation the seller gets.
  */
-export function LicenseReviewForm({ licenseId }: { licenseId: string }) {
+export function LicenseReviewForm({
+  licenseId,
+  rejectOnly = false,
+}: {
+  licenseId: string;
+  /**
+   * A licence with no document behind it can never be verified — `reviewLicenseAction` refuses it
+   * and so does the `seller_licenses_guard_verification` trigger. Hiding the button keeps the card
+   * honest about the one decision that is actually available.
+   */
+  rejectOnly?: boolean;
+}) {
   const [state, action] = useActionState<LicenseReviewState, FormData>(reviewLicenseAction, {});
 
   return (
@@ -25,7 +36,9 @@ export function LicenseReviewForm({ licenseId }: { licenseId: string }) {
         className="text-sm"
       />
       <div className="flex flex-wrap gap-2">
-        <SubmitButton status="verified" label="Verify" pendingLabel="Verifying…" />
+        {rejectOnly ? null : (
+          <SubmitButton status="verified" label="Verify" pendingLabel="Verifying…" />
+        )}
         <SubmitButton status="rejected" label="Reject" pendingLabel="Rejecting…" variant="outline" />
       </div>
       {state.error ? <p className="text-destructive text-xs">{state.error}</p> : null}

@@ -246,4 +246,35 @@ describeDb("verified licences need a document", () => {
       .eq("id", data!.id);
     expect(error).toBeNull();
   });
+
+  /**
+   * The case above uses `food_handler`, which the CHECK never covered — so nothing exercised the
+   * REQUIRED types, and the real defect went unseen: `NOT VALID` exempts a row from the initial
+   * validation scan only, and the constraint is still evaluated on every later UPDATE. A legacy
+   * documentless cottage-food permit was therefore frozen — 23514 on any write, including the
+   * rejection the admin queue told the reviewer they could make. `20260905100000` exempts the one
+   * status that asserts no document was supplied.
+   */
+  it("lets a required-type licence be rejected with nothing attached", async () => {
+    const { error } = await insertLicence(null, "rejected", "cottage_food");
+    expect(error).toBeNull();
+  });
+
+  it("does not freeze a rejected documentless licence against further edits", async () => {
+    const { data } = await insertLicence(null, "rejected", "cottage_food");
+    const { error } = await admin
+      .from("seller_licenses")
+      .update({ review_note: "Reworded for the seller." })
+      .eq("id", data!.id);
+    expect(error).toBeNull();
+  });
+
+  it("will not let a rejected documentless licence back into the queue", async () => {
+    const { data } = await insertLicence(null, "rejected", "cottage_food");
+    const { error } = await admin
+      .from("seller_licenses")
+      .update({ verification_status: "pending" })
+      .eq("id", data!.id);
+    expect(error).not.toBeNull();
+  });
 });
