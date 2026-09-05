@@ -572,6 +572,34 @@ keeps the annual total whatever the basis, because that is what `/seller/complia
 and emails admins; the same figure shows on `/admin/programs`.
 
 
+**Phase 5 — pre-checkout label disclosure.** Texas \xc2\xa7437.0194(b)(2) permits an internet sale only if
+the labelling information reaches the buyer **before payment is accepted** — the package arriving
+later is too late; Nebraska requires the disclaimer in any internet advertising.
+`state_label_rules.predisclosure_required` records it (true for TX, verified against the statute,
+and NE from the summary; **false elsewhere means nobody has checked, not that the state has no such
+rule**). The data spans tables a buyer cannot read — `addresses` is owner-only, `seller_licenses`
+owner-or-admin — so `product_label_disclosure()` (SECURITY DEFINER, granted to `anon`) returns
+exactly the fields required on the physical label and nothing else, and only for a product a buyer
+can already see. `src/lib/labels/disclosure.ts` runs the result back through `renderLabel()`, so
+what the buyer reads and what gets printed cannot drift apart. Rendered inline on the storefront
+listing and above the pay button at checkout — a state asking for a "legible statement" is not
+satisfied by a collapsed accordion.
+
+
+**Phase 5 — pre-checkout label disclosure.** Texas §437.0194(b)(2) permits an internet sale only if
+the labelling information reaches the buyer **before payment is accepted** — the package arriving
+later is too late; Nebraska requires the disclaimer in any internet advertising.
+`state_label_rules.predisclosure_required` records it (true for TX, verified against the statute,
+and NE from the summary; **false elsewhere means nobody has checked, not that the state has no such
+rule**). The data spans tables a buyer cannot read — `addresses` is owner-only, `seller_licenses`
+owner-or-admin — so `product_label_disclosure()` (SECURITY DEFINER, granted to `anon`) returns
+exactly the fields required on the physical label and nothing else, and only for a product a buyer
+can already see. `src/lib/labels/disclosure.ts` runs the result back through `renderLabel()`, so
+what the buyer reads and what gets printed cannot drift apart. Rendered inline on the storefront
+listing and above the pay button at checkout — a state asking for a "legible statement" is not
+satisfied by a collapsed accordion.
+
+
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
 `platform_settings.access_mode` `sellers_only` ↔ `public` (RLS already allows admin writes),
 `revalidatePath("/", "layout")`. `public` removes the home-page early-access notice and swaps the

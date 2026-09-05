@@ -1537,6 +1537,7 @@ export type Database = {
           notes: string | null
           placard_required: boolean
           placard_text: string | null
+          predisclosure_required: boolean
           program_id: string
           required_elements: string[]
           source_checked_at: string
@@ -1555,6 +1556,7 @@ export type Database = {
           notes?: string | null
           placard_required?: boolean
           placard_text?: string | null
+          predisclosure_required?: boolean
           program_id: string
           required_elements?: string[]
           source_checked_at: string
@@ -1573,6 +1575,7 @@ export type Database = {
           notes?: string | null
           placard_required?: boolean
           placard_text?: string | null
+          predisclosure_required?: boolean
           program_id?: string
           required_elements?: string[]
           source_checked_at?: string
@@ -1878,6 +1881,26 @@ export type Database = {
           p_seller_id: string
         }
         Returns: string
+      }
+      product_label_disclosure: {
+        Args: { p_product_id: string }
+        Returns: {
+          allergens: string[]
+          business_name: string
+          disclaimer_all_caps: boolean
+          disclaimer_min_pt: number
+          disclaimer_text: string
+          ingredients: Json
+          metric_required: boolean
+          net_weight_unit: string
+          net_weight_value: number
+          permit_number: string
+          predisclosure_required: boolean
+          producer_address: string
+          product_name: string
+          required_elements: string[]
+          state_code: string
+        }[]
       }
       recompute_seller_rating: {
         Args: { p_seller_id: string }
