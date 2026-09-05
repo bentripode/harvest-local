@@ -146,10 +146,16 @@ function Section({
                     <LicenseReviewForm licenseId={l.id} />
                   </div>
                 ) : (
-                  <p className="text-muted-foreground mt-3 text-sm">
-                    Nothing to review until the seller uploads the document. You can still reject it
-                    to tell them why.
-                  </p>
+                  <div className="mt-3 space-y-2">
+                    <p className="text-muted-foreground text-sm">
+                      Nothing to review until the seller uploads the document. You can still reject
+                      it to tell them why.
+                    </p>
+                    {/* Reject only: there is no document to have examined, so there is nothing to
+                        verify. Without this the sentence above promises a control that isn't here
+                        and the row sits in the queue forever. */}
+                    <LicenseReviewForm licenseId={l.id} rejectOnly />
+                  </div>
                 )}
               </li>
             );
