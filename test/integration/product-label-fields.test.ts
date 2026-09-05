@@ -123,3 +123,124 @@ describeDb("product label fields", () => {
     expect(Number(data?.net_weight_value)).toBe(1.125);
   });
 });
+
+/**
+ * A food listing may not go live without its ingredients and net weight
+ * (`20260905110000_product_label_fields_required.sql`).
+ *
+ * The columns shipped optional. Once the pre-checkout disclosure went in, an incomplete row stopped
+ * being a private gap in the seller's dashboard and became the label a buyer is shown above the pay
+ * button — so `products_guard_label_fields` refuses to publish one. Draft and archived are exempt,
+ * as with the online-sales and category gates, and non-food listings are untouched.
+ */
+describeDb("food listings need their label fields to publish", () => {
+  let admin: Db;
+  let sellerId: string;
+  let foodCategoryId: string;
+  let craftCategoryId: string;
+
+  const complete = {
+    ingredients: ["Wheat flour", "Water", "Sea salt"],
+    net_weight_value: "24",
+    net_weight_unit: "oz",
+  };
+
+  async function insert(fields: Record<string, unknown>) {
+    return admin
+      .from("products")
+      .insert({
+        seller_id: sellerId,
+        title: `IT ${Math.random().toString(36).slice(2, 8)}`,
+        price: "5.00",
+        category_id: foodCategoryId,
+        quantity_available: 3,
+        ...fields,
+      })
+      .select("id")
+      .single();
+  }
+
+  beforeAll(async () => {
+    admin = adminDb();
+    const user = await createTestUser({ role: "seller", homeState: "TX" });
+    const seller = await createSeller(user.id, { homeState: "TX" });
+    sellerId = seller.id;
+
+    const { data: food } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    foodCategoryId = food!.id;
+
+    const { data: craft } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "crafts-candles")
+      .single();
+    craftCategoryId = craft!.id;
+  });
+
+  afterAll(cleanupAll);
+
+  it("publishes a food listing that carries both fields", async () => {
+    const { error } = await insert({ status: "active", ...complete });
+    expect(error).toBeNull();
+  });
+
+  it("refuses to publish one with no ingredients", async () => {
+    const { error } = await insert({ status: "active", ...complete, ingredients: [] });
+    expect(error?.message).toMatch(/ingredients/i);
+  });
+
+  it("refuses to publish one with no net weight", async () => {
+    const { error } = await insert({
+      status: "active",
+      ...complete,
+      net_weight_value: null,
+      net_weight_unit: null,
+    });
+    expect(error?.message).toMatch(/net weight/i);
+  });
+
+  it("guards sold_out as well — it is still on the storefront", async () => {
+    const { error } = await insert({ status: "sold_out", ...complete, ingredients: [] });
+    expect(error).not.toBeNull();
+  });
+
+  it("lets an incomplete draft be saved, so the seller keeps their work", async () => {
+    const { error } = await insert({ status: "draft" });
+    expect(error).toBeNull();
+  });
+
+  it("blocks the draft from being published until it is complete", async () => {
+    const { data } = await insert({ status: "draft" });
+    const first = await admin
+      .from("products")
+      .update({ status: "active" })
+      .eq("id", data!.id);
+    expect(first.error).not.toBeNull();
+
+    const second = await admin
+      .from("products")
+      .update({ status: "active", ...complete })
+      .eq("id", data!.id);
+    expect(second.error).toBeNull();
+  });
+
+  it("lets a published listing be archived even though it is incomplete", async () => {
+    // The two dev listings this rule was written for are exactly this shape: already live, already
+    // incomplete. Archiving has to stay open or they could not be taken down.
+    const { data } = await insert({ status: "draft" });
+    const { error } = await admin
+      .from("products")
+      .update({ status: "archived" })
+      .eq("id", data!.id);
+    expect(error).toBeNull();
+  });
+
+  it("asks nothing of a non-food listing", async () => {
+    const { error } = await insert({ status: "active", category_id: craftCategoryId });
+    expect(error).toBeNull();
+  });
+});

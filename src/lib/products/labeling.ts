@@ -146,3 +146,47 @@ export function formatNetWeight(
 function trimNumber(n: number): string {
   return Number.isInteger(n) ? String(n) : String(Number(n.toFixed(2)));
 }
+
+/**
+ * What a food listing may not go live without.
+ *
+ * Ingredients and net weight are the two label facts that live on the PRODUCT — everything else a
+ * label needs (producer name, address, permit number, the disclaimer) comes from the seller or the
+ * state rule, so a product form cannot be the place to catch them.
+ *
+ * This is a flat marketplace standard, not a reading of any one statute. `state_label_rules` does
+ * record which programs require which elements — 55 of 69 ask for ingredients, 36 for net weight —
+ * but every one of those rows is seeded unverified, and gating a seller's listing on an unchecked
+ * row is the same mistake as the placeholder revenue caps. Requiring both of every food listing is
+ * stricter than some states and wrong in none of them.
+ *
+ * Non-food listings are untouched: a candle has no ingredient panel.
+ */
+export function missingLabelFields(input: {
+  isFoodCategory: boolean;
+  status: string;
+  ingredients: string[];
+  netWeightValue: string | number | null | undefined;
+  netWeightUnit: string | null | undefined;
+}): string[] {
+  // A draft is work in progress and an archived listing is off the storefront — neither is on sale,
+  // so neither needs a complete label. This mirrors the online-sales and category gates.
+  if (input.status === "draft" || input.status === "archived") return [];
+  if (!input.isFoodCategory) return [];
+
+  const missing: string[] = [];
+  if (input.ingredients.length === 0) missing.push("ingredients");
+  if (!formatNetWeight(input.netWeightValue, input.netWeightUnit)) missing.push("net weight");
+  return missing;
+}
+
+/** The same rule as a sentence the seller can act on, or null when nothing is missing. */
+export function describeMissingLabelFields(missing: string[]): string | null {
+  if (missing.length === 0) return null;
+  const list = missing.length === 2 ? `${missing[0]} and ${missing[1]}` : missing[0];
+  return (
+    `A food listing needs its ${list} before it can go live — buyers have to see the label ` +
+    `information before they pay. Add ${missing.length === 2 ? "them" : "it"} under Label details, ` +
+    `or save this as a draft for now.`
+  );
+}
