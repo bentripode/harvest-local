@@ -207,10 +207,19 @@ export async function reviewLicenseAction(
 
   const { data: license } = await admin
     .from("seller_licenses")
-    .select("id, seller_id, license_type, expiration_date, verification_status")
+    .select("id, seller_id, license_type, expiration_date, document_path, verification_status")
     .eq("id", licenseId)
     .maybeSingle();
   if (!license) return { error: "License not found." };
+
+  // Verifying a licence with nothing attached would record that an admin examined a document that
+  // does not exist — and the storefront gate and label generator both trust that record. The DB
+  // constraint is NOT VALID so rows predating it slip through; this is the guard that catches them.
+  if (status === "verified" && !license.document_path) {
+    return {
+      error: "There's no document attached to this licence, so there's nothing to check. Ask the seller to upload one.",
+    };
+  }
 
   // Verifying an already-lapsed document would arm the expiry scan to immediately re-expire it and
   // pause the storefront. Reject it (or wait for the renewal) instead.
