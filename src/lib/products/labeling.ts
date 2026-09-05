@@ -168,6 +168,9 @@ export function missingLabelFields(input: {
   ingredients: string[];
   netWeightValue: string | number | null | undefined;
   netWeightUnit: string | null | undefined;
+  allergens?: string[];
+  /** True once the seller has explicitly declared "none of the nine". */
+  allergensConfirmed?: boolean;
 }): string[] {
   // A draft is work in progress and an archived listing is off the storefront — neither is on sale,
   // so neither needs a complete label. This mirrors the online-sales and category gates.
@@ -177,16 +180,127 @@ export function missingLabelFields(input: {
   const missing: string[] = [];
   if (input.ingredients.length === 0) missing.push("ingredients");
   if (!formatNetWeight(input.netWeightValue, input.netWeightUnit)) missing.push("net weight");
+  // Ticking an allergen is itself an answer; an empty list is only an answer once it is confirmed.
+  if ((input.allergens ?? []).length === 0 && !input.allergensConfirmed) {
+    missing.push("allergen answer");
+  }
   return missing;
+}
+
+/**
+ * Ingredient names that suggest an allergen, for the "you listed X but didn't tick Y" nudge.
+ *
+ * This ADVISES, it never blocks. Ingredient text is free-form English written by a baker, not a
+ * controlled vocabulary, so any matcher over it is a heuristic — and a heuristic that blocked would
+ * eventually refuse a legitimate listing over a word. A missed allergen is the seller's to catch;
+ * this only makes it harder to miss the obvious one.
+ *
+ * Matched on word boundaries so "buckwheat" is not wheat and "seitan" is not "sesame".
+ */
+const ALLERGEN_HINTS: { allergen: AllergenValue; terms: string[] }[] = [
+  {
+    allergen: "milk",
+    terms: ["milk", "butter", "buttermilk", "cream", "creme", "cheese", "yoghurt", "yogurt",
+      "ghee", "whey", "casein", "custard", "curd", "ricotta", "mascarpone"],
+  },
+  { allergen: "eggs", terms: ["egg", "eggs", "albumen", "meringue", "mayonnaise", "aioli"] },
+  {
+    allergen: "fish",
+    terms: ["fish", "anchovy", "anchovies", "cod", "salmon", "tuna", "sardine", "sardines",
+      "halibut", "tilapia", "worcestershire"],
+  },
+  {
+    allergen: "shellfish",
+    terms: ["shrimp", "prawn", "prawns", "crab", "lobster", "crayfish", "langoustine"],
+  },
+  {
+    allergen: "tree_nuts",
+    // The FDA counts coconut as a tree nut, which surprises people — so it earns a nudge.
+    terms: ["almond", "almonds", "walnut", "walnuts", "pecan", "pecans", "cashew", "cashews",
+      "pistachio", "pistachios", "hazelnut", "hazelnuts", "macadamia", "praline", "marzipan",
+      "coconut", "chestnut", "chestnuts"],
+  },
+  { allergen: "peanuts", terms: ["peanut", "peanuts", "groundnut", "groundnuts", "arachis"] },
+  {
+    allergen: "wheat",
+    terms: ["wheat", "semolina", "spelt", "farro", "durum", "bulgur", "seitan", "graham",
+      "couscous", "einkorn", "farina"],
+  },
+  {
+    allergen: "soybeans",
+    terms: ["soy", "soya", "soybean", "soybeans", "edamame", "tofu", "tempeh", "miso"],
+  },
+  { allergen: "sesame", terms: ["sesame", "tahini", "benne", "gomashio"] },
+];
+
+/** Flours that are not wheat, so a bare "flour" match doesn't cry wolf over almond flour. */
+const NON_WHEAT_FLOURS = [
+  "almond", "rice", "coconut", "oat", "corn", "chickpea", "garbanzo", "cassava", "tapioca",
+  "buckwheat", "millet", "sorghum", "potato", "quinoa", "amaranth", "teff", "rye", "barley",
+  "spelt", "gluten-free", "gluten free", "nut", "seed", "banana", "plantain",
+];
+
+function hasWord(haystack: string, word: string): boolean {
+  // Escape nothing: every term above is plain letters or a hyphen/space.
+  return new RegExp(`(^|[^a-z])${word.replace(/[-\s]/g, "[-\\s]")}($|[^a-z])`, "i").test(haystack);
+}
+
+export interface AllergenWarning {
+  allergen: AllergenValue;
+  /** The ingredient line that triggered it, so the seller can see what we read. */
+  ingredient: string;
+}
+
+/**
+ * Ingredients that look like an allergen the seller hasn't ticked.
+ *
+ * Returns one warning per (allergen, first matching ingredient). An allergen already ticked is
+ * never warned about, so acting on a warning makes it go away.
+ */
+export function allergenWarnings(
+  ingredients: string[],
+  allergens: string[],
+): AllergenWarning[] {
+  const ticked = new Set(parseAllergens(allergens));
+  const out: AllergenWarning[] = [];
+
+  for (const { allergen, terms } of ALLERGEN_HINTS) {
+    if (ticked.has(allergen)) continue;
+
+    for (const ingredient of ingredients) {
+      const text = ingredient.toLowerCase();
+      let hit = terms.some((t) => hasWord(text, t));
+
+      // "Flour" on its own usually means wheat, but not when it's qualified as something else.
+      if (!hit && allergen === "wheat" && hasWord(text, "flour")) {
+        hit = !NON_WHEAT_FLOURS.some((f) => hasWord(text, f));
+      }
+
+      if (hit) {
+        out.push({ allergen, ingredient });
+        break;
+      }
+    }
+  }
+
+  return out;
+}
+
+/** "Wheat flour" suggests Wheat — the nudge, phrased for the seller. */
+export function describeAllergenWarning(w: AllergenWarning): string {
+  return `“${w.ingredient}” suggests ${ALLERGEN_LABELS.get(w.allergen)}, which isn’t ticked.`;
 }
 
 /** The same rule as a sentence the seller can act on, or null when nothing is missing. */
 export function describeMissingLabelFields(missing: string[]): string | null {
   if (missing.length === 0) return null;
-  const list = missing.length === 2 ? `${missing[0]} and ${missing[1]}` : missing[0];
+  const list =
+    missing.length === 1
+      ? missing[0]
+      : `${missing.slice(0, -1).join(", ")} and ${missing[missing.length - 1]}`;
   return (
     `A food listing needs its ${list} before it can go live — buyers have to see the label ` +
-    `information before they pay. Add ${missing.length === 2 ? "them" : "it"} under Label details, ` +
+    `information before they pay. Add ${missing.length === 1 ? "it" : "them"} under Label details, ` +
     `or save this as a draft for now.`
   );
 }

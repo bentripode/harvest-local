@@ -42,6 +42,7 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     netWeightValue: p.net_weight_value ?? "",
     netWeightUnit: p.net_weight_unit ?? "",
     allergens: p.allergens ?? [],
+    allergensConfirmed: p.allergens_confirmed_at != null,
   };
 
   return (

@@ -9,6 +9,8 @@ import {
   MAX_INGREDIENTS,
   missingLabelFields,
   describeMissingLabelFields,
+  allergenWarnings,
+  describeAllergenWarning,
 } from "@/lib/products/labeling";
 
 describe("parseIngredients", () => {
@@ -127,6 +129,9 @@ describe("missingLabelFields", () => {
     ingredients: ["Wheat flour", "Water"],
     netWeightValue: "24",
     netWeightUnit: "oz",
+    // The allergen question is answered throughout this block so each case isolates the field
+    // it names; the answer itself is covered in "missingLabelFields — allergen answer" below.
+    allergens: ["wheat"],
   };
 
   it("passes a complete food listing", () => {
@@ -188,5 +193,101 @@ describe("describeMissingLabelFields", () => {
 
   it("offers the way out, so the seller is never stuck", () => {
     expect(describeMissingLabelFields(["net weight"])).toContain("draft");
+  });
+});
+
+describe("allergenWarnings", () => {
+  it("flags an ingredient that names an unticked allergen", () => {
+    const w = allergenWarnings(["Wheat flour", "Water"], []);
+    expect(w.map((x) => x.allergen)).toContain("wheat");
+    expect(w.find((x) => x.allergen === "wheat")?.ingredient).toBe("Wheat flour");
+  });
+
+  it("says nothing once the seller has ticked it", () => {
+    expect(allergenWarnings(["Wheat flour"], ["wheat"])).toEqual([]);
+  });
+
+  it("does not read buckwheat as wheat", () => {
+    // Substring matching would fire here; word boundaries are the whole point.
+    expect(allergenWarnings(["Buckwheat groats"], [])).toEqual([]);
+  });
+
+  it("treats a bare flour as wheat, but not a qualified one", () => {
+    expect(allergenWarnings(["Flour"], []).map((x) => x.allergen)).toContain("wheat");
+    expect(allergenWarnings(["Almond flour"], []).map((x) => x.allergen)).not.toContain("wheat");
+    expect(allergenWarnings(["Rice flour"], []).map((x) => x.allergen)).not.toContain("wheat");
+    expect(allergenWarnings(["Gluten-free flour"], []).map((x) => x.allergen)).not.toContain(
+      "wheat",
+    );
+  });
+
+  it("still flags the tree nut in almond flour", () => {
+    expect(allergenWarnings(["Almond flour"], []).map((x) => x.allergen)).toContain("tree_nuts");
+  });
+
+  it("catches allergens hiding behind their common names", () => {
+    const named = (ing: string) => allergenWarnings([ing], []).map((x) => x.allergen);
+    expect(named("Unsalted butter")).toContain("milk");
+    expect(named("Tahini")).toContain("sesame");
+    expect(named("Miso paste")).toContain("soybeans");
+    expect(named("Mayonnaise")).toContain("eggs");
+    // The FDA counts coconut as a tree nut, which catches people out.
+    expect(named("Coconut cream")).toContain("tree_nuts");
+  });
+
+  it("reports each allergen once, with the first ingredient that suggested it", () => {
+    const w = allergenWarnings(["Butter", "Whole milk", "Cheese"], []);
+    expect(w.filter((x) => x.allergen === "milk")).toHaveLength(1);
+    expect(w[0].ingredient).toBe("Butter");
+  });
+
+  it("is quiet on a listing with nothing suspicious", () => {
+    expect(allergenWarnings(["Water", "Sea salt", "Sugar"], [])).toEqual([]);
+  });
+
+  it("phrases the warning for a person", () => {
+    const [w] = allergenWarnings(["Wheat flour"], []);
+    expect(describeAllergenWarning(w)).toContain("Wheat flour");
+    expect(describeAllergenWarning(w)).toContain("Wheat");
+  });
+});
+
+describe("missingLabelFields — allergen answer", () => {
+  const base = {
+    isFoodCategory: true,
+    status: "active",
+    ingredients: ["Water"],
+    netWeightValue: "24",
+    netWeightUnit: "oz",
+  };
+
+  it("an empty allergen list alone cannot publish", () => {
+    expect(missingLabelFields({ ...base, allergens: [] })).toEqual(["allergen answer"]);
+  });
+
+  it("ticking an allergen is an answer", () => {
+    expect(missingLabelFields({ ...base, allergens: ["wheat"] })).toEqual([]);
+  });
+
+  it("confirming none is an answer", () => {
+    expect(missingLabelFields({ ...base, allergens: [], allergensConfirmed: true })).toEqual([]);
+  });
+
+  it("asks nothing of a draft or a non-food listing", () => {
+    expect(missingLabelFields({ ...base, status: "draft", allergens: [] })).toEqual([]);
+    expect(missingLabelFields({ ...base, isFoodCategory: false, allergens: [] })).toEqual([]);
+  });
+
+  it("reads as a sentence when all three are missing", () => {
+    const missing = missingLabelFields({
+      ...base,
+      ingredients: [],
+      netWeightValue: null,
+      allergens: [],
+    });
+    expect(missing).toEqual(["ingredients", "net weight", "allergen answer"]);
+    expect(describeMissingLabelFields(missing)).toContain(
+      "ingredients, net weight and allergen answer",
+    );
   });
 });

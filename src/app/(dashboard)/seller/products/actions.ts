@@ -56,6 +56,8 @@ const productSchema = z.object({
     .or(z.literal(""))
     .refine((v) => !v || isNetWeightUnit(v), "Choose a unit."),
   allergens: z.array(z.string()).default([]),
+  /** The seller ticking "contains none of the nine" — an answer, not an absence of one. */
+  allergensNone: z.boolean().default(false),
 });
 
 async function getSellerId(userId: string): Promise<string> {
@@ -84,23 +86,30 @@ function parse(formData: FormData) {
     netWeightValue: formData.get("netWeightValue") ?? "",
     netWeightUnit: formData.get("netWeightUnit") ?? "",
     allergens: formData.getAll("allergens").map(String),
+    allergensNone: formData.get("allergensNone") === "on",
   });
 }
 
 
-/** The three label fields, shaped the same way whichever action is writing them. */
+/** The label fields, shaped the same way whichever action is writing them. */
 function labelFields(d: {
   ingredients?: string;
   netWeightValue?: string;
   netWeightUnit?: string;
   allergens: string[];
+  allergensNone: boolean;
 }) {
   const hasWeight = !!d.netWeightValue && !!d.netWeightUnit;
+  const allergens = parseAllergens(d.allergens);
   return {
     ingredients: parseIngredients(d.ingredients ?? ""),
     net_weight_value: hasWeight ? d.netWeightValue! : null,
     net_weight_unit: hasWeight ? d.netWeightUnit! : null,
-    allergens: parseAllergens(d.allergens),
+    allergens,
+    // Ticking an allergen is already an answer, so the "none" declaration only means anything
+    // alongside an empty list — recording both would be a contradiction stored as fact.
+    allergens_confirmed_at:
+      d.allergensNone && allergens.length === 0 ? new Date().toISOString() : null,
   };
 }
 
@@ -118,6 +127,8 @@ async function labelFieldsBlock(d: {
   ingredients?: string;
   netWeightValue?: string;
   netWeightUnit?: string;
+  allergens: string[];
+  allergensNone: boolean;
 }): Promise<string | null> {
   if (d.status === "draft") return null;
 
@@ -135,6 +146,8 @@ async function labelFieldsBlock(d: {
       ingredients: parseIngredients(d.ingredients ?? ""),
       netWeightValue: d.netWeightValue,
       netWeightUnit: d.netWeightUnit,
+      allergens: parseAllergens(d.allergens),
+      allergensConfirmed: d.allergensNone,
     }),
   );
 }
