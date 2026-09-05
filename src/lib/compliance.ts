@@ -95,6 +95,51 @@ export async function sellerSellsCottageFood(sellerId: string): Promise<boolean>
   return (count ?? 0) > 0;
 }
 
+/**
+ * Whether this seller must produce a cottage food permit — mirrors `seller_requires_food_permit()`,
+ * which is the authority; this is the read for the seller's own checklist, run under their RLS.
+ *
+ * Listing food is necessary but not sufficient: the permit is asked for only where a VERIFIED
+ * program or state row says a licence or registration exists. Texas is the reason — it issues no
+ * cottage food permit at all, and §437.0192(a) forbids a local authority from requiring one, so
+ * asking a Texas seller for one demanded a document that does not exist.
+ */
+export async function sellerRequiresFoodPermit(
+  sellerId: string,
+  homeState: string | null,
+  foodProgramId: string | null,
+): Promise<boolean> {
+  if (!(await sellerSellsCottageFood(sellerId))) return false;
+
+  const supabase = await createClient();
+
+  // The seller's chosen programme wins, but only once a person has reviewed it.
+  if (foodProgramId) {
+    const { data } = await supabase
+      .from("state_food_programs")
+      .select("license_required, verified_at")
+      .eq("id", foodProgramId)
+      .maybeSingle();
+    if (data?.verified_at) {
+      // 'conditional' means "needed in some circumstances" — ask, and let an admin judge.
+      return data.license_required === "yes" || data.license_required === "conditional";
+    }
+  }
+
+  if (homeState) {
+    const { data } = await supabase
+      .from("state_cottage_food_rules")
+      .select("requires_license, verified_at")
+      .eq("state_code", homeState)
+      .maybeSingle();
+    if (data?.verified_at) return !!data.requires_license;
+  }
+
+  // Unverified law asks for nothing: every state row shipped `requires_license = false` as a
+  // placeholder, so gating on one enforced nothing while blocking sellers who owe nothing.
+  return false;
+}
+
 export async function getInAppNotifications(userId: string): Promise<Notification[]> {
   const supabase = await createClient();
   const { data } = await supabase
