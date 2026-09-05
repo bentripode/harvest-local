@@ -77,6 +77,11 @@ two new functions are layered into `src/lib/db/types.ts` by hand until that rege
 pauses every live storefront without a verified license** and emails those sellers a
 `license_required`. Scoped to `pause_reason is null`, so it never re-pauses one an admin reinstated.
 
+☐ **Texas: implement the pre-checkout label disclosure.** §437.0194(b)(2) requires the labelling
+information to be shown to the buyer BEFORE payment is accepted — on the product page, not only on
+the package. The storefront shows allergens and net weight; not the disclaimer or the full set.
+Found while checking Texas against the statute; every other state's page may carry a similar rule.
+
 ☐ **Verify the 69 state food programs at `/admin/programs`.** Seeded from the Institute for
 Justice state pages (read 2026-09-04) and all unverified. It is a summary of the law, not the law:
 check each program a seller actually operates under against the state's own rules before any gate
