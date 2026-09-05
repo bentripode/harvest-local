@@ -164,11 +164,15 @@ describeDb("state food programs", () => {
   });
 
   // -- label rules ----------------------------------------------------------
-  it("leaves label rules unseeded — quoted statute needs its own complete pass", async () => {
-    const { count } = await admin
+  it("has a label rule for every program", async () => {
+    // Seeded separately, after a complete verbatim re-read — see label-rules.test.ts.
+    const { count: programs } = await admin
+      .from("state_food_programs")
+      .select("id", { count: "exact", head: true });
+    const { count: rules } = await admin
       .from("state_label_rules")
       .select("program_id", { count: "exact", head: true });
-    expect(count).toBe(0);
+    expect(rules).toBe(programs);
   });
 
   it("a seller cannot write label rules", async () => {
