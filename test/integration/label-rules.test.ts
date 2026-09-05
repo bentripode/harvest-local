@@ -48,14 +48,31 @@ describeDb("state label rules", () => {
   });
 
   it("stores Texas's disclaimer exactly as the statute reads", async () => {
+    // Corrected against Texas Health & Safety Code §437.0193(b)(2) — the seeded summary carried
+    // materially different wording, which would have been printed onto food.
     const { data } = await admin
       .from("state_label_rules")
-      .select("disclaimer_text, program_id, state_food_programs!inner(state_code)")
+      .select("disclaimer_text, disclaimer_all_caps, state_food_programs!inner(state_code)")
       .eq("state_food_programs.state_code", "TX")
       .single();
     expect(data?.disclaimer_text).toBe(
-      "This food is made in a home kitchen and is not inspected by the Department of State Health Services or a local health department.",
+      "THIS PRODUCT WAS PRODUCED IN A PRIVATE RESIDENCE THAT IS NOT SUBJECT TO GOVERNMENTAL LICENSING OR INSPECTION.",
     );
+    expect(data?.disclaimer_all_caps).toBe(true);
+  });
+
+  it("records that Texas answers the delivery question the seed left open", async () => {
+    // §437.0194(b)(1): an internet sale is permitted only if the operator, an employee or a
+    // household member personally delivers it — so delivery is required, and couriers are not.
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("direct_delivery, mail_delivery, verified_at")
+      .eq("state_code", "TX")
+      .single();
+    expect(data?.direct_delivery).toBe("allowed");
+    expect(data?.mail_delivery).toBe("banned");
+    // Corrections are ours; the sign-off is still an admin's.
+    expect(data?.verified_at).toBeNull();
   });
 
   it("keeps New Hampshire's two programs on different disclaimers", async () => {
