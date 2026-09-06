@@ -41,6 +41,7 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     ingredients: ingredientsToText(p.ingredients ?? []),
     netWeightValue: p.net_weight_value ?? "",
     netWeightUnit: p.net_weight_unit ?? "",
+    handlingInstructions: p.handling_instructions ?? "",
     allergens: p.allergens ?? [],
     allergensConfirmed: p.allergens_confirmed_at != null,
   };

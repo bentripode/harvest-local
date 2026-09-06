@@ -49,6 +49,7 @@ const incomplete: LabelSource = {
   productionDate: null,
   lotCode: null,
   expirationDate: null,
+  handlingInstructions: null,
   sellerStatement: null,
 };
 

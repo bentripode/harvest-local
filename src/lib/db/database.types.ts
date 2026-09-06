@@ -572,6 +572,7 @@ export type Database = {
           category_id: string
           created_at: string
           description: string | null
+          handling_instructions: string | null
           id: string
           images: Json
           ingredients: Json
@@ -593,6 +594,7 @@ export type Database = {
           category_id: string
           created_at?: string
           description?: string | null
+          handling_instructions?: string | null
           id?: string
           images?: Json
           ingredients?: Json
@@ -614,6 +616,7 @@ export type Database = {
           category_id?: string
           created_at?: string
           description?: string | null
+          handling_instructions?: string | null
           id?: string
           images?: Json
           ingredients?: Json
@@ -1909,6 +1912,7 @@ export type Database = {
           disclaimer_min_pt: number
           disclaimer_text: string
           element_alternatives: Json
+          handling_instructions: string
           ingredients: Json
           metric_required: boolean
           municipality: string

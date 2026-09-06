@@ -42,6 +42,7 @@ export interface ProductFormValues {
   netWeightUnit: string;
   allergens: string[];
   allergensConfirmed: boolean;
+  handlingInstructions: string;
 }
 
 export function ProductForm({
@@ -298,6 +299,26 @@ export function ProductForm({
             . Some states require the metric equivalent, so it&apos;s worked out for you.
           </p>
         ) : null}
+
+        <div className="space-y-2">
+          {/* Idaho asks for this on perishable food (37-205(4)(b)) and North Dakota on anything
+              needing refrigeration (23-09.5-02(7)). It is per product rather than per seller,
+              because a cheesecake and a jar of dried herbs need different words. */}
+          <Label htmlFor="handlingInstructions">Storage and handling (optional)</Label>
+          <textarea
+            id="handlingInstructions"
+            name="handlingInstructions"
+            rows={2}
+            maxLength={500}
+            defaultValue={initial?.handlingInstructions ?? ""}
+            className="border-input bg-background placeholder:text-muted-foreground focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:outline-none"
+            placeholder="e.g. Keep refrigerated. Eat within three days of opening."
+          />
+          <p className="text-muted-foreground text-xs">
+            Needed if this food is perishable or has to be kept cold — some states require safe
+            storage and preparation instructions on the label, and it prints alongside the rest.
+          </p>
+        </div>
 
         <div className="space-y-2">
           <span className="text-sm font-medium">

@@ -30,6 +30,7 @@ const source: LabelSource = {
   productionDate: "2026-09-04",
   lotCode: "B-2026-09-04",
   expirationDate: "2026-10-04",
+  handlingInstructions: "Keep refrigerated. Eat within 3 days of opening.",
   sellerStatement: "Not produced in a licensed or regulated facility.",
 };
 
@@ -366,5 +367,40 @@ describe("renderLabel — seller-written statement", () => {
     // Louisiana was one of five states this generator refused to print for. The rule is known now;
     // it simply has no quoted sentence in it.
     expect(renderLabel(louisiana, source).ruleUnknown).toBe(false);
+  });
+});
+
+/**
+ * Idaho Code 37-205(4)(b) and N.D. Cent. Code 23-09.5-02(7): safe storage and preparation
+ * instructions. Per-product, and optional because both states ask only for some products.
+ */
+describe("renderLabel — handling instructions", () => {
+  const rule: LabelRule = {
+    ...texas,
+    requiredElements: ["product_name"],
+    optionalElements: ["handling_instructions"],
+  };
+
+  it("prints them when the seller has written some", () => {
+    const out = renderLabel(rule, source);
+    expect(out.lines.map((l) => l.element)).toContain("handling_instructions");
+    expect(out.lines.find((l) => l.element === "handling_instructions")?.caption).toBe("Handling");
+  });
+
+  it("does not block a shelf-stable label that has none", () => {
+    const out = renderLabel(rule, { ...source, handlingInstructions: null });
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("is the seller's to fix on the product, not at print time", () => {
+    // Unlike the production date, this is a fact about the listing rather than the batch.
+    const out = renderLabel(
+      { ...rule, requiredElements: ["handling_instructions"], optionalElements: [] },
+      { ...source, handlingInstructions: null },
+    );
+    expect(out.missing).toEqual([
+      { element: "handling_instructions", label: "Handling", fix: "product" },
+    ]);
   });
 });

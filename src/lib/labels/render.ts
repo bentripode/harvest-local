@@ -31,6 +31,11 @@ export type LabelElement =
   /** Per-batch like the two above. Iowa asks for one on refrigerated TCS food. */
   | "expiration_date"
   /**
+   * Per-product prose. Idaho wants it on perishable food, North Dakota on anything needing
+   * refrigeration; both ask only of some products, so it is never a required element.
+   */
+  | "handling_instructions"
+  /**
    * A statement the SELLER writes. Louisiana prescribes what the label must convey and not how to
    * word it, so there is no quoted text to store — see `seller_statement_prompt` on the rule.
    */
@@ -88,6 +93,8 @@ export interface LabelSource {
   productionDate: string | null;
   lotCode: string | null;
   expirationDate: string | null;
+  /** Written per product: a cheesecake and a jar of dried herbs need different words. */
+  handlingInstructions: string | null;
   /** Written by the seller at print time, to satisfy a substance-only requirement. */
   sellerStatement: string | null;
 }
@@ -136,6 +143,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   production_date: "Production date",
   lot_code: "Lot or batch code",
   expiration_date: "Use by",
+  handling_instructions: "Handling",
   seller_statement: "Statement",
   nutrition_if_claimed: "Nutrition information",
   regulator_website: "State information website",
@@ -157,6 +165,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   production_date: "print",
   lot_code: "print",
   expiration_date: "print",
+  handling_instructions: "product",
   // Lives on the seller profile now (20260906390000), so the label sheet pre-fills it and the
   // storefront listing can carry it — Neb. Rev. Stat. 81-2,280(5)(c) needs it on the website.
   seller_statement: "profile",
@@ -228,6 +237,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.lotCode;
     case "expiration_date":
       return src.expirationDate;
+    case "handling_instructions":
+      return src.handlingInstructions;
     case "seller_statement":
       return src.sellerStatement;
     case "nutrition_if_claimed":

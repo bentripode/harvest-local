@@ -35,7 +35,9 @@ export async function getLabelContext(
 
   const { data: product } = await supabase
     .from("products")
-    .select("id, title, ingredients, net_weight_value, net_weight_unit, allergens")
+    .select(
+      "id, title, ingredients, net_weight_value, net_weight_unit, allergens, handling_instructions",
+    )
     .eq("id", productId)
     .eq("seller_id", sellerId)
     .maybeSingle();
@@ -136,6 +138,7 @@ export async function getLabelContext(
       productionDate: null,
       lotCode: null,
       expirationDate: null,
+      handlingInstructions: product.handling_instructions,
       // The seller's own wording, where their state prescribes the substance and not the text.
       sellerStatement: seller.homemade_food_statement,
     },
