@@ -86,7 +86,8 @@ export async function getProductDisclosures(
       producerName: row.business_name,
       producerAddress: row.producer_address,
       producerPhone: null,
-      producerEmail: null,
+      // Returned by the RPC only where the state's own rule asks for it; null everywhere else.
+      producerEmail: row.producer_email,
       permitNumber: row.permit_number,
       // California's advertising rule wants the county of approval on the listing itself
       // (114365.3(f)(1)), so this is not a print-only element.

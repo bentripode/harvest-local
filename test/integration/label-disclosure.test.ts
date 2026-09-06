@@ -167,6 +167,10 @@ describeDb("pre-checkout label disclosure", () => {
         "permit_number",
         "predisclosure_required",
         "producer_address",
+        // Returned ONLY where the state's own label rule asks for an email — New Mexico requires
+        // one outright (25-12-3(C)(1)), CO and HI accept it as one of two contact options. Null
+        // everywhere else, so one state's requirement does not publish every seller's address.
+        "producer_email",
         "product_name",
         "regulator_website_url",
         "required_elements",
@@ -236,5 +240,64 @@ describeDb("disclosure gaps are visible, not silent", () => {
     // And the elements are still listed as required, which is what makes the gap detectable.
     expect(data?.[0]?.required_elements).toContain("municipality");
     expect(data?.[0]?.required_elements).toContain("permit_number");
+  });
+});
+
+/**
+ * The email is gated on the state's own rule, because this function is callable by `anon`.
+ *
+ * New Mexico requires the processor's email address on the label AND on the listing (N.M. Stat.
+ * 25-12-3(C)(1) and (B)(4)), so a buyer there is entitled to it before they buy. Texas asks for no
+ * email at all, and returning one anyway would publish every Texan seller's address to satisfy a
+ * rule that does not apply to them.
+ */
+describeDb("the producer email follows the state's rule", () => {
+  let admin: Db;
+
+  async function activeProductIn(state: string): Promise<string> {
+    const user = await createTestUser({ role: "seller", homeState: state });
+    const seller = await createSeller(user.id, { homeState: state });
+    const { data: category } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    const { data: product } = await admin
+      .from("products")
+      .insert({
+        seller_id: seller.id,
+        title: `IT ${state} Loaf`,
+        price: "7.00",
+        category_id: category!.id,
+        status: "active",
+        quantity_available: 2,
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "16",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
+      })
+      .select("id")
+      .single();
+    return product!.id;
+  }
+
+  beforeAll(async () => {
+    admin = adminDb();
+  });
+
+  afterAll(cleanupAll);
+
+  it("returns it in a state whose rule requires one", async () => {
+    const id = await activeProductIn("NM");
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: id });
+    expect(data?.[0]?.required_elements).toContain("producer_email");
+    expect(data?.[0]?.producer_email).toBeTruthy();
+  });
+
+  it("withholds it in a state whose rule does not", async () => {
+    const id = await activeProductIn("TX");
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: id });
+    expect(data?.[0]?.required_elements).not.toContain("producer_email");
+    expect(data?.[0]?.producer_email).toBeNull();
   });
 });

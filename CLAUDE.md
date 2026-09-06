@@ -628,6 +628,15 @@ website", and a value typed into a print form and never stored cannot reach a st
 the state asks for one), and the print form pre-fills from it while still allowing a one-off
 override. Its `fix` is `profile`, so an empty one shows up in `DisclosureGapNotice`.
 
+**`producer_email` is the seller's account email, and `product_label_disclosure()` returns it only
+where the state's own rule asks for one.** N.M. Stat. 25-12-3(C)(1) requires the processor's email on
+the label and (B)(4) requires it on the listing, so a New Mexico buyer is entitled to it before
+buying; CO and HI accept it as one of two contact options. The function is `anon`-callable, so
+returning it unconditionally would publish every seller's address in 44 jurisdictions to satisfy one
+— the CASE reads the resolved rule's required elements, optional elements and alternatives groups,
+and returns null otherwise. The label page reads the seller's own session email instead, since it is
+only ever the seller looking at their own product.
+
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
 the seller's **chosen program** (falling back to `state_cottage_food_rules.revenue_cap` when there
