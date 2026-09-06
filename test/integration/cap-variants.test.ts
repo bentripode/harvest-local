@@ -16,9 +16,20 @@ import {
 /**
  * Sales caps that aren't annual totals (`20260904230000_cap_variants.sql`).
  *
- * Colorado caps $10,000 PER PRODUCT, Virginia caps only acidified foods at $3,000, and Minnesota
- * and Vermont use thresholds that require a LICENCE rather than stopping sales. All three break the
- * single-annual-number assumption `record_order_revenue` was built on.
+ * `per_product` and `per_category` bases, and licensing thresholds that require a LICENCE rather
+ * than stopping sales, all break the single-annual-number assumption `record_order_revenue` was
+ * built on.
+ *
+ * These tests used to lean on the seeded rows for Colorado, Virginia and Minnesota. They no longer
+ * can: verifying those states against their own statutes (2026-09-05) found Colorado on a single
+ * $150,000 annual cap with no per-product figure in the current law, Virginia on a $9,000 annual
+ * figure rather than a $3,000 acidified-only one, and Minnesota's seeded $7,665 threshold absent
+ * from Minn. Stat. 28A.152 altogether. **No real state now uses `per_product` or `per_category`.**
+ *
+ * That is exactly why these tests build their own programme rows instead. The machinery is correct
+ * and still reachable the moment a verified state turns out to need it, so it stays pinned — but
+ * pinned to the behaviour, not to a claim about any particular state's law. A test that asserts
+ * what Colorado's cap is belongs in a compliance-data review, not in a test of SQL.
  */
 describeDb("revenue cap variants", () => {
   let admin: Db;
@@ -88,12 +99,72 @@ describeDb("revenue cap variants", () => {
     return data!;
   }
 
+  /** Programme rows this file created, torn down in afterAll. */
+  let fixturePrograms: string[];
+  /** `unique (state_code, ordinal)` — start well clear of the seeded ordinals. */
+  let nextOrdinal: number;
+
+  /**
+   * A seller on a programme this test owns.
+   *
+   * Deliberately not a seeded row: the cap basis under test is a property of the SQL, and tying it
+   * to whichever state currently happens to carry that basis is what broke this file when the
+   * compliance data was corrected against the statutes.
+   */
+  async function sellerOnFixture(
+    state: string,
+    program: {
+      cap_basis: string;
+      // numeric columns: PostgREST takes and returns these as strings.
+      revenue_cap?: string | null;
+      cap_category?: string | null;
+      license_threshold?: string | null;
+    },
+  ) {
+    const user = await createTestUser({ role: "seller", homeState: state });
+    const seller = await createSeller(user.id, { homeState: state });
+
+    const ordinal = nextOrdinal++;
+    const { data, error } = await admin
+      .from("state_food_programs")
+      .insert({
+        state_code: state,
+        ordinal,
+        name: `IT fixture ${ordinal}`,
+        revenue_cap: program.revenue_cap ?? null,
+        cap_basis: program.cap_basis,
+        cap_category: program.cap_category ?? null,
+        license_threshold: program.license_threshold ?? null,
+        // Invented, and labelled as such — this row is a test fixture, not a claim about the law.
+        source_url: "https://example.invalid/integration-test-fixture",
+        source_checked_at: "2026-01-01",
+      })
+      .select("id")
+      .single();
+    if (error) throw new Error(`fixture programme: ${error.message}`);
+    fixturePrograms.push(data!.id);
+
+    await admin
+      .from("seller_profiles")
+      .update({ food_program_id: data!.id })
+      .eq("id", seller.id);
+    return { sellerId: seller.id, programId: data!.id };
+  }
+
   beforeAll(() => {
     admin = adminDb();
     buyerByState = new Map();
+    fixturePrograms = [];
+    nextOrdinal = 90;
   });
 
-  afterAll(cleanupAll);
+  afterAll(async () => {
+    // Sellers reference the programme, so they have to go first.
+    await cleanupAll();
+    if (fixturePrograms.length > 0) {
+      await admin.from("state_food_programs").delete().in("id", fixturePrograms);
+    }
+  });
 
   // -- annual total, the common case, unchanged ------------------------------
   it("still counts an annual cap the way it always did", async () => {
@@ -107,8 +178,11 @@ describeDb("revenue cap variants", () => {
   });
 
   // -- per product -----------------------------------------------------------
-  it("tallies Colorado per product, not overall", async () => {
-    const { sellerId } = await sellerOn("CO", "Cottage Foods Act"); // $10,000 per product
+  it("tallies a per-product cap product by product, not overall", async () => {
+    const { sellerId } = await sellerOnFixture("CO", {
+      cap_basis: "per_product",
+      revenue_cap: "10000",
+    });
     const bread = await createProduct(sellerId, { price: "6000.00" });
     const jam = await createProduct(sellerId, { price: "6000.00" });
 
@@ -124,8 +198,11 @@ describeDb("revenue cap variants", () => {
     expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
   });
 
-  it("pauses when a single product crosses its own cap", async () => {
-    const { sellerId } = await sellerOn("CO", "Cottage Foods Act");
+  it("pauses when a single product crosses its own per-product cap", async () => {
+    const { sellerId } = await sellerOnFixture("CO", {
+      cap_basis: "per_product",
+      revenue_cap: "10000",
+    });
     const bread = await createProduct(sellerId, { price: "11000.00" });
 
     await sell(sellerId, "CO", bread, "11000.00");
@@ -139,10 +216,9 @@ describeDb("revenue cap variants", () => {
   });
 
   // -- per category ----------------------------------------------------------
-  it("caps only the category Virginia actually caps", async () => {
-    // The per-category cap belongs to Home Kitchen Exemptions, which also bans online orders — so
-    // the listings have to exist before the program is assigned, exactly as they would for a
-    // seller who switched programs after listing.
+  it("caps only the category a per-category programme names", async () => {
+    // The listings are created before the programme is assigned, exactly as they would be for a
+    // seller who switched programmes after listing.
     const user = await createTestUser({ role: "seller", homeState: "VA" });
     const seller = await createSeller(user.id, { homeState: "VA" });
 
@@ -166,14 +242,23 @@ describeDb("revenue cap variants", () => {
       .update({ category_id: ids["baked-goods"], status: "draft" })
       .eq("id", loaf.id);
 
-    const { data: program } = await admin
+    const ordinal = nextOrdinal++;
+    const { data: program, error: programError } = await admin
       .from("state_food_programs")
-      .select("id, cap_basis, cap_category")
-      .eq("state_code", "VA")
-      .eq("name", "Home Kitchen Exemptions")
+      .insert({
+        state_code: "VA",
+        ordinal,
+        name: `IT fixture ${ordinal}`,
+        cap_basis: "per_category",
+        cap_category: "acidified",
+        revenue_cap: "3000",
+        source_url: "https://example.invalid/integration-test-fixture",
+        source_checked_at: "2026-01-01",
+      })
+      .select("id")
       .single();
-    expect(program?.cap_basis).toBe("per_category");
-    expect(program?.cap_category).toBe("acidified");
+    if (programError) throw new Error(`fixture programme: ${programError.message}`);
+    fixturePrograms.push(program!.id);
 
     await admin
       .from("seller_profiles")
@@ -190,7 +275,13 @@ describeDb("revenue cap variants", () => {
 
   // -- licensing threshold ---------------------------------------------------
   it("records a licensing threshold crossing without pausing anyone", async () => {
-    const { sellerId } = await sellerOn("MN", "Cottage Food"); // $7,665 triggers registration
+    // A threshold means "get a licence", not "stop selling" — so it is set here rather than taken
+    // from Minnesota's seeded $7,665, a figure that does not appear in Minn. Stat. 28A.152.
+    const { sellerId } = await sellerOnFixture("MN", {
+      cap_basis: "annual_total",
+      revenue_cap: "78000",
+      license_threshold: "7665",
+    });
     const product = await createProduct(sellerId, { price: "8000.00" });
 
     await sell(sellerId, "MN", product, "8000.00");
@@ -201,13 +292,17 @@ describeDb("revenue cap variants", () => {
       .eq("seller_id", sellerId)
       .single();
     expect(data?.license_threshold_crossed_at).not.toBeNull();
-    // $8,000 is past the registration threshold but nowhere near Minnesota's $78,000 cap.
+    // $8,000 is past the threshold but nowhere near the $78,000 cap — crossing one is not the other.
     expect(data?.is_over_cap).toBe(false);
     expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
   });
 
   it("records the crossing once, not on every later sale", async () => {
-    const { sellerId } = await sellerOn("MN", "Cottage Food");
+    const { sellerId } = await sellerOnFixture("MN", {
+      cap_basis: "annual_total",
+      revenue_cap: "78000",
+      license_threshold: "7665",
+    });
     const product = await createProduct(sellerId, { price: "8000.00" });
 
     await sell(sellerId, "MN", product, "8000.00");
@@ -249,9 +344,14 @@ describeDb("revenue cap variants", () => {
   });
 
   it("a seller can read their own buckets and no one else's", async () => {
-    const { sellerId } = await sellerOn("CO", "Cottage Foods Act");
+    // Needs a basis that actually writes buckets, or the assertion passes vacuously.
+    const { sellerId } = await sellerOnFixture("CO", {
+      cap_basis: "per_product",
+      revenue_cap: "10000",
+    });
     const product = await createProduct(sellerId, { price: "100.00" });
     await sell(sellerId, "CO", product, "100.00");
+    expect(await buckets(sellerId)).not.toHaveLength(0);
 
     const stranger = await createTestUser({ role: "seller", homeState: "CO" });
     const { data } = await stranger.db
