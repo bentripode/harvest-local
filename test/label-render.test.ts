@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { canPrint, renderLabel, type LabelRule, type LabelSource } from "@/lib/labels/render";
+import {
+  canPrint,
+  parseAlternatives,
+  renderLabel,
+  type LabelRule,
+  type LabelSource,
+} from "@/lib/labels/render";
 
 /**
  * The label renderer. A cottage-food label is a legal document, so the behaviour that matters most
@@ -146,5 +152,122 @@ describe("renderLabel", () => {
     const rule = { ...texas, requiredElements: ["producer_name"] };
     const out = renderLabel(rule, { ...source, producerName: null });
     expect(out.lines[0].value).toBe("Ben's Baked Bread");
+  });
+});
+
+/**
+ * The three things `required_elements` alone could not express, each of which was being worked
+ * around with a note asking a human to finish the label by hand.
+ */
+describe("renderLabel — optional elements, alternatives and state-supplied values", () => {
+  // AS 17.20.332 wants the business licence number "if applicable".
+  const alaska: LabelRule = {
+    ...texas,
+    requiredElements: ["producer_name", "producer_address", "producer_phone"],
+    optionalElements: ["permit_number"],
+  };
+
+  it("prints an optional element when the seller has a value", () => {
+    const out = renderLabel(alaska, { ...source, producerPhone: "907-555-0134" });
+    expect(out.lines.map((l) => l.element)).toContain("permit_number");
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("never blocks on an optional element the seller does not have", () => {
+    const out = renderLabel(alaska, {
+      ...source,
+      producerPhone: "907-555-0134",
+      permitNumber: null,
+    });
+    expect(out.lines.map((l) => l.element)).not.toContain("permit_number");
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  // Colo. Rev. Stat. 25-4-1614(3)(a)(II): "telephone number or electronic mail address".
+  const colorado: LabelRule = {
+    ...texas,
+    requiredElements: ["product_name", "producer_name"],
+    elementAlternatives: [["producer_phone", "producer_email"]],
+  };
+
+  it("is satisfied by either member of an alternatives group", () => {
+    const withPhone = renderLabel(colorado, { ...source, producerPhone: "303-555-0100" });
+    expect(withPhone.missing).toEqual([]);
+    expect(withPhone.lines.map((l) => l.element)).toContain("producer_phone");
+
+    const withEmail = renderLabel(colorado, { ...source, producerEmail: "ben@example.com" });
+    expect(withEmail.missing).toEqual([]);
+    expect(withEmail.lines.map((l) => l.element)).toContain("producer_email");
+  });
+
+  it("prints both members when the seller has both — one was the floor, not the ceiling", () => {
+    const out = renderLabel(colorado, {
+      ...source,
+      producerPhone: "303-555-0100",
+      producerEmail: "ben@example.com",
+    });
+    expect(out.lines.map((l) => l.element)).toEqual([
+      "product_name",
+      "producer_name",
+      "producer_phone",
+      "producer_email",
+    ]);
+  });
+
+  it("reports one missing field naming every alternative when the seller has none", () => {
+    const out = renderLabel(colorado, source);
+    expect(out.missing).toHaveLength(1);
+    expect(out.missing[0].label).toBe("Phone number or Email address");
+    expect(out.missing[0].fix).toBe("profile");
+    expect(canPrint(out)).toBe(false);
+  });
+
+  // A.R.S. 36-932(A)(5) / Colo. Rev. Stat. 25-4-1614(3)(a)(VI): an address the STATE supplies.
+  const arizona: LabelRule = {
+    ...texas,
+    requiredElements: ["product_name", "regulator_website"],
+  };
+
+  it("prints the state-supplied website from the rule, not from the seller", () => {
+    const out = renderLabel(
+      { ...arizona, regulatorWebsiteUrl: "https://azhealth.gov/cottagefood" },
+      source,
+    );
+    expect(out.lines.map((l) => l.value)).toContain("https://azhealth.gov/cottagefood");
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("refuses to print, and blames an admin, when the state's website is unrecorded", () => {
+    const out = renderLabel(arizona, source);
+    expect(out.missing).toEqual([
+      { element: "regulator_website", label: "State information website", fix: "admin" },
+    ]);
+    expect(canPrint(out)).toBe(false);
+  });
+
+  it("does not print an element twice when a rule lists it both ways", () => {
+    const out = renderLabel(
+      { ...texas, requiredElements: ["product_name"], optionalElements: ["product_name"] },
+      source,
+    );
+    expect(out.lines).toHaveLength(1);
+  });
+});
+
+describe("parseAlternatives", () => {
+  it("keeps a well-formed group", () => {
+    expect(parseAlternatives([["producer_phone", "producer_email"]])).toEqual([
+      ["producer_phone", "producer_email"],
+    ]);
+  });
+
+  it("drops anything that isn't a group of strings rather than trusting the cast", () => {
+    expect(parseAlternatives("nonsense")).toEqual([]);
+    expect(parseAlternatives(null)).toEqual([]);
+    expect(parseAlternatives(["producer_phone"])).toEqual([]);
+    expect(parseAlternatives([["producer_phone", 7]])).toEqual([["producer_phone"]]);
+    expect(parseAlternatives([[]])).toEqual([]);
   });
 });

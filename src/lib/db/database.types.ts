@@ -1536,12 +1536,15 @@ export type Database = {
           disclaimer_font_note: string | null
           disclaimer_min_pt: number | null
           disclaimer_text: string | null
+          element_alternatives: Json
           metric_required: boolean
           notes: string | null
+          optional_elements: string[]
           placard_required: boolean
           placard_text: string | null
           predisclosure_required: boolean
           program_id: string
+          regulator_website_url: string | null
           required_elements: string[]
           source_checked_at: string
           source_url: string
@@ -1555,12 +1558,15 @@ export type Database = {
           disclaimer_font_note?: string | null
           disclaimer_min_pt?: number | null
           disclaimer_text?: string | null
+          element_alternatives?: Json
           metric_required?: boolean
           notes?: string | null
+          optional_elements?: string[]
           placard_required?: boolean
           placard_text?: string | null
           predisclosure_required?: boolean
           program_id: string
+          regulator_website_url?: string | null
           required_elements?: string[]
           source_checked_at: string
           source_url: string
@@ -1574,12 +1580,15 @@ export type Database = {
           disclaimer_font_note?: string | null
           disclaimer_min_pt?: number | null
           disclaimer_text?: string | null
+          element_alternatives?: Json
           metric_required?: boolean
           notes?: string | null
+          optional_elements?: string[]
           placard_required?: boolean
           placard_text?: string | null
           predisclosure_required?: boolean
           program_id?: string
+          regulator_website_url?: string | null
           required_elements?: string[]
           source_checked_at?: string
           source_url?: string
@@ -1893,14 +1902,18 @@ export type Database = {
           disclaimer_all_caps: boolean
           disclaimer_min_pt: number
           disclaimer_text: string
+          element_alternatives: Json
           ingredients: Json
           metric_required: boolean
+          municipality: string
           net_weight_unit: string
           net_weight_value: number
+          optional_elements: string[]
           permit_number: string
           predisclosure_required: boolean
           producer_address: string
           product_name: string
+          regulator_website_url: string
           required_elements: string[]
           state_code: string
         }[]
@@ -1932,6 +1945,10 @@ export type Database = {
       }
       seller_permits_food_axis: {
         Args: { p_axis: string; p_seller_id: string }
+        Returns: boolean
+      }
+      seller_requires_food_permit: {
+        Args: { p_seller_id: string }
         Returns: boolean
       }
       seller_sells_cottage_food: {

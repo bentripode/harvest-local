@@ -26,10 +26,25 @@ export type LabelElement =
   | "allergens"
   | "production_date"
   | "lot_code"
-  | "nutrition_if_claimed";
+  | "nutrition_if_claimed"
+  /** An address the STATE supplies for the producer to print (AZ, CO). Comes from the rule. */
+  | "regulator_website";
 
 export interface LabelRule {
   requiredElements: string[];
+  /**
+   * Printed when a value exists, never blocking when it does not — the "if applicable" case.
+   * Alaska wants a business licence number only from producers who have one.
+   */
+  optionalElements?: string[];
+  /**
+   * Groups where at least one member is required. Colorado wants a telephone number OR an email
+   * address, so demanding both would block a producer with one and demanding one would drop the
+   * other off the label.
+   */
+  elementAlternatives?: string[][];
+  /** The address this state prescribes, where it prescribes one. Null until an admin records it. */
+  regulatorWebsiteUrl?: string | null;
   disclaimerText: string | null;
   disclaimerMinPt: number | null;
   disclaimerAllCaps: boolean;
@@ -68,8 +83,11 @@ export interface LabelLine {
 export interface MissingField {
   element: LabelElement;
   label: string;
-  /** Where the seller fixes it. */
-  fix: "product" | "profile" | "licence" | "print";
+  /**
+   * Where it gets fixed. `admin` means the STATE'S RULE is incomplete in our data rather than the
+   * seller's product being incomplete — nothing the seller does will resolve it.
+   */
+  fix: "product" | "profile" | "licence" | "print" | "admin";
 }
 
 export interface RenderedLabel {
@@ -98,6 +116,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   production_date: "Production date",
   lot_code: "Lot or batch code",
   nutrition_if_claimed: "Nutrition information",
+  regulator_website: "State information website",
 };
 
 const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
@@ -115,6 +134,8 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   production_date: "print",
   lot_code: "print",
   nutrition_if_claimed: "product",
+  // Not the seller's to supply: the state prescribes this address and an admin records it.
+  regulator_website: "admin",
 };
 
 /** Captions that would be noise on a small label. */
@@ -122,6 +143,19 @@ const NO_CAPTION = new Set<LabelElement>(["product_name", "business_name", "prod
 
 function isElement(value: string): value is LabelElement {
   return value in ELEMENT_LABEL;
+}
+
+/**
+ * `state_label_rules.element_alternatives` arrives from PostgREST as unshaped JSON. A CHECK
+ * constrains it to an array of arrays, but the type system doesn't know that, and a label is not
+ * the place to trust a cast — anything that isn't a group of strings is dropped rather than thrown.
+ */
+export function parseAlternatives(value: unknown): string[][] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((g): g is unknown[] => Array.isArray(g))
+    .map((g) => g.filter((m): m is string => typeof m === "string"))
+    .filter((g) => g.length > 0);
 }
 
 function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): string | null {
@@ -158,6 +192,10 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
     case "nutrition_if_claimed":
       // Only required when the seller makes a nutritional claim, which we can't detect for them.
       return null;
+    case "regulator_website":
+      // Supplied by the state, not the seller. Null means an admin hasn't recorded it yet, and the
+      // label is genuinely unprintable until they do.
+      return rule.regulatorWebsiteUrl ?? null;
   }
 }
 
@@ -171,6 +209,15 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
   const lines: LabelLine[] = [];
   const missing: MissingField[] = [];
 
+  const emit = (element: LabelElement, value: string) => {
+    if (lines.some((l) => l.element === element)) return;
+    lines.push({
+      element,
+      caption: NO_CAPTION.has(element) ? null : ELEMENT_LABEL[element],
+      value,
+    });
+  };
+
   for (const raw of rule.requiredElements) {
     if (!isElement(raw)) continue;
     const value = valueFor(raw, src, rule);
@@ -183,11 +230,39 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
       continue;
     }
 
-    lines.push({
-      element: raw,
-      caption: NO_CAPTION.has(raw) ? null : ELEMENT_LABEL[raw],
-      value,
-    });
+    emit(raw, value);
+  }
+
+  // "At least one of these." Missing only when every member of the group is empty — so Colorado's
+  // "telephone number or electronic mail address" is satisfied by either and blocked by neither.
+  for (const group of rule.elementAlternatives ?? []) {
+    const members = group.filter(isElement);
+    if (members.length === 0) continue;
+
+    const present = members
+      .map((element) => ({ element, value: valueFor(element, src, rule) }))
+      .filter((m) => m.value != null && m.value !== "");
+
+    if (present.length === 0) {
+      // Report the first member, so the seller is pointed at one concrete field to fill.
+      const [first] = members;
+      missing.push({
+        element: first,
+        label: members.map((m) => ELEMENT_LABEL[m]).join(" or "),
+        fix: ELEMENT_FIX[first],
+      });
+      continue;
+    }
+
+    // Print every member the seller does have; the state asked for one, more is not a defect.
+    for (const m of present) emit(m.element, m.value!);
+  }
+
+  // "If applicable." Printed when there is something to print, never a blocker.
+  for (const raw of rule.optionalElements ?? []) {
+    if (!isElement(raw)) continue;
+    const value = valueFor(raw, src, rule);
+    if (value != null && value !== "") emit(raw, value);
   }
 
   return {
