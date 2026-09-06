@@ -124,6 +124,7 @@ export async function getLabelContext(
       allergens: product.allergens ?? [],
       productionDate: null,
       lotCode: null,
+      expirationDate: null,
     },
   };
 }

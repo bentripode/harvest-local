@@ -28,6 +28,8 @@ export type LabelElement =
   | "allergens"
   | "production_date"
   | "lot_code"
+  /** Per-batch like the two above. Iowa asks for one on refrigerated TCS food. */
+  | "expiration_date"
   | "nutrition_if_claimed"
   /** An address the STATE supplies for the producer to print (AZ, CO). Comes from the rule. */
   | "regulator_website";
@@ -75,6 +77,7 @@ export interface LabelSource {
   /** Per-batch, entered at print time rather than stored on the product. */
   productionDate: string | null;
   lotCode: string | null;
+  expirationDate: string | null;
 }
 
 export interface LabelLine {
@@ -120,6 +123,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   allergens: "Allergens",
   production_date: "Production date",
   lot_code: "Lot or batch code",
+  expiration_date: "Use by",
   nutrition_if_claimed: "Nutrition information",
   regulator_website: "State information website",
 };
@@ -139,6 +143,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   allergens: "product",
   production_date: "print",
   lot_code: "print",
+  expiration_date: "print",
   nutrition_if_claimed: "product",
   // Not the seller's to supply: the state prescribes this address and an admin records it.
   regulator_website: "admin",
@@ -199,6 +204,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.productionDate;
     case "lot_code":
       return src.lotCode;
+    case "expiration_date":
+      return src.expirationDate;
     case "nutrition_if_claimed":
       // Only required when the seller makes a nutritional claim, which we can't detect for them.
       return null;
