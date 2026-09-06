@@ -585,7 +585,11 @@ an address the *state* supplies (AZ 36-932(A)(5), CO 25-4-1614(3)(a)(VI)) — it
 the seller, and a rule naming the element with no URL recorded renders as **missing with
 `fix: "admin"`**, because the label genuinely cannot print until an admin enters it. Not everything
 fits: AZ 36-932(A)(4)'s developmental-disability-facility disclosure is conditional on a fact nothing
-models, so it stays in the rule's notes. `product_label_disclosure()` returns all three (plus
+models, so it stays in the rule's notes. **`municipality_state`** is a fourth: 16 Del. Admin. Code
+4458A 8.2.1 asks for `"town/city, Delaware"` as one phrase, so printing the bare town is a
+non-compliant label — it renders "Wilmington, Delaware" from `LabelSource.stateName` and is missing
+unless both halves are known. It does **not** replace `municipality`, which CA and CO want as a bare
+county. `product_label_disclosure()` returns all three (plus
 `municipality`, which it had never returned — California's 114365.3(f) requires the county of
 approval in the *advertisement*, so it was silently dropping off every Californian listing).
 

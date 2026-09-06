@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { stateName } from "@/lib/geo/state";
 import {
   parseAlternatives,
   renderLabel,
@@ -73,6 +74,7 @@ export async function getProductDisclosures(
       // California's advertising rule wants the county of approval on the listing itself
       // (114365.3(f)(1)), so this is not a print-only element.
       municipality: row.municipality,
+      stateName: stateName(row.state_code),
       ingredients: (row.ingredients as string[] | null) ?? [],
       netWeightValue: row.net_weight_value == null ? null : String(row.net_weight_value),
       netWeightUnit: row.net_weight_unit,

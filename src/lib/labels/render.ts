@@ -21,6 +21,8 @@ export type LabelElement =
   | "producer_email"
   | "permit_number"
   | "municipality"
+  /** The town AND the state as one phrase, which Delaware requires: "town/city, Delaware". */
+  | "municipality_state"
   | "ingredients_desc_by_weight"
   | "net_weight"
   | "allergens"
@@ -64,6 +66,8 @@ export interface LabelSource {
   producerEmail: string | null;
   permitNumber: string | null;
   municipality: string | null;
+  /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
+  stateName: string | null;
   ingredients: string[];
   netWeightValue: string | null;
   netWeightUnit: string | null;
@@ -110,6 +114,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   producer_email: "Email address",
   permit_number: "Permit or registration number",
   municipality: "Town or municipality",
+  municipality_state: "Town or city and state",
   ingredients_desc_by_weight: "Ingredients",
   net_weight: "Net quantity",
   allergens: "Allergens",
@@ -128,6 +133,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   producer_email: "profile",
   permit_number: "licence",
   municipality: "profile",
+  municipality_state: "profile",
   ingredients_desc_by_weight: "product",
   net_weight: "product",
   allergens: "product",
@@ -176,6 +182,10 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.permitNumber;
     case "municipality":
       return src.municipality;
+    case "municipality_state":
+      // 16 Del. Admin. Code 4458A 8.2.1 asks for `"town/city, Delaware"` as one phrase, not for a
+      // town in isolation. Both halves are needed or the element is missing.
+      return src.municipality && src.stateName ? `${src.municipality}, ${src.stateName}` : null;
     case "ingredients_desc_by_weight":
       return src.ingredients.length > 0 ? src.ingredients.join(", ") : null;
     case "net_weight":

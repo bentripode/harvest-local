@@ -22,6 +22,7 @@ const source: LabelSource = {
   producerEmail: null,
   permitNumber: "TX-CF-12345",
   municipality: "Austin",
+  stateName: "Texas",
   ingredients: ["Wheat flour", "Water", "Sourdough culture", "Sea salt"],
   netWeightValue: "24",
   netWeightUnit: "oz",
@@ -269,5 +270,34 @@ describe("parseAlternatives", () => {
     expect(parseAlternatives(["producer_phone"])).toEqual([]);
     expect(parseAlternatives([["producer_phone", 7]])).toEqual([["producer_phone"]]);
     expect(parseAlternatives([[]])).toEqual([]);
+  });
+});
+
+/**
+ * 16 Del. Admin. Code 4458A 8.2.1 asks for `"town/city, Delaware"` — one phrase, not a town.
+ */
+describe("renderLabel — municipality_state", () => {
+  const delaware: LabelRule = {
+    ...texas,
+    requiredElements: ["business_name", "municipality_state"],
+  };
+
+  it("prints the town and the state together", () => {
+    const out = renderLabel(delaware, {
+      ...source,
+      municipality: "Wilmington",
+      stateName: "Delaware",
+    });
+    expect(out.lines[1].value).toBe("Wilmington, Delaware");
+  });
+
+  it("is missing unless both halves are known — half the phrase is not the phrase", () => {
+    const out = renderLabel(delaware, { ...source, municipality: null });
+    expect(out.missing.map((m) => m.element)).toEqual(["municipality_state"]);
+  });
+
+  it("leaves the plain municipality element alone — CA and CO want a bare county", () => {
+    const out = renderLabel({ ...texas, requiredElements: ["municipality"] }, source);
+    expect(out.lines[0].value).toBe("Austin");
   });
 });
