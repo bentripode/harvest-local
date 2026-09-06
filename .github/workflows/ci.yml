@@ -54,3 +54,54 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
+
+  # The database pass. Runs against a real Postgres started in the runner, so the SECURITY DEFINER
+  # functions, the guard triggers and the RLS policies are actually exercised rather than assumed.
+  #
+  # This job exists because they weren't. Three cap-variant tests asserted on seeded state data,
+  # were invalidated when that data was corrected against the statutes, and nobody noticed — the
+  # suite skips without a database, a skip exits 0, and CI only ran lint/build/typecheck.
+  #
+  # `supabase start` applies every migration from scratch, so this doubles as the only place the
+  # seed migrations are exercised on a fresh database rather than against an already-populated one.
+  integration:
+    name: integration (database)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      # Excludes only what the suite cannot touch. Auth and storage stay: the harness creates real
+      # auth users, which is what makes the RLS and `auth.uid()` assertions mean anything.
+      - name: Start Postgres, Auth and PostgREST
+        run: supabase start -x studio,imgproxy,edge-runtime,logflare,vector
+
+      - name: Run the database pass
+        run: |
+          set -euo pipefail
+          eval "$(supabase status -o env)"
+          # Fail loudly if the CLI ever renames these — a missing value would otherwise reach the
+          # suite as "no database configured" and skip, which is the failure this job exists to stop.
+          : "${API_URL:?supabase status did not report API_URL}"
+          : "${ANON_KEY:?supabase status did not report ANON_KEY}"
+          : "${SERVICE_ROLE_KEY:?supabase status did not report SERVICE_ROLE_KEY}"
+          INTEGRATION_REQUIRED=1 \
+          INTEGRATION_SUPABASE_URL="$API_URL" \
+          INTEGRATION_SUPABASE_ANON_KEY="$ANON_KEY" \
+          INTEGRATION_SUPABASE_SERVICE_ROLE_KEY="$SERVICE_ROLE_KEY" \
+          npm run test:integration
+
+      - name: Stop Supabase
+        if: always()
+        run: supabase stop --no-backup
