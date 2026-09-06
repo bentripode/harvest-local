@@ -75,13 +75,22 @@ describeDb("state food programs", () => {
       .filter(([, v]) => v.every((x) => x === "banned"))
       .map(([k]) => k)
       .sort();
-    // Still five states, but not the five that were seeded. Checking each ban against primary text
-    // swapped two members: WA joined, because RCW 69.22.020(4) says cottage food "may not be sold
-    // by internet, mail order, or for retail sale outside the state" and the seed had it allowed —
-    // which would have permitted an unlawful listing. HI left, because Haw. Admin. Rules 11-50-3(c)
-    // imposes four conditions on a homemade-food operation and none of them touches selling
-    // channel, so its ban had nothing behind it and was blocking Hawaii sellers for no reason.
-    expect(blocked).toEqual(["DE", "MI", "MS", "NV", "WA"]);
+    // Not the states that were seeded. Checking each ban against primary text swapped members:
+    // WA joined, because RCW 69.22.020(4) says cottage food "may not be sold by internet, mail
+    // order, or for retail sale outside the state" and the seed had it allowed — which would have
+    // permitted an unlawful listing. HI left, because Haw. Admin. Rules 11-50-3(c) imposes four
+    // conditions on a homemade-food operation and none of them touches selling channel, so its ban
+    // had nothing behind it and was blocking Hawaii sellers for no reason.
+    //
+    // SD joined for a third kind of reason: S.D. Codified Laws 34-18-38(2) grants the licence
+    // exemption only where "The food is sold in the seller's PHYSICAL PRESENCE" at one of four
+    // venues, and an internet sale is not. Like New Hampshire's exempt row, the ban is on the
+    // exemption rather than on selling — a licensed South Dakota operation is outside 34-18-38
+    // entirely, and that route is not modelled.
+    //
+    // States with several programmes stay off this list when only one of them bans it: KY, ME, NH
+    // and RI each have a banned row and a permitted one.
+    expect(blocked).toEqual(["DE", "MI", "MS", "NV", "SD", "WA"]);
   });
 
   it("keeps multi-program states distinct", async () => {
