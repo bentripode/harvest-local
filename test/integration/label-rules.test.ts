@@ -123,7 +123,11 @@ describeDb("state label rules", () => {
     // sale" as the alternative to a label — the same either/or shape as Idaho's.
     // OK joined: Okla. Stat. tit. 2 5-4.2(B)(3) requires a placard at the point of sale for
     // unpackaged food, alongside a carriable card.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK"]);
+    // TN joined: Tenn. Code 53-1-118(b)(5)(A)(iii) requires the (b)(4) information "On a placard
+    // displayed at the point of sale, if the homemade food item is neither packaged nor offered for
+    // sale from a bulk container". Unlike CO and IL it prescribes no separate, shorter sign text —
+    // the placard carries the same information as the label — so its placard_text stays null.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK", "TN"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
@@ -154,7 +158,10 @@ describeDb("state label rules", () => {
     //      the homemade food item is offered for sale". The most explicit of the seven.
     // OK — 5-4.2(B)(4), "Displayed on the webpage from which the homemade food product is offered
     //      for sale if it is sold on the Internet".
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TX"]);
+    // TN — 53-1-118(b)(5)(A)(iv), "On the webpage on which the homemade food item is offered for
+    //      sale, if the homemade food item is offered only for sale on the internet". It names the
+    //      listing page, and the information it names is (b)(4) in full.
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
@@ -167,7 +174,11 @@ describeDb("state label rules", () => {
         (data ?? []).map((r) => (r.state_food_programs as unknown as { state_code: string }).state_code),
       ),
     ].sort();
-    expect(states).toEqual(["CT", "NC", "TN"]);
+    // TN left: Tenn. Code 53-1-118(a) exempts homemade food from "all licensing, permitting,
+    // inspecting, packaging, and labeling laws of this state", and (b)(4) — the whole of what the
+    // chapter asks for — has no weight statement in it at all. The metric requirement we held came
+    // from Rule 0080-04-11, the domestic-kitchen scheme repealed by 2022 Pub. Ch. 862 § 5.
+    expect(states).toEqual(["CT", "NC"]);
   });
 
   it("leaves a note wherever no requirements are recorded", async () => {

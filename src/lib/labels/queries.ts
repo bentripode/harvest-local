@@ -46,7 +46,7 @@ export async function getLabelContext(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -122,8 +122,10 @@ export async function getLabelContext(
               postal: address.postal_code,
             })
           : null,
-      // Not collected today — surfaced as missing where a state asks for it.
-      producerPhone: null,
+      // Printed verbatim, and deliberately not profiles.phone — that is the E.164 mobile used for
+      // order-update SMS. Sixteen jurisdictions want a number on the label; Tenn. Code
+      // 53-1-118(b)(4)(A) is the one that also puts it on the listing page.
+      producerPhone: seller.contact_phone,
       // The seller's account email. This page is only ever the seller looking at their own product,
       // so it comes from their session rather than through the SECURITY DEFINER function the
       // storefront uses. N.M. Stat. 25-12-3(C)(1) is the state that requires it outright.
@@ -149,10 +151,11 @@ export async function getLabelContext(
 /**
  * What the seller's own state needs from THEM, as opposed to from the product.
  *
- * Two label elements are facts about the producer rather than the food, so they are collected once
+ * Three label elements are facts about the producer rather than the food, so they are collected once
  * on /seller/settings rather than per listing: the statement four states prescribe by substance and
- * leave the wording of (LA, MO, MT, NE, and Oregon's pet disclosure), and the separate mailing
- * address South Dakota wants beside the physical address of production.
+ * leave the wording of (LA, MO, MT, NE, and Oregon's pet disclosure), the separate mailing
+ * address South Dakota wants beside the physical address of production, and the telephone number
+ * eleven states require outright and five more accept in place of an email address.
  *
  * This decides which cards that page shows. It resolves the seller's programme the same way
  * getLabelContext does, so the settings page and the label generator cannot disagree about what the
@@ -163,10 +166,23 @@ export interface SellerLabelNeeds {
   statementPrompt: string | null;
   /** Whether this state asks for a mailing address separate from the production address. */
   needsMailingAddress: boolean;
+  /**
+   * Whether this state asks for a telephone number on the label — either outright, or as one half
+   * of the phone-or-email alternative CO, DE, HI, IA and ID offer. Offered in both cases: a seller
+   * in an either/or state may reasonably prefer to publish a number rather than their email.
+   */
+  needsPhone: boolean;
+  /** True only where the number is required outright, false where it is one half of an either/or. */
+  phoneRequired: boolean;
 }
 
 export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabelNeeds> {
-  const none: SellerLabelNeeds = { statementPrompt: null, needsMailingAddress: false };
+  const none: SellerLabelNeeds = {
+    statementPrompt: null,
+    needsMailingAddress: false,
+    needsPhone: false,
+    phoneRequired: false,
+  };
   const supabase = await createClient();
 
   const { data: seller } = await supabase
@@ -191,16 +207,21 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
 
   const { data: rule } = await supabase
     .from("state_label_rules")
-    .select("seller_statement_prompt, required_elements, optional_elements")
+    .select("seller_statement_prompt, required_elements, optional_elements, element_alternatives")
     .eq("program_id", programId)
     .maybeSingle();
   if (!rule) return none;
 
+  const alternatives = parseAlternatives(rule.element_alternatives);
   const asks = (el: string) =>
-    (rule.required_elements ?? []).includes(el) || (rule.optional_elements ?? []).includes(el);
+    (rule.required_elements ?? []).includes(el) ||
+    (rule.optional_elements ?? []).includes(el) ||
+    alternatives.some((group) => group.includes(el));
 
   return {
     statementPrompt: rule.seller_statement_prompt ?? null,
     needsMailingAddress: asks("mailing_address"),
+    needsPhone: asks("producer_phone"),
+    phoneRequired: (rule.required_elements ?? []).includes("producer_phone"),
   };
 }

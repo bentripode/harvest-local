@@ -171,6 +171,9 @@ describeDb("pre-checkout label disclosure", () => {
         "predisclosure_required",
         "producer_address",
         "mailing_address",
+        // Gated the same way as the email: eleven states require a producer's telephone number on
+        // the label and five more accept it in place of an email, and it is null in the rest.
+        "producer_phone",
         // Returned ONLY where the state's own label rule asks for an email — New Mexico requires
         // one outright (25-12-3(C)(1)), CO and HI accept it as one of two contact options. Null
         // everywhere else, so one state's requirement does not publish every seller's address.
@@ -304,5 +307,33 @@ describeDb("the producer email follows the state's rule", () => {
     const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: id });
     expect(data?.[0]?.required_elements).not.toContain("producer_email");
     expect(data?.[0]?.producer_email).toBeNull();
+  });
+
+  /**
+   * The telephone number is gated the same way, and Tennessee is the state that forced it to exist:
+   * § 53-1-118(b)(4)(A) requires it on the label and (b)(5)(A)(iv) puts the whole of (b)(4) on the
+   * webpage the item is offered for sale from.
+   */
+  it("returns the phone number Tennessee requires, and withholds it in Texas", async () => {
+    const tn = await activeProductIn("TN");
+    await admin
+      .from("seller_profiles")
+      .update({ contact_phone: "(615) 555-0134" })
+      .eq("id", (await admin.from("products").select("seller_id").eq("id", tn).single()).data!.seller_id);
+
+    const { data: tnRow } = await anonDb().rpc("product_label_disclosure", { p_product_id: tn });
+    expect(tnRow?.[0]?.required_elements).toContain("producer_phone");
+    expect(tnRow?.[0]?.producer_phone).toBe("(615) 555-0134");
+
+    const tx = await activeProductIn("TX");
+    await admin
+      .from("seller_profiles")
+      .update({ contact_phone: "(512) 555-0177" })
+      .eq("id", (await admin.from("products").select("seller_id").eq("id", tx).single()).data!.seller_id);
+
+    const { data: txRow } = await anonDb().rpc("product_label_disclosure", { p_product_id: tx });
+    expect(txRow?.[0]?.required_elements).not.toContain("producer_phone");
+    // Set on the profile, and still not published — Texas's label rule does not ask for one.
+    expect(txRow?.[0]?.producer_phone).toBeNull();
   });
 });

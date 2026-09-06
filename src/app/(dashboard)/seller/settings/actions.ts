@@ -222,3 +222,42 @@ export async function saveMailingAddressAction(
   revalidatePath("/seller/products");
   return { ok: true };
 }
+
+export interface ContactPhoneState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save the telephone number that goes on the label, where the state asks for one.
+ *
+ * Sixteen jurisdictions want a producer's phone number on the package, and Tenn. Code
+ * 53-1-118(b)(4)(A) and (b)(5)(A)(iv) put it on the storefront listing as well. It is deliberately
+ * NOT `profiles.phone` — that is the E.164 mobile number used for order-update texts under a
+ * separate opt-in, and a seller may well want a business line printed on a jar instead.
+ *
+ * Printed verbatim, so the only check is length: "(615) 555-0134", "615-555-0134" and
+ * "+1 615 555 0134" are all things a state accepts on a label, and normalising them would be us
+ * rewriting what the seller chose to publish.
+ */
+export async function saveContactPhoneAction(
+  _prev: ContactPhoneState,
+  formData: FormData,
+): Promise<ContactPhoneState> {
+  const { seller } = await getSellerContext();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const raw = String(formData.get("contactPhone") ?? "").trim();
+  if (raw.length > 40) return { error: "That is too long for a phone number." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("seller_profiles")
+    .update({ contact_phone: raw || null })
+    .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  revalidatePath("/seller/products");
+  return { ok: true };
+}
