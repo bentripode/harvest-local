@@ -5,6 +5,7 @@ import { DeliverySettingsForm } from "@/components/delivery-settings-form";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
 import { HomemadeStatementForm } from "@/components/homemade-statement-form";
 import { MailingAddressForm } from "@/components/mailing-address-form";
+import { ContactPhoneForm } from "@/components/contact-phone-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
@@ -36,7 +37,8 @@ export default async function SellerSettingsPage() {
 
   // Only shown where the seller's state prescribes a disclosure by substance and leaves the wording
   // to them (LA, MO, MT, NE). Everywhere else the statement is quoted statute and not theirs to write.
-  const { statementPrompt, needsMailingAddress } = await getSellerLabelNeeds(seller.id);
+  const { statementPrompt, needsMailingAddress, needsPhone, phoneRequired } =
+    await getSellerLabelNeeds(seller.id);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
@@ -84,6 +86,22 @@ export default async function SellerSettingsPage() {
           />
         </CardContent>
       </Card>
+
+      {needsPhone ? (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Phone number for the label</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4 text-sm">
+              {phoneRequired
+                ? "Your state puts a producer's phone number on the label, so buyers will see it."
+                : "Your state asks for a phone number or an email address on the label. Without a number here, your account email is used."}
+            </p>
+            <ContactPhoneForm initial={seller.contact_phone ?? ""} required={phoneRequired} />
+          </CardContent>
+        </Card>
+      ) : null}
 
       {needsMailingAddress ? (
         <Card>

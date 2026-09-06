@@ -1140,6 +1140,7 @@ export type Database = {
           connect_charges_enabled: boolean
           connect_details_submitted: boolean
           connect_payouts_enabled: boolean
+          contact_phone: string | null
           created_at: string
           delivery_base_fee: number
           delivery_enabled: boolean
@@ -1166,6 +1167,7 @@ export type Database = {
           connect_charges_enabled?: boolean
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
+          contact_phone?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -1192,6 +1194,7 @@ export type Database = {
           connect_charges_enabled?: boolean
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
+          contact_phone?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -1927,6 +1930,7 @@ export type Database = {
           predisclosure_required: boolean
           producer_address: string
           producer_email: string
+          producer_phone: string
           product_name: string
           regulator_website_url: string
           required_elements: string[]

@@ -431,3 +431,57 @@ describe("renderLabel — mailing address", () => {
     ]);
   });
 });
+
+/**
+ * Tennessee, the state that made the phone number a real gap rather than a theoretical one.
+ *
+ * Tenn. Code 53-1-118(b)(4) is the whole of what the chapter asks for, and (b)(5)(A)(iv) puts it on
+ * "the webpage on which the homemade food item is offered for sale" — so a missing telephone number
+ * is not just an unprintable label, it is a listing that does not carry what the statute requires.
+ */
+describe("renderLabel — Tennessee", () => {
+  const tennessee: LabelRule = {
+    ...texas,
+    requiredElements: [
+      "product_name",
+      "producer_name",
+      "producer_address",
+      "producer_phone",
+      "ingredients_desc_by_weight",
+    ],
+    optionalElements: [],
+    elementAlternatives: [],
+    disclaimerText:
+      "This product was produced at a private residence that is exempt from state licensing and inspection. This product may contain allergens.",
+    disclaimerAllCaps: false,
+    metricRequired: false,
+  };
+
+  it("will not print without the telephone number the statute names", () => {
+    const out = renderLabel(tennessee, source);
+    expect(out.missing.map((m) => m.element)).toEqual(["producer_phone"]);
+    // The seller fixes it on their settings page, not on the product and not at print time.
+    expect(out.missing[0].fix).toBe("profile");
+    expect(canPrint(out)).toBe(false);
+  });
+
+  it("prints the five elements and the statutory sentence once a number is set", () => {
+    const out = renderLabel(tennessee, { ...source, producerPhone: "(615) 555-0134" });
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+    expect(out.lines.map((l) => l.element)).toEqual([
+      "product_name",
+      "producer_name",
+      "producer_address",
+      "producer_phone",
+      "ingredients_desc_by_weight",
+    ]);
+    // No net weight: 53-1-118(a) exempts homemade food from state packaging and labelling law, and
+    // (b)(4) asks for no weight statement — so no metric equivalent either.
+    expect(out.lines.map((l) => l.element)).not.toContain("net_weight");
+    expect(out.disclaimer).toBe(
+      "This product was produced at a private residence that is exempt from state licensing and inspection. This product may contain allergens.",
+    );
+    expect(out.disclaimerAllCaps).toBe(false);
+  });
+});

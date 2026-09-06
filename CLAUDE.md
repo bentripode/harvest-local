@@ -207,6 +207,17 @@ Never write an order, or code a path that could write an order, that crosses sta
   `state_food_programs` grades. `state_permits_food_axis(state, axis)` is true unless **every**
   program in the state bans it, and `products_guard_food_categories` refuses to publish a listing
   whose axis is banned (`20260904200000_category_food_axes.sql`). Drafts pass, as with rule 6.
+- **An online restriction can land on an AXIS instead of on the state.** Tennessee is the case:
+  § 53-1-118(b)(1) expressly permits internet selling, but (b)(3)(C) — added by 2025 Pub. Ch. 431 —
+  lets a TCS item be sold only "by ... the producer to the consumer, in person" or by an agent in
+  person at a farm stand on the property. So `online_orders` stays `allowed` and `cat_refrigerated`
+  is `banned`: the shelf-stable listings keep selling and the TCS one is what's blocked. The
+  counter-argument (a pickup order is arguably sold when the buyer collects) is recorded in that
+  row's `category_note` rather than settled silently.
+- **For an amendment, read the ENROLLED PUBLIC CHAPTER, not the bill as filed.** Tennessee's HB 130
+  as introduced would have permitted internet sale of dairy, meat and poultry items; the chapter the
+  governor signed does the opposite. Legislature sites serve the introduced draft under the bill
+  number — the acts archive serves the law.
 - **Only an outright ban blocks.** `conditional` (Colorado: meat under 1,000 personally-raised
   poultry), `list_only` and `limited` are qualifications — the listing goes through and the seller
   is shown the qualification. `unclear` is missing data and must not stop a seller trading.
@@ -655,6 +666,20 @@ Mapbox dependency — and `product_label_disclosure()` gates it the same way as 
 `/seller/settings` cards for it and the homemade-food statement are driven by `getSellerLabelNeeds()`,
 which resolves the programme exactly as `getLabelContext` does so the two cannot disagree.
 
+**`contact_phone` is the third seller-level element, and it was a hole for a long time.**
+`producer_phone` has been in the vocabulary since the generator was built while `LabelSource
+.producerPhone` was hardcoded `null` — honest while nothing printed before a sale, and untenable
+once Tennessee turned up: § 53-1-118(b)(4)(A) requires the producer's telephone number and
+(b)(5)(A)(iv) puts it on the listing page. Required outright in **AK, AR, NH, NM, OK, OR, RI, SD,
+TN, VA, WV**, one half of the phone-or-email either/or in **CO, DE, HI, IA, ID** — sixteen
+jurisdictions, none of which could be satisfied. It lives on `seller_profiles.contact_phone` and is
+**deliberately not `profiles.phone`**: that column is the E.164 mobile that receives order-update
+SMS under its own opt-in, and printing it on a jar is a different act with different consent. Plain
+text, printed verbatim — normalising "(615) 555-0134" would be us rewriting what the seller chose to
+publish. `product_label_disclosure()` gates it exactly like the email and the mailing address, and
+`getSellerLabelNeeds()` also reports `phoneRequired` so the settings card can say "required" or
+"or your email" truthfully.
+
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
 the seller's **chosen program** (falling back to `state_cottage_food_rules.revenue_cap` when there
@@ -679,8 +704,11 @@ keeps the annual total whatever the basis, because that is what `/seller/complia
 and emails admins; the same figure shows on `/admin/programs`.
 
 
-**Phase 5 — pre-checkout label disclosure.** Five jurisdictions reach the buyer *before* the sale,
-by four different routes, and `state_label_rules.predisclosure_required` records it. **TX** —
+**Phase 5 — pre-checkout label disclosure.** Nine jurisdictions reach the buyer *before* the sale,
+by several different routes, and `state_label_rules.predisclosure_required` records it — currently
+**CA, IL, IN, MN, NE, NM, OK, TN, TX**. **TN** — Tenn. Code § 53-1-118(b)(5)(A)(iv), the whole of
+the (b)(4) information "On the webpage on which the homemade food item is offered for sale": it
+names the listing page, and it is the reason `contact_phone` exists. **TX** —
 §437.0194(b)(2) permits an internet sale only if the labelling information reaches the buyer "before
 the operator accepts payment"; the package arriving later is too late. **IN** — Ind. Code
 16-42-5.3-5(b), "A home based vendor shall post the label of each food product on the vendor's
