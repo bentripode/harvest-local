@@ -106,7 +106,32 @@ describeDb("state label rules", () => {
     // carrying SHORTER text than the label disclaimer at (3)(a)(V).
     // AK lost one: AS 17.20.332 puts the information on the package and, for unpackaged food,
     // obliges the producer to tell the buyer — a disclosure, but not a written placard.
-    expect(states).toEqual(["CO", "ID", "MN", "MO", "NE"]);
+    // IL gained one too: 410 ILCS 625/4(b)(10) requires a point-of-sale notice, "At a physical
+    // display ... a placard", carrying SHORTER text than the label phrase at (b)(7)(E) — the same
+    // label/placard split Colorado has. Online, the same paragraph makes it a message on the sales
+    // interface, which is why Illinois is also predisclosure_required.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "MO", "NE"]);
+  });
+
+  it("records the states that reach the buyer before payment", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("state_food_programs!inner(state_code)")
+      .eq("predisclosure_required", true);
+    const states = [
+      ...new Set(
+        (data ?? []).map((r) => (r.state_food_programs as unknown as { state_code: string }).state_code),
+      ),
+    ].sort();
+    // Four states, four different routes to the same place, each verified against its own text.
+    // CA — Health & Saf. Code 114365.3(f), disclosures required in internet advertising.
+    // IL — 410 ILCS 625/4(b)(10), "Online, notice shall be a message on the cottage food
+    //      operation's online sales interface at the point of sale." The only one that legislates
+    //      the checkout page in those words.
+    // NE — the disclaimer in any internet advertising (from the summary, not yet the statute).
+    // TX — §437.0194(b)(2), labelling information "before the operator accepts payment".
+    // Every other state is false because NOBODY HAS CHECKED, not because the state has no rule.
+    expect(states).toEqual(["CA", "IL", "NE", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
