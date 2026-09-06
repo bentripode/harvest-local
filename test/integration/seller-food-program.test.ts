@@ -38,6 +38,12 @@ describeDb("seller food program", () => {
         category_id: categoryBySlug.get(slug)!,
         status,
         quantity_available: 2,
+        // A complete label, so `products_guard_label_fields` isn't the guard that speaks — it fires
+        // first on a publish, and the rule under test here is the chosen programme's.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id")
       .single();

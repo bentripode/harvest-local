@@ -81,6 +81,9 @@ describeDb("license gate", () => {
         ordinal,
         name: `IT permit fixture ${ordinal}`,
         license_required: "yes",
+        // The chosen programme also gates online food sales; this suite is about the permit, so
+        // don't let a restrictive default block the food product these tests need to list.
+        online_orders: "allowed",
         source_url: "https://example.invalid/integration-test-fixture",
         source_checked_at: "2026-01-01",
         // The point of the fixture: an unverified row requires nothing.
