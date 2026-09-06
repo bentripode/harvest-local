@@ -119,7 +119,9 @@ describeDb("state label rules", () => {
     // NJ and NM joined on reading their rules: N.J.A.C. 8:24-11.4(b) requires a placard wherever the
     // point of sale is not a residence, and N.M. Stat. 25-12-3(B)(3) makes one of five ways the
     // required information may reach the consumer.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "NE", "NJ", "NM"]);
+    // ND joined: N.D. Cent. Code 23-09.5-02(8) offers "a consumer advisory sign at the point of
+    // sale" as the alternative to a label — the same either/or shape as Idaho's.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
