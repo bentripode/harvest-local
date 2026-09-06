@@ -485,3 +485,69 @@ describe("renderLabel — Tennessee", () => {
     expect(out.disclaimerAllCaps).toBe(false);
   });
 });
+
+/**
+ * `nutrition_if_claimed` never blocks a label, from either list.
+ *
+ * It always resolves to null — a panel needs per-serving figures nothing here collects — so the
+ * renderer carries an explicit exception that keeps it out of `missing` even when a rule lists it
+ * as required. Fourteen rules across ten states did, and 20260906540000 moved them all to
+ * `optional_elements` so the data says what the code does. The exception below stays as a guard
+ * against a rule re-adding it through /admin, and this pair pins both halves.
+ */
+describe("renderLabel — nutrition is never a blocker", () => {
+  const withNutritionRequired: LabelRule = {
+    ...texas,
+    requiredElements: ["product_name", "nutrition_if_claimed"],
+  };
+
+  it("does not block even when a rule wrongly lists it as required", () => {
+    const out = renderLabel(withNutritionRequired, source);
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("blocks nothing once it is optional", () => {
+    const out = renderLabel(
+      { ...texas, requiredElements: ["product_name"], optionalElements: ["nutrition_if_claimed"] },
+      source,
+    );
+    expect(out.missing).toEqual([]);
+    // Nothing to print either — there is no value to print — but the label is printable.
+    expect(out.lines.map((l) => l.element)).not.toContain("nutrition_if_claimed");
+    expect(canPrint(out)).toBe(true);
+  });
+});
+
+/**
+ * Utah's cottage food label, from Utah Admin. Code R70-560-6(2). The statute delegates the whole
+ * thing, so this list lives in the rule rather than the code.
+ */
+describe("renderLabel — Utah cottage food", () => {
+  const utah: LabelRule = {
+    ...texas,
+    requiredElements: [
+      "product_name",
+      "ingredients_desc_by_weight",
+      "allergens",
+      "net_weight",
+      "business_name",
+      "producer_address",
+      "producer_phone",
+    ],
+    optionalElements: ["nutrition_if_claimed"],
+    elementAlternatives: [],
+    disclaimerText: "Home Produced",
+    disclaimerMinPt: 12,
+    disclaimerAllCaps: false,
+    metricRequired: false,
+  };
+
+  it("prints once the seller has a phone number, and is not blocked by nutrition", () => {
+    const out = renderLabel(utah, { ...source, producerPhone: "801-555-0142" });
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+    expect(out.disclaimer).toBe("Home Produced");
+    expect(out.disclaimerMinPt).toBe(12);
+  });
+});
