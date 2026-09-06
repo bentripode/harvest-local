@@ -3,9 +3,11 @@ import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
+import { HomemadeStatementForm } from "@/components/homemade-statement-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
+import { getSellerStatementPrompt } from "@/lib/labels/queries";
 import {
   CATEGORY_META,
   SUPPRESSIBLE_CATEGORIES,
@@ -30,6 +32,10 @@ export default async function SellerSettingsPage() {
     : { data: null };
 
   const mapboxConfigured = !!(env.MAPBOX_TOKEN || env.NEXT_PUBLIC_MAPBOX_TOKEN);
+
+  // Only shown where the seller's state prescribes a disclosure by substance and leaves the wording
+  // to them (LA, MO, MT, NE). Everywhere else the statement is quoted statute and not theirs to write.
+  const statementPrompt = await getSellerStatementPrompt(seller.id);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
@@ -77,6 +83,24 @@ export default async function SellerSettingsPage() {
           />
         </CardContent>
       </Card>
+
+      {statementPrompt ? (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Homemade food statement</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4 text-sm">
+              Your state requires buyers to be told this, and lets you say it in your own words. It
+              goes on your printed labels and on your listings.
+            </p>
+            <HomemadeStatementForm
+              prompt={statementPrompt}
+              initial={seller.homemade_food_statement ?? ""}
+            />
+          </CardContent>
+        </Card>
+      ) : null}
 
       <Card>
         <CardHeader className="pb-2">

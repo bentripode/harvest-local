@@ -615,10 +615,18 @@ in `optional_elements` because nothing here records whether a given product is o
 clearly indicates that the food was not produced in a licensed or regulated facility" — a fact to
 convey, with no wording prescribed. Composing a sentence and storing it in `disclaimer_text` would
 put our prose in the one column that exists to hold **quoted law printed onto food without review**,
-so instead the seller writes it on the print form, prompted by
-`state_label_rules.seller_statement_prompt` (the state's own words, CHECK-enforced to be present
-whenever the element is used). The label will not print until they do, which is what Louisiana
-requires.
+so instead **the seller writes it**, prompted by `state_label_rules.seller_statement_prompt` (the
+state's own words, CHECK-enforced to be present whenever the element is used). The label will not
+print until they do, which is what Louisiana requires.
+
+**Four states need it** — LA, MO (§ 196.298.4), MT (§ 50-49-203(3)) and NE (§ 81-2,280(5)(a)) — so it
+lives on `seller_profiles.homemade_food_statement`, not on the print run: it is one sentence about
+the producer, identical on every label they will ever print. **Nebraska is what forced that**:
+§ 81-2,280(5)(c) requires the notification, for a pickup or delivery sale, "on the producer's
+website", and a value typed into a print form and never stored cannot reach a storefront listing.
+`product_label_disclosure()` returns it, `/seller/settings` collects it (the card appears only where
+the state asks for one), and the print form pre-fills from it while still allowing a one-off
+override. Its `fix` is `profile`, so an empty one shows up in `DisclosureGapNotice`.
 
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from

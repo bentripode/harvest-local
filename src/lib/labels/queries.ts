@@ -38,7 +38,9 @@ export async function getLabelContext(
 
   const { data: seller } = await supabase
     .from("seller_profiles")
-    .select("business_name, home_state, food_program_id, pickup_address_id")
+    .select(
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement",
+    )
     .eq("id", sellerId)
     .maybeSingle();
   if (!seller) return null;
@@ -126,7 +128,47 @@ export async function getLabelContext(
       productionDate: null,
       lotCode: null,
       expirationDate: null,
-      sellerStatement: null,
+      // The seller's own wording, where their state prescribes the substance and not the text.
+      sellerStatement: seller.homemade_food_statement,
     },
   };
+}
+
+/**
+ * What the seller's state requires their own statement to convey, or null where it requires none.
+ *
+ * Four states (LA, MO, MT, NE) prescribe a disclosure by substance and leave the wording to the
+ * producer. This is what decides whether `/seller/settings` shows the box for it, and it resolves
+ * the seller's programme the same way `getLabelContext` does so the two cannot disagree.
+ */
+export async function getSellerStatementPrompt(sellerId: string): Promise<string | null> {
+  const supabase = await createClient();
+
+  const { data: seller } = await supabase
+    .from("seller_profiles")
+    .select("home_state, food_program_id")
+    .eq("id", sellerId)
+    .maybeSingle();
+  if (!seller) return null;
+
+  let programId = seller.food_program_id;
+  if (!programId) {
+    const { data: first } = await supabase
+      .from("state_food_programs")
+      .select("id")
+      .eq("state_code", seller.home_state)
+      .order("ordinal")
+      .limit(1)
+      .maybeSingle();
+    programId = first?.id ?? null;
+  }
+  if (!programId) return null;
+
+  const { data: rule } = await supabase
+    .from("state_label_rules")
+    .select("seller_statement_prompt")
+    .eq("program_id", programId)
+    .maybeSingle();
+
+  return rule?.seller_statement_prompt ?? null;
 }

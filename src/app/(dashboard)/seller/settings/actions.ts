@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-import { requireRole, requireUser } from "@/lib/auth";
+import { getSellerContext, requireRole, requireUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { addressSchema } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
@@ -152,5 +152,39 @@ export async function saveNotificationPrefsAction(
   if (error) return { error: error.message };
 
   revalidatePath("/seller/settings");
+  return { ok: true };
+}
+
+export interface HomemadeStatementState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save the seller's own wording for a disclosure their state prescribes by substance.
+ *
+ * Deliberately not validated against the state's requirement beyond being non-empty: we cannot judge
+ * whether a sentence "clearly indicates" what Louisiana wants or "informs" what Montana wants, and
+ * pretending to would be worse than showing the seller the statute and trusting them with it.
+ */
+export async function saveHomemadeStatementAction(
+  _prev: HomemadeStatementState,
+  formData: FormData,
+): Promise<HomemadeStatementState> {
+  const { seller } = await getSellerContext();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const raw = String(formData.get("statement") ?? "").trim();
+  if (raw.length > 500) return { error: "Keep it under 500 characters — it has to fit on a label." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("seller_profiles")
+    .update({ homemade_food_statement: raw || null })
+    .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  revalidatePath("/seller/products");
   return { ok: true };
 }

@@ -1145,6 +1145,7 @@ export type Database = {
           delivery_windows: Json
           food_program_id: string | null
           home_state: string
+          homemade_food_statement: string | null
           id: string
           is_paused: boolean
           pause_reason: string | null
@@ -1169,6 +1170,7 @@ export type Database = {
           delivery_windows?: Json
           food_program_id?: string | null
           home_state: string
+          homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
           pause_reason?: string | null
@@ -1193,6 +1195,7 @@ export type Database = {
           delivery_windows?: Json
           food_program_id?: string | null
           home_state?: string
+          homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
           pause_reason?: string | null
@@ -1918,6 +1921,7 @@ export type Database = {
           product_name: string
           regulator_website_url: string
           required_elements: string[]
+          seller_statement: string
           state_code: string
         }[]
       }
