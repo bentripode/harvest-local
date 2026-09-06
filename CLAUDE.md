@@ -160,10 +160,21 @@ Never write an order, or code a path that could write an order, that crosses sta
 
 ### 6. A seller may not list food where their state bans online food sales.
 
-- Delaware, Hawaii, Michigan, Mississippi and Nevada prohibit online cottage-food orders under
-  **every** program they run; six more ban it under one program and allow it under another. The
-  predicate is `state_allows_online_food_sales(state)`, derived from `state_food_programs` — never a
-  hardcoded state list, so correcting a program in the admin surface moves the gate with it.
+- **Delaware, Michigan, Mississippi, Nevada and Washington** prohibit online cottage-food orders
+  under **every** program they run; five more ban it under one program and allow it under another.
+  The predicate is `state_allows_online_food_sales(state)`, derived from `state_food_programs` —
+  never a hardcoded state list, so correcting a program in the admin surface moves the gate with it.
+- **That list was seeded wrong in both directions**, and every ban has now been checked against
+  primary text (`20260906030000_verify_online_bans.sql`). Washington was seeded as *allowed* while
+  RCW 69.22.020(4) says cottage food "may not be sold by internet, mail order, or for retail sale
+  outside the state" — the seed would have permitted an unlawful listing. Hawaii was seeded as
+  *banned* on nothing: Haw. Admin. Rules 11-50-3(c) attaches four conditions to a homemade-food
+  operation and not one of them concerns selling channel, so Hawaii sellers were blocked for no
+  reason. Kentucky's microprocessor row was banned on nothing either. Both are now `unclear`.
+- **A ban can be express or by exhaustive enumeration**, and the notes say which. DE (cottage food),
+  MI, MS, NV and WA name the internet; DE (on-farm), ME, RI and WI instead permit an exhaustive list
+  of venues the internet is not on. New Hampshire is a third shape: selling online is what *triggers*
+  licensure (RSA 143-A:12 III), so the ban sits on the exempt row and the licensed row allows it.
 - Enforced by the `products_guard_online_food_sales` BEFORE INSERT/UPDATE trigger
   (`20260904180000_online_food_sales_gate.sql`): a product in a `requires_food_permit` category
   cannot reach `active` or `sold_out` for a seller in a banned state. `draft` is allowed through on
