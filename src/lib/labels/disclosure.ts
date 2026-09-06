@@ -82,6 +82,7 @@ export async function getProductDisclosures(
       // Per-batch, and not knowable at browse time — omitted rather than invented.
       productionDate: null,
       lotCode: null,
+      expirationDate: null,
     };
 
     // Reuses the label composer, so what the buyer reads and what gets printed cannot drift apart.

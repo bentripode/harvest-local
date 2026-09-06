@@ -30,18 +30,25 @@ export function LabelSheet({
 }) {
   const [productionDate, setProductionDate] = useState("");
   const [lotCode, setLotCode] = useState("");
+  const [expirationDate, setExpirationDate] = useState("");
   const [copies, setCopies] = useState(1);
 
   const rendered = useMemo(
-    () => renderLabel(rule, { ...source, productionDate: productionDate || null, lotCode: lotCode || null }),
-    [rule, source, productionDate, lotCode],
+    () =>
+      renderLabel(rule, {
+        ...source,
+        productionDate: productionDate || null,
+        lotCode: lotCode || null,
+        expirationDate: expirationDate || null,
+      }),
+    [rule, source, productionDate, lotCode, expirationDate],
   );
   const ready = canPrint(rendered);
 
   return (
     <div className="space-y-6">
       <section className="space-y-4 print:hidden">
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-2">
             <Label htmlFor="productionDate">Production date</Label>
             <Input
@@ -58,6 +65,17 @@ export function LabelSheet({
               value={lotCode}
               onChange={(e) => setLotCode(e.target.value)}
               placeholder="e.g. B-2026-09-04"
+            />
+          </div>
+          <div className="space-y-2">
+            {/* Iowa Code 137D.2(7)(e) wants one on refrigerated foods; per-batch, like the two
+                above, so it is asked for here rather than stored on the product. */}
+            <Label htmlFor="expirationDate">Use by</Label>
+            <Input
+              id="expirationDate"
+              type="date"
+              value={expirationDate}
+              onChange={(e) => setExpirationDate(e.target.value)}
             />
           </div>
           <div className="space-y-2">

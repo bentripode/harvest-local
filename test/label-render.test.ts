@@ -29,6 +29,7 @@ const source: LabelSource = {
   allergens: ["wheat"],
   productionDate: "2026-09-04",
   lotCode: "B-2026-09-04",
+  expirationDate: "2026-10-04",
 };
 
 const texas: LabelRule = {
@@ -299,5 +300,29 @@ describe("renderLabel — municipality_state", () => {
   it("leaves the plain municipality element alone — CA and CO want a bare county", () => {
     const out = renderLabel({ ...texas, requiredElements: ["municipality"] }, source);
     expect(out.lines[0].value).toBe("Austin");
+  });
+});
+
+/**
+ * Iowa Code 137D.2(7)(e): "For refrigerated time/temperature control for safety foods, an
+ * expiration date based on food safety." Per-batch, so it is asked for at print time.
+ */
+describe("renderLabel — expiration date", () => {
+  const iowa: LabelRule = {
+    ...texas,
+    requiredElements: ["business_name"],
+    optionalElements: ["expiration_date"],
+  };
+
+  it("prints a use-by date when the seller supplies one", () => {
+    const out = renderLabel(iowa, source);
+    expect(out.lines.map((l) => l.element)).toContain("expiration_date");
+    expect(out.lines.find((l) => l.element === "expiration_date")?.caption).toBe("Use by");
+  });
+
+  it("does not block a shelf-stable label that has none", () => {
+    const out = renderLabel(iowa, { ...source, expirationDate: null });
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
   });
 });
