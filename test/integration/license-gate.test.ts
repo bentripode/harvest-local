@@ -7,9 +7,18 @@ import { adminDb, cleanupAll, createSeller, createTestUser, describeDb, type Db 
  * (`20260904110000_license_gate.sql`, tightened by `20260904130000_seller_documents.sql`).
  *
  * A storefront may only be live once every required document is verified and unexpired: a
- * Government ID and a Tax ID always, plus a Cottage Food Permit for any seller listing food.
- * Pausing is the single lever — checkout, the storefront page and `/shop` all gate on
- * `seller_profiles.is_paused` — so the precedence rules here are what the guardrail rests on.
+ * Government ID and a Tax ID always, plus a Cottage Food Permit for any seller listing food
+ * **in a state whose verified law says such a permit exists**. Pausing is the single lever —
+ * checkout, the storefront page and `/shop` all gate on `seller_profiles.is_paused` — so the
+ * precedence rules here are what the guardrail rests on.
+ *
+ * That last condition is why the permit tests below assign a fixture programme. It used to be
+ * unconditional, and verifying Texas showed the cost: Texas issues no cottage food permit at all
+ * and §437.0192(a) forbids a local authority from requiring one, so the gate demanded a document
+ * that does not exist (`20260905130000_permit_required_only_where_law_says.sql`). The permit is now
+ * required only where a VERIFIED programme or state row says a licence is needed — and since
+ * `verified_at` is never seeded, nothing is verified in a fresh database, so a test that wants the
+ * permit required has to say so itself rather than lean on a state's seeded row.
  */
 describeDb("license gate", () => {
   const day = 86_400_000;
@@ -52,6 +61,36 @@ describeDb("license gate", () => {
       .single();
     if (error || !data) throw new Error(`document fixture (${type}): ${error?.message}`);
     return data.id;
+  }
+
+  /** Fixture programmes this file created, torn down in afterAll. */
+  const fixturePrograms: string[] = [];
+
+  /**
+   * Put this seller on a verified programme that requires a licence, so listing food makes the
+   * cottage food permit genuinely required. Self-contained rather than mutating a shared state row:
+   * `seller_requires_food_permit` consults the seller's chosen programme first, and only when that
+   * programme has been verified.
+   */
+  async function requirePermitFor(sellerId: string): Promise<void> {
+    const ordinal = 90 + fixturePrograms.length;
+    const { data, error } = await admin
+      .from("state_food_programs")
+      .insert({
+        state_code: "TX",
+        ordinal,
+        name: `IT permit fixture ${ordinal}`,
+        license_required: "yes",
+        source_url: "https://example.invalid/integration-test-fixture",
+        source_checked_at: "2026-01-01",
+        // The point of the fixture: an unverified row requires nothing.
+        verified_at: new Date().toISOString(),
+      })
+      .select("id")
+      .single();
+    if (error || !data) throw new Error(`permit programme fixture: ${error?.message}`);
+    fixturePrograms.push(data.id);
+    await admin.from("seller_profiles").update({ food_program_id: data.id }).eq("id", sellerId);
   }
 
   /** The two documents every seller needs, both verified. */
@@ -106,7 +145,13 @@ describeDb("license gate", () => {
     admin = adminDb();
   });
 
-  afterAll(cleanupAll);
+  afterAll(async () => {
+    // Sellers reference the programme, so they go first.
+    await cleanupAll();
+    if (fixturePrograms.length > 0) {
+      await admin.from("state_food_programs").delete().in("id", fixturePrograms);
+    }
+  });
 
   // -- the required set ------------------------------------------------------
   it("pauses a storefront with no documents at all", async () => {
@@ -161,6 +206,7 @@ describeDb("license gate", () => {
   // -- the permit follows the catalogue -------------------------------------
   it("listing a food product makes the permit required, and pauses the storefront", async () => {
     const sellerId = await liveSeller();
+    await requirePermitFor(sellerId);
     await addBaseDocuments(sellerId);
     expect(await sync(sellerId)).toBeNull();
 
@@ -171,6 +217,7 @@ describeDb("license gate", () => {
 
   it("verifying the permit reopens a food seller's storefront", async () => {
     const sellerId = await liveSeller();
+    await requirePermitFor(sellerId);
     await addBaseDocuments(sellerId);
     await addFoodProduct(sellerId);
     expect((await pauseState(sellerId)).is_paused).toBe(true);
@@ -182,6 +229,7 @@ describeDb("license gate", () => {
 
   it("archiving the last food product drops the permit requirement", async () => {
     const sellerId = await liveSeller();
+    await requirePermitFor(sellerId);
     await addBaseDocuments(sellerId);
     const productId = await addFoodProduct(sellerId);
     expect((await pauseState(sellerId)).is_paused).toBe(true);

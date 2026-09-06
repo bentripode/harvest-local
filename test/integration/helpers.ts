@@ -126,7 +126,21 @@ export async function createSeller(
 /** An `active` product with stock, using whatever seeded category is available. */
 export async function createProduct(
   sellerId: string,
-  opts: { price?: string; quantity?: number } = {},
+  opts: {
+    price?: string;
+    quantity?: number;
+    /**
+     * Label fields. A fixture lands in the first seeded top-level category, which is usually a food
+     * one, and `products_guard_label_fields` refuses to publish a food listing without ingredients,
+     * a net weight and an answered allergen question. So a fixture carries a complete label by
+     * default and every caller gets a publishable product; a test that exercises the guard itself
+     * overrides these.
+     */
+    ingredients?: string[];
+    netWeightValue?: string | null;
+    netWeightUnit?: string | null;
+    allergens?: string[];
+  } = {},
 ): Promise<{ id: string; title: string }> {
   const admin = adminDb();
   const { data: cat, error: catErr } = await admin
@@ -147,6 +161,10 @@ export async function createProduct(
       category_id: cat.id,
       status: "active",
       quantity_available: opts.quantity ?? 10,
+      ingredients: opts.ingredients ?? ["Wheat flour", "Water"],
+      net_weight_value: opts.netWeightValue === undefined ? "12" : opts.netWeightValue,
+      net_weight_unit: opts.netWeightUnit === undefined ? "oz" : opts.netWeightUnit,
+      allergens: opts.allergens ?? ["wheat"],
     })
     .select("id")
     .single();
