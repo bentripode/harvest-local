@@ -188,3 +188,37 @@ export async function saveHomemadeStatementAction(
   revalidatePath("/seller/products");
   return { ok: true };
 }
+
+export interface MailingAddressState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save the producer's mailing address, where a state wants it on the label separately from the
+ * address where the food is made (S.D. Codified Laws 34-18-37(3) and (4)).
+ *
+ * Plain text and unvalidated beyond length: it is printed verbatim on a label and never geocoded,
+ * unlike the pickup address, so there is nothing here to check it against.
+ */
+export async function saveMailingAddressAction(
+  _prev: MailingAddressState,
+  formData: FormData,
+): Promise<MailingAddressState> {
+  const { seller } = await getSellerContext();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const raw = String(formData.get("mailingAddress") ?? "").trim();
+  if (raw.length > 300) return { error: "Keep it under 300 characters — it has to fit on a label." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("seller_profiles")
+    .update({ mailing_address: raw || null })
+    .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  revalidatePath("/seller/products");
+  return { ok: true };
+}

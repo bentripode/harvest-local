@@ -18,6 +18,7 @@ const source: LabelSource = {
   businessName: "Ben's Baked Bread",
   producerName: "Ben's Baked Bread",
   producerAddress: "1114 Nueces St, Austin, TX 78701",
+  mailingAddress: "PO Box 44, Austin, TX 78767",
   producerPhone: null,
   producerEmail: null,
   permitNumber: "TX-CF-12345",
@@ -401,6 +402,32 @@ describe("renderLabel — handling instructions", () => {
     );
     expect(out.missing).toEqual([
       { element: "handling_instructions", label: "Handling", fix: "product" },
+    ]);
+  });
+});
+
+/**
+ * S.D. Codified Laws 34-18-37 lists "(3) Physical address of production" and "(4) Mailing address
+ * of the producer" as separate items, so the label needs both.
+ */
+describe("renderLabel — mailing address", () => {
+  const southDakota: LabelRule = {
+    ...texas,
+    requiredElements: ["producer_address", "mailing_address"],
+  };
+
+  it("prints both addresses, distinctly captioned", () => {
+    const out = renderLabel(southDakota, source);
+    expect(out.lines.map((l) => [l.element, l.caption])).toEqual([
+      ["producer_address", "Address where the food was made"],
+      ["mailing_address", "Mailing address"],
+    ]);
+  });
+
+  it("reports a missing mailing address against the seller's profile", () => {
+    const out = renderLabel(southDakota, { ...source, mailingAddress: null });
+    expect(out.missing).toEqual([
+      { element: "mailing_address", label: "Mailing address", fix: "profile" },
     ]);
   });
 });

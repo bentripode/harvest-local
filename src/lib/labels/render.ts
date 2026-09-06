@@ -17,6 +17,8 @@ export type LabelElement =
   | "producer_name"
   | "business_name"
   | "producer_address"
+  /** A SECOND address, where a state wants the post separately from the production site (SD). */
+  | "mailing_address"
   | "producer_phone"
   | "producer_email"
   | "permit_number"
@@ -79,6 +81,8 @@ export interface LabelSource {
   businessName: string;
   producerName: string | null;
   producerAddress: string | null;
+  /** The producer's postal address, where a state asks for it beside the production address. */
+  mailingAddress: string | null;
   producerPhone: string | null;
   producerEmail: string | null;
   permitNumber: string | null;
@@ -132,6 +136,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   producer_name: "Producer name",
   business_name: "Business name",
   producer_address: "Address where the food was made",
+  mailing_address: "Mailing address",
   producer_phone: "Phone number",
   producer_email: "Email address",
   permit_number: "Permit or registration number",
@@ -154,6 +159,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   producer_name: "profile",
   business_name: "profile",
   producer_address: "profile",
+  mailing_address: "profile",
   producer_phone: "profile",
   producer_email: "profile",
   permit_number: "licence",
@@ -210,6 +216,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.producerName || src.businessName || null;
     case "producer_address":
       return src.producerAddress;
+    case "mailing_address":
+      return src.mailingAddress;
     case "producer_phone":
       return src.producerPhone;
     case "producer_email":

@@ -647,6 +647,14 @@ returning it unconditionally would publish every seller's address in 44 jurisdic
 and returns null otherwise. The label page reads the seller's own session email instead, since it is
 only ever the seller looking at their own product.
 
+**`mailing_address`** is the other seller-level element: S.D. Codified Laws 34-18-37 lists "(3)
+Physical address of production" and "(4) Mailing address of the producer" separately, so a South
+Dakota label needs both. It lives on `seller_profiles.mailing_address` as plain text — printed
+verbatim and never geocoded, unlike the pickup address, so it does not drag a label field into a
+Mapbox dependency — and `product_label_disclosure()` gates it the same way as the email. The
+`/seller/settings` cards for it and the homemade-food statement are driven by `getSellerLabelNeeds()`,
+which resolves the programme exactly as `getLabelContext` does so the two cannot disagree.
+
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
 the seller's **chosen program** (falling back to `state_cottage_food_rules.revenue_cap` when there

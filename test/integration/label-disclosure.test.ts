@@ -167,6 +167,7 @@ describeDb("pre-checkout label disclosure", () => {
         "permit_number",
         "predisclosure_required",
         "producer_address",
+        "mailing_address",
         // Returned ONLY where the state's own label rule asks for an email — New Mexico requires
         // one outright (25-12-3(C)(1)), CO and HI accept it as one of two contact options. Null
         // everywhere else, so one state's requirement does not publish every seller's address.

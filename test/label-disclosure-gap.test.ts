@@ -37,6 +37,7 @@ const incomplete: LabelSource = {
   businessName: "Ben's Baked Bread",
   producerName: "Ben's Baked Bread",
   producerAddress: null,
+  mailingAddress: null,
   producerPhone: null,
   producerEmail: null,
   permitNumber: null,
