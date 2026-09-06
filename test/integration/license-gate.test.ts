@@ -122,6 +122,12 @@ describeDb("license gate", () => {
         category_id: cat.id,
         status: "active",
         quantity_available: 5,
+        // A complete label: publishing a food listing needs one, and the rule under test here is
+        // the permit gate, not `products_guard_label_fields`.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id")
       .single();
