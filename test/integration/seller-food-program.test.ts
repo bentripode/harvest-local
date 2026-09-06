@@ -12,6 +12,8 @@ import { adminDb, cleanupAll, createSeller, createTestUser, describeDb, type Db 
 describeDb("seller food program", () => {
   let admin: Db;
   let categoryBySlug: Map<string, string>;
+  /** Fixture programmes this file created, torn down in afterAll. */
+  const fixturePrograms: string[] = [];
 
   async function seller(state: string): Promise<string> {
     const user = await createTestUser({ role: "seller", homeState: state });
@@ -38,6 +40,12 @@ describeDb("seller food program", () => {
         category_id: categoryBySlug.get(slug)!,
         status,
         quantity_available: 2,
+        // A complete label, so `products_guard_label_fields` isn't the guard that speaks — it fires
+        // first on a publish, and the rule under test here is the chosen programme's.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id")
       .single();
@@ -49,7 +57,13 @@ describeDb("seller food program", () => {
     categoryBySlug = new Map((data ?? []).map((c) => [c.slug, c.id]));
   });
 
-  afterAll(cleanupAll);
+  afterAll(async () => {
+    // Sellers reference the programme, so they go first.
+    await cleanupAll();
+    if (fixturePrograms.length > 0) {
+      await admin.from("state_food_programs").delete().in("id", fixturePrograms);
+    }
+  });
 
   // -- the guard -------------------------------------------------------------
   it("accepts a program from the seller's own state", async () => {
@@ -128,15 +142,39 @@ describeDb("seller food program", () => {
     expect(error).not.toBeNull();
   });
 
+  /**
+   * This used to lean on Virginia: its Home Kitchen Exemptions programme was seeded as banning
+   * online orders while the other allowed them, which made it a neat real-world example. Checking
+   * Va. Code 3.2-5130 against the statute removed the example — subdivisions 3 and 4 both permit
+   * sale "at any location, through the internet, or by phone", so nothing in Virginia bans it.
+   *
+   * The rule under test is that the CHOSEN programme decides, not the state as a whole, so the
+   * banned programme is now built here. Same lesson as the cap-variant suite: assert the mechanism,
+   * not a claim about a particular state's law, or the test breaks every time the law is checked.
+   */
   it("applies the chosen program to online orders too", async () => {
     const id = await seller("VA");
-    const programs = await programsFor("VA");
-    const exempt = programs.find((p) => p.name === "Home Kitchen Exemptions")!;
 
-    // Virginia bans online orders under the exemption program and allows them under the other.
+    // With no programme chosen, the question is "does any programme in the state permit it?".
     expect((await admin.rpc("seller_allows_online_food_sales", { p_seller_id: id })).data).toBe(true);
 
-    await admin.from("seller_profiles").update({ food_program_id: exempt.id }).eq("id", id);
+    const ordinal = 90 + fixturePrograms.length;
+    const { data: banned, error: programError } = await admin
+      .from("state_food_programs")
+      .insert({
+        state_code: "VA",
+        ordinal,
+        name: `IT banned-online fixture ${ordinal}`,
+        online_orders: "banned",
+        source_url: "https://example.invalid/integration-test-fixture",
+        source_checked_at: "2026-01-01",
+      })
+      .select("id")
+      .single();
+    if (programError) throw new Error(`fixture programme: ${programError.message}`);
+    fixturePrograms.push(banned!.id);
+
+    await admin.from("seller_profiles").update({ food_program_id: banned!.id }).eq("id", id);
     expect((await admin.rpc("seller_allows_online_food_sales", { p_seller_id: id })).data).toBe(
       false,
     );

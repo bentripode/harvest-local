@@ -40,6 +40,12 @@ describeDb("online food sales gate", () => {
         category_id: categoryId,
         status,
         quantity_available: 3,
+        // A complete label, so `products_guard_label_fields` isn't the guard that speaks — it fires
+        // first on a publish, and the rule under test here is the state's online-sales ban.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id, status")
       .single();

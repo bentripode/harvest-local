@@ -79,14 +79,29 @@ const schema = z.object({
   local_preemption: z.coerce.boolean().optional(),
 
   source_url: z.string().trim().url(),
+  // Which button was pressed. Defaults to "verify" so anything omitting it keeps the previous
+  // behaviour rather than silently un-verifying a row.
+  intent: z.enum(["verify", "save"]).default("verify"),
 });
 
 /**
- * Save one state food program and mark it verified.
+ * Save one state food program, with or without attesting to it.
  *
- * **Saving is the verification act.** These rows were seeded from a public summary of the law, and
- * `verified_at` exists to record that a person checked them against the state's own rules — so it
- * is stamped with the admin's id here and nowhere else. Nothing seeds or backfills it.
+ * **Save & mark verified** stamps `verified_at` / `verified_by`. These rows were seeded from a
+ * public summary of the law, and that column records that a person checked them against the state's
+ * own rules — it is stamped here and nowhere else, and nothing seeds or backfills it.
+ *
+ * **Save only** writes the values and leaves the row unverified. A programme row carries around
+ * twenty fields, and verification used to be the only way to write any of them: correcting a single
+ * wrong figure meant claiming you had checked all twenty. Minnesota is the worked example — its cap,
+ * registration rules and channel restrictions had been read against Minn. Stat. 28A.152 and its
+ * seeded $7,665 threshold shown to be absent from the statute, but its six food-category axes had
+ * not been checked, so there was no honest way to fix the threshold at all.
+ *
+ * Saving without verifying **clears** an existing attestation, deliberately: the reviewer signed off
+ * on the values the row held at the time. Change one and that sign-off no longer describes what is
+ * stored, so it goes. `source_checked_at` is only touched when verifying, since it records when
+ * someone last went and looked.
  *
  * Written through the request client: "food programs: admin write" RLS is the gate and there is no
  * guard trigger on the table, so there is no reason to reach for the service role.
@@ -148,9 +163,14 @@ export async function reviewFoodProgramAction(
       application_url: d.application_url || null,
       local_preemption: !!d.local_preemption,
       source_url: d.source_url,
-      source_checked_at: new Date().toISOString().slice(0, 10),
-      verified_at: new Date().toISOString(),
-      verified_by: user.id,
+      // Only moves when someone actually went and looked.
+      ...(d.intent === "verify"
+        ? {
+            source_checked_at: new Date().toISOString().slice(0, 10),
+            verified_at: new Date().toISOString(),
+            verified_by: user.id,
+          }
+        : { verified_at: null, verified_by: null }),
     })
     .eq("id", d.programId);
 

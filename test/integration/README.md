@@ -8,8 +8,22 @@ database. `LAUNCH.md` §7.
 npm run test:integration
 ```
 
-With no database configured every suite **skips** (and logs why), so this is safe to run anywhere and
-CI is unaffected.
+With no database configured every suite **skips** (and logs why), so this is safe to run anywhere.
+
+### CI runs this pass
+
+The `integration (database)` job starts Postgres, Auth and PostgREST in the runner with
+`supabase start`, which applies **every migration from scratch** — so it is also the only place the
+seed migrations are exercised on a fresh database rather than an already-populated one.
+
+> **`INTEGRATION_REQUIRED=1` turns a skip into a failure.** Skipping is the right default here, but a
+> skip exits 0, and a green run that executed nothing looks identical to a green run that passed.
+> That is not hypothetical: three cap-variant tests asserted on seeded state data, were invalidated
+> when that data was corrected against the statutes, and stayed invisible for exactly this reason.
+> Set the flag anywhere the suite is *expected* to run.
+
+The job is not yet part of the `main` branch-protection ruleset — only `lint · build · typecheck` is
+required. Add `integration (database)` to the ruleset to make a database failure block a merge.
 
 ## Setup
 

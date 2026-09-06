@@ -31,6 +31,13 @@ describeDb("food category gate", () => {
         category_id: categoryBySlug.get(slug)!,
         status,
         quantity_available: 2,
+        // A complete label, so `products_guard_label_fields` isn't the guard that speaks. It fires
+        // before this one on a publish, and without these the fixture fails on a missing ingredient
+        // list instead of on the category rule under test.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id, status")
       .single();

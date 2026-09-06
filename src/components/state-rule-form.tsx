@@ -54,18 +54,60 @@ export function StateRuleForm({ rule }: { rule: StateRule }) {
       />
 
       <div className="flex items-center gap-2">
-        <SubmitButton verified={!!rule.verifiedAt} />
+        <SubmitButton
+          intent="verify"
+          label={rule.verifiedAt ? "Save & re-verify" : "Save & verify"}
+          pendingLabel="Verifying…"
+          variant={rule.verifiedAt ? "outline" : "default"}
+        />
+        {/*
+          Correcting a figure without claiming to have checked the whole row. On an already-verified
+          row this clears the stamp, because the previous sign-off described the previous values.
+        */}
+        <SubmitButton
+          intent="save"
+          label="Save only"
+          pendingLabel="Saving…"
+          variant="ghost"
+          title={
+            rule.verifiedAt
+              ? "Save the values and clear the verification — the previous check covered the old figures"
+              : "Save the values and leave this state unverified"
+          }
+        />
         {state.error ? <span className="text-destructive text-xs">{state.error}</span> : null}
       </div>
     </form>
   );
 }
 
-function SubmitButton({ verified }: { verified: boolean }) {
-  const { pending } = useFormStatus();
+function SubmitButton({
+  intent,
+  label,
+  pendingLabel,
+  variant,
+  title,
+}: {
+  intent: "verify" | "save";
+  label: string;
+  pendingLabel: string;
+  variant: "default" | "outline" | "ghost";
+  title?: string;
+}) {
+  // `data` is the FormData in flight, so only the button that was clicked shows its pending label.
+  const { pending, data } = useFormStatus();
+  const isThisOne = pending && data?.get("intent") === intent;
   return (
-    <Button type="submit" size="sm" variant={verified ? "outline" : "default"} disabled={pending}>
-      {pending ? "Saving…" : verified ? "Save" : "Save & verify"}
+    <Button
+      type="submit"
+      name="intent"
+      value={intent}
+      size="sm"
+      variant={variant}
+      disabled={pending}
+      title={title}
+    >
+      {isThisOne ? pendingLabel : label}
     </Button>
   );
 }

@@ -282,11 +282,22 @@ export interface StateRuleState {
 }
 
 /**
- * Save one state's cottage-food rules.
+ * Save one state's cottage-food rules, with or without attesting to them.
  *
- * Saving **is** the verification act: it stamps `verified_at` / `verified_by`, so the admin is
- * asserting these are the state's real rules, not the seeded $50,000 placeholder. That matters
- * because `record_order_revenue` pauses a storefront the moment its yearly gross crosses this cap.
+ * **Save & verify** stamps `verified_at` / `verified_by`: the admin is asserting these are the
+ * state's real rules, not the seeded $50,000 placeholder. That matters because
+ * `record_order_revenue` pauses a storefront the moment its yearly gross crosses this cap.
+ *
+ * **Save only** writes the values and leaves the row unverified. It exists because verification used
+ * to be the *only* way to write: correcting one wrong figure meant claiming you had checked every
+ * field on the row. That is how Minnesota's threshold stayed wrong — the cap and registration rules
+ * had been read, the six food-category axes had not, and there was no way to fix the first without
+ * asserting the second.
+ *
+ * Saving without verifying **clears** an existing attestation, and that is the point rather than a
+ * side effect: the person who verified this row signed off on the values it held then. Change one
+ * and their sign-off no longer describes what is stored, so it goes, and the row honestly reads as
+ * unverified until someone checks it again.
  *
  * Written through the request client — RLS ("cottage rules: admin write") is the gate, and there is
  * no guard trigger on this table, so there's no reason to reach for the service role.
@@ -309,10 +320,13 @@ export async function saveStateRuleAction(
         .transform((v) => (v ? v : null)),
       requiresLicense: z.coerce.boolean().optional(),
       notes: z.string().trim().max(2000).optional().or(z.literal("")),
+      // Which button was pressed. Defaults to "verify" so an older form post — or anything that
+      // omits it — keeps the previous behaviour rather than silently un-verifying a row.
+      intent: z.enum(["verify", "save"]).default("verify"),
     })
     .safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: "Invalid request." };
-  const { stateCode, revenueCap, requiresLicense, notes } = parsed.data;
+  const { stateCode, revenueCap, requiresLicense, notes, intent } = parsed.data;
 
   let cap: string | null = null;
   if (revenueCap != null) {
@@ -328,8 +342,9 @@ export async function saveStateRuleAction(
       revenue_cap: cap,
       requires_license: !!requiresLicense,
       notes: notes || null,
-      verified_at: new Date().toISOString(),
-      verified_by: user.id,
+      // Nulled on a plain save: the previous attestation described the previous values.
+      verified_at: intent === "verify" ? new Date().toISOString() : null,
+      verified_by: intent === "verify" ? user.id : null,
       updated_by: user.id,
     })
     .eq("state_code", stateCode);

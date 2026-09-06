@@ -65,7 +65,7 @@ describeDb("state food programs", () => {
     expect(count).toBe(0);
   });
 
-  it("records the five states where every program bans online food sales", async () => {
+  it("records the six states where every program bans online food sales", async () => {
     const { data } = await admin.from("state_food_programs").select("state_code, online_orders");
     const byState = new Map<string, string[]>();
     for (const p of data ?? []) {
@@ -75,7 +75,10 @@ describeDb("state food programs", () => {
       .filter(([, v]) => v.every((x) => x === "banned"))
       .map(([k]) => k)
       .sort();
-    expect(blocked).toEqual(["DE", "HI", "MI", "MS", "NV"]);
+    // WA joined this list when the seed was checked against the statute: RCW 69.22.020(4) says
+    // cottage food "may not be sold by internet, mail order, or for retail sale outside the state",
+    // and the seed had it as allowed — which would have permitted an unlawful listing.
+    expect(blocked).toEqual(["DE", "HI", "MI", "MS", "NV", "WA"]);
   });
 
   it("keeps multi-program states distinct", async () => {
@@ -92,14 +95,34 @@ describeDb("state food programs", () => {
     ]);
   });
 
-  it("models a cap basis that isn't an annual total", async () => {
-    const { data } = await admin
+  /**
+   * This used to assert Colorado was `per_product` at $10,000. Verifying Colo. Rev. Stat. 25-4-1614
+   * against the statute found a single $150,000 annual cap and no per-product figure at all, and
+   * Virginia — the other non-annual row — turned out to be a $9,000 annual figure rather than a
+   * $3,000 acidified-only one. **No seeded programme uses a non-annual basis any more.**
+   *
+   * So the column is asserted, not a state: the schema must still accept the other bases, because
+   * `record_order_revenue` implements them and a future verified state may well need one. What the
+   * bases actually DO is covered by cap-variants.test.ts, which builds its own programme rows
+   * precisely so it stops depending on which state carries which basis.
+   */
+  it("still admits cap bases other than an annual total", async () => {
+    const { data } = await admin.from("state_food_programs").select("cap_basis");
+    const bases = new Set((data ?? []).map((p) => p.cap_basis));
+    expect([...bases].every((b) => ["annual_total", "per_product", "per_category", "none"].includes(b))).toBe(true);
+
+    // The CHECK accepts a non-annual basis even though nothing verified uses one today.
+    const { error } = await admin
       .from("state_food_programs")
-      .select("cap_basis, revenue_cap")
+      .update({ cap_basis: "per_product" })
       .eq("state_code", "CO")
-      .single();
-    expect(data?.cap_basis).toBe("per_product");
-    expect(Number(data?.revenue_cap)).toBe(10000);
+      .select("state_code");
+    expect(error).toBeNull();
+    // Put Colorado back to what the statute says.
+    await admin
+      .from("state_food_programs")
+      .update({ cap_basis: "annual_total" })
+      .eq("state_code", "CO");
   });
 
   // -- RLS ------------------------------------------------------------------

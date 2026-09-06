@@ -129,6 +129,11 @@ describeDb("pre-checkout label disclosure", () => {
         category_id: category!.id,
         status: "active",
         quantity_available: 5,
+        // Publishing a food listing needs a complete label; this test is about predisclosure.
+        ingredients: ["Wheat flour", "Water"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
       })
       .select("id")
       .single();

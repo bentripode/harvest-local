@@ -135,6 +135,10 @@ describeDb("revenue cap variants", () => {
         cap_basis: program.cap_basis,
         cap_category: program.cap_category ?? null,
         license_threshold: program.license_threshold ?? null,
+        // The seller's chosen programme also decides whether they may sell food online, and this
+        // suite is about revenue caps — so say "allowed" rather than inherit a restrictive default
+        // and have every fixture fail on the online-sales gate instead.
+        online_orders: "allowed",
         // Invented, and labelled as such — this row is a test fixture, not a claim about the law.
         source_url: "https://example.invalid/integration-test-fixture",
         source_checked_at: "2026-01-01",
@@ -252,6 +256,7 @@ describeDb("revenue cap variants", () => {
         cap_basis: "per_category",
         cap_category: "acidified",
         revenue_cap: "3000",
+        online_orders: "allowed",
         source_url: "https://example.invalid/integration-test-fixture",
         source_checked_at: "2026-01-01",
       })
