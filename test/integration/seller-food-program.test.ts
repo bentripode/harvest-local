@@ -183,6 +183,42 @@ describeDb("seller food program", () => {
     expect(error).not.toBeNull();
   });
 
+  /**
+   * `20260906010000_unclear_online_is_not_a_ban.sql`.
+   *
+   * Choosing a programme used to be able to make a seller worse off than saying nothing: the
+   * fallback treats `unclear` as no obstacle, but the chosen-programme path demanded
+   * `online_orders = 'allowed'`, so an unrecorded rule blocked the seller who had told us more.
+   * `online_orders` defaults to 'unclear', so any programme row added without setting it would have
+   * silently blocked everyone who picked it — which is how this surfaced, through fixtures.
+   */
+  it("treats an unclear online rule as missing data, not a prohibition", async () => {
+    const id = await seller("VA");
+
+    const ordinal = 90 + fixturePrograms.length;
+    const { data: unclear, error: programError } = await admin
+      .from("state_food_programs")
+      .insert({
+        state_code: "VA",
+        ordinal,
+        name: `IT unclear-online fixture ${ordinal}`,
+        online_orders: "unclear",
+        source_url: "https://example.invalid/integration-test-fixture",
+        source_checked_at: "2026-01-01",
+      })
+      .select("id")
+      .single();
+    if (programError) throw new Error(`fixture programme: ${programError.message}`);
+    fixturePrograms.push(unclear!.id);
+
+    await admin.from("seller_profiles").update({ food_program_id: unclear!.id }).eq("id", id);
+    expect((await admin.rpc("seller_allows_online_food_sales", { p_seller_id: id })).data).toBe(true);
+
+    // And the listing goes through, which is the part that actually matters to a seller.
+    const { error } = await listIn(id, "baked-goods");
+    expect(error).toBeNull();
+  });
+
   it("still refuses an unrecognised axis", async () => {
     const id = await seller("TX");
     expect(

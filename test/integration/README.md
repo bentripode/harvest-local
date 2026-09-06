@@ -22,8 +22,9 @@ seed migrations are exercised on a fresh database rather than an already-populat
 > when that data was corrected against the statutes, and stayed invisible for exactly this reason.
 > Set the flag anywhere the suite is *expected* to run.
 
-The job is not yet part of the `main` branch-protection ruleset — only `lint · build · typecheck` is
-required. Add `integration (database)` to the ruleset to make a database failure block a merge.
+`integration (database)` **is** a required check on `main`, alongside `lint · build · typecheck`, so
+a database failure blocks the merge. Both job names are therefore load-bearing: rename one and it
+stops blocking rather than failing loudly.
 
 ## Setup
 
