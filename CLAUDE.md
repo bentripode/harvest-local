@@ -580,10 +580,11 @@ Maryland's on-farm route). Louisiana and Massachusetts left that list once 40:4.
 590.001(A) were read; **Maryland's on-farm row joined it deliberately**, because the label it held
 was a copy of the cottage-food one and would have printed "Made by a cottage food business" on a
 licensed processor's jar — refusing to print beats printing something false.
-Production date, lot code and use-by are asked for at print time, being per-batch. Six states (CO,
-ID, IL, MN, MO, NE) also get a point-of-sale placard — Colorado and Illinois joined that list on
-reading the statutes and Alaska left it, and in both CO and IL **the placard text is deliberately
-NOT the label disclaimer**.
+Production date, lot code and use-by are asked for at print time, being per-batch. Five states (CO,
+ID, IL, MN, NE) also get a point-of-sale placard — the list has churned entirely on reading the
+statutes: Colorado and Illinois joined, Alaska and Missouri left (Missouri's placard text turned out
+to be an invented paraphrase and § 196.298.4 prescribes no sign at all), and in both CO and IL **the
+placard text is deliberately NOT the label disclaimer**.
 
 `required_elements` alone could not express three things states actually ask for, so
 `20260906150000_label_element_vocabulary.sql` added them rather than leaving a note asking a human

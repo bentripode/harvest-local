@@ -110,7 +110,9 @@ describeDb("state label rules", () => {
     // display ... a placard", carrying SHORTER text than the label phrase at (b)(7)(E) — the same
     // label/placard split Colorado has. Online, the same paragraph makes it a message on the sales
     // interface, which is why Illinois is also predisclosure_required.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "MO", "NE"]);
+    // MO left: Mo. Rev. Stat. 196.298.4 puts the statement on the LABEL and prescribes no sign at
+    // the point of sale. The placard text we held was an invented paraphrase.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "NE"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
