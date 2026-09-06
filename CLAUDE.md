@@ -572,6 +572,22 @@ until it's complete, and refused outright when the state's rule is unrecorded (L
 Production date and lot code are asked for at print time, being per-batch. Five states (AK, ID, MN,
 MO, NE) also get a point-of-sale placard.
 
+`required_elements` alone could not express three things states actually ask for, so
+`20260906150000_label_element_vocabulary.sql` added them rather than leaving a note asking a human
+to finish the label by hand. **`optional_elements`** is the "if applicable" case (AS 17.20.332 wants
+a business licence number only from producers who have one) — printed when a value exists, never a
+blocker. **`element_alternatives`** (jsonb array of arrays, shape-checked by a strict-jsonpath CHECK)
+holds either/or groups: Colo. Rev. Stat. 25-4-1614(3)(a)(II) wants "telephone number **or**
+electronic mail address", so a group is missing only when *every* member is empty, and every member
+the seller does have gets printed. **`regulator_website_url` + the `regulator_website` element** is
+an address the *state* supplies (AZ 36-932(A)(5), CO 25-4-1614(3)(a)(VI)) — it lives on the rule, not
+the seller, and a rule naming the element with no URL recorded renders as **missing with
+`fix: "admin"`**, because the label genuinely cannot print until an admin enters it. Not everything
+fits: AZ 36-932(A)(4)'s developmental-disability-facility disclosure is conditional on a fact nothing
+models, so it stays in the rule's notes. `product_label_disclosure()` returns all three (plus
+`municipality`, which it had never returned — California's 114365.3(f) requires the county of
+approval in the *advertisement*, so it was silently dropping off every Californian listing).
+
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
 the seller's **chosen program** (falling back to `state_cottage_food_rules.revenue_cap` when there

@@ -3,7 +3,7 @@ import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { formatAddress } from "@/lib/geo/address";
 import { isUsState } from "@/lib/geo/state";
-import type { LabelRule, LabelSource } from "@/lib/labels/render";
+import { parseAlternatives, type LabelRule, type LabelSource } from "@/lib/labels/render";
 
 /**
  * Loading everything a label needs.
@@ -74,7 +74,7 @@ export async function getLabelContext(
     ? await supabase
         .from("state_label_rules")
         .select(
-          "required_elements, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
+          "required_elements, optional_elements, element_alternatives, regulator_website_url, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
         )
         .eq("program_id", programId)
         .maybeSingle()
@@ -86,6 +86,9 @@ export async function getLabelContext(
     programChosen: !!seller.food_program_id,
     rule: {
       requiredElements: rule?.required_elements ?? [],
+      optionalElements: rule?.optional_elements ?? [],
+      elementAlternatives: parseAlternatives(rule?.element_alternatives),
+      regulatorWebsiteUrl: rule?.regulator_website_url ?? null,
       disclaimerText: rule?.disclaimer_text ?? null,
       disclaimerMinPt: rule?.disclaimer_min_pt ?? null,
       disclaimerAllCaps: rule?.disclaimer_all_caps ?? false,

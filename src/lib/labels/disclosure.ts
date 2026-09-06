@@ -1,7 +1,12 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
-import { renderLabel, type LabelRule, type LabelSource } from "@/lib/labels/render";
+import {
+  parseAlternatives,
+  renderLabel,
+  type LabelRule,
+  type LabelSource,
+} from "@/lib/labels/render";
 
 /**
  * The label information a buyer has to see before they pay.
@@ -44,6 +49,9 @@ export async function getProductDisclosures(
 
     const rule: LabelRule = {
       requiredElements: row.required_elements ?? [],
+      optionalElements: row.optional_elements ?? [],
+      elementAlternatives: parseAlternatives(row.element_alternatives),
+      regulatorWebsiteUrl: row.regulator_website_url,
       disclaimerText: row.disclaimer_text,
       disclaimerMinPt: row.disclaimer_min_pt,
       disclaimerAllCaps: row.disclaimer_all_caps,
@@ -62,7 +70,9 @@ export async function getProductDisclosures(
       producerPhone: null,
       producerEmail: null,
       permitNumber: row.permit_number,
-      municipality: null,
+      // California's advertising rule wants the county of approval on the listing itself
+      // (114365.3(f)(1)), so this is not a print-only element.
+      municipality: row.municipality,
       ingredients: (row.ingredients as string[] | null) ?? [],
       netWeightValue: row.net_weight_value == null ? null : String(row.net_weight_value),
       netWeightUnit: row.net_weight_unit,

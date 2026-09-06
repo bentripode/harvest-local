@@ -93,7 +93,7 @@ export function LabelSheet({
         <div className="border-destructive/30 bg-destructive/5 rounded-lg border p-4 text-sm print:hidden">
           <p className="text-destructive font-medium">
             {stateName} requires {rendered.missing.length}{" "}
-            {rendered.missing.length === 1 ? "thing" : "things"} you haven&apos;t added yet
+            {rendered.missing.length === 1 ? "thing" : "things"} this label is missing
           </p>
           <ul className="text-muted-foreground mt-2 space-y-1">
             {rendered.missing.map((m) => (
@@ -105,7 +105,11 @@ export function LabelSheet({
                     ? "add it in your storefront settings"
                     : m.fix === "licence"
                       ? "comes from a verified permit on your compliance page"
-                      : "fill it in above"}
+                      : m.fix === "admin"
+                        ? // Nothing the seller can do: the state supplies this and we haven't
+                          // recorded it. Say so plainly rather than sending them looking.
+                          "supplied by the state — we haven't recorded it yet, so contact support before printing"
+                        : "fill it in above"}
               </li>
             ))}
           </ul>
