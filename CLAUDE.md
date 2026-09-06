@@ -214,6 +214,11 @@ Never write an order, or code a path that could write an order, that crosses sta
   is `banned`: the shelf-stable listings keep selling and the TCS one is what's blocked. The
   counter-argument (a pickup order is arguably sold when the buyer collects) is recorded in that
   row's `category_note` rather than settled silently.
+- **`unclear` is a legitimate correction downwards.** All three Utah programmes were seeded
+  `online_orders = allowed`; none of the three bodies of law (Utah Code § 4-5-501 + R70-560, Title 4
+  Ch. 5a, § 26B-7-416) mentions internet selling in either direction, so all three are now `unclear`.
+  Nothing is blocked by the change — only `banned` blocks — and the row stops asserting an answer the
+  state never gave.
 - **For an amendment, read the ENROLLED PUBLIC CHAPTER, not the bill as filed.** Tennessee's HB 130
   as introduced would have permitted internet sale of dairy, meat and poultry items; the chapter the
   governor signed does the opposite. Legislature sites serve the introduced draft under the bill
@@ -589,11 +594,13 @@ as-is at `disclaimer_min_pt`, never paraphrased or regenerated.** `required_elem
 vocabulary with a CHECK, since a typo silently drops a required field off a label.
 `/seller/products/[id]/label` renders it: `renderLabel()` (`src/lib/labels/render.ts`, pure) merges
 product + seller + verified permit into the state's element list, derives the metric equivalent
-where required (CT/NC/TN), and emits a **`missing` list instead of a label** when the state requires
+where required (CT/NC), and emits a **`missing` list instead of a label** when the state requires
 something the seller hasn't filled in — naming each field and where to fix it. Printing is disabled
-until it's complete, and refused outright when the state's rule is unrecorded (MT, PA, UT, and
-Maryland's on-farm route). Louisiana and Massachusetts left that list once 40:4.9 and 105 CMR
-590.001(A) were read; **Maryland's on-farm row joined it deliberately**, because the label it held
+until it's complete, and refused outright when the state's rule is unrecorded (MT, PA and
+Maryland's on-farm route; **UT left once R70-560-6, 4-5a-104(3) and 26B-7-416(8)(h) were read** —
+its three routes had all three label rules empty because § 4-5-501(4)(c) delegates the label to a
+rule and the other two put it in different titles). Louisiana and Massachusetts left that list once
+40:4.9 and 105 CMR 590.001(A) were read; **Maryland's on-farm row joined it deliberately**, because the label it held
 was a copy of the cottage-food one and would have printed "Made by a cottage food business" on a
 licensed processor's jar — refusing to print beats printing something false.
 Production date, lot code and use-by are asked for at print time, being per-batch. Nine states (CO,
@@ -639,6 +646,17 @@ put our prose in the one column that exists to hold **quoted law printed onto fo
 so instead **the seller writes it**, prompted by `state_label_rules.seller_statement_prompt` (the
 state's own words, CHECK-enforced to be present whenever the element is used). The label will not
 print until they do, which is what Louisiana requires.
+
+**Utah needs two of them, in two different programmes.** § 4-5a-104(3)(b) wants "a disclosure
+statement indicating that the product is: (i) not for resale; and (ii) processed and prepared
+without state or local inspection", plus (3)(c)'s shared-kitchen allergen statement; § 26B-7-416(8)(h)
+wants a microenterprise operator to notify the buyer that "while a permit has been issued by the
+local health department, the kitchen may not meet all of the requirements of a commercial retail food
+establishment". Both prescribe substance and leave the wording, so both are `seller_statement`.
+Utah's *cottage food* route is the opposite case — R70-560-6(2)(h) prescribes the exact words
+("Home Produced", bold, 12pt, principal display panel), so that one is `disclaimer_text`. Same state,
+same pass, both columns, and which column a rule lands in is decided by whether the state wrote the
+sentence.
 
 **Four states need it** — LA, MO (§ 196.298.4), MT (§ 50-49-203(3)) and NE (§ 81-2,280(5)(a)) — so it
 lives on `seller_profiles.homemade_food_statement`, not on the print run: it is one sentence about
@@ -704,9 +722,15 @@ keeps the annual total whatever the basis, because that is what `/seller/complia
 and emails admins; the same figure shows on `/admin/programs`.
 
 
-**Phase 5 — pre-checkout label disclosure.** Nine jurisdictions reach the buyer *before* the sale,
+**Phase 5 — pre-checkout label disclosure.** Ten jurisdictions reach the buyer *before* the sale,
 by several different routes, and `state_label_rules.predisclosure_required` records it — currently
-**CA, IL, IN, MN, NE, NM, OK, TN, TX**. **TN** — Tenn. Code § 53-1-118(b)(5)(A)(iv), the whole of
+**CA, IL, IN, MN, NE, NM, OK, TN, TX, UT**. **UT** is the one that gets there without a disclosure
+rule at all: Utah Code § 4-5a-104(1) exempts a producer only where the food is "sold directly to an
+informed final consumer", and § 4-5a-102(7)(c) defines that person as one who "has been informed
+that the product is not certified, licensed, regulated, or inspected by the state" — so **being told
+is a precondition of the exemption**, and a buyer who reads it when the box arrives was not an
+informed final consumer when they bought. Only Utah's Homemade Food Act route; its cottage food and
+microenterprise routes are false. **TN** — Tenn. Code § 53-1-118(b)(5)(A)(iv), the whole of
 the (b)(4) information "On the webpage on which the homemade food item is offered for sale": it
 names the listing page, and it is the reason `contact_phone` exists. **TX** —
 §437.0194(b)(2) permits an internet sale only if the labelling information reaches the buyer "before

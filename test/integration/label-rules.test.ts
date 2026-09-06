@@ -161,7 +161,13 @@ describeDb("state label rules", () => {
     // TN — 53-1-118(b)(5)(A)(iv), "On the webpage on which the homemade food item is offered for
     //      sale, if the homemade food item is offered only for sale on the internet". It names the
     //      listing page, and the information it names is (b)(4) in full.
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX"]);
+    // UT — the Home Consumption and Homemade Food Act reaches it from a direction no other state
+    //      does. Utah Code 4-5a-104(1) exempts a producer only where the food is "sold directly to
+    //      an informed final consumer", and 4-5a-102(7)(c) defines that person as one who "has
+    //      been informed that the product is not certified, licensed, regulated, or inspected by
+    //      the state" — so being told is a PRECONDITION OF THE EXEMPTION, not a labelling duty.
+    //      Only Utah ordinal 2; the cottage food and microenterprise routes are false.
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX", "UT"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
@@ -199,6 +205,74 @@ describeDb("state label rules", () => {
       .update({ required_elements: ["product_name", "lucky_charm"] })
       .eq("program_id", program!.id);
     expect(error).not.toBeNull();
+  });
+
+  /**
+   * A required element that can never carry a value makes the label permanently unprintable.
+   *
+   * `nutrition_if_claimed` is the only element in the vocabulary that `valueFor()` always resolves
+   * to null — a nutrition panel needs per-serving figures nothing here collects. It sat in
+   * `required_elements` for fourteen rules across ten states, so `canPrint()` was false for every
+   * seller in all of them. It belongs in `optional_elements`, which never blocks.
+   */
+  it("never requires an element that can never be satisfied", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("required_elements, state_food_programs!inner(state_code)");
+    const offenders = (data ?? [])
+      .filter((r) => (r.required_elements as string[]).includes("nutrition_if_claimed"))
+      .map((r) => (r.state_food_programs as unknown as { state_code: string }).state_code);
+    expect(offenders).toEqual([]);
+  });
+
+  it("stores Utah's two words of prescribed label text, and its two seller-written statements", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select(
+        "disclaimer_text, disclaimer_min_pt, required_elements, seller_statement_prompt, state_food_programs!inner(state_code, ordinal)",
+      )
+      .eq("state_food_programs.state_code", "UT");
+
+    const byOrdinal = new Map(
+      (data ?? []).map((r) => [
+        (r.state_food_programs as unknown as { ordinal: number }).ordinal,
+        r,
+      ]),
+    );
+
+    // Cottage food: Utah Admin. Code R70-560-6(2)(h) requires "the words 'Home Produced' in bold
+    // and conspicuous 12-point type on the principal display panel" — prescribed wording, so it is
+    // the disclaimer rather than a statement the seller writes.
+    expect(byOrdinal.get(1)?.disclaimer_text).toBe("Home Produced");
+    expect(byOrdinal.get(1)?.disclaimer_min_pt).toBe(12);
+
+    // The other two prescribe substance and leave the wording, so they get a prompt and no
+    // disclaimer — our sentence must never end up in the column that holds quoted law.
+    for (const ordinal of [2, 3]) {
+      expect(byOrdinal.get(ordinal)?.disclaimer_text).toBeNull();
+      expect(byOrdinal.get(ordinal)?.required_elements).toContain("seller_statement");
+      expect(byOrdinal.get(ordinal)?.seller_statement_prompt).toBeTruthy();
+    }
+  });
+
+  /**
+   * Utah's three routes are mutually exclusive by statute — § 26B-7-401(15)(b)(ii) says a
+   * microenterprise home kitchen "does not include ... a cottage food operation" — and they answer
+   * to different regulators. Getting `local_preemption` wrong on the microenterprise row would tell
+   * a seller their county has no say, when their county issues the permit.
+   */
+  it("keeps Utah's three routes distinct about who regulates them", async () => {
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("ordinal, local_preemption, license_required, online_orders")
+      .eq("state_code", "UT")
+      .order("ordinal");
+
+    expect(data?.map((p) => p.local_preemption)).toEqual([true, true, false]);
+    expect(data?.map((p) => p.license_required)).toEqual(["yes", "no", "yes"]);
+    // None of the three bodies of law mentions internet selling in either direction. `unclear` does
+    // not block a listing — it records that nobody answered, which the seed asserted otherwise.
+    expect(data?.map((p) => p.online_orders)).toEqual(["unclear", "unclear", "unclear"]);
   });
 
   // -- RLS -------------------------------------------------------------------
