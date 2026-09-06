@@ -352,10 +352,12 @@ describe("renderLabel — seller-written statement", () => {
     expect(canPrint(out)).toBe(true);
   });
 
+  // fix moved from "print" to "profile" in 20260906390000: the statement is one sentence about the
+  // producer, identical on every label, and Nebraska needs it on the website too.
   it("refuses to print until the seller writes one", () => {
     const out = renderLabel(louisiana, { ...source, sellerStatement: null });
     expect(out.missing).toEqual([
-      { element: "seller_statement", label: "Statement", fix: "print" },
+      { element: "seller_statement", label: "Statement", fix: "profile" },
     ]);
     expect(canPrint(out)).toBe(false);
   });

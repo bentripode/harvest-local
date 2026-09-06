@@ -170,6 +170,10 @@ describeDb("pre-checkout label disclosure", () => {
         "product_name",
         "regulator_website_url",
         "required_elements",
+        // The seller's own wording, where the state prescribes the substance and not the text.
+        // Neb. Rev. Stat. 81-2,280(5)(c) wants it on the producer's website, so a buyer-facing
+        // function has to be able to read it.
+        "seller_statement",
         "state_code",
       ].sort(),
     );

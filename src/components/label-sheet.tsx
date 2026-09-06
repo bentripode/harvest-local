@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,7 +32,9 @@ export function LabelSheet({
   const [productionDate, setProductionDate] = useState("");
   const [lotCode, setLotCode] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const [sellerStatement, setSellerStatement] = useState("");
+  // Pre-filled from the seller's profile, and overridable for one print run — some states word this
+  // differently for different products, and the profile default should not get in the way.
+  const [sellerStatement, setSellerStatement] = useState(source.sellerStatement ?? "");
   const [copies, setCopies] = useState(1);
 
   // Only a rule that asks for a seller-written statement gets the box for one, and the state's own
@@ -112,7 +115,11 @@ export function LabelSheet({
             {rule.sellerStatementPrompt ? (
               <p className="text-muted-foreground text-xs">
                 Your state prescribes what this has to say but not the words. It must be{" "}
-                {rule.sellerStatementPrompt}
+                {rule.sellerStatementPrompt}. Set a default on{" "}
+                <Link href="/seller/settings" className="underline underline-offset-2">
+                  your settings page
+                </Link>{" "}
+                so it also appears on your listings.
               </p>
             ) : null}
           </div>

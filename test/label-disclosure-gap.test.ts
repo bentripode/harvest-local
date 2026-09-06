@@ -73,6 +73,19 @@ describe("disclosure gaps", () => {
     ]);
   });
 
+  it("treats a seller-written statement as a profile gap, not a print-time one", () => {
+    // It lives on seller_profiles now (20260906390000), so the disclosure gap notice surfaces it —
+    // which is what Neb. Rev. Stat. 81-2,280(5)(c) needs, since that wants the notification on the
+    // producer's website and not only on the package.
+    const out = renderLabel(
+      { ...californiaRule, requiredElements: ["seller_statement"] },
+      incomplete,
+    );
+    expect(out.missing).toEqual([
+      { element: "seller_statement", label: "Statement", fix: "profile" },
+    ]);
+  });
+
   it("points each gap at the person who can close it", () => {
     const byElement = new Map(
       renderLabel(californiaRule, incomplete).missing.map((m) => [m.element, m.fix]),

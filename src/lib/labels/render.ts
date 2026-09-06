@@ -157,7 +157,9 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   production_date: "print",
   lot_code: "print",
   expiration_date: "print",
-  seller_statement: "print",
+  // Lives on the seller profile now (20260906390000), so the label sheet pre-fills it and the
+  // storefront listing can carry it — Neb. Rev. Stat. 81-2,280(5)(c) needs it on the website.
+  seller_statement: "profile",
   nutrition_if_claimed: "product",
   // Not the seller's to supply: the state prescribes this address and an admin records it.
   regulator_website: "admin",
