@@ -168,22 +168,56 @@ export function ProgramReviewForm({ program }: { program: StateFoodProgram }) {
         </p>
       ) : null}
 
-      <div className="flex items-center gap-3 border-t pt-4">
-        <Submit verified={!!program.verified_at} />
+      <div className="space-y-2 border-t pt-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <Submit
+            intent="verify"
+            label={program.verified_at ? "Save & re-verify" : "Save & mark verified"}
+            pendingLabel="Verifying…"
+          />
+          {/*
+            A programme row carries around twenty fields. Without this, correcting one of them meant
+            claiming you had checked all twenty — which is how a wrong figure stays wrong.
+          */}
+          <Submit intent="save" label="Save without verifying" pendingLabel="Saving…" ghost />
+        </div>
         <p className="text-muted-foreground text-xs">
-          Saving records that <strong>you</strong> checked this against{" "}
-          {program.state_code}&apos;s own rules — not that you read our copy of them.
+          <strong>Save &amp; mark verified</strong> records that <strong>you</strong> checked this
+          against {program.state_code}&apos;s own rules — not that you read our copy of them.{" "}
+          <strong>Save without verifying</strong> corrects a field you have sourced while leaving the
+          rest of the row unchecked
+          {program.verified_at
+            ? "; it clears the current verification, because that check covered the values as they were."
+            : "."}
         </p>
       </div>
     </form>
   );
 }
 
-function Submit({ verified }: { verified: boolean }) {
-  const { pending } = useFormStatus();
+function Submit({
+  intent,
+  label,
+  pendingLabel,
+  ghost,
+}: {
+  intent: "verify" | "save";
+  label: string;
+  pendingLabel: string;
+  ghost?: boolean;
+}) {
+  // `data` is the FormData in flight, so only the button that was clicked shows its pending label.
+  const { pending, data } = useFormStatus();
+  const isThisOne = pending && data?.get("intent") === intent;
   return (
-    <Button type="submit" disabled={pending}>
-      {pending ? "Saving…" : verified ? "Save & re-verify" : "Save & mark verified"}
+    <Button
+      type="submit"
+      name="intent"
+      value={intent}
+      variant={ghost ? "outline" : "default"}
+      disabled={pending}
+    >
+      {isThisOne ? pendingLabel : label}
     </Button>
   );
 }
