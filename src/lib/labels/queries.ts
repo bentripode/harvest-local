@@ -2,7 +2,7 @@ import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
 import { formatAddress } from "@/lib/geo/address";
-import { isUsState } from "@/lib/geo/state";
+import { isUsState, stateName } from "@/lib/geo/state";
 import { parseAlternatives, type LabelRule, type LabelSource } from "@/lib/labels/render";
 
 /**
@@ -117,6 +117,7 @@ export async function getLabelContext(
       producerEmail: null,
       permitNumber: licence?.license_number ?? null,
       municipality: address?.city ?? null,
+      stateName: stateName(seller.home_state),
       ingredients: product.ingredients ?? [],
       netWeightValue: product.net_weight_value,
       netWeightUnit: product.net_weight_unit,
