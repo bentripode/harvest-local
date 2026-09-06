@@ -570,7 +570,8 @@ where required (CT/NC/TN), and emits a **`missing` list instead of a label** whe
 something the seller hasn't filled in — naming each field and where to fix it. Printing is disabled
 until it's complete, and refused outright when the state's rule is unrecorded (LA, MA, MT, PA, UT).
 Production date and lot code are asked for at print time, being per-batch. Five states (AK, ID, MN,
-MO, NE) also get a point-of-sale placard.
+MO, NE) also get a point-of-sale placard — Colorado replaced Alaska in that list on reading the
+statutes, and Colorado's placard text is deliberately NOT its label disclaimer.
 
 `required_elements` alone could not express three things states actually ask for, so
 `20260906150000_label_element_vocabulary.sql` added them rather than leaving a note asking a human

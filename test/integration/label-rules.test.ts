@@ -101,7 +101,12 @@ describeDb("state label rules", () => {
         (data ?? []).map((r) => (r.state_food_programs as unknown as { state_code: string }).state_code),
       ),
     ].sort();
-    expect(states).toEqual(["AK", "ID", "MN", "MO", "NE"]);
+    // Both changes here came from reading the statutes, and the old list was the summary's.
+    // CO gained one: Colo. Rev. Stat. 25-4-1614(3)(c) requires a placard "at the point of sale",
+    // carrying SHORTER text than the label disclaimer at (3)(a)(V).
+    // AK lost one: AS 17.20.332 puts the information on the package and, for unpackaged food,
+    // obliges the producer to tell the buyer — a disclosure, but not a written placard.
+    expect(states).toEqual(["CO", "ID", "MN", "MO", "NE"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
