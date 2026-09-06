@@ -27,6 +27,11 @@ export async function getLabelContext(
   productId: string,
 ): Promise<LabelContext | null> {
   const supabase = await createClient();
+  // The label page is always the seller viewing their own product, so their session carries the
+  // account email New Mexico wants on the label without going through the storefront function.
+  const {
+    data: { user: viewer },
+  } = await supabase.auth.getUser();
 
   const { data: product } = await supabase
     .from("products")
@@ -117,7 +122,10 @@ export async function getLabelContext(
           : null,
       // Not collected today — surfaced as missing where a state asks for it.
       producerPhone: null,
-      producerEmail: null,
+      // The seller's account email. This page is only ever the seller looking at their own product,
+      // so it comes from their session rather than through the SECURITY DEFINER function the
+      // storefront uses. N.M. Stat. 25-12-3(C)(1) is the state that requires it outright.
+      producerEmail: viewer?.email ?? null,
       permitNumber: licence?.license_number ?? null,
       municipality: address?.city ?? null,
       stateName: stateName(seller.home_state),

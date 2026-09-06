@@ -1918,6 +1918,7 @@ export type Database = {
           permit_number: string
           predisclosure_required: boolean
           producer_address: string
+          producer_email: string
           product_name: string
           regulator_website_url: string
           required_elements: string[]
