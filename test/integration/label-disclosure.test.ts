@@ -91,7 +91,10 @@ describeDb("pre-checkout label disclosure", () => {
     const { data: direct } = await anonDb().from("addresses").select("line1").eq("id", addressId);
     expect(direct ?? []).toHaveLength(0);
 
-    // … but it is required on the label, so the function returns it.
+    // … but it goes on the label, so the function returns it. For Texas specifically the address is
+    // one half of an either/or since the 2025 amendment — § 437.0193(b-1) lets an operation print a
+    // department-issued identification number instead — and § 437.0194(c) even lets it be withheld
+    // until after payment. The function still returns it unconditionally; see that row's venue_note.
     const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
     expect(data?.[0]?.producer_address).toContain("1114 Nueces St");
     expect(data?.[0]?.producer_address).toContain("Austin");
