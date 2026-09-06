@@ -30,6 +30,7 @@ const source: LabelSource = {
   productionDate: "2026-09-04",
   lotCode: "B-2026-09-04",
   expirationDate: "2026-10-04",
+  sellerStatement: "Not produced in a licensed or regulated facility.",
 };
 
 const texas: LabelRule = {
@@ -324,5 +325,44 @@ describe("renderLabel — expiration date", () => {
     const out = renderLabel(iowa, { ...source, expirationDate: null });
     expect(out.missing).toEqual([]);
     expect(canPrint(out)).toBe(true);
+  });
+});
+
+/**
+ * La. Rev. Stat. 40:4.9(D)(1)(a) requires "a label which clearly indicates that the food was not
+ * produced in a licensed or regulated facility" — a fact to convey, not a sentence to reproduce.
+ */
+describe("renderLabel — seller-written statement", () => {
+  const louisiana: LabelRule = {
+    ...texas,
+    requiredElements: ["seller_statement"],
+    disclaimerText: null,
+    sellerStatementPrompt: "a label which clearly indicates that the food was not produced in a licensed or regulated facility",
+  };
+
+  it("prints the seller's own words, with no caption over them", () => {
+    const out = renderLabel(louisiana, source);
+    expect(out.lines).toEqual([
+      {
+        element: "seller_statement",
+        caption: null,
+        value: "Not produced in a licensed or regulated facility.",
+      },
+    ]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("refuses to print until the seller writes one", () => {
+    const out = renderLabel(louisiana, { ...source, sellerStatement: null });
+    expect(out.missing).toEqual([
+      { element: "seller_statement", label: "Statement", fix: "print" },
+    ]);
+    expect(canPrint(out)).toBe(false);
+  });
+
+  it("is not treated as an unrecorded rule just because there is no disclaimer", () => {
+    // Louisiana was one of five states this generator refused to print for. The rule is known now;
+    // it simply has no quoted sentence in it.
+    expect(renderLabel(louisiana, source).ruleUnknown).toBe(false);
   });
 });

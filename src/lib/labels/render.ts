@@ -30,6 +30,11 @@ export type LabelElement =
   | "lot_code"
   /** Per-batch like the two above. Iowa asks for one on refrigerated TCS food. */
   | "expiration_date"
+  /**
+   * A statement the SELLER writes. Louisiana prescribes what the label must convey and not how to
+   * word it, so there is no quoted text to store — see `seller_statement_prompt` on the rule.
+   */
+  | "seller_statement"
   | "nutrition_if_claimed"
   /** An address the STATE supplies for the producer to print (AZ, CO). Comes from the rule. */
   | "regulator_website";
@@ -49,6 +54,11 @@ export interface LabelRule {
   elementAlternatives?: string[][];
   /** The address this state prescribes, where it prescribes one. Null until an admin records it. */
   regulatorWebsiteUrl?: string | null;
+  /**
+   * What a seller-written statement must convey, in the state's own words. Present exactly when
+   * `seller_statement` is one of the elements; shown on the print form beside the input.
+   */
+  sellerStatementPrompt?: string | null;
   disclaimerText: string | null;
   disclaimerMinPt: number | null;
   disclaimerAllCaps: boolean;
@@ -78,6 +88,8 @@ export interface LabelSource {
   productionDate: string | null;
   lotCode: string | null;
   expirationDate: string | null;
+  /** Written by the seller at print time, to satisfy a substance-only requirement. */
+  sellerStatement: string | null;
 }
 
 export interface LabelLine {
@@ -124,6 +136,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   production_date: "Production date",
   lot_code: "Lot or batch code",
   expiration_date: "Use by",
+  seller_statement: "Statement",
   nutrition_if_claimed: "Nutrition information",
   regulator_website: "State information website",
 };
@@ -144,13 +157,20 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   production_date: "print",
   lot_code: "print",
   expiration_date: "print",
+  seller_statement: "print",
   nutrition_if_claimed: "product",
   // Not the seller's to supply: the state prescribes this address and an admin records it.
   regulator_website: "admin",
 };
 
 /** Captions that would be noise on a small label. */
-const NO_CAPTION = new Set<LabelElement>(["product_name", "business_name", "producer_name"]);
+const NO_CAPTION = new Set<LabelElement>([
+  "product_name",
+  "business_name",
+  "producer_name",
+  // A statement is printed as written, the way the disclaimer is; a caption above it reads as noise.
+  "seller_statement",
+]);
 
 function isElement(value: string): value is LabelElement {
   return value in ELEMENT_LABEL;
@@ -206,6 +226,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.lotCode;
     case "expiration_date":
       return src.expirationDate;
+    case "seller_statement":
+      return src.sellerStatement;
     case "nutrition_if_claimed":
       // Only required when the seller makes a nutritional claim, which we can't detect for them.
       return null;

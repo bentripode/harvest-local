@@ -31,7 +31,14 @@ export function LabelSheet({
   const [productionDate, setProductionDate] = useState("");
   const [lotCode, setLotCode] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
+  const [sellerStatement, setSellerStatement] = useState("");
   const [copies, setCopies] = useState(1);
+
+  // Only a rule that asks for a seller-written statement gets the box for one, and the state's own
+  // words describing what it must convey come with it.
+  const wantsStatement =
+    rule.requiredElements.includes("seller_statement") ||
+    (rule.optionalElements ?? []).includes("seller_statement");
 
   const rendered = useMemo(
     () =>
@@ -40,8 +47,9 @@ export function LabelSheet({
         productionDate: productionDate || null,
         lotCode: lotCode || null,
         expirationDate: expirationDate || null,
+        sellerStatement: sellerStatement.trim() || null,
       }),
-    [rule, source, productionDate, lotCode, expirationDate],
+    [rule, source, productionDate, lotCode, expirationDate, sellerStatement],
   );
   const ready = canPrint(rendered);
 
@@ -90,9 +98,28 @@ export function LabelSheet({
             />
           </div>
         </div>
+        {wantsStatement ? (
+          <div className="space-y-2">
+            <Label htmlFor="sellerStatement">Statement in your own words</Label>
+            <textarea
+              id="sellerStatement"
+              rows={2}
+              className="border-input bg-background placeholder:text-muted-foreground focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:outline-none"
+              value={sellerStatement}
+              onChange={(e) => setSellerStatement(e.target.value)}
+              placeholder="e.g. Not produced in a licensed or regulated facility."
+            />
+            {rule.sellerStatementPrompt ? (
+              <p className="text-muted-foreground text-xs">
+                Your state prescribes what this has to say but not the words. It must be{" "}
+                {rule.sellerStatementPrompt}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
         <p className="text-muted-foreground text-xs">
-          These two are per batch, so they aren&apos;t saved with the product — fill them in each
-          time you print.
+          These are per batch, so they aren&apos;t saved with the product — fill them in each time
+          you print.
         </p>
       </section>
 

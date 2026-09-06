@@ -1546,6 +1546,7 @@ export type Database = {
           program_id: string
           regulator_website_url: string | null
           required_elements: string[]
+          seller_statement_prompt: string | null
           source_checked_at: string
           source_url: string
           updated_at: string
@@ -1568,6 +1569,7 @@ export type Database = {
           program_id: string
           regulator_website_url?: string | null
           required_elements?: string[]
+          seller_statement_prompt?: string | null
           source_checked_at: string
           source_url: string
           updated_at?: string
@@ -1590,6 +1592,7 @@ export type Database = {
           program_id?: string
           regulator_website_url?: string | null
           required_elements?: string[]
+          seller_statement_prompt?: string | null
           source_checked_at?: string
           source_url?: string
           updated_at?: string
