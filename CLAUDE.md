@@ -592,6 +592,12 @@ unless both halves are known. It does **not** replace `municipality`, which CA a
 county. `product_label_disclosure()` returns all three (plus
 `municipality`, which it had never returned — California's 114365.3(f) requires the county of
 approval in the *advertisement*, so it was silently dropping off every Californian listing).
+Two more elements came out of the alphabetical pass. **`municipality_state`** prints the town and
+the state as one phrase, which 16 Del. Admin. Code 4458A 8.2.1 requires (`"town/city, Delaware"`) —
+it does not replace `municipality`, which CA and CO want as a bare county. **`expiration_date`** is
+a third per-batch value alongside `production_date` and `lot_code`, asked for on the print form and
+never stored on the product; Iowa Code 137D.2(7)(e) wants one on refrigerated TCS food, and it sits
+in `optional_elements` because nothing here records whether a given product is one.
 
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from
@@ -614,26 +620,19 @@ keeps the annual total whatever the basis, because that is what `/seller/complia
 and emails admins; the same figure shows on `/admin/programs`.
 
 
-**Phase 5 — pre-checkout label disclosure.** Texas \xc2\xa7437.0194(b)(2) permits an internet sale only if
-the labelling information reaches the buyer **before payment is accepted** — the package arriving
-later is too late; Nebraska requires the disclaimer in any internet advertising.
-`state_label_rules.predisclosure_required` records it (true for TX, verified against the statute,
-and NE from the summary; **false elsewhere means nobody has checked, not that the state has no such
-rule**). The data spans tables a buyer cannot read — `addresses` is owner-only, `seller_licenses`
-owner-or-admin — so `product_label_disclosure()` (SECURITY DEFINER, granted to `anon`) returns
-exactly the fields required on the physical label and nothing else, and only for a product a buyer
-can already see. `src/lib/labels/disclosure.ts` runs the result back through `renderLabel()`, so
-what the buyer reads and what gets printed cannot drift apart. Rendered inline on the storefront
-listing and above the pay button at checkout — a state asking for a "legible statement" is not
-satisfied by a collapsed accordion.
-
-
-**Phase 5 — pre-checkout label disclosure.** Texas §437.0194(b)(2) permits an internet sale only if
-the labelling information reaches the buyer **before payment is accepted** — the package arriving
-later is too late; Nebraska requires the disclaimer in any internet advertising.
-`state_label_rules.predisclosure_required` records it (true for TX, verified against the statute,
-and NE from the summary; **false elsewhere means nobody has checked, not that the state has no such
-rule**). The data spans tables a buyer cannot read — `addresses` is owner-only, `seller_licenses`
+**Phase 5 — pre-checkout label disclosure.** Five jurisdictions reach the buyer *before* the sale,
+by four different routes, and `state_label_rules.predisclosure_required` records it. **TX** —
+§437.0194(b)(2) permits an internet sale only if the labelling information reaches the buyer "before
+the operator accepts payment"; the package arriving later is too late. **IN** — Ind. Code
+16-42-5.3-5(b), "A home based vendor shall post the label of each food product on the vendor's
+website": the whole label, per product, which is exactly what `product_label_disclosure()` returns.
+**IL** — 410 ILCS 625/4(b)(10), "Online, notice shall be a message on the cottage food operation's
+online sales interface at the point of sale", the only one that legislates the checkout page in
+those words (and its notice is a *shorter* sentence than its label phrase — both are stored). **CA**
+— Health & Saf. Code 114365.3(f) requires the county of approval, the permit number and the "Made in
+a Home Kitchen" statement in any internet advertising, which a storefront listing is. **NE** — the
+disclaimer in internet advertising, still from the summary rather than the statute. **False
+elsewhere means nobody has checked, not that the state has no such rule.** The data spans tables a buyer cannot read — `addresses` is owner-only, `seller_licenses`
 owner-or-admin — so `product_label_disclosure()` (SECURITY DEFINER, granted to `anon`) returns
 exactly the fields required on the physical label and nothing else, and only for a product a buyer
 can already see. `src/lib/labels/disclosure.ts` runs the result back through `renderLabel()`, so
