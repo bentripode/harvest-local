@@ -7,6 +7,7 @@ import {
   renderLabel,
   type LabelRule,
   type LabelSource,
+  type MissingField,
 } from "@/lib/labels/render";
 
 /**
@@ -28,6 +29,22 @@ export interface ProductDisclosure {
   lines: { caption: string | null; value: string }[];
   disclaimer: string | null;
   disclaimerAllCaps: boolean;
+  /**
+   * What the state requires the buyer to be shown and we cannot show.
+   *
+   * `renderLabel()` drops an element with no value into `missing`, and until now this function threw
+   * that away — so a Californian listing with no recorded permit number quietly rendered an
+   * advertisement missing the permit number Cal. Health & Saf. Code 114365.3(f)(2) requires, and
+   * looked complete. The buyer still sees what we have (a partial label is not a misleading one),
+   * but the SELLER has to be told, because they are the only one who can fix it.
+   *
+   * Per-batch elements are excluded: a production date is a fact about a jar, not about a listing,
+   * so no listing can ever carry one and warning about it would be noise the seller cannot act on.
+   * Indiana is where that bites — 16-42-5.3-5 puts the production date in the label and (b) asks for
+   * "the label" on the website — and it is recorded in that rule's notes rather than nagged about
+   * here.
+   */
+  missing: MissingField[];
 }
 
 export async function getProductDisclosures(
@@ -95,6 +112,8 @@ export async function getProductDisclosures(
       lines: rendered.lines.map((l) => ({ caption: l.caption, value: l.value })),
       disclaimer: rendered.disclaimer,
       disclaimerAllCaps: rendered.disclaimerAllCaps,
+      // Per-batch elements can never be on a listing, so they are not the seller's to fix here.
+      missing: rendered.missing.filter((m) => m.fix !== "print"),
     };
   }
 

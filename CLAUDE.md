@@ -657,6 +657,15 @@ what the buyer reads and what gets printed cannot drift apart. Rendered inline o
 listing and above the pay button at checkout — a state asking for a "legible statement" is not
 satisfied by a collapsed accordion.
 
+**A required element the seller hasn't supplied is a compliance gap, not a blank line.** `renderLabel`
+drops it into `missing`, and `ProductDisclosure` now carries that through instead of discarding it —
+a Californian listing with no recorded permit number was rendering an advertisement short of the
+number 114365.3(f)(2) requires and looking complete. The buyer still sees what we have (a partial
+label is not a misleading one), but `DisclosureGapNotice` on `/seller/products` names each gap and
+where to close it. Per-batch elements (`fix: "print"`) are filtered out — no listing can carry a
+production date, so warning about it would be noise; Indiana is where that bites, and it's recorded
+in that rule's notes.
+
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
 `platform_settings.access_mode` `sellers_only` ↔ `public` (RLS already allows admin writes),

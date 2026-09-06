@@ -10,6 +10,8 @@ import { formatUsd, toCents } from "@/lib/money";
 import type { Product } from "@/lib/db/types";
 import { FoodSalesNotice } from "@/components/food-sales-notice";
 import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
+import { DisclosureGapNotice } from "@/components/disclosure-gap-notice";
+import { getProductDisclosures } from "@/lib/labels/disclosure";
 import { deleteProductAction, setProductStatusAction } from "./actions";
 
 export default async function ProductsPage({
@@ -36,6 +38,12 @@ export default async function ProductsPage({
   // Only food needs a label, so only food gets the button.
   const foodCategoryIds = new Set((foodCategories ?? []).map((c) => c.id));
 
+  // What a buyer in a predisclosure state has to be shown before ordering, and whether we can show
+  // it. Only live listings are disclosed, so only live listings can have a gap.
+  const live = (products ?? []).filter((p) => p.status === "active" || p.status === "sold_out");
+  const disclosures = await getProductDisclosures(live.map((p) => p.id));
+  const titles = new Map(live.map((p) => [p.id, p.title]));
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -53,6 +61,8 @@ export default async function ProductsPage({
       </div>
 
       <FoodSalesNotice status={foodSales} />
+
+      <DisclosureGapNotice disclosures={disclosures} titles={titles} />
 
       {error ? (
         <p className="border-destructive/40 bg-destructive/5 text-destructive rounded-lg border p-3 text-sm">
