@@ -7,9 +7,13 @@ import { adminDb, cleanupAll, createSeller, createTestUser, describeDb, type Db 
  *
  * `categories.food_axes` links our shopping taxonomy to the six axes `state_food_programs` grades,
  * and `products_guard_food_categories` refuses to publish a listing whose axis every program in the
- * seller's state bans. Texas bans meat; Hawaii bans refrigerated baked goods; Florida bans
- * acidified — all three are real rows in the seeded data, so these tests exercise the gate against
- * the law as recorded rather than against a fixture.
+ * seller's state bans. Texas bans meat; Hawaii bans refrigerated food, and also acidified and
+ * fermented — all real rows in the seeded data, so these tests exercise the gate against the law as
+ * recorded rather than against a fixture.
+ *
+ * That cuts both ways: when a state's row is corrected against its statute, a test asserting the old
+ * value fails. Prefer moving the example to a state whose rule has been verified over pinning a
+ * fixture, so the suite keeps checking the gate against law rather than against itself.
  */
 describeDb("food category gate", () => {
   let admin: Db;
@@ -103,9 +107,12 @@ describeDb("food category gate", () => {
   });
 
   it("blocks a category that implicates two axes when either is banned", async () => {
-    // Pickles & ferments implicates acidified AND fermented. Florida bans both.
-    const floridian = await seller("FL");
-    const { error } = await listIn(floridian, "pantry-pickles-ferments");
+    // Pickles & ferments implicates acidified AND fermented. Hawaii bans both, and does so in
+    // the text: Haw. Admin. Rules 11-50-2 excludes "fermented foods, acidified foods" by name.
+    // This was Florida until 20260906200000 — Florida had both banned on nothing, since
+    // "non-potentially hazardous" excludes neither a pickle below pH 4.6 nor sauerkraut.
+    const hawaiian = await seller("HI");
+    const { error } = await listIn(hawaiian, "pantry-pickles-ferments");
     expect(error).not.toBeNull();
   });
 
