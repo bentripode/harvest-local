@@ -178,6 +178,11 @@ Never write an order, or code a path that could write an order, that crosses sta
   inside the chapter: for the sibling home-based *processor* route, KRS 217.136(5) uses an open list
   and names the internet in it. **A ban recorded against a regulation is not disproved by that
   regulation's silence when the enabling statute carries the venue list.**
+- **A third shape: a ban on the EXEMPTION rather than on selling.** SD and NH both grant a licence
+  exemption that an internet sale falls outside — S.D. Codified Laws 34-18-38(2) requires the food be
+  "sold in the seller's physical presence", RSA 143-A:12 III makes online selling the trigger for
+  licensure. Neither forbids selling online; both mean you leave the programme by doing it, so the
+  ban sits on the exempt row. A licensed operation in either state is outside the modelled route.
 - **A ban can be express or by exhaustive enumeration**, and the notes say which. DE (cottage food),
   MI, MS, NV and WA name the internet; DE (on-farm), KY (microprocessor), ME, RI and WI instead
   permit an exhaustive list of venues the internet is not on. New Hampshire is a third shape: selling online is what *triggers*
