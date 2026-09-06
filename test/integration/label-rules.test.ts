@@ -134,7 +134,10 @@ describeDb("state label rules", () => {
     // NE — the disclaimer in any internet advertising (from the summary, not yet the statute).
     // TX — §437.0194(b)(2), labelling information "before the operator accepts payment".
     // Every other state is false because NOBODY HAS CHECKED, not because the state has no rule.
-    expect(states).toEqual(["CA", "IL", "IN", "NE", "TX"]);
+    // MN — Minn. Stat. 28A.152 subd. 2(d), "The statement ... must be displayed on the website
+    //      that offers the exempt foods for purchase." The same sentence expressly permits internet
+    //      selling and restricts delivery to the person who made the food.
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
