@@ -1151,6 +1151,7 @@ export type Database = {
           homemade_food_statement: string | null
           id: string
           is_paused: boolean
+          mailing_address: string | null
           pause_reason: string | null
           pickup_address_id: string | null
           profile_id: string
@@ -1176,6 +1177,7 @@ export type Database = {
           homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
+          mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
           profile_id: string
@@ -1201,6 +1203,7 @@ export type Database = {
           homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
+          mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
           profile_id?: string
@@ -1914,6 +1917,7 @@ export type Database = {
           element_alternatives: Json
           handling_instructions: string
           ingredients: Json
+          mailing_address: string
           metric_required: boolean
           municipality: string
           net_weight_unit: string

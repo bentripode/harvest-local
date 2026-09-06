@@ -46,7 +46,7 @@ export async function getLabelContext(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -139,6 +139,7 @@ export async function getLabelContext(
       lotCode: null,
       expirationDate: null,
       handlingInstructions: product.handling_instructions,
+      mailingAddress: seller.mailing_address,
       // The seller's own wording, where their state prescribes the substance and not the text.
       sellerStatement: seller.homemade_food_statement,
     },
@@ -146,13 +147,26 @@ export async function getLabelContext(
 }
 
 /**
- * What the seller's state requires their own statement to convey, or null where it requires none.
+ * What the seller's own state needs from THEM, as opposed to from the product.
  *
- * Four states (LA, MO, MT, NE) prescribe a disclosure by substance and leave the wording to the
- * producer. This is what decides whether `/seller/settings` shows the box for it, and it resolves
- * the seller's programme the same way `getLabelContext` does so the two cannot disagree.
+ * Two label elements are facts about the producer rather than the food, so they are collected once
+ * on /seller/settings rather than per listing: the statement four states prescribe by substance and
+ * leave the wording of (LA, MO, MT, NE, and Oregon's pet disclosure), and the separate mailing
+ * address South Dakota wants beside the physical address of production.
+ *
+ * This decides which cards that page shows. It resolves the seller's programme the same way
+ * getLabelContext does, so the settings page and the label generator cannot disagree about what the
+ * state asks for.
  */
-export async function getSellerStatementPrompt(sellerId: string): Promise<string | null> {
+export interface SellerLabelNeeds {
+  /** The state's own words for what a seller-written statement must convey, or null. */
+  statementPrompt: string | null;
+  /** Whether this state asks for a mailing address separate from the production address. */
+  needsMailingAddress: boolean;
+}
+
+export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabelNeeds> {
+  const none: SellerLabelNeeds = { statementPrompt: null, needsMailingAddress: false };
   const supabase = await createClient();
 
   const { data: seller } = await supabase
@@ -160,7 +174,7 @@ export async function getSellerStatementPrompt(sellerId: string): Promise<string
     .select("home_state, food_program_id")
     .eq("id", sellerId)
     .maybeSingle();
-  if (!seller) return null;
+  if (!seller) return none;
 
   let programId = seller.food_program_id;
   if (!programId) {
@@ -173,13 +187,20 @@ export async function getSellerStatementPrompt(sellerId: string): Promise<string
       .maybeSingle();
     programId = first?.id ?? null;
   }
-  if (!programId) return null;
+  if (!programId) return none;
 
   const { data: rule } = await supabase
     .from("state_label_rules")
-    .select("seller_statement_prompt")
+    .select("seller_statement_prompt, required_elements, optional_elements")
     .eq("program_id", programId)
     .maybeSingle();
+  if (!rule) return none;
 
-  return rule?.seller_statement_prompt ?? null;
+  const asks = (el: string) =>
+    (rule.required_elements ?? []).includes(el) || (rule.optional_elements ?? []).includes(el);
+
+  return {
+    statementPrompt: rule.seller_statement_prompt ?? null,
+    needsMailingAddress: asks("mailing_address"),
+  };
 }

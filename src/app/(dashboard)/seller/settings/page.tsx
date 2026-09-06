@@ -4,10 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
 import { HomemadeStatementForm } from "@/components/homemade-statement-form";
+import { MailingAddressForm } from "@/components/mailing-address-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
-import { getSellerStatementPrompt } from "@/lib/labels/queries";
+import { getSellerLabelNeeds } from "@/lib/labels/queries";
 import {
   CATEGORY_META,
   SUPPRESSIBLE_CATEGORIES,
@@ -35,7 +36,7 @@ export default async function SellerSettingsPage() {
 
   // Only shown where the seller's state prescribes a disclosure by substance and leaves the wording
   // to them (LA, MO, MT, NE). Everywhere else the statement is quoted statute and not theirs to write.
-  const statementPrompt = await getSellerStatementPrompt(seller.id);
+  const { statementPrompt, needsMailingAddress } = await getSellerLabelNeeds(seller.id);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
@@ -83,6 +84,21 @@ export default async function SellerSettingsPage() {
           />
         </CardContent>
       </Card>
+
+      {needsMailingAddress ? (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Mailing address</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4 text-sm">
+              Your state wants your postal address on the label as well as the address where the
+              food is made, so both are printed.
+            </p>
+            <MailingAddressForm initial={seller.mailing_address ?? ""} />
+          </CardContent>
+        </Card>
+      ) : null}
 
       {statementPrompt ? (
         <Card>
