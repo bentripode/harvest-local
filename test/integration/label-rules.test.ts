@@ -128,10 +128,13 @@ describeDb("state label rules", () => {
     // IL — 410 ILCS 625/4(b)(10), "Online, notice shall be a message on the cottage food
     //      operation's online sales interface at the point of sale." The only one that legislates
     //      the checkout page in those words.
+    // IN — Ind. Code 16-42-5.3-5(b), "A home based vendor shall post the label of each food
+    //      product on the vendor's website." The whole label, per product — the most this pass
+    //      has found any state ask for before a sale.
     // NE — the disclaimer in any internet advertising (from the summary, not yet the statute).
     // TX — §437.0194(b)(2), labelling information "before the operator accepts payment".
     // Every other state is false because NOBODY HAS CHECKED, not because the state has no rule.
-    expect(states).toEqual(["CA", "IL", "NE", "TX"]);
+    expect(states).toEqual(["CA", "IL", "IN", "NE", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
