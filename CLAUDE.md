@@ -575,8 +575,11 @@ vocabulary with a CHECK, since a typo silently drops a required field off a labe
 product + seller + verified permit into the state's element list, derives the metric equivalent
 where required (CT/NC/TN), and emits a **`missing` list instead of a label** when the state requires
 something the seller hasn't filled in — naming each field and where to fix it. Printing is disabled
-until it's complete, and refused outright when the state's rule is unrecorded (MA, MT, PA, UT — Louisiana
-left that list once 40:4.9 was read).
+until it's complete, and refused outright when the state's rule is unrecorded (MT, PA, UT, and
+Maryland's on-farm route). Louisiana and Massachusetts left that list once 40:4.9 and 105 CMR
+590.001(A) were read; **Maryland's on-farm row joined it deliberately**, because the label it held
+was a copy of the cottage-food one and would have printed "Made by a cottage food business" on a
+licensed processor's jar — refusing to print beats printing something false.
 Production date, lot code and use-by are asked for at print time, being per-batch. Six states (CO,
 ID, IL, MN, MO, NE) also get a point-of-sale placard — Colorado and Illinois joined that list on
 reading the statutes and Alaska left it, and in both CO and IL **the placard text is deliberately
