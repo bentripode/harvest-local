@@ -121,7 +121,9 @@ describeDb("state label rules", () => {
     // required information may reach the consumer.
     // ND joined: N.D. Cent. Code 23-09.5-02(8) offers "a consumer advisory sign at the point of
     // sale" as the alternative to a label — the same either/or shape as Idaho's.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM"]);
+    // OK joined: Okla. Stat. tit. 2 5-4.2(B)(3) requires a placard at the point of sale for
+    // unpackaged food, alongside a carriable card.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
@@ -150,7 +152,9 @@ describeDb("state label rules", () => {
     //      selling and restricts delivery to the person who made the food.
     // NM — N.M. Stat. 25-12-3(B)(4) requires the whole (C) information set "on a webpage on which
     //      the homemade food item is offered for sale". The most explicit of the seven.
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "TX"]);
+    // OK — 5-4.2(B)(4), "Displayed on the webpage from which the homemade food product is offered
+    //      for sale if it is sold on the Internet".
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
