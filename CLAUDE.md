@@ -170,10 +170,17 @@ Never write an order, or code a path that could write an order, that crosses sta
   outside the state" — the seed would have permitted an unlawful listing. Hawaii was seeded as
   *banned* on nothing: Haw. Admin. Rules 11-50-3(c) attaches four conditions to a homemade-food
   operation and not one of them concerns selling channel, so Hawaii sellers were blocked for no
-  reason. Kentucky's microprocessor row was banned on nothing either. Both are now `unclear`.
+  reason, and is now `unclear`.
+- **Kentucky's microprocessor row is the cautionary one.** `20260906030000` moved it to `unclear`
+  too, on the strength of 902 KAR 45:090's silence — but the venue list is in the *statute*:
+  KRS 217.137(2) permits sale "only ... by farmers markets, certified roadside stands, or on the
+  processor's farm". `20260906290000` puts it back to `banned`. What settles it is the contrast
+  inside the chapter: for the sibling home-based *processor* route, KRS 217.136(5) uses an open list
+  and names the internet in it. **A ban recorded against a regulation is not disproved by that
+  regulation's silence when the enabling statute carries the venue list.**
 - **A ban can be express or by exhaustive enumeration**, and the notes say which. DE (cottage food),
-  MI, MS, NV and WA name the internet; DE (on-farm), ME, RI and WI instead permit an exhaustive list
-  of venues the internet is not on. New Hampshire is a third shape: selling online is what *triggers*
+  MI, MS, NV and WA name the internet; DE (on-farm), KY (microprocessor), ME, RI and WI instead
+  permit an exhaustive list of venues the internet is not on. New Hampshire is a third shape: selling online is what *triggers*
   licensure (RSA 143-A:12 III), so the ban sits on the exempt row and the licensed row allows it.
 - Enforced by the `products_guard_online_food_sales` BEFORE INSERT/UPDATE trigger
   (`20260904180000_online_food_sales_gate.sql`): a product in a `requires_food_permit` category
