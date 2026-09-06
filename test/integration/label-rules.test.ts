@@ -88,7 +88,11 @@ describeDb("state label rules", () => {
       ]),
     );
     expect(byName.get("New Hampshire Exempt Home Food Operations")).toMatch(/exempt from New Hampshire/);
-    expect(byName.get("New Hampshire Homestead")).toMatch(/licensed by NH DHHS/);
+    // "NH DHHS" was our abbreviation. RSA 143-A:12 IV names the agency in full, and on a label an
+    // agency's initials are not a shorthand for its name — they are a different sentence.
+    expect(byName.get("New Hampshire Homestead")).toMatch(
+      /licensed by the New Hampshire Department of Health and Human Services/,
+    );
   });
 
   it("records the states that need a point-of-sale placard", async () => {
