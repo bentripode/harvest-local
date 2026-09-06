@@ -116,7 +116,10 @@ describeDb("state label rules", () => {
     // interface, which is why Illinois is also predisclosure_required.
     // MO left: Mo. Rev. Stat. 196.298.4 puts the statement on the LABEL and prescribes no sign at
     // the point of sale. The placard text we held was an invented paraphrase.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "NE"]);
+    // NJ and NM joined on reading their rules: N.J.A.C. 8:24-11.4(b) requires a placard wherever the
+    // point of sale is not a residence, and N.M. Stat. 25-12-3(B)(3) makes one of five ways the
+    // required information may reach the consumer.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "NE", "NJ", "NM"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
@@ -143,7 +146,9 @@ describeDb("state label rules", () => {
     // MN — Minn. Stat. 28A.152 subd. 2(d), "The statement ... must be displayed on the website
     //      that offers the exempt foods for purchase." The same sentence expressly permits internet
     //      selling and restricts delivery to the person who made the food.
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "TX"]);
+    // NM — N.M. Stat. 25-12-3(B)(4) requires the whole (C) information set "on a webpage on which
+    //      the homemade food item is offered for sale". The most explicit of the seven.
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "TX"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
