@@ -175,3 +175,62 @@ describeDb("pre-checkout label disclosure", () => {
     );
   });
 });
+
+/**
+ * The gap this pass found: a required element with no value is dropped from the rendered lines, so
+ * an incomplete disclosure used to look complete. California is the sharp case — 114365.3(f)
+ * requires the county of approval AND the permit number in an internet advertisement, and a seller
+ * can easily have neither recorded.
+ */
+describeDb("disclosure gaps are visible, not silent", () => {
+  let admin: Db;
+  let productId: string;
+
+  beforeAll(async () => {
+    admin = adminDb();
+    const user = await createTestUser({ role: "seller", homeState: "CA" });
+    const seller = await createSeller(user.id, { homeState: "CA" });
+
+    // Deliberately no pickup address and no verified licence: this is a seller mid-onboarding, and
+    // the point is what the buyer is shown while they are in that state.
+    const { data: category } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    const { data: product } = await admin
+      .from("products")
+      .insert({
+        seller_id: seller.id,
+        title: "IT Levain",
+        price: "8.00",
+        category_id: category!.id,
+        status: "active",
+        quantity_available: 3,
+        ingredients: ["Wheat flour", "Water", "Sea salt"],
+        net_weight_value: "20",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
+      })
+      .select("id")
+      .single();
+    productId = product!.id;
+  });
+
+  afterAll(cleanupAll);
+
+  it("says California requires the disclosure at all", async () => {
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
+    expect(data?.[0]?.predisclosure_required).toBe(true);
+  });
+
+  it("returns nulls for the county and permit number rather than inventing them", async () => {
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
+    // 114365.3(e)(4) and (f) both want these; the seller has not supplied either yet.
+    expect(data?.[0]?.municipality).toBeNull();
+    expect(data?.[0]?.permit_number).toBeNull();
+    // And the elements are still listed as required, which is what makes the gap detectable.
+    expect(data?.[0]?.required_elements).toContain("municipality");
+    expect(data?.[0]?.required_elements).toContain("permit_number");
+  });
+});
