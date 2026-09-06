@@ -65,6 +65,8 @@ jobs:
   # `supabase start` applies every migration from scratch, so this doubles as the only place the
   # seed migrations are exercised on a fresh database rather than against an already-populated one.
   integration:
+    # Keep this name stable too — the `main` ruleset requires this exact check alongside
+    # `lint · build · typecheck`, so renaming it silently stops blocking merges.
     name: integration (database)
     runs-on: ubuntu-latest
 

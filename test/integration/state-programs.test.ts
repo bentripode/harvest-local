@@ -65,7 +65,7 @@ describeDb("state food programs", () => {
     expect(count).toBe(0);
   });
 
-  it("records the six states where every program bans online food sales", async () => {
+  it("records the five states where every program bans online food sales", async () => {
     const { data } = await admin.from("state_food_programs").select("state_code, online_orders");
     const byState = new Map<string, string[]>();
     for (const p of data ?? []) {
@@ -75,10 +75,13 @@ describeDb("state food programs", () => {
       .filter(([, v]) => v.every((x) => x === "banned"))
       .map(([k]) => k)
       .sort();
-    // WA joined this list when the seed was checked against the statute: RCW 69.22.020(4) says
-    // cottage food "may not be sold by internet, mail order, or for retail sale outside the state",
-    // and the seed had it as allowed — which would have permitted an unlawful listing.
-    expect(blocked).toEqual(["DE", "HI", "MI", "MS", "NV", "WA"]);
+    // Still five states, but not the five that were seeded. Checking each ban against primary text
+    // swapped two members: WA joined, because RCW 69.22.020(4) says cottage food "may not be sold
+    // by internet, mail order, or for retail sale outside the state" and the seed had it allowed —
+    // which would have permitted an unlawful listing. HI left, because Haw. Admin. Rules 11-50-3(c)
+    // imposes four conditions on a homemade-food operation and none of them touches selling
+    // channel, so its ban had nothing behind it and was blocking Hawaii sellers for no reason.
+    expect(blocked).toEqual(["DE", "MI", "MS", "NV", "WA"]);
   });
 
   it("keeps multi-program states distinct", async () => {
