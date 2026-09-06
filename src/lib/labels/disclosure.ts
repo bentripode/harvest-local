@@ -101,6 +101,7 @@ export async function getProductDisclosures(
       productionDate: null,
       lotCode: null,
       expirationDate: null,
+      handlingInstructions: row.handling_instructions,
       sellerStatement: row.seller_statement,
     };
 

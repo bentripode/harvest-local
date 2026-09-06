@@ -611,6 +611,11 @@ it does not replace `municipality`, which CA and CO want as a bare county. **`ex
 a third per-batch value alongside `production_date` and `lot_code`, asked for on the print form and
 never stored on the product; Iowa Code 137D.2(7)(e) wants one on refrigerated TCS food, and it sits
 in `optional_elements` because nothing here records whether a given product is one.
+**`handling_instructions`** is the per-PRODUCT counterpart: Idaho Code 37-205(4)(b) wants safe
+storage and preparation instructions on perishable food and N.D. Cent. Code 23-09.5-02(7) on
+anything needing refrigeration, so it lives on `products.handling_instructions` — a cheesecake and a
+jar of dried herbs need different words. Optional in both rules, since neither schema nor statute
+says which products are perishable.
 **`seller_statement`** is the odd one out. La. Rev. Stat. 40:4.9(D)(1)(a) requires "a label which
 clearly indicates that the food was not produced in a licensed or regulated facility" — a fact to
 convey, with no wording prescribed. Composing a sentence and storing it in `disclaimer_text` would

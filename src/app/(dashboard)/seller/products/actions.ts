@@ -56,6 +56,11 @@ const productSchema = z.object({
     .or(z.literal(""))
     .refine((v) => !v || isNetWeightUnit(v), "Choose a unit."),
   allergens: z.array(z.string()).default([]),
+  /**
+   * Safe storage and preparation instructions. Idaho asks for them on perishable food
+   * (37-205(4)(b)) and North Dakota on anything needing refrigeration (23-09.5-02(7)).
+   */
+  handlingInstructions: z.string().max(500).optional().or(z.literal("")),
   /** The seller ticking "contains none of the nine" — an answer, not an absence of one. */
   allergensNone: z.boolean().default(false),
 });
@@ -87,6 +92,7 @@ function parse(formData: FormData) {
     netWeightUnit: formData.get("netWeightUnit") ?? "",
     allergens: formData.getAll("allergens").map(String),
     allergensNone: formData.get("allergensNone") === "on",
+    handlingInstructions: formData.get("handlingInstructions") ?? "",
   });
 }
 
@@ -97,6 +103,7 @@ function labelFields(d: {
   netWeightValue?: string;
   netWeightUnit?: string;
   allergens: string[];
+  handlingInstructions?: string;
   allergensNone: boolean;
 }) {
   const hasWeight = !!d.netWeightValue && !!d.netWeightUnit;
@@ -110,6 +117,7 @@ function labelFields(d: {
     // alongside an empty list — recording both would be a contradiction stored as fact.
     allergens_confirmed_at:
       d.allergensNone && allergens.length === 0 ? new Date().toISOString() : null,
+    handling_instructions: d.handlingInstructions?.trim() || null,
   };
 }
 
