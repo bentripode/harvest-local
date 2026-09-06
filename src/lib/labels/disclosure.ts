@@ -83,6 +83,7 @@ export async function getProductDisclosures(
       productionDate: null,
       lotCode: null,
       expirationDate: null,
+      sellerStatement: null,
     };
 
     // Reuses the label composer, so what the buyer reads and what gets printed cannot drift apart.

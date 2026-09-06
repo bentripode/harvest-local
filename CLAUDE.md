@@ -575,10 +575,12 @@ vocabulary with a CHECK, since a typo silently drops a required field off a labe
 product + seller + verified permit into the state's element list, derives the metric equivalent
 where required (CT/NC/TN), and emits a **`missing` list instead of a label** when the state requires
 something the seller hasn't filled in — naming each field and where to fix it. Printing is disabled
-until it's complete, and refused outright when the state's rule is unrecorded (LA, MA, MT, PA, UT).
-Production date and lot code are asked for at print time, being per-batch. Five states (AK, ID, MN,
-MO, NE) also get a point-of-sale placard — Colorado replaced Alaska in that list on reading the
-statutes, and Colorado's placard text is deliberately NOT its label disclaimer.
+until it's complete, and refused outright when the state's rule is unrecorded (MA, MT, PA, UT — Louisiana
+left that list once 40:4.9 was read).
+Production date, lot code and use-by are asked for at print time, being per-batch. Six states (CO,
+ID, IL, MN, MO, NE) also get a point-of-sale placard — Colorado and Illinois joined that list on
+reading the statutes and Alaska left it, and in both CO and IL **the placard text is deliberately
+NOT the label disclaimer**.
 
 `required_elements` alone could not express three things states actually ask for, so
 `20260906150000_label_element_vocabulary.sql` added them rather than leaving a note asking a human
@@ -605,6 +607,14 @@ it does not replace `municipality`, which CA and CO want as a bare county. **`ex
 a third per-batch value alongside `production_date` and `lot_code`, asked for on the print form and
 never stored on the product; Iowa Code 137D.2(7)(e) wants one on refrigerated TCS food, and it sits
 in `optional_elements` because nothing here records whether a given product is one.
+**`seller_statement`** is the odd one out. La. Rev. Stat. 40:4.9(D)(1)(a) requires "a label which
+clearly indicates that the food was not produced in a licensed or regulated facility" — a fact to
+convey, with no wording prescribed. Composing a sentence and storing it in `disclaimer_text` would
+put our prose in the one column that exists to hold **quoted law printed onto food without review**,
+so instead the seller writes it on the print form, prompted by
+`state_label_rules.seller_statement_prompt` (the state's own words, CHECK-enforced to be present
+whenever the element is used). The label will not print until they do, which is what Louisiana
+requires.
 
 
 **Phase 5 — cap variants and the review cycle.** `record_order_revenue` now resolves the cap from

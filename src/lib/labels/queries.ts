@@ -74,7 +74,7 @@ export async function getLabelContext(
     ? await supabase
         .from("state_label_rules")
         .select(
-          "required_elements, optional_elements, element_alternatives, regulator_website_url, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
+          "required_elements, optional_elements, element_alternatives, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
         )
         .eq("program_id", programId)
         .maybeSingle()
@@ -89,6 +89,7 @@ export async function getLabelContext(
       optionalElements: rule?.optional_elements ?? [],
       elementAlternatives: parseAlternatives(rule?.element_alternatives),
       regulatorWebsiteUrl: rule?.regulator_website_url ?? null,
+      sellerStatementPrompt: rule?.seller_statement_prompt ?? null,
       disclaimerText: rule?.disclaimer_text ?? null,
       disclaimerMinPt: rule?.disclaimer_min_pt ?? null,
       disclaimerAllCaps: rule?.disclaimer_all_caps ?? false,
@@ -125,6 +126,7 @@ export async function getLabelContext(
       productionDate: null,
       lotCode: null,
       expirationDate: null,
+      sellerStatement: null,
     },
   };
 }
