@@ -524,8 +524,8 @@ different caps, permitted foods and online rules. Key columns: `online_orders`
 list non-food only), `mail_delivery` + `mail_note`, `direct_delivery` (defaults `unclear` —
 whether delivering to a buyer's door counts as a permitted venue is a legal question the source
 does not answer), `cap_basis` (`annual_total|per_product|per_category` — CO caps per *product*, VA
-caps only acidified), `license_threshold` (MN 7,665 / VT 6,500 / VT 10,000 — triggers licensing
-rather than stopping sales), and the six category axes. Public read, admin write, and **every row
+caps only acidified), `license_threshold` (VT 6,500 / VT 10,000 — triggers licensing
+rather than stopping sales; the MN 7,665 once listed here is a registration-*fee* line, see below), and the six category axes. Public read, admin write, and **every row
 lands unverified**: IJ is a summary, not statute, and its own pages say so. `state_label_rules` is
 created **empty on purpose** — disclaimer text is quoted statute that gets printed onto food, so it
 needs a complete verbatim capture. `/admin/programs` lists the data and how much is unchecked; `/admin/programs/[id]` is the review
@@ -633,8 +633,11 @@ cap and no per-product figure anywhere in the current text, so that row is now `
 Virginia is the only `per_category` row left. The machinery stays because Virginia still needs it —
 but do not cite Colorado for it. Bucket amounts take a proportional share of the order's discounted total, so a bucket
 never counts more than the seller was paid. `license_threshold` is **not** a cap: crossing it stamps
-`seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Minnesota's $7,665
-and Vermont's $6,500 / $10,000 mean "get a licence", not "stop selling". `seller_revenue_tracking`
+`seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Vermont's $6,500 /
+$10,000 mean "get a licence", not "stop selling". **Minnesota's $7,665 was the wrong example and has
+been withdrawn**: reading Minn. Stat. 28A.152 showed it is the CPI-adjusted version of the $5,000
+*registration-fee* exemption in subd. 4, not a licensing line — everyone registers, and crossing it
+means paying $50 and taking the longer training. Minnesota's actual cap is the $78,000 in subd. 3. `seller_revenue_tracking`
 keeps the annual total whatever the basis, because that is what `/seller/compliance` shows.
 `program-review-scan` (Inngest, Mondays) counts programs never verified or verified over a year ago
 and emails admins; the same figure shows on `/admin/programs`.
