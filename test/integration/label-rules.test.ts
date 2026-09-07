@@ -127,7 +127,11 @@ describeDb("state label rules", () => {
     // displayed at the point of sale, if the homemade food item is neither packaged nor offered for
     // sale from a bulk container". Unlike CO and IL it prescribes no separate, shorter sign text —
     // the placard carries the same information as the label — so its placard_text stays null.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK", "TN"]);
+    // WI joined: Wis. Stat. 97.29(2)(b)2.d requires the home canner to display "a sign at the place
+    // of sale stating: 'These canned goods are homemade and not subject to state inspection.'" —
+    // a DIFFERENT sentence from the label statement at 2.e, the third state found with that split
+    // after CO and IL.
+    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK", "TN", "WI"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
@@ -167,7 +171,11 @@ describeDb("state label rules", () => {
     //      been informed that the product is not certified, licensed, regulated, or inspected by
     //      the state" — so being told is a PRECONDITION OF THE EXEMPTION, not a labelling duty.
     //      Only Utah ordinal 2; the cottage food and microenterprise routes are false.
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX", "UT"]);
+    // WY — the same shape as Utah, and the last row in the pass. Wyo. Stat. 11-49-102(a)(v)
+    //      defines the "informed end consumer" as one "who has been informed that the product is
+    //      not licensed, regulated or inspected", and 11-49-103(e) makes telling them the
+    //      producer's duty — so the disclosure precedes the transaction the Act permits.
+    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX", "UT", "WY"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
@@ -331,6 +339,88 @@ describeDb("state label rules", () => {
     const thresholds = new Map((programs ?? []).map((p) => [p.ordinal, p.license_threshold]));
     expect(thresholds.get(2)).toBe(10000);
     expect(thresholds.get(4)).toBe(30000);
+  });
+
+  /**
+   * The end of the alphabetical pass: every one of the 51 jurisdictions has now been read against
+   * primary text, and the thing that recurred most was a disclaimer quietly tidied — a dash added,
+   * a full stop added, a sentence sentence-cased, or another state's statute inherited wholesale.
+   *
+   * These four are the ones the last batch caught. `disclaimer_text` is quoted law printed onto food
+   * without review, so an exact-match assertion is the right shape here: a diff that changes one of
+   * these strings should be loud.
+   */
+  it("stores the last four disclaimers exactly as their statutes read", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("disclaimer_text, state_food_programs!inner(state_code, ordinal)")
+      .in("state_food_programs.state_code", ["VA", "WI", "WY"]);
+
+    const byKey = new Map<string, string | null>(
+      (data ?? []).map((r) => {
+        const p = r.state_food_programs as unknown as { state_code: string; ordinal: number };
+        return [`${p.state_code}${p.ordinal}`, r.disclaimer_text];
+      }),
+    );
+
+    // Va. Code 3.2-5130(C)(3)(v). The hyphen we used to store is not in the statute.
+    expect(byKey.get("VA1")).toBe("NOT FOR RESALE PROCESSED AND PREPARED WITHOUT STATE INSPECTION.");
+    // Wyo. Stat. 11-49-103(k) quotes it in lower case with no closing period.
+    expect(byKey.get("WY1")).toBe(
+      "this food was made in a home kitchen, is not regulated or inspected and may contain allergens",
+    );
+    // Wis. Stat. 97.29(2)(b)2.e — and only on the canning route, which is the one with a statute.
+    expect(byKey.get("WI2")).toBe(
+      "This product was made in a private home not subject to state licensing or inspection.",
+    );
+    expect(byKey.get("WI1")).toBeNull();
+  });
+
+  /**
+   * Rows that inherited a disclaimer they have no authority for.
+   *
+   * Virginia's licensed route is inspected, so the "WITHOUT STATE INSPECTION" statement would be
+   * false on it. West Virginia's row carried Tennessee's statutory sentence outright — W. Va. Code
+   * 19-35-6(c) delegates labelling to "the department's labeling standards" and prescribes nothing.
+   */
+  it("leaves no disclaimer on a row whose own law prescribes none", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("disclaimer_text, state_food_programs!inner(state_code, ordinal)")
+      .in("state_food_programs.state_code", ["VA", "WV"]);
+
+    for (const row of data ?? []) {
+      const p = row.state_food_programs as unknown as { state_code: string; ordinal: number };
+      if (p.state_code === "WV" || (p.state_code === "VA" && p.ordinal === 2)) {
+        expect(row.disclaimer_text).toBeNull();
+      }
+    }
+  });
+
+  /**
+   * Virginia is the `per_category` example again, and at the right number this time.
+   *
+   * 2026 c. 605 left Va. Code 3.2-5130(C)(3) with no gross sales limit; the $9,000 survives only in
+   * (C)(4), on pickles and other acidified vegetables. A state-wide cap would pause a Virginian
+   * selling nothing but jam and bread.
+   */
+  it("applies Virginia's $9,000 to acidified food only", async () => {
+    const { data: stateRule } = await admin
+      .from("state_cottage_food_rules")
+      .select("revenue_cap")
+      .eq("state_code", "VA")
+      .single();
+    expect(stateRule?.revenue_cap).toBeNull();
+
+    const { data: program } = await admin
+      .from("state_food_programs")
+      .select("revenue_cap, cap_basis, cap_category")
+      .eq("state_code", "VA")
+      .eq("ordinal", 1)
+      .single();
+    expect(program?.revenue_cap).toBe(9000);
+    expect(program?.cap_basis).toBe("per_category");
+    expect(program?.cap_category).toBe("acidified");
   });
 
   // -- RLS -------------------------------------------------------------------
