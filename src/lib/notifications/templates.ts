@@ -29,6 +29,14 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "View compliance",
   },
+  obligation_due: {
+    subject: (p) =>
+      Number(p.days_out) <= 1
+        ? `${String(p.label ?? "A compliance deadline")} is due tomorrow`
+        : `${String(p.label ?? "A compliance deadline")} is due in ${String(p.days_out ?? "")} days`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "View compliance",
+  },
   revenue_cap_approaching: {
     subject: (p) => `You're at ${String(p.pct ?? "")}% of your ${String(p.state ?? "state")} sales cap`,
     ctaPath: "/seller/compliance",
