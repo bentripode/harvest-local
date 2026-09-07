@@ -188,6 +188,63 @@ export type Database = {
           },
         ]
       }
+      label_print_runs: {
+        Row: {
+          copies: number
+          disclaimer: string | null
+          expiration_date: string | null
+          id: string
+          lines: Json
+          lot_code: string | null
+          printed_at: string
+          product_id: string
+          production_date: string | null
+          program_name: string | null
+          seller_id: string
+        }
+        Insert: {
+          copies?: number
+          disclaimer?: string | null
+          expiration_date?: string | null
+          id?: string
+          lines?: Json
+          lot_code?: string | null
+          printed_at?: string
+          product_id: string
+          production_date?: string | null
+          program_name?: string | null
+          seller_id: string
+        }
+        Update: {
+          copies?: number
+          disclaimer?: string | null
+          expiration_date?: string | null
+          id?: string
+          lines?: Json
+          lot_code?: string | null
+          printed_at?: string
+          product_id?: string
+          production_date?: string | null
+          program_name?: string | null
+          seller_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "label_print_runs_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "label_print_runs_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       messages: {
         Row: {
           body: string

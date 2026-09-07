@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { canPrint, renderLabel, type LabelRule, type LabelSource } from "@/lib/labels/render";
+import { recordPrintRunAction } from "@/app/(dashboard)/seller/products/[id]/label/actions";
 
 /**
  * The printable label, and the placard where a state wants one.
@@ -23,11 +24,15 @@ export function LabelSheet({
   source,
   stateName,
   disclaimerFontNote,
+  productId,
+  programName,
 }: {
   rule: LabelRule;
   source: LabelSource;
   stateName: string;
   disclaimerFontNote: string | null;
+  productId: string;
+  programName: string | null;
 }) {
   const [productionDate, setProductionDate] = useState("");
   const [lotCode, setLotCode] = useState("");
@@ -55,6 +60,22 @@ export function LabelSheet({
     [rule, source, productionDate, lotCode, expirationDate, sellerStatement],
   );
   const ready = canPrint(rendered);
+
+  // Printing is what makes a run real, so the log is written here rather than on preview. A failure
+  // to record must never stop the printing: the label is the point and the log is the bookkeeping.
+  const printAndRecord = () => {
+    void recordPrintRunAction({
+      productId,
+      productionDate: productionDate || null,
+      lotCode: lotCode || null,
+      expirationDate: expirationDate || null,
+      copies,
+      lines: rendered.lines,
+      disclaimer: rendered.disclaimer,
+      programName,
+    }).catch(() => {});
+    window.print();
+  };
 
   return (
     <div className="space-y-6">
@@ -169,7 +190,7 @@ export function LabelSheet({
       ) : null}
 
       <div className="flex flex-wrap items-center gap-3 print:hidden">
-        <Button onClick={() => window.print()} disabled={!ready}>
+        <Button onClick={printAndRecord} disabled={!ready}>
           Print {copies > 1 ? `${copies} labels` : "label"}
         </Button>
         {!ready ? (
