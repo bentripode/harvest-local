@@ -1345,9 +1345,11 @@ export type Database = {
       seller_revenue_tracking: {
         Row: {
           cap_amount: number | null
+          cap_notice_level: number
           gross_revenue: number
           id: string
           is_over_cap: boolean
+          license_notice_level: number
           license_threshold_crossed_at: string | null
           period_year: number
           seller_id: string
@@ -1356,9 +1358,11 @@ export type Database = {
         }
         Insert: {
           cap_amount?: number | null
+          cap_notice_level?: number
           gross_revenue?: number
           id?: string
           is_over_cap?: boolean
+          license_notice_level?: number
           license_threshold_crossed_at?: string | null
           period_year: number
           seller_id: string
@@ -1367,9 +1371,11 @@ export type Database = {
         }
         Update: {
           cap_amount?: number | null
+          cap_notice_level?: number
           gross_revenue?: number
           id?: string
           is_over_cap?: boolean
+          license_notice_level?: number
           license_threshold_crossed_at?: string | null
           period_year?: number
           seller_id?: string
@@ -2007,9 +2013,13 @@ export type Database = {
         Args: { p_order_id: string }
         Returns: {
           cap: number
+          cap_milestone: number
           gross: number
+          license_milestone: number
           over: boolean
           paused: boolean
+          threshold: number
+          threshold_crossed: boolean
         }[]
       }
       record_storefront_view: {
