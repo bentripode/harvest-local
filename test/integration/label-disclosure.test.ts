@@ -188,6 +188,9 @@ describeDb("pre-checkout label disclosure", () => {
         // one outright (25-12-3(C)(1)), CO and HI accept it as one of two contact options. Null
         // everywhere else, so one state's requirement does not publish every seller's address.
         "producer_email",
+        // Same gate: a state-issued number is only public where the state offers it in place of
+        // the address (TX 437.0193(b-1), and the AR and OR equivalents).
+        "producer_id_number",
         "handling_instructions",
         "product_name",
         "regulator_website_url",

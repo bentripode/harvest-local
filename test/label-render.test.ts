@@ -22,6 +22,7 @@ const source: LabelSource = {
   mailingAddress: "PO Box 44, Austin, TX 78767",
   producerPhone: null,
   producerEmail: null,
+  producerIdNumber: null,
   permitNumber: "TX-CF-12345",
   municipality: "Austin",
   stateName: "Texas",
@@ -584,5 +585,55 @@ describe("describeListingGaps", () => {
 
   it("is null when nothing is missing", () => {
     expect(describeListingGaps([])).toBeNull();
+  });
+});
+
+/**
+ * The number a seller prints instead of their home address.
+ *
+ * Four states offer one so a home-based producer need not publish where they live. Texas and Oregon
+ * had it modelled as `permit_number`, which resolves only from an admin-verified licence — and a
+ * cottage food operation has none, so the either/or collapsed to "publish your address". That is the
+ * regression this element exists to prevent.
+ */
+describe("renderLabel — the state identification number", () => {
+  const texasWithIdNumber: LabelRule = {
+    ...texas,
+    requiredElements: ["product_name"],
+    elementAlternatives: [["producer_address", "producer_id_number"]],
+  };
+
+  it("satisfies the address requirement on its own", () => {
+    const out = renderLabel(texasWithIdNumber, {
+      ...source,
+      producerAddress: null,
+      producerIdNumber: "TX-99887",
+    });
+    expect(out.missing).toEqual([]);
+    expect(canPrint(out)).toBe(true);
+    const idLine = out.lines.find((l) => l.element === "producer_id_number");
+    expect(idLine?.value).toBe("TX-99887");
+    expect(out.lines.map((l) => l.element)).not.toContain("producer_address");
+  });
+
+  it("still blocks when the seller has neither", () => {
+    const out = renderLabel(texasWithIdNumber, {
+      ...source,
+      producerAddress: null,
+      producerIdNumber: null,
+    });
+    expect(out.missing.map((m) => m.label)).toContain(
+      "Address where the food was made or State identification number",
+    );
+    expect(canPrint(out)).toBe(false);
+  });
+
+  it("is fixed on the settings page, not by an admin — the state issued it", () => {
+    const out = renderLabel(texasWithIdNumber, {
+      ...source,
+      producerAddress: null,
+      producerIdNumber: null,
+    });
+    expect(out.missing[0].fix).toBe("profile");
   });
 });

@@ -1155,6 +1155,7 @@ export type Database = {
           mailing_address: string | null
           pause_reason: string | null
           pickup_address_id: string | null
+          producer_id_number: string | null
           profile_id: string
           storefront_slug: string
           stripe_account_id: string | null
@@ -1182,6 +1183,7 @@ export type Database = {
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
+          producer_id_number?: string | null
           profile_id: string
           storefront_slug: string
           stripe_account_id?: string | null
@@ -1209,6 +1211,7 @@ export type Database = {
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
+          producer_id_number?: string | null
           profile_id?: string
           storefront_slug?: string
           stripe_account_id?: string | null
@@ -1930,6 +1933,7 @@ export type Database = {
           predisclosure_required: boolean
           producer_address: string
           producer_email: string
+          producer_id_number: string
           producer_phone: string
           product_name: string
           regulator_website_url: string

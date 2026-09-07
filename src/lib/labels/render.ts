@@ -21,6 +21,7 @@ export type LabelElement =
   | "mailing_address"
   | "producer_phone"
   | "producer_email"
+  | "producer_id_number"
   | "permit_number"
   | "municipality"
   /** The town AND the state as one phrase, which Delaware requires: "town/city, Delaware". */
@@ -85,6 +86,13 @@ export interface LabelSource {
   mailingAddress: string | null;
   producerPhone: string | null;
   producerEmail: string | null;
+  /**
+   * A registration number the seller's own state issues so a producer need not publish their home
+   * address — Tex. Health & Safety Code 437.0193(b-1) and the Arkansas and Oregon equivalents.
+   * Deliberately not `permitNumber`: nobody here verifies it, because the state issued it, and a
+   * cottage food operation has no licence for `permitNumber` to come from.
+   */
+  producerIdNumber: string | null;
   permitNumber: string | null;
   municipality: string | null;
   /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
@@ -139,6 +147,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   mailing_address: "Mailing address",
   producer_phone: "Phone number",
   producer_email: "Email address",
+  producer_id_number: "State identification number",
   permit_number: "Permit or registration number",
   municipality: "Town or municipality",
   municipality_state: "Town or city and state",
@@ -162,6 +171,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   mailing_address: "profile",
   producer_phone: "profile",
   producer_email: "profile",
+  producer_id_number: "profile",
   permit_number: "licence",
   municipality: "profile",
   municipality_state: "profile",
@@ -222,6 +232,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.producerPhone;
     case "producer_email":
       return src.producerEmail;
+    case "producer_id_number":
+      return src.producerIdNumber;
     case "permit_number":
       return src.permitNumber;
     case "municipality":
