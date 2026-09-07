@@ -1,6 +1,8 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { stateName } from "@/lib/geo/state";
+import type { ComplianceBlock } from "@/lib/compliance/blocks";
 import type { StateFoodProgram } from "@/lib/compliance/programs";
 
 /**
@@ -205,4 +207,69 @@ export async function getChosenProgram(sellerId: string): Promise<StateFoodProgr
     .eq("id", seller.food_program_id)
     .maybeSingle();
   return data ?? null;
+}
+
+/**
+ * A food listing may not go live until the seller has said which programme they are on.
+ *
+ * Without a choice, `seller_permits_food_axis()` and `seller_allows_online_food_sales()` fall back
+ * to "does ANY programme in this state permit it" — the most permissive answer available. In the
+ * multi-programme states that is not a small imprecision:
+ *
+ *   * California Class A bans meat where MEHKO allows it, so the same listing is lawful or not
+ *     depending on a choice we were letting sellers skip.
+ *   * Utah runs three mutually exclusive routes answering to three different regulators — the
+ *     microenterprise one permits with the COUNTY, not the state.
+ *   * Vermont runs four, two licensed and two exempt, with different labels and different duties.
+ *
+ * It is required in single-programme states too, and that is deliberate rather than an oversight.
+ * The choice is one click there, and what it buys is that the seller has been shown what their
+ * programme actually demands — the cap, the licence, the training, the inspection — before they
+ * start selling under it, rather than after somebody asks.
+ *
+ * Non-food listings are unaffected. A candle maker has no food programme to choose.
+ */
+export async function describeProgramChoiceBlock(
+  sellerId: string,
+  categoryId: string,
+): Promise<ComplianceBlock | null> {
+  const supabase = await createClient();
+
+  const { data: category } = await supabase
+    .from("categories")
+    .select("requires_food_permit")
+    .eq("id", categoryId)
+    .maybeSingle();
+  if (!category?.requires_food_permit) return null;
+
+  const { data: seller } = await supabase
+    .from("seller_profiles")
+    .select("home_state, food_program_id")
+    .eq("id", sellerId)
+    .maybeSingle();
+  if (!seller || seller.food_program_id) return null;
+
+  const { count } = await supabase
+    .from("state_food_programs")
+    .select("id", { count: "exact", head: true })
+    .eq("state_code", seller.home_state);
+
+  const many = (count ?? 0) > 1;
+  const where = stateName(seller.home_state);
+
+  return {
+    message: many
+      ? `${where} runs ${count} different cottage food programmes, and they don't allow the same ` +
+        `things. Choose the one you're on before publishing food — otherwise we'd be applying ` +
+        `whichever rule happens to be most permissive, which may not be yours.`
+      : `Choose your ${where} food programme before publishing food. It takes a moment and it's ` +
+        `how we know which rules to hold you to.`,
+    citation: null,
+    programName: null,
+    sourceUrl: null,
+    sourceCheckedAt: null,
+    verified: false,
+    fixPath: "/seller/onboarding/program",
+    fixLabel: "Choose your programme",
+  };
 }

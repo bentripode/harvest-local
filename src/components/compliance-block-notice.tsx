@@ -24,6 +24,15 @@ export function ComplianceBlockNotice({ block }: { block: ComplianceBlock }) {
         </div>
       ) : null}
 
+      {block.fixPath ? (
+        <a
+          href={block.fixPath}
+          className="bg-primary text-primary-foreground inline-flex h-9 items-center rounded-md px-4 text-sm font-medium"
+        >
+          {block.fixLabel ?? "Fix this"}
+        </a>
+      ) : null}
+
       <div className="text-muted-foreground space-y-1 text-xs">
         {block.programName ? <p>Programme: {block.programName}</p> : null}
         {block.sourceUrl ? (
