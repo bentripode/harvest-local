@@ -1,6 +1,8 @@
 "use client";
 
 import { useActionState, useState } from "react";
+
+import { ComplianceBlockNotice } from "@/components/compliance-block-notice";
 import { useFormStatus } from "react-dom";
 
 import { Button } from "@/components/ui/button";
@@ -133,7 +135,11 @@ export function DeliverySettingsForm({
         </div>
       </fieldset>
 
-      {state.error ? <p className="text-destructive text-sm">{state.error}</p> : null}
+      {state.block ? (
+        <ComplianceBlockNotice block={state.block} />
+      ) : state.error ? (
+        <p className="text-destructive text-sm">{state.error}</p>
+      ) : null}
       {state.ok ? <p className="text-sm text-green-600">Saved.</p> : null}
       <SubmitButton />
     </form>

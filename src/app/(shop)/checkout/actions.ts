@@ -20,6 +20,7 @@ import { isUsState, sameState, US_STATES } from "@/lib/geo/state";
 import { addressSchema, formatAddress, type AddressInput } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
+import { getDeliveryPermission } from "@/lib/compliance/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
 import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
 import { RATE_LIMITS, tryRateLimit } from "@/lib/rate-limit";
@@ -87,6 +88,10 @@ const DELIVERY_REASON_COPY: Record<string, string> = {
   no_route: "We couldn't find a driving route to that address.",
   ungeocodable: "We couldn't locate that address. Check it and try again.",
   wrong_state: "Delivery has to stay within the seller's state.",
+  // A programme whose venue rules do not reach a buyer's doorstep. The seller cannot switch
+  // delivery on in the first place, so this is the belt to that braces — a seller whose state was
+  // corrected after they enabled it would otherwise keep taking delivery orders.
+  state_forbids: "This seller's state doesn't allow homemade food to be delivered to the buyer. Choose pickup instead.",
 };
 
 /**
@@ -103,6 +108,9 @@ async function resolveDelivery(
   address: AddressInput,
 ): Promise<DeliveryResolution> {
   if (address.state !== sellerState) return { ok: false, reason: "wrong_state" };
+
+  const permission = await getDeliveryPermission(sellerId);
+  if (permission.status === "banned") return { ok: false, reason: "state_forbids" };
 
   const point = await geocodeAddress(address);
   if (!point) return { ok: false, reason: "ungeocodable" };

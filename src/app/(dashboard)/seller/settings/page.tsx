@@ -2,6 +2,10 @@ import { redirect } from "next/navigation";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
+import {
+  ComplianceBlockNotice,
+  ComplianceCautionNotice,
+} from "@/components/compliance-block-notice";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
 import { HomemadeStatementForm } from "@/components/homemade-statement-form";
 import { MailingAddressForm } from "@/components/mailing-address-form";
@@ -10,6 +14,7 @@ import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
 import { getSellerLabelNeeds } from "@/lib/labels/queries";
+import { getDeliveryPermission } from "@/lib/compliance/delivery";
 import {
   CATEGORY_META,
   SUPPRESSIBLE_CATEGORIES,
@@ -37,8 +42,8 @@ export default async function SellerSettingsPage() {
 
   // Only shown where the seller's state prescribes a disclosure by substance and leaves the wording
   // to them (LA, MO, MT, NE). Everywhere else the statement is quoted statute and not theirs to write.
-  const { statementPrompt, needsMailingAddress, needsPhone, phoneRequired } =
-    await getSellerLabelNeeds(seller.id);
+  const [{ statementPrompt, needsMailingAddress, needsPhone, phoneRequired }, deliveryPermission] =
+    await Promise.all([getSellerLabelNeeds(seller.id), getDeliveryPermission(seller.id)]);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
@@ -69,6 +74,16 @@ export default async function SellerSettingsPage() {
               Saving needs a Mapbox token (<code>MAPBOX_TOKEN</code>) — we geocode your pickup
               address to compute delivery distances. Add one to use this page.
             </p>
+          ) : null}
+          {deliveryPermission.block ? (
+            <div className="mb-4">
+              <ComplianceBlockNotice block={deliveryPermission.block} />
+            </div>
+          ) : null}
+          {deliveryPermission.caution ? (
+            <div className="mb-4">
+              <ComplianceCautionNotice block={deliveryPermission.caution} />
+            </div>
           ) : null}
           <DeliverySettingsForm
             homeState={seller.home_state}

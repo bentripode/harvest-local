@@ -48,3 +48,42 @@ export function ComplianceBlockNotice({ block }: { block: ComplianceBlock }) {
     </div>
   );
 }
+
+/**
+ * The same information at a lower temperature.
+ *
+ * Used where the state has not answered a question rather than answered it against the seller —
+ * `direct_delivery = 'unclear'` on 29 of the seeded programmes, because whether a doorstep is a
+ * permitted place to sell is a question most sources simply do not address. Nothing is blocked, so
+ * the styling must not read as a refusal; what the seller needs is the open question and the source.
+ */
+export function ComplianceCautionNotice({ block }: { block: ComplianceBlock }) {
+  return (
+    <div className="space-y-3 rounded-md border border-amber-300 bg-amber-50 p-4 text-amber-900">
+      <p className="text-sm font-medium">{block.message}</p>
+
+      {block.citation ? (
+        <blockquote className="border-l-2 border-amber-400 pl-3 text-sm">
+          {block.citation}
+        </blockquote>
+      ) : null}
+
+      <div className="space-y-1 text-xs">
+        {block.programName ? <p>Programme: {block.programName}</p> : null}
+        {block.sourceUrl ? (
+          <p>
+            <a
+              href={block.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-2"
+            >
+              Read the source
+            </a>
+            {block.sourceCheckedAt ? <> — we last read it on {block.sourceCheckedAt}.</> : null}
+          </p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
