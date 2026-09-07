@@ -106,7 +106,7 @@ export default async function OnboardingPage({ searchParams }: PageProps<"/selle
         title="How your state regulates homemade food"
         done={foodProgramDone}
         locked={!storefrontDone}
-        description="What you may sell, what permits you need, and whether online orders are allowed where you live."
+        description="What you may sell, what permits you need, and whether online orders are allowed where you live. Required before you can publish a food listing."
       >
         {foodProgramDone ? (
           <p className="text-muted-foreground text-sm">
@@ -116,9 +116,16 @@ export default async function OnboardingPage({ searchParams }: PageProps<"/selle
             </Link>
           </p>
         ) : (
-          <Button asChild size="sm">
-            <Link href="/seller/onboarding/program">Check my state&apos;s rules</Link>
-          </Button>
+          <div className="space-y-2">
+            <p className="text-muted-foreground text-sm">
+              Your state may run more than one programme, and they don&apos;t allow the same things.
+              Until you pick one we can&apos;t tell which rules are yours, so food listings stay as
+              drafts.
+            </p>
+            <Button asChild size="sm">
+              <Link href="/seller/onboarding/program">Check my state&apos;s rules</Link>
+            </Button>
+          </div>
         )}
       </Step>
 

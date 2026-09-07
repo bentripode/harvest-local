@@ -10,6 +10,7 @@ import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
 import { describeCategoryBlock } from "@/lib/compliance/categories";
 import { describePredisclosureBlock } from "@/lib/compliance/publication";
+import { describeProgramChoiceBlock } from "@/lib/compliance/onboarding";
 import type { ComplianceBlock } from "@/lib/compliance/blocks";
 import {
   describeMissingLabelFields,
@@ -195,6 +196,13 @@ async function publicationBlock(
 ): Promise<ComplianceBlock | null> {
   const stateBlock = await foodSalesBlock(sellerId, d.categoryId);
   if (stateBlock) return stateBlock;
+
+  // Which programme they are on decides every rule below this line, so it is asked first. Only
+  // when they are actually publishing: a draft is where a seller works out what they want to sell.
+  if (d.status === "active") {
+    const programBlock = await describeProgramChoiceBlock(sellerId, d.categoryId);
+    if (programBlock) return programBlock;
+  }
 
   const labelBlock = await labelFieldsBlock(d);
   if (labelBlock) {

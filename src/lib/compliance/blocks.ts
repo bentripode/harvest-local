@@ -33,6 +33,12 @@ export interface ComplianceBlock {
    * has not been checked by a person, and the seller is told so rather than left to assume.
    */
   verified: boolean;
+  /**
+   * Where the seller goes to clear this, when there is somewhere to go. A refusal that names a
+   * page is actionable; one that does not is a locked door.
+   */
+  fixPath?: string;
+  fixLabel?: string;
 }
 
 /** For call sites that still want one line — the message alone. */
