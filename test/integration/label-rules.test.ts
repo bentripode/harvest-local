@@ -275,6 +275,64 @@ describeDb("state label rules", () => {
     expect(data?.map((p) => p.online_orders)).toEqual(["unclear", "unclear", "unclear"]);
   });
 
+  /**
+   * Vermont, where the same statement is required on two rows and would be a lie on the other two.
+   *
+   * Manufactured Food Rule 6.2.1 is headed "Labeling Requirements for License Exempt Food
+   * Manufacturing Establishments", and 6.2.1.1.7 is where "Made in a home kitchen not inspected by
+   * the Vermont Department of Health" comes from. The home bakery and home caterer routes are
+   * licensed and inspected, so printing it there would put a false statement on food — the same
+   * reasoning that emptied Maryland's on-farm row.
+   */
+  it("puts Vermont's home-kitchen statement only on the license-exempt routes", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("disclaimer_text, state_food_programs!inner(state_code, ordinal)")
+      .eq("state_food_programs.state_code", "VT");
+
+    const byOrdinal = new Map(
+      (data ?? []).map((r) => [
+        (r.state_food_programs as unknown as { ordinal: number }).ordinal,
+        r.disclaimer_text,
+      ]),
+    );
+
+    // 1 = licensed home bakery, 3 = licensed home caterer.
+    expect(byOrdinal.get(1)).toBeNull();
+    expect(byOrdinal.get(3)).toBeNull();
+    // 2 = non-bakery exempt at $10,000, 4 = cottage food exempt at $30,000.
+    for (const ordinal of [2, 4]) {
+      expect(byOrdinal.get(ordinal)).toMatch(/not inspected by the Vermont Department of Health/);
+    }
+  });
+
+  /**
+   * A licensing threshold is not a revenue cap, and putting one in the cap column closes a
+   * storefront. `record_order_revenue()` pauses on `state_cottage_food_rules.revenue_cap`;
+   * 18 V.S.A. 4358(b) removes only "the obligation to obtain a license and the associated licensure
+   * fees" above Vermont's $30,000. Crossing it means get a licence, not stop selling.
+   */
+  it("keeps Vermont's $30,000 out of the column that pauses storefronts", async () => {
+    const { data: rule } = await admin
+      .from("state_cottage_food_rules")
+      .select("revenue_cap")
+      .eq("state_code", "VT")
+      .single();
+    expect(rule?.revenue_cap).toBeNull();
+
+    const { data: programs } = await admin
+      .from("state_food_programs")
+      .select("ordinal, revenue_cap, license_threshold")
+      .eq("state_code", "VT")
+      .order("ordinal");
+    // No Vermont route caps sales at all …
+    expect((programs ?? []).every((p) => p.revenue_cap === null)).toBe(true);
+    // … and the two figures that exist are licensing thresholds on the two exempt routes.
+    const thresholds = new Map((programs ?? []).map((p) => [p.ordinal, p.license_threshold]));
+    expect(thresholds.get(2)).toBe(10000);
+    expect(thresholds.get(4)).toBe(30000);
+  });
+
   // -- RLS -------------------------------------------------------------------
   it("is readable by anyone — a buyer can check what a label should carry", async () => {
     const { data } = await anonDb().from("state_label_rules").select("program_id").limit(1);
