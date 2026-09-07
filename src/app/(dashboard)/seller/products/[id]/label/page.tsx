@@ -61,6 +61,8 @@ export default async function ProductLabelPage({
         source={context.source}
         stateName={stateName(context.stateCode)}
         disclaimerFontNote={context.rule.disclaimerFontNote ?? null}
+        productId={id}
+        programName={context.programName}
       />
 
       {context.rule.notes ? (
