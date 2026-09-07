@@ -8,6 +8,8 @@ import { createClient } from "@/lib/supabase/server";
 import { addressSchema } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { parseWindows } from "@/lib/orders/delivery-windows";
+import { getDeliveryPermission } from "@/lib/compliance/delivery";
+import type { ComplianceBlock } from "@/lib/compliance/blocks";
 import {
   SUPPRESSIBLE_CATEGORIES,
   type SuppressibleCategory,
@@ -17,6 +19,8 @@ import {
 export interface DeliverySettingsState {
   error?: string;
   ok?: boolean;
+  /** A refusal that came from a state rule, with the words behind it. */
+  block?: ComplianceBlock;
 }
 
 const schema = z
@@ -68,6 +72,14 @@ export async function saveDeliverySettingsAction(
 
   if (d.state !== seller.home_state) {
     return { error: `Your pickup address must be in ${seller.home_state}, your selling state.` };
+  }
+
+  // A state that forbids the producer delivering the food is not a setting we let someone switch
+  // on. Only an outright ban refuses — `unclear` is surfaced on the page instead, because a seller
+  // must not be blocked by a question nobody has answered.
+  if (d.deliveryEnabled) {
+    const permission = await getDeliveryPermission(seller.id);
+    if (permission.block) return { error: permission.block.message, block: permission.block };
   }
 
   const point = await geocodeAddress({
