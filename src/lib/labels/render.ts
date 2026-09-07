@@ -340,3 +340,25 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
 export function canPrint(rendered: RenderedLabel): boolean {
   return !rendered.ruleUnknown && rendered.missing.length === 0;
 }
+
+/** Where a seller goes to close each kind of gap. */
+const FIX_LABEL: Record<MissingField["fix"], string> = {
+  product: "on this form",
+  profile: "on your settings page",
+  licence: "by adding a verified licence number",
+  print: "at print time",
+  admin: "by an administrator",
+};
+
+/**
+ * The gaps that stop a LISTING going live, phrased for the seller.
+ *
+ * Per-batch elements are dropped: a production date is a fact about a jar, so no listing can carry
+ * one and naming it would be an instruction the seller cannot follow. Everything else is named with
+ * the place it gets fixed, because "incomplete" without an address is just a locked door.
+ */
+export function describeListingGaps(missing: MissingField[]): string | null {
+  const actionable = missing.filter((m) => m.fix !== "print");
+  if (actionable.length === 0) return null;
+  return actionable.map((m) => `${m.label} (${FIX_LABEL[m.fix]})`).join("; ");
+}

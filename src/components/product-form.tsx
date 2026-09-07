@@ -1,6 +1,8 @@
 "use client";
 
 import { useActionState, useState } from "react";
+
+import { ComplianceBlockNotice } from "@/components/compliance-block-notice";
 import { useFormStatus } from "react-dom";
 import Image from "next/image";
 import { X } from "lucide-react";
@@ -459,7 +461,11 @@ export function ProductForm({
         </select>
       </div>
 
-      {state.error ? <p className="text-destructive text-sm">{state.error}</p> : null}
+      {state.block ? (
+        <ComplianceBlockNotice block={state.block} />
+      ) : state.error ? (
+        <p className="text-destructive text-sm">{state.error}</p>
+      ) : null}
 
       <Submit isEdit={isEdit} />
     </form>

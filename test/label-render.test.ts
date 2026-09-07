@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   canPrint,
+  describeListingGaps,
   parseAlternatives,
   renderLabel,
   type LabelRule,
@@ -549,5 +550,39 @@ describe("renderLabel — Utah cottage food", () => {
     expect(canPrint(out)).toBe(true);
     expect(out.disclaimer).toBe("Home Produced");
     expect(out.disclaimerMinPt).toBe(12);
+  });
+});
+
+/**
+ * The listing gate's message.
+ *
+ * In a predisclosure state a listing may not go live short of what the buyer must be shown, so the
+ * refusal has to name each gap AND where it gets closed — "incomplete" without an address is just a
+ * locked door. Per-batch elements are dropped because no listing can ever carry one.
+ */
+describe("describeListingGaps", () => {
+  it("names each gap and where the seller fixes it", () => {
+    const out = renderLabel(
+      { ...texas, requiredElements: ["producer_phone", "permit_number", "ingredients_desc_by_weight"] },
+      { ...source, producerPhone: null, permitNumber: null, ingredients: [] },
+    );
+    const text = describeListingGaps(out.missing);
+    expect(text).toContain("Phone number (on your settings page)");
+    expect(text).toContain("Permit or registration number (by adding a verified licence number)");
+    expect(text).toContain("Ingredients (on this form)");
+  });
+
+  it("says nothing when the only gaps are per-batch", () => {
+    const out = renderLabel(
+      { ...texas, requiredElements: ["production_date", "lot_code"] },
+      { ...source, productionDate: null, lotCode: null },
+    );
+    expect(out.missing).toHaveLength(2);
+    // Both are fix: "print" — a listing cannot carry either, so neither blocks publication.
+    expect(describeListingGaps(out.missing)).toBeNull();
+  });
+
+  it("is null when nothing is missing", () => {
+    expect(describeListingGaps([])).toBeNull();
   });
 });
