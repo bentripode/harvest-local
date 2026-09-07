@@ -40,6 +40,7 @@ const incomplete: LabelSource = {
   mailingAddress: null,
   producerPhone: null,
   producerEmail: null,
+  producerIdNumber: null,
   permitNumber: null,
   municipality: null,
   stateName: "California",

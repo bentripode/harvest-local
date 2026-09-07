@@ -273,3 +273,38 @@ export async function saveContactPhoneAction(
   revalidatePath("/seller/products");
   return { ok: true };
 }
+
+export interface ProducerIdNumberState {
+  error?: string;
+  ok?: boolean;
+}
+
+/**
+ * Save the state-issued identification number that stands in for a home address.
+ *
+ * Not validated beyond length, and deliberately not verified by anyone here: the state issued it,
+ * and a wrong one is between the seller and their own regulator. Treating it like a licence — an
+ * admin queue, a verified flag — would put us between a producer and a protection their legislature
+ * gave them.
+ */
+export async function saveProducerIdNumberAction(
+  _prev: ProducerIdNumberState,
+  formData: FormData,
+): Promise<ProducerIdNumberState> {
+  const { seller } = await getSellerContext();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const raw = String(formData.get("producerIdNumber") ?? "").trim();
+  if (raw.length > 60) return { error: "That is too long for an identification number." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("seller_profiles")
+    .update({ producer_id_number: raw || null })
+    .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  revalidatePath("/seller/products");
+  return { ok: true };
+}

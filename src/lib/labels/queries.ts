@@ -46,7 +46,7 @@ export async function getLabelContext(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -130,6 +130,8 @@ export async function getLabelContext(
       // so it comes from their session rather than through the SECURITY DEFINER function the
       // storefront uses. N.M. Stat. 25-12-3(C)(1) is the state that requires it outright.
       producerEmail: viewer?.email ?? null,
+      // Issued by the state so the seller need not publish their home address.
+      producerIdNumber: seller.producer_id_number,
       permitNumber: licence?.license_number ?? null,
       municipality: address?.city ?? null,
       stateName: stateName(seller.home_state),
@@ -172,6 +174,14 @@ export interface SellerLabelNeeds {
    * in an either/or state may reasonably prefer to publish a number rather than their email.
    */
   needsPhone: boolean;
+  /** Whether this state offers a state-issued number in place of the address, name or phone. */
+  needsIdNumber: boolean;
+  /**
+   * Whether the mailing address REPLACES the production address rather than accompanying it.
+   * Virginia is the only state that uses it that way (a post office box instead of a street
+   * address); South Dakota wants both. The settings card says which.
+   */
+  mailingAddressIsAlternative: boolean;
   /** True only where the number is required outright, false where it is one half of an either/or. */
   phoneRequired: boolean;
 }
@@ -182,6 +192,8 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     needsMailingAddress: false,
     needsPhone: false,
     phoneRequired: false,
+    needsIdNumber: false,
+    mailingAddressIsAlternative: false,
   };
   const supabase = await createClient();
 
@@ -223,5 +235,7 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     needsMailingAddress: asks("mailing_address"),
     needsPhone: asks("producer_phone"),
     phoneRequired: (rule.required_elements ?? []).includes("producer_phone"),
+    needsIdNumber: asks("producer_id_number"),
+    mailingAddressIsAlternative: alternatives.some((g) => g.includes("mailing_address")),
   };
 }

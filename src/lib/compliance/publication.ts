@@ -63,7 +63,7 @@ export async function describePredisclosureBlock(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -142,6 +142,7 @@ export async function describePredisclosureBlock(
         : null,
     mailingAddress: seller.mailing_address,
     producerPhone: seller.contact_phone,
+    producerIdNumber: seller.producer_id_number,
     producerEmail: viewer?.email ?? null,
     permitNumber: licence?.license_number ?? null,
     municipality: address?.city ?? null,

@@ -90,6 +90,9 @@ export async function getProductDisclosures(
       // jurisdictions that do not require them on the label.
       producerPhone: row.producer_phone,
       producerEmail: row.producer_email,
+      // Gated per-state like the phone and email: a registration number is only public where the
+      // state says it may stand in for the address.
+      producerIdNumber: row.producer_id_number,
       permitNumber: row.permit_number,
       // California's advertising rule wants the county of approval on the listing itself
       // (114365.3(f)(1)), so this is not a print-only element.

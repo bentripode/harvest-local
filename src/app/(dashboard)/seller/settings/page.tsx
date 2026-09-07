@@ -10,6 +10,7 @@ import { NotificationPrefsForm } from "@/components/notification-prefs-form";
 import { HomemadeStatementForm } from "@/components/homemade-statement-form";
 import { MailingAddressForm } from "@/components/mailing-address-form";
 import { ContactPhoneForm } from "@/components/contact-phone-form";
+import { ProducerIdNumberForm } from "@/components/producer-id-number-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
@@ -42,7 +43,17 @@ export default async function SellerSettingsPage() {
 
   // Only shown where the seller's state prescribes a disclosure by substance and leaves the wording
   // to them (LA, MO, MT, NE). Everywhere else the statement is quoted statute and not theirs to write.
-  const [{ statementPrompt, needsMailingAddress, needsPhone, phoneRequired }, deliveryPermission] =
+  const [
+    {
+      statementPrompt,
+      needsMailingAddress,
+      needsPhone,
+      phoneRequired,
+      needsIdNumber,
+      mailingAddressIsAlternative,
+    },
+    deliveryPermission,
+  ] =
     await Promise.all([getSellerLabelNeeds(seller.id), getDeliveryPermission(seller.id)]);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
@@ -118,6 +129,21 @@ export default async function SellerSettingsPage() {
         </Card>
       ) : null}
 
+      {needsIdNumber ? (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Number instead of your address</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4 text-sm">
+              Your state lets you register for an identification number and print that on labels and
+              listings in place of your home address.
+            </p>
+            <ProducerIdNumberForm initial={seller.producer_id_number ?? ""} />
+          </CardContent>
+        </Card>
+      ) : null}
+
       {needsMailingAddress ? (
         <Card>
           <CardHeader className="pb-2">
@@ -125,8 +151,9 @@ export default async function SellerSettingsPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4 text-sm">
-              Your state wants your postal address on the label as well as the address where the
-              food is made, so both are printed.
+              {mailingAddressIsAlternative
+                ? "Your state accepts a post office box in place of the address where the food is made. Fill this in and your labels show it instead."
+                : "Your state wants your postal address on the label as well as the address where the food is made, so both are printed."}
             </p>
             <MailingAddressForm initial={seller.mailing_address ?? ""} />
           </CardContent>
