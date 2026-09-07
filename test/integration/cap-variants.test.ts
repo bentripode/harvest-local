@@ -408,14 +408,15 @@ describeDb("revenue cap variants", () => {
     let out = await sell(sellerId, "VT", product, "800.00");
     expect(out?.[0]?.license_milestone).toBe(75);
     expect(out?.[0]?.threshold_crossed).toBe(false);
-    // Crossing a licensing threshold must never pause anyone.
-    expect(await isPaused(sellerId)).toBe(false);
+    // Crossing a licensing threshold must never pause anyone FOR THAT REASON. (The fixture seller
+    // is paused as onboarding_incomplete, which is why this asserts the reason and not the flag.)
+    expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
 
     out = await sell(sellerId, "VT", product, "300.00");
     expect(out?.[0]?.threshold_crossed).toBe(true);
     // Crossing wins over approaching — being told both in one breath would be noise.
     expect(out?.[0]?.license_milestone).toBeNull();
-    expect(await isPaused(sellerId)).toBe(false);
+    expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
 
     // And it is said once.
     out = await sell(sellerId, "VT", product, "100.00");
