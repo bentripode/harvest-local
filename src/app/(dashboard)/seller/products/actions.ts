@@ -9,6 +9,8 @@ import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
 import { describeCategoryBlock } from "@/lib/compliance/categories";
+import { describePredisclosureBlock } from "@/lib/compliance/publication";
+import type { ComplianceBlock } from "@/lib/compliance/blocks";
 import {
   describeMissingLabelFields,
   isNetWeightUnit,
@@ -20,6 +22,12 @@ import type { ProductImage } from "@/lib/db/types";
 
 export interface ProductFormState {
   error?: string;
+  /**
+   * When the refusal comes from a state rule rather than the form, the words it rests on and where
+   * to read them. `verified_at` is still null on essentially every row, so a seller who thinks we
+   * have it wrong is the fastest route to finding out that we do.
+   */
+  block?: ComplianceBlock;
 }
 
 const imageSchema = z.object({
@@ -164,13 +172,53 @@ async function labelFieldsBlock(d: {
  * The state gate, checked here so the seller reads a sentence rather than a constraint violation.
  * `products_guard_online_food_sales` enforces it regardless — this is the friendly half.
  */
-async function foodSalesBlock(sellerId: string, categoryId: string): Promise<string | null> {
+async function foodSalesBlock(
+  sellerId: string,
+  categoryId: string,
+): Promise<ComplianceBlock | null> {
   // Two separate rules: whether the state permits online food sales at all, and whether it permits
   // this kind of food. Either can refuse, and they have different explanations.
   return (
     (await describeFoodSalesBlock(sellerId, categoryId)) ??
     (await describeCategoryBlock(sellerId, categoryId))
   );
+}
+
+/**
+ * Every gate that can refuse a save, in the order the seller should hear about them: may you sell
+ * this at all, then does the label have what the product needs, then — in a predisclosure state —
+ * does the listing carry what the buyer must see before paying.
+ */
+async function publicationBlock(
+  sellerId: string,
+  d: Parameters<typeof labelFieldsBlock>[0] & { title: string; handlingInstructions?: string },
+): Promise<ComplianceBlock | null> {
+  const stateBlock = await foodSalesBlock(sellerId, d.categoryId);
+  if (stateBlock) return stateBlock;
+
+  const labelBlock = await labelFieldsBlock(d);
+  if (labelBlock) {
+    return {
+      message: labelBlock,
+      citation: null,
+      programName: null,
+      sourceUrl: null,
+      sourceCheckedAt: null,
+      verified: false,
+    };
+  }
+
+  return describePredisclosureBlock(sellerId, {
+    categoryId: d.categoryId,
+    subcategoryId: d.subcategoryId,
+    status: d.status,
+    title: d.title,
+    ingredients: d.ingredients,
+    netWeightValue: d.netWeightValue,
+    netWeightUnit: d.netWeightUnit,
+    allergens: d.allergens,
+    handlingInstructions: d.handlingInstructions,
+  });
 }
 
 export async function createProductAction(
@@ -184,8 +232,8 @@ export async function createProductAction(
   const sellerId = await getSellerId(user.id);
   const d = parsed.data;
 
-  const blocked = (await foodSalesBlock(sellerId, d.categoryId)) ?? (await labelFieldsBlock(d));
-  if (blocked) return { error: blocked };
+  const blocked = await publicationBlock(sellerId, d);
+  if (blocked) return { error: blocked.message, block: blocked };
 
   const supabase = await createClient();
   const { data: product, error } = await supabase
@@ -226,8 +274,8 @@ export async function updateProductAction(
   const sellerId = await getSellerId(user.id);
   const d = parsed.data;
 
-  const blocked = (await foodSalesBlock(sellerId, d.categoryId)) ?? (await labelFieldsBlock(d));
-  if (blocked) return { error: blocked };
+  const blocked = await publicationBlock(sellerId, d);
+  if (blocked) return { error: blocked.message, block: blocked };
 
   const supabase = await createClient();
   const { error } = await supabase

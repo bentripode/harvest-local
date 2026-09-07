@@ -2,6 +2,7 @@ import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
 import { stateName } from "@/lib/geo/state";
+import type { ComplianceBlock } from "@/lib/compliance/blocks";
 
 /**
  * Whether a seller may list food at all.
@@ -66,15 +67,32 @@ async function isFoodCategory(categoryId: string): Promise<boolean> {
 export async function describeFoodSalesBlock(
   sellerId: string,
   categoryId: string,
-): Promise<string | null> {
+): Promise<ComplianceBlock | null> {
   if (!(await isFoodCategory(categoryId))) return null;
 
   const status = await getFoodSalesStatus(sellerId);
   if (!status || status.allowed) return null;
 
-  return (
-    `${stateName(status.stateCode)} does not allow homemade food to be sold through online orders, ` +
-    `so this listing can't be published here. Non-food listings — candles, soap, flowers, crafts — ` +
-    `are unaffected and can be published as normal.`
-  );
+  const supabase = await createClient();
+  // With every programme in the state banning it, the first is representative — and its
+  // `venue_note` is where the quoted statute lives after the verification pass.
+  const { data: program } = await supabase
+    .from("state_food_programs")
+    .select("name, venue_note, source_url, source_checked_at, verified_at")
+    .eq("state_code", status.stateCode)
+    .order("ordinal")
+    .limit(1)
+    .maybeSingle();
+
+  return {
+    message:
+      `${stateName(status.stateCode)} does not allow homemade food to be sold through online orders, ` +
+      `so this listing can't be published here. Non-food listings — candles, soap, flowers, crafts — ` +
+      `are unaffected and can be published as normal.`,
+    citation: program?.venue_note ?? null,
+    programName: program?.name ?? null,
+    sourceUrl: program?.source_url ?? null,
+    sourceCheckedAt: program?.source_checked_at ?? null,
+    verified: !!program?.verified_at,
+  };
 }

@@ -2,6 +2,7 @@ import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
 import { stateName } from "@/lib/geo/state";
+import type { ComplianceBlock } from "@/lib/compliance/blocks";
 
 /**
  * Which marketplace categories a seller's state actually permits.
@@ -123,14 +124,57 @@ export async function getCategoryPermissions(sellerId: string): Promise<Category
   return out;
 }
 
-/** The message when this seller may not publish in this category, or null when they may. */
+/**
+ * The block when this seller may not publish in this category, or null when they may.
+ *
+ * Carries the words it rests on: `category_note` on the refusing programme now holds quoted statute
+ * — West Virginia's "excludes meat, meat products, poultry, poultry products, seafood, and Grade A
+ * dairy products", Wyoming's seven exceptions to its meat ban — so the seller can read the sentence
+ * rather than take ours on trust.
+ */
 export async function describeCategoryBlock(
   sellerId: string,
   categoryId: string,
-): Promise<string | null> {
+): Promise<ComplianceBlock | null> {
   const permissions = await getCategoryPermissions(sellerId);
-  return permissions[categoryId]?.reason ?? null;
+  const reason = permissions[categoryId]?.reason;
+  if (!reason) return null;
+
+  const supabase = await createClient();
+  const { data: seller } = await supabase
+    .from("seller_profiles")
+    .select("home_state")
+    .eq("id", sellerId)
+    .maybeSingle();
+  if (!seller) return { ...EMPTY_SOURCE, message: reason };
+
+  // Every programme in the state bans the axis or we would not be here, so the first is
+  // representative of all of them.
+  const { data: program } = await supabase
+    .from("state_food_programs")
+    .select("name, category_note, source_url, source_checked_at, verified_at")
+    .eq("state_code", seller.home_state)
+    .order("ordinal")
+    .limit(1)
+    .maybeSingle();
+
+  return {
+    message: reason,
+    citation: program?.category_note ?? null,
+    programName: program?.name ?? null,
+    sourceUrl: program?.source_url ?? null,
+    sourceCheckedAt: program?.source_checked_at ?? null,
+    verified: !!program?.verified_at,
+  };
 }
+
+const EMPTY_SOURCE = {
+  citation: null,
+  programName: null,
+  sourceUrl: null,
+  sourceCheckedAt: null,
+  verified: false,
+} as const;
 
 /**
  * Food categories with no regulatory axis mapped — the gate cannot fire for these.
