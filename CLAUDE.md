@@ -214,6 +214,16 @@ Never write an order, or code a path that could write an order, that crosses sta
   is `banned`: the shelf-stable listings keep selling and the TCS one is what's blocked. The
   counter-argument (a pickup order is arguably sold when the buyer collects) is recorded in that
   row's `category_note` rather than settled silently.
+- **Check the rule's effective date, not just its number.** Vermont's four rows cited "VT Admin.
+  Code 12-5-52 §§ 6.1.1 and 6.2.1"; that rule was replaced by the **Manufactured Food Rule effective
+  2026-01-15**, which *also* has a 6.1.1 and a 6.2.1. The labelling list at 6.2.1 survived almost
+  unchanged — but 6.1.1 went from a home-bakery "$125.00 per week" exemption to a cottage-food
+  "$30,000 or less" one, so the citation still resolved and the content underneath it had changed.
+- **A licensed route must not inherit an exempt route's disclaimer.** "Made in a home kitchen not
+  inspected by the Vermont Department of Health" comes from a section headed *Labeling Requirements
+  for License Exempt Food Manufacturing Establishments*; Vermont's home bakery and home caterer are
+  licensed and inspected, so it was removed from those two rows. Same reasoning as Maryland's
+  on-farm row.
 - **`unclear` is a legitimate correction downwards.** All three Utah programmes were seeded
   `online_orders = allowed`; none of the three bodies of law (Utah Code § 4-5-501 + R70-560, Title 4
   Ch. 5a, § 26B-7-416) mentions internet selling in either direction, so all three are now `unclear`.
@@ -712,8 +722,15 @@ cap and no per-product figure anywhere in the current text, so that row is now `
 Virginia is the only `per_category` row left. The machinery stays because Virginia still needs it —
 but do not cite Colorado for it. Bucket amounts take a proportional share of the order's discounted total, so a bucket
 never counts more than the seller was paid. `license_threshold` is **not** a cap: crossing it stamps
-`seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Vermont's $6,500 /
-$10,000 mean "get a licence", not "stop selling". **Minnesota's $7,665 was the wrong example and has
+`seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Vermont's $10,000 /
+$30,000 mean "get a licence", not "stop selling". (**Vermont's $6,500 was the wrong figure**: it was
+the old home-bakery "$125.00 per week" exemption in VT Admin. Code 12-5-52, a rule superseded by the
+Manufactured Food Rule effective 2026-01-15, whose 6.1.1 now lists only non-bakery ≤ $10,000 and a
+cottage food operation ≤ $30,000.) **The distinction had teeth in Vermont**: $30,000 was also sitting
+in `state_cottage_food_rules.revenue_cap`, the column `record_order_revenue` *pauses* on, so a
+Vermont seller with no programme chosen would have had their storefront closed at $30,000.01 for
+crossing a line that 18 V.S.A. 4358(b) says only removes "the obligation to obtain a license and the
+associated licensure fees". **Minnesota's $7,665 was the wrong example and has
 been withdrawn**: reading Minn. Stat. 28A.152 showed it is the CPI-adjusted version of the $5,000
 *registration-fee* exemption in subd. 4, not a licensing line — everyone registers, and crossing it
 means paying $50 and taking the longer training. Minnesota's actual cap is the $78,000 in subd. 3. `seller_revenue_tracking`
