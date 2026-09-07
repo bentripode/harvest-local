@@ -325,9 +325,11 @@ src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · statu
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
-src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · online-sales gate · category gate · program choice
+src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · online-sales gate · category gate · program choice + the publish-time requirement
+src/lib/compliance/{blocks,publication,delivery}.ts   ComplianceBlock (message + citation + source) · the predisclosure publish gate · delivery-by-programme
+src/lib/compliance/{obligations,obligation-queries}.ts   recurring-deadline arithmetic (pure) · what this seller owes and when
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
-src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller
+src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
@@ -335,7 +337,7 @@ src/lib/messages/queries.ts            conversation list / thread / unread-count
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
 src/lib/referrals/{codes,settings,validate,queries}.ts   promo-code rules · config · checkout validation · dashboard reads
 src/lib/stripe/coupons.ts              ensureBuyerDiscountCoupon (reusable percent-off)
-src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, referral-activate/-invalidate, notification-dispatch, tax-id-retention, tax-id-rekey, program-review-scan)
+src/lib/inngest/                       Inngest client + functions (revenue-cap, license-expiry, obligation-reminders, referral-activate/-invalidate, notification-dispatch, tax-id-retention, tax-id-rekey, program-review-scan)
 src/lib/notifications/                  queue (channel fan-out + email opt-out / SMS opt-in) · categories (template→category, prefs, smsEnabled) · copy (in-app lines) · templates (email) · send (Resend) · sms (Twilio)
 src/lib/auth.ts                        requireUser / requireRole / getProfile / getSellerContext
 src/lib/rate-limit.ts                  tryRateLimit + RATE_LIMITS · check_rate_limit() Postgres fixed-window, fails open
@@ -804,6 +806,63 @@ label is not a misleading one), but `DisclosureGapNotice` on `/seller/products` 
 where to close it. Per-batch elements (`fix: "print"`) are filtered out — no listing can carry a
 production date, so warning about it would be noise; Indiana is where that bites, and it's recorded
 in that rule's notes.
+
+
+**Phase 6 — seller compliance ergonomics.** Seven changes that came out of reading all 51
+jurisdictions, in the order they bite a seller.
+
+**Every refusal carries its citation.** `ComplianceBlock` (`src/lib/compliance/blocks.ts`) is what
+`describeFoodSalesBlock`, `describeCategoryBlock`, `describeProgramChoiceBlock`,
+`describePredisclosureBlock` and `getDeliveryPermission` all return: the sentence, the `venue_note`
+or `category_note` it rests on (quoted statute after the pass), the programme, the `source_url`, the
+date we last read it, whether an admin has signed the row off, and an optional `fixPath`.
+`ComplianceBlockNotice` renders it and says outright when nobody has checked. **This is the
+error-correction path for unverified data** — the pass found seeded rows wrong in both directions (WA
+permitting an unlawful listing, HI blocking a lawful one), and the seller has the strongest incentive
+to look. `ComplianceCautionNotice` is the amber sibling for `unclear` rather than `banned`.
+
+**A programme choice is required before a food listing goes live.** Without one the axis predicates
+fall back to "does ANY programme in this state permit it" — the most permissive answer, and flatly
+wrong in CA (Class A bans meat, MEHKO allows it), UT (three routes, three regulators) and VT (four).
+Drafts and non-food listings are unaffected.
+
+**Publication is held where the listing IS the disclosure.** In the eleven `predisclosure_required`
+jurisdictions `describePredisclosureBlock` refuses to publish a food listing short of the state's
+required elements, naming each and where it is fixed. Everywhere else `DisclosureGapNotice` stays
+advisory — there the label travels with the package. `describeListingGaps()` in `render.ts` is the
+pure half.
+
+**Delivery is gated by programme.** `getDeliveryPermission` reads `direct_delivery`: `banned` stops
+it being switched on and refuses it at checkout, `unclear` — 29 seeded programmes — shows the caution
+and blocks nothing. `mail_delivery` is deliberately ungated because we have no carrier integration,
+which is how Tex. 437.0194(b)(1)'s personal-delivery requirement is satisfied. **Anyone adding
+shipping has to revisit that.**
+
+**`seller_profiles.producer_id_number`** is the registration number TX 437.0193(b-1), OR and AR issue
+so a producer need not publish their home address; VA accepts a PO box instead, expressed as an
+alternatives group against `mailing_address` — **the one state where that column REPLACES the
+production address** rather than accompanying it, as SD wants. Not a licence: no expiry, no review
+queue, nobody verifies it. It replaced `permit_number` in the TX and OR alternatives groups, where it
+could never be satisfied because a cottage food operation has no licence.
+
+**`label_print_runs`** logs what went on the jars — product, lot code, production date, copies, and
+the rendered lines as a **snapshot**, because the rule changes underneath sellers and VT's whole rule
+set was replaced mid-pass. Written on print, never blocks printing, and has **no UPDATE policy**: a
+log that can be edited after the fact is not a log. NH requires a lot code "to support a recall",
+which is unanswerable if the only copy is on the jar.
+
+**Approach warnings.** `record_order_revenue` now also reports the highest newly-passed milestone
+(50/75/90) for the cap and for `license_threshold`, and whether the threshold was crossed;
+`cap_notice_level` / `license_notice_level` make each fire once even when refunds move the total.
+`license_threshold_crossed_at` had been stamped and read by **nothing** — a Vermont seller passed
+$10,000, needed a licence, and found out never.
+
+**`program_obligations`** covers recurring duties with no document behind them, which
+`license-expiry-scan` cannot see: VT's annual exemption filing (15 Jan) and annual training, WA's
+biennial permit, UT's annual microenterprise permit. Two shapes — `fixed_date` and `interval` —
+with reminders at 30/10/1 days via `obligation-reminders`, deduped by `seller_obligation_notices`.
+**Seeded only for the four programmes whose text was read**: an invented deadline is worse than none,
+because a seller who trusts it stops looking. Completion is self-reported; the state is who checks.
 
 
 **Phase 5 — launch toggle.** `/admin/settings` → `setAccessModeAction` flips
