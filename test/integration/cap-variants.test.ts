@@ -365,4 +365,70 @@ describeDb("revenue cap variants", () => {
       .eq("seller_id", sellerId);
     expect(data ?? []).toHaveLength(0);
   });
+
+  /**
+   * Approach warnings.
+   *
+   * The cap pauses a storefront the instant it is crossed and used to give no warning at any
+   * point beforehand, and `license_threshold_crossed_at` was stamped and read by nothing at all —
+   * no template, no producer. A Vermont seller passed $10,000, needed a licence, found out never.
+   */
+  it("reports the highest newly-passed cap milestone, once each", async () => {
+    const { sellerId } = await sellerOnFixture("CO", {
+      cap_basis: "annual_total",
+      revenue_cap: "1000",
+    });
+    const product = await createProduct(sellerId, { price: "100.00" });
+
+    // 40% — under the first milestone.
+    let out = await sell(sellerId, "CO", product, "400.00");
+    expect(out?.[0]?.cap_milestone).toBeNull();
+
+    // 60% — passes 50 only.
+    out = await sell(sellerId, "CO", product, "200.00");
+    expect(out?.[0]?.cap_milestone).toBe(50);
+
+    // 65% — nothing new to say.
+    out = await sell(sellerId, "CO", product, "50.00");
+    expect(out?.[0]?.cap_milestone).toBeNull();
+
+    // 95% — vaults 75 and 90 in one order, and reports only the higher.
+    out = await sell(sellerId, "CO", product, "300.00");
+    expect(out?.[0]?.cap_milestone).toBe(90);
+  });
+
+  it("warns on the way to a licensing threshold, then says it has been crossed", async () => {
+    const { sellerId } = await sellerOnFixture("VT", {
+      cap_basis: "none",
+      revenue_cap: null,
+      license_threshold: "1000",
+    });
+    const product = await createProduct(sellerId, { price: "100.00" });
+
+    let out = await sell(sellerId, "VT", product, "800.00");
+    expect(out?.[0]?.license_milestone).toBe(75);
+    expect(out?.[0]?.threshold_crossed).toBe(false);
+    // Crossing a licensing threshold must never pause anyone FOR THAT REASON. (The fixture seller
+    // is paused as onboarding_incomplete, which is why this asserts the reason and not the flag.)
+    expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
+
+    out = await sell(sellerId, "VT", product, "300.00");
+    expect(out?.[0]?.threshold_crossed).toBe(true);
+    // Crossing wins over approaching — being told both in one breath would be noise.
+    expect(out?.[0]?.license_milestone).toBeNull();
+    expect((await isPaused(sellerId)).pause_reason).not.toBe("revenue_cap");
+
+    // And it is said once.
+    out = await sell(sellerId, "VT", product, "100.00");
+    expect(out?.[0]?.threshold_crossed).toBe(false);
+  });
+
+  it("says nothing about milestones for a programme with neither number", async () => {
+    const { sellerId } = await sellerOnFixture("WV", { cap_basis: "none", revenue_cap: null });
+    const product = await createProduct(sellerId, { price: "5000.00" });
+    const out = await sell(sellerId, "WV", product, "5000.00");
+    expect(out?.[0]?.cap_milestone).toBeNull();
+    expect(out?.[0]?.license_milestone).toBeNull();
+    expect(out?.[0]?.threshold_crossed).toBe(false);
+  });
 });

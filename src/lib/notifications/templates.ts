@@ -29,6 +29,21 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "View compliance",
   },
+  revenue_cap_approaching: {
+    subject: (p) => `You're at ${String(p.pct ?? "")}% of your ${String(p.state ?? "state")} sales cap`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "View compliance",
+  },
+  license_threshold_approaching: {
+    subject: (p) => `Approaching the point where ${String(p.state ?? "your state")} wants a licence`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "View compliance",
+  },
+  license_threshold_reached: {
+    subject: (p) => `${String(p.state ?? "Your state")} now requires a licence for your sales`,
+    ctaPath: "/seller/compliance",
+    ctaLabel: "View compliance",
+  },
   license_expiring: {
     subject: (p) => `Your ${String(p.license_type ?? "license").replace(/_/g, " ")} expires soon`,
     ctaPath: "/seller/compliance",

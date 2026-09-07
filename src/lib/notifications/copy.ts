@@ -16,6 +16,12 @@ const usd = (v: unknown) => {
 export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
   revenue_cap_reached: (p) =>
     `${s(p.business_name, "Your storefront")} reached ${s(p.state)}'s cottage-food sales cap (${usd(p.gross)} of ${usd(p.cap)}) — sales are paused for the rest of the year.`,
+  revenue_cap_approaching: (p) =>
+    `You're at ${s(p.pct)}% of ${s(p.state)}'s cottage-food sales cap — ${usd(p.gross)} of ${usd(p.cap)}. Selling stops for the rest of the year when you reach it.`,
+  license_threshold_approaching: (p) =>
+    `You're at ${s(p.pct)}% of the ${usd(p.threshold)} point where ${s(p.state)} wants you licensed — ${usd(p.gross)} so far. You can keep selling; starting the paperwork now means you won't be caught short.`,
+  license_threshold_reached: (p) =>
+    `You've passed ${usd(p.threshold)} in sales, the point where ${s(p.state)} requires a licence. This does not stop you selling and nothing has been paused — but you need to apply.`,
   license_expiring: (p) =>
     `Your ${label(p.license_type)} expires in ${s(p.days_left)} day${p.days_left === 1 ? "" : "s"} (${s(p.expiration_date)}). Renew it to avoid a pause.`,
   license_expired: (p) =>
