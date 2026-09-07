@@ -749,6 +749,62 @@ export type Database = {
         }
         Relationships: []
       }
+      program_obligations: {
+        Row: {
+          citation: string | null
+          created_at: string
+          detail: string
+          due_day: number | null
+          due_month: number | null
+          id: string
+          interval_months: number | null
+          kind: string
+          label: string
+          program_id: string
+          schedule: string
+          source_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          citation?: string | null
+          created_at?: string
+          detail: string
+          due_day?: number | null
+          due_month?: number | null
+          id?: string
+          interval_months?: number | null
+          kind: string
+          label: string
+          program_id: string
+          schedule: string
+          source_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          citation?: string | null
+          created_at?: string
+          detail?: string
+          due_day?: number | null
+          due_month?: number | null
+          id?: string
+          interval_months?: number | null
+          kind?: string
+          label?: string
+          program_id?: string
+          schedule?: string
+          source_url?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "program_obligations_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "state_food_programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       promo_codes: {
         Row: {
           code: string
@@ -1182,6 +1238,87 @@ export type Database = {
           },
           {
             foreignKeyName: "seller_licenses_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_obligation_completions: {
+        Row: {
+          completed_at: string
+          id: string
+          note: string | null
+          obligation_id: string
+          period_key: string
+          seller_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          note?: string | null
+          obligation_id: string
+          period_key: string
+          seller_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          note?: string | null
+          obligation_id?: string
+          period_key?: string
+          seller_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_obligation_completions_obligation_id_fkey"
+            columns: ["obligation_id"]
+            isOneToOne: false
+            referencedRelation: "program_obligations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_obligation_completions_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_obligation_notices: {
+        Row: {
+          days_out: number
+          obligation_id: string
+          period_key: string
+          seller_id: string
+          sent_at: string
+        }
+        Insert: {
+          days_out: number
+          obligation_id: string
+          period_key: string
+          seller_id: string
+          sent_at?: string
+        }
+        Update: {
+          days_out?: number
+          obligation_id?: string
+          period_key?: string
+          seller_id?: string
+          sent_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_obligation_notices_obligation_id_fkey"
+            columns: ["obligation_id"]
+            isOneToOne: false
+            referencedRelation: "program_obligations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_obligation_notices_seller_id_fkey"
             columns: ["seller_id"]
             isOneToOne: false
             referencedRelation: "seller_profiles"

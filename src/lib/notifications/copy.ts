@@ -16,6 +16,10 @@ const usd = (v: unknown) => {
 export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
   revenue_cap_reached: (p) =>
     `${s(p.business_name, "Your storefront")} reached ${s(p.state)}'s cottage-food sales cap (${usd(p.gross)} of ${usd(p.cap)}) — sales are paused for the rest of the year.`,
+  obligation_due: (p) =>
+    Number(p.days_out) <= 1
+      ? `${s(p.label)} is due tomorrow (${s(p.due_date)}). ${s(p.detail)}`
+      : `${s(p.label)} is due in ${s(p.days_out)} days, on ${s(p.due_date)}. ${s(p.detail)}`,
   revenue_cap_approaching: (p) =>
     `You're at ${s(p.pct)}% of ${s(p.state)}'s cottage-food sales cap — ${usd(p.gross)} of ${usd(p.cap)}. Selling stops for the rest of the year when you reach it.`,
   license_threshold_approaching: (p) =>

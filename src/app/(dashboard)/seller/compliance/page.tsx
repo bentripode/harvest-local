@@ -17,6 +17,8 @@ import {
   sellerSellsCottageFood,
 } from "@/lib/compliance";
 import { getFoodSalesStatus } from "@/lib/compliance/food-sales";
+import { getSellerObligations } from "@/lib/compliance/obligation-queries";
+import { ObligationsCard } from "@/components/obligations-card";
 import { getChosenProgram, programRequirements, programSummary } from "@/lib/compliance/onboarding";
 import { licenseTypeLabel } from "@/lib/licenses/labels";
 import {
@@ -57,8 +59,17 @@ export default async function CompliancePage() {
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const [revenue, licenses, notifications, permitRequired, sellsFood, foodSales, program, buckets] =
-    await Promise.all([
+  const [
+    revenue,
+    licenses,
+    notifications,
+    permitRequired,
+    sellsFood,
+    foodSales,
+    program,
+    buckets,
+    obligations,
+  ] = await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
     getInAppNotifications(profile.id),
@@ -67,6 +78,7 @@ export default async function CompliancePage() {
     getFoodSalesStatus(seller.id),
     getChosenProgram(seller.id),
     getRevenueBuckets(seller.id),
+    getSellerObligations(seller.id),
   ]);
 
   const checklist = buildDocumentChecklist(licenses, permitRequired);
@@ -91,6 +103,8 @@ export default async function CompliancePage() {
       </div>
 
       <FoodSalesNotice status={foodSales} />
+
+      <ObligationsCard obligations={obligations} />
 
       {foodSales?.allowed !== false ? (
         <section className="space-y-2 rounded-lg border p-4">

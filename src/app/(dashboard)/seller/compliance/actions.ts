@@ -159,3 +159,55 @@ export async function markNotificationsReadAction(): Promise<void> {
   revalidatePath("/seller/compliance");
   revalidatePath("/seller", "layout");
 }
+
+export interface ObligationState {
+  ok?: boolean;
+  error?: string;
+}
+
+const obligationSchema = z.object({
+  obligationId: z.string().uuid(),
+  periodKey: z.string().min(1).max(40),
+});
+
+/**
+ * The seller says they have done one of their recurring duties.
+ *
+ * Self-reported, and verified by nobody here. The state is who checks a Vermont training
+ * attestation, and putting an admin between a seller and their own regulator would claim an
+ * authority we do not have — the same reason `producer_id_number` has no review queue. What it buys
+ * the seller is that the reminders stop and the clock restarts, which is what they want from it.
+ */
+export async function markObligationDoneAction(
+  _prev: ObligationState,
+  formData: FormData,
+): Promise<ObligationState> {
+  const { user } = await requireRole("seller");
+  const supabase = await createClient();
+
+  const { data: seller } = await supabase
+    .from("seller_profiles")
+    .select("id")
+    .eq("profile_id", user.id)
+    .maybeSingle();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const parsed = obligationSchema.safeParse({
+    obligationId: formData.get("obligationId"),
+    periodKey: formData.get("periodKey"),
+  });
+  if (!parsed.success) return { error: "Could not record that." };
+
+  const { error } = await supabase.from("seller_obligation_completions").upsert(
+    {
+      seller_id: seller.id,
+      obligation_id: parsed.data.obligationId,
+      period_key: parsed.data.periodKey,
+    },
+    { onConflict: "seller_id,obligation_id,period_key" },
+  );
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/compliance");
+  return { ok: true };
+}
