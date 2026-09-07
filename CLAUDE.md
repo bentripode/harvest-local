@@ -214,6 +214,19 @@ Never write an order, or code a path that could write an order, that crosses sta
   is `banned`: the shelf-stable listings keep selling and the TCS one is what's blocked. The
   counter-argument (a pickup order is arguably sold when the buyer collects) is recorded in that
   row's `category_note` rather than settled silently.
+- **The alphabetical verification pass is COMPLETE.** All 51 jurisdictions and every one of the
+  programme and label rows have now been read against primary text — statute or rule, from the
+  state's own site, never a compilation. `verified_at` is still null on essentially all of them:
+  the corrections are ours, the sign-off is an admin's, and `/admin/programs` counts what is left.
+  Four recurring failure modes are worth carrying forward, because each was found more than once:
+  **a tidied disclaimer** (a dash added in VA, a full stop in NV, sentence-casing in WY, an
+  abbreviation in NH — `disclaimer_text` is quoted law printed onto food, so punctuation is
+  substance); **an inherited disclaimer** (WV was carrying Tennessee's statutory sentence, WI's
+  baking route was carrying its own canning statute's, and licensed routes in VT, VA and MD were
+  carrying "not inspected" statements that were simply false); **a threshold in the cap column**
+  (VT's $30,000 and VA's $9,000 both sat in `state_cottage_food_rules.revenue_cap`, which *pauses
+  storefronts*); and **a summary's category list mistaken for a statutory one** (WV had five of six
+  axes banned where the statute bans only meat).
 - **Check the rule's effective date, not just its number.** Vermont's four rows cited "VT Admin.
   Code 12-5-52 §§ 6.1.1 and 6.2.1"; that rule was replaced by the **Manufactured Food Rule effective
   2026-01-15**, which *also* has a 6.1.1 and a 6.2.1. The labelling list at 6.2.1 survived almost
@@ -613,11 +626,13 @@ rule and the other two put it in different titles). Louisiana and Massachusetts 
 40:4.9 and 105 CMR 590.001(A) were read; **Maryland's on-farm row joined it deliberately**, because the label it held
 was a copy of the cottage-food one and would have printed "Made by a cottage food business" on a
 licensed processor's jar — refusing to print beats printing something false.
-Production date, lot code and use-by are asked for at print time, being per-batch. Nine states (CO,
-ID, IL, MN, ND, NE, NJ, NM, OK) also get a point-of-sale placard — the list has churned entirely on reading
-the statutes: CO, IL, ND, NJ and NM joined, Alaska and Missouri left (Missouri's placard text turned out
-to be an invented paraphrase and § 196.298.4 prescribes no sign at all), and in both CO and IL **the
-placard text is deliberately NOT the label disclaimer**.
+Production date, lot code and use-by are asked for at print time, being per-batch. Eleven states (CO,
+ID, IL, MN, ND, NE, NJ, NM, OK, TN, WI) also get a point-of-sale placard — the list has churned entirely on
+reading the statutes: CO, IL, ND, NJ, NM, TN and WI joined, Alaska and Missouri left (Missouri's placard
+text turned out to be an invented paraphrase and § 196.298.4 prescribes no sign at all), and in CO, IL
+and WI **the placard text is deliberately NOT the label disclaimer** — Wis. Stat. 97.29(2)(b)2.d wants
+"These canned goods are homemade and not subject to state inspection." on the sign while 2.e puts a
+different sentence on the jar.
 
 `required_elements` alone could not express three things states actually ask for, so
 `20260906150000_label_element_vocabulary.sql` added them rather than leaving a note asking a human
@@ -715,12 +730,17 @@ isn't one) and counts it by `cap_basis`
 (`20260904230000_cap_variants.sql`, `20260904240000_program_cap_category.sql`):
 `annual_total` behaves as before; `per_product` and `per_category` tally into
 `seller_revenue_buckets` (one row per product or per regulatory axis), with each bucket carrying its
-own cap — Virginia's $3,000 applies to `cap_category = 'acidified'` alone while everything else
+own cap — **Virginia's $9,000 applies to `cap_category = 'acidified'` alone** while everything else
 stays uncapped. **Colorado used to be the `per_product` example here and no longer is:** verifying
 Colo. Rev. Stat. § 25-4-1614 against the statute (2026-09-05) found a single **$150,000 annual**
 cap and no per-product figure anywhere in the current text, so that row is now `annual_total` and
 Virginia is the only `per_category` row left. The machinery stays because Virginia still needs it —
-but do not cite Colorado for it. Bucket amounts take a proportional share of the order's discounted total, so a bucket
+but do not cite Colorado for it. **That Virginia row has now held three figures**, which is worth
+knowing before changing it again: a seeded $3,000 acidified-only, a $9,000 annual-total "correction",
+and finally the statute's own answer — Va. Code § 3.2-5130 as amended by 2026 c. 605 leaves
+subdivision (C)(3) with *no* gross-sales limit and keeps $9,000 only in (C)(4), on "pickles and other
+acidified vegetables". The seed had the right shape and the wrong number; the correction had the
+right number and the wrong shape. Bucket amounts take a proportional share of the order's discounted total, so a bucket
 never counts more than the seller was paid. `license_threshold` is **not** a cap: crossing it stamps
 `seller_revenue_tracking.license_threshold_crossed_at` once and never pauses — Vermont's $10,000 /
 $30,000 mean "get a licence", not "stop selling". (**Vermont's $6,500 was the wrong figure**: it was
@@ -730,7 +750,12 @@ cottage food operation ≤ $30,000.) **The distinction had teeth in Vermont**: $
 in `state_cottage_food_rules.revenue_cap`, the column `record_order_revenue` *pauses* on, so a
 Vermont seller with no programme chosen would have had their storefront closed at $30,000.01 for
 crossing a line that 18 V.S.A. 4358(b) says only removes "the obligation to obtain a license and the
-associated licensure fees". **Minnesota's $7,665 was the wrong example and has
+associated licensure fees". **Where the figure sits is the whole distinction**: Washington's $35,000
+and Wisconsin's $5,000 stay in `revenue_cap` because they sit on the *programme rows they bound* — a
+seller who outgrows the exemption moves to a different programme — while Vermont's and Virginia's
+were in the *state-wide fallback*, reaching sellers the figure had nothing to do with. Washington
+also says it outright: RCW 69.22.050(2), above the cap the operation "must either obtain a food
+processing plant license ... or cease operations". **Minnesota's $7,665 was the wrong example and has
 been withdrawn**: reading Minn. Stat. 28A.152 showed it is the CPI-adjusted version of the $5,000
 *registration-fee* exemption in subd. 4, not a licensing line — everyone registers, and crossing it
 means paying $50 and taking the longer training. Minnesota's actual cap is the $78,000 in subd. 3. `seller_revenue_tracking`
@@ -739,15 +764,18 @@ keeps the annual total whatever the basis, because that is what `/seller/complia
 and emails admins; the same figure shows on `/admin/programs`.
 
 
-**Phase 5 — pre-checkout label disclosure.** Ten jurisdictions reach the buyer *before* the sale,
+**Phase 5 — pre-checkout label disclosure.** Eleven jurisdictions reach the buyer *before* the sale,
 by several different routes, and `state_label_rules.predisclosure_required` records it — currently
-**CA, IL, IN, MN, NE, NM, OK, TN, TX, UT**. **UT** is the one that gets there without a disclosure
-rule at all: Utah Code § 4-5a-104(1) exempts a producer only where the food is "sold directly to an
+**CA, IL, IN, MN, NE, NM, OK, TN, TX, UT, WY**. **UT and WY** are the two that get there without a
+disclosure rule at all, through the structure of the exemption itself: Utah Code § 4-5a-104(1)
+exempts a producer only where the food is "sold directly to an
 informed final consumer", and § 4-5a-102(7)(c) defines that person as one who "has been informed
 that the product is not certified, licensed, regulated, or inspected by the state" — so **being told
 is a precondition of the exemption**, and a buyer who reads it when the box arrives was not an
 informed final consumer when they bought. Only Utah's Homemade Food Act route; its cottage food and
-microenterprise routes are false. **TN** — Tenn. Code § 53-1-118(b)(5)(A)(iv), the whole of
+microenterprise routes are false. Wyoming is the same shape: Wyo. Stat. § 11-49-102(a)(v) defines the
+"informed end consumer" as one "who has been informed that the product is not licensed, regulated or
+inspected", and § 11-49-103(e) makes telling them the producer's duty. **TN** — Tenn. Code § 53-1-118(b)(5)(A)(iv), the whole of
 the (b)(4) information "On the webpage on which the homemade food item is offered for sale": it
 names the listing page, and it is the reason `contact_phone` exists. **TX** —
 §437.0194(b)(2) permits an internet sale only if the labelling information reaches the buyer "before

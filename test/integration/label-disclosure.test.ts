@@ -115,9 +115,20 @@ describeDb("pre-checkout label disclosure", () => {
     await admin.from("products").update({ status: "active" }).eq("id", productId);
   });
 
-  it("is off by default for a state nobody has reviewed", async () => {
-    const user = await createTestUser({ role: "seller", homeState: "WY" });
-    const seller = await createSeller(user.id, { homeState: "WY" });
+  /**
+   * This test used to use Wyoming as its example of a state nobody had reviewed. Wyoming is now a
+   * predisclosure state — Wyo. Stat. 11-49-102(a)(v) defines the "informed end consumer" as one who
+   * "has been informed that the product is not licensed, regulated or inspected" — and with the
+   * alphabetical pass complete there is no unreviewed state left to stand in for one.
+   *
+   * So it asserts the thing that still matters: the flag stays off where the state's own law does
+   * not ask for a pre-sale disclosure. West Virginia is the example — W. Va. Code 19-35-6 exempts
+   * nonpotentially hazardous food from labelling law outright and delegates what remains to the
+   * department, requiring nothing before the sale.
+   */
+  it("stays off where the state's own law asks for nothing before the sale", async () => {
+    const user = await createTestUser({ role: "seller", homeState: "WV" });
+    const seller = await createSeller(user.id, { homeState: "WV" });
     const { data: category } = await admin
       .from("categories")
       .select("id")
@@ -127,7 +138,7 @@ describeDb("pre-checkout label disclosure", () => {
       .from("products")
       .insert({
         seller_id: seller.id,
-        title: "IT Wyoming Loaf",
+        title: "IT West Virginia Loaf",
         price: "9.00",
         category_id: category!.id,
         status: "active",
@@ -144,7 +155,6 @@ describeDb("pre-checkout label disclosure", () => {
     const { data } = await anonDb().rpc("product_label_disclosure", {
       p_product_id: product!.id,
     });
-    // False means nobody has checked Wyoming, not that Wyoming has no such rule.
     expect(data?.[0]?.predisclosure_required).toBe(false);
   });
 

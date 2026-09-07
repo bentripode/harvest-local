@@ -109,19 +109,26 @@ describeDb("state food programs", () => {
 
   /**
    * This used to assert Colorado was `per_product` at $10,000. Verifying Colo. Rev. Stat. 25-4-1614
-   * against the statute found a single $150,000 annual cap and no per-product figure at all, and
-   * Virginia — the other non-annual row — turned out to be a $9,000 annual figure rather than a
-   * $3,000 acidified-only one. **No seeded programme uses a non-annual basis any more.**
+   * found a single $150,000 annual cap and no per-product figure at all, and Virginia — the other
+   * non-annual row — was then recorded as a $9,000 annual figure.
    *
-   * So the column is asserted, not a state: the schema must still accept the other bases, because
-   * `record_order_revenue` implements them and a future verified state may well need one. What the
-   * bases actually DO is covered by cap-variants.test.ts, which builds its own programme rows
-   * precisely so it stops depending on which state carries which basis.
+   * **Virginia has since gone back to `per_category`, and that is the settled answer.** Va. Code
+   * 3.2-5130 as amended by 2026 c. 605 leaves subdivision (C)(3) with no gross sales limit at all;
+   * the $9,000 survives only in (C)(4), on "pickles and other acidified vegetables". So the row has
+   * held three figures — a seeded $3,000 acidified-only, a corrected $9,000 annual-total, and now a
+   * $9,000 acidified-only. The seed had the right shape and the wrong number; the correction had the
+   * right number and the wrong shape.
+   *
+   * The column is still what's asserted rather than a state, because `record_order_revenue`
+   * implements all the bases and what they DO is covered by cap-variants.test.ts, which builds its
+   * own programme rows precisely so it stops depending on which state carries which basis.
    */
   it("still admits cap bases other than an annual total", async () => {
     const { data } = await admin.from("state_food_programs").select("cap_basis");
     const bases = new Set((data ?? []).map((p) => p.cap_basis));
     expect([...bases].every((b) => ["annual_total", "per_product", "per_category", "none"].includes(b))).toBe(true);
+    // Virginia is the one verified row using a non-annual basis.
+    expect(bases.has("per_category")).toBe(true);
 
     // The CHECK accepts a non-annual basis even though nothing verified uses one today.
     const { error } = await admin
