@@ -246,6 +246,16 @@ function isElement(value: string): value is LabelElement {
 }
 
 /**
+ * The reader-facing name for an element key. Shared with the public cottage-food guide, so the
+ * words a seller sees on the label sheet and the words a stranger reads on the state page are the
+ * same words. An unrecognised key is returned as-is rather than dropped — a rule naming an element
+ * we don't model should be visible, not silently shorter.
+ */
+export function elementLabel(key: string): string {
+  return isElement(key) ? ELEMENT_LABEL[key] : key;
+}
+
+/**
  * `state_label_rules.element_alternatives` arrives from PostgREST as unshaped JSON. A CHECK
  * constrains it to an array of arrays, but the type system doesn't know that, and a label is not
  * the place to trust a cast — anything that isn't a group of strings is dropped rather than thrown.

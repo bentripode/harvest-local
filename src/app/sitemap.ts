@@ -19,10 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/shop`, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/markets`, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/cottage-food-laws`, changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const supabase = await createClient();
-  const [{ data: sellers }, { data: markets }] = await Promise.all([
+  const [{ data: sellers }, { data: markets }, { data: guideStates }] = await Promise.all([
     supabase
       .from("seller_profiles")
       .select("storefront_slug, updated_at")
@@ -36,6 +37,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .select("slug, state, updated_at")
       .order("updated_at", { ascending: false })
       .limit(20000),
+    // The cottage-food guide: one page per jurisdiction we hold rules for.
+    supabase.from("state_food_programs").select("state_code, updated_at").order("state_code"),
   ]);
 
   const storefronts: MetadataRoute.Sitemap = (sellers ?? []).map((s) => ({
@@ -65,5 +68,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
-  return [...staticRoutes, ...storefronts, ...statePages, ...marketPages];
+  const guideLatest = new Map<string, string>();
+  for (const row of guideStates ?? []) {
+    const prev = guideLatest.get(row.state_code);
+    if (!prev || (row.updated_at && row.updated_at > prev)) {
+      guideLatest.set(row.state_code, row.updated_at);
+    }
+  }
+  const guidePages: MetadataRoute.Sitemap = [...guideLatest.entries()].map(([code, updated]) => ({
+    url: `${base}/cottage-food-laws/${code.toLowerCase()}`,
+    lastModified: updated ? new Date(updated) : undefined,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...storefronts, ...statePages, ...marketPages, ...guidePages];
 }

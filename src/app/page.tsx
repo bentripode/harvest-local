@@ -51,6 +51,28 @@ export default async function HomePage() {
             </Button>
           )}
         </div>
+
+        {/*
+          The compliance data is the most defensible thing here and the reason a seller should pick
+          us, so it gets a door on the front page rather than living behind the login.
+        */}
+        <div className="w-full max-w-xl space-y-2 rounded-lg border p-5 text-left">
+          <p className="font-medium">Thinking about selling food you make at home?</p>
+          <p className="text-muted-foreground text-sm">
+            We read every state&apos;s cottage food law — what you can make, what it caps you at,
+            what goes on the label, and whether you can sell online at all. Free to read, no account
+            needed, with a link to the statute on every claim.
+          </p>
+          <p className="pt-1 text-sm">
+            <Link href="/cottage-food-laws" className="underline">
+              Cottage food laws by state
+            </Link>{" "}
+            ·{" "}
+            <Link href="/markets" className="underline">
+              Find a farmers market
+            </Link>
+          </p>
+        </div>
       </main>
     </>
   );
