@@ -1,43 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatePicker } from "@/components/state-picker";
-import { getProfile, getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
+import { getBrowseState } from "@/lib/geo/browse-state";
 import type { Product } from "@/lib/db/types";
 
-export const metadata = { title: "Shop — Harvest Local" };
+export const metadata: Metadata = {
+  title: "Shop local sellers — Harvest Local",
+  description:
+    "Browse farmers, bakers, and makers in your state. Pickup or local delivery, direct from the producer.",
+};
 
 export default async function ShopPage() {
-  const [user, profile] = await Promise.all([getUser(), getProfile()]);
+  // Discovery is public. What a signed-out visitor sees is a *display* decision; what anyone may
+  // order is decided again at checkout against `profiles.home_state` (CLAUDE.md rule 1).
+  const { state, source } = await getBrowseState();
 
-  if (!user) {
+  if (!state) {
     return (
-      <Empty title="Sign in to shop">
-        Harvest Local shows sellers in your own state.{" "}
-        <Link href="/login?next=/shop" className="underline">
-          Sign in
-        </Link>{" "}
-        or{" "}
-        <Link href="/signup?role=buyer" className="underline">
-          create an account
-        </Link>
-        .
-      </Empty>
-    );
-  }
-
-  if (!profile?.home_state) {
-    return (
-      <div className="max-w-md space-y-4">
-        <h1 className="text-2xl font-semibold tracking-tight">Where are you?</h1>
+      <div className="mx-auto max-w-md space-y-4 py-10">
+        <h1 className="text-2xl font-semibold tracking-tight">Where are you shopping?</h1>
         <p className="text-muted-foreground text-sm">
-          Cottage-food sales stay within a single state, so we only show sellers in yours.
+          Cottage-food sales stay inside one state, so Harvest Local shows you the sellers in
+          yours. No account needed to look around.
         </p>
-        <StatePicker />
+        <StatePicker submitLabel="Show me sellers" />
       </div>
     );
   }
@@ -49,7 +41,7 @@ export default async function ShopPage() {
       "id, business_name, storefront_slug, bio, home_state, avg_rating, products:products(id, title, price, images, quantity_available, status, seller_id)",
     )
     .eq("is_paused", false)
-    .eq("home_state", profile.home_state)
+    .eq("home_state", state)
     .order("business_name");
 
   const storefronts = (sellers ?? [])
@@ -63,17 +55,27 @@ export default async function ShopPage() {
     <div className="space-y-8">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Sellers in {stateName(profile.home_state)}
-          </h1>
-          <p className="text-muted-foreground text-sm">Pickup from local farmers, bakers, and makers.</p>
+          <h1 className="text-2xl font-semibold tracking-tight">Sellers in {stateName(state)}</h1>
+          <p className="text-muted-foreground text-sm">
+            Pickup from local farmers, bakers, and makers.
+          </p>
+          {/* An IP guess is a guess — say so rather than quietly showing the wrong state. */}
+          {source === "geo" ? (
+            <p className="text-muted-foreground pt-1 text-xs">
+              We guessed {stateName(state)} from your connection. Not right? Pick your state.
+            </p>
+          ) : null}
         </div>
-        <StatePicker current={profile.home_state} />
+        <StatePicker current={state} hideLabel submitLabel="Change" />
       </div>
 
       {storefronts.length === 0 ? (
-        <Empty title="No sellers yet">
-          No live storefronts in {stateName(profile.home_state)} right now. Check back soon.
+        <Empty title={`No sellers in ${stateName(state)} yet`}>
+          Nobody is listing here right now. If you make something —{" "}
+          <Link href="/signup?role=seller" className="underline">
+            open a storefront
+          </Link>{" "}
+          and be the first.
         </Empty>
       ) : (
         <div className="space-y-8">
@@ -90,31 +92,40 @@ export default async function ShopPage() {
                     </span>
                   ) : null}
                 </h2>
-                <Link href={`/s/${s.storefront_slug}`} className="text-muted-foreground text-sm hover:underline">
+                <Link
+                  href={`/s/${s.storefront_slug}`}
+                  className="text-muted-foreground text-sm hover:underline"
+                >
                   View storefront →
                 </Link>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {s.products.slice(0, 6).map((p) => (
-                  <Card key={p.id}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-medium">{p.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      <div className="bg-muted relative aspect-video overflow-hidden rounded-md border">
-                        {p.images?.[0] ? (
-                          <Image
-                            src={p.images[0].url}
-                            alt=""
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 640px) 100vw, 33vw"
-                          />
-                        ) : null}
-                      </div>
-                      <p className="text-sm font-medium">{formatUsd(toCents(p.price))}</p>
-                    </CardContent>
-                  </Card>
+                  <Link
+                    key={p.id}
+                    href={`/s/${s.storefront_slug}`}
+                    className="focus-visible:ring-ring rounded-xl focus-visible:ring-2 focus-visible:outline-none"
+                  >
+                    <Card className="h-full transition-shadow hover:shadow-md">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-sm font-medium">{p.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        <div className="bg-muted relative aspect-video overflow-hidden rounded-md border">
+                          {p.images?.[0] ? (
+                            <Image
+                              src={p.images[0].url}
+                              alt=""
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                            />
+                          ) : null}
+                        </div>
+                        <p className="text-sm font-medium">{formatUsd(toCents(p.price))}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             </section>

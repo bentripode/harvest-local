@@ -2,6 +2,7 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 
 import {
   adminDb,
+  anonDb,
   cleanupAll,
   completeOrder,
   createOrder,
@@ -117,5 +118,94 @@ describeDb("reviews_verify_buyer", () => {
       .eq("id", seller.id)
       .single();
     expect(data?.avg_rating).not.toBeNull();
+  });
+});
+
+/**
+ * The marketplace is public, so a signed-out reader is the storefront's main audience — and
+ * `profiles` is owner-read-only, so the reviewer's name has to travel on the review itself
+ * (20260908120000_public_review_names.sql).
+ */
+describeDb("reviews.reviewer_name", () => {
+  let buyer: TestUser;
+  let sellerUser: TestUser;
+  let seller: { id: string };
+  const displayName = "Cynthia Marchetti";
+
+  beforeAll(async () => {
+    buyer = await createTestUser({ homeState: "TX", displayName });
+    sellerUser = await createTestUser({ role: "seller", homeState: "TX" });
+    seller = await createSeller(sellerUser.id, { homeState: "TX" });
+  });
+
+  afterAll(cleanupAll);
+
+  async function reviewFromBuyer(rating: number) {
+    const order = await createOrder({
+      buyerId: buyer.id,
+      sellerId: seller.id,
+      buyerState: "TX",
+      status: "new",
+    });
+    await completeOrder(order.id);
+    const { data, error } = await buyer.db
+      .from("reviews")
+      .insert({ order_id: order.id, reviewer_id: buyer.id, seller_id: seller.id, rating })
+      .select("id")
+      .single();
+    expect(error).toBeNull();
+    return data!.id as string;
+  }
+
+  it("captures the reviewer's display name on insert, ignoring what the client sent", async () => {
+    const order = await createOrder({
+      buyerId: buyer.id,
+      sellerId: seller.id,
+      buyerState: "TX",
+      status: "new",
+    });
+    await completeOrder(order.id);
+
+    const { data, error } = await buyer.db
+      .from("reviews")
+      .insert({
+        order_id: order.id,
+        reviewer_id: buyer.id,
+        seller_id: seller.id,
+        rating: 5,
+        reviewer_name: "Someone Else Entirely",
+      })
+      .select("reviewer_name")
+      .single();
+
+    expect(error).toBeNull();
+    expect(data!.reviewer_name).toBe(displayName);
+  });
+
+  it("is readable by a signed-out visitor — the whole point of the snapshot", async () => {
+    const id = await reviewFromBuyer(4);
+
+    const { data, error } = await anonDb()
+      .from("reviews")
+      .select("reviewer_name, reviewer:profiles!reviews_reviewer_id_fkey(display_name)")
+      .eq("id", id)
+      .single();
+
+    expect(error).toBeNull();
+    expect(data!.reviewer_name).toBe(displayName);
+    // The join is exactly what anon cannot see; that is why the column exists.
+    expect(data!.reviewer).toBeNull();
+  });
+
+  it("cannot be rewritten by the seller through the response policy", async () => {
+    const id = await reviewFromBuyer(3);
+
+    const { error } = await sellerUser.db
+      .from("reviews")
+      .update({ reviewer_name: "A Nicer Name" })
+      .eq("id", id);
+
+    expect(error).not.toBeNull();
+    expect(error!.message).toMatch(/only a review's response may be edited/i);
   });
 });

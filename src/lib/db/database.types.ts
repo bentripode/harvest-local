@@ -1176,6 +1176,7 @@ export type Database = {
           responded_at: string | null
           response: string | null
           reviewer_id: string
+          reviewer_name: string | null
           seller_id: string
         }
         Insert: {
@@ -1187,6 +1188,7 @@ export type Database = {
           responded_at?: string | null
           response?: string | null
           reviewer_id: string
+          reviewer_name?: string | null
           seller_id: string
         }
         Update: {
@@ -1198,6 +1200,7 @@ export type Database = {
           responded_at?: string | null
           response?: string | null
           reviewer_id?: string
+          reviewer_name?: string | null
           seller_id?: string
         }
         Relationships: [

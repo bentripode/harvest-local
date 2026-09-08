@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner";
+import { env } from "@/lib/env";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -15,7 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harvest Local",
+  // Storefronts are public and shared as links, so relative `alternates` / `openGraph` URLs in
+  // child routes need an absolute base to resolve against.
+  metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
+  title: {
+    default: "Harvest Local",
+    template: "%s",
+  },
   description: "A hyper-local marketplace for farmers, artisans, and makers.",
 };
 

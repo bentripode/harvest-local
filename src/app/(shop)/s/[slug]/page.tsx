@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 import { getProductDisclosures } from "@/lib/labels/disclosure";
 import { LabelDisclosure } from "@/components/label-disclosure";
@@ -11,12 +12,42 @@ import { StarRating } from "@/components/star-rating";
 import { ReviewList } from "@/components/review-list";
 import { MessageSellerButton } from "@/components/message-seller-button";
 import { TrackStorefrontView } from "@/components/track-storefront-view";
-import { getProfile, getUser } from "@/lib/auth";
+import { getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
 import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
+import { getBrowseState } from "@/lib/geo/browse-state";
 import type { Product } from "@/lib/db/types";
+
+/**
+ * Storefronts are the marketplace's public face — a seller shares this link and search engines
+ * index it, so it carries its own title, description and share image.
+ */
+export async function generateMetadata({ params }: PageProps<"/s/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await createClient();
+
+  const { data: seller } = await supabase
+    .from("seller_profiles")
+    .select("business_name, bio, home_state, is_paused")
+    .eq("storefront_slug", slug)
+    .maybeSingle();
+
+  if (!seller || seller.is_paused) return { title: "Storefront not found — Harvest Local" };
+
+  const title = `${seller.business_name} — ${stateName(seller.home_state)} | Harvest Local`;
+  const description =
+    seller.bio?.trim().slice(0, 180) ||
+    `Shop ${seller.business_name}, a local seller in ${stateName(seller.home_state)}. Pickup or local delivery.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/s/${slug}` },
+    openGraph: { title, description, type: "website", url: `/s/${slug}` },
+  };
+}
 
 export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">) {
   const { slug } = await params;
@@ -32,7 +63,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   if (!seller || seller.is_paused) notFound();
 
-  const [{ data: products }, user, profile, reviewSummary, reviews] = await Promise.all([
+  const [{ data: products }, user, browse, reviewSummary, reviews] = await Promise.all([
     supabase
       .from("products")
       .select("*")
@@ -40,7 +71,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
       .eq("status", "active")
       .order("created_at", { ascending: false }),
     getUser(),
-    getProfile(),
+    getBrowseState(),
     getSellerReviewSummary(seller.id),
     getSellerReviews(seller.id),
   ]);
@@ -48,8 +79,14 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const list = (products ?? []) as Product[];
   // Where the state requires the label before payment, the listing is the first chance to show it.
   const disclosures = await getProductDisclosures(list.map((p) => p.id));
-  const buyerState = profile?.home_state ?? null;
-  const canOrder = !!user && sameState(buyerState, seller.home_state);
+
+  // A guest with no state yet may still fill a basket — checkout is where an account and the real
+  // same-state check happen (`startCheckoutAction` against `profiles.home_state`). Only a *known*
+  // mismatch hides the button, so the block is never guessed into existence.
+  const buyerState = browse.state;
+  const blockedFrom =
+    buyerState != null && !sameState(buyerState, seller.home_state) ? buyerState : null;
+  const canOrder = blockedFrom === null;
   const isOwner = !!user && user.id === seller.profile_id;
 
   return (
@@ -76,33 +113,30 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ) : null}
         </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
-        {canOrder ? (
+        {user && canOrder ? (
           <div className="pt-2">
             <MessageSellerButton sellerId={seller.id} label={`Message ${seller.business_name}`} />
           </div>
         ) : null}
       </header>
 
-      {!user ? (
-        <Notice>
-          <Link href={`/login?next=/s/${slug}`} className="underline">
-            Sign in
-          </Link>{" "}
-          to order from {seller.business_name}.
-        </Notice>
-      ) : !buyerState ? (
-        <Notice>
-          Set your state on the{" "}
-          <Link href="/shop" className="underline">
-            shop page
-          </Link>{" "}
-          to order.
-        </Notice>
-      ) : !canOrder ? (
+      {blockedFrom ? (
         <Notice>
           {seller.business_name} sells in {stateName(seller.home_state)}. Harvest Local keeps orders
           within a single state, so you can browse here but can&apos;t order from{" "}
-          {stateName(buyerState)}.
+          {stateName(blockedFrom)}.{" "}
+          <Link href="/shop" className="underline">
+            Shop {stateName(blockedFrom)} sellers
+          </Link>
+          .
+        </Notice>
+      ) : !user ? (
+        <Notice>
+          Browsing as a guest — add to your basket now and{" "}
+          <Link href={`/login?next=/s/${slug}`} className="underline">
+            sign in
+          </Link>{" "}
+          when you check out.
         </Notice>
       ) : null}
 

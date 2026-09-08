@@ -1,7 +1,6 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import {
   getProductDisclosures,
@@ -16,7 +15,7 @@ import { buildCheckoutSessionParams } from "@/lib/stripe/checkout";
 import { env } from "@/lib/env";
 import { cents, toDecimalString } from "@/lib/money";
 import { CartError, priceCart, type PricableProduct } from "@/lib/orders/pricing";
-import { isUsState, sameState, US_STATES } from "@/lib/geo/state";
+import { isUsState, sameState } from "@/lib/geo/state";
 import { addressSchema, formatAddress, type AddressInput } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
@@ -222,31 +221,6 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
     promo,
     delivery,
   };
-}
-
-export interface StateFormState {
-  error?: string;
-}
-
-/** Buyer self-attests their state (Phase 2). Backed by the same-state CHECK + checkout guard. */
-export async function setBuyerStateAction(
-  _prev: StateFormState,
-  formData: FormData,
-): Promise<StateFormState> {
-  const { user } = await requireUser("/shop");
-  const state = z.enum(US_STATES).safeParse(formData.get("state"));
-  if (!state.success) return { error: "Choose your state." };
-
-  const supabase = await createClient();
-  const { error } = await supabase
-    .from("profiles")
-    .update({ home_state: state.data })
-    .eq("id", user.id);
-  if (error) return { error: error.message };
-
-  revalidatePath("/shop");
-  revalidatePath("/checkout");
-  return {};
 }
 
 /**

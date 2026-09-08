@@ -24,8 +24,8 @@ export default async function HomePage() {
           <div className="bg-muted/50 w-full max-w-md rounded-lg border p-5 text-sm">
             <p className="font-medium">We&apos;re in early access.</p>
             <p className="text-muted-foreground mt-1">
-              Right now Harvest Local is open to sellers getting their storefronts ready. Buyer
-              shopping opens soon.
+              Sellers are still getting their storefronts ready, so it&apos;s quiet in most states.
+              Browse what&apos;s live today — no account needed to look.
             </p>
           </div>
         ) : null}
@@ -33,15 +33,12 @@ export default async function HomePage() {
         <div className="flex flex-wrap items-center justify-center gap-3">
           {!profile ? (
             <>
+              {/* Browsing is public in both access modes, so the front door is the shop. */}
               <Button asChild size="lg">
-                <Link href={accessMode === "public" ? "/signup?role=buyer" : "/signup?role=seller"}>
-                  {accessMode === "public" ? "Sign up to shop" : "Start selling"}
-                </Link>
+                <Link href="/shop">Browse local sellers</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href={accessMode === "public" ? "/signup?role=seller" : "/login"}>
-                  {accessMode === "public" ? "Sell on Harvest Local" : "Sign in"}
-                </Link>
+                <Link href="/signup?role=seller">Sell on Harvest Local</Link>
               </Button>
             </>
           ) : isSeller ? (
