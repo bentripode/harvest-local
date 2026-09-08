@@ -2614,6 +2614,25 @@ export type Database = {
         Args: { p_seller_id: string }
         Returns: string
       }
+      nearby_sellers: {
+        Args: {
+          p_lat?: number
+          p_limit?: number
+          p_lng?: number
+          p_state?: string
+        }
+        Returns: {
+          seller_id: string
+          business_name: string
+          storefront_slug: string
+          avg_rating: number
+          distance_miles: number
+          approx_lng: number
+          approx_lat: number
+          location_label: string
+          is_market: boolean
+        }[]
+      }
       order_pickup_address: {
         Args: { p_order_id: string }
         Returns: {

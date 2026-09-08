@@ -30,6 +30,11 @@ export const RATE_LIMITS = {
    * keyed by IP and set tighter than the rest — a person signs up for one or two markets.
    */
   marketWatch: { max: 5, windowSecs: 300 },
+  /**
+   * Geocoding a ZIP to sort the shop by distance. Open to guests and metered by Mapbox, so it
+   * is keyed by IP where there is no account.
+   */
+  geocode: { max: 20, windowSecs: 300 },
 } as const satisfies Record<string, RateLimit>;
 
 /**
