@@ -242,6 +242,9 @@ describeDb("pre-checkout label disclosure", () => {
         // Same gate: a state-issued number is only public where the state offers it in place of
         // the address (TX 437.0193(b-1), and the AR and OR equivalents).
         "producer_id_number",
+        // The county whose agency issued the registration, read off the same licence row as the
+        // permit number — Cal. Health & Saf. Code 114365.3(e)(4) states the two as one item.
+        "county_of_approval",
         "handling_instructions",
         "product_name",
         "regulator_website_url",
@@ -307,10 +310,14 @@ describeDb("disclosure gaps are visible, not silent", () => {
   it("returns nulls for the county and permit number rather than inventing them", async () => {
     const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
     // 114365.3(e)(4) and (f) both want these; the seller has not supplied either yet.
-    expect(data?.[0]?.municipality).toBeNull();
+    //
+    // The county is `county_of_approval`, not `municipality`: (f)(1) wants the county of the agency
+    // that issued the registration, and 114365(a)(4) makes a registration valid statewide, so the
+    // seller's own town is a different fact and is no longer offered in its place.
+    expect(data?.[0]?.county_of_approval).toBeNull();
     expect(data?.[0]?.permit_number).toBeNull();
     // And the elements are still listed as required, which is what makes the gap detectable.
-    expect(data?.[0]?.required_elements).toContain("municipality");
+    expect(data?.[0]?.required_elements).toContain("county_of_approval");
     expect(data?.[0]?.required_elements).toContain("permit_number");
   });
 });

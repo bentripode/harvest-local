@@ -120,15 +120,27 @@ describeDb("what a state requires before the sale", () => {
       .eq("id", productId)
       .single();
 
-    await admin.from("seller_licenses").insert({
-      seller_id: product!.seller_id,
-      license_type: "cottage_food",
-      license_number: "CFO-2026-118",
-      issuing_state: "CA",
-      issuing_county: "Alameda",
-      document_path: "seller-docs/it/ca-permit.pdf",
-      verification_status: "verified",
-    });
+    // Inserted pending and then verified by the platform: `seller_licenses_guard_status` makes
+    // verification_status platform-only, so a licence cannot be born verified.
+    const { data: licence, error: insertError } = await admin
+      .from("seller_licenses")
+      .insert({
+        seller_id: product!.seller_id,
+        license_type: "cottage_food",
+        license_number: "CFO-2026-118",
+        issuing_state: "CA",
+        issuing_county: "Alameda",
+        document_path: "seller-docs/it/ca-permit.pdf",
+      })
+      .select("id")
+      .single();
+    expect(insertError).toBeNull();
+
+    const { error: verifyError } = await admin
+      .from("seller_licenses")
+      .update({ verification_status: "verified" })
+      .eq("id", licence!.id);
+    expect(verifyError).toBeNull();
 
     const row = await disclose(productId);
     expect(row?.county_of_approval).toBe("Alameda");
@@ -150,15 +162,16 @@ describeDb("what a state requires before the sale", () => {
       .eq("id", productId)
       .single();
 
-    await admin.from("seller_licenses").insert({
+    // Left pending, which is how every licence starts.
+    const { error } = await admin.from("seller_licenses").insert({
       seller_id: product!.seller_id,
       license_type: "cottage_food",
       license_number: "CFO-PENDING-9",
       issuing_state: "CA",
       issuing_county: "Sonoma",
       document_path: "seller-docs/it/ca-pending.pdf",
-      verification_status: "pending",
     });
+    expect(error).toBeNull();
 
     const row = await disclose(productId);
     expect(row?.county_of_approval).toBeNull();
@@ -265,12 +278,19 @@ describeDb("what a state requires before the sale", () => {
    * A regression from the migration that introduced the narrowing, caught while adding the county.
    *
    * That migration gated the `municipality` column on `'municipality' = any(named_elements)`. DE and
-   * NJ name `municipality_state` — the town AND the state as one phrase, 16 Del. Admin. Code 4458A
-   * 8.2.1 — which renders from the SAME source value, so the gate blanked it and the element
-   * reported itself missing for a seller who had supplied a pickup address all along.
+   * NJ name `municipality_state` — the town AND the state as one phrase — which renders from the
+   * SAME source value, so the gate blanked it and the element reported itself missing for a seller
+   * who had supplied a pickup address all along.
+   *
+   * New Jersey rather than Delaware, though 16 Del. Admin. Code 4458A 8.2.1 is the clearer quote:
+   * Delaware bans online cottage-food sales under every programme it runs, so
+   * `products_guard_online_food_sales` will not let a Delaware food listing reach `active` at all
+   * and there is no listing to assert against. N.J. Admin. Code 8:24-11.5(a)(5) wants "the name of
+   * the municipality in which the cottage food operator prepares the cottage food product ...
+   * followed by either 'New Jersey' or 'NJ'".
    */
   it("still gives the town to a state that wants it as part of a longer phrase", async () => {
-    const row = await disclose(await listingIn("DE"));
+    const row = await disclose(await listingIn("NJ"));
     expect(row?.required_elements).toContain("municipality_state");
     expect(row?.municipality).toBe("Testville");
   });
