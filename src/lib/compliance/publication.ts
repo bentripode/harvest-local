@@ -104,16 +104,26 @@ export async function describePredisclosureBlock(
   const { data: ruleRow } = await supabase
     .from("state_label_rules")
     .select(
-      "required_elements, optional_elements, element_alternatives, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required",
+      "required_elements, optional_elements, element_alternatives, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required, address_withheld_until_payment",
     )
     .eq("program_id", program.id)
     .maybeSingle();
   if (!ruleRow?.predisclosure_required) return null;
 
+  // Where the state permits the address to be held back until after payment (Tex. Health & Safety
+  // Code 437.0194(c)(1)), it is not part of what the LISTING must carry, so it must not block
+  // publication. It is still required on the printed label under 437.0193(b), which `canPrint()`
+  // enforces separately on the seller's own label page.
+  const withheld = !!ruleRow.address_withheld_until_payment;
+
   const rule: LabelRule = {
-    requiredElements: ruleRow.required_elements ?? [],
+    requiredElements: (ruleRow.required_elements ?? []).filter(
+      (e) => !(withheld && (e === "producer_address" || e === "municipality")),
+    ),
     optionalElements: ruleRow.optional_elements ?? [],
-    elementAlternatives: parseAlternatives(ruleRow.element_alternatives),
+    elementAlternatives: parseAlternatives(ruleRow.element_alternatives).filter(
+      (group) => !(withheld && group.includes("producer_address")),
+    ),
     regulatorWebsiteUrl: ruleRow.regulator_website_url,
     sellerStatementPrompt: ruleRow.seller_statement_prompt,
     disclaimerText: ruleRow.disclaimer_text,

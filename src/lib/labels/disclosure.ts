@@ -65,10 +65,29 @@ export async function getProductDisclosures(
   for (const [productId, row] of rows) {
     if (!row) continue;
 
+    // Where the state lets the address be held back until after payment (Tex. Health & Safety Code
+    // 437.0194(c)(1)), the function returns none — so the element has to come out of the required
+    // list too. Left in, `renderLabel` would report it missing and `DisclosureGapNotice` would tell
+    // a Texan to fix a field their own statute excuses them from showing.
+    //
+    // The address is still required on the printed label under 437.0193(b); that is the seller's
+    // own label page, which reads the profile directly and is untouched by this.
+    const required = (row.required_elements ?? []).filter(
+      (e: string) => !(row.address_withheld && (e === "producer_address" || e === "municipality")),
+    );
+
+    // Texas pairs the address with its § 437.0193(b-1) identification number as an either/or. With
+    // the address withheld, keeping the group would just move the complaint to the number — and
+    // (c)(1) excuses BOTH before payment, since (c)(2) is what puts one of them on the label after.
+    // So a group containing the address is dropped whole rather than trimmed.
+    const alternatives = parseAlternatives(row.element_alternatives).filter(
+      (group) => !(row.address_withheld && group.includes("producer_address")),
+    );
+
     const rule: LabelRule = {
-      requiredElements: row.required_elements ?? [],
+      requiredElements: required,
       optionalElements: row.optional_elements ?? [],
-      elementAlternatives: parseAlternatives(row.element_alternatives),
+      elementAlternatives: alternatives,
       regulatorWebsiteUrl: row.regulator_website_url,
       disclaimerText: row.disclaimer_text,
       disclaimerMinPt: row.disclaimer_min_pt,

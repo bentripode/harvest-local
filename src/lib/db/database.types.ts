@@ -1824,6 +1824,7 @@ export type Database = {
       }
       state_label_rules: {
         Row: {
+          address_withheld_until_payment: boolean
           created_at: string
           disclaimer_all_caps: boolean
           disclaimer_font_note: string | null
@@ -1854,6 +1855,7 @@ export type Database = {
           verified_by: string | null
         }
         Insert: {
+          address_withheld_until_payment?: boolean
           created_at?: string
           disclaimer_all_caps?: boolean
           disclaimer_font_note?: string | null
@@ -1884,6 +1886,7 @@ export type Database = {
           verified_by?: string | null
         }
         Update: {
+          address_withheld_until_payment?: boolean
           created_at?: string
           disclaimer_all_caps?: boolean
           disclaimer_font_note?: string | null
@@ -2225,6 +2228,7 @@ export type Database = {
       product_label_disclosure: {
         Args: { p_product_id: string }
         Returns: {
+          address_withheld: boolean
           allergens: string[]
           business_name: string
           disclaimer_all_caps: boolean

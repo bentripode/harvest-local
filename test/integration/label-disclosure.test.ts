@@ -86,18 +86,66 @@ describeDb("pre-checkout label disclosure", () => {
     expect(data?.[0]?.disclaimer_all_caps).toBe(true);
   });
 
-  it("exposes the producer address, which a buyer cannot read directly", async () => {
+  /**
+   * This assertion used to run the other way, and the comment it carried is why the defect
+   * survived a review: it spotted § 437.0194(c), wrote it down, and asserted the address came out
+   * anyway.
+   *
+   * Tex. Health & Safety Code § 437.0194(c): an operator selling over the internet "(1) is not
+   * required to include the address of the operation in the labeling information required under
+   * Subsection (b)(2) before the operator accepts payment for the food; and (2) shall provide the
+   * address or unique identification number of the operation on the label of the food ... after
+   * the operator accepts payment."
+   *
+   * The address is still required — on the jar, afterwards. What the legislature excused is the
+   * PRE-PAYMENT disclosure, which is exactly what this anon-callable function is.
+   */
+  it("withholds the producer address from a Texan listing, as 437.0194(c)(1) permits", async () => {
     // The address row itself stays owner-only …
     const { data: direct } = await anonDb().from("addresses").select("line1").eq("id", addressId);
     expect(direct ?? []).toHaveLength(0);
 
-    // … but it goes on the label, so the function returns it. For Texas specifically the address is
-    // one half of an either/or since the 2025 amendment — § 437.0193(b-1) lets an operation print a
-    // department-issued identification number instead — and § 437.0194(c) even lets it be withheld
-    // until after payment. The function still returns it unconditionally; see that row's venue_note.
+    // … and in Texas it does not come out through the disclosure either.
     const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
-    expect(data?.[0]?.producer_address).toContain("1114 Nueces St");
-    expect(data?.[0]?.producer_address).toContain("Austin");
+    expect(data?.[0]?.producer_address).toBeNull();
+    // The town goes with it. Naming the town of a home kitchen beside the producer's name is most
+    // of the way to naming the kitchen, and no Texas provision asks for it before payment.
+    expect(data?.[0]?.municipality).toBeNull();
+    // Said out loud, so a caller can tell "withheld by law" from "seller never entered one".
+    expect(data?.[0]?.address_withheld).toBe(true);
+  });
+
+  /**
+   * The distinction the flag exists to hold open: withheld from the LISTING, still on the LABEL.
+   * `getLabelContext` reads the seller profile directly rather than through this function, so the
+   * label printed under § 437.0193(b) is unaffected — this asserts the data is still there for it.
+   */
+  it("keeps the address on the seller record for the label printed after payment", async () => {
+    const { data: addr } = await admin
+      .from("addresses")
+      .select("line1, city")
+      .eq("id", addressId)
+      .single();
+    expect(addr?.line1).toBe("1114 Nueces St");
+    expect(addr?.city).toBe("Austin");
+
+    const { data: seller } = await admin
+      .from("seller_profiles")
+      .select("pickup_address_id")
+      .eq("id", sellerId)
+      .single();
+    expect(seller?.pickup_address_id).toBe(addressId);
+  });
+
+  /**
+   * Withholding the address does not excuse the rest of § 437.0194(b)(2). The disclosure is still
+   * required and still has to carry everything else the label carries.
+   */
+  it("still requires the disclosure, and still carries the rest of it", async () => {
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: productId });
+    expect(data?.[0]?.predisclosure_required).toBe(true);
+    expect(data?.[0]?.business_name).toBeTruthy();
+    expect(data?.[0]?.ingredients).toEqual(["Wheat flour", "Water", "Sea salt"]);
   });
 
   it("returns the product's own label fields", async () => {
@@ -179,6 +227,9 @@ describeDb("pre-checkout label disclosure", () => {
         "optional_elements",
         "permit_number",
         "predisclosure_required",
+        // Not a label field. It tells the caller the address was withheld BY LAW rather than
+        // merely absent, so a Texan seller is not asked to fix a gap 437.0194(c)(1) excuses.
+        "address_withheld",
         "producer_address",
         "mailing_address",
         // Gated the same way as the email: eleven states require a producer's telephone number on
@@ -348,5 +399,96 @@ describeDb("the producer email follows the state's rule", () => {
     expect(txRow?.[0]?.required_elements).not.toContain("producer_phone");
     // Set on the profile, and still not published — Texas's label rule does not ask for one.
     expect(txRow?.[0]?.producer_phone).toBeNull();
+  });
+});
+
+/**
+ * The scope of the withholding, which matters more than the Texas case itself.
+ *
+ * Defaulting `address_withheld_until_payment` on — or setting it from a guess about which states
+ * "probably" allow it — would strip the producer address out of the pre-payment disclosure in
+ * states that require it there. Same class of error, opposite direction, and invisible: a listing
+ * short of a required field still renders perfectly well.
+ *
+ * So the flag is true only where the text was read and says so.
+ */
+describeDb("who may withhold an address", () => {
+  let admin: Db;
+
+  beforeAll(() => {
+    admin = adminDb();
+  });
+
+  afterAll(cleanupAll);
+
+  it("is set for Texas alone", async () => {
+    const { data, error } = await admin
+      .from("state_label_rules")
+      .select("address_withheld_until_payment, state_food_programs!inner(state_code, ordinal)");
+    expect(error).toBeNull();
+
+    const on = (data ?? [])
+      .filter((r) => r.address_withheld_until_payment)
+      .map((r) => {
+        const p = r.state_food_programs as unknown as { state_code: string; ordinal: number };
+        return `${p.state_code}:${p.ordinal}`;
+      })
+      .sort();
+
+    // Tex. Health & Safety Code 437.0194(c)(1), read 2026-09-07. Adding to this list means reading
+    // another state's text first — and then this assertion is the thing you update.
+    expect(on).toEqual(["TX:1"]);
+  });
+
+  /**
+   * A state with no such provision still gets its address, so the SQL `case` is guarding on the
+   * flag and not on something incidental to the Texas fixture.
+   */
+  it("leaves the address in place for a state that has no such provision", async () => {
+    const user = await createTestUser({ role: "seller", homeState: "NM" });
+    const seller = await createSeller(user.id, { homeState: "NM" });
+
+    const { data: address } = await admin
+      .from("addresses")
+      .insert({
+        user_id: user.id,
+        line1: "218 Galisteo St",
+        city: "Santa Fe",
+        state: "NM",
+        postal_code: "87501",
+      })
+      .select("id")
+      .single();
+    await admin
+      .from("seller_profiles")
+      .update({ pickup_address_id: address!.id })
+      .eq("id", seller.id);
+
+    const { data: category } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    const { data: product } = await admin
+      .from("products")
+      .insert({
+        seller_id: seller.id,
+        title: "IT Biscochito",
+        price: "6.00",
+        category_id: category!.id,
+        status: "active",
+        quantity_available: 3,
+        ingredients: ["Wheat flour", "Anise"],
+        net_weight_value: "12",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
+      })
+      .select("id")
+      .single();
+
+    const { data } = await anonDb().rpc("product_label_disclosure", { p_product_id: product!.id });
+    expect(data?.[0]?.address_withheld).toBe(false);
+    // N.M. Stat. 25-12-3(C)(1) puts the processor's address on the label, and (B)(4) on the listing.
+    expect(data?.[0]?.producer_address).toContain("218 Galisteo St");
   });
 });
