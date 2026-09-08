@@ -21,9 +21,11 @@ describeDb("compliance source versions", () => {
       .from("state_food_programs")
       .select("id", { count: "exact", head: true })
       .not("source_version", "is", null);
-    // Not every source states its currency — roughly twenty NALC compilations do not — so this is
-    // a floor rather than a total, and the null rows are deliberate.
-    expect(count ?? 0).toBeGreaterThanOrEqual(40);
+    // A floor rather than a total, and the null rows are deliberate. Two things pull it below the
+    // 43 originally harvested: roughly twenty NALC compilations state no currency at all, and
+    // repointing a row to its own statute (20260907170000) clears the version it had inherited
+    // from the compilation it no longer cites.
+    expect(count ?? 0).toBeGreaterThanOrEqual(20);
   });
 
   it("carries the amendment lines the tripwire most depends on", async () => {
