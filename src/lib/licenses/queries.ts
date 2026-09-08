@@ -25,6 +25,8 @@ export interface AdminLicense {
   licenseNumber: string | null;
   /** Null for a tax ID, which has no issuing state we record. */
   issuingState: string | null;
+  /** The county whose agency issued it, where the state asks for one on the label (CA). */
+  issuingCounty: string | null;
   issuedDate: string | null;
   /** Null for a tax ID — an SSN or EIN does not expire. */
   expirationDate: string | null;
@@ -42,7 +44,7 @@ export async function getLicenseQueue(): Promise<AdminLicense[]> {
   const { data: licenses } = await admin
     .from("seller_licenses")
     .select(
-      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, created_at",
+      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issuing_county, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, created_at",
     )
     .order("created_at", { ascending: false });
   if (!licenses || licenses.length === 0) return [];
@@ -71,6 +73,9 @@ export async function getLicenseQueue(): Promise<AdminLicense[]> {
         ? formatLast4(l.tax_id_last4)
         : l.license_number,
       issuingState: l.issuing_state,
+      // California pairs the county with the number as one label item (114365.3(e)(4)), so a
+      // reviewer needs to see it beside the document they are checking it against.
+      issuingCounty: l.issuing_county,
       issuedDate: l.issued_date,
       expirationDate: l.expiration_date,
       // The path itself never leaves the server — the document is reached only through

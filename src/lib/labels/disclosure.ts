@@ -123,6 +123,9 @@ export async function getProductDisclosures(
       // California's advertising rule wants the county of approval on the listing itself
       // (114365.3(f)(1)), so this is not a print-only element.
       municipality: row.municipality,
+      // The county whose enforcement agency issued the registration — returned by the RPC only
+      // where the state's rule names it, and read off the same licence row as the permit number.
+      countyOfApproval: row.county_of_approval,
       stateName: stateName(row.state_code),
       ingredients: (row.ingredients as string[] | null) ?? [],
       netWeightValue: row.net_weight_value == null ? null : String(row.net_weight_value),

@@ -24,6 +24,7 @@ const source: LabelSource = {
   producerEmail: null,
   producerIdNumber: null,
   permitNumber: "TX-CF-12345",
+  countyOfApproval: null,
   municipality: "Austin",
   stateName: "Texas",
   ingredients: ["Wheat flour", "Water", "Sourdough culture", "Sea salt"],
@@ -569,7 +570,7 @@ describe("describeListingGaps", () => {
     );
     const text = describeListingGaps(out.missing);
     expect(text).toContain("Phone number (on your settings page)");
-    expect(text).toContain("Permit or registration number (by adding a verified licence number)");
+    expect(text).toContain("Permit or registration number (on your verified licence or registration)");
     expect(text).toContain("Ingredients (on this form)");
   });
 
@@ -635,5 +636,67 @@ describe("renderLabel — the state identification number", () => {
       producerIdNumber: null,
     });
     expect(out.missing[0].fix).toBe("profile");
+  });
+});
+
+/**
+ * California's county of approval.
+ *
+ * Cal. Health & Saf. Code 114365.3(e)(4) requires the number "and the name of the county of the
+ * local enforcement agency that issued" it; (f)(1) puts "the county of approval" in any internet
+ * advertising. It is a property of the REGISTRATION, and 114365(a)(4) is why it cannot be inferred
+ * from where the seller lives: "A registration or permit from one county shall be sufficient for a
+ * cottage food operation to operate throughout the state."
+ */
+describe("county of approval", () => {
+  const california: LabelRule = {
+    requiredElements: ["county_of_approval", "permit_number"],
+    optionalElements: [],
+    elementAlternatives: [],
+    regulatorWebsiteUrl: null,
+    sellerStatementPrompt: null,
+    disclaimerText: "Made in a Home Kitchen.",
+    disclaimerMinPt: 12,
+    disclaimerAllCaps: false,
+    disclaimerFontNote: null,
+    metricRequired: false,
+    placardRequired: false,
+    placardText: null,
+    notes: null,
+  };
+
+  it("prints the county under its own caption", () => {
+    const out = renderLabel(california, {
+      ...source,
+      countyOfApproval: "Alameda",
+      permitNumber: "CFO-2026-118",
+    });
+    const line = out.lines.find((l) => l.element === "county_of_approval");
+    expect(line?.caption).toBe("County of approval");
+    expect(line?.value).toBe("Alameda");
+    expect(canPrint(out)).toBe(true);
+  });
+
+  /** The whole point of the element: the seller's town is a different fact and must not stand in. */
+  it("does not fall back to the seller's town", () => {
+    const out = renderLabel(california, {
+      ...source,
+      countyOfApproval: null,
+      municipality: "Oakland",
+      permitNumber: "CFO-2026-118",
+    });
+    expect(out.lines.some((l) => l.value === "Oakland")).toBe(false);
+    expect(out.missing.map((m) => m.label)).toContain("County of approval");
+    expect(canPrint(out)).toBe(false);
+  });
+
+  /** It comes off the registration, so that is where the seller is sent to fix it. */
+  it("is fixed on the licence, not the profile", () => {
+    const out = renderLabel(california, {
+      ...source,
+      countyOfApproval: null,
+      permitNumber: null,
+    });
+    expect(out.missing.every((m) => m.fix === "licence")).toBe(true);
   });
 });

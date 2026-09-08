@@ -26,6 +26,16 @@ export type LabelElement =
   | "municipality"
   /** The town AND the state as one phrase, which Delaware requires: "town/city, Delaware". */
   | "municipality_state"
+  /**
+   * The county whose enforcement agency issued the registration — NOT where the seller lives.
+   *
+   * Cal. Health & Saf. Code 114365.3(e)(4) pairs it with the number: "the registration or permit
+   * number ... and the name of the county of the local enforcement agency that issued the permit or
+   * registration number", and (f)(1) puts "the county of approval" in any internet advertising. A
+   * registration is valid statewide (114365(a)(4)), so the issuing county and the seller's town are
+   * routinely different places, and `municipality` cannot stand in for it.
+   */
+  | "county_of_approval"
   | "ingredients_desc_by_weight"
   | "net_weight"
   | "allergens"
@@ -94,6 +104,12 @@ export interface LabelSource {
    */
   producerIdNumber: string | null;
   permitNumber: string | null;
+  /**
+   * The county of the enforcement agency that issued the registration, read off the same verified
+   * licence row as `permitNumber` — California ties the two together in 114365.3(e)(4), so pairing
+   * one registration's number with another's county would be worse than printing neither.
+   */
+  countyOfApproval: string | null;
   municipality: string | null;
   /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
   stateName: string | null;
@@ -151,6 +167,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   permit_number: "Permit or registration number",
   municipality: "Town or municipality",
   municipality_state: "Town or city and state",
+  county_of_approval: "County of approval",
   ingredients_desc_by_weight: "Ingredients",
   net_weight: "Net quantity",
   allergens: "Allergens",
@@ -175,6 +192,8 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   permit_number: "licence",
   municipality: "profile",
   municipality_state: "profile",
+  // Off the registration, not the profile: it is the county that ISSUED the number.
+  county_of_approval: "licence",
   ingredients_desc_by_weight: "product",
   net_weight: "product",
   allergens: "product",
@@ -238,6 +257,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.permitNumber;
     case "municipality":
       return src.municipality;
+    case "county_of_approval":
+      return src.countyOfApproval;
     case "municipality_state":
       // 16 Del. Admin. Code 4458A 8.2.1 asks for `"town/city, Delaware"` as one phrase, not for a
       // town in isolation. Both halves are needed or the element is missing.
@@ -357,7 +378,7 @@ export function canPrint(rendered: RenderedLabel): boolean {
 const FIX_LABEL: Record<MissingField["fix"], string> = {
   product: "on this form",
   profile: "on your settings page",
-  licence: "by adding a verified licence number",
+  licence: "on your verified licence or registration",
   print: "at print time",
   admin: "by an administrator",
 };
