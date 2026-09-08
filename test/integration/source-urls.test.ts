@@ -87,13 +87,51 @@ describeDb("compliance source URLs", () => {
    * R70-560-6 rather than § 4-5-501 — so reusing a statute verified only for the programme's
    * section would trade one unverified pointer for another while looking like progress.
    */
-  it("has not quietly repointed the label rules", async () => {
-    const { data } = await admin
+  /**
+   * Label rules were held back in #84 and repointed in their own pass, against their OWN cited
+   * provision rather than the programme's. Kentucky is why that mattered: its programmes are KRS
+   * 217.136 and 217.137 but its labelling is 902 KAR 45:090 — a different instrument, on a
+   * different site. Reusing the programme's URL would have pointed at a document that does not
+   * contain the rule.
+   */
+  it("sends a label rule to its own instrument, not the programme's", async () => {
+    const { data: rules } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code, ordinal)")
+      .eq("state_food_programs.state_code", "KY");
+    for (const row of rules ?? []) {
+      expect(row.source_url).toContain("902");
+      expect(row.source_url).toContain("045/090");
+    }
+
+    // Arkansas is the mirror image: programme at 20-57-504, labelling one section along at 505,
+    // and the 504 page does not contain 505 — so it was not silently reused.
+    const { data: ar } = await admin
       .from("state_label_rules")
       .select("source_url, state_food_programs!inner(state_code)")
-      .in("state_food_programs.state_code", ["ID", "NE", "SD"]);
-    for (const row of data ?? []) {
-      expect(row.source_url).toMatch(/nationalaglawcenter/);
+      .eq("state_food_programs.state_code", "AR");
+    expect(ar?.[0]?.source_url).toContain("20-57-505");
+
+    // Ohio and South Dakota were the same near miss and are pinned for the same reason: a statute
+    // site links its neighbours, so "the page mentions the section" passed for pages containing
+    // none of it. 20260907190000 has the count-occurrences rule that replaced it.
+    const { data: others } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code)")
+      .in("state_food_programs.state_code", ["OH", "SD"]);
+    for (const row of others ?? []) {
+      const st = (row.state_food_programs as unknown as { state_code: string }).state_code;
+      expect(row.source_url).toContain(st === "OH" ? "3715.023" : "34-18-37");
     }
+  });
+
+  it("has most label rules off the compilations too", async () => {
+    const { data } = await admin.from("state_label_rules").select("source_url");
+    const onCompilation = (data ?? []).filter((r) =>
+      /nationalaglawcenter|ij.org/.test(r.source_url ?? ""),
+    );
+    // Six of the stragglers have no citation in their notes to verify against at all; the rest sit
+    // behind JavaScript viewers or on hosts that refused us. Loose for the same reason as above.
+    expect(onCompilation.length).toBeLessThanOrEqual(26);
   });
 });
