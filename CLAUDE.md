@@ -304,6 +304,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase start` | Local Postgres + Auth + Storage (needs Docker) |
 | `npx supabase db reset` | Drop, recreate, re-run all migrations + seed |
 | `npx supabase migration new <name>` | New migration file |
+| `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
 | `npx supabase gen types typescript --local > src/lib/db/database.types.ts` | Regenerate DB types |
@@ -835,6 +836,17 @@ county in which the food was prepared", 25-4-1614(3)(a)(II) as amended by **HB26
 2026-06-04** — and lives on `seller_profiles.preparation_county`, because it is a fact about the
 seller. A producer may be registered in one county and bake in another, so collapsing them would
 print the wrong county; both used to resolve to the pickup-address **town**, which is neither.
+
+**Quoted law is swept, not spot-checked.** `scripts/verify-disclaimers.mjs` fetches each rule's own
+`source_url` and looks for the stored `disclaimer_text` / `placard_text` in it — 55 strings, currently
+**42 exact**. It found a full stop we had added to California's "Made in a Home Kitchen" (114365.3(e)(1)
+quotes the words without one, and it was printing at 12pt), and two rows citing documents that *cannot*
+contain their own disclaimer — Colorado's pointed at the amending bill, which reproduces only what it
+amends, and Indiana's at a chapter index of headings. **A right citation and a wrong URL look identical
+until something reads the document.** It also surfaced two things bigger than wording: **Nevada's
+NRS 446.866 is repealed** (2025 Nev. Stat. ch. 420 and 512), and **Kentucky's 902 KAR 45:090 carries no
+disclaimer at all** — it delegates to KRS 217.136(3), which the state's own site reports as superseded.
+Neither is guessed at; both are recorded on the row.
 
 **Reading statutes: `node scripts/pdftext.mjs`.** The old hand-rolled extractor understood only
 Flate streams drawn with `(literal) Tj`, so hex strings, Type0/CID fonts and object streams came
