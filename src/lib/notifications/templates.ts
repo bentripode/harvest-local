@@ -29,6 +29,22 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "View compliance",
   },
+  compliance_rule_blocked_listings: {
+    subject: (p) =>
+      `${String(p.state ?? "Your state")} changed its rules — ${String(p.count ?? "some")} of your listings are back in draft`,
+    ctaPath: "/seller/products",
+    ctaLabel: "Review listings",
+  },
+  compliance_rule_relaxed: {
+    subject: (p) => `${String(p.state ?? "Your state")} has relaxed a rule that affected you`,
+    ctaPath: "/seller/products",
+    ctaLabel: "Review listings",
+  },
+  compliance_label_changed: {
+    subject: (p) => `${String(p.state ?? "Your state")} changed what your label must say`,
+    ctaPath: "/seller/products",
+    ctaLabel: "Review labels",
+  },
   obligation_due: {
     subject: (p) =>
       Number(p.days_out) <= 1

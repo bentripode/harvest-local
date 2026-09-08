@@ -64,3 +64,12 @@ export interface NotificationQueuedEvent {
   name: "harvest/notification.queued";
   data: Record<string, never>;
 }
+
+/**
+ * An admin changed compliance reference data. `log_compliance_change` has already recorded WHAT
+ * moved; the sweep works out who it lands on. Emitted after the save so the trigger's row exists.
+ */
+export interface ComplianceChangedEvent {
+  name: "harvest/compliance.changed";
+  data: { programId: string };
+}

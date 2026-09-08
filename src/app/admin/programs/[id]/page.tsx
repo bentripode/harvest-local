@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ProgramExposure } from "@/components/program-exposure";
+
 import { Badge } from "@/components/ui/badge";
 import { ProgramReviewForm } from "@/components/program-review-form";
 import { createClient } from "@/lib/supabase/server";
@@ -22,6 +24,8 @@ export default async function ReviewProgramPage({ params }: PageProps<"/admin/pr
   const { data } = await supabase.from("state_food_programs").select("*").eq("id", id).maybeSingle();
   if (!data) notFound();
   const program = data as StateFoodProgram;
+
+  const { data: exposure } = await supabase.rpc("program_listing_exposure", { p_program_id: id });
 
   const checked = program.source_checked_at
     ? new Date(program.source_checked_at).toLocaleDateString(undefined, { dateStyle: "medium" })
@@ -50,6 +54,8 @@ export default async function ReviewProgramPage({ params }: PageProps<"/admin/pr
           what they may sell, when their storefront pauses, and what their label says.
         </p>
       </div>
+
+      <ProgramExposure rows={exposure ?? []} />
 
       <div className="rounded-lg border p-4 text-sm">
         <p className="font-medium">Check this against the state, not against us</p>
