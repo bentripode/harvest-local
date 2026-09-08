@@ -70,6 +70,17 @@ export interface LabelRule {
    * other off the label.
    */
   elementAlternatives?: string[][];
+  /**
+   * Where the state lets ONE value stand in for others, and printing the others anyway defeats the
+   * point of having it. Okla. Stat. tit. 2 § 5-4.3(C): a $15 registration number "may be used on
+   * product labels instead of the producer's name, phone number, and the physical address".
+   *
+   * Deliberately not an alternatives group. A group is "at least one of these" and prints every
+   * member the seller has — right for a choice (Colorado's phone OR email, where either satisfies
+   * the state and both are harmless), wrong for a substitution, where the producer paid a fee
+   * precisely to keep the replaced values off the label.
+   */
+  elementSubstitutions?: { substitute: string; replaces: string[] }[];
   /** The address this state prescribes, where it prescribes one. Null until an admin records it. */
   regulatorWebsiteUrl?: string | null;
   /**
@@ -235,6 +246,26 @@ export function parseAlternatives(value: unknown): string[][] {
     .filter((g) => g.length > 0);
 }
 
+/**
+ * Read `state_label_rules.element_substitutions` out of jsonb.
+ *
+ * Shape-checked in the database too, so anything malformed here is a bug rather than data — but a
+ * substitution silently dropped would put a producer's address back on a label they paid a state
+ * fee to keep it off, so entries missing either half are discarded rather than half-applied.
+ */
+export function parseSubstitutions(value: unknown): { substitute: string; replaces: string[] }[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((s): s is Record<string, unknown> => !!s && typeof s === "object" && !Array.isArray(s))
+    .map((s) => ({
+      substitute: typeof s.substitute === "string" ? s.substitute : "",
+      replaces: Array.isArray(s.replaces)
+        ? s.replaces.filter((r): r is string => typeof r === "string")
+        : [],
+    }))
+    .filter((s) => s.substitute !== "" && s.replaces.length > 0);
+}
+
 function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): string | null {
   switch (element) {
     case "product_name":
@@ -311,8 +342,31 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
     });
   };
 
+  // A substitution is LIVE when the seller actually holds the stand-in value. Only then do the
+  // elements it replaces come off the label — a producer without a registration number still owes
+  // their name and address.
+  const replacedBy = new Map<string, LabelElement>();
+  for (const sub of rule.elementSubstitutions ?? []) {
+    if (!isElement(sub.substitute)) continue;
+    const value = valueFor(sub.substitute, src, rule);
+    if (value == null || value === "") continue;
+    for (const replaced of sub.replaces) replacedBy.set(replaced, sub.substitute);
+  }
+  const isReplaced = (element: string) => replacedBy.has(element);
+
   for (const raw of rule.requiredElements) {
     if (!isElement(raw)) continue;
+
+    // The substitute prints in the position of the first element it replaces, so the label keeps
+    // the order the statute lists things in. `emit` dedupes, so three replaced elements collapse
+    // to one line rather than repeating the number.
+    const substitute = replacedBy.get(raw);
+    if (substitute) {
+      const stand = valueFor(substitute, src, rule);
+      if (stand != null && stand !== "") emit(substitute, stand);
+      continue;
+    }
+
     const value = valueFor(raw, src, rule);
 
     if (value == null || value === "") {
@@ -329,7 +383,7 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
   // "At least one of these." Missing only when every member of the group is empty — so Colorado's
   // "telephone number or electronic mail address" is satisfied by either and blocked by neither.
   for (const group of rule.elementAlternatives ?? []) {
-    const members = group.filter(isElement);
+    const members = group.filter(isElement).filter((m) => !isReplaced(m));
     if (members.length === 0) continue;
 
     const present = members
@@ -353,7 +407,7 @@ export function renderLabel(rule: LabelRule, src: LabelSource): RenderedLabel {
 
   // "If applicable." Printed when there is something to print, never a blocker.
   for (const raw of rule.optionalElements ?? []) {
-    if (!isElement(raw)) continue;
+    if (!isElement(raw) || isReplaced(raw)) continue;
     const value = valueFor(raw, src, rule);
     if (value != null && value !== "") emit(raw, value);
   }

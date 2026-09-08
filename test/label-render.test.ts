@@ -4,6 +4,7 @@ import {
   canPrint,
   describeListingGaps,
   parseAlternatives,
+  parseSubstitutions,
   renderLabel,
   type LabelRule,
   type LabelSource,
@@ -698,5 +699,127 @@ describe("county of approval", () => {
       permitNumber: null,
     });
     expect(out.missing.every((m) => m.fix === "licence")).toBe(true);
+  });
+});
+
+/**
+ * A number that stands in FOR other elements, rather than beside them.
+ *
+ * Okla. Stat. tit. 2 5-4.3(C): a producer paying $15 a year gets a registration number that "may be
+ * used on product labels instead of the producer's name, phone number, and the physical address of
+ * the location where the homemade food product was produced."
+ *
+ * An alternatives group cannot say this. A group is "at least one of these" and prints every member
+ * the seller has — right for Colorado's phone-or-email, wrong here, because the producer bought the
+ * number precisely to keep the other three off the label.
+ */
+describe("renderLabel — element substitutions", () => {
+  const oklahoma: LabelRule = {
+    ...texas,
+    requiredElements: [
+      "producer_name",
+      "producer_phone",
+      "producer_address",
+      "product_name",
+      "ingredients_desc_by_weight",
+    ],
+    elementSubstitutions: [
+      {
+        substitute: "producer_id_number",
+        replaces: ["producer_name", "producer_phone", "producer_address"],
+      },
+    ],
+  };
+
+  const withNumber: LabelSource = {
+    ...source,
+    producerName: "Dale Whitfield",
+    producerPhone: "405-555-0117",
+    producerAddress: "88 Prairie Rd, Enid, OK 73701",
+    producerIdNumber: "OK-HF-4417",
+  };
+
+  it("drops all three replaced elements when the seller has the number", () => {
+    const out = renderLabel(oklahoma, withNumber);
+    const elements = out.lines.map((l) => l.element);
+    expect(elements).not.toContain("producer_name");
+    expect(elements).not.toContain("producer_phone");
+    expect(elements).not.toContain("producer_address");
+    expect(elements).toContain("producer_id_number");
+    expect(canPrint(out)).toBe(true);
+  });
+
+  /** None of the replaced values may survive anywhere in the rendered output. */
+  it("publishes none of the replaced values", () => {
+    const printed = renderLabel(oklahoma, withNumber)
+      .lines.map((l) => l.value)
+      .join(" | ");
+    expect(printed).not.toContain("Dale Whitfield");
+    expect(printed).not.toContain("405-555-0117");
+    expect(printed).not.toContain("Prairie Rd");
+    expect(printed).toContain("OK-HF-4417");
+  });
+
+  /**
+   * Three elements collapse to one line, in the position the first of them held — so the label keeps
+   * the order the statute lists things in rather than moving the number to the end.
+   */
+  it("prints the number once, where the first replaced element was", () => {
+    const out = renderLabel(oklahoma, withNumber);
+    expect(out.lines.map((l) => l.element)).toEqual([
+      "producer_id_number",
+      "product_name",
+      "ingredients_desc_by_weight",
+    ]);
+  });
+
+  /** Without the number nothing changes: the producer still owes their name, phone and address. */
+  it("leaves every element required when the seller has no number", () => {
+    const out = renderLabel(oklahoma, { ...withNumber, producerIdNumber: null });
+    expect(out.lines.map((l) => l.element)).toEqual([
+      "producer_name",
+      "producer_phone",
+      "producer_address",
+      "product_name",
+      "ingredients_desc_by_weight",
+    ]);
+    expect(canPrint(out)).toBe(true);
+  });
+
+  it("still blocks on a replaced element the seller has neither of", () => {
+    const out = renderLabel(oklahoma, {
+      ...withNumber,
+      producerIdNumber: null,
+      producerAddress: null,
+    });
+    expect(out.missing.map((m) => m.element)).toContain("producer_address");
+    expect(canPrint(out)).toBe(false);
+  });
+
+  /**
+   * An empty registration number is not a registration number — a blank string must not silently
+   * strip the address off a label.
+   */
+  it("treats a blank number as no number at all", () => {
+    const out = renderLabel(oklahoma, { ...withNumber, producerIdNumber: "" });
+    expect(out.lines.map((l) => l.element)).toContain("producer_address");
+    expect(out.lines.map((l) => l.element)).not.toContain("producer_id_number");
+  });
+});
+
+describe("parseSubstitutions", () => {
+  it("reads the stored shape", () => {
+    expect(
+      parseSubstitutions([{ substitute: "producer_id_number", replaces: ["producer_address"] }]),
+    ).toEqual([{ substitute: "producer_id_number", replaces: ["producer_address"] }]);
+  });
+
+  /** Half a substitution would put an address back on a label, so a malformed entry is dropped. */
+  it("discards entries missing either half", () => {
+    expect(parseSubstitutions([{ substitute: "producer_id_number" }])).toEqual([]);
+    expect(parseSubstitutions([{ replaces: ["producer_address"] }])).toEqual([]);
+    expect(parseSubstitutions([{ substitute: "", replaces: ["producer_address"] }])).toEqual([]);
+    expect(parseSubstitutions("nonsense")).toEqual([]);
+    expect(parseSubstitutions(null)).toEqual([]);
   });
 });
