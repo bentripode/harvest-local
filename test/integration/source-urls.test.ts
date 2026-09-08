@@ -111,6 +111,18 @@ describeDb("compliance source URLs", () => {
       .select("source_url, state_food_programs!inner(state_code)")
       .eq("state_food_programs.state_code", "AR");
     expect(ar?.[0]?.source_url).toContain("20-57-505");
+
+    // Ohio and South Dakota were the same near miss and are pinned for the same reason: a statute
+    // site links its neighbours, so "the page mentions the section" passed for pages containing
+    // none of it. 20260907190000 has the count-occurrences rule that replaced it.
+    const { data: others } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code)")
+      .in("state_food_programs.state_code", ["OH", "SD"]);
+    for (const row of others ?? []) {
+      const st = (row.state_food_programs as unknown as { state_code: string }).state_code;
+      expect(row.source_url).toContain(st === "OH" ? "3715.023" : "34-18-37");
+    }
   });
 
   it("has most label rules off the compilations too", async () => {
