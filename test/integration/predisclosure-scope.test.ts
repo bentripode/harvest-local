@@ -130,6 +130,9 @@ describeDb("what a state requires before the sale", () => {
         license_number: "CFO-2026-118",
         issuing_state: "CA",
         issuing_county: "Alameda",
+        // seller_licenses_expiry_required: everything but a tax ID needs one. Far future, so the
+        // row is not one `license-expiry-scan` would treat as lapsed.
+        expiration_date: "2030-01-01",
         document_path: "seller-docs/it/ca-permit.pdf",
       })
       .select("id")
@@ -169,6 +172,7 @@ describeDb("what a state requires before the sale", () => {
       license_number: "CFO-PENDING-9",
       issuing_state: "CA",
       issuing_county: "Sonoma",
+      expiration_date: "2030-01-01",
       document_path: "seller-docs/it/ca-pending.pdf",
     });
     expect(error).toBeNull();
