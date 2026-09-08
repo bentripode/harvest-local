@@ -136,13 +136,20 @@ describeDb("disclaimers corrected by the sweep follow-up", () => {
    * "NH DHHS" — we had expanded it to the department's full name and added a period. The expansion
    * matters beyond fidelity: the rule fixes a minimum font size, and a label has finite room.
    */
-  it("New Hampshire keeps the rule's own wording in both programmes", async () => {
+  it("New Hampshire carries the STATUTE's wording, not the rule's paraphrase", async () => {
+    // RSA 143-A:12 V(c)(1) — the full stop is inside the quotation marks. He-P 2300 (7) renders it
+    // without one, and following the rule removed a period that belonged there.
     expect((await rule("NH", 1))?.disclaimer_text).toBe(
-      "This product is exempt from New Hampshire licensing and inspection",
+      "This product is exempt from New Hampshire licensing and inspection.",
     );
+    // V(c)(2) — "residential food production area", and the agency named in full. The rule says
+    // "residential kitchen licensed by NH DHHS"; a rule cannot rewrite a sentence the legislature
+    // prescribed verbatim, and the statute is the later text.
     const homestead = (await rule("NH", 2))?.disclaimer_text;
-    expect(homestead).toBe("This product is made in a residential kitchen licensed by NH DHHS");
-    expect(homestead).not.toContain("Department of Health and Human Services");
+    expect(homestead).toBe(
+      "This product is made in a residential food production area licensed by the New Hampshire Department of Health and Human Services.",
+    );
+    expect(homestead).not.toContain("NH DHHS");
   });
 
   /**
