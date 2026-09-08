@@ -17,6 +17,8 @@ export function CheckoutButton({
   fulfillment = "pickup",
   deliveryAddress = null,
   deliveryWindow,
+  pickupLocationId,
+  pickupWindow,
 }: {
   disabled?: boolean;
   label?: string;
@@ -24,6 +26,8 @@ export function CheckoutButton({
   fulfillment?: "pickup" | "delivery";
   deliveryAddress?: Address | null;
   deliveryWindow?: string;
+  pickupLocationId?: string;
+  pickupWindow?: string;
 }) {
   const { cart } = useCart();
 
@@ -33,6 +37,12 @@ export function CheckoutButton({
         items: cart.items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
         ...(promoCode ? { promoCode } : {}),
         fulfillment,
+        ...(fulfillment === "pickup" && pickupLocationId
+          ? {
+              pickupLocationId,
+              ...(pickupWindow ? { pickupWindow } : {}),
+            }
+          : {}),
         ...(fulfillment === "delivery" && deliveryAddress
           ? {
               deliveryAddress: {

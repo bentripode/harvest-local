@@ -1,3 +1,12 @@
+import {
+  DAY_ABBR,
+  DAY_NAMES,
+  formatDayDate,
+  formatSpan as spanOf,
+  formatTime,
+  toMinutes,
+} from "@/lib/time/wall-clock";
+
 /**
  * Market opening hours — pure arithmetic over `market_hours` rows.
  *
@@ -8,12 +17,14 @@
  *   - `summarizeHours` is time-zone free ("Saturday · 9:00 AM – 3:00 PM") and is rendered on the
  *     server, which is what search engines and a reader with no JS get.
  *   - `nextOccurrence` needs to know what day it is *where the market is*, and the server runs in
- *     UTC — at 8pm Pacific the server already thinks it is tomorrow. So it is called from the
- *     client against the viewer's own clock, which for a local market is the right one.
+ *     UTC — at 8pm Pacific it already thinks it is tomorrow. So it is called from the client
+ *     against the viewer's own clock, which for a local market is the right one.
  *
  * Nothing here invents a schedule. An empty `hours` array means nobody has recorded one, and the
  * caller says so rather than implying the market is closed.
  */
+
+export { formatTime, toMinutes };
 
 export interface MarketHour {
   dayOfWeek: number; // 0 = Sunday, matching Date.getDay()
@@ -22,56 +33,8 @@ export interface MarketHour {
   note?: string | null;
 }
 
-const DAY_NAMES = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-] as const;
-
-const DAY_ABBR = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
-
-const MONTH_ABBR = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-] as const;
-
-/** Minutes past midnight for a "HH:MM[:SS]" string, or null if it isn't one. */
-export function toMinutes(time: string): number | null {
-  const m = /^(\d{1,2}):(\d{2})(?::\d{2})?$/.exec(time.trim());
-  if (!m) return null;
-  const h = Number(m[1]);
-  const min = Number(m[2]);
-  if (h > 23 || min > 59) return null;
-  return h * 60 + min;
-}
-
-/** "09:00:00" → "9:00 AM". Returns the input unchanged when it isn't a time. */
-export function formatTime(time: string): string {
-  const mins = toMinutes(time);
-  if (mins === null) return time;
-  const h24 = Math.floor(mins / 60);
-  const min = mins % 60;
-  const suffix = h24 < 12 ? "AM" : "PM";
-  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
-  return `${h12}:${String(min).padStart(2, "0")} ${suffix}`;
-}
-
 export function formatSpan(hour: MarketHour): string {
-  return `${formatTime(hour.opens)} – ${formatTime(hour.closes)}`;
+  return spanOf(hour.opens, hour.closes);
 }
 
 function byDayThenOpen(a: MarketHour, b: MarketHour): number {
@@ -156,6 +119,5 @@ export function nextOccurrence(hours: MarketHour[], from: Date = new Date()): Oc
 /** "Sat, Sep 12 · 9:00 AM – 3:00 PM", or "Open now · until 3:00 PM". */
 export function formatOccurrence(occ: Occurrence): string {
   if (occ.openNow) return `Open now · until ${formatTime(occ.hour.closes)}`;
-  const d = occ.date;
-  return `${DAY_ABBR[d.getDay()]}, ${MONTH_ABBR[d.getMonth()]} ${d.getDate()} · ${formatSpan(occ.hour)}`;
+  return `${formatDayDate(occ.date)} · ${formatSpan(occ.hour)}`;
 }

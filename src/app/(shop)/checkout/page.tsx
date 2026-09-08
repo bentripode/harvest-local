@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { useCart } from "@/components/cart-provider";
 import { CheckoutButton } from "@/components/checkout-button";
+import { PickupPicker } from "@/components/pickup-picker";
+import { upcomingPickups } from "@/lib/orders/pickup-schedule";
 import { StatePicker } from "@/components/state-picker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +35,8 @@ export default function CheckoutPage() {
   const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
   const [deliveryWindow, setDeliveryWindow] = useState("");
+  const [pickupLocationId, setPickupLocationId] = useState("");
+  const [pickupWindow, setPickupWindow] = useState("");
   const [savedAddresses, setSavedAddresses] = useState<SavedAddress[]>([]);
 
   useEffect(() => {
@@ -142,11 +146,25 @@ export default function CheckoutPage() {
   const deliveryOk = result.delivery?.ok === true ? result.delivery : null;
   const deliveryError = result.delivery && !result.delivery.ok ? result.delivery.error : null;
 
+  const pickupLocations = result.pickupLocations ?? [];
+  const chosenPickup =
+    pickupLocations.find((l) => l.id === pickupLocationId) ??
+    (pickupLocations.length === 1 ? pickupLocations[0] : null);
+  // Computed on the buyer's own clock: the server runs UTC and would offer tomorrow's slot as
+  // today's all evening on the west coast. startCheckoutAction re-derives the same list and
+  // decides — this only chooses what to show.
+  const pickupOptions = chosenPickup
+    ? upcomingPickups(chosenPickup.slots, { prepHours: chosenPickup.prepHours, limit: 12 })
+    : [];
+  const pickupRequired = fulfillment === "pickup" && pickupLocations.length > 0;
+  const pickupMissing =
+    pickupRequired && (!chosenPickup || (pickupOptions.length > 0 && !pickupWindow));
+
   const deliveryWindows = result.sellerDeliveryWindows ?? [];
   const windowRequired = fulfillment === "delivery" && deliveryWindows.length > 0;
   const windowMissing = windowRequired && !deliveryWindow;
   const deliveryUnresolved =
-    fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing);
+    (fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing)) || pickupMissing;
   const blocked =
     needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
 
@@ -190,6 +208,21 @@ export default function CheckoutPage() {
               </button>
             ))}
           </div>
+
+          {fulfillment === "pickup" && pickupLocations.length > 0 ? (
+            <PickupPicker
+              locations={pickupLocations}
+              chosen={chosenPickup}
+              options={pickupOptions}
+              locationId={chosenPickup?.id ?? ""}
+              onLocation={(id) => {
+                setPickupLocationId(id);
+                setPickupWindow("");
+              }}
+              window={pickupWindow}
+              onWindow={setPickupWindow}
+            />
+          ) : null}
 
           {fulfillment === "delivery" ? (
             <div className="space-y-3 rounded-md border p-3">
@@ -286,6 +319,24 @@ export default function CheckoutPage() {
               ) : null}
             </div>
           ) : null}
+        </div>
+      ) : fulfillment === "pickup" && pickupLocations.length > 0 ? (
+        // No delivery on offer, so there is no choice to make — but the buyer still has to say
+        // where and when they're collecting.
+        <div className="space-y-3">
+          <p className="text-sm font-medium">Where are you collecting?</p>
+          <PickupPicker
+            locations={pickupLocations}
+            chosen={chosenPickup}
+            options={pickupOptions}
+            locationId={chosenPickup?.id ?? ""}
+            onLocation={(id) => {
+              setPickupLocationId(id);
+              setPickupWindow("");
+            }}
+            window={pickupWindow}
+            onWindow={setPickupWindow}
+          />
         </div>
       ) : null}
 
@@ -394,6 +445,8 @@ export default function CheckoutPage() {
         fulfillment={fulfillment}
         deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
         deliveryWindow={windowRequired ? deliveryWindow : undefined}
+        pickupLocationId={pickupRequired ? (chosenPickup?.id ?? "") : undefined}
+        pickupWindow={pickupRequired && pickupOptions.length > 0 ? pickupWindow : undefined}
       />
       <p className="text-muted-foreground text-center text-xs">
         You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.

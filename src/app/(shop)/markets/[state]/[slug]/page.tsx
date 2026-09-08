@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { MarketNextOpen } from "@/components/market-next-open";
 import { WatchMarketForm } from "@/components/watch-market-form";
 import { getMarket } from "@/lib/markets/queries";
+import { getMarketSellers } from "@/lib/orders/pickup";
+import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
 import { summarizeHours } from "@/lib/markets/schedule";
 import { isUsState, stateName } from "@/lib/geo/state";
 
@@ -35,6 +37,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
   const market = await getMarket(code, slug);
   if (!market) notFound();
 
+  const sellers = await getMarketSellers(market.id);
   const schedule = summarizeHours(market.hours);
   const directionsQuery = encodeURIComponent(
     [market.name, market.addressText, market.city, code, market.postalCode]
@@ -121,29 +124,74 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
       </div>
 
       {/*
-        Sellers at this market. There is deliberately nothing to list yet: a seller has one pickup
-        address and no way to say "I have a booth here" until `pickup_locations` exists. Answering
-        by proximity instead would quietly answer a different question.
+        Sellers who have told us they have a booth here — by the `pickup_locations.market_id` link,
+        never by proximity, because "sells at this market" and "is near this market" are different
+        claims and only the first is being made.
       */}
       <section className="space-y-4">
         <h2 className="text-sm font-medium">Sellers at this market</h2>
-        <div className="space-y-4 rounded-lg border border-dashed p-8 text-center">
-          <div>
-            <p className="font-medium">No Harvest Local sellers here yet</p>
-            <p className="text-muted-foreground mx-auto max-w-md pt-1 text-sm">
-              Add your email and we&apos;ll tell you when someone starts selling at{" "}
-              {market.name} for pickup. We&apos;ll only use it for this.
+        {sellers.length > 0 ? (
+          <>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {sellers.map((s) => {
+                const schedule = summarizeSlots(s.slots);
+                const notice = describePrepTime(s.prepHours);
+                return (
+                  <li key={s.sellerId}>
+                    <Link
+                      href={`/s/${s.storefrontSlug}`}
+                      className="hover:bg-muted/50 focus-visible:ring-ring block h-full rounded-lg border p-4 focus-visible:ring-2 focus-visible:outline-none"
+                    >
+                      <p className="font-medium">
+                        {s.businessName}
+                        {s.avgRating != null ? (
+                          <span className="text-muted-foreground text-sm font-normal">
+                            {" "}
+                            ★ {s.avgRating.toFixed(1)}
+                          </span>
+                        ) : null}
+                      </p>
+                      {s.description ? (
+                        <p className="text-muted-foreground pt-0.5 text-sm">{s.description}</p>
+                      ) : null}
+                      {schedule.length > 0 ? (
+                        <p className="text-muted-foreground pt-1 text-sm">{schedule[0]}</p>
+                      ) : null}
+                      {notice ? (
+                        <p className="text-muted-foreground pt-0.5 text-xs">Order ahead · {notice}</p>
+                      ) : null}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="text-muted-foreground text-xs">
+              Sell here too?{" "}
+              <Link href="/signup?role=seller" className="underline">
+                Open a storefront
+              </Link>{" "}
+              and take pre-orders for your booth.
+            </p>
+          </>
+        ) : (
+          <div className="space-y-4 rounded-lg border border-dashed p-8 text-center">
+            <div>
+              <p className="font-medium">No Harvest Local sellers here yet</p>
+              <p className="text-muted-foreground mx-auto max-w-md pt-1 text-sm">
+                Add your email and we&apos;ll tell you when someone starts selling at {market.name}{" "}
+                for pickup. We&apos;ll only use it for this.
+              </p>
+            </div>
+            <WatchMarketForm marketId={market.id} marketName={market.name} />
+            <p className="text-muted-foreground text-xs">
+              Sell at this market?{" "}
+              <Link href="/signup?role=seller" className="underline">
+                Open a storefront
+              </Link>{" "}
+              and take pre-orders for your booth.
             </p>
           </div>
-          <WatchMarketForm marketId={market.id} marketName={market.name} />
-          <p className="text-muted-foreground text-xs">
-            Sell at this market?{" "}
-            <Link href="/signup?role=seller" className="underline">
-              Open a storefront
-            </Link>{" "}
-            and take pre-orders for your booth.
-          </p>
-        </div>
+        )}
       </section>
     </div>
   );

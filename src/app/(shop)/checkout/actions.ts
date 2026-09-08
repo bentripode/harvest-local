@@ -19,6 +19,8 @@ import { isUsState, sameState } from "@/lib/geo/state";
 import { addressSchema, formatAddress, type AddressInput } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
+import { getActivePickupLocations, type PickupLocation } from "@/lib/orders/pickup";
+import { upcomingPickups } from "@/lib/orders/pickup-schedule";
 import { getDeliveryPermission } from "@/lib/compliance/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
 import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
@@ -34,6 +36,8 @@ const cartPayloadSchema = z.object({
     .max(50),
   promoCode: z.string().max(32).optional(),
   fulfillment: z.enum(["pickup", "delivery"]).default("pickup"),
+  pickupLocationId: z.string().uuid().optional(),
+  pickupWindow: z.string().trim().max(120).optional(),
   deliveryAddress: addressSchema.optional(),
   deliveryWindow: z.string().trim().max(80).optional(),
 });
@@ -137,6 +141,8 @@ export interface RepriceResult {
   sellerLive?: boolean;
   sellerDeliveryEnabled?: boolean;
   sellerDeliveryWindows?: string[];
+  /** The collection points the buyer may choose between. Empty = collect from the seller. */
+  pickupLocations?: PickupLocation[];
   lines?: { title: string; quantity: number; unitPrice: number; lineTotal: number }[];
   subtotal?: number;
   /** Present only when a promo code was submitted. */
@@ -211,6 +217,7 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
     sellerLive,
     sellerDeliveryEnabled: seller.delivery_enabled,
     sellerDeliveryWindows: seller.delivery_windows ?? [],
+    pickupLocations: await getActivePickupLocations(seller.id),
     subtotal: priced.subtotal,
     lines: priced.lines.map((l) => ({
       title: l.title,
@@ -271,6 +278,39 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   let deliveryText: string | null = null;
   let deliveryWindow: string | null = null;
   let buyerState = profile.home_state;
+
+  // Pickup: which collection point, and when. Frozen onto the order like every other order fact,
+  // as text as well as an id, so it survives the seller renaming or deleting the location.
+  let pickupLocationId: string | null = null;
+  let pickupLocationText: string | null = null;
+  let pickupWindow: string | null = null;
+
+  if (!isDelivery) {
+    const locations = await getActivePickupLocations(seller.id);
+    if (locations.length > 0) {
+      const chosen = locations.find((l) => l.id === payload.pickupLocationId);
+      if (!chosen) redirect("/checkout?error=pickup");
+
+      // The window has to be one this location actually offers. Re-derived here rather than
+      // trusted from the form — the client computes the same list to display it, but the server
+      // decides. Generous horizon so a slow checkout doesn't invalidate a legitimate choice.
+      const offered = upcomingPickups(chosen.slots, {
+        prepHours: chosen.prepHours,
+        limit: 40,
+        horizonDays: 90,
+      });
+      if (offered.length > 0) {
+        const match = offered.find((o) => o.label === payload.pickupWindow);
+        if (!match) redirect("/checkout?error=pickup_window");
+        pickupWindow = match.label;
+      }
+
+      pickupLocationId = chosen.id;
+      pickupLocationText = [chosen.label, chosen.market?.name ?? chosen.city]
+        .filter(Boolean)
+        .join(" · ");
+    }
+  }
 
   if (isDelivery) {
     if (!payload.deliveryAddress) redirect("/checkout?error=delivery");
@@ -347,6 +387,9 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       delivery_distance_miles: deliveryDistance == null ? null : String(deliveryDistance),
       delivery_address_text: deliveryText,
       delivery_window: deliveryWindow,
+      pickup_location_id: pickupLocationId,
+      pickup_location_text: pickupLocationText,
+      pickup_window: pickupWindow,
     })
     .select("id")
     .single();

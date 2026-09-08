@@ -90,6 +90,16 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
         </div>
       </section>
 
+      {order.fulfillment_type === "pickup" && order.pickup_location_text ? (
+        <section className="rounded-lg border p-4 text-sm">
+          <h2 className="mb-1 font-medium">Handing over at</h2>
+          <p className="text-muted-foreground">{order.pickup_location_text}</p>
+          {order.pickup_window ? (
+            <p className="mt-1 font-medium">{order.pickup_window}</p>
+          ) : null}
+        </section>
+      ) : null}
+
       {order.fulfillment_type === "delivery" && order.delivery_address_text ? (
         <section className="rounded-lg border p-4 text-sm">
           <h2 className="mb-1 font-medium">Deliver to</h2>

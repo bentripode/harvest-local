@@ -643,6 +643,9 @@ export type Database = {
           discount_total: number
           fulfillment_type: string
           id: string
+          pickup_location_id: string | null
+          pickup_location_text: string | null
+          pickup_window: string | null
           promo_code_id: string | null
           revenue_recorded_at: string | null
           seller_id: string
@@ -667,6 +670,9 @@ export type Database = {
           discount_total?: number
           fulfillment_type?: string
           id?: string
+          pickup_location_id?: string | null
+          pickup_location_text?: string | null
+          pickup_window?: string | null
           promo_code_id?: string | null
           revenue_recorded_at?: string | null
           seller_id: string
@@ -691,6 +697,9 @@ export type Database = {
           discount_total?: number
           fulfillment_type?: string
           id?: string
+          pickup_location_id?: string | null
+          pickup_location_text?: string | null
+          pickup_window?: string | null
           promo_code_id?: string | null
           revenue_recorded_at?: string | null
           seller_id?: string
@@ -730,6 +739,117 @@ export type Database = {
             columns: ["seller_id"]
             isOneToOne: false
             referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pickup_locations: {
+        Row: {
+          address_id: string | null
+          city: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          label: string
+          market_id: string | null
+          postal_code: string | null
+          prep_hours: number
+          seller_id: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          address_id?: string | null
+          city?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          label: string
+          market_id?: string | null
+          postal_code?: string | null
+          prep_hours?: number
+          seller_id: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          address_id?: string | null
+          city?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          label?: string
+          market_id?: string | null
+          postal_code?: string | null
+          prep_hours?: number
+          seller_id?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pickup_locations_address_id_fkey"
+            columns: ["address_id"]
+            isOneToOne: false
+            referencedRelation: "addresses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pickup_locations_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pickup_locations_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pickup_slots: {
+        Row: {
+          closes: string
+          created_at: string
+          day_of_week: number | null
+          id: string
+          location_id: string
+          opens: string
+          specific_date: string | null
+          weeks_of_month: number[]
+        }
+        Insert: {
+          closes: string
+          created_at?: string
+          day_of_week?: number | null
+          id?: string
+          location_id: string
+          opens: string
+          specific_date?: string | null
+          weeks_of_month?: number[]
+        }
+        Update: {
+          closes?: string
+          created_at?: string
+          day_of_week?: number | null
+          id?: string
+          location_id?: string
+          opens?: string
+          specific_date?: string | null
+          weeks_of_month?: number[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pickup_slots_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
             referencedColumns: ["id"]
           },
         ]
