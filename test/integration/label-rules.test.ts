@@ -88,8 +88,15 @@ describeDb("state label rules", () => {
       ]),
     );
     expect(byName.get("New Hampshire Exempt Home Food Operations")).toMatch(/exempt from New Hampshire/);
-    // "NH DHHS" was our abbreviation. RSA 143-A:12 IV names the agency in full, and on a label an
-    // agency's initials are not a shorthand for its name — they are a different sentence.
+    // The agency is named in full because the STATUTE names it in full: RSA 143-A:12 V(c)(2)
+    // prescribes "This product is made in a residential food production area licensed by the New
+    // Hampshire Department of Health and Human Services." On a label an agency's initials are not a
+    // shorthand for its name — they are a different sentence.
+    //
+    // The citation was V(c)(2), not IV: the subsection was renumbered by the 2022 amendment, and IV
+    // is now about freeze-dried foods. He-P 2300 (h), the administrative rule, still carries the
+    // older "residential kitchen licensed by NH DHHS", and following the rule over the statute is
+    // how a correct value briefly became a wrong one.
     expect(byName.get("New Hampshire Homestead")).toMatch(
       /licensed by the New Hampshire Department of Health and Human Services/,
     );
@@ -108,8 +115,16 @@ describeDb("state label rules", () => {
     // Both changes here came from reading the statutes, and the old list was the summary's.
     // CO gained one: Colo. Rev. Stat. 25-4-1614(3)(c) requires a placard "at the point of sale",
     // carrying SHORTER text than the label disclaimer at (3)(a)(V).
-    // AK lost one: AS 17.20.332 puts the information on the package and, for unpackaged food,
-    // obliges the producer to tell the buyer — a disclosure, but not a written placard.
+    // AK IS BACK, and taking it off was the error. AS 17.20.332(d): "A retail space selling a
+    // homemade food shall prominently display a sign indicating that the homemade food was made in
+    // a home kitchen, may contain allergens, and is not, except for meat and meat products
+    // permitted under (h) of this section, regulated or inspected." That is a written sign, in the
+    // same run of subsections as (b) and (c), and the earlier reading missed it.
+    //
+    // What was true is that Alaska prescribes no WORDING — so placard_text is null while
+    // placard_required is true, the pairing Nebraska also has. Removing the row entirely conflated
+    // "no sentence to print" with "no sign to display", which is how the invented all-caps text
+    // came to be there in the first place.
     // IL gained one too: 410 ILCS 625/4(b)(10) requires a point-of-sale notice, "At a physical
     // display ... a placard", carrying SHORTER text than the label phrase at (b)(7)(E) — the same
     // label/placard split Colorado has. Online, the same paragraph makes it a message on the sales
@@ -131,7 +146,7 @@ describeDb("state label rules", () => {
     // of sale stating: 'These canned goods are homemade and not subject to state inspection.'" —
     // a DIFFERENT sentence from the label statement at 2.e, the third state found with that split
     // after CO and IL.
-    expect(states).toEqual(["CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK", "TN", "WI"]);
+    expect(states).toEqual(["AK", "CO", "ID", "IL", "MN", "ND", "NE", "NJ", "NM", "OK", "TN", "WI"]);
   });
 
   it("records the states that reach the buyer before payment", async () => {
