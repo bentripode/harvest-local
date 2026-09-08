@@ -20,11 +20,17 @@ describeDb("compliance source URLs", () => {
   it("has most programmes pointing at primary text rather than a compilation", async () => {
     const { data } = await admin.from("state_food_programs").select("state_code, source_url");
     const onCompilation = (data ?? []).filter((r) => /nationalaglawcenter/.test(r.source_url ?? ""));
-    // 14 states' statutes live behind JavaScript viewers or on hosts that refused us, and keep
-    // their compilation URL. They are no worse off than before; an unverified pointer would not be
-    // an improvement on a verified one.
-    expect(onCompilation.length).toBeLessThanOrEqual(14);
-    expect((data ?? []).length - onCompilation.length).toBeGreaterThanOrEqual(56);
+    // Around fourteen states' statutes live behind JavaScript viewers or on hosts that refused us,
+    // and keep their compilation URL. They are no worse off than before; an unverified pointer
+    // would not be an improvement on a verified one.
+    //
+    // The bound is deliberately loose rather than pinned to an exact count. A row an admin has
+    // saved through /admin/programs carries a source_url that exists only in that environment, so
+    // the total drifts by a row or two between the hosted database and a build from migrations.
+    // What this protects is the shape of the change — 49 rows on a third-party compilation down to
+    // a handful — not a number that would fail for an honest reason.
+    expect(onCompilation.length).toBeLessThanOrEqual(18);
+    expect((data ?? []).length - onCompilation.length).toBeGreaterThanOrEqual(52);
   });
 
   it("points a sample of repointed states at a URL naming their own statute", async () => {
