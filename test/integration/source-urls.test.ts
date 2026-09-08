@@ -150,6 +150,36 @@ describeDb("compliance source URLs", () => {
     expect(rule?.[0]?.source_url).toContain("tcss.legis.texas.gov");
   });
 
+  /**
+   * Connecticut was the wrong CHAPTER, not the wrong site: chapter 418 returns 140KB of real
+   * statute from the right host and contains 21a-100 to 21a-105, none of the cottage food
+   * sections. 21a-62f is in chapter 417. A 200 of the right size from the right host is not
+   * evidence that the document is the right one.
+   */
+  it("sends Connecticut to the chapter that actually holds 21a-62f", async () => {
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("source_url")
+      .eq("state_code", "CT")
+      .single();
+    expect(data?.source_url).toContain("chap_417");
+    expect(data?.source_url).not.toContain("chap_418");
+  });
+
+  /**
+   * Georgia's labelling is an administrative rule, published on the Secretary of State's rules
+   * site rather than with the code — a different instrument on a different host, which is the
+   * whole reason label rules were repointed separately from programmes.
+   */
+  it("sends Georgia's label rule to the rules site, not the code", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code)")
+      .eq("state_food_programs.state_code", "GA");
+    expect(data?.[0]?.source_url).toContain("rules.sos.ga.gov");
+    expect(data?.[0]?.source_url).toContain("40-7-19");
+  });
+
   it("has most label rules off the compilations too", async () => {
     const { data } = await admin.from("state_label_rules").select("source_url");
     const onCompilation = (data ?? []).filter((r) =>
