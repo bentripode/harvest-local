@@ -3,7 +3,12 @@ import "server-only";
 import { createClient } from "@/lib/supabase/server";
 import { formatAddress } from "@/lib/geo/address";
 import { isUsState, stateName } from "@/lib/geo/state";
-import { parseAlternatives, type LabelRule, type LabelSource } from "@/lib/labels/render";
+import {
+  parseAlternatives,
+  parseSubstitutions,
+  type LabelRule,
+  type LabelSource,
+} from "@/lib/labels/render";
 
 /**
  * Loading everything a label needs.
@@ -83,7 +88,7 @@ export async function getLabelContext(
     ? await supabase
         .from("state_label_rules")
         .select(
-          "required_elements, optional_elements, element_alternatives, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
+          "required_elements, optional_elements, element_alternatives, element_substitutions, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, disclaimer_font_note, metric_required, placard_required, placard_text, notes",
         )
         .eq("program_id", programId)
         .maybeSingle()
@@ -97,6 +102,7 @@ export async function getLabelContext(
       requiredElements: rule?.required_elements ?? [],
       optionalElements: rule?.optional_elements ?? [],
       elementAlternatives: parseAlternatives(rule?.element_alternatives),
+      elementSubstitutions: parseSubstitutions(rule?.element_substitutions),
       regulatorWebsiteUrl: rule?.regulator_website_url ?? null,
       sellerStatementPrompt: rule?.seller_statement_prompt ?? null,
       disclaimerText: rule?.disclaimer_text ?? null,

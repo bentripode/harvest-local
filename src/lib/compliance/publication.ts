@@ -6,6 +6,7 @@ import { isUsState, stateName } from "@/lib/geo/state";
 import {
   describeListingGaps,
   parseAlternatives,
+  parseSubstitutions,
   renderLabel,
   type LabelRule,
   type LabelSource,
@@ -110,7 +111,7 @@ export async function describePredisclosureBlock(
   const { data: ruleRow } = await supabase
     .from("state_label_rules")
     .select(
-      "required_elements, optional_elements, element_alternatives, predisclosure_elements, predisclosure_disclaimer_text, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required, address_withheld_until_payment",
+      "required_elements, optional_elements, element_alternatives, element_substitutions, predisclosure_elements, predisclosure_disclaimer_text, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required, address_withheld_until_payment",
     )
     .eq("program_id", program.id)
     .maybeSingle();
@@ -139,6 +140,11 @@ export async function describePredisclosureBlock(
     elementAlternatives: (narrowed ? [] : parseAlternatives(ruleRow.element_alternatives)).filter(
       (group) => !(withheld && group.includes("producer_address")),
     ),
+    // A state-issued number standing in for the name, telephone number and address it was bought to
+    // replace (OK 5-4.3(C), OR 616.718(6)(b), TX 437.0193(b-1)). Applied here too, so an Oklahoman
+    // with a registration number is not held back from publishing over an address their own statute
+    // says the number replaces.
+    elementSubstitutions: parseSubstitutions(ruleRow.element_substitutions),
     regulatorWebsiteUrl: ruleRow.regulator_website_url,
     sellerStatementPrompt: ruleRow.seller_statement_prompt,
     // Illinois prescribes a shorter sentence for the online interface than for the package

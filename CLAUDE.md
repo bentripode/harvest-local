@@ -814,11 +814,26 @@ sentence on the package and (b)(10) a shorter one on the online interface. Disti
 `address_withheld_until_payment`, which is a *timing* rule over the full label rather than a
 narrower set — the two compose.
 
-Two gaps found in that pass are **recorded and not fixed**: California's `municipality` resolves to
-the seller's pickup-address town while 114365.3(f)(1) wants the **county of approval** (needs a
-county field on the licence), and Okla. § 5-4.3(C) lets a $15 registration number stand in for
-*name, phone and address together* — a three-for-one substitution `element_alternatives` ("at least
-one of these") cannot express, so an Oklahoman who bought the number still publishes their address.
+**`element_substitutions` is "this INSTEAD OF those", and is not `element_alternatives`.** A group
+means *at least one of these* and prints every member the seller has — right for Colorado's
+phone-or-email, wrong where the producer paid a state fee precisely to keep the other values off the
+label. Shape: `[{"substitute": "producer_id_number", "replaces": [...]}]`. Live only when the seller
+actually holds the stand-in; then the replaced elements are neither required nor printed, and the
+substitute prints in the position of the first of them. Configured for **OK** (`5-4.3(C)`, three for
+one: name, phone and address), **OR** (`616.718(6)(b)`, the address alone — (A) requires the name and
+phone separately) and **TX** (`437.0193(b-1)`, the address). Composes with Texas's
+`address_withheld_until_payment`: one is a timing rule, the other a substitution. **Arkansas is the
+row still owed one** — its number is issued "to protect the producer's safety" — and is deliberately
+not converted, because Act 1040 of 2021 will not extract from either state host.
+
+**`county_of_approval`** is California's, and lives on `seller_licenses.issuing_county` rather than
+the profile: 114365.3(e)(4) states the number and the county as one item, and 114365(a)(4) makes a
+registration valid statewide, so the issuing county is a property of the *registration* and is
+routinely not the seller's town.
+
+One gap is **recorded and not fixed**: Colorado requires `municipality` and its recorded reading of
+25-4-1614(3) accounts for (3)(a)(II), (IV), (V) and (VI) but not (I) or (III), where a locality
+would be. Its source is a compilation and the statute PDFs do not extract.
 
 **A required element the seller hasn't supplied is a compliance gap, not a blank line.** `renderLabel`
 drops it into `missing`, and `ProductDisclosure` now carries that through instead of discarding it —

@@ -1834,6 +1834,7 @@ export type Database = {
           disclaimer_min_pt: number | null
           disclaimer_text: string | null
           element_alternatives: Json
+          element_substitutions: Json
           metric_required: boolean
           notes: string | null
           optional_elements: string[]
@@ -1867,6 +1868,7 @@ export type Database = {
           disclaimer_min_pt?: number | null
           disclaimer_text?: string | null
           element_alternatives?: Json
+          element_substitutions?: Json
           metric_required?: boolean
           notes?: string | null
           optional_elements?: string[]
@@ -1900,6 +1902,7 @@ export type Database = {
           disclaimer_min_pt?: number | null
           disclaimer_text?: string | null
           element_alternatives?: Json
+          element_substitutions?: Json
           metric_required?: boolean
           notes?: string | null
           optional_elements?: string[]
