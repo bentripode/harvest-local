@@ -3,7 +3,6 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 import {
   adminDb,
   cleanupAll,
-  createProduct,
   createSeller,
   createTestUser,
   describeDb,
@@ -53,9 +52,34 @@ describeDb("compliance change log", () => {
 
     await admin.from("seller_profiles").update({ food_program_id: programId }).eq("id", sellerId);
 
-    const product = await createProduct(sellerId, { price: "8.00" });
-    productId = product.id;
-    await admin.from("products").update({ status: "active" }).eq("id", productId);
+    // Pinned to baked-goods rather than createProduct's default: the helper lands in whichever
+    // category was seeded first, and this test needs one that is a food category AND carries a
+    // food_axes mapping, or the impact query has nothing to find.
+    const { data: category } = await admin
+      .from("categories")
+      .select("id, food_axes, requires_food_permit")
+      .eq("slug", "baked-goods")
+      .single();
+    expect(category!.requires_food_permit).toBe(true);
+    expect((category!.food_axes as string[]) ?? []).toContain("shelf_stable");
+
+    const { data: product } = await admin
+      .from("products")
+      .insert({
+        seller_id: sellerId,
+        title: "IT Change Log Loaf",
+        price: "8.00",
+        category_id: category!.id,
+        status: "active",
+        quantity_available: 3,
+        ingredients: ["Wheat flour", "Water", "Salt"],
+        net_weight_value: "16",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
+      })
+      .select("id")
+      .single();
+    productId = product!.id;
   });
 
   afterAll(async () => {
