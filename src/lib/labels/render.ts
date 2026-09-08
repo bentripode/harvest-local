@@ -36,6 +36,14 @@ export type LabelElement =
    * routinely different places, and `municipality` cannot stand in for it.
    */
   | "county_of_approval"
+  /**
+   * The county the food was MADE IN — a different question from county_of_approval.
+   *
+   * Colo. Rev. Stat. 25-4-1614(3)(a)(II), as amended by HB26-1033 (signed 2026-06-04), requires "the
+   * county in which the food was prepared", replacing the address that subparagraph asked for
+   * before. A fact about the producer, so it lives on the profile.
+   */
+  | "county_of_preparation"
   | "ingredients_desc_by_weight"
   | "net_weight"
   | "allergens"
@@ -121,6 +129,8 @@ export interface LabelSource {
    * one registration's number with another's county would be worse than printing neither.
    */
   countyOfApproval: string | null;
+  /** The county the food was made in (CO). A fact about the seller, not about a registration. */
+  countyOfPreparation: string | null;
   municipality: string | null;
   /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
   stateName: string | null;
@@ -179,6 +189,7 @@ const ELEMENT_LABEL: Record<LabelElement, string> = {
   municipality: "Town or municipality",
   municipality_state: "Town or city and state",
   county_of_approval: "County of approval",
+  county_of_preparation: "County where prepared",
   ingredients_desc_by_weight: "Ingredients",
   net_weight: "Net quantity",
   allergens: "Allergens",
@@ -205,6 +216,7 @@ const ELEMENT_FIX: Record<LabelElement, MissingField["fix"]> = {
   municipality_state: "profile",
   // Off the registration, not the profile: it is the county that ISSUED the number.
   county_of_approval: "licence",
+  county_of_preparation: "profile",
   ingredients_desc_by_weight: "product",
   net_weight: "product",
   allergens: "product",
@@ -290,6 +302,8 @@ function valueFor(element: LabelElement, src: LabelSource, rule: LabelRule): str
       return src.municipality;
     case "county_of_approval":
       return src.countyOfApproval;
+    case "county_of_preparation":
+      return src.countyOfPreparation;
     case "municipality_state":
       // 16 Del. Admin. Code 4458A 8.2.1 asks for `"town/city, Delaware"` as one phrase, not for a
       // town in isolation. Both halves are needed or the element is missing.

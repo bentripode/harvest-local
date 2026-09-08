@@ -26,6 +26,7 @@ const source: LabelSource = {
   producerIdNumber: null,
   permitNumber: "TX-CF-12345",
   countyOfApproval: null,
+  countyOfPreparation: null,
   municipality: "Austin",
   stateName: "Texas",
   ingredients: ["Wheat flour", "Water", "Sourdough culture", "Sea salt"],
@@ -821,5 +822,51 @@ describe("parseSubstitutions", () => {
     expect(parseSubstitutions([{ substitute: "", replaces: ["producer_address"] }])).toEqual([]);
     expect(parseSubstitutions("nonsense")).toEqual([]);
     expect(parseSubstitutions(null)).toEqual([]);
+  });
+});
+
+/**
+ * Colorado's county, which is a different question from California's.
+ *
+ * Colo. Rev. Stat. 25-4-1614(3)(a)(II), as amended by HB26-1033 (the "Tamale Act", signed
+ * 2026-06-04): "The producer's name, department-issued registration number, the county in which the
+ * food was prepared, and the producer's current telephone number or electronic mail address". The
+ * amendment replaced "the address at which the food was prepared" with the county.
+ *
+ * `county_of_approval` is the county of the agency that ISSUED a registration and comes off the
+ * licence; this is the county the food was MADE IN and comes off the profile. Keeping them apart
+ * matters because a producer may well be registered in one county and bake in another.
+ */
+describe("county of preparation", () => {
+  const colorado: LabelRule = {
+    ...texas,
+    requiredElements: ["producer_name", "county_of_preparation"],
+  };
+
+  it("prints the county the food was made in", () => {
+    const out = renderLabel(colorado, { ...source, countyOfPreparation: "Boulder" });
+    const line = out.lines.find((l) => l.element === "county_of_preparation");
+    expect(line?.caption).toBe("County where prepared");
+    expect(line?.value).toBe("Boulder");
+    expect(canPrint(out)).toBe(true);
+  });
+
+  /** Never the town, and never the other county. */
+  it("does not fall back to the town or to the county of approval", () => {
+    const out = renderLabel(colorado, {
+      ...source,
+      countyOfPreparation: null,
+      municipality: "Denver",
+      countyOfApproval: "Adams",
+    });
+    expect(out.lines.some((l) => l.value === "Denver" || l.value === "Adams")).toBe(false);
+    expect(out.missing.map((m) => m.label)).toContain("County where prepared");
+    expect(canPrint(out)).toBe(false);
+  });
+
+  /** A fact about the seller, so the settings page is where it gets fixed. */
+  it("is fixed on the profile, not the licence", () => {
+    const out = renderLabel(colorado, { ...source, countyOfPreparation: null });
+    expect(out.missing[0].fix).toBe("profile");
   });
 });

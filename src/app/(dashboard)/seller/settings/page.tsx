@@ -11,6 +11,7 @@ import { HomemadeStatementForm } from "@/components/homemade-statement-form";
 import { MailingAddressForm } from "@/components/mailing-address-form";
 import { ContactPhoneForm } from "@/components/contact-phone-form";
 import { ProducerIdNumberForm } from "@/components/producer-id-number-form";
+import { PreparationCountyForm } from "@/components/preparation-county-form";
 import { getSellerContext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
@@ -50,6 +51,7 @@ export default async function SellerSettingsPage() {
       needsPhone,
       phoneRequired,
       needsIdNumber,
+      needsPreparationCounty,
       mailingAddressIsAlternative,
     },
     deliveryPermission,
@@ -140,6 +142,21 @@ export default async function SellerSettingsPage() {
               listings in place of your home address.
             </p>
             <ProducerIdNumberForm initial={seller.producer_id_number ?? ""} />
+          </CardContent>
+        </Card>
+      ) : null}
+
+      {needsPreparationCounty ? (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">County where you prepare</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4 text-sm">
+              Your state puts the county your kitchen is in on the label, in place of a street
+              address. Your labels can&apos;t print until we have it.
+            </p>
+            <PreparationCountyForm initial={seller.preparation_county ?? ""} />
           </CardContent>
         </Card>
       ) : null}

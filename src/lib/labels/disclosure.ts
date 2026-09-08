@@ -126,6 +126,7 @@ export async function getProductDisclosures(
       // The county whose enforcement agency issued the registration — returned by the RPC only
       // where the state's rule names it, and read off the same licence row as the permit number.
       countyOfApproval: row.county_of_approval,
+      countyOfPreparation: row.county_of_preparation,
       stateName: stateName(row.state_code),
       ingredients: (row.ingredients as string[] | null) ?? [],
       netWeightValue: row.net_weight_value == null ? null : String(row.net_weight_value),

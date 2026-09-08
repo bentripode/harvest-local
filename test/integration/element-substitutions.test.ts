@@ -176,3 +176,102 @@ describeDb("a registration number that replaces other elements", () => {
     expect(configured).toEqual(["OK:1", "OR:1", "TX:1"]);
   });
 });
+
+/**
+ * Arkansas, closed once the PDF extractor could read Act 1040 of 2021.
+ *
+ * Ark. Code § 20-57-505(a)(2) is ONE paragraph: "The name, address, and telephone number of the
+ * producer of the homemade food or drink product, or an identification number provided by the
+ * Department of Agriculture if requested by the producer to protect the producer's safety". The
+ * number replaces all three — and here it protects the producer's physical safety, not just their
+ * privacy, which is why the row was left alone until the text could actually be read.
+ *
+ * § 20-57-505(b)(3) then puts the (a) information on "the website on which the homemade food or
+ * drink product is offered for sale if the product is offered for sale online", so this reaches the
+ * listing and not only the jar.
+ */
+describeDb("Arkansas after reading Act 1040", () => {
+  let admin: Db;
+
+  beforeAll(() => {
+    admin = adminDb();
+  });
+
+  afterAll(cleanupAll);
+
+  async function arkansasListing(idNumber: string | null): Promise<string> {
+    const user = await createTestUser({ role: "seller", homeState: "AR" });
+    const seller = await createSeller(user.id, { homeState: "AR" });
+
+    const { data: address } = await admin
+      .from("addresses")
+      .insert({
+        user_id: user.id,
+        line1: "12 Ozark Trail",
+        city: "Conway",
+        state: "AR",
+        postal_code: "72032",
+      })
+      .select("id")
+      .single();
+
+    await admin
+      .from("seller_profiles")
+      .update({
+        pickup_address_id: address!.id,
+        contact_phone: "501-555-0142",
+        producer_id_number: idNumber,
+      })
+      .eq("id", seller.id);
+
+    const { data: category } = await admin
+      .from("categories")
+      .select("id")
+      .eq("slug", "baked-goods")
+      .single();
+    const { data: product, error } = await admin
+      .from("products")
+      .insert({
+        seller_id: seller.id,
+        title: "IT AR Cobbler",
+        price: "7.00",
+        category_id: category!.id,
+        status: "active",
+        quantity_available: 2,
+        ingredients: ["Wheat flour", "Peaches"],
+        net_weight_value: "18",
+        net_weight_unit: "oz",
+        allergens: ["wheat"],
+      })
+      .select("id")
+      .single();
+    expect(error).toBeNull();
+    return product!.id;
+  }
+
+  const disclose = async (id: string) =>
+    (await anonDb().rpc("product_label_disclosure", { p_product_id: id }))?.data?.[0];
+
+  it("is a predisclosure state, which it was recorded as not being", async () => {
+    const row = await disclose(await arkansasListing(null));
+    // (b)(3) names the listing page. `predisclosure_required` was false, which meant "nobody has
+    // checked" rather than "the state has no such rule".
+    expect(row?.predisclosure_required).toBe(true);
+  });
+
+  it("hides the name, address and phone behind a safety identification number", async () => {
+    const row = await disclose(await arkansasListing("AR-ID-8890"));
+    expect(row?.producer_address).toBeNull();
+    expect(row?.producer_phone).toBeNull();
+    expect(row?.producer_id_number).toBe("AR-ID-8890");
+    expect(JSON.stringify(row)).not.toContain("Ozark Trail");
+    expect(JSON.stringify(row)).not.toContain("501-555-0142");
+  });
+
+  it("still publishes all three for a producer who has no number", async () => {
+    const row = await disclose(await arkansasListing(null));
+    expect(row?.producer_address).toContain("12 Ozark Trail");
+    expect(row?.producer_phone).toBe("501-555-0142");
+    expect(row?.required_elements).toContain("producer_name");
+  });
+});

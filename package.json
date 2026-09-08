@@ -50,6 +50,7 @@
     "concurrently": "^10.0.5",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "pdfjs-dist": "^4.10.38",
     "supabase": "^2.116.0",
     "tailwindcss": "^4",
     "typescript": "^5",

@@ -43,6 +43,7 @@ const incomplete: LabelSource = {
   producerIdNumber: null,
   permitNumber: null,
   countyOfApproval: null,
+  countyOfPreparation: null,
   municipality: null,
   stateName: "California",
   ingredients: ["Wheat flour", "Water", "Sea salt"],
