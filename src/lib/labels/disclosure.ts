@@ -15,12 +15,19 @@ import {
  *
  * Texas §437.0194(b)(2) permits an internet sale only if the labelling information reaches the
  * consumer "before the operator accepts payment", posted as a legible statement — the package
- * turning up later is too late. Nebraska requires the disclaimer in any internet advertising, which
- * a storefront listing is.
+ * turning up later is too late. Nebraska requires the notification in any internet advertising,
+ * which a storefront listing is.
+ *
+ * IT IS NOT THE LABEL. Four states put the whole label on the page (IN, NM, OK, TN); the rest ask
+ * for far less, and rendering the label everywhere published a seller's home address in California,
+ * Minnesota, Nebraska and Utah to satisfy rules that never asked for one. The RPC resolves
+ * `state_label_rules.predisclosure_elements` and returns each identifying field only where the
+ * state's pre-sale rule names it, so the narrowing holds even for a caller who ignores
+ * `required_elements` and reads the columns directly.
  *
  * The underlying data spans tables a buyer cannot read (the producer's address, the permit number),
  * so it comes through `product_label_disclosure()`, a SECURITY DEFINER function that returns
- * exactly the fields required on the physical label and nothing more.
+ * exactly what the state requires before the sale and nothing more.
  */
 
 export interface ProductDisclosure {

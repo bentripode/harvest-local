@@ -798,6 +798,28 @@ what the buyer reads and what gets printed cannot drift apart. Rendered inline o
 listing and above the pay button at checkout — a state asking for a "legible statement" is not
 satisfied by a collapsed accordion.
 
+**The pre-sale disclosure is NOT the label, and `predisclosure_required` alone cannot say so.**
+`state_label_rules.predisclosure_elements` is null where the whole label is genuinely owed before
+the sale — **IN** (16-42-5.3-5(b), "shall post the label of each food product on the vendor's
+website"), **NM** (25-12-3(B)(4)), **OK** (5-4.3(B)(4)) and **TN** (53-1-118(b)(3) + (b)(4)(iv)) —
+and holds the exact narrower set everywhere else: **CA** `{municipality, permit_number}` (114365.3(f)
+names three items and the address is not one), **MN** and **IL** `{}` (a single sentence: 28A.152
+subd. 2(d), 410 ILCS 625/4(b)(10)), **NE**, **UT** and **WY** `{seller_statement}` (81-2,280(5)(a),
+4-5a-104(6), 11-49-102(a)(v)). Rendering the label everywhere published a seller's **home address**
+in CA, MN, NE and UT to satisfy rules that never asked for one. The RPC gates every identifying
+column — address, town, phone, email, id number, mailing address, permit number, seller statement —
+on the resolved set, so narrowing holds for a caller who reads the columns directly and ignores
+`required_elements`. **`predisclosure_disclaimer_text`** is Illinois alone: (b)(7)(E) puts one
+sentence on the package and (b)(10) a shorter one on the online interface. Distinct from Texas's
+`address_withheld_until_payment`, which is a *timing* rule over the full label rather than a
+narrower set — the two compose.
+
+Two gaps found in that pass are **recorded and not fixed**: California's `municipality` resolves to
+the seller's pickup-address town while 114365.3(f)(1) wants the **county of approval** (needs a
+county field on the licence), and Okla. § 5-4.3(C) lets a $15 registration number stand in for
+*name, phone and address together* — a three-for-one substitution `element_alternatives` ("at least
+one of these") cannot express, so an Oklahoman who bought the number still publishes their address.
+
 **A required element the seller hasn't supplied is a compliance gap, not a blank line.** `renderLabel`
 drops it into `missing`, and `ProductDisclosure` now carries that through instead of discarding it —
 a Californian listing with no recorded permit number was rendering an advertisement short of the

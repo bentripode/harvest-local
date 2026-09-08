@@ -1836,6 +1836,8 @@ export type Database = {
           optional_elements: string[]
           placard_required: boolean
           placard_text: string | null
+          predisclosure_disclaimer_text: string | null
+          predisclosure_elements: string[] | null
           predisclosure_required: boolean
           program_id: string
           regulator_website_url: string | null
@@ -1867,6 +1869,8 @@ export type Database = {
           optional_elements?: string[]
           placard_required?: boolean
           placard_text?: string | null
+          predisclosure_disclaimer_text?: string | null
+          predisclosure_elements?: string[] | null
           predisclosure_required?: boolean
           program_id: string
           regulator_website_url?: string | null
@@ -1898,6 +1902,8 @@ export type Database = {
           optional_elements?: string[]
           placard_required?: boolean
           placard_text?: string | null
+          predisclosure_disclaimer_text?: string | null
+          predisclosure_elements?: string[] | null
           predisclosure_required?: boolean
           program_id?: string
           regulator_website_url?: string | null
