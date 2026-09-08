@@ -1,0 +1,93 @@
+import { beforeAll, expect, it } from "vitest";
+
+import { adminDb, describeDb, type Db } from "./helpers";
+
+/**
+ * Where `source_url` actually points.
+ *
+ * The verification pass read primary text for all 51 jurisdictions and recorded the citations in
+ * each row's notes — but only updated `source_url` for the later batches, so most rows still cited
+ * a National Agricultural Law Center compilation. That was invisible until #82 gave those URLs a
+ * job: the staleness watcher was watching NALC's publishing schedule rather than the legislatures'.
+ */
+describeDb("compliance source URLs", () => {
+  let admin: Db;
+
+  beforeAll(async () => {
+    admin = adminDb();
+  });
+
+  it("has most programmes pointing at primary text rather than a compilation", async () => {
+    const { data } = await admin.from("state_food_programs").select("state_code, source_url");
+    const onCompilation = (data ?? []).filter((r) => /nationalaglawcenter/.test(r.source_url ?? ""));
+    // 14 states' statutes live behind JavaScript viewers or on hosts that refused us, and keep
+    // their compilation URL. They are no worse off than before; an unverified pointer would not be
+    // an improvement on a verified one.
+    expect(onCompilation.length).toBeLessThanOrEqual(14);
+    expect((data ?? []).length - onCompilation.length).toBeGreaterThanOrEqual(56);
+  });
+
+  it("points a sample of repointed states at a URL naming their own statute", async () => {
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("state_code, ordinal, source_url")
+      .in("state_code", ["ID", "NE", "SD", "MN", "MO"]);
+
+    const by = new Map((data ?? []).map((r) => [`${r.state_code}${r.ordinal}`, r.source_url ?? ""]));
+    // Each was accepted only after fetching it and confirming the document contains the section
+    // the row's notes cite.
+    expect(by.get("ID1")).toContain("37-205");
+    expect(by.get("NE1")).toContain("81-2,245");
+    expect(by.get("SD1")).toContain("34-18-38");
+    expect(by.get("MN1")).toContain("28A.152");
+    expect(by.get("MO1")).toContain("196.298");
+  });
+
+  /**
+   * A fingerprint describes a document, not a row. Left in place across a repoint, the watcher
+   * would compare a legislature's page against a compilation PDF's hash and report a change that
+   * never happened — the false alarm that makes a tripwire worthless.
+   */
+  it("carries no fingerprint from the document a row no longer cites", async () => {
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("state_code, ordinal, source_url, source_version, source_content_hash, source_etag")
+      .in("state_code", ["ID", "NE", "SD", "MN", "MO", "OR", "PA"]);
+
+    for (const row of data ?? []) {
+      expect(row.source_content_hash).toBeNull();
+      expect(row.source_etag).toBeNull();
+      // The NALC currency line described the compilation, so it goes with it.
+      expect(row.source_version).toBeNull();
+    }
+  });
+
+  it("leaves the states already on primary text untouched", async () => {
+    const { data } = await admin
+      .from("state_food_programs")
+      .select("state_code, ordinal, source_url, source_version")
+      .in("state_code", ["UT", "VA", "WA", "WI"]);
+
+    const by = new Map((data ?? []).map((r) => [`${r.state_code}${r.ordinal}`, r]));
+    expect(by.get("UT2")?.source_url).toContain("le.utah.gov");
+    expect(by.get("UT2")?.source_version).toBe("Amended by Chapter 433, 2026 General Session");
+    expect(by.get("VA1")?.source_version).toMatch(/2026, c\. 605\.$/);
+    expect(by.get("WA1")?.source_version).toMatch(/^\[ 2015 c 203 s 1;/);
+  });
+
+  /**
+   * Label rules were deliberately not repointed: a labelling provision often sits in a different
+   * instrument from the venue rule — Delaware's is 16 Del. Admin. Code 4458A, Utah's whole list is
+   * R70-560-6 rather than § 4-5-501 — so reusing a statute verified only for the programme's
+   * section would trade one unverified pointer for another while looking like progress.
+   */
+  it("has not quietly repointed the label rules", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code)")
+      .in("state_food_programs.state_code", ["ID", "NE", "SD"]);
+    for (const row of data ?? []) {
+      expect(row.source_url).toMatch(/nationalaglawcenter/);
+    }
+  });
+});
