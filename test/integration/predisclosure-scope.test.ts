@@ -100,7 +100,9 @@ describeDb("what a state requires before the sale", () => {
     const row = await disclose(await listingIn("CA"));
     expect(row?.producer_address).toBeNull();
     expect(row?.required_elements).toEqual(["county_of_approval", "permit_number"]);
-    expect(row?.disclaimer_text).toBe("Made in a Home Kitchen.");
+    // No full stop: 114365.3(e)(1) quotes "The words 'Made in a Home Kitchen'", and the period this
+    // assertion used to carry was ours. The disclaimer sweep found it.
+    expect(row?.disclaimer_text).toBe("Made in a Home Kitchen");
   });
 
   /**
