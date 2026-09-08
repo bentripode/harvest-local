@@ -839,7 +839,7 @@ print the wrong county; both used to resolve to the pickup-address **town**, whi
 
 **Quoted law is swept, not spot-checked.** `scripts/verify-disclaimers.mjs` fetches each rule's own
 `source_url` and looks for the stored `disclaimer_text` / `placard_text` in it — 55 strings, currently
-**42 exact**. A second pass chased every open row to primary text: **47 of 53 exact**, the rest recorded on the row. It found full stops added to California's "Made in a Home Kitchen" (114365.3(e)(1)
+**42 exact**. Two further passes closed the rest: **50 of 52 exact**, and the two that remain (GA, DE) are verified by hand — their hosts refuse scripts, so the sweep will keep reporting them. It found full stops added to California's "Made in a Home Kitchen" (114365.3(e)(1)
 quotes the words without one, and it was printing at 12pt), and two rows citing documents that *cannot*
 contain their own disclaimer — Colorado's pointed at the amending bill, which reproduces only what it
 amends, and Indiana's at a chapter index of headings. **A right citation and a wrong URL look identical
