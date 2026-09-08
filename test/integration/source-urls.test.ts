@@ -125,6 +125,31 @@ describeDb("compliance source URLs", () => {
     }
   });
 
+  /**
+   * Texas moved its statutes site to a client-rendered viewer, so the URL we had returned a 250KB
+   * application bundle containing none of chapter 437 — the watcher would have fired on a redeploy
+   * and stayed silent on an amendment. The Legislature's own file server still serves the file
+   * the site renders, and it sends real validators.
+   */
+  it("points Texas at the file server rather than the application shell", async () => {
+    const { data: program } = await admin
+      .from("state_food_programs")
+      .select("source_url, source_version")
+      .eq("state_code", "TX")
+      .single();
+    expect(program?.source_url).toBe("https://tcss.legis.texas.gov/resources/HS/htm/HS.437.htm");
+    expect(program?.source_url).not.toContain("statutes.capitol.texas.gov");
+    expect(program?.source_version).toMatch(/Acts 2025, 89th Leg./);
+
+    // The label rule relies on the same chapter — 437.0193 for the label, 437.0194 for the
+    // before-payment requirement — so it points at the same document.
+    const { data: rule } = await admin
+      .from("state_label_rules")
+      .select("source_url, state_food_programs!inner(state_code)")
+      .eq("state_food_programs.state_code", "TX");
+    expect(rule?.[0]?.source_url).toContain("tcss.legis.texas.gov");
+  });
+
   it("has most label rules off the compilations too", async () => {
     const { data } = await admin.from("state_label_rules").select("source_url");
     const onCompilation = (data ?? []).filter((r) =>
