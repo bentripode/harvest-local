@@ -13,6 +13,7 @@ import { taxIdRekey } from "@/lib/inngest/functions/tax-id-rekey";
 import { programReviewScan } from "@/lib/inngest/functions/program-review-scan";
 import { obligationReminders } from "@/lib/inngest/functions/obligation-reminders";
 import { complianceChangeSweep } from "@/lib/inngest/functions/compliance-change-sweep";
+import { sourceWatch } from "@/lib/inngest/functions/source-watch";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -34,5 +35,6 @@ export const { GET, POST, PUT } = serve({
     programReviewScan,
     obligationReminders,
     complianceChangeSweep,
+    sourceWatch,
   ],
 });
