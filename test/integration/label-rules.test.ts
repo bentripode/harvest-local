@@ -423,6 +423,51 @@ describeDb("state label rules", () => {
     expect(program?.cap_category).toBe("acidified");
   });
 
+  /**
+   * The last two inherited disclaimers.
+   *
+   * California chapter 11.6 (MEHKO) contains the word "label" zero times and Maine's Food
+   * Sovereignty Act has no labelling provision either — yet both rows carried another programme's
+   * requirements. California's is emptied because the answer is "nothing is required"; Maine's
+   * keeps its elements flagged as unsourced because the answer is "a municipal ordinance decides,
+   * and we cannot see it from here". Those are different answers and the rows say so.
+   */
+  it("prescribes no label where the state prescribes none", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("required_elements, disclaimer_text, notes, state_food_programs!inner(state_code, ordinal)")
+      .eq("state_food_programs.state_code", "CA")
+      .eq("state_food_programs.ordinal", 3)
+      .single();
+
+    expect(data?.required_elements).toEqual([]);
+    expect(data?.disclaimer_text).toBeNull();
+    expect(data?.notes).toMatch(/114367/);
+    // The statement it used to carry belongs to Class A and Class B, not to this chapter.
+    expect(data?.notes).toMatch(/114365.3/);
+  });
+
+  it("names the section for every rule that describes one", async () => {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select("notes, state_food_programs!inner(state_code, ordinal)")
+      .in("state_food_programs.state_code", ["OR", "ME"]);
+
+    const by = new Map(
+      (data ?? []).map((r) => {
+        const p = r.state_food_programs as unknown as { state_code: string; ordinal: number };
+        return [`${p.state_code}${p.ordinal}`, r.notes ?? ""];
+      }),
+    );
+    // Oregon drafted its home-baking exemption as a waiver of inspection, which is why the section
+    // was recorded by description for so long.
+    expect(by.get("OR1")).toMatch(/616.718/);
+    // Farm Direct's labelling is not in the statute at all — it is in the rules under 616.686.
+    expect(by.get("OR2")).toMatch(/616.683/);
+    expect(by.get("OR2")).toMatch(/616.686/);
+    expect(by.get("ME2")).toMatch(/8-F/);
+  });
+
   // -- RLS -------------------------------------------------------------------
   it("is readable by anyone — a buyer can check what a label should carry", async () => {
     const { data } = await anonDb().from("state_label_rules").select("program_id").limit(1);
