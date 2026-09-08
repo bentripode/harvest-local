@@ -25,6 +25,11 @@ export const RATE_LIMITS = {
   conversation: { max: 12, windowSecs: 60 },
   /** Filing an order report. */
   report: { max: 6, windowSecs: 300 },
+  /**
+   * Joining a market waitlist. The one public write path with no account behind it, so it is
+   * keyed by IP and set tighter than the rest — a person signs up for one or two markets.
+   */
+  marketWatch: { max: 5, windowSecs: 300 },
 } as const satisfies Record<string, RateLimit>;
 
 /**

@@ -29,6 +29,9 @@ export function ShopHeader({
             <Link href="/shop" className="hover:text-foreground">
               Shop
             </Link>
+            <Link href="/markets" className="hover:text-foreground">
+              Markets
+            </Link>
             {user ? (
               <>
                 <Link href="/orders" className="hover:text-foreground">

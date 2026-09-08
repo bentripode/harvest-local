@@ -302,6 +302,146 @@ export type Database = {
           },
         ]
       }
+      market_hours: {
+        Row: {
+          closes: string
+          created_at: string
+          day_of_week: number
+          id: string
+          market_id: string
+          note: string | null
+          opens: string
+        }
+        Insert: {
+          closes: string
+          created_at?: string
+          day_of_week: number
+          id?: string
+          market_id: string
+          note?: string | null
+          opens: string
+        }
+        Update: {
+          closes?: string
+          created_at?: string
+          day_of_week?: number
+          id?: string
+          market_id?: string
+          note?: string | null
+          opens?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "market_hours_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      market_watchers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          market_id: string
+          profile_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          market_id: string
+          profile_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          market_id?: string
+          profile_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "market_watchers_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "market_watchers_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      markets: {
+        Row: {
+          address_text: string | null
+          city: string | null
+          created_at: string
+          hours_text: string | null
+          id: string
+          location: unknown | null
+          name: string
+          phone: string | null
+          postal_code: string | null
+          season_text: string | null
+          slug: string
+          source: string
+          source_id: string | null
+          source_updated_at: string | null
+          state: string
+          status: string
+          updated_at: string
+          website_url: string | null
+        }
+        Insert: {
+          address_text?: string | null
+          city?: string | null
+          created_at?: string
+          hours_text?: string | null
+          id?: string
+          location?: unknown | null
+          name: string
+          phone?: string | null
+          postal_code?: string | null
+          season_text?: string | null
+          slug: string
+          source?: string
+          source_id?: string | null
+          source_updated_at?: string | null
+          state: string
+          status?: string
+          updated_at?: string
+          website_url?: string | null
+        }
+        Update: {
+          address_text?: string | null
+          city?: string | null
+          created_at?: string
+          hours_text?: string | null
+          id?: string
+          location?: unknown | null
+          name?: string
+          phone?: string | null
+          postal_code?: string | null
+          season_text?: string | null
+          slug?: string
+          source?: string
+          source_id?: string | null
+          source_updated_at?: string | null
+          state?: string
+          status?: string
+          updated_at?: string
+          website_url?: string | null
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           body: string
@@ -2365,6 +2505,26 @@ export type Database = {
           p_lng?: number
           p_postal?: string
           p_state?: string
+        }
+        Returns: string
+      }
+      upsert_market: {
+        Args: {
+          p_address?: string
+          p_city?: string
+          p_hours?: string
+          p_lat?: number
+          p_lng?: number
+          p_name?: string
+          p_phone?: string
+          p_postal?: string
+          p_season?: string
+          p_slug?: string
+          p_source?: string
+          p_source_id?: string
+          p_source_updated_at?: string
+          p_state?: string
+          p_website?: string
         }
         Returns: string
       }

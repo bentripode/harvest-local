@@ -2,6 +2,7 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 
 import {
   adminDb,
+  anonDb,
   cleanupAll,
   createOrder,
   createSeller,
@@ -210,6 +211,32 @@ describeDb("SECURITY DEFINER authorization", () => {
   it("seller_sells_cottage_food is not reachable by an authenticated client", async () => {
     const { error } = await buyer.db.rpc("seller_sells_cottage_food", {
       p_seller_id: "00000000-0000-0000-0000-000000000000",
+    });
+    expect(error).not.toBeNull();
+  });
+
+  // -- the market importer (service-role only) ------------------------------
+  //
+  // upsert_market is SECURITY DEFINER and writes the public market directory, so a hole here would
+  // let any signed-in user publish a page under our domain.
+  it("upsert_market is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("upsert_market", {
+      p_source: "usda",
+      p_source_id: `authz-probe-${Date.now()}`,
+      p_slug: "authz-probe",
+      p_name: "Authz Probe Market",
+      p_state: "TX",
+    });
+    expect(error).not.toBeNull();
+  });
+
+  it("upsert_market is not reachable anonymously", async () => {
+    const { error } = await anonDb().rpc("upsert_market", {
+      p_source: "usda",
+      p_source_id: `authz-probe-anon-${Date.now()}`,
+      p_slug: "authz-probe-anon",
+      p_name: "Authz Probe Market",
+      p_state: "TX",
     });
     expect(error).not.toBeNull();
   });

@@ -18,15 +18,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/shop`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${base}/markets`, changeFrequency: "weekly", priority: 0.7 },
   ];
 
   const supabase = await createClient();
-  const { data: sellers } = await supabase
-    .from("seller_profiles")
-    .select("storefront_slug, updated_at")
-    .eq("is_paused", false)
-    .order("updated_at", { ascending: false })
-    .limit(5000);
+  const [{ data: sellers }, { data: markets }] = await Promise.all([
+    supabase
+      .from("seller_profiles")
+      .select("storefront_slug, updated_at")
+      .eq("is_paused", false)
+      .order("updated_at", { ascending: false })
+      .limit(5000),
+    // Market pages are the directory's public surface and exist whether or not a seller is there
+    // yet, so they belong here from day one. RLS already hides anything not `published`.
+    supabase
+      .from("markets")
+      .select("slug, state, updated_at")
+      .order("updated_at", { ascending: false })
+      .limit(20000),
+  ]);
 
   const storefronts: MetadataRoute.Sitemap = (sellers ?? []).map((s) => ({
     url: `${base}/s/${s.storefront_slug}`,
@@ -35,5 +45,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...storefronts];
+  const seenStates = new Set<string>();
+  const statePages: MetadataRoute.Sitemap = [];
+  const marketPages: MetadataRoute.Sitemap = (markets ?? []).map((m) => {
+    const state = m.state.toLowerCase();
+    if (!seenStates.has(state)) {
+      seenStates.add(state);
+      statePages.push({
+        url: `${base}/markets/${state}`,
+        changeFrequency: "weekly",
+        priority: 0.6,
+      });
+    }
+    return {
+      url: `${base}/markets/${state}/${m.slug}`,
+      lastModified: m.updated_at ? new Date(m.updated_at) : undefined,
+      changeFrequency: "weekly",
+      priority: 0.5,
+    };
+  });
+
+  return [...staticRoutes, ...storefronts, ...statePages, ...marketPages];
 }
