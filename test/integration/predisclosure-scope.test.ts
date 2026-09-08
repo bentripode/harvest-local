@@ -99,8 +99,87 @@ describeDb("what a state requires before the sale", () => {
   it("California shows the three items (f) names, and not the address", async () => {
     const row = await disclose(await listingIn("CA"));
     expect(row?.producer_address).toBeNull();
-    expect(row?.required_elements).toEqual(["municipality", "permit_number"]);
+    expect(row?.required_elements).toEqual(["county_of_approval", "permit_number"]);
     expect(row?.disclaimer_text).toBe("Made in a Home Kitchen.");
+  });
+
+  /**
+   * (f)(1) is "the county of approval" — the county of the local enforcement agency that issued the
+   * registration. It is NOT the seller's town, and 114365(a)(4) is why they routinely differ: "A
+   * registration or permit from one county shall be sufficient for a cottage food operation to
+   * operate throughout the state."
+   *
+   * The fixture registers in Alameda and lives in Testville precisely to prove the two are read
+   * from different places.
+   */
+  it("California reads the county off the registration, not the seller's town", async () => {
+    const productId = await listingIn("CA");
+    const { data: product } = await admin
+      .from("products")
+      .select("seller_id")
+      .eq("id", productId)
+      .single();
+
+    // Inserted pending and then verified by the platform: `seller_licenses_guard_status` makes
+    // verification_status platform-only, so a licence cannot be born verified.
+    const { data: licence, error: insertError } = await admin
+      .from("seller_licenses")
+      .insert({
+        seller_id: product!.seller_id,
+        license_type: "cottage_food",
+        license_number: "CFO-2026-118",
+        issuing_state: "CA",
+        issuing_county: "Alameda",
+        // seller_licenses_expiry_required: everything but a tax ID needs one. Far future, so the
+        // row is not one `license-expiry-scan` would treat as lapsed.
+        expiration_date: "2030-01-01",
+        document_path: "seller-docs/it/ca-permit.pdf",
+      })
+      .select("id")
+      .single();
+    expect(insertError).toBeNull();
+
+    const { error: verifyError } = await admin
+      .from("seller_licenses")
+      .update({ verification_status: "verified" })
+      .eq("id", licence!.id);
+    expect(verifyError).toBeNull();
+
+    const row = await disclose(productId);
+    expect(row?.county_of_approval).toBe("Alameda");
+    expect(row?.permit_number).toBe("CFO-2026-118");
+    // The town the seller actually lives in never appears — it is a different fact.
+    expect(row?.municipality).toBeNull();
+    expect(JSON.stringify(row)).not.toContain("Testville");
+  });
+
+  /**
+   * An unverified registration is not a registration. `sync_seller_license_pause` and the label both
+   * read verified rows only, so a pending upload must not put a county on a live advertisement.
+   */
+  it("ignores the county on a registration nobody has verified", async () => {
+    const productId = await listingIn("CA");
+    const { data: product } = await admin
+      .from("products")
+      .select("seller_id")
+      .eq("id", productId)
+      .single();
+
+    // Left pending, which is how every licence starts.
+    const { error } = await admin.from("seller_licenses").insert({
+      seller_id: product!.seller_id,
+      license_type: "cottage_food",
+      license_number: "CFO-PENDING-9",
+      issuing_state: "CA",
+      issuing_county: "Sonoma",
+      expiration_date: "2030-01-01",
+      document_path: "seller-docs/it/ca-pending.pdf",
+    });
+    expect(error).toBeNull();
+
+    const row = await disclose(productId);
+    expect(row?.county_of_approval).toBeNull();
+    expect(row?.permit_number).toBeNull();
   });
 
   /**
@@ -197,6 +276,27 @@ describeDb("what a state requires before the sale", () => {
       .sort();
 
     expect(publishing).toEqual(["IN", "NM", "OK", "TN"]);
+  });
+
+  /**
+   * A regression from the migration that introduced the narrowing, caught while adding the county.
+   *
+   * That migration gated the `municipality` column on `'municipality' = any(named_elements)`. DE and
+   * NJ name `municipality_state` — the town AND the state as one phrase — which renders from the
+   * SAME source value, so the gate blanked it and the element reported itself missing for a seller
+   * who had supplied a pickup address all along.
+   *
+   * New Jersey rather than Delaware, though 16 Del. Admin. Code 4458A 8.2.1 is the clearer quote:
+   * Delaware bans online cottage-food sales under every programme it runs, so
+   * `products_guard_online_food_sales` will not let a Delaware food listing reach `active` at all
+   * and there is no listing to assert against. N.J. Admin. Code 8:24-11.5(a)(5) wants "the name of
+   * the municipality in which the cottage food operator prepares the cottage food product ...
+   * followed by either 'New Jersey' or 'NJ'".
+   */
+  it("still gives the town to a state that wants it as part of a longer phrase", async () => {
+    const row = await disclose(await listingIn("NJ"));
+    expect(row?.required_elements).toContain("municipality_state");
+    expect(row?.municipality).toBe("Testville");
   });
 
   /** A narrowed set means nothing without a pre-sale duty, and the CHECK constraint says so. */

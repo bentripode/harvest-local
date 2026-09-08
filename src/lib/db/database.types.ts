@@ -1231,6 +1231,7 @@ export type Database = {
           expiration_date: string | null
           id: string
           issued_date: string | null
+          issuing_county: string | null
           issuing_state: string | null
           license_number: string | null
           license_type: string
@@ -1251,6 +1252,7 @@ export type Database = {
           expiration_date?: string | null
           id?: string
           issued_date?: string | null
+          issuing_county?: string | null
           issuing_state?: string | null
           license_number?: string | null
           license_type: string
@@ -1271,6 +1273,7 @@ export type Database = {
           expiration_date?: string | null
           id?: string
           issued_date?: string | null
+          issuing_county?: string | null
           issuing_state?: string | null
           license_number?: string | null
           license_type?: string
@@ -2237,6 +2240,7 @@ export type Database = {
           address_withheld: boolean
           allergens: string[]
           business_name: string
+          county_of_approval: string
           disclaimer_all_caps: boolean
           disclaimer_min_pt: number
           disclaimer_text: string

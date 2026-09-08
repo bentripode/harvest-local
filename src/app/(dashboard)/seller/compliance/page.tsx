@@ -21,6 +21,7 @@ import { getSellerObligations } from "@/lib/compliance/obligation-queries";
 import { ObligationsCard } from "@/components/obligations-card";
 import { getChosenProgram, programRequirements, programSummary } from "@/lib/compliance/onboarding";
 import { licenseTypeLabel } from "@/lib/licenses/labels";
+import { getSellerLabelNeeds } from "@/lib/labels/queries";
 import {
   buildDocumentChecklist,
   displayNumber,
@@ -69,6 +70,7 @@ export default async function CompliancePage() {
     program,
     buckets,
     obligations,
+    labelNeeds,
   ] = await Promise.all([
     getRevenueStatus(seller.id, seller.home_state),
     getSellerLicenses(seller.id),
@@ -79,6 +81,7 @@ export default async function CompliancePage() {
     getChosenProgram(seller.id),
     getRevenueBuckets(seller.id),
     getSellerObligations(seller.id),
+    getSellerLabelNeeds(seller.id),
   ]);
 
   const checklist = buildDocumentChecklist(licenses, permitRequired);
@@ -290,6 +293,9 @@ export default async function CompliancePage() {
                     sellerId={seller.id}
                     defaultState={seller.home_state}
                     replacing={item.status === "rejected" || item.status === "expired"}
+                    needsCountyOfApproval={
+                      labelNeeds.needsCountyOfApproval && item.spec.type === "cottage_food"
+                    }
                   />
                 </div>
               )}
@@ -307,6 +313,7 @@ export default async function CompliancePage() {
                 <span className="min-w-0 flex-1 font-medium">
                   {licenseTypeLabel(l.license_type)}
                   {l.issuing_state ? ` · ${stateName(l.issuing_state)}` : ""}
+                  {l.issuing_county ? ` · ${l.issuing_county} County` : ""}
                 </span>
                 <Badge variant={STATUS_VARIANT[l.verification_status as LicenseStatus]}>
                   {l.verification_status}

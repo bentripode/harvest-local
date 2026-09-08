@@ -26,12 +26,19 @@ export function DocumentUploadForm({
   sellerId,
   defaultState,
   replacing,
+  needsCountyOfApproval,
 }: {
   spec: DocumentSpec;
   sellerId: string;
   defaultState?: string | null;
   /** True when one is already on file — the wording changes to "replace". */
   replacing?: boolean;
+  /**
+   * Whether the seller's state wants the county that ISSUED the registration on the label.
+   * California only (Cal. Health & Saf. Code 114365.3(e)(4) and (f)(1)), and asked for here rather
+   * than on the profile because it belongs to this registration and not to the seller.
+   */
+  needsCountyOfApproval?: boolean;
 }) {
   const [state, action] = useActionState<LicenseFormState, FormData>(addLicenseAction, {});
   const docPathRef = useRef<HTMLInputElement>(null);
@@ -120,6 +127,24 @@ export function DocumentUploadForm({
                 </option>
               ))}
             </select>
+          </div>
+        ) : null}
+
+        {needsCountyOfApproval ? (
+          <div className="space-y-1.5">
+            <Label htmlFor={id("county")}>County of approval</Label>
+            <Input
+              id={id("county")}
+              name="issuingCounty"
+              autoComplete="off"
+              placeholder="e.g. Alameda"
+              required
+            />
+            <p className="text-muted-foreground text-xs">
+              The county whose environmental health department issued this registration — not the
+              county you live in. California requires it on the label and in any online listing, and
+              a registration from one county is valid statewide.
+            </p>
           </div>
         ) : null}
 

@@ -76,6 +76,7 @@ function Section({
                       <span className="text-sm font-medium">
                         {licenseTypeLabel(l.licenseType)}
                         {l.issuingState ? ` · ${stateName(l.issuingState)}` : ""}
+                        {l.issuingCounty ? ` · ${l.issuingCounty} County` : ""}
                       </span>
                       {l.sellerIsPaused ? (
                         <Badge variant="destructive">

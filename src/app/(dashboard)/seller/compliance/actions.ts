@@ -26,6 +26,8 @@ const schema = z.object({
   ]),
   licenseNumber: z.string().max(120).optional().or(z.literal("")),
   issuingState: z.enum(US_STATES).optional().or(z.literal("")),
+  // California only. A property of the registration, not of the seller — see 114365.3(e)(4).
+  issuingCounty: z.string().max(120).optional().or(z.literal("")),
   issuedDate: z.string().optional().or(z.literal("")),
   expirationDate: z.string().optional().or(z.literal("")),
   documentPath: z.string().max(400),
@@ -59,6 +61,7 @@ export async function addLicenseAction(
     licenseType: formData.get("licenseType"),
     licenseNumber: formData.get("licenseNumber") ?? "",
     issuingState: formData.get("issuingState") ?? "",
+    issuingCounty: formData.get("issuingCounty") ?? "",
     issuedDate: formData.get("issuedDate") ?? "",
     expirationDate: formData.get("expirationDate") ?? "",
     documentPath: formData.get("documentPath") ?? "",
@@ -111,6 +114,9 @@ export async function addLicenseAction(
       license_number: isTaxId ? null : d.licenseNumber || null,
       // Null only for a tax ID; every other type validated one above.
       issuing_state: d.issuingState || null,
+      // The county whose enforcement agency issued it. Asked for only where the state's label rule
+      // names county_of_approval, which today is California alone.
+      issuing_county: d.issuingCounty?.trim() || null,
       issued_date: d.issuedDate || null,
       expiration_date: d.expirationDate || null,
       document_path: d.documentPath,

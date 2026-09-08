@@ -63,7 +63,7 @@ export async function getSellerLicenses(sellerId: string): Promise<SellerLicense
     .from("seller_licenses")
     // One literal, not a concatenation — supabase-js infers the row shape from the string itself.
     .select(
-      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, reviewed_by, purged_at, created_at, updated_at",
+      "id, seller_id, license_type, license_number, tax_id_last4, issuing_state, issuing_county, issued_date, expiration_date, document_path, verification_status, review_note, reviewed_at, reviewed_by, purged_at, created_at, updated_at",
     )
     .eq("seller_id", sellerId)
     .order("expiration_date", { ascending: true });

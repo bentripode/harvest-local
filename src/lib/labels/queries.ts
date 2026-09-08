@@ -63,7 +63,7 @@ export async function getLabelContext(
     // A permit number for the label comes from a verified licence, not a rejected or pending one.
     supabase
       .from("seller_licenses")
-      .select("license_number, license_type, verification_status")
+      .select("license_number, license_type, verification_status, issuing_county")
       .eq("seller_id", sellerId)
       .eq("verification_status", "verified")
       .not("license_number", "is", null)
@@ -133,6 +133,10 @@ export async function getLabelContext(
       // Issued by the state so the seller need not publish their home address.
       producerIdNumber: seller.producer_id_number,
       permitNumber: licence?.license_number ?? null,
+      // From the SAME verified row as the number: Cal. Health & Saf. Code 114365.3(e)(4) states them
+      // as one item, and a registration is valid statewide under 114365(a)(4), so this is the county
+      // that issued it and never the seller's own town.
+      countyOfApproval: licence?.issuing_county ?? null,
       municipality: address?.city ?? null,
       stateName: stateName(seller.home_state),
       ingredients: product.ingredients ?? [],
@@ -184,6 +188,13 @@ export interface SellerLabelNeeds {
   mailingAddressIsAlternative: boolean;
   /** True only where the number is required outright, false where it is one half of an either/or. */
   phoneRequired: boolean;
+  /**
+   * Whether this state wants the county that ISSUED the registration on the label. California only
+   * (Cal. Health & Saf. Code 114365.3(e)(4) and (f)(1)). Unlike the three above it is a property of
+   * the registration rather than of the seller, so it is collected on the licence, not here — this
+   * flag is what makes the licence form ask for it.
+   */
+  needsCountyOfApproval: boolean;
 }
 
 export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabelNeeds> {
@@ -194,6 +205,7 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     phoneRequired: false,
     needsIdNumber: false,
     mailingAddressIsAlternative: false,
+    needsCountyOfApproval: false,
   };
   const supabase = await createClient();
 
@@ -237,5 +249,6 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     phoneRequired: (rule.required_elements ?? []).includes("producer_phone"),
     needsIdNumber: asks("producer_id_number"),
     mailingAddressIsAlternative: alternatives.some((g) => g.includes("mailing_address")),
+    needsCountyOfApproval: asks("county_of_approval"),
   };
 }

@@ -87,7 +87,7 @@ export async function describePredisclosureBlock(
         : Promise.resolve({ data: null }),
       supabase
         .from("seller_licenses")
-        .select("license_number")
+        .select("license_number, issuing_county")
         .eq("seller_id", sellerId)
         .eq("verification_status", "verified")
         .not("license_number", "is", null)
@@ -172,6 +172,10 @@ export async function describePredisclosureBlock(
     producerIdNumber: seller.producer_id_number,
     producerEmail: viewer?.email ?? null,
     permitNumber: licence?.license_number ?? null,
+    // California is the state this matters for, and it is a predisclosure state — so a food listing
+    // with no county of approval recorded is held here rather than going live as an advertisement
+    // short of what 114365.3(f)(1) requires.
+    countyOfApproval: licence?.issuing_county ?? null,
     municipality: address?.city ?? null,
     stateName: stateName(seller.home_state),
     ingredients: parseIngredients(input.ingredients ?? ""),
