@@ -245,6 +245,9 @@ describeDb("pre-checkout label disclosure", () => {
         // The county whose agency issued the registration, read off the same licence row as the
         // permit number — Cal. Health & Saf. Code 114365.3(e)(4) states the two as one item.
         "county_of_approval",
+        // A DIFFERENT county: where the food was made, which Colo. Rev. Stat. 25-4-1614(3)(a)(II)
+        // asks for since HB26-1033 replaced the address that subparagraph used to want.
+        "county_of_preparation",
         "handling_instructions",
         "product_name",
         "regulator_website_url",

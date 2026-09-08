@@ -1409,6 +1409,7 @@ export type Database = {
           mailing_address: string | null
           pause_reason: string | null
           pickup_address_id: string | null
+          preparation_county: string | null
           producer_id_number: string | null
           profile_id: string
           storefront_slug: string
@@ -1437,6 +1438,7 @@ export type Database = {
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
+          preparation_county?: string | null
           producer_id_number?: string | null
           profile_id: string
           storefront_slug: string
@@ -1465,6 +1467,7 @@ export type Database = {
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
+          preparation_county?: string | null
           producer_id_number?: string | null
           profile_id?: string
           storefront_slug?: string
@@ -2244,6 +2247,7 @@ export type Database = {
           allergens: string[]
           business_name: string
           county_of_approval: string
+          county_of_preparation: string
           disclaimer_all_caps: boolean
           disclaimer_min_pt: number
           disclaimer_text: string

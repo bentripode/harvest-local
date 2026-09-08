@@ -51,7 +51,7 @@ export async function getLabelContext(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number, preparation_county",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -143,6 +143,8 @@ export async function getLabelContext(
       // as one item, and a registration is valid statewide under 114365(a)(4), so this is the county
       // that issued it and never the seller's own town.
       countyOfApproval: licence?.issuing_county ?? null,
+      // A different county: where the food was made, not which agency approved it.
+      countyOfPreparation: seller.preparation_county,
       municipality: address?.city ?? null,
       stateName: stateName(seller.home_state),
       ingredients: product.ingredients ?? [],
@@ -201,6 +203,12 @@ export interface SellerLabelNeeds {
    * flag is what makes the licence form ask for it.
    */
   needsCountyOfApproval: boolean;
+  /**
+   * Whether this state wants the county the food was PREPARED in. Colorado only (Colo. Rev. Stat.
+   * 25-4-1614(3)(a)(II) as amended by HB26-1033). A fact about the seller, so unlike the county of
+   * approval it is collected here, on the settings page.
+   */
+  needsPreparationCounty: boolean;
 }
 
 export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabelNeeds> {
@@ -212,6 +220,7 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     needsIdNumber: false,
     mailingAddressIsAlternative: false,
     needsCountyOfApproval: false,
+    needsPreparationCounty: false,
   };
   const supabase = await createClient();
 
@@ -256,5 +265,6 @@ export async function getSellerLabelNeeds(sellerId: string): Promise<SellerLabel
     needsIdNumber: asks("producer_id_number"),
     mailingAddressIsAlternative: alternatives.some((g) => g.includes("mailing_address")),
     needsCountyOfApproval: asks("county_of_approval"),
+    needsPreparationCounty: asks("county_of_preparation"),
   };
 }

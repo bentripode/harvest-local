@@ -275,7 +275,10 @@ describeDb("what a state requires before the sale", () => {
       .map((r) => (r.state_food_programs as unknown as { state_code: string }).state_code)
       .sort();
 
-    expect(publishing).toEqual(["IN", "NM", "OK", "TN"]);
+    // Arkansas joined when 20-57-505(b)(3) was finally read: it puts the whole of (a) on the
+    // listing page, so the address is genuinely owed there — unless the producer holds the
+    // Department identification number, which the substitution then lifts.
+    expect(publishing).toEqual(["AR", "IN", "NM", "OK", "TN"]);
   });
 
   /**

@@ -308,3 +308,35 @@ export async function saveProducerIdNumberAction(
   revalidatePath("/seller/products");
   return { ok: true };
 }
+
+export type PreparationCountyState = { ok?: boolean; error?: string };
+
+/**
+ * The county a seller prepares their food in.
+ *
+ * Colo. Rev. Stat. 25-4-1614(3)(a)(II), as amended by HB26-1033, requires "the county in which the
+ * food was prepared" on the label — it replaced the street address that subparagraph used to ask
+ * for, so a Colorado seller now publishes a county instead of an address. Plain text, printed
+ * verbatim: normalising "El Paso" into anything else would be us rewriting a legal label field.
+ */
+export async function savePreparationCountyAction(
+  _prev: PreparationCountyState,
+  formData: FormData,
+): Promise<PreparationCountyState> {
+  const { seller } = await getSellerContext();
+  if (!seller) return { error: "Finish onboarding first." };
+
+  const raw = String(formData.get("preparationCounty") ?? "").trim();
+  if (raw.length > 120) return { error: "That is too long for a county name." };
+
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("seller_profiles")
+    .update({ preparation_county: raw || null })
+    .eq("id", seller.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/seller/settings");
+  revalidatePath("/seller/products");
+  return { ok: true };
+}

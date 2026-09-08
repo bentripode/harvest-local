@@ -70,7 +70,7 @@ export async function describePredisclosureBlock(
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number",
+      "business_name, home_state, food_program_id, pickup_address_id, homemade_food_statement, mailing_address, contact_phone, producer_id_number, preparation_county",
     )
     .eq("id", sellerId)
     .maybeSingle();
@@ -182,6 +182,7 @@ export async function describePredisclosureBlock(
     // with no county of approval recorded is held here rather than going live as an advertisement
     // short of what 114365.3(f)(1) requires.
     countyOfApproval: licence?.issuing_county ?? null,
+    countyOfPreparation: seller.preparation_county,
     municipality: address?.city ?? null,
     stateName: stateName(seller.home_state),
     ingredients: parseIngredients(input.ingredients ?? ""),

@@ -304,6 +304,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase start` | Local Postgres + Auth + Storage (needs Docker) |
 | `npx supabase db reset` | Drop, recreate, re-run all migrations + seed |
 | `npx supabase migration new <name>` | New migration file |
+| `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
 | `npx supabase gen types typescript --local > src/lib/db/database.types.ts` | Regenerate DB types |
 | `stripe listen --forward-to localhost:3000/api/webhooks/stripe` | Forward Stripe test webhooks locally |
@@ -826,14 +827,23 @@ phone separately) and **TX** (`437.0193(b-1)`, the address). Composes with Texas
 row still owed one** — its number is issued "to protect the producer's safety" — and is deliberately
 not converted, because Act 1040 of 2021 will not extract from either state host.
 
-**`county_of_approval`** is California's, and lives on `seller_licenses.issuing_county` rather than
-the profile: 114365.3(e)(4) states the number and the county as one item, and 114365(a)(4) makes a
-registration valid statewide, so the issuing county is a property of the *registration* and is
-routinely not the seller's town.
+**Two states want a county, and they want different ones.** `county_of_approval` is California's —
+the county of the agency that *issued* the registration — and lives on `seller_licenses
+.issuing_county`, because 114365.3(e)(4) states the number and the county as one item and
+114365(a)(4) makes a registration valid statewide. `county_of_preparation` is Colorado's — "the
+county in which the food was prepared", 25-4-1614(3)(a)(II) as amended by **HB26-1033, signed
+2026-06-04** — and lives on `seller_profiles.preparation_county`, because it is a fact about the
+seller. A producer may be registered in one county and bake in another, so collapsing them would
+print the wrong county; both used to resolve to the pickup-address **town**, which is neither.
 
-One gap is **recorded and not fixed**: Colorado requires `municipality` and its recorded reading of
-25-4-1614(3) accounts for (3)(a)(II), (IV), (V) and (VI) but not (I) or (III), where a locality
-would be. Its source is a compilation and the statute PDFs do not extract.
+**Reading statutes: `node scripts/pdftext.mjs`.** The old hand-rolled extractor understood only
+Flate streams drawn with `(literal) Tj`, so hex strings, Type0/CID fonts and object streams came
+back as title pages — which is the *only* reason Arkansas and Colorado sat unverified. Both are now
+closed: AR § 20-57-505 (the identification number replaces name+address+phone, and **(b)(3) makes
+Arkansas a predisclosure state**, which we had recorded as false) and CO (the locality limb is real
+but is a county; `permit_number` could never resolve and became `producer_id_number`; and the stored
+disclaimer said "may also *contain common food allergies*" where the statute says "may also
+**process common food allergens**"). **A PDF that downloads is not a PDF you have read.**
 
 **A required element the seller hasn't supplied is a compliance gap, not a blank line.** `renderLabel`
 drops it into `missing`, and `ProductDisclosure` now carries that through instead of discarding it —
