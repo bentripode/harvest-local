@@ -81,6 +81,7 @@ const schema = z.object({
   local_preemption: z.coerce.boolean().optional(),
 
   source_url: z.string().trim().url(),
+  source_version: z.string().trim().max(400).optional().or(z.literal("")),
   // Which button was pressed. Defaults to "verify" so anything omitting it keeps the previous
   // behaviour rather than silently un-verifying a row.
   intent: z.enum(["verify", "save"]).default("verify"),
@@ -165,6 +166,7 @@ export async function reviewFoodProgramAction(
       application_url: d.application_url || null,
       local_preemption: !!d.local_preemption,
       source_url: d.source_url,
+      source_version: d.source_version || null,
       // Only moves when someone actually went and looked.
       ...(d.intent === "verify"
         ? {

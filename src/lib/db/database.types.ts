@@ -1693,8 +1693,15 @@ export type Database = {
           recipe_note: string | null
           retail_allowed: boolean | null
           revenue_cap: number | null
+          source_changed_at: string | null
           source_checked_at: string
+          source_content_hash: string | null
+          source_etag: string | null
+          source_fetched_at: string | null
+          source_last_modified: string | null
+          source_signal: string | null
           source_url: string
+          source_version: string | null
           state_code: string
           training_note: string | null
           training_required: string
@@ -1733,8 +1740,15 @@ export type Database = {
           recipe_note?: string | null
           retail_allowed?: boolean | null
           revenue_cap?: number | null
+          source_changed_at?: string | null
           source_checked_at: string
+          source_content_hash?: string | null
+          source_etag?: string | null
+          source_fetched_at?: string | null
+          source_last_modified?: string | null
+          source_signal?: string | null
           source_url: string
+          source_version?: string | null
           state_code: string
           training_note?: string | null
           training_required?: string
@@ -1773,8 +1787,15 @@ export type Database = {
           recipe_note?: string | null
           retail_allowed?: boolean | null
           revenue_cap?: number | null
+          source_changed_at?: string | null
           source_checked_at?: string
+          source_content_hash?: string | null
+          source_etag?: string | null
+          source_fetched_at?: string | null
+          source_last_modified?: string | null
+          source_signal?: string | null
           source_url?: string
+          source_version?: string | null
           state_code?: string
           training_note?: string | null
           training_required?: string
@@ -1819,8 +1840,15 @@ export type Database = {
           regulator_website_url: string | null
           required_elements: string[]
           seller_statement_prompt: string | null
+          source_changed_at: string | null
           source_checked_at: string
+          source_content_hash: string | null
+          source_etag: string | null
+          source_fetched_at: string | null
+          source_last_modified: string | null
+          source_signal: string | null
           source_url: string
+          source_version: string | null
           updated_at: string
           verified_at: string | null
           verified_by: string | null
@@ -1842,8 +1870,15 @@ export type Database = {
           regulator_website_url?: string | null
           required_elements?: string[]
           seller_statement_prompt?: string | null
+          source_changed_at?: string | null
           source_checked_at: string
+          source_content_hash?: string | null
+          source_etag?: string | null
+          source_fetched_at?: string | null
+          source_last_modified?: string | null
+          source_signal?: string | null
           source_url: string
+          source_version?: string | null
           updated_at?: string
           verified_at?: string | null
           verified_by?: string | null
@@ -1865,8 +1900,15 @@ export type Database = {
           regulator_website_url?: string | null
           required_elements?: string[]
           seller_statement_prompt?: string | null
+          source_changed_at?: string | null
           source_checked_at?: string
+          source_content_hash?: string | null
+          source_etag?: string | null
+          source_fetched_at?: string | null
+          source_last_modified?: string | null
+          source_signal?: string | null
           source_url?: string
+          source_version?: string | null
           updated_at?: string
           verified_at?: string | null
           verified_by?: string | null
@@ -2262,6 +2304,19 @@ export type Database = {
       set_referral_reward_coupon: {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
+      }
+      stale_compliance_sources: {
+        Args: never
+        Returns: {
+          in_label_rule: boolean
+          program_id: string
+          program_name: string
+          source_changed_at: string
+          source_checked_at: string
+          source_signal: string
+          source_url: string
+          state_code: string
+        }[]
       }
       state_allows_online_food_sales: {
         Args: { p_state_code: string }

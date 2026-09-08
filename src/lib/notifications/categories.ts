@@ -32,6 +32,7 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   compliance_rule_blocked_listings: "compliance",
   compliance_rule_relaxed: "compliance",
   compliance_label_changed: "compliance",
+  compliance_source_moved: "admin",
   license_threshold_approaching: "compliance",
   license_threshold_reached: "compliance",
   new_message: "messages",

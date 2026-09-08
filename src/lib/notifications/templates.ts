@@ -29,6 +29,12 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/seller/compliance",
     ctaLabel: "View compliance",
   },
+  compliance_source_moved: {
+    subject: (p) =>
+      `${String(p.count ?? "Some")} compliance source${Number(p.count) === 1 ? "" : "s"} changed — re-read needed`,
+    ctaPath: "/admin/programs",
+    ctaLabel: "Review programmes",
+  },
   compliance_rule_blocked_listings: {
     subject: (p) =>
       `${String(p.state ?? "Your state")} changed its rules — ${String(p.count ?? "some")} of your listings are back in draft`,

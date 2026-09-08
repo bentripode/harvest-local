@@ -16,6 +16,10 @@ const usd = (v: unknown) => {
 export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
   revenue_cap_reached: (p) =>
     `${s(p.business_name, "Your storefront")} reached ${s(p.state)}'s cottage-food sales cap (${usd(p.gross)} of ${usd(p.cap)}) — sales are paused for the rest of the year.`,
+  compliance_source_moved: (p) =>
+    `${s(p.count)} compliance source document${Number(p.count) === 1 ? " has" : "s have"} changed since somebody last read ${Number(p.count) === 1 ? "it" : "them"}.${
+      p.weak ? " These hosts send no ETag, so this is a byte comparison and may be a re-render rather than a real amendment." : ""
+    }`,
   compliance_rule_blocked_listings: (p) =>
     `${s(p.state)} changed what ${s(p.program_name, "your programme")} allows — ${s(p.reason)} — so ${Number(p.count) === 1 ? "1 listing has" : `${s(p.count)} listings have`} been moved back to draft. Nothing was deleted: ${s(p.titles)}.`,
   compliance_rule_relaxed: (p) =>

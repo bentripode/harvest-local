@@ -159,6 +159,31 @@ export function ProgramReviewForm({ program }: { program: StateFoodProgram }) {
         <Field label="Source URL" wide>
           <Input name="source_url" type="url" defaultValue={program.source_url} required />
         </Field>
+        <Field label="Amendment line (paste it verbatim)" wide>
+          <Input
+            name="source_version"
+            defaultValue={program.source_version ?? ""}
+            placeholder="Amended by Chapter 433, 2026 General Session"
+          />
+          <p className="text-muted-foreground mt-1 text-xs">
+            The line the publisher prints at the foot of the section. It is the strongest staleness
+            signal there is: a later re-read that finds a different session year means the law
+            moved, full stop. Vermont&apos;s rule was replaced while its section numbers stayed the
+            same — this is what would have caught it.
+          </p>
+        </Field>
+        {program.source_changed_at ? (
+          <p className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+            <strong>This source has moved since it was last read</strong> (
+            {new Date(program.source_changed_at).toLocaleDateString(undefined, {
+              dateStyle: "medium",
+            })}
+            {program.source_signal === "content_hash"
+              ? " — detected by comparing bytes, since this host sends no ETag, so it may be a re-render rather than an amendment"
+              : " — reported by the publisher"}
+            ). Re-read it before saving.
+          </p>
+        ) : null}
       </Section>
 
       {state.error ? <p className="text-destructive text-sm">{state.error}</p> : null}

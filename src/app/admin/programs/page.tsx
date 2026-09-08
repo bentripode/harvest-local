@@ -5,6 +5,7 @@ import { getAllStatePrograms, type StateProgramSummary } from "@/lib/compliance/
 import { getUnmappedFoodCategories } from "@/lib/compliance/categories";
 import { getProgramReviewStatus } from "@/lib/compliance/programs";
 import { stateName } from "@/lib/geo/state";
+import { createClient } from "@/lib/supabase/server";
 import { formatUsd, toCents } from "@/lib/money";
 
 export const metadata = { title: "Food programs — Admin" };
@@ -19,6 +20,12 @@ export default async function AdminProgramsPage() {
     getUnmappedFoodCategories(),
     getProgramReviewStatus(),
   ]);
+
+  // Sources whose document has moved since a person last read them. Reports only; nothing here
+  // clears verified_at, because that is an attestation and no job withdraws one.
+  const supabase = await createClient();
+  const { data: staleRows } = await supabase.rpc("stale_compliance_sources");
+  const stale = staleRows ?? [];
   const blocked = states.filter((s) => s.foodSalesBlocked);
   const programCount = states.reduce((n, s) => n + s.programs.length, 0);
   const unverified = states.reduce((n, s) => n + s.programs.filter((p) => !p.verified_at).length, 0);
@@ -44,6 +51,29 @@ export default async function AdminProgramsPage() {
             but a summary rather than statute, and its own pages say so. Nothing here should gate a
             real seller until a human has checked it against the state&apos;s own rules. Open a
             program to review and verify it; start with the states you actually have sellers in.
+          </p>
+        ) : null}
+
+        {stale.length > 0 ? (
+          <p className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+            <strong>
+              {stale.length} source document{stale.length === 1 ? " has" : "s have"} changed since
+              somebody last read {stale.length === 1 ? "it" : "them"}.
+            </strong>{" "}
+            A nightly job watches every source URL. It cannot tell you the law changed — only that
+            the document moved, which is the cue for a person to look. Vermont&apos;s rule was
+            replaced while its section numbers stayed the same, so the citation still resolved and
+            the content underneath it had been swapped:{" "}
+            {stale.map((row, i) => (
+              <span key={`${row.program_id}-${row.in_label_rule}`}>
+                {i > 0 ? ", " : null}
+                <Link href={`/admin/programs/${row.program_id}`} className="underline">
+                  {row.state_code} {row.program_name}
+                </Link>
+                {row.in_label_rule ? " (label rule)" : null}
+              </span>
+            ))}
+            .
           </p>
         ) : null}
 
