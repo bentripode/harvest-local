@@ -16,12 +16,18 @@ import type { ComplianceBlock } from "@/lib/compliance/blocks";
 /**
  * Publication is refused where the listing itself is the legal disclosure.
  *
- * Eleven jurisdictions require the label information to reach the buyer BEFORE the sale, and in
- * those the storefront listing is not a description of the compliance artifact — it IS the
- * compliance artifact. Tenn. Code 53-1-118(b)(5)(A)(iv) names "the webpage on which the homemade
- * food item is offered for sale"; Ind. Code 16-42-5.3-5(b) says a vendor "shall post the label of
- * each food product on the vendor's website"; Utah and Wyoming make being informed a precondition of
- * the exemption the seller is relying on.
+ * Eleven jurisdictions require information to reach the buyer BEFORE the sale, and in those the
+ * storefront listing is not a description of the compliance artifact — it IS the compliance
+ * artifact. Tenn. Code 53-1-118(b)(5)(A)(iv) names "the webpage on which the homemade food item is
+ * offered for sale"; Ind. Code 16-42-5.3-5(b) says a vendor "shall post the label of each food
+ * product on the vendor's website"; Utah and Wyoming make being informed a precondition of the
+ * exemption the seller is relying on.
+ *
+ * WHAT is owed varies, and treating it as one thing was a defect. Four states put the whole label on
+ * the page (IN, NM, OK, TN). The rest ask for much less: California's § 114365.3(f) names three
+ * items, Minnesota's 28A.152 subd. 2(d) and Illinois's 410 ILCS 625/4(b)(10) name a single sentence,
+ * and Utah's § 4-5a-104(6) names a single fact. `predisclosure_elements` records the difference, and
+ * a seller is held only to what their own state asked for.
  *
  * `DisclosureGapNotice` already tells a seller when a live listing is short of what their state
  * requires. This is the other half: in a predisclosure state we do not let it go live incomplete in
@@ -104,29 +110,40 @@ export async function describePredisclosureBlock(
   const { data: ruleRow } = await supabase
     .from("state_label_rules")
     .select(
-      "required_elements, optional_elements, element_alternatives, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required, address_withheld_until_payment",
+      "required_elements, optional_elements, element_alternatives, predisclosure_elements, predisclosure_disclaimer_text, regulator_website_url, seller_statement_prompt, disclaimer_text, disclaimer_min_pt, disclaimer_all_caps, metric_required, predisclosure_required, address_withheld_until_payment",
     )
     .eq("program_id", program.id)
     .maybeSingle();
   if (!ruleRow?.predisclosure_required) return null;
 
-  // Where the state permits the address to be held back until after payment (Tex. Health & Safety
-  // Code 437.0194(c)(1)), it is not part of what the LISTING must carry, so it must not block
-  // publication. It is still required on the printed label under 437.0193(b), which `canPrint()`
-  // enforces separately on the seller's own label page.
+  // What the LISTING must carry, which is not always what the jar must carry. Where the state named
+  // a narrower pre-sale set we hold publication against that set alone — blocking a Utah seller for
+  // want of an address would be enforcing § 4-5a-104(3), which governs the label, against
+  // § 4-5a-104(6), which asks only that the buyer be told the food is not inspected.
+  //
+  // Null means the whole label is genuinely owed before the sale (IN, NM, OK, TN), and an empty
+  // array means the statement alone (MN, IL). `canPrint()` still holds the full label to the full
+  // rule on the seller's own label page.
+  const narrowed = ruleRow.predisclosure_elements;
+
+  // Texas is the other shape: the full label MINUS the address, on a timing rule (Tex. Health &
+  // Safety Code 437.0194(c)(1)). Still required on the printed label under 437.0193(b). The two
+  // compose — a narrowed set that happened to name the address would still drop it here.
   const withheld = !!ruleRow.address_withheld_until_payment;
 
   const rule: LabelRule = {
-    requiredElements: (ruleRow.required_elements ?? []).filter(
+    requiredElements: (narrowed ?? ruleRow.required_elements ?? []).filter(
       (e) => !(withheld && (e === "producer_address" || e === "municipality")),
     ),
-    optionalElements: ruleRow.optional_elements ?? [],
-    elementAlternatives: parseAlternatives(ruleRow.element_alternatives).filter(
+    optionalElements: narrowed ? [] : (ruleRow.optional_elements ?? []),
+    elementAlternatives: (narrowed ? [] : parseAlternatives(ruleRow.element_alternatives)).filter(
       (group) => !(withheld && group.includes("producer_address")),
     ),
     regulatorWebsiteUrl: ruleRow.regulator_website_url,
     sellerStatementPrompt: ruleRow.seller_statement_prompt,
-    disclaimerText: ruleRow.disclaimer_text,
+    // Illinois prescribes a shorter sentence for the online interface than for the package
+    // (410 ILCS 625/4(b)(10) against (b)(7)(E)), and the listing is the interface.
+    disclaimerText: ruleRow.predisclosure_disclaimer_text ?? ruleRow.disclaimer_text,
     disclaimerMinPt: ruleRow.disclaimer_min_pt,
     disclaimerAllCaps: ruleRow.disclaimer_all_caps ?? false,
     disclaimerFontNote: null,
