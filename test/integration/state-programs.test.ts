@@ -90,6 +90,13 @@ describeDb("state food programs", () => {
     //
     // States with several programmes stay off this list when only one of them bans it: KY, ME, NH
     // and RI each have a banned row and a permitted one.
+    //
+    // NEVADA HAS A DIARY DATE. Its ban survived the 2025 rewrite — SB 466 § 22(1)(a) (ch. 512,
+    // Statutes of Nevada 2025, in force 2025-07-01) still requires "an in-person transaction that
+    // does not involve selling the food item by telephone or via the Internet" — but AB 352 § 16
+    // (ch. 420) authorises internet selling from 2027-07-01. On that date Nevada leaves this list,
+    // and nothing in the schema will remind anyone: `program-review-scan` flags rows nobody has
+    // looked at lately, which is not the same as a row with a known future effective date.
     expect(blocked).toEqual(["DE", "MI", "MS", "NV", "SD", "WA"]);
   });
 
