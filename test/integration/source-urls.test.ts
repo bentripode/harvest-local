@@ -99,10 +99,20 @@ describeDb("compliance source URLs", () => {
       .from("state_label_rules")
       .select("source_url, state_food_programs!inner(state_code, ordinal)")
       .eq("state_food_programs.state_code", "KY");
-    for (const row of rules ?? []) {
-      expect(row.source_url).toContain("902");
-      expect(row.source_url).toContain("045/090");
-    }
+    // Kentucky's two rows now diverge, and the divergence is the point. 902 KAR 45:090 is the right
+    // instrument for the MICROPROCESSOR, whose label it sends to general law without prescribing a
+    // sentence. It is the wrong one for the PROCESSOR, because 45:090(5)(a) only says the product
+    // shall "be labeled as required by KRS 217.136(3)" — the statute is where the sentence lives,
+    // which is why that row never verified against the regulation.
+    const byOrdinal = new Map(
+      (rules ?? []).map((r) => [
+        (r.state_food_programs as unknown as { ordinal: number }).ordinal,
+        r.source_url as string,
+      ]),
+    );
+    expect(byOrdinal.get(1)).toContain("statutes/statute.aspx");
+    expect(byOrdinal.get(2)).toContain("902");
+    expect(byOrdinal.get(2)).toContain("045/090");
 
     // Arkansas is the mirror image: programme at 20-57-504, labelling one section along at 505,
     // and the 504 page does not contain 505 — so it was not silently reused.

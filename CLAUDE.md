@@ -839,14 +839,14 @@ print the wrong county; both used to resolve to the pickup-address **town**, whi
 
 **Quoted law is swept, not spot-checked.** `scripts/verify-disclaimers.mjs` fetches each rule's own
 `source_url` and looks for the stored `disclaimer_text` / `placard_text` in it — 55 strings, currently
-**42 exact**. It found a full stop we had added to California's "Made in a Home Kitchen" (114365.3(e)(1)
+**42 exact**. A second pass chased every open row to primary text: **47 of 53 exact**, the rest recorded on the row. It found full stops added to California's "Made in a Home Kitchen" (114365.3(e)(1)
 quotes the words without one, and it was printing at 12pt), and two rows citing documents that *cannot*
 contain their own disclaimer — Colorado's pointed at the amending bill, which reproduces only what it
 amends, and Indiana's at a chapter index of headings. **A right citation and a wrong URL look identical
 until something reads the document.** It also surfaced two things bigger than wording: **Nevada's
 NRS 446.866 is repealed** (2025 Nev. Stat. ch. 420 and 512), and **Kentucky's 902 KAR 45:090 carries no
 disclaimer at all** — it delegates to KRS 217.136(3), which the state's own site reports as superseded.
-Neither is guessed at; both are recorded on the row.
+Neither is guessed at; both are recorded on the row. The follow-up added four more fault types worth knowing: **an expanded abbreviation** (NH prescribes "NH DHHS"; we printed the department's full name), **an invented placard** (AS 17.20.332 wants "a sign indicating that" — substance, no wording — and we stored an all-caps sentence found nowhere in it), **a borrowed statement** (KY's microprocessor row carried the processor route's sentence; 217.137 prescribes no label), and **three more citations that could not contain their own sentence** (TN's amending chapter, IA's chapter index, KY's delegating regulation). Nevada turned out worse than recorded: **every section of NRS ch. 446 is repealed**, not just the cottage-food one. And a mistake worth keeping: following He-P 2300 for New Hampshire replaced a correct sentence with the rule's paraphrase — RSA 143-A:12 V(c) prescribes both sentences verbatim and is the later text. **A source that CONTAINS a sentence is not thereby the source OF it**; the checker rewards documents that hold a match, so follow the delegation upward before believing one.
 
 **Reading statutes: `node scripts/pdftext.mjs`.** The old hand-rolled extractor understood only
 Flate streams drawn with `(literal) Tj`, so hex strings, Type0/CID fonts and object streams came
