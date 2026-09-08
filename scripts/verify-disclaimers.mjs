@@ -33,6 +33,12 @@
  * correctness — it only proves the compilation and our copy agree. The verdict narrows where to
  * look; it does not replace reading the law.
  *
+ * TWO ROWS WILL NEVER PASS HERE, and both are fine. Georgia's rules.sos.ga.gov refuses every
+ * scripted request at the TLS layer — its own root included — and Delaware's regulations.delaware.gov
+ * is client-rendered, so neither yields text to a fetch. Both were read in a browser on 2026-09-08
+ * and their rows record what was found. Do not go chasing them again on the strength of the verdict
+ * alone; read the note first.
+ *
  * Usage: node scripts/verify-disclaimers.mjs [--json <out.json>]
  * Needs SUPABASE_SERVICE_ROLE_KEY and NEXT_PUBLIC_SUPABASE_URL (read from .env.local if present).
  */

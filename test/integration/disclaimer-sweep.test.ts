@@ -190,3 +190,89 @@ describeDb("disclaimers corrected by the sweep follow-up", () => {
     expect((await rule("KY", 1))?.source_url).toContain("statute.aspx");
   });
 });
+
+/**
+ * The last four, reached with a browser after a script could not.
+ *
+ * None of these was a legal question. Georgia's rules site refuses every scripted request at the TLS
+ * layer, Delaware's is client-rendered, New Jersey had only a compilation whose typesetting dropped
+ * a hyphen, and Alabama's row pointed at a summary. Two of the four were carrying wrong text.
+ */
+describeDb("the four sources a script could not fetch", () => {
+  let admin: Db;
+
+  beforeAll(() => {
+    admin = adminDb();
+  });
+
+  afterAll(cleanupAll);
+
+  async function rule(state: string, ordinal: number) {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select(
+        "disclaimer_text, placard_text, required_elements, seller_statement_prompt, source_url, state_food_programs!inner(state_code, ordinal)",
+      )
+      .eq("state_food_programs.state_code", state)
+      .eq("state_food_programs.ordinal", ordinal)
+      .single();
+    return data;
+  }
+
+  /**
+   * 16 Del. Admin. Code 4458A § 8.2.4 closes the quotation BEFORE the full stop, so the sentence
+   * ends at "Inspections". The third added period found, after California and New Hampshire.
+   */
+  it("Delaware loses the full stop that sits outside the quotation", async () => {
+    const de = await rule("DE", 1);
+    expect(de?.disclaimer_text).toBe(
+      "This food is made in a Cottage Food Establishment and is NOT subject to routine Government Food Safety Inspections",
+    );
+    expect(de?.disclaimer_text?.endsWith(".")).toBe(false);
+    // "NOT" is genuinely capitalised and "routine" genuinely present — a normalised reading of the
+    // page had flattened both, which is why raw text mattered.
+    expect(de?.disclaimer_text).toContain("NOT subject to routine");
+  });
+
+  /**
+   * Ala. Code § 22-20-5.1(e) asks for "a statement that the food is not inspected by the department
+   * or local health department" and "a disclaimer that the food may contain allergens" — substance,
+   * no wording. Our sentence was invented, and named the department more narrowly than the statute.
+   */
+  it("Alabama asks the seller for the statement it never prescribed", async () => {
+    const al = await rule("AL", 1);
+    expect(al?.disclaimer_text).toBeNull();
+    expect(al?.required_elements).toContain("seller_statement");
+    expect(al?.seller_statement_prompt).toContain("not inspected by the department");
+    // The federal allergen list is a different thing from the statute's generic caution.
+    expect(al?.required_elements).toContain("allergens");
+  });
+
+  /** Both were right all along; only their sources were unusable. */
+  it("Georgia and New Jersey keep the text a browser confirmed", async () => {
+    expect((await rule("GA", 1))?.disclaimer_text).toBe(
+      "MADE IN A COTTAGE FOOD OPERATION THAT IS NOT SUBJECT TO STATE FOOD SAFETY INSPECTIONS.",
+    );
+    const nj = await rule("NJ", 1);
+    const sentence =
+      "This food is prepared pursuant to N.J.A.C. 8:24-11 in a home kitchen that has not been inspected by the Department of Health.";
+    expect(nj?.disclaimer_text).toBe(sentence);
+    expect(nj?.placard_text).toBe(sentence);
+  });
+
+  /**
+   * Three of the four sat on National Agricultural Law Center summaries. A summary can agree with us
+   * and still be wrong, which is exactly what Delaware's did about a full stop.
+   */
+  it("moves the last compilation sources onto the states' own documents", async () => {
+    for (const [state, ordinal, expected] of [
+      ["AL", 1, "alison.legislature.state.al.us"],
+      ["DE", 1, "regulations.delaware.gov/AdminCode/title16/4458A"],
+      ["NJ", 1, "nj.gov"],
+    ] as const) {
+      const url = (await rule(state, ordinal))?.source_url ?? "";
+      expect(url).toContain(expected);
+      expect(url).not.toContain("nationalaglawcenter.org");
+    }
+  });
+});
