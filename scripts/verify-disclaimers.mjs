@@ -18,12 +18,16 @@
  * choice, not the legislature's. Nothing else is.
  *
  * Verdicts:
- *   EXACT      the stored string appears verbatim in the cited document
- *   DIFFERS    the same words appear, with different characters — read the diff
- *   NOT FOUND  the document does not contain it. Either the citation is wrong, the source is a
- *              summary rather than the law, or the provision has moved
- *   HTTP nnn   the host refused us (findlaw and a few others do)
- *   UNREADABLE fetched, but nothing came out — usually a client-rendered page
+ *   EXACT       the stored string appears verbatim in the cited document
+ *   HYPHENATION the only difference is a hyphen the typesetting lost ("8:24-11" against "8:2411").
+ *               Almost always an artifact, but reported rather than hidden, because a hyphen can be
+ *               real. A hyphen merely broken across a line ("home- produced") counts as EXACT,
+ *               since rejoining it is unambiguous
+ *   DIFFERS     the same words appear, with different characters — read the diff
+ *   NOT FOUND   the document does not contain it. Either the citation is wrong, the source is a
+ *               summary rather than the law, or the provision has moved
+ *   HTTP nnn    the host refused us (Georgia's rules site does, to every script)
+ *   UNREADABLE  fetched, but nothing came out — usually a client-rendered page
  *
  * A NOT FOUND is not proof of an error, and an EXACT against a compilation is not proof of
  * correctness — it only proves the compilation and our copy agree. The verdict narrows where to
@@ -114,6 +118,33 @@ async function body(url) {
   }
 }
 
+/**
+ * Decode an HTML body without assuming UTF-8.
+ *
+ * State rule sites are old, and several serve windows-1252 — New Hampshire's He-P 2300 among them.
+ * Decoding those as UTF-8 turns the curly apostrophe next to a disclaimer into U+FFFD and makes the
+ * sweep report a difference in text that is actually fine. A replacement character is the tell, so
+ * it is what triggers the second attempt.
+ */
+function decodeHtml(buf) {
+  const head = buf.subarray(0, 4096).toString("latin1");
+  const declared = head.match(/charset=["']?\s*([\w-]+)/i)?.[1]?.toLowerCase();
+  const tryDecode = (enc) => {
+    try {
+      return new TextDecoder(enc, { fatal: false }).decode(buf);
+    } catch {
+      return null;
+    }
+  };
+  if (declared && !/^utf-?8$/.test(declared)) {
+    const out = tryDecode(declared);
+    if (out) return out;
+  }
+  const utf8 = buf.toString("utf8");
+  if (!utf8.includes("�")) return utf8;
+  return tryDecode("windows-1252") ?? utf8;
+}
+
 async function toText(buf) {
   if (!buf || buf.length === 0) return "";
   if (buf.subarray(0, 5).toString("latin1") === "%PDF-") {
@@ -135,8 +166,7 @@ async function toText(buf) {
       return "";
     }
   }
-  return buf
-    .toString("utf8")
+  return decodeHtml(buf)
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
@@ -206,6 +236,23 @@ for (const j of jobs) {
     continue;
   }
 
+  // A PDF that breaks "home-produced" across a line comes back as "home- produced". Rejoining a
+  // hyphen to the word after it is unambiguous, so that still counts as found.
+  const rejoin = (x) => glyphs(x).replace(/-\s+/g, "-");
+  if (rejoin(flat).includes(rejoin(stored))) {
+    results.push({ ...j, stored, verdict: "EXACT" });
+    continue;
+  }
+
+  // Losing the hyphen altogether is a different matter — "8:24-11" and "8:2411" are the same
+  // citation typeset two ways, but a missing hyphen COULD be real. Reported as its own verdict so
+  // it is neither hidden nor confused with a wording difference.
+  const unhyphen = (x) => glyphs(x).replace(/-/g, "");
+  if (unhyphen(flat).includes(unhyphen(stored))) {
+    results.push({ ...j, stored, verdict: "HYPHENATION" });
+    continue;
+  }
+
   const src = fuzzy(text);
   const want = fuzzy(j.text);
   const at = src.f.indexOf(want.f);
@@ -223,7 +270,7 @@ for (const j of jobs) {
   });
 }
 
-const order = { DIFFERS: 0, "NOT FOUND": 1, UNREADABLE: 2, EXACT: 9 };
+const order = { DIFFERS: 0, "NOT FOUND": 1, UNREADABLE: 2, HYPHENATION: 3, EXACT: 9 };
 results.sort(
   (a, b) => (order[a.verdict] ?? 5) - (order[b.verdict] ?? 5) || a.id.localeCompare(b.id),
 );

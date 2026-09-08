@@ -102,3 +102,84 @@ describeDb("disclaimers corrected by the sweep", () => {
     expect(offenders).toEqual([]);
   });
 });
+
+/**
+ * The second pass, which chased every open row to primary text.
+ *
+ * Four kinds of fault turned up, and each is pinned below because each could quietly return: an
+ * added full stop, an expanded abbreviation, an invented placard sentence, and a statement borrowed
+ * from a sibling programme.
+ */
+describeDb("disclaimers corrected by the sweep follow-up", () => {
+  let admin: Db;
+
+  beforeAll(() => {
+    admin = adminDb();
+  });
+
+  afterAll(cleanupAll);
+
+  async function rule(state: string, ordinal: number) {
+    const { data } = await admin
+      .from("state_label_rules")
+      .select(
+        "disclaimer_text, placard_text, placard_required, source_url, state_food_programs!inner(state_code, ordinal)",
+      )
+      .eq("state_food_programs.state_code", state)
+      .eq("state_food_programs.ordinal", ordinal)
+      .single();
+    return data;
+  }
+
+  /**
+   * He-P 2300 (7) quotes the sentence without a full stop, and (h) prescribes the ABBREVIATION
+   * "NH DHHS" — we had expanded it to the department's full name and added a period. The expansion
+   * matters beyond fidelity: the rule fixes a minimum font size, and a label has finite room.
+   */
+  it("New Hampshire keeps the rule's own wording in both programmes", async () => {
+    expect((await rule("NH", 1))?.disclaimer_text).toBe(
+      "This product is exempt from New Hampshire licensing and inspection",
+    );
+    const homestead = (await rule("NH", 2))?.disclaimer_text;
+    expect(homestead).toBe("This product is made in a residential kitchen licensed by NH DHHS");
+    expect(homestead).not.toContain("Department of Health and Human Services");
+  });
+
+  /**
+   * AS 17.20.332 requires "a sign indicating that" three facts — substance, no wording. The stored
+   * all-caps sentence appeared nowhere in the section, exactly like the Missouri placard removed
+   * earlier. A required sign with no prescribed text is null text and a true flag.
+   */
+  it("Alaska requires a sign without prescribing its words", async () => {
+    const ak = await rule("AK", 1);
+    expect(ak?.placard_text).toBeNull();
+    expect(ak?.placard_required).toBe(true);
+    // The disclaimer on the same row verified exact and must not have been collateral damage.
+    expect(ak?.disclaimer_text).toContain("made in a home kitchen");
+  });
+
+  /**
+   * KRS 217.137 prescribes no label at all, and 902 KAR 45:090(4) sends a microprocessor to general
+   * law. The sentence stored here belonged to KRS 217.136(3)(e), which governs a home-based
+   * PROCESSOR — a different operator. The processor's own row keeps it.
+   */
+  it("Kentucky stops lending the processor's sentence to the microprocessor", async () => {
+    expect((await rule("KY", 1))?.disclaimer_text).toBe(
+      "This product is home-produced and processed",
+    );
+    expect((await rule("KY", 2))?.disclaimer_text).toBeNull();
+  });
+
+  /**
+   * Three rows cited documents that could not contain their own sentence — an amending chapter, a
+   * chapter index, and a regulation that delegates. The same fault as Colorado's and Indiana's.
+   */
+  it("cites documents that carry the sentence, not ones that merely govern the topic", async () => {
+    // 2022 Pub. Ch. 862 has the statement; 2025 Pub. Ch. 431 only renumbers.
+    expect((await rule("TN", 1))?.source_url).toContain("acts/112/pub/pc0862");
+    // The state's own chapter text, not a chapter index of headings.
+    expect((await rule("IA", 2))?.source_url).toContain("legis.iowa.gov");
+    // KRS 217.136 itself, not the regulation that points at it.
+    expect((await rule("KY", 1))?.source_url).toContain("statute.aspx");
+  });
+});
