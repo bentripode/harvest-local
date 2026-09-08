@@ -8,6 +8,7 @@ import { MessageSellerButton } from "@/components/message-seller-button";
 import { ReportOrderForm, ExistingReport } from "@/components/report-order-form";
 import { getSellerContext } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
+import { formatPickupAddress, getOrderPickupAddress } from "@/lib/orders/pickup";
 import { getReportForOrder } from "@/lib/reports/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
 import { formatUsd, toCents } from "@/lib/money";
@@ -26,6 +27,8 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
   const report =
     order.status !== "pending_payment" ? await getReportForOrder(id, profile.id) : null;
   const refundedCents = order.refunds.reduce((n, r) => n + toCents(r.amount), 0);
+  const pickupAddress =
+    order.fulfillment_type === "pickup" ? await getOrderPickupAddress(id) : null;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -96,6 +99,9 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
           <p className="text-muted-foreground">{order.pickup_location_text}</p>
           {order.pickup_window ? (
             <p className="mt-1 font-medium">{order.pickup_window}</p>
+          ) : null}
+          {pickupAddress ? (
+            <p className="text-muted-foreground mt-1">{formatPickupAddress(pickupAddress)}</p>
           ) : null}
         </section>
       ) : null}

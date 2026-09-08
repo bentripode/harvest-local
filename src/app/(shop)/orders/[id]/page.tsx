@@ -9,6 +9,7 @@ import { MessageSellerButton } from "@/components/message-seller-button";
 import { ReportOrderForm, ExistingReport } from "@/components/report-order-form";
 import { requireUser } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
+import { formatPickupAddress, getOrderPickupAddress } from "@/lib/orders/pickup";
 import { getReviewForOrder } from "@/lib/reviews/queries";
 import { getReportForOrder } from "@/lib/reports/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
@@ -26,6 +27,9 @@ export default async function BuyerOrderPage({
 
   const order = await getOrder(id);
   if (!order || order.buyer?.id !== user.id) notFound();
+
+  const pickupAddress =
+    order.fulfillment_type === "pickup" ? await getOrderPickupAddress(id) : null;
 
   const review = order.status === "completed" ? await getReviewForOrder(id) : null;
   const report =
@@ -113,6 +117,13 @@ export default async function BuyerOrderPage({
           <p className="text-muted-foreground">{order.pickup_location_text}</p>
           {order.pickup_window ? (
             <p className="mt-1 font-medium">{order.pickup_window}</p>
+          ) : null}
+          {/* Released only now: order_pickup_address() refuses before payment clears. */}
+          {pickupAddress ? (
+            <p className="mt-1">{formatPickupAddress(pickupAddress)}</p>
+          ) : null}
+          {pickupAddress?.description ? (
+            <p className="text-muted-foreground mt-1">{pickupAddress.description}</p>
           ) : null}
         </section>
       ) : null}

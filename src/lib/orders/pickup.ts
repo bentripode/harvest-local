@@ -2,6 +2,15 @@ import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
 import type { PickupSlot } from "@/lib/orders/pickup-schedule";
+import {
+  approximateLocation,
+  formatPickupAddress,
+  type OrderPickupAddress,
+  type PickupLocation,
+} from "@/lib/orders/pickup-format";
+
+export { approximateLocation, formatPickupAddress };
+export type { OrderPickupAddress, PickupLocation };
 
 /**
  * Reads for pickup locations.
@@ -14,19 +23,6 @@ import type { PickupSlot } from "@/lib/orders/pickup-schedule";
  * home-based seller it is their house. `city` / `postal_code` are denormalised onto the location
  * for exactly this, so a buyer can be told roughly where without being told precisely where.
  */
-
-export interface PickupLocation {
-  id: string;
-  label: string;
-  description: string | null;
-  city: string | null;
-  postalCode: string | null;
-  prepHours: number;
-  isActive: boolean;
-  /** Set when this is a booth at a market in the public directory. */
-  market: { id: string; name: string; slug: string; state: string; city: string | null } | null;
-  slots: PickupSlot[];
-}
 
 const SELECT =
   "id, label, description, city, postal_code, prep_hours, is_active, sort_order, " +
@@ -159,6 +155,36 @@ export async function getMarketSellers(marketId: string): Promise<MarketSeller[]
       })),
     }))
     .sort((a, b) => a.businessName.localeCompare(b.businessName));
+}
+
+/**
+ * The exact collection address for a paid pickup order.
+ *
+ * Goes through `order_pickup_address()` rather than reading `addresses` directly, because for a
+ * home-based seller that row is their house: it is owner-only, and the SECURITY DEFINER function is
+ * what checks the caller is a party to the order and that the order is past `pending_payment`.
+ * Returns null before payment, which is the whole point — see the migration.
+ */
+export async function getOrderPickupAddress(
+  orderId: string,
+): Promise<OrderPickupAddress | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("order_pickup_address", { p_order_id: orderId });
+  if (error) return null;
+
+  const row = Array.isArray(data) ? data[0] : null;
+  if (!row) return null;
+
+  return {
+    source: row.source === "market" ? "market" : "address",
+    label: row.label ?? null,
+    description: row.description ?? null,
+    line1: row.line1 ?? null,
+    line2: row.line2 ?? null,
+    city: row.city ?? null,
+    state: row.state ?? null,
+    postalCode: row.postal_code ?? null,
+  };
 }
 
 /** Markets in the seller's state they could add a booth at. */

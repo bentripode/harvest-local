@@ -99,7 +99,8 @@ export function PickupPicker({
 
       {chosen ? (
         <p className="text-muted-foreground text-xs">
-          You&apos;ll get the exact address in your order confirmation.
+          {/* Precise on purpose: it appears on the order page, and we don't email it. */}
+          The exact address appears on your order once you&apos;ve paid.
         </p>
       ) : null}
     </div>

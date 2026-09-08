@@ -215,6 +215,22 @@ describeDb("SECURITY DEFINER authorization", () => {
     expect(error).not.toBeNull();
   });
 
+  // -- order_pickup_address (a party to the order, and only after payment) ---
+  //
+  // It hands out an address that `addresses` RLS keeps owner-only, and for a cottage seller that
+  // address is their house. Two ways to get it wrong: give it to a stranger, or give it away before
+  // the sale.
+  it("refuses order_pickup_address to someone who isn't a party to the order", async () => {
+    const { error } = await stranger.db.rpc("order_pickup_address", { p_order_id: order.id });
+    expect(error).not.toBeNull();
+    expect(error!.message).toMatch(/not a party/i);
+  });
+
+  it("refuses order_pickup_address anonymously", async () => {
+    const { error } = await anonDb().rpc("order_pickup_address", { p_order_id: order.id });
+    expect(error).not.toBeNull();
+  });
+
   // -- the market importer (service-role only) ------------------------------
   //
   // upsert_market is SECURITY DEFINER and writes the public market directory, so a hole here would

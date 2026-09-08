@@ -2614,6 +2614,19 @@ export type Database = {
         Args: { p_seller_id: string }
         Returns: string
       }
+      order_pickup_address: {
+        Args: { p_order_id: string }
+        Returns: {
+          source: string
+          label: string
+          description: string
+          line1: string
+          line2: string
+          city: string
+          state: string
+          postal_code: string
+        }[]
+      }
       upsert_address: {
         Args: {
           p_city?: string

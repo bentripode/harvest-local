@@ -18,6 +18,8 @@ import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries"
 import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
 import { getBrowseState } from "@/lib/geo/browse-state";
+import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
+import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
 import type { Product } from "@/lib/db/types";
 
 /**
@@ -63,7 +65,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   if (!seller || seller.is_paused) notFound();
 
-  const [{ data: products }, user, browse, reviewSummary, reviews] = await Promise.all([
+  const [{ data: products }, user, browse, reviewSummary, reviews, pickupLocations] =
+    await Promise.all([
     supabase
       .from("products")
       .select("*")
@@ -74,6 +77,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     getBrowseState(),
     getSellerReviewSummary(seller.id),
     getSellerReviews(seller.id),
+    getActivePickupLocations(seller.id),
   ]);
 
   const list = (products ?? []) as Product[];
@@ -138,6 +142,52 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           </Link>{" "}
           when you check out.
         </Notice>
+      ) : null}
+
+      {/*
+        Where to collect, approximately. The town and the market name, never the street: for most
+        cottage sellers the collection point is their own house, and a browsing stranger does not
+        need the door number to decide whether it's near enough. `order_pickup_address()` hands over
+        the exact address once the order is paid for.
+      */}
+      {pickupLocations.length > 0 ? (
+        <section className="space-y-2">
+          <h2 className="text-sm font-medium">Where to collect</h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {pickupLocations.map((loc) => {
+              const where = approximateLocation(loc);
+              const schedule = summarizeSlots(loc.slots);
+              const notice = describePrepTime(loc.prepHours);
+              return (
+                <li key={loc.id} className="rounded-lg border p-3 text-sm">
+                  <p className="font-medium">{loc.label}</p>
+                  {where ? <p className="text-muted-foreground">{where}</p> : null}
+                  {loc.market ? (
+                    <Link
+                      href={`/markets/${loc.market.state.toLowerCase()}/${loc.market.slug}`}
+                      className="text-muted-foreground text-xs underline"
+                    >
+                      About this market
+                    </Link>
+                  ) : null}
+                  {schedule.length > 0 ? (
+                    <ul className="text-muted-foreground pt-1">
+                      {schedule.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {notice ? (
+                    <p className="text-muted-foreground pt-0.5 text-xs">Order ahead · {notice}</p>
+                  ) : null}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="text-muted-foreground text-xs">
+            The exact address appears on your order once you&apos;ve paid.
+          </p>
+        </section>
       ) : null}
 
       {list.length === 0 ? (
