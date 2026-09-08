@@ -16,6 +16,12 @@ const usd = (v: unknown) => {
 export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
   revenue_cap_reached: (p) =>
     `${s(p.business_name, "Your storefront")} reached ${s(p.state)}'s cottage-food sales cap (${usd(p.gross)} of ${usd(p.cap)}) — sales are paused for the rest of the year.`,
+  compliance_rule_blocked_listings: (p) =>
+    `${s(p.state)} changed what ${s(p.program_name, "your programme")} allows — ${s(p.reason)} — so ${Number(p.count) === 1 ? "1 listing has" : `${s(p.count)} listings have`} been moved back to draft. Nothing was deleted: ${s(p.titles)}.`,
+  compliance_rule_relaxed: (p) =>
+    `${s(p.state)} no longer bans something ${s(p.program_name, "your programme")} used to. If you have listings parked as drafts because of it, you may be able to publish them again.`,
+  compliance_label_changed: (p) =>
+    `${s(p.state)} changed what ${s(p.program_name, "your programme")} requires on a label. Your listings are still live, but reprint your labels and check your product pages.`,
   obligation_due: (p) =>
     Number(p.days_out) <= 1
       ? `${s(p.label)} is due tomorrow (${s(p.due_date)}). ${s(p.detail)}`

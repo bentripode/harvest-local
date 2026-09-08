@@ -139,6 +139,63 @@ export type Database = {
           },
         ]
       }
+      compliance_change_log: {
+        Row: {
+          changed_at: string
+          changed_by: string | null
+          changes: Json
+          id: string
+          outcome: Json | null
+          processed_at: string | null
+          program_id: string
+          program_name: string
+          severity: string
+          state_code: string
+          table_name: string
+        }
+        Insert: {
+          changed_at?: string
+          changed_by?: string | null
+          changes: Json
+          id?: string
+          outcome?: Json | null
+          processed_at?: string | null
+          program_id: string
+          program_name: string
+          severity: string
+          state_code: string
+          table_name: string
+        }
+        Update: {
+          changed_at?: string
+          changed_by?: string | null
+          changes?: Json
+          id?: string
+          outcome?: Json | null
+          processed_at?: string | null
+          program_id?: string
+          program_name?: string
+          severity?: string
+          state_code?: string
+          table_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "compliance_change_log_changed_by_fkey"
+            columns: ["changed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "compliance_change_log_program_id_fkey"
+            columns: ["program_id"]
+            isOneToOne: false
+            referencedRelation: "state_food_programs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       conversations: {
         Row: {
           buyer_id: string
@@ -2043,6 +2100,17 @@ export type Database = {
           retry_after: number
         }[]
       }
+      compliance_change_impact: {
+        Args: { p_program_id: string }
+        Returns: {
+          business_name: string
+          product_id: string
+          product_title: string
+          profile_id: string
+          reason: string
+          seller_id: string
+        }[]
+      }
       create_referral_for_order: {
         Args: { p_order_id: string }
         Returns: boolean
@@ -2140,6 +2208,14 @@ export type Database = {
           required_elements: string[]
           seller_statement: string
           state_code: string
+        }[]
+      }
+      program_listing_exposure: {
+        Args: { p_program_id: string }
+        Returns: {
+          axis: string
+          listings: number
+          sellers: number
         }[]
       }
       recompute_seller_rating: {

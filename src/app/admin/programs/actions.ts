@@ -1,6 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+
+import { inngest } from "@/lib/inngest/client";
 import { z } from "zod";
 
 import { requireRole } from "@/lib/auth";
@@ -179,8 +181,14 @@ export async function reviewFoodProgramAction(
     return { error: "Could not save this program." };
   }
 
+  // The trigger has recorded what moved; the sweep works out who it lands on and tells them.
+  // A send failure must never surface as a save error — the 15-minute cron backstop catches it.
+  await inngest
+    .send({ name: "harvest/compliance.changed", data: { programId: d.programId } })
+    .catch((err) => console.error("[inngest] compliance.changed send failed:", err));
+
   revalidatePath("/admin/programs");
-  revalidatePath(`/admin/programs/${d.programId}`);
+  revalidatePath(`/admin/programs/`);
   // Both food gates read this row.
   revalidatePath("/seller/products", "layout");
   revalidatePath("/seller/compliance");
