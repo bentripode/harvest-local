@@ -170,10 +170,13 @@ describeDb("a registration number that replaces other elements", () => {
       })
       .sort();
 
-    // OK 5-4.3(C), OR 616.718(6)(b), TX 437.0193(b-1) — each read in full. Arkansas belongs here
-    // too (its number is issued "to protect the producer's safety") and is deliberately absent:
-    // Act 1040 of 2021 would not extract from either state host, and the row says so.
-    expect(configured).toEqual(["OK:1", "OR:1", "TX:1"]);
+    // Each read in full: AR 20-57-505(a)(2), OK 5-4.3(C), OR 616.718(6)(b), TX 437.0193(b-1).
+    //
+    // Arkansas was absent from this list until 20260908110000, not because its statute was unclear
+    // but because Act 1040 of 2021 would not come out of the PDF. It is the one where getting it
+    // wrong costs most — the number is issued "if requested by the producer to protect the
+    // producer's safety" — which is why it waited for the text rather than for our summary of it.
+    expect(configured).toEqual(["AR:1", "OK:1", "OR:1", "TX:1"]);
   });
 });
 

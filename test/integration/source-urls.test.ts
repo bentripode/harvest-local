@@ -110,7 +110,11 @@ describeDb("compliance source URLs", () => {
       .from("state_label_rules")
       .select("source_url, state_food_programs!inner(state_code)")
       .eq("state_food_programs.state_code", "AR");
-    expect(ar?.[0]?.source_url).toContain("20-57-505");
+    // It now points at the enrolled Act 1040 of 2021, which is where both sections were actually
+    // read from once the extractor could open it. The section number is no longer in the URL
+    // because the act CREATES 20-57-505 rather than being served per-section — the requirement
+    // this test exists for, that a label rule cite its own instrument, is still met.
+    expect(ar?.[0]?.source_url).toContain("ACT1040");
 
     // Ohio and South Dakota were the same near miss and are pinned for the same reason: a statute
     // site links its neighbours, so "the page mentions the section" passed for pages containing

@@ -175,7 +175,11 @@ describeDb("state label rules", () => {
     //      defines the "informed end consumer" as one "who has been informed that the product is
     //      not licensed, regulated or inspected", and 11-49-103(e) makes telling them the
     //      producer's duty — so the disclosure precedes the transaction the Act permits.
-    expect(states).toEqual(["CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX", "UT", "WY"]);
+    // AR — Ark. Code 20-57-505(b)(3), "The website on which the homemade food or drink product is
+    //      offered for sale if the product is offered for sale online", carrying the whole of (a).
+    //      Recorded as FALSE until 20260908110000: Act 1040 of 2021 would not extract, so nobody had
+    //      read it. That is what false means in this column.
+    expect(states).toEqual(["AR", "CA", "IL", "IN", "MN", "NE", "NM", "OK", "TN", "TX", "UT", "WY"]);
   });
 
   it("records the states that want metric alongside imperial", async () => {
