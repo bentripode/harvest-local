@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { LabelSheet } from "@/components/label-sheet";
 import { getSellerContext } from "@/lib/auth";
 import { getLabelContext } from "@/lib/labels/queries";
+import { createClient } from "@/lib/supabase/server";
 import { stateName } from "@/lib/geo/state";
 
 export const metadata = { title: "Product label — Harvest Local" };
@@ -17,13 +18,30 @@ export const metadata = { title: "Product label — Harvest Local" };
  */
 export default async function ProductLabelPage({
   params,
+  searchParams,
 }: PageProps<"/seller/products/[id]/label">) {
   const { id } = await params;
+  const sp = await searchParams;
   const { profile, seller } = await getSellerContext();
   if (profile.role === "buyer") redirect("/");
   if (!seller) redirect("/seller/onboarding");
 
-  const context = await getLabelContext(seller.id, id);
+  // A listing sold in sizes has a different net weight per bag, so the label is printed per
+  // option rather than per listing.
+  const supabase = await createClient();
+  const { data: variants } = await supabase
+    .from("product_variants")
+    .select("id, name")
+    .eq("product_id", id)
+    .eq("is_active", true)
+    .order("sort_order");
+
+  const options = variants ?? [];
+  const requested = typeof sp?.variant === "string" ? sp.variant : null;
+  const chosen =
+    options.find((v) => v.id === requested)?.id ?? (options.length === 1 ? options[0].id : null);
+
+  const context = await getLabelContext(seller.id, id, chosen);
   if (!context) notFound();
 
   return (
@@ -37,6 +55,25 @@ export default async function ProductLabelPage({
             edit product
           </Link>
         </div>
+        {options.length > 1 ? (
+          <p className="text-sm">
+            <span className="font-medium">Which option?</span>{" "}
+            {options.map((v) => (
+              <Link
+                key={v.id}
+                href={`/seller/products/${id}/label?variant=${v.id}`}
+                className={`mr-2 underline ${v.id === chosen ? "font-medium" : "text-muted-foreground"}`}
+              >
+                {v.name}
+              </Link>
+            ))}
+            {!chosen ? (
+              <span className="text-muted-foreground">
+                — pick one; the net weight differs between them.
+              </span>
+            ) : null}
+          </p>
+        ) : null}
         <p className="text-muted-foreground text-sm">
           Built from {stateName(context.stateCode)}&apos;s labelling rules
           {context.programName ? ` for ${context.programName}` : ""}. The disclaimer is your

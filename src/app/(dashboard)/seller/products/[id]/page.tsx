@@ -1,6 +1,8 @@
 import { notFound, redirect } from "next/navigation";
 
 import { ProductForm, type ProductFormValues } from "@/components/product-form";
+import { VariantsManager, type EditableVariant } from "@/components/variants-manager";
+import { formatUsd, toCents } from "@/lib/money";
 import { getCategoryPermissions } from "@/lib/compliance/categories";
 import { ingredientsToText } from "@/lib/products/labeling";
 import { createClient } from "@/lib/supabase/server";
@@ -15,10 +17,21 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
   if (!seller) redirect("/seller/onboarding");
 
   const supabase = await createClient();
-  const [{ data: product }, { data: productTags }, categories, tags, categoryPermissions] =
-    await Promise.all([
+  const [
+    { data: product },
+    { data: productTags },
+    { data: variants },
+    categories,
+    tags,
+    categoryPermissions,
+  ] = await Promise.all([
     supabase.from("products").select("*").eq("id", id).eq("seller_id", seller.id).maybeSingle(),
     supabase.from("product_tags").select("tag_id").eq("product_id", id),
+    supabase
+      .from("product_variants")
+      .select("id, name, price, quantity_available, net_weight_value, net_weight_unit, sku, is_active")
+      .eq("product_id", id)
+      .order("sort_order"),
     getCategories(),
     getTags(),
     getCategoryPermissions(seller.id),
@@ -46,11 +59,30 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     allergensConfirmed: p.allergens_confirmed_at != null,
   };
 
+  const editableVariants: EditableVariant[] = (variants ?? []).map((v) => ({
+    id: v.id,
+    name: v.name,
+    price: v.price.toString(),
+    quantityAvailable: v.quantity_available?.toString() ?? "",
+    netWeightValue: v.net_weight_value?.toString() ?? "",
+    netWeightUnit: v.net_weight_unit ?? "",
+    sku: v.sku ?? "",
+    isActive: v.is_active,
+  }));
+
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <h1 className="text-2xl font-semibold tracking-tight">Edit product</h1>
       <ProductForm sellerId={seller.id} categories={categories} tags={tags} initial={initial}   categoryPermissions={categoryPermissions}
       />
+
+      <section className="rounded-lg border p-5">
+        <VariantsManager
+          productId={p.id}
+          productPrice={formatUsd(toCents(p.price))}
+          initial={editableVariants}
+        />
+      </section>
     </div>
   );
 }

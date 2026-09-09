@@ -31,7 +31,13 @@ import { getMyAddresses, type SavedAddress } from "@/lib/addresses/queries";
 const cartPayloadSchema = z.object({
   sellerId: z.string().uuid(),
   items: z
-    .array(z.object({ productId: z.string().uuid(), quantity: z.number().int().min(1).max(99) }))
+    .array(
+      z.object({
+        productId: z.string().uuid(),
+        variantId: z.string().uuid().optional(),
+        quantity: z.number().int().min(1).max(99),
+      }),
+    )
     .min(1)
     .max(50),
   promoCode: z.string().max(32).optional(),
@@ -60,7 +66,7 @@ async function reprice(payload: CartPayload) {
   const { data: products } = await supabase
     .from("products")
     .select(
-      "id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code)",
+      "id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code), variants:product_variants(id, name, price, quantity_available, is_active)",
     )
     .in(
       "id",
@@ -79,6 +85,7 @@ async function reprice(payload: CartPayload) {
       tax_code: p.tax_code,
       category_tax_code: category?.tax_code ?? null,
       category_name: category?.name ?? null,
+      variants: (p.variants ?? []) as PricableProduct["variants"],
     };
   });
 
@@ -405,6 +412,8 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       line_total: toDecimalString(line.lineTotal),
       category_snapshot: line.categorySnapshot,
       tax_code: line.taxCode,
+      variant_id: line.variantId,
+      variant_snapshot: line.variantName,
     })),
   );
   if (itemsError) redirect("/checkout?error=order");

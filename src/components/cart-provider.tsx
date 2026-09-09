@@ -13,9 +13,20 @@ const STORAGE_KEY = "harvest.cart.v1";
 
 export interface CartItem {
   productId: string;
+  /** Set when the seller sells this listing in sizes or scents. */
+  variantId?: string | null;
+  variantName?: string | null;
   title: string;
   unitPrice: number; // cents — display only
   quantity: number;
+}
+
+/**
+ * A basket line is a product AND the option chosen, so two scents of one soap are two lines.
+ * Keying on the product alone would silently merge them and charge one price for both.
+ */
+export function lineKey(item: Pick<CartItem, "productId" | "variantId">): string {
+  return `${item.productId}:${item.variantId ?? ""}`;
 }
 
 export interface Cart {
@@ -100,8 +111,8 @@ export interface UseCart {
     seller: { sellerId: string; sellerSlug: string; sellerName: string },
     item: CartItem,
   ) => { replaced: boolean };
-  setQuantity: (productId: string, quantity: number) => void;
-  removeItem: (productId: string) => void;
+  setQuantity: (key: string, quantity: number) => void;
+  removeItem: (key: string) => void;
   clear: () => void;
 }
 
@@ -112,7 +123,7 @@ export function useCart(): UseCart {
     const current = snapshot;
     const replaced = !!current && current.sellerId !== seller.sellerId;
     const items = replaced || !current ? [] : [...current.items];
-    const idx = items.findIndex((i) => i.productId === item.productId);
+    const idx = items.findIndex((i) => lineKey(i) === lineKey(item));
     if (idx >= 0) items[idx] = { ...items[idx], quantity: items[idx].quantity + item.quantity };
     else items.push(item);
     persist({
@@ -124,16 +135,16 @@ export function useCart(): UseCart {
     return { replaced };
   }, []);
 
-  const setQuantity = useCallback<UseCart["setQuantity"]>((productId, quantity) => {
+  const setQuantity = useCallback<UseCart["setQuantity"]>((key, quantity) => {
     if (!snapshot) return;
     const items = snapshot.items
-      .map((i) => (i.productId === productId ? { ...i, quantity } : i))
+      .map((i) => (lineKey(i) === key ? { ...i, quantity } : i))
       .filter((i) => i.quantity > 0);
     persist(items.length > 0 ? { ...snapshot, items } : null);
   }, []);
 
   const removeItem = useCallback<UseCart["removeItem"]>(
-    (productId) => setQuantity(productId, 0),
+    (key) => setQuantity(key, 0),
     [setQuantity],
   );
 

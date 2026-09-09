@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/components/cart-provider";
+import { lineKey, useCart } from "@/components/cart-provider";
 import { formatUsd } from "@/lib/money";
 
 export default function CartPage() {
@@ -39,7 +39,7 @@ export default function CartPage() {
 
       <ul className="divide-y rounded-lg border">
         {cart.items.map((item) => (
-          <li key={item.productId} className="flex items-center gap-4 p-4">
+          <li key={lineKey(item)} className="flex items-center gap-4 p-4">
             <div className="min-w-0 flex-1">
               <p className="font-medium">{item.title}</p>
               <p className="text-muted-foreground text-sm">{formatUsd(item.unitPrice)} each</p>
@@ -48,7 +48,7 @@ export default function CartPage() {
               <button
                 type="button"
                 className="px-2 py-1 text-sm disabled:opacity-40"
-                onClick={() => setQuantity(item.productId, item.quantity - 1)}
+                onClick={() => setQuantity(lineKey(item), item.quantity - 1)}
                 aria-label="Decrease quantity"
               >
                 −
@@ -57,7 +57,7 @@ export default function CartPage() {
               <button
                 type="button"
                 className="px-2 py-1 text-sm"
-                onClick={() => setQuantity(item.productId, item.quantity + 1)}
+                onClick={() => setQuantity(lineKey(item), item.quantity + 1)}
                 aria-label="Increase quantity"
               >
                 +
@@ -69,7 +69,7 @@ export default function CartPage() {
             <button
               type="button"
               className="text-muted-foreground hover:text-destructive text-sm"
-              onClick={() => removeItem(item.productId)}
+              onClick={() => removeItem(lineKey(item))}
             >
               Remove
             </button>

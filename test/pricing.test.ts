@@ -15,6 +15,7 @@ function product(overrides: Partial<PricableProduct> = {}): PricableProduct {
     tax_code: null,
     category_tax_code: "txcd_20030000",
     category_name: "Baked goods",
+    variants: [],
     ...overrides,
   };
 }

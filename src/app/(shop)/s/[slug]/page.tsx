@@ -19,6 +19,7 @@ import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
 import { getBrowseState } from "@/lib/geo/browse-state";
 import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
+import { lowestVariantPrice, type VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
 import type { Product } from "@/lib/db/types";
 
@@ -69,7 +70,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     await Promise.all([
     supabase
       .from("products")
-      .select("*")
+      .select("*, variants:product_variants(id, name, price, quantity_available, is_active, net_weight_value, net_weight_unit)")
       .eq("seller_id", seller.id)
       .eq("status", "active")
       .order("created_at", { ascending: false }),
@@ -80,7 +81,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     getActivePickupLocations(seller.id),
   ]);
 
-  const list = (products ?? []) as Product[];
+  const list = (products ?? []) as (Product & { variants?: VariantLike[] })[];
   // Where the state requires the label before payment, the listing is the first chance to show it.
   const disclosures = await getProductDisclosures(list.map((p) => p.id));
 
@@ -207,7 +208,12 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                   <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
                 ) : null}
                 <p className="pt-1 text-sm font-medium">
-                  {formatUsd(toCents(p.price))}
+                  {/* A listing with options has no single price, so say so rather than showing
+                      the unused products.price column. */}
+                  {(() => {
+                    const from = lowestVariantPrice(p.variants ?? []);
+                    return from != null ? `from ${formatUsd(from)}` : formatUsd(toCents(p.price));
+                  })()}
                   {p.quantity_available != null ? (
                     <span className="text-muted-foreground font-normal">
                       {" "}
@@ -232,6 +238,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
               </div>
               {canOrder ? (
                 <AddToCart
+                  variants={p.variants ?? []}
                   seller={{
                     sellerId: seller.id,
                     sellerSlug: seller.storefront_slug,

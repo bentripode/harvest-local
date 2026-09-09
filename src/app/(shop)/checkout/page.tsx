@@ -78,7 +78,11 @@ export default function CheckoutPage() {
     let cancelled = false;
     repriceCartAction({
       sellerId: cart.sellerId,
-      items: cart.items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+      items: cart.items.map((i) => ({
+        productId: i.productId,
+        ...(i.variantId ? { variantId: i.variantId } : {}),
+        quantity: i.quantity,
+      })),
       promoCode: appliedCode || undefined,
       fulfillment,
       deliveryAddress:

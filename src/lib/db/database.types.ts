@@ -545,6 +545,8 @@ export type Database = {
           tax_code: string | null
           title_snapshot: string
           unit_price: number
+          variant_id: string | null
+          variant_snapshot: string | null
         }
         Insert: {
           category_snapshot?: string | null
@@ -556,6 +558,8 @@ export type Database = {
           tax_code?: string | null
           title_snapshot: string
           unit_price: number
+          variant_id?: string | null
+          variant_snapshot?: string | null
         }
         Update: {
           category_snapshot?: string | null
@@ -567,6 +571,8 @@ export type Database = {
           tax_code?: string | null
           title_snapshot?: string
           unit_price?: number
+          variant_id?: string | null
+          variant_snapshot?: string | null
         }
         Relationships: [
           {
@@ -909,6 +915,59 @@ export type Database = {
             columns: ["tag_id"]
             isOneToOne: false
             referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_variants: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          net_weight_unit: string | null
+          net_weight_value: number | null
+          price: number
+          product_id: string
+          quantity_available: number | null
+          sku: string | null
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
+          price: number
+          product_id: string
+          quantity_available?: number | null
+          sku?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
+          price?: number
+          product_id?: string
+          quantity_available?: number | null
+          sku?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_variants_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
             referencedColumns: ["id"]
           },
         ]

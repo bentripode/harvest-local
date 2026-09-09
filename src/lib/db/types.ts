@@ -132,6 +132,7 @@ export type Database = Omit<Generated, "public"> & {
       | "profiles"
       | "seller_profiles"
       | "products"
+      | "product_variants"
       | "orders"
       | "order_items"
       | "state_cottage_food_rules"
@@ -144,6 +145,11 @@ export type Database = Omit<Generated, "public"> & {
       profiles: ProfilesFixed;
       seller_profiles: SellerProfilesFixed;
       products: ProductsFixed;
+      // `price` is numeric, and a variant carries the same net_weight_value the product does.
+      product_variants: MoneyFixed<
+        GenTables["product_variants"],
+        "price" | "net_weight_value"
+      >;
       orders: MoneyFixed<GenTables["orders"], OrderMoneyKeys>;
       order_items: MoneyFixed<GenTables["order_items"], "unit_price" | "line_total">;
       state_cottage_food_rules: MoneyFixed<GenTables["state_cottage_food_rules"], "revenue_cap">;

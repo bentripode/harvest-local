@@ -1,32 +1,40 @@
 import "server-only";
 
-import { addCents, cents, type Cents, toCents } from "@/lib/money";
+import { addCents, cents, type Cents } from "@/lib/money";
+import { resolveSaleUnit, SALE_UNIT_ERROR_COPY, type VariantLike } from "@/lib/orders/sale-unit";
 import type { Product } from "@/lib/db/types";
 
 /**
- * Server-side re-pricing of a cart. The client sends only `{ productId, quantity }` pairs — every
- * price, and the subtotal, is computed HERE from live product rows. Client-supplied money is never
+ * Server-side re-pricing of a cart. The client sends only `{ productId, variantId?, quantity }` —
+ * every price, and the subtotal, is computed HERE from live rows. Client-supplied money is never
  * trusted (CLAUDE.md rule 3).
+ *
+ * Which unit a line sells is resolved by `resolveSaleUnit`, so a product with variants and one
+ * without go through the same code and there is still one answer to "what does this cost".
  */
 
 export const MAX_LINE_QUANTITY = 99;
 
 export interface CartRequestItem {
   productId: string;
+  variantId?: string | null;
   quantity: number;
 }
 
-/** A product row plus the resolved tax code / category name for the order-item snapshot. */
+/** A product row plus its variants and the resolved tax code / category for the item snapshot. */
 export type PricableProduct = Pick<
   Product,
   "id" | "title" | "price" | "status" | "seller_id" | "quantity_available" | "tax_code"
 > & {
   category_tax_code: string | null;
   category_name: string | null;
+  variants: VariantLike[];
 };
 
 export interface PricedLine {
   productId: string;
+  variantId: string | null;
+  variantName: string | null;
   title: string;
   unitPrice: Cents;
   quantity: number;
@@ -49,7 +57,8 @@ export class CartError extends Error {
       | "wrong_seller"
       | "inactive"
       | "bad_quantity"
-      | "insufficient_stock",
+      | "insufficient_stock"
+      | "variant",
   ) {
     super(message);
     this.name = "CartError";
@@ -78,24 +87,34 @@ export function priceCart(
       throw new CartError(`"${product.title}" is no longer for sale.`, "inactive");
     }
 
+    const resolved = resolveSaleUnit(product, product.variants ?? [], item.variantId);
+    if (!resolved.ok) {
+      throw new CartError(
+        `"${product.title}" ${SALE_UNIT_ERROR_COPY[resolved.error]}`,
+        "variant",
+      );
+    }
+    const unit = resolved.unit;
+
     const quantity = Math.floor(item.quantity);
     if (!Number.isInteger(quantity) || quantity < 1 || quantity > MAX_LINE_QUANTITY) {
       throw new CartError(`Choose a quantity between 1 and ${MAX_LINE_QUANTITY}.`, "bad_quantity");
     }
-    if (product.quantity_available != null && quantity > product.quantity_available) {
+    if (unit.stock != null && quantity > unit.stock) {
       throw new CartError(
-        `Only ${product.quantity_available} of "${product.title}" left.`,
+        `Only ${unit.stock} of "${unit.displayTitle}" left.`,
         "insufficient_stock",
       );
     }
 
-    const unitPrice = toCents(product.price);
     lines.push({
-      productId: product.id,
-      title: product.title,
-      unitPrice,
+      productId: unit.productId,
+      variantId: unit.variantId,
+      variantName: unit.variantName,
+      title: unit.displayTitle,
+      unitPrice: unit.unitPrice,
       quantity,
-      lineTotal: cents(unitPrice * quantity),
+      lineTotal: cents(unit.unitPrice * quantity),
       taxCode: product.tax_code ?? product.category_tax_code,
       categorySnapshot: product.category_name,
     });

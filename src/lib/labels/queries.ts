@@ -30,6 +30,12 @@ export interface LabelContext {
 export async function getLabelContext(
   sellerId: string,
   productId: string,
+  /**
+   * Which option is going in the bag. A half loaf and a whole loaf are the same recipe and
+   * different weights, so the variant supplies the net weight and everything else on the label
+   * still comes from the product.
+   */
+  variantId?: string | null,
 ): Promise<LabelContext | null> {
   const supabase = await createClient();
   // The label page is always the seller viewing their own product, so their session carries the
@@ -47,6 +53,17 @@ export async function getLabelContext(
     .eq("seller_id", sellerId)
     .maybeSingle();
   if (!product) return null;
+
+  // Falls back to the product's own weight: a listing with no options, or an option that
+  // does not carry one, prints what the listing says.
+  const { data: variant } = variantId
+    ? await supabase
+        .from("product_variants")
+        .select("id, name, net_weight_value, net_weight_unit")
+        .eq("id", variantId)
+        .eq("product_id", productId)
+        .maybeSingle()
+    : { data: null };
 
   const { data: seller } = await supabase
     .from("seller_profiles")
@@ -115,7 +132,7 @@ export async function getLabelContext(
       notes: rule?.notes ?? null,
     },
     source: {
-      productName: product.title,
+      productName: variant ? `${product.title} — ${variant.name}` : product.title,
       businessName: seller.business_name,
       producerName: seller.business_name,
       producerAddress:
@@ -148,8 +165,8 @@ export async function getLabelContext(
       municipality: address?.city ?? null,
       stateName: stateName(seller.home_state),
       ingredients: product.ingredients ?? [],
-      netWeightValue: product.net_weight_value,
-      netWeightUnit: product.net_weight_unit,
+      netWeightValue: variant?.net_weight_value ?? product.net_weight_value,
+      netWeightUnit: variant?.net_weight_unit ?? product.net_weight_unit,
       allergens: product.allergens ?? [],
       productionDate: null,
       lotCode: null,
