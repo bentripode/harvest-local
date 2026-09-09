@@ -27,10 +27,19 @@ export function ProductQuickView({
   productId,
   triggerLabel = "Quick view",
   className,
+  children,
 }: {
   productId: string;
   triggerLabel?: string;
   className?: string;
+  /**
+   * A custom trigger. In a gallery the whole tile is the target — a photo you tap, the way any
+   * feed of things behaves — rather than a photo with a small button underneath it.
+   *
+   * Passed as children from a Server Component, which React serialises; it stays markup, so the
+   * gallery never has to become a client component to open a modal.
+   */
+  children?: React.ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [state, setState] = useState<"idle" | "loading" | "ready" | "error">("idle");
@@ -64,17 +73,24 @@ export function ProductQuickView({
 
   return (
     <>
-      <Button type="button" variant="outline" size="sm" onClick={open} className={className}>
-        {triggerLabel}
-      </Button>
+      {children ? (
+        <button type="button" onClick={open} className={className}>
+          {children}
+        </button>
+      ) : (
+        <Button type="button" variant="outline" size="sm" onClick={open} className={className}>
+          {triggerLabel}
+        </Button>
+      )}
 
       <dialog
         ref={ref}
         onClick={onDialogClick}
         aria-label={data?.title ?? "Product details"}
-        className="bg-background text-foreground m-auto w-[min(38rem,calc(100vw-2rem))] rounded-xl border p-0 shadow-lg backdrop:bg-black/50"
+        className="bg-background text-foreground m-0 mt-auto w-full max-w-none rounded-t-3xl border-t p-0 shadow-lg backdrop:bg-black/50 sm:m-auto sm:w-[min(38rem,calc(100vw-2rem))] sm:rounded-2xl sm:border"
       >
-        <div className="max-h-[85vh] overflow-y-auto p-5">
+        <div className="max-h-[85vh] overflow-y-auto p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] sm:pb-5">
+          <div className="bg-border mx-auto mb-4 h-1 w-10 rounded-full sm:hidden" aria-hidden />
           {state === "loading" || state === "idle" ? (
             <p className="text-muted-foreground py-8 text-center text-sm">Loading…</p>
           ) : state === "error" || !data ? (
@@ -132,7 +148,7 @@ function Detail({ data, onClose }: { data: QuickView; onClose: () => void }) {
       </div>
 
       {data.images[0] ? (
-        <div className="bg-muted relative aspect-video overflow-hidden rounded-lg border">
+        <div className="bg-muted relative aspect-square overflow-hidden rounded-xl border">
           <Image
             src={data.images[0].url}
             alt={data.images[0].alt ?? ""}

@@ -32,7 +32,13 @@ export default function CheckoutPage() {
 
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [disclosures, setDisclosures] = useState<Record<string, ProductDisclosure>>({});
-  const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
+  const [addr, setAddr] = useState<Address>({
+    line1: "",
+    line2: "",
+    city: "",
+    state: "",
+    postal: "",
+  });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
   const [deliveryWindow, setDeliveryWindow] = useState("");
   const [pickupLocationId, setPickupLocationId] = useState("");
@@ -169,8 +175,7 @@ export default function CheckoutPage() {
   const windowMissing = windowRequired && !deliveryWindow;
   const deliveryUnresolved =
     (fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing)) || pickupMissing;
-  const blocked =
-    needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
+  const blocked = needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
 
   const subtotal = result.subtotal ?? 0;
   const total = subtotal - (promoOk?.discountCents ?? 0) + (deliveryOk?.feeCents ?? 0);
@@ -178,13 +183,13 @@ export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-xl space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Checkout</h1>
+        <h1 className="text-2xl sm:text-3xl">Checkout</h1>
         <p className="text-muted-foreground text-sm">
           {result.sellerName} · {stateName(result.sellerState)}
         </p>
       </div>
 
-      <ul className="divide-y rounded-lg border">
+      <ul className="divide-y rounded-2xl border">
         {result.lines?.map((l, i) => (
           <li key={i} className="flex items-center justify-between gap-4 p-3 text-sm">
             <span>
@@ -229,7 +234,7 @@ export default function CheckoutPage() {
           ) : null}
 
           {fulfillment === "delivery" ? (
-            <div className="space-y-3 rounded-md border p-3">
+            <div className="space-y-3 rounded-xl border p-3">
               {savedAddresses.length > 0 ? (
                 <div className="space-y-2">
                   <Label htmlFor="d-saved">Use a saved address</Label>
@@ -413,7 +418,7 @@ export default function CheckoutPage() {
       </div>
 
       {needsState ? (
-        <div className="bg-muted/50 space-y-3 rounded-md border p-4">
+        <div className="bg-muted/50 space-y-3 rounded-xl border p-4">
           <p className="text-sm font-medium">Confirm your state to continue</p>
           <p className="text-muted-foreground text-sm">
             Orders stay within a single state. {result.sellerName} sells in{" "}
@@ -422,19 +427,19 @@ export default function CheckoutPage() {
           <StatePicker />
         </div>
       ) : stateMismatch ? (
-        <p className="text-destructive rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm">
+        <p className="text-destructive border-destructive/30 bg-destructive/5 rounded-xl border p-3 text-sm">
           You&apos;re in {stateName(result.buyerState)} and this seller is in{" "}
           {stateName(result.sellerState)}. Harvest Local can&apos;t process cross-state orders.
         </p>
       ) : !result.sellerLive ? (
-        <p className="text-destructive rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm">
+        <p className="text-destructive border-destructive/30 bg-destructive/5 rounded-xl border p-3 text-sm">
           This seller isn&apos;t accepting orders right now.
         </p>
       ) : null}
 
       {cart.items.some((i) => disclosures[i.productId]?.required) ? (
         <section className="space-y-2">
-          <h2 className="text-sm font-medium">
+          <h2 className="text-base">
             {stateName(result?.sellerState ?? "")} requires you to see the label before you buy
           </h2>
           {cart.items.map((i) => (
@@ -443,25 +448,27 @@ export default function CheckoutPage() {
         </section>
       ) : null}
 
-      <CheckoutButton
-        disabled={blocked}
-        promoCode={promoOk?.code}
-        fulfillment={fulfillment}
-        deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
-        deliveryWindow={windowRequired ? deliveryWindow : undefined}
-        pickupLocationId={pickupRequired ? (chosenPickup?.id ?? "") : undefined}
-        pickupWindow={pickupRequired && pickupOptions.length > 0 ? pickupWindow : undefined}
-      />
-      <p className="text-muted-foreground text-center text-xs">
-        You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.
-      </p>
+      <div className="bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky bottom-14 z-20 space-y-2 border-t py-4 backdrop-blur-md md:static md:bottom-auto md:border-0 md:backdrop-blur-none">
+        <CheckoutButton
+          disabled={blocked}
+          promoCode={promoOk?.code}
+          fulfillment={fulfillment}
+          deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
+          deliveryWindow={windowRequired ? deliveryWindow : undefined}
+          pickupLocationId={pickupRequired ? (chosenPickup?.id ?? "") : undefined}
+          pickupWindow={pickupRequired && pickupOptions.length > 0 ? pickupWindow : undefined}
+        />
+        <p className="text-muted-foreground text-center text-xs">
+          You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.
+        </p>
+      </div>
     </div>
   );
 }
 
 function Panel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-md rounded-lg border border-dashed p-10 text-center text-sm">
+    <div className="mx-auto max-w-md rounded-2xl border border-dashed p-10 text-center text-sm">
       {children}
     </div>
   );

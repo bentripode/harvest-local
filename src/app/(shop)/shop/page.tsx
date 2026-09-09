@@ -5,6 +5,7 @@ import { ProductCard } from "@/components/product-card";
 import { StatePicker } from "@/components/state-picker";
 import { OriginPicker } from "@/components/origin-picker";
 import { SellerMap } from "@/components/seller-map";
+import { SellerAvatar } from "@/components/seller-avatar";
 import { createClient } from "@/lib/supabase/server";
 import { stateName } from "@/lib/geo/state";
 import { getBrowseOrigin, getBrowseState } from "@/lib/geo/browse-state";
@@ -34,10 +35,9 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
   if (!state) {
     return (
       <div className="mx-auto max-w-md space-y-4 py-10">
-        <h1 className="text-2xl font-semibold tracking-tight">Where are you shopping?</h1>
+        <h1 className="text-2xl">Where are you shopping?</h1>
         <p className="text-muted-foreground text-sm">
-          Cottage-food sales stay inside one state, so Harvest Local shows you the sellers in
-          yours. No account needed to look around.
+          Cottage-food sales stay inside one state, so we show you the sellers in yours.
         </p>
         <StatePicker submitLabel="Show me sellers" />
       </div>
@@ -48,7 +48,6 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
 
   // Ordering, distances and the state filter all come from SQL — see `nearby_sellers`.
   const nearby = await getNearbySellers(state, origin);
-
 
   const supabase = await createClient();
   // The card needs more than a title and a price: options decide the price, batches decide whether
@@ -92,29 +91,32 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
     bySeller.set(row.seller_id, list);
   }
 
-  return (
-    <div className="space-y-8">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Sellers in {stateName(state)}</h1>
-          <p className="text-muted-foreground text-sm">
-            {origin
-              ? "Nearest first."
-              : "Pickup from local farmers, bakers, and makers."}
-          </p>
-          {/* An IP guess is a guess — say so rather than quietly showing the wrong state. */}
-          {source === "geo" ? (
-            <p className="text-muted-foreground pt-1 text-xs">
-              We guessed {stateName(state)} from your connection. Not right? Pick your state.
-            </p>
-          ) : null}
-        </div>
-        <StatePicker current={state} hideLabel submitLabel="Change" />
-      </div>
+  const hasSellers = nearby.length > 0;
 
-      <div className="flex flex-wrap items-end justify-between gap-4 border-y py-3">
+  return (
+    <div className="space-y-6">
+      <header className="space-y-1">
+        <h1 className="text-2xl sm:text-3xl">Sellers in {stateName(state)}</h1>
+        {/* The density sentence IS the subtitle. It used to sit in a block of its own under two
+            rows of controls, below a generic line ("Nearest first.") that said less and was read
+            first — see lib/geo/density.ts. In a thin state this is the honest answer and the list
+            underneath is the footnote. */}
+        {hasSellers ? (
+          <>
+            <p className="text-foreground">{density.headline}</p>
+            {density.detail ? (
+              <p className="text-muted-foreground text-sm">{density.detail}</p>
+            ) : null}
+          </>
+        ) : null}
+      </header>
+
+      {/* One control row instead of three. On a phone these used to stack into four rows of chrome
+          above the first photo. */}
+      <div className="flex flex-wrap items-end gap-x-4 gap-y-3 border-y py-3">
+        <StatePicker current={state} hideLabel submitLabel="Change" />
         <OriginPicker current={origin?.label ?? null} />
-        <div className="flex gap-1" role="group" aria-label="View">
+        <div className="ml-auto flex gap-1" role="group" aria-label="View">
           <ViewLink current={view} target="list">
             List
           </ViewLink>
@@ -124,17 +126,14 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         </div>
       </div>
 
-      {/* What the page says about itself, before the list. In a thin state this is the honest
-          answer and the list underneath is the footnote — see lib/geo/density.ts.
-          Suppressed when the empty card is showing, which says the same sentence. */}
-      <div hidden={nearby.length === 0}>
-        <p className="font-medium">{density.headline}</p>
-        {density.detail ? (
-          <p className="text-muted-foreground text-sm">{density.detail}</p>
-        ) : null}
-      </div>
+      {/* An IP guess is a guess — say so rather than quietly showing the wrong state. */}
+      {source === "geo" ? (
+        <p className="text-muted-foreground -mt-3 text-xs">
+          We guessed {stateName(state)} from your connection.
+        </p>
+      ) : null}
 
-      {nearby.length === 0 ? (
+      {!hasSellers ? (
         <Empty title={`No sellers in ${stateName(state)} yet`}>
           Nobody is listing here right now. If you make something —{" "}
           <Link href="/signup?role=seller" className="underline">
@@ -153,45 +152,43 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
           center={origin ? { lng: origin.lng, lat: origin.lat } : null}
         />
       ) : (
-        <div className="space-y-8">
+        <div className="space-y-10">
           {density.reachable.map((s) => {
             const items = bySeller.get(s.sellerId) ?? [];
             const distance = formatDistance(s.distanceMiles);
             return (
               <section key={s.sellerId} className="space-y-3">
-                <div className="flex items-baseline justify-between gap-3">
-                  <h2 className="flex flex-wrap items-baseline gap-2 text-lg font-medium">
-                    <Link href={`/s/${s.storefrontSlug}`} className="hover:underline">
+                {/* The seller's row reads as a person, not a table header: their mark, their name,
+                    and the two facts that decide whether they're any use to you. */}
+                <Link
+                  href={`/s/${s.storefrontSlug}`}
+                  className="group flex items-center gap-3 no-underline"
+                >
+                  <SellerAvatar name={s.businessName} />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-medium group-hover:underline">
                       {s.businessName}
-                    </Link>
-                    {s.avgRating != null ? (
-                      <span className="text-muted-foreground text-sm font-normal">
-                        ★ {s.avgRating.toFixed(1)}
-                      </span>
-                    ) : null}
-                    {distance ? (
-                      <span className="text-muted-foreground text-sm font-normal">
-                        {distance} away
-                      </span>
-                    ) : null}
-                  </h2>
-                  <Link
-                    href={`/s/${s.storefrontSlug}`}
-                    className="text-muted-foreground text-sm hover:underline"
-                  >
-                    View storefront →
-                  </Link>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {items.slice(0, 6).map((p) => (
-                    <ProductCard
-                      key={p.id}
-                      product={p}
-                      sellerSlug={s.storefrontSlug}
-                      footnote={distance}
-                    />
-                  ))}
-                </div>
+                    </span>
+                    <span className="text-muted-foreground block truncate text-sm">
+                      {[
+                        distance ? `${distance} away` : null,
+                        s.avgRating != null ? `★ ${s.avgRating.toFixed(1)}` : null,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
+                  </span>
+                </Link>
+
+                {items.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">Nothing listed right now.</p>
+                ) : (
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 lg:grid-cols-4">
+                    {items.slice(0, 8).map((p) => (
+                      <ProductCard key={p.id} product={p} />
+                    ))}
+                  </div>
+                )}
               </section>
             );
           })}
@@ -201,9 +198,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
               way off" than by a page that looks empty. */}
           {density.distant.length > 0 ? (
             <section className="space-y-2 border-t pt-6">
-              <h2 className="text-sm font-medium">
-                Elsewhere in {stateName(state)}
-              </h2>
+              <h2 className="text-sm font-medium">Elsewhere in {stateName(state)}</h2>
               <p className="text-muted-foreground text-sm">
                 Too far to collect from, and outside their delivery area — but they are trading.
               </p>
@@ -244,7 +239,7 @@ function ViewLink({
     <Link
       href={target === "list" ? "/shop" : "/shop?view=map"}
       aria-current={active ? "true" : undefined}
-      className={`rounded-md border px-3 py-1.5 text-sm ${
+      className={`rounded-full border px-3 py-1.5 text-sm no-underline ${
         active ? "border-primary bg-primary/5 font-medium" : "hover:bg-muted/50"
       }`}
     >
@@ -255,7 +250,7 @@ function ViewLink({
 
 function Empty({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-md space-y-2 rounded-lg border border-dashed p-10 text-center">
+    <div className="mx-auto max-w-md space-y-2 rounded-2xl border border-dashed p-10 text-center">
       <p className="font-medium">{title}</p>
       <p className="text-muted-foreground text-sm">{children}</p>
     </div>

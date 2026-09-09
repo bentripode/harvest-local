@@ -1,94 +1,91 @@
 import Image from "next/image";
-import Link from "next/link";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ProductQuickView } from "@/components/product-quick-view";
 import { describeCard, type CardProduct } from "@/lib/products/card";
 
 /**
  * One product in a gallery.
  *
- * Everything it says comes from `describeCard`, so the gallery, the storefront and the quick view
- * cannot quote different prices for the same listing — which is exactly what happened before, when
- * `/shop` read `products.price` on listings that sell through options.
+ * A photo first, and the whole tile is the target. It used to be a bordered card holding a
+ * 16:9 image, a title link, a price line, a stock badge, an allergen line and a "Quick view"
+ * button — six stacked rows of chrome around one small picture, and on a phone a single card
+ * filled most of the screen without showing much.
  *
- * The card is not a link wrapping the whole tile. A tile containing its own button can't be nested
- * in an anchor without producing invalid markup and a confusing tab order, and "open the detail"
- * and "go to the storefront" are genuinely two different intents. The title is the link; quick view
- * is the button.
+ * Everything it says still comes from `describeCard`, so the gallery, the storefront and the quick
+ * view cannot quote different prices for the same listing — which is exactly what happened before,
+ * when `/shop` read `products.price` on listings that sell through options.
+ *
+ * The title is no longer a link to the storefront. One tile, one action: tapping opens the detail,
+ * and the seller's name above the row is how you reach their storefront. Two competing targets
+ * inside one small tile is what made the old card need a button of its own.
  */
 export function ProductCard({
   product,
-  sellerSlug,
   footnote,
 }: {
   product: CardProduct;
-  sellerSlug: string;
   /** Distance, or anything else true of this card's context rather than of the product. */
   footnote?: string | null;
 }) {
   const facts = describeCard(product);
+  const image = product.images?.[0];
 
   return (
-    <Card className="flex h-full flex-col">
-      <CardContent className="flex flex-1 flex-col gap-2 pt-5">
-        <Link
-          href={`/s/${sellerSlug}`}
-          className="focus-visible:ring-ring rounded-md focus-visible:ring-2 focus-visible:outline-none"
-        >
-          <div className="bg-muted relative aspect-video overflow-hidden rounded-md border">
-            {product.images?.[0] ? (
-              <Image
-                src={product.images[0].url}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-            ) : null}
-          </div>
-        </Link>
+    <ProductQuickView
+      productId={product.id}
+      className="group focus-visible:ring-ring block w-full rounded-xl text-left focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+    >
+      <div className="bg-muted relative aspect-square overflow-hidden rounded-xl border">
+        {image ? (
+          <Image
+            src={image.url}
+            alt=""
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+        ) : (
+          // No uploader yet, so a missing photo is the common case rather than the exception. An
+          // initial on a warm ground reads as deliberate; an empty grey box reads as broken.
+          <span
+            aria-hidden
+            className="text-muted-foreground/50 font-heading absolute inset-0 flex items-center justify-center text-3xl"
+          >
+            {product.title.trim().charAt(0).toUpperCase()}
+          </span>
+        )}
 
-        <div className="flex-1 space-y-1">
-          <Link href={`/s/${sellerSlug}`} className="text-sm font-medium hover:underline">
-            {product.title}
-          </Link>
+        {/* Sold out, closed, or between batches — the one state worth interrupting the photo for. */}
+        {!facts.orderable ? (
+          <span className="bg-background/90 text-foreground absolute top-2 left-2 rounded-full px-2 py-0.5 text-[0.6875rem] font-medium backdrop-blur-sm">
+            {facts.availability ?? "Unavailable"}
+          </span>
+        ) : null}
+      </div>
 
-          <p className="flex flex-wrap items-baseline gap-x-2 text-sm font-medium">
-            <span>{facts.priceLabel}</span>
-            {facts.netWeight ? (
-              <span className="text-muted-foreground font-normal">{facts.netWeight}</span>
-            ) : null}
-            {footnote ? (
-              <span className="text-muted-foreground font-normal">{footnote}</span>
-            ) : null}
+      <div className="px-0.5 pt-2">
+        <p className="truncate text-sm font-medium">{product.title}</p>
+        <p className="text-muted-foreground flex flex-wrap items-baseline gap-x-1.5 text-sm">
+          <span className="text-foreground tabular-nums">{facts.priceLabel}</span>
+          {facts.netWeight ? <span>{facts.netWeight}</span> : null}
+          {footnote ? <span>{footnote}</span> : null}
+        </p>
+
+        {/* A batch is the proposition — how many are left and when they're collected — so it stays
+            on the tile where a plain stock count doesn't. */}
+        {facts.orderable && facts.availabilityIsBatch && facts.availability ? (
+          <p className="text-primary pt-0.5 text-xs font-medium">{facts.availability}</p>
+        ) : null}
+
+        {/* Buyer-safety fact. It belongs on the shelf, not only in the detail, so it survives the
+            trim that took the rest of the card's text away. */}
+        {facts.allergens ? (
+          <p className="text-muted-foreground truncate pt-0.5 text-xs">
+            Contains {facts.allergens}
           </p>
-
-          {/* A batch line is the proposition, so it gets a badge. A plain stock count is a detail. */}
-          {facts.availability ? (
-            facts.availabilityIsBatch || !facts.orderable ? (
-              <Badge variant={facts.orderable ? "secondary" : "outline"} className="font-normal">
-                {facts.availability}
-              </Badge>
-            ) : (
-              <p className="text-muted-foreground text-xs">{facts.availability}</p>
-            )
-          ) : null}
-
-          {/* Buyer-safety fact — it belongs on the shelf, not only in the detail. */}
-          {facts.allergens ? (
-            <p className="text-muted-foreground text-xs">
-              <span className="font-medium">Contains:</span> {facts.allergens}
-            </p>
-          ) : null}
-        </div>
-
-        <div className="pt-1">
-          <ProductQuickView productId={product.id} />
-        </div>
-      </CardContent>
-    </Card>
+        ) : null}
+      </div>
+    </ProductQuickView>
   );
 }
 

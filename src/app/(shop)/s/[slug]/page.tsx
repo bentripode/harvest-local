@@ -5,9 +5,9 @@ import type { Metadata } from "next";
 import { getProductDisclosures } from "@/lib/labels/disclosure";
 import { LabelDisclosure } from "@/components/label-disclosure";
 
-import { Badge } from "@/components/ui/badge";
 import { AddToCart } from "@/components/add-to-cart";
 import { StarRating } from "@/components/star-rating";
+import { SellerAvatar } from "@/components/seller-avatar";
 import { ReviewList } from "@/components/review-list";
 import { MessageSellerButton } from "@/components/message-seller-button";
 import { TrackStorefrontView } from "@/components/track-storefront-view";
@@ -164,37 +164,55 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const canOrder = blockedFrom === null && !onBreak;
   const isOwner = !!user && user.id === seller.profile_id;
 
+  // A required disclosure that could not be resolved is not the same as one that isn't required.
+  // `product_label_disclosure()` returns a row for every visible product — `predisclosure_required`
+  // simply comes back false in the 40 states with no such rule — so a product MISSING from this map
+  // means the call failed, and we do not know what the buyer is owed.
+  //
+  // The quick view has always failed closed on exactly this (`canAddToBasket`); the storefront row
+  // did not, and would have rendered a basket button beside an empty disclosure. Same posture here.
+  const disclosureResolved = (id: string) => disclosures[id] !== undefined;
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {isOwner ? null : (
         <TrackStorefrontView sellerId={seller.id} productIds={list.map((p) => p.id)} />
       )}
-      <header className="space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight">{seller.business_name}</h1>
-        <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
-          <span>
-            {stateName(seller.home_state)}
-            {seller.delivery_enabled
-              ? ` · pickup or local delivery${seller.delivery_radius_miles ? ` within ${seller.delivery_radius_miles} mi` : ""}`
-              : " · pickup"}
-          </span>
-          {reviewSummary.count > 0 && reviewSummary.avg != null ? (
-            <span className="inline-flex items-center gap-1">
-              · <StarRating value={reviewSummary.avg} />
+
+      {/* The storefront reads as a profile: who they are, then what they have. */}
+      <header className="space-y-4">
+        <div className="flex items-center gap-4">
+          <SellerAvatar name={seller.business_name} size="lg" />
+          <div className="min-w-0 flex-1">
+            <h1 className="truncate text-2xl sm:text-3xl">{seller.business_name}</h1>
+            <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
               <span>
-                {reviewSummary.avg.toFixed(1)} ({reviewSummary.count})
+                {stateName(seller.home_state)} ·{" "}
+                {seller.delivery_enabled
+                  ? `pickup or delivery${seller.delivery_radius_miles ? ` within ${seller.delivery_radius_miles} mi` : ""}`
+                  : "pickup"}
               </span>
-            </span>
-          ) : null}
-        </p>
-        {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
+              {reviewSummary.count > 0 && reviewSummary.avg != null ? (
+                <span className="inline-flex items-center gap-1">
+                  · <StarRating value={reviewSummary.avg} />
+                  <span className="tabular-nums">
+                    {reviewSummary.avg.toFixed(1)} ({reviewSummary.count})
+                  </span>
+                </span>
+              ) : null}
+            </p>
+          </div>
+        </div>
+
+        {seller.bio ? <p className="max-w-2xl">{seller.bio}</p> : null}
         {/* The long version, in full — the home page shows an excerpt, this is where it lands. */}
         {seller.story ? (
-          <p className="text-muted-foreground max-w-2xl pt-2 text-sm whitespace-pre-line">
+          <p className="text-muted-foreground max-w-2xl text-sm whitespace-pre-line">
             {seller.story}
           </p>
         ) : null}
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+
+        <div className="flex flex-wrap items-center gap-2">
           <FollowButton
             target="seller"
             id={seller.id}
@@ -203,25 +221,21 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
             path={`/s/${slug}`}
             label="Follow"
           />
-          {user && canOrder ? (
-            <MessageSellerButton sellerId={seller.id} label={`Message ${seller.business_name}`} />
-          ) : null}
+          {user && canOrder ? <MessageSellerButton sellerId={seller.id} label="Message" /> : null}
         </div>
       </header>
 
       {onBreak ? (
         <Notice>
-          <span className="font-medium">{seller.business_name} is closed right now.</span> You
-          can look around and follow them — we&apos;ll email you when they reopen and list
-          something.
+          <span className="font-medium">{seller.business_name} is closed right now.</span> Follow
+          them and we&apos;ll email you when they reopen.
         </Notice>
       ) : null}
 
       {blockedFrom ? (
         <Notice>
-          {seller.business_name} sells in {stateName(seller.home_state)}. Harvest Local keeps orders
-          within a single state, so you can browse here but can&apos;t order from{" "}
-          {stateName(blockedFrom)}.{" "}
+          {seller.business_name} sells in {stateName(seller.home_state)}, and orders stay inside one
+          state — so you can look, but not order from {stateName(blockedFrom)}.{" "}
           <Link href="/shop" className="underline">
             Shop {stateName(blockedFrom)} sellers
           </Link>
@@ -229,23 +243,131 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
         </Notice>
       ) : !user ? (
         <Notice>
-          Browsing as a guest — add to your basket now and{" "}
+          Add to your basket now and{" "}
           <Link href={`/login?next=/s/${slug}`} className="underline">
             sign in
           </Link>{" "}
-          when you check out.
+          at checkout.
         </Notice>
       ) : null}
 
+      {list.length === 0 ? (
+        <p className="text-muted-foreground text-sm">Nothing listed yet.</p>
+      ) : (
+        <section className="space-y-3">
+          <SectionHeading>Shop</SectionHeading>
+          <ul className="space-y-3">
+            {list.map((p) => {
+              const f = facts.get(p.id)!;
+              const showable = disclosureResolved(p.id);
+              return (
+                <li
+                  key={p.id}
+                  className="hover:border-primary/30 flex gap-4 rounded-2xl border p-3 transition-colors sm:p-4"
+                >
+                  <div className="bg-muted relative size-20 shrink-0 overflow-hidden rounded-xl border sm:size-24">
+                    {p.images?.[0] ? (
+                      <Image
+                        src={p.images[0].url}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="96px"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden
+                        className="text-muted-foreground/50 font-heading absolute inset-0 flex items-center justify-center text-2xl"
+                      >
+                        {p.title.trim().charAt(0).toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="min-w-0 flex-1 space-y-1">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                      <p className="font-medium">{p.title}</p>
+                      {/* Price, weight, stock and the batch line all come from `describeCard`, the
+                          same function the gallery and the quick view use — so a listing cannot
+                          quote one price here and another on /shop. */}
+                      <p className="tabular-nums">{f.priceLabel}</p>
+                    </div>
+
+                    {f.netWeight || (!f.availabilityIsBatch && f.availability) ? (
+                      <p className="text-muted-foreground text-sm">
+                        {[f.netWeight, f.availabilityIsBatch ? null : f.availability]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </p>
+                    ) : null}
+
+                    {/* A batch is the proposition — how many are left and when they are collected. */}
+                    {f.availabilityIsBatch && f.availability ? (
+                      <p className="text-primary text-sm font-medium">{f.availability}</p>
+                    ) : null}
+
+                    {p.description ? (
+                      <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
+                    ) : null}
+
+                    {/* Allergens are a buyer-safety fact, not seller admin — show them on the shelf. */}
+                    {f.allergens ? (
+                      <p className="text-sm">
+                        <span className="text-muted-foreground">Contains</span> {f.allergens}
+                      </p>
+                    ) : null}
+
+                    <LabelDisclosure disclosure={disclosures[p.id]} className="mt-2" />
+
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      {/* Ingredients and storage instructions are collected for the label and were
+                          shown to buyers nowhere. Too long for a row, so they live behind this. */}
+                      <ProductQuickView
+                        productId={p.id}
+                        triggerLabel="Details"
+                        className="h-8 px-3 text-xs"
+                      />
+                      {canOrder && f.orderable && showable ? (
+                        <AddToCart
+                          variants={p.variants ?? []}
+                          seller={{
+                            sellerId: seller.id,
+                            sellerSlug: seller.storefront_slug,
+                            sellerName: seller.business_name,
+                          }}
+                          product={{
+                            id: p.id,
+                            title: p.title,
+                            price: p.price,
+                            quantityAvailable: stockWithDrops(
+                              toDrops(p.drops),
+                              p.quantity_available,
+                            ),
+                          }}
+                        />
+                      ) : canOrder && f.orderable && !showable ? (
+                        <span className="text-muted-foreground text-xs">
+                          Label information is unavailable, so this cannot be ordered right now.
+                        </span>
+                      ) : null}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
       {posts.length > 0 ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-medium">Latest from {seller.business_name}</h2>
-          <ul className="divide-y rounded-lg border">
+        <section className="space-y-3">
+          <SectionHeading>Latest</SectionHeading>
+          <ul className="space-y-3">
             {posts.map((post) => (
-              <li key={post.id} className="space-y-2 p-4 text-sm">
+              <li key={post.id} className="space-y-2 rounded-2xl border p-4 text-sm">
                 <p className="whitespace-pre-line">{post.body}</p>
                 {post.imageUrl ? (
-                  <div className="bg-muted relative aspect-video max-w-sm overflow-hidden rounded-md border">
+                  <div className="bg-muted relative aspect-video max-w-sm overflow-hidden rounded-xl border">
                     <Image
                       src={post.imageUrl}
                       alt=""
@@ -272,12 +394,12 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
         an order you already placed is handed over, an event is somewhere you could just turn up.
       */}
       {upcomingEvents.length > 0 ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-medium">Where to find us</h2>
+        <section className="space-y-3">
+          <SectionHeading>Where to find us</SectionHeading>
           <EventStrip events={upcomingEvents} />
           <p className="text-muted-foreground text-xs">
             <Link href="/events" className="underline underline-offset-2">
-              See everything on in {stateName(seller.home_state)} →
+              Everything on in {stateName(seller.home_state)} →
             </Link>
           </p>
         </section>
@@ -290,15 +412,15 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
         the exact address once the order is paid for.
       */}
       {pickupLocations.length > 0 ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-medium">Where to collect</h2>
+        <section className="space-y-3">
+          <SectionHeading>Where to collect</SectionHeading>
           <ul className="grid gap-3 sm:grid-cols-2">
             {pickupLocations.map((loc) => {
               const where = approximateLocation(loc);
               const schedule = summarizeSlots(loc.slots);
               const notice = describePrepTime(loc.prepHours);
               return (
-                <li key={loc.id} className="rounded-lg border p-3 text-sm">
+                <li key={loc.id} className="rounded-2xl border p-4 text-sm">
                   <p className="font-medium">{loc.label}</p>
                   {where ? <p className="text-muted-foreground">{where}</p> : null}
                   {loc.market ? (
@@ -329,86 +451,6 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
         </section>
       ) : null}
 
-      {list.length === 0 ? (
-        <p className="text-muted-foreground text-sm">No products listed yet.</p>
-      ) : (
-        <ul className="divide-y rounded-lg border">
-          {list.map((p) => (
-            <li key={p.id} className="flex flex-wrap items-start gap-4 p-4">
-              <div className="bg-muted relative size-16 shrink-0 overflow-hidden rounded-md border">
-                {p.images?.[0] ? (
-                  <Image src={p.images[0].url} alt="" fill className="object-cover" sizes="64px" />
-                ) : null}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-medium">{p.title}</p>
-                {p.description ? (
-                  <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
-                ) : null}
-                {/* Price, weight, stock, allergens and the batch line all come from
-                    `describeCard`, the same function the marketplace gallery and the quick view
-                    use — so a listing cannot quote one price here and another on /shop. */}
-                <p className="pt-1 text-sm font-medium">
-                  {facts.get(p.id)!.priceLabel}
-                  {facts.get(p.id)!.availability && !facts.get(p.id)!.availabilityIsBatch ? (
-                    <span className="text-muted-foreground font-normal">
-                      {" "}
-                      · {facts.get(p.id)!.availability}
-                    </span>
-                  ) : null}
-                  {facts.get(p.id)!.netWeight ? (
-                    <span className="text-muted-foreground font-normal">
-                      {" "}
-                      · {facts.get(p.id)!.netWeight}
-                    </span>
-                  ) : null}
-                </p>
-                {/* Allergens are a buyer-safety fact, not seller admin — show them on the shelf. */}
-                {facts.get(p.id)!.allergens ? (
-                  <p className="text-muted-foreground pt-0.5 text-xs">
-                    <span className="font-medium">Contains:</span> {facts.get(p.id)!.allergens}
-                  </p>
-                ) : null}
-                <LabelDisclosure disclosure={disclosures[p.id]} className="mt-2" />
-
-                {/* A batch listing says so on the shelf: how many are left and when they're
-                    collected. */}
-                {facts.get(p.id)!.availabilityIsBatch ? (
-                  <p className="pt-1 text-sm font-medium">{facts.get(p.id)!.availability}</p>
-                ) : null}
-
-                {/* Ingredients and storage instructions are collected for the label and were shown
-                    to buyers nowhere. They are exactly what someone choosing food wants to read,
-                    and they are too long for a row, so they live behind this. */}
-                <ProductQuickView
-                  productId={p.id}
-                  triggerLabel="Details"
-                  className="mt-2 h-7 px-2 text-xs"
-                />
-              </div>
-              {canOrder && facts.get(p.id)!.orderable ? (
-                <AddToCart
-                  variants={p.variants ?? []}
-                  seller={{
-                    sellerId: seller.id,
-                    sellerSlug: seller.storefront_slug,
-                    sellerName: seller.business_name,
-                  }}
-                  product={{
-                    id: p.id,
-                    title: p.title,
-                    price: p.price,
-                    quantityAvailable: stockWithDrops(toDrops(p.drops), p.quantity_available),
-                  }}
-                />
-              ) : (
-                <Badge variant="secondary">Pickup</Badge>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-
       <StorefrontQuestions
         sellerId={seller.id}
         sellerName={seller.business_name}
@@ -418,9 +460,9 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
       {reviews.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">
+          <SectionHeading>
             Reviews{reviewSummary.count > 0 ? ` (${reviewSummary.count})` : ""}
-          </h2>
+          </SectionHeading>
           <ReviewList reviews={reviews} />
         </section>
       ) : null}
@@ -428,8 +470,11 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   );
 }
 
+/** One weight for every section label on the page, so the eye finds them all the same way. */
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return <h2 className="text-lg">{children}</h2>;
+}
+
 function Notice({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="bg-muted/50 rounded-md border p-3 text-sm">{children}</p>
-  );
+  return <p className="bg-muted/50 rounded-xl border p-3 text-sm">{children}</p>;
 }
