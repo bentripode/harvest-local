@@ -1294,3 +1294,44 @@ change a return type, and this adds two columns to the returns-table. It fails o
 better than the sibling trap that bit `finalize_paid_order`, where changing the ARGUMENTS silently
 creates a second overload and leaves the old one being called forever. Grants have to be reapplied
 because they go with the dropped function.
+
+
+**Phase 6 — the taxonomy rethink, and the two holes it found.** The shopping taxonomy was carrying
+two jobs on one flag and enforcing only half of the two levels it has.
+
+**1. `requires_food_permit` conflated "is food" with "is COTTAGE food", and produce is where they
+diverge** (`20260909150000`). It was seeded true for every food top-level including **Produce**, by a
+migration whose own comment admitted "Not a legal determination — an admin should confirm it". Nobody
+did, and it is the load-bearing flag for **five** gates. A grower listing tomatoes therefore had to
+hold a verified **cottage food permit** before their storefront would open, choose a cottage food
+**programme**, supply an **ingredients list** and a **net weight** for a tomato, answer the
+**allergen** question, and in **DE, MI, MS, NV and WA** could not list at all — because the
+online-sales gate keys on the same flag. RCW 69.22 is Washington's *Cottage Food Operations* act; it
+governs food prepared in a home kitchen and has nothing to say about a farmer selling what they grew.
+Every state's cottage food law is defined by that **act** of preparing, so a raw agricultural
+commodity is outside it. Corrected to false, with `sync_seller_license_pause` re-run for anyone the
+old rule had wrongly paused — a category edit fires no trigger, so fixing the rule without fixing the
+sellers it caught would be half a fix. The boundary now lives in the **names**: "Herbs" became
+**"Fresh Herbs"**, because a jar of dried oregano is a shelf-stable cottage food product and must not
+find a home under Produce.
+
+**2. The axis gate read only the top level, so every subcategory axis was dead data**
+(`20260909170000`). `products_guard_food_categories` resolved `food_axes` from `new.category_id`
+alone. **Pickles & Ferments** carries `{acidified, fermented}`; its parent **Pantry & Preserves**
+carries `{shelf_stable}`. The gate saw shelf-stable, asked the seller's programme about shelf-stable,
+got yes, and published the jar — in **13 states that ban acidified or fermented food under every
+programme they run** (CA, CO, CT, DE, HI, LA, MD, MO, NE, NJ, NY, OH, WA). The same silence hid the
+opposite case: **Juice & Cider** is deliberately unmapped and the parent's `shelf_stable` was
+answering for it anyway. Now the axes of category and subcategory are **unioned** — a jar of pickles
+is shelf-stable *and* acidified, and a state banning either must block it — which is the shape the
+label and allergen guards already used (`bool_or` across both). The trigger's column list gained
+`subcategory_id`, without which a seller could publish under a permitted subcategory and then switch
+to a banned one unchallenged.
+
+`test/integration/category-taxonomy.test.ts` pins the invariants, because the alternative is reading
+a tree by eye — and `20260909150000` renamed a category by matching `slug = 'herbs'` when the row is
+`produce-herbs`, so the UPDATE hit nothing and **reported success**. Subcategory slugs are namespaced
+under the parent's *first segment* (`crafts-artisan-goods` parents `crafts-candles`), which is also
+asserted. The suite proves the fix blocks an acidified listing in Connecticut while letting the
+shelf-stable jam beside it through — Washington was the first choice for that test and is unusable,
+because its outright online ban means the control never reaches the axis check.
