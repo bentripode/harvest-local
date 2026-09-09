@@ -81,7 +81,7 @@ create index seller_questions_public_ix
 create trigger seller_questions_set_updated_at before update on public.seller_questions
   for each row execute function public.set_updated_at();
 
--- Same reasoning as `reviews.reviewer_name` (20260908120000): the public Q&A is read by signed-out
+-- Same reasoning as `reviews.reviewer_name` (20260908210000): the public Q&A is read by signed-out
 -- visitors, and `profiles` is owner-only, so the name has to travel with the row.
 create or replace function public.seller_questions_capture_asker_name()
 returns trigger

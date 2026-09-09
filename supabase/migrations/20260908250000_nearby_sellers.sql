@@ -7,7 +7,7 @@
 -- =========================================================================
 -- COORDINATES ARE ROUNDED, AND THAT IS THE POINT
 -- =========================================================================
--- 20260908150000 established that a cottage seller's collection point is usually their house, so
+-- 20260908240000 established that a cottage seller's collection point is usually their house, so
 -- the town is public and the street is not. A map pin is a street address expressed differently —
 -- dropping an exact pin on a home undoes that decision with a nicer interface.
 --

@@ -124,7 +124,7 @@ describeDb("reviews_verify_buyer", () => {
 /**
  * The marketplace is public, so a signed-out reader is the storefront's main audience — and
  * `profiles` is owner-read-only, so the reviewer's name has to travel on the review itself
- * (20260908120000_public_review_names.sql).
+ * (20260908210000_public_review_names.sql).
  */
 describeDb("reviews.reviewer_name", () => {
   let buyer: TestUser;

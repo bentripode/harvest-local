@@ -17,7 +17,7 @@ import {
  *  - the state filter is rule 1's discovery layer, and it lives in SQL precisely so a client
  *    cannot drop it;
  *  - coordinates for anywhere a seller might live are rounded to ~1km, because a map pin on an
- *    exact home address undoes the whole of 20260908150000 with a nicer interface.
+ *    exact home address undoes the whole of 20260908240000 with a nicer interface.
  */
 describeDb("nearby_sellers", () => {
   let txUser: TestUser;

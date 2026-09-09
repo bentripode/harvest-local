@@ -3,7 +3,7 @@ import { toCents, type Cents } from "@/lib/money";
 /**
  * What is actually being sold on one line — the single place a price and a stock level come from.
  *
- * A product either has variants or it doesn't (see 20260908170000). That is two shapes in the
+ * A product either has variants or it doesn't (see 20260908260000). That is two shapes in the
  * database and it must not become two pricing paths in the code: CLAUDE.md rule 3 is about there
  * being one server-side answer to "what does this cost", and the way that rule dies is by having a
  * second branch that computes it slightly differently. So both shapes resolve HERE, once, and every

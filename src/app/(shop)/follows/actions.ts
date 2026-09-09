@@ -11,7 +11,7 @@ import { createClient } from "@/lib/supabase/server";
  *
  * Requires an account, and says so rather than silently doing nothing: a follow is a promise to
  * email someone, so there has to be someone to email. Guests get pointed at sign-in — and on a
- * market page they still have the address-free waitlist from 20260908130000.
+ * market page they still have the address-free waitlist from 20260908220000.
  *
  * RLS is the gate on the write itself ("follows: owner follows" checks `profile_id = auth.uid()`),
  * so the id is never taken from the form.

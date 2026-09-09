@@ -29,7 +29,7 @@ export async function getSellerReviews(
   const supabase = await createClient();
   // `reviews.reviewer_name` is snapshotted at insert. The profiles join stays as a fallback for
   // rows written before that column existed — it resolves to null for signed-out readers, which is
-  // exactly why the snapshot exists (20260908120000_public_review_names.sql).
+  // exactly why the snapshot exists (20260908210000_public_review_names.sql).
   const { data } = await supabase
     .from("reviews")
     .select(

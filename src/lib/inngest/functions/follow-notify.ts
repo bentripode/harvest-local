@@ -92,7 +92,7 @@ export const followedSellerListed = inngest.createFunction(
  * A seller started selling at a market you follow.
  *
  * This is also what finally makes `market_watchers` mean something. That waitlist has been
- * collecting addresses since 20260908130000 against a promise — "we'll tell you when someone starts
+ * collecting addresses since 20260908220000 against a promise — "we'll tell you when someone starts
  * selling here" — that nothing could keep until sellers could attach a booth to a market at all.
  * Followers and watchers are notified together, since they asked the same question in two places.
  */

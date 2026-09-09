@@ -12,7 +12,7 @@ export type { NearbySeller };
  * Everything comes from `nearby_sellers()`, which keeps the state filter in SQL — that filter is
  * the discovery layer of rule 1, and one applied in the client is one a client can drop. The
  * coordinates it returns are rounded to about a kilometre for anywhere a seller might live, so a
- * pin says which part of town and not which house (20260908160000).
+ * pin says which part of town and not which house (20260908250000).
  */
 
 export async function getNearbySellers(
