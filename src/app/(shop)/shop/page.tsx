@@ -125,8 +125,9 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
       </div>
 
       {/* What the page says about itself, before the list. In a thin state this is the honest
-          answer and the list underneath is the footnote — see lib/geo/density.ts. */}
-      <div>
+          answer and the list underneath is the footnote — see lib/geo/density.ts.
+          Suppressed when the empty card is showing, which says the same sentence. */}
+      <div hidden={nearby.length === 0}>
         <p className="font-medium">{density.headline}</p>
         {density.detail ? (
           <p className="text-muted-foreground text-sm">{density.detail}</p>

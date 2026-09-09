@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-heading-family);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,72 +49,101 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* ---------------------------------------------------------------------
+     Earth tones. Every neutral carries a warm hue (h≈70–90) rather than the
+     zero-chroma greys shadcn ships with: a true neutral next to cream reads as
+     dirty, and that single difference is most of what separates "designed"
+     from "default".
+
+     Green is the voice, amber is the shout. Amber is reserved for the one
+     action that matters on a page — spend it twice and it stops meaning
+     anything.
+     --------------------------------------------------------------------- */
+  --background: oklch(0.982 0.008 85);      /* warm cream */
+  --foreground: oklch(0.235 0.012 75);      /* warm near-black ink */
+  --card: oklch(1 0.003 85);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0.003 85);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.408 0.062 152);        /* deep forest */
+  --primary-foreground: oklch(0.985 0.008 85);
+
+  --secondary: oklch(0.945 0.014 88);       /* sand */
+  --secondary-foreground: oklch(0.33 0.03 150);
+
+  --muted: oklch(0.952 0.011 88);
+  --muted-foreground: oklch(0.545 0.018 78); /* warm grey, never neutral */
+
+  --accent: oklch(0.72 0.142 62);           /* warm amber — CTAs only */
+  --accent-foreground: oklch(0.22 0.03 70);
+
+  --destructive: oklch(0.55 0.176 27);
+  --border: oklch(0.906 0.014 86);
+  --input: oklch(0.906 0.014 86);
+  --ring: oklch(0.408 0.062 152 / 45%);
+
+  --chart-1: oklch(0.408 0.062 152);
+  --chart-2: oklch(0.55 0.075 150);
+  --chart-3: oklch(0.72 0.142 62);
+  --chart-4: oklch(0.66 0.06 88);
+  --chart-5: oklch(0.545 0.018 78);
+
+  /* Softer than the 0.625rem default — cards 16px, buttons go full pill. */
+  --radius: 1rem;
+
+  --sidebar: oklch(0.968 0.012 86);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: oklch(0.408 0.062 152);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.945 0.014 88);
+  --sidebar-accent-foreground: oklch(0.33 0.03 150);
+  --sidebar-border: oklch(0.906 0.014 86);
+  --sidebar-ring: oklch(0.408 0.062 152 / 45%);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Night in the same world: a warm brown-black ground rather than a cool one,
+     and a lifted green that still reads as green at low luminance. Amber is
+     brightened so it survives the darker ground. */
+  --background: oklch(0.198 0.012 70);
+  --foreground: oklch(0.945 0.010 85);
+  --card: oklch(0.245 0.014 72);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.245 0.014 72);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.72 0.088 150);
+  --primary-foreground: oklch(0.19 0.02 150);
+
+  --secondary: oklch(0.295 0.016 74);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(0.295 0.016 74);
+  --muted-foreground: oklch(0.715 0.016 80);
+
+  --accent: oklch(0.78 0.135 66);
+  --accent-foreground: oklch(0.20 0.03 70);
+
+  --destructive: oklch(0.68 0.172 24);
+  --border: oklch(0.945 0.01 85 / 12%);
+  --input: oklch(0.945 0.01 85 / 16%);
+  --ring: oklch(0.72 0.088 150 / 50%);
+
+  --chart-1: oklch(0.72 0.088 150);
+  --chart-2: oklch(0.60 0.07 152);
+  --chart-3: oklch(0.78 0.135 66);
+  --chart-4: oklch(0.70 0.06 90);
+  --chart-5: oklch(0.715 0.016 80);
+
+  --sidebar: oklch(0.245 0.014 72);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: oklch(0.72 0.088 150);
+  --sidebar-primary-foreground: oklch(0.19 0.02 150);
+  --sidebar-accent: oklch(0.295 0.016 74);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: oklch(0.945 0.01 85 / 12%);
+  --sidebar-ring: oklch(0.72 0.088 150 / 50%);
 }
 
 @layer base {
@@ -126,5 +155,26 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* Headings take the serif automatically, so no page has to remember to ask.
+     `text-wrap: balance` stops a two-word orphan on the second line, which is the
+     single most common way a large soft serif looks careless. */
+  h1, h2, h3 {
+    font-family: var(--font-heading-family), Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    letter-spacing: -0.011em;
+    text-wrap: balance;
+  }
+
+  /* Nunito Sans runs a touch wide at body size; this pulls it back to a
+     comfortable measure without making it feel condensed. */
+  body {
+    letter-spacing: -0.003em;
+  }
+
+  /* Digits that line up in a column — prices, distances, counts. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 }
