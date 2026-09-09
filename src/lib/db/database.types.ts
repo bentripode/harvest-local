@@ -245,6 +245,72 @@ export type Database = {
           },
         ]
       }
+      events: {
+        Row: {
+          cancelled_note: string | null
+          created_at: string
+          description: string | null
+          ends_at: string | null
+          event_date: string
+          id: string
+          location_text: string | null
+          market_id: string | null
+          seller_id: string
+          starts_at: string | null
+          state: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cancelled_note?: string | null
+          created_at?: string
+          description?: string | null
+          ends_at?: string | null
+          event_date: string
+          id?: string
+          location_text?: string | null
+          market_id?: string | null
+          seller_id: string
+          starts_at?: string | null
+          state: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cancelled_note?: string | null
+          created_at?: string
+          description?: string | null
+          ends_at?: string | null
+          event_date?: string
+          id?: string
+          location_text?: string | null
+          market_id?: string | null
+          seller_id?: string
+          starts_at?: string | null
+          state?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "events_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       follows: {
         Row: {
           created_at: string

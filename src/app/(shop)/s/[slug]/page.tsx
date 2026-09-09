@@ -25,6 +25,8 @@ import type { VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
 import { stockWithDrops } from "@/lib/orders/drops";
 import { describeCard } from "@/lib/products/card";
+import { getSellerUpcomingEvents } from "@/lib/events/queries";
+import { EventStrip, type ListedEvent } from "@/components/event-list";
 import { ProductQuickView } from "@/components/product-quick-view";
 import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import type { Product } from "@/lib/db/types";
@@ -88,6 +90,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     viewerFollows,
     posts,
     questions,
+    events,
   ] = await Promise.all([
     supabase
       .from("products")
@@ -106,7 +109,23 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     isFollowing("seller", seller.id),
     getStorefrontPosts(seller.id),
     getStorefrontQuestions(seller.id),
+    getSellerUpcomingEvents(seller.id),
   ]);
+
+  const upcomingEvents: ListedEvent[] = events.map((e) => ({
+    id: e.id,
+    title: e.title,
+    eventDate: e.eventDate,
+    startsAt: e.startsAt,
+    endsAt: e.endsAt,
+    status: e.status,
+    cancelledNote: e.cancelledNote,
+    description: e.description,
+    locationText: e.locationText,
+    sellerName: e.sellerName,
+    sellerSlug: e.sellerSlug,
+    market: e.market,
+  }));
 
   const list = (products ?? []) as (Product & {
     variants?: VariantLike[];
@@ -239,6 +258,22 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
               </li>
             ))}
           </ul>
+        </section>
+      ) : null}
+
+      {/*
+        Where to find them in person. Distinct from "where to collect": a pickup location is where
+        an order you already placed is handed over, an event is somewhere you could just turn up.
+      */}
+      {upcomingEvents.length > 0 ? (
+        <section className="space-y-2">
+          <h2 className="text-sm font-medium">Where to find us</h2>
+          <EventStrip events={upcomingEvents} />
+          <p className="text-muted-foreground text-xs">
+            <Link href="/events" className="underline underline-offset-2">
+              See everything on in {stateName(seller.home_state)} →
+            </Link>
+          </p>
         </section>
       ) : null}
 

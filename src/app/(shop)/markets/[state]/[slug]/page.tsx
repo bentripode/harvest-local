@@ -6,6 +6,8 @@ import { MarketNextOpen } from "@/components/market-next-open";
 import { WatchMarketForm } from "@/components/watch-market-form";
 import { getMarket } from "@/lib/markets/queries";
 import { getMarketSellers } from "@/lib/orders/pickup";
+import { getMarketEvents } from "@/lib/events/queries";
+import { EventList, type ListedEvent } from "@/components/event-list";
 import { FollowButton } from "@/components/follow-button";
 import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
@@ -39,11 +41,27 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
   const market = await getMarket(code, slug);
   if (!market) notFound();
 
-  const [sellers, followerCount, viewerFollows] = await Promise.all([
+  const [sellers, events, followerCount, viewerFollows] = await Promise.all([
     getMarketSellers(market.id),
+    getMarketEvents(market.id),
     getFollowerCount("market", market.id),
     isFollowing("market", market.id),
   ]);
+
+  const listedEvents: ListedEvent[] = events.map((e) => ({
+    id: e.id,
+    title: e.title,
+    eventDate: e.eventDate,
+    startsAt: e.startsAt,
+    endsAt: e.endsAt,
+    status: e.status,
+    cancelledNote: e.cancelledNote,
+    description: e.description,
+    locationText: e.locationText,
+    sellerName: e.sellerName,
+    sellerSlug: e.sellerSlug,
+    market: e.market,
+  }));
   const schedule = summarizeHours(market.hours);
   const directionsQuery = encodeURIComponent(
     [market.name, market.addressText, market.city, code, market.postalCode]
@@ -139,6 +157,20 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
           </div>
         </section>
       </div>
+
+      {/*
+        What's on. Distinct from the opening hours above: `market_hours` is the market's standing
+        schedule, this is who has said they will actually be there on a given day. A buyer deciding
+        whether Saturday is worth the trip needs the second.
+      */}
+      <section className="space-y-4">
+        <h2 className="text-sm font-medium">What&apos;s on</h2>
+        <EventList
+          events={listedEvents}
+          showVenue={false}
+          emptyText="No seller has listed a date here yet."
+        />
+      </section>
 
       {/*
         Sellers who have told us they have a booth here — by the `pickup_locations.market_id` link,

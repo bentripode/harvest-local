@@ -325,6 +325,7 @@ src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/orders/{drops,drop-queries}.ts   pre-order batches: state + copy + the sell-by-batch gate (pure) · reads
+src/lib/events/{schedule,queries}.ts   wall-clock event arithmetic (pure) · state / market / seller reads
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
@@ -1046,3 +1047,44 @@ and its `AddToCart` gets `stockWithDrops`, the same batch-capped figure the stor
 quantity stepper cannot build a cart `priceCart` will refuse. The quick view is also where a buyer
 finally sees **ingredients and handling instructions**, which were collected for the label and shown
 to buyers nowhere.
+
+
+**Phase 6 — events: where to find a seller in person.** `events` (`20260909100000`) is one seller
+appearance — a date, a wall-clock time, and usually a market. Markets, pickup locations and drops all
+answer "where and when" for an ORDER; none of them answered the question a buyer asks first, which is
+what is on near me this weekend. A market page can say "open Saturdays 9–3" and still not tell you
+the baker you follow is only there on the second Saturday.
+
+**Wall clock, not instants — the third time this decision has come up and the same answer.**
+`event_date` is a DATE and `starts_at`/`ends_at` are TIMEs, exactly like `market_hours`, because 9am
+at a stall in Denton is 9am in Denton. A timestamptz would force a time zone per market that we do
+not have. The consequence is that "is this today?" cannot be answered on a UTC server, so every
+function in `src/lib/events/schedule.ts` that compares against now **takes the reference day as an
+argument** and the caller supplies it: `EventList` and `EventStrip` are client components calling
+`localToday()`, the same reason `MarketNextOpen` is one. Dates move through the module as
+`"YYYY-MM-DD"` strings rather than `Date`s — a `Date` is an instant, and the moment one enters
+somebody compares it to another instant and the bug is back. Strings in that format sort correctly
+with `<`, which is the whole trick.
+
+**The SQL window starts a day early, on purpose.** `events/queries.ts` filters `event_date >=`
+yesterday-in-UTC and lets the pure module do the real filtering against the reader's date. At 8pm
+Pacific, UTC has already turned over, so `>= current_date` would hide a market that is still running.
+Showing one stale day is a row someone scrolls past; hiding today's market is the buyer missing it.
+
+**`state` is derived, never supplied.** `events_set_state` (BEFORE INSERT OR UPDATE) takes it from
+the storefront and refuses a market in another state — the same shape as
+`pickup_locations_guard_market_state`, and the same reason: the calendar is the discovery layer of
+rule 1, and advertising an out-of-state seller at a local market invites an order the data layer will
+then refuse. A tampered form field cannot put an event on another state's calendar, and it re-derives
+on update so a market cannot be swapped across a border afterwards.
+
+**A cancelled event stays on the calendar until its date passes**, marked off and carrying the
+seller's reason (`cancelled_note`, which the form requires). Someone rearranged their Saturday around
+it; deleting the row tells them nothing.
+
+**`seller_id` is NOT NULL on purpose.** A market's own programme — opening day, a harvest festival —
+is a real thing this table could carry, but markets are imported and admin-owned and no surface
+creates events for them, so a nullable owner would be a shape nothing ever fills: the same mistake as
+seeding a deadline nobody checked. `market_id` IS optional, because a farm open day has no market.
+Surfaces: `/events` (state calendar), a "What's on" section on each market page, a "Where to find us"
+strip on the storefront, and `/seller/events` to manage.
