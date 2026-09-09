@@ -2,6 +2,8 @@ import { notFound, redirect } from "next/navigation";
 
 import { ProductForm, type ProductFormValues } from "@/components/product-form";
 import { VariantsManager, type EditableVariant } from "@/components/variants-manager";
+import { DropsManager } from "@/components/drops-manager";
+import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import { formatUsd, toCents } from "@/lib/money";
 import { getCategoryPermissions } from "@/lib/compliance/categories";
 import { ingredientsToText } from "@/lib/products/labeling";
@@ -21,6 +23,7 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     { data: product },
     { data: productTags },
     { data: variants },
+    { data: drops },
     categories,
     tags,
     categoryPermissions,
@@ -32,6 +35,11 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
       .select("id, name, price, quantity_available, net_weight_value, net_weight_unit, sku, is_active")
       .eq("product_id", id)
       .order("sort_order"),
+    supabase
+      .from("product_drops")
+      .select(DROP_SELECT)
+      .eq("product_id", id)
+      .order("closes_at", { ascending: false }),
     getCategories(),
     getTags(),
     getCategoryPermissions(seller.id),
@@ -82,6 +90,10 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
           productPrice={formatUsd(toCents(p.price))}
           initial={editableVariants}
         />
+      </section>
+
+      <section className="rounded-lg border p-5">
+        <DropsManager productId={p.id} drops={toDrops(drops as DropRow[] | null)} />
       </section>
     </div>
   );

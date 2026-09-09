@@ -324,6 +324,7 @@ src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants
 src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
+src/lib/orders/{drops,drop-queries}.ts   pre-order batches: state + copy + the sell-by-batch gate (pure) · reads
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
@@ -951,3 +952,62 @@ because a seller who trusts it stops looking. Completion is self-reported; the s
 `revalidatePath("/", "layout")`. `public` removes the home-page early-access notice and swaps the
 logged-out CTA to "Sign up to shop" / "Sell on Harvest Local" (`sellers_only` → "Start selling" /
 "Sign in"). `access_mode` is presentational only — nothing hard-gates buyers from `/shop`.
+
+
+**Phase 6 — pre-orders and limited batches ("drops").** A cottage baker's core problem is baking to
+demand rather than to guess, and `quantity_available` is an open-ended shelf, not a batch with a
+deadline. `product_drops` (`20260908340000`) is one bake of one listing: an order window
+(`opens_at`/`closes_at`, timestamptz), a collection date (`fulfillment_date`, a DATE), and a hard
+`unit_cap`.
+
+**The governing rule is that it must UNDER-sell, never over-sell.** The cap is not a stock level, it
+is a physical fact — a seller handed a twenty-first order for a twenty-loaf bake cannot solve it at
+6am on Saturday, while one who sold nineteen can take the twentieth by hand. Everything is arranged
+so a failure strands units (recoverable) rather than selling them twice (not):
+
+- `units_claimed` is a counter with `product_drops_within_cap` (`units_claimed <= unit_cap`) against
+  it, incremented by **`claim_drop_units`** under a `select ... for update` row lock. Two buyers
+  racing for the last loaf serialise and the loser is refused by the constraint, not by a count read
+  a moment before the winner committed. Counting live order rows instead would be prettier and would
+  lose that race, because the order rows are written in a later statement than the count.
+- The claim is taken **before** the order is written, so a Stripe failure cannot leave a claimed unit
+  with no order. `claim_drop_units` **raises** rather than returning false, so a caller that forgets
+  to check still cannot oversell.
+- Two releases, and using the wrong one oversells. **`release_drop_units_for_order`** is keyed on an
+  ORDER and made idempotent by clearing `drop_id` off the items as it goes — that is the one for the
+  Stripe webhook's `unwindOrder` and for a seller cancelling, both of which run twice (rule 2).
+  **`release_drop_units(drop, units)`** (`20260908350000`) is the compensating path for a checkout
+  whose write failed after the claim, when there is no order to key on; it is deliberately **not**
+  idempotent and must never be the webhook's.
+
+**A listing with a batch sells ONLY through it, and goes quiet between batches** (`gateByDrops`).
+Falling back to ordinary open-ended selling once a window shuts is the oversell the whole feature
+exists to prevent: the baker caps Saturday at twenty, the window closes Thursday night, and on Friday
+someone buys five more with no batch and no collection date attached. Cancelling every batch is what
+takes a listing back out of batch mode. The cost — a listing that goes quiet until the next batch is
+scheduled — is the direction to fail in, and `DropsManager` says so in as many words.
+
+**One live window per listing**, enforced by a GiST exclusion constraint
+(`product_drops_no_overlap`, `product_id` + `tstzrange(opens_at, closes_at)`, `where cancelled_at is
+null`) rather than by convention: two overlapping windows have no answer to "which batch is this
+order for", and that ambiguity reaches the buyer as a wrong collection date.
+
+**`units_claimed` is frozen against the seller** (`product_drops_guard_claims`, alongside
+`product_id` and `seller_id`). An UPDATE policy wide enough to let a seller rename a batch is wide
+enough to let them zero the counter. The **cap itself stays editable** — a seller who decides to bake
+five more should be able to say so — and `product_drops_within_cap` is what stops them setting it
+below what buyers have already ordered.
+
+**Timezone discipline, and it cuts both ways in one table.** `fulfillment_date` is a DATE — a
+wall-clock day at the seller's place — so `formatFulfillment` renders "Saturday 14 December"
+anywhere. `opens_at`/`closes_at` are instants, and the server runs UTC, so naming their day would
+print "orders open Tuesday 15 December" for a Texas window that opens at 6pm on the Monday. Those are
+rendered as **durations** (`closesIn` / `opensIn`, both rounding DOWN so a buyer is never told they
+have more time than they do). Same trap as `markets/schedule.ts`.
+
+`src/lib/orders/drops.ts` is the pure half (state, `unitsLeft`, `describeDrop`, `gateByDrops`,
+`stockWithDrops`, `dropSnapshot`) and `drop-queries.ts` the reads. `priceCart` refuses a shut batch
+and caps the line at whichever is smaller, the batch or the shelf; the collection date is frozen onto
+`order_items.drop_snapshot` at checkout so editing or cancelling the batch cannot move a date a buyer
+was promised. Seller UI: `DropsManager` on the listing page, and `/seller/drops` — the bake list,
+ordered by collection date rather than by listing, because the oven works by date.

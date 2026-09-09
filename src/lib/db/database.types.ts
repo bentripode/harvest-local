@@ -245,6 +245,38 @@ export type Database = {
           },
         ]
       }
+      follows: {
+        Row: {
+          created_at: string
+          id: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          profile_id?: string
+          target_id?: string
+          target_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "follows_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       label_print_runs: {
         Row: {
           copies: number
@@ -298,38 +330,6 @@ export type Database = {
             columns: ["seller_id"]
             isOneToOne: false
             referencedRelation: "seller_profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      follows: {
-        Row: {
-          created_at: string
-          id: string
-          profile_id: string
-          target_id: string
-          target_type: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          profile_id: string
-          target_id: string
-          target_type: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          profile_id?: string
-          target_id?: string
-          target_type?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "follows_profile_id_fkey"
-            columns: ["profile_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -418,7 +418,7 @@ export type Database = {
           created_at: string
           hours_text: string | null
           id: string
-          location: unknown | null
+          location: unknown
           name: string
           phone: string | null
           postal_code: string | null
@@ -438,7 +438,7 @@ export type Database = {
           created_at?: string
           hours_text?: string | null
           id?: string
-          location?: unknown | null
+          location?: unknown
           name: string
           phone?: string | null
           postal_code?: string | null
@@ -458,7 +458,7 @@ export type Database = {
           created_at?: string
           hours_text?: string | null
           id?: string
-          location?: unknown | null
+          location?: unknown
           name?: string
           phone?: string | null
           postal_code?: string | null
@@ -569,6 +569,8 @@ export type Database = {
       order_items: {
         Row: {
           category_snapshot: string | null
+          drop_id: string | null
+          drop_snapshot: string | null
           id: string
           line_total: number
           order_id: string
@@ -582,6 +584,8 @@ export type Database = {
         }
         Insert: {
           category_snapshot?: string | null
+          drop_id?: string | null
+          drop_snapshot?: string | null
           id?: string
           line_total: number
           order_id: string
@@ -595,6 +599,8 @@ export type Database = {
         }
         Update: {
           category_snapshot?: string | null
+          drop_id?: string | null
+          drop_snapshot?: string | null
           id?: string
           line_total?: number
           order_id?: string
@@ -608,6 +614,13 @@ export type Database = {
         }
         Relationships: [
           {
+            foreignKeyName: "order_items_drop_id_fkey"
+            columns: ["drop_id"]
+            isOneToOne: false
+            referencedRelation: "product_drops"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "order_items_order_id_fkey"
             columns: ["order_id"]
             isOneToOne: false
@@ -619,6 +632,13 @@ export type Database = {
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_variant_id_fkey"
+            columns: ["variant_id"]
+            isOneToOne: false
+            referencedRelation: "product_variants"
             referencedColumns: ["id"]
           },
         ]
@@ -763,6 +783,13 @@ export type Database = {
             columns: ["delivery_address_id"]
             isOneToOne: false
             referencedRelation: "addresses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_pickup_location_id_fkey"
+            columns: ["pickup_location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
             referencedColumns: ["id"]
           },
           {
@@ -917,6 +944,79 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_drops: {
+        Row: {
+          cancelled_at: string | null
+          closes_at: string
+          created_at: string
+          fulfillment_date: string
+          id: string
+          name: string
+          opens_at: string | null
+          pickup_location_id: string | null
+          pickup_window: string | null
+          product_id: string
+          seller_id: string
+          unit_cap: number
+          units_claimed: number
+          updated_at: string
+        }
+        Insert: {
+          cancelled_at?: string | null
+          closes_at: string
+          created_at?: string
+          fulfillment_date: string
+          id?: string
+          name: string
+          opens_at?: string | null
+          pickup_location_id?: string | null
+          pickup_window?: string | null
+          product_id: string
+          seller_id: string
+          unit_cap: number
+          units_claimed?: number
+          updated_at?: string
+        }
+        Update: {
+          cancelled_at?: string | null
+          closes_at?: string
+          created_at?: string
+          fulfillment_date?: string
+          id?: string
+          name?: string
+          opens_at?: string | null
+          pickup_location_id?: string | null
+          pickup_window?: string | null
+          product_id?: string
+          seller_id?: string
+          unit_cap?: number
+          units_claimed?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_drops_pickup_location_id_fkey"
+            columns: ["pickup_location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_drops_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_drops_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -1778,6 +1878,121 @@ export type Database = {
           },
         ]
       }
+      seller_profiles: {
+        Row: {
+          avg_rating: number | null
+          bio: string | null
+          business_name: string
+          connect_charges_enabled: boolean
+          connect_details_submitted: boolean
+          connect_payouts_enabled: boolean
+          contact_phone: string | null
+          created_at: string
+          delivery_base_fee: number
+          delivery_enabled: boolean
+          delivery_per_mile_fee: number
+          delivery_radius_miles: number | null
+          delivery_windows: Json
+          food_program_id: string | null
+          home_state: string
+          homemade_food_statement: string | null
+          id: string
+          is_paused: boolean
+          mailing_address: string | null
+          on_vacation: boolean
+          pause_reason: string | null
+          pickup_address_id: string | null
+          preparation_county: string | null
+          producer_id_number: string | null
+          profile_id: string
+          storefront_slug: string
+          stripe_account_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          avg_rating?: number | null
+          bio?: string | null
+          business_name: string
+          connect_charges_enabled?: boolean
+          connect_details_submitted?: boolean
+          connect_payouts_enabled?: boolean
+          contact_phone?: string | null
+          created_at?: string
+          delivery_base_fee?: number
+          delivery_enabled?: boolean
+          delivery_per_mile_fee?: number
+          delivery_radius_miles?: number | null
+          delivery_windows?: Json
+          food_program_id?: string | null
+          home_state: string
+          homemade_food_statement?: string | null
+          id?: string
+          is_paused?: boolean
+          mailing_address?: string | null
+          on_vacation?: boolean
+          pause_reason?: string | null
+          pickup_address_id?: string | null
+          preparation_county?: string | null
+          producer_id_number?: string | null
+          profile_id: string
+          storefront_slug: string
+          stripe_account_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avg_rating?: number | null
+          bio?: string | null
+          business_name?: string
+          connect_charges_enabled?: boolean
+          connect_details_submitted?: boolean
+          connect_payouts_enabled?: boolean
+          contact_phone?: string | null
+          created_at?: string
+          delivery_base_fee?: number
+          delivery_enabled?: boolean
+          delivery_per_mile_fee?: number
+          delivery_radius_miles?: number | null
+          delivery_windows?: Json
+          food_program_id?: string | null
+          home_state?: string
+          homemade_food_statement?: string | null
+          id?: string
+          is_paused?: boolean
+          mailing_address?: string | null
+          on_vacation?: boolean
+          pause_reason?: string | null
+          pickup_address_id?: string | null
+          preparation_county?: string | null
+          producer_id_number?: string | null
+          profile_id?: string
+          storefront_slug?: string
+          stripe_account_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_profiles_food_program_id_fkey"
+            columns: ["food_program_id"]
+            isOneToOne: false
+            referencedRelation: "state_food_programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_profiles_pickup_address_id_fkey"
+            columns: ["pickup_address_id"]
+            isOneToOne: false
+            referencedRelation: "addresses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_profiles_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_questions: {
         Row: {
           answer: string | null
@@ -1820,10 +2035,10 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "seller_questions_seller_id_fkey"
-            columns: ["seller_id"]
+            foreignKeyName: "seller_questions_asker_id_fkey"
+            columns: ["asker_id"]
             isOneToOne: false
-            referencedRelation: "seller_profiles"
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
@@ -1833,119 +2048,11 @@ export type Database = {
             referencedRelation: "products"
             referencedColumns: ["id"]
           },
-        ]
-      }
-      seller_profiles: {
-        Row: {
-          avg_rating: number | null
-          bio: string | null
-          business_name: string
-          connect_charges_enabled: boolean
-          connect_details_submitted: boolean
-          connect_payouts_enabled: boolean
-          contact_phone: string | null
-          created_at: string
-          delivery_base_fee: number
-          delivery_enabled: boolean
-          delivery_per_mile_fee: number
-          delivery_radius_miles: number | null
-          delivery_windows: Json
-          food_program_id: string | null
-          home_state: string
-          homemade_food_statement: string | null
-          id: string
-          is_paused: boolean
-          on_vacation: boolean
-          mailing_address: string | null
-          pause_reason: string | null
-          pickup_address_id: string | null
-          preparation_county: string | null
-          producer_id_number: string | null
-          profile_id: string
-          storefront_slug: string
-          stripe_account_id: string | null
-          updated_at: string
-        }
-        Insert: {
-          avg_rating?: number | null
-          bio?: string | null
-          business_name: string
-          connect_charges_enabled?: boolean
-          connect_details_submitted?: boolean
-          connect_payouts_enabled?: boolean
-          contact_phone?: string | null
-          created_at?: string
-          delivery_base_fee?: number
-          delivery_enabled?: boolean
-          delivery_per_mile_fee?: number
-          delivery_radius_miles?: number | null
-          delivery_windows?: Json
-          food_program_id?: string | null
-          home_state: string
-          homemade_food_statement?: string | null
-          id?: string
-          is_paused?: boolean
-          on_vacation?: boolean
-          mailing_address?: string | null
-          pause_reason?: string | null
-          pickup_address_id?: string | null
-          preparation_county?: string | null
-          producer_id_number?: string | null
-          profile_id: string
-          storefront_slug: string
-          stripe_account_id?: string | null
-          updated_at?: string
-        }
-        Update: {
-          avg_rating?: number | null
-          bio?: string | null
-          business_name?: string
-          connect_charges_enabled?: boolean
-          connect_details_submitted?: boolean
-          connect_payouts_enabled?: boolean
-          contact_phone?: string | null
-          created_at?: string
-          delivery_base_fee?: number
-          delivery_enabled?: boolean
-          delivery_per_mile_fee?: number
-          delivery_radius_miles?: number | null
-          delivery_windows?: Json
-          food_program_id?: string | null
-          home_state?: string
-          homemade_food_statement?: string | null
-          id?: string
-          is_paused?: boolean
-          on_vacation?: boolean
-          mailing_address?: string | null
-          pause_reason?: string | null
-          pickup_address_id?: string | null
-          preparation_county?: string | null
-          producer_id_number?: string | null
-          profile_id?: string
-          storefront_slug?: string
-          stripe_account_id?: string | null
-          updated_at?: string
-        }
-        Relationships: [
           {
-            foreignKeyName: "seller_profiles_food_program_id_fkey"
-            columns: ["food_program_id"]
+            foreignKeyName: "seller_questions_seller_id_fkey"
+            columns: ["seller_id"]
             isOneToOne: false
-            referencedRelation: "state_food_programs"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "seller_profiles_pickup_address_id_fkey"
-            columns: ["pickup_address_id"]
-            isOneToOne: false
-            referencedRelation: "addresses"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "seller_profiles_profile_id_fkey"
-            columns: ["profile_id"]
-            isOneToOne: true
-            referencedRelation: "profiles"
+            referencedRelation: "seller_profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -2586,6 +2693,9 @@ export type Database = {
           discount_total: number
           fulfillment_type: string
           id: string
+          pickup_location_id: string | null
+          pickup_location_text: string | null
+          pickup_window: string | null
           promo_code_id: string | null
           revenue_recorded_at: string | null
           seller_id: string
@@ -2612,6 +2722,10 @@ export type Database = {
           retry_after: number
         }[]
       }
+      claim_drop_units: {
+        Args: { p_drop_id: string; p_units: number }
+        Returns: number
+      }
       compliance_change_impact: {
         Args: { p_program_id: string }
         Returns: {
@@ -2629,6 +2743,10 @@ export type Database = {
       }
       decrement_product_quantity: {
         Args: { p_product_id: string; p_qty: number }
+        Returns: undefined
+      }
+      decrement_variant_quantity: {
+        Args: { p_qty: number; p_variant_id: string }
         Returns: undefined
       }
       delivery_route_inputs: {
@@ -2660,6 +2778,19 @@ export type Database = {
         }
         Returns: boolean
       }
+      follower_counts: {
+        Args: { p_target_ids: string[]; p_target_type: string }
+        Returns: {
+          follower_count: number
+          target_id: string
+        }[]
+      }
+      followers_to_notify: {
+        Args: { p_target_id: string; p_target_type: string }
+        Returns: {
+          profile_id: string
+        }[]
+      }
       get_or_create_conversation: {
         Args: { p_order_id?: string; p_seller_id: string }
         Returns: string
@@ -2684,6 +2815,25 @@ export type Database = {
         Returns: undefined
       }
       mark_notifications_read: { Args: never; Returns: undefined }
+      nearby_sellers: {
+        Args: {
+          p_lat?: number
+          p_limit?: number
+          p_lng?: number
+          p_state: string
+        }
+        Returns: {
+          approx_lat: number
+          approx_lng: number
+          avg_rating: number
+          business_name: string
+          distance_miles: number
+          is_market: boolean
+          location_label: string
+          seller_id: string
+          storefront_slug: string
+        }[]
+      }
       open_referral_cycle: {
         Args: {
           p_period_end: string
@@ -2691,6 +2841,19 @@ export type Database = {
           p_seller_id: string
         }
         Returns: string
+      }
+      order_pickup_address: {
+        Args: { p_order_id: string }
+        Returns: {
+          city: string
+          description: string
+          label: string
+          line1: string
+          line2: string
+          postal_code: string
+          source: string
+          state: string
+        }[]
       }
       product_label_disclosure: {
         Args: { p_product_id: string }
@@ -2754,6 +2917,14 @@ export type Database = {
         Args: { p_product_ids?: string[]; p_seller_id: string }
         Returns: undefined
       }
+      release_drop_units: {
+        Args: { p_drop_id: string; p_units: number }
+        Returns: number
+      }
+      release_drop_units_for_order: {
+        Args: { p_order_id: string }
+        Returns: number
+      }
       seller_allows_online_food_sales: {
         Args: { p_seller_id: string }
         Returns: boolean
@@ -2778,6 +2949,10 @@ export type Database = {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
       }
+      set_seller_vacation: {
+        Args: { p_on: boolean; p_seller_id: string }
+        Returns: string
+      }
       stale_compliance_sources: {
         Args: never
         Returns: {
@@ -2799,58 +2974,9 @@ export type Database = {
         Args: { p_axis: string; p_state_code: string }
         Returns: boolean
       }
-      set_seller_vacation: {
-        Args: { p_on?: boolean; p_seller_id?: string }
-        Returns: string
-      }
       sync_seller_license_pause: {
         Args: { p_seller_id: string }
         Returns: string
-      }
-      follower_counts: {
-        Args: { p_target_ids?: string[]; p_target_type?: string }
-        Returns: {
-          target_id: string
-          follower_count: number
-        }[]
-      }
-      followers_to_notify: {
-        Args: { p_target_id?: string; p_target_type?: string }
-        Returns: {
-          profile_id: string
-        }[]
-      }
-      nearby_sellers: {
-        Args: {
-          p_lat?: number
-          p_limit?: number
-          p_lng?: number
-          p_state?: string
-        }
-        Returns: {
-          seller_id: string
-          business_name: string
-          storefront_slug: string
-          avg_rating: number
-          distance_miles: number
-          approx_lng: number
-          approx_lat: number
-          location_label: string
-          is_market: boolean
-        }[]
-      }
-      order_pickup_address: {
-        Args: { p_order_id: string }
-        Returns: {
-          source: string
-          label: string
-          description: string
-          line1: string
-          line2: string
-          city: string
-          state: string
-          postal_code: string
-        }[]
       }
       upsert_address: {
         Args: {
@@ -2868,21 +2994,21 @@ export type Database = {
       }
       upsert_market: {
         Args: {
-          p_address?: string
-          p_city?: string
-          p_hours?: string
-          p_lat?: number
-          p_lng?: number
-          p_name?: string
-          p_phone?: string
-          p_postal?: string
-          p_season?: string
-          p_slug?: string
-          p_source?: string
-          p_source_id?: string
+          p_address: string
+          p_city: string
+          p_hours: string
+          p_lat: number
+          p_lng: number
+          p_name: string
+          p_phone: string
+          p_postal: string
+          p_season: string
+          p_slug: string
+          p_source: string
+          p_source_id: string
           p_source_updated_at?: string
-          p_state?: string
-          p_website?: string
+          p_state: string
+          p_website: string
         }
         Returns: string
       }

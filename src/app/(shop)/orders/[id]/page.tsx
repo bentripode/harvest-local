@@ -83,6 +83,11 @@ export default async function BuyerOrderPage({
             <li key={item.id} className="flex items-center justify-between gap-4 p-3 text-sm">
               <span>
                 {item.quantity} × {item.title_snapshot}
+                {/* Frozen at checkout, so editing or cancelling the batch can't move the date a
+                    buyer was promised. */}
+                {item.drop_snapshot ? (
+                  <span className="text-muted-foreground block text-xs">{item.drop_snapshot}</span>
+                ) : null}
               </span>
               <span className="tabular-nums">{formatUsd(toCents(item.line_total))}</span>
             </li>

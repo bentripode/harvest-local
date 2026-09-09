@@ -30,6 +30,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
             <Link href="/seller/orders" className="hover:text-foreground shrink-0">
               Orders
             </Link>
+            <Link href="/seller/drops" className="hover:text-foreground shrink-0">
+              Batches
+            </Link>
             <Link href="/seller/questions" className="hover:text-foreground shrink-0">
               Updates
             </Link>

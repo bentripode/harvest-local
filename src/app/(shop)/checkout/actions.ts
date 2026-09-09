@@ -20,6 +20,7 @@ import { addressSchema, formatAddress, type AddressInput } from "@/lib/geo/addre
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
 import { getActivePickupLocations, type PickupLocation } from "@/lib/orders/pickup";
+import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import { upcomingPickups } from "@/lib/orders/pickup-schedule";
 import { getDeliveryPermission } from "@/lib/compliance/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
@@ -66,7 +67,7 @@ async function reprice(payload: CartPayload) {
   const { data: products } = await supabase
     .from("products")
     .select(
-      "id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code), variants:product_variants(id, name, price, quantity_available, is_active)",
+      `id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code), variants:product_variants(id, name, price, quantity_available, is_active), drops:product_drops(${DROP_SELECT})`,
     )
     .in(
       "id",
@@ -86,6 +87,7 @@ async function reprice(payload: CartPayload) {
       category_tax_code: category?.tax_code ?? null,
       category_name: category?.name ?? null,
       variants: (p.variants ?? []) as PricableProduct["variants"],
+      drops: toDrops(p.drops as DropRow[] | null),
     };
   });
 
@@ -376,6 +378,46 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   // Stripe-computed session (same as a no-promo order).
   const preTaxTotal = toDecimalString(cents(priced.subtotal - discountCents + deliveryFeeCents));
 
+  // ---------------------------------------------------------------------
+  // Claim the batch units BEFORE the order exists.
+  //
+  // `claim_drop_units` takes a row lock and refuses past the cap, so two buyers racing for the last
+  // loaf serialise and the second is turned away. Doing it the other way round — write the order,
+  // then claim — means the losing order already exists by the time we find out there was nothing
+  // left, and the seller is holding a twenty-first order for a twenty-loaf bake.
+  //
+  // Everything after this point compensates on failure via `releaseClaims`.
+  // ---------------------------------------------------------------------
+  const wanted = new Map<string, number>();
+  for (const line of priced.lines) {
+    if (line.dropId) wanted.set(line.dropId, (wanted.get(line.dropId) ?? 0) + line.quantity);
+  }
+
+  /** Hand back exactly what this request took. Only ever called with claims we actually made. */
+  async function releaseClaims(taken: { dropId: string; units: number }[]) {
+    for (const { dropId, units } of taken) {
+      const { error } = await admin.rpc("release_drop_units", {
+        p_drop_id: dropId,
+        p_units: units,
+      });
+      // A failure here strands units: the batch reads fuller than it is, which under-sells and can
+      // be unpicked by hand. Loud in the log because it needs a person.
+      if (error) console.error("[checkout] could not release drop units", dropId, error.message);
+    }
+  }
+
+  const taken: { dropId: string; units: number }[] = [];
+  for (const [dropId, units] of wanted) {
+    const { error } = await admin.rpc("claim_drop_units", { p_drop_id: dropId, p_units: units });
+    if (error) {
+      // Someone else got the last of it, or the window shut while they were filling the form. Give
+      // back whatever this attempt already took and send them back to see the batch as it stands.
+      await releaseClaims(taken);
+      redirect("/checkout?error=drop");
+    }
+    taken.push({ dropId, units });
+  }
+
   const { data: order, error: orderError } = await admin
     .from("orders")
     .insert({
@@ -400,7 +442,10 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
     })
     .select("id")
     .single();
-  if (orderError || !order) redirect("/checkout?error=order");
+  if (orderError || !order) {
+    await releaseClaims(taken);
+    redirect("/checkout?error=order");
+  }
 
   const { error: itemsError } = await admin.from("order_items").insert(
     priced.lines.map((line) => ({
@@ -414,9 +459,16 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       tax_code: line.taxCode,
       variant_id: line.variantId,
       variant_snapshot: line.variantName,
+      drop_id: line.dropId,
+      drop_snapshot: line.dropSnapshot,
     })),
   );
-  if (itemsError) redirect("/checkout?error=order");
+  if (itemsError) {
+    // One statement, so nothing was inserted and there is no drop_id for the order-keyed release
+    // to consume. Give the units back the same way we took them.
+    await releaseClaims(taken);
+    redirect("/checkout?error=order");
+  }
 
   let checkoutUrl: string | null = null;
   try {
@@ -440,6 +492,9 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   } catch (err) {
     console.error("[checkout] Stripe session creation failed:", err);
     await admin.from("orders").update({ status: "cancelled" }).eq("id", order.id);
+    // The items exist and carry drop_id, so from here on the order-keyed release is the right one:
+    // it is idempotent, and this order may also be unwound later by a webhook.
+    await admin.rpc("release_drop_units_for_order", { p_order_id: order.id });
     redirect(`/orders/${order.id}?checkout=error`);
   }
 

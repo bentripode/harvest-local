@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { CartError, MAX_LINE_QUANTITY, priceCart, type PricableProduct } from "@/lib/orders/pricing";
+import type { DropLike } from "@/lib/orders/drops";
 
 const SELLER = "seller-1";
 
@@ -16,6 +17,7 @@ function product(overrides: Partial<PricableProduct> = {}): PricableProduct {
     category_tax_code: "txcd_20030000",
     category_name: "Baked goods",
     variants: [],
+    drops: [],
     ...overrides,
   };
 }
@@ -114,5 +116,88 @@ describe("priceCart — server-side re-pricing (CLAUDE.md rule 3)", () => {
       SELLER,
     );
     expect(cart.subtotal).toBe(30);
+  });
+});
+
+/**
+ * Pre-order batches. The binding refusal is `claim_drop_units` under its row lock — this is the
+ * layer above it, and its job is to make sure a cart never gets far enough to need that refusal.
+ */
+describe("priceCart — batches", () => {
+  const NOW = new Date("2026-12-10T12:00:00Z");
+
+  const batch = (over: Partial<DropLike> = {}): DropLike => ({
+    id: "d1",
+    name: "Saturday bake",
+    opensAt: "2026-12-08T00:00:00Z",
+    closesAt: "2026-12-11T23:59:00Z",
+    fulfillmentDate: "2026-12-13",
+    pickupWindow: "9am–noon",
+    unitCap: 20,
+    unitsClaimed: 18,
+    cancelledAt: null,
+    ...over,
+  });
+
+  it("prices a line against an open batch and freezes the collection date onto it", () => {
+    const cart = priceCart(
+      [{ productId: "p1", quantity: 2 }],
+      [product({ drops: [batch()] })],
+      SELLER,
+      NOW,
+    );
+    expect(cart.lines[0].dropId).toBe("d1");
+    expect(cart.lines[0].dropSnapshot).toBe(
+      "Saturday bake — collect Sunday 13 December, 9am–noon",
+    );
+  });
+
+  it("refuses more than the batch has left, even with shelf stock to spare", () => {
+    // quantity_available is 10 and the batch has 2. The batch is a real oven.
+    expect(() =>
+      priceCart([{ productId: "p1", quantity: 3 }], [product({ drops: [batch()] })], SELLER, NOW),
+    ).toThrow(/Only 2 left in "Saturday bake"/);
+  });
+
+  it("refuses once the window has closed rather than falling back to ordinary selling", () => {
+    const closed = batch({ closesAt: "2026-12-09T00:00:00Z", unitsClaimed: 4 });
+    expect(() =>
+      priceCart([{ productId: "p1", quantity: 1 }], [product({ drops: [closed] })], SELLER, NOW),
+    ).toThrow(/isn't taking orders right now/);
+  });
+
+  it("refuses before the window opens", () => {
+    const soon = batch({ opensAt: "2026-12-12T00:00:00Z", closesAt: "2026-12-14T00:00:00Z" });
+    expect(() =>
+      priceCart([{ productId: "p1", quantity: 1 }], [product({ drops: [soon] })], SELLER, NOW),
+    ).toThrow(/Orders open in/);
+  });
+
+  it("refuses a sold-out batch and says so", () => {
+    expect(() =>
+      priceCart(
+        [{ productId: "p1", quantity: 1 }],
+        [product({ drops: [batch({ unitsClaimed: 20 })] })],
+        SELLER,
+        NOW,
+      ),
+    ).toThrow(/Sold out/);
+  });
+
+  it("leaves a listing with a cancelled batch selling the ordinary way", () => {
+    const cart = priceCart(
+      [{ productId: "p1", quantity: 2 }],
+      [product({ drops: [batch({ cancelledAt: "2026-12-09T00:00:00Z" })] })],
+      SELLER,
+      NOW,
+    );
+    expect(cart.lines[0].dropId).toBeNull();
+    expect(cart.subtotal).toBe(1700);
+  });
+
+  it("carries no batch on an ordinary listing", () => {
+    const cart = priceCart([{ productId: "p1", quantity: 1 }], [product()], SELLER, NOW);
+    expect(cart.lines[0].dropId).toBeNull();
+    expect(cart.lines[0].dropSnapshot).toBeNull();
   });
 });

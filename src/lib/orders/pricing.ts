@@ -2,6 +2,13 @@ import "server-only";
 
 import { addCents, cents, type Cents } from "@/lib/money";
 import { resolveSaleUnit, SALE_UNIT_ERROR_COPY, type VariantLike } from "@/lib/orders/sale-unit";
+import {
+  describeDropGate,
+  dropSnapshot,
+  gateByDrops,
+  unitsLeft,
+  type DropLike,
+} from "@/lib/orders/drops";
 import type { Product } from "@/lib/db/types";
 
 /**
@@ -29,6 +36,8 @@ export type PricableProduct = Pick<
   category_tax_code: string | null;
   category_name: string | null;
   variants: VariantLike[];
+  /** Every batch for this listing. Empty for a listing that sells the ordinary open-ended way. */
+  drops: DropLike[];
 };
 
 export interface PricedLine {
@@ -41,6 +50,9 @@ export interface PricedLine {
   lineTotal: Cents;
   taxCode: string | null;
   categorySnapshot: string | null;
+  /** The batch this line joins, and the collection date frozen onto the order item. */
+  dropId: string | null;
+  dropSnapshot: string | null;
 }
 
 export interface PricedCart {
@@ -58,7 +70,8 @@ export class CartError extends Error {
       | "inactive"
       | "bad_quantity"
       | "insufficient_stock"
-      | "variant",
+      | "variant"
+      | "drop_closed",
   ) {
     super(message);
     this.name = "CartError";
@@ -69,6 +82,7 @@ export function priceCart(
   requested: CartRequestItem[],
   products: PricableProduct[],
   sellerId: string,
+  now: Date = new Date(),
 ): PricedCart {
   if (requested.length === 0) throw new CartError("Your basket is empty.", "empty");
 
@@ -85,6 +99,17 @@ export function priceCart(
     }
     if (product.status !== "active") {
       throw new CartError(`"${product.title}" is no longer for sale.`, "inactive");
+    }
+
+    // A listing with a batch sells only through it, and only while its window is open. Checked
+    // before the price is resolved, so a closed batch is refused rather than quietly priced.
+    const gate = gateByDrops(product.drops ?? [], now);
+    if (gate.sellsByDrop && !gate.orderable) {
+      const why = describeDropGate(gate, now);
+      throw new CartError(
+        `"${product.title}" isn't taking orders right now.${why ? ` ${why}` : ""}`,
+        "drop_closed",
+      );
     }
 
     const resolved = resolveSaleUnit(product, product.variants ?? [], item.variantId);
@@ -107,6 +132,14 @@ export function priceCart(
       );
     }
 
+    // The cap composes with the shelf rather than replacing it: whichever is smaller wins, because
+    // both are real limits and the smaller one is the one that under-sells. This is advisory — the
+    // binding refusal is `claim_drop_units` under its row lock, which is what settles a race.
+    const drop = gate.orderable;
+    if (drop && quantity > unitsLeft(drop)) {
+      throw new CartError(`Only ${unitsLeft(drop)} left in "${drop.name}".`, "insufficient_stock");
+    }
+
     lines.push({
       productId: unit.productId,
       variantId: unit.variantId,
@@ -117,6 +150,8 @@ export function priceCart(
       lineTotal: cents(unit.unitPrice * quantity),
       taxCode: product.tax_code ?? product.category_tax_code,
       categorySnapshot: product.category_name,
+      dropId: drop?.id ?? null,
+      dropSnapshot: drop ? dropSnapshot(drop) : null,
     });
   }
 

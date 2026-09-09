@@ -269,7 +269,7 @@ export async function createOrder(opts: {
 export async function addOrderItem(
   orderId: string,
   product: { id: string; title: string },
-  opts: { quantity?: number; unitPrice?: string } = {},
+  opts: { quantity?: number; unitPrice?: string; dropId?: string } = {},
 ): Promise<void> {
   const admin = adminDb();
   const quantity = opts.quantity ?? 1;
@@ -281,6 +281,8 @@ export async function addOrderItem(
     quantity,
     unit_price: unitPrice,
     line_total: (Number(unitPrice) * quantity).toFixed(2),
+    // The link a release consumes. Set it to mirror what checkout writes after claiming units.
+    drop_id: opts.dropId ?? null,
   });
   if (error) throw new Error(`addOrderItem: ${error.message}`);
 }

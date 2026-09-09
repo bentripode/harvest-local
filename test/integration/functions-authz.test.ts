@@ -252,29 +252,78 @@ describeDb("SECURITY DEFINER authorization", () => {
     expect(error).not.toBeNull();
   });
 
+  // -- pre-order batches (service-role only) --------------------------------
+  //
+  // These three move `units_claimed`, which is the record of real orders against a real oven.
+  // Reachable by a client, they would let anyone claim out a rival's batch or hand themselves back
+  // units they never paid for. The batch-specific behaviour lives in product-drops.test.ts; this is
+  // the standing check that the grants have not widened.
+  const NO_SUCH_DROP = "00000000-0000-0000-0000-000000000000";
+
+  it("claim_drop_units is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("claim_drop_units", {
+        p_drop_id: NO_SUCH_DROP,
+        p_units: 1,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
+  it("release_drop_units is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("release_drop_units", {
+        p_drop_id: NO_SUCH_DROP,
+        p_units: 1,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
+  it("release_drop_units_for_order is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("release_drop_units_for_order", {
+        p_order_id: NO_SUCH_DROP,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
   // -- the market importer (service-role only) ------------------------------
   //
   // upsert_market is SECURITY DEFINER and writes the public market directory, so a hole here would
   // let any signed-in user publish a page under our domain.
+  //
+  // Every argument has to be supplied. Only `p_source_updated_at` has a default, so a partial call
+  // matches no overload and PostgREST answers PGRST202 — which is an error, and which an earlier
+  // version of these two tests accepted as proof of a locked-down function. It proved nothing.
+  // Asserting 42501 specifically is what makes them fail if the grant is ever widened.
+  const marketArgs = (tag: string) => ({
+    p_source: "usda",
+    p_source_id: `authz-probe-${tag}-${Date.now()}`,
+    p_slug: `authz-probe-${tag}`,
+    p_name: "Authz Probe Market",
+    p_state: "TX",
+    p_city: "Austin",
+    p_address: "1 Probe Street",
+    p_postal: "78704",
+    p_lng: -97.75,
+    p_lat: 30.27,
+    p_season: "Year round",
+    p_hours: "Sat 9-1",
+    p_website: "https://example.test",
+    p_phone: "512-555-0100",
+  });
+
   it("upsert_market is not reachable by an authenticated client", async () => {
-    const { error } = await buyer.db.rpc("upsert_market", {
-      p_source: "usda",
-      p_source_id: `authz-probe-${Date.now()}`,
-      p_slug: "authz-probe",
-      p_name: "Authz Probe Market",
-      p_state: "TX",
-    });
+    const { error } = await buyer.db.rpc("upsert_market", marketArgs("auth"));
     expect(error).not.toBeNull();
+    expect(error!.code).toBe("42501");
   });
 
   it("upsert_market is not reachable anonymously", async () => {
-    const { error } = await anonDb().rpc("upsert_market", {
-      p_source: "usda",
-      p_source_id: `authz-probe-anon-${Date.now()}`,
-      p_slug: "authz-probe-anon",
-      p_name: "Authz Probe Market",
-      p_state: "TX",
-    });
+    const { error } = await anonDb().rpc("upsert_market", marketArgs("anon"));
     expect(error).not.toBeNull();
+    expect(error!.code).toBe("42501");
   });
 });

@@ -195,6 +195,7 @@ export type Conversation = Row<"conversations">;
 export type Message = Row<"messages">;
 export type Report = Row<"reports">;
 export type Refund = Row<"refunds">;
+export type ProductDrop = Row<"product_drops">;
 
 export type ReferralStatus = "pending" | "active" | "invalidated";
 
@@ -208,6 +209,9 @@ export type PauseReason =
   | "onboarding_incomplete"
   | "license_unverified"
   | "revenue_cap"
+  // The seller's own "closed for now". Unlike the others it hides nothing: a storefront paused for
+  // a holiday stays readable (20260908280000).
+  | "vacation"
   | "license_expired"
   | "admin";
 

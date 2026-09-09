@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { inngest } from "@/lib/inngest/client";
 import type { OrderStatus } from "@/lib/db/types";
 
@@ -63,6 +64,18 @@ export async function advanceOrderStatusAction(
   // surface as a user error.
   const order = Array.isArray(data) ? data[0] : data;
   if (order) {
+    // A cancelled order gives its batch units back, so the loaf it was holding can be sold again.
+    // Through the service role because `release_drop_units_for_order` is granted to nothing else —
+    // the seller has already been authorised by `advance_order_status` above, which is the referee.
+    if (parsed.data.toStatus === "cancelled") {
+      const { error: releaseError } = await createAdminClient().rpc("release_drop_units_for_order", {
+        p_order_id: order.id,
+      });
+      if (releaseError) {
+        console.error("[orders] drop release failed for", order.id, releaseError.message);
+      }
+    }
+
     // Every transition emails the buyer.
     await inngest
       .send({

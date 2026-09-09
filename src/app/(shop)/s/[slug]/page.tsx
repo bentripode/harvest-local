@@ -25,6 +25,8 @@ import { StorefrontQuestions } from "@/components/storefront-questions";
 import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
 import { lowestVariantPrice, type VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
+import { describeDrop, gateByDrops, stockWithDrops } from "@/lib/orders/drops";
+import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import type { Product } from "@/lib/db/types";
 
 /**
@@ -89,7 +91,9 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   ] = await Promise.all([
     supabase
       .from("products")
-      .select("*, variants:product_variants(id, name, price, quantity_available, is_active, net_weight_value, net_weight_unit)")
+      .select(
+        `*, variants:product_variants(id, name, price, quantity_available, is_active, net_weight_value, net_weight_unit), drops:product_drops(${DROP_SELECT})`,
+      )
       .eq("seller_id", seller.id)
       .eq("status", "active")
       .order("created_at", { ascending: false }),
@@ -104,9 +108,19 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     getStorefrontQuestions(seller.id),
   ]);
 
-  const list = (products ?? []) as (Product & { variants?: VariantLike[] })[];
+  const list = (products ?? []) as (Product & {
+    variants?: VariantLike[];
+    drops?: DropRow[];
+  })[];
   // Where the state requires the label before payment, the listing is the first chance to show it.
   const disclosures = await getProductDisclosures(list.map((p) => p.id));
+
+  // A listing with batches sells only through them, and only while one is open. Resolved once per
+  // product so the sentence on the card and the presence of the button cannot disagree.
+  const gates = new Map(list.map((p) => [p.id, gateByDrops(toDrops(p.drops))]));
+  const buyableNow = new Set(
+    list.filter((p) => !gates.get(p.id)!.sellsByDrop || gates.get(p.id)!.orderable).map((p) => p.id),
+  );
 
   // A guest with no state yet may still fill a basket — checkout is where an account and the real
   // same-state check happen (`startCheckoutAction` against `profiles.home_state`). Only a *known*
@@ -304,8 +318,17 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                   </p>
                 ) : null}
                 <LabelDisclosure disclosure={disclosures[p.id]} className="mt-2" />
+
+                {/* A batch listing says so on the shelf: how many are left and when they're
+                    collected. `describeDropGate` is null while orders are open, so a batch taking
+                    orders and an ordinary listing read alike. */}
+                {gates.get(p.id)?.current ? (
+                  <p className="pt-1 text-sm font-medium">
+                    {describeDrop(gates.get(p.id)!.current!)}
+                  </p>
+                ) : null}
               </div>
-              {canOrder ? (
+              {canOrder && buyableNow.has(p.id) ? (
                 <AddToCart
                   variants={p.variants ?? []}
                   seller={{
@@ -317,7 +340,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                     id: p.id,
                     title: p.title,
                     price: p.price,
-                    quantityAvailable: p.quantity_available,
+                    quantityAvailable: stockWithDrops(toDrops(p.drops), p.quantity_available),
                   }}
                 />
               ) : (

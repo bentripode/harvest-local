@@ -356,6 +356,19 @@ async function unwindOrder(admin: Admin, order: ChargeOrder, toStatus: "cancelle
       .eq("status", order.status);
   }
 
+  // Give the batch units back. `release_drop_units_for_order` consumes the item's `drop_id` as it
+  // goes, so a Stripe redelivery — which is a certainty, not a risk (rule 2) — finds nothing left
+  // to release and cannot hand the same loaf back twice.
+  //
+  // Unconditional rather than inside the status guard above: an order already cancelled by another
+  // path may still be holding its units, and returning them twice is impossible by construction.
+  const { error: releaseError } = await admin.rpc("release_drop_units_for_order", {
+    p_order_id: order.id,
+  });
+  if (releaseError) {
+    console.error("[webhook] drop release failed for order", order.id, releaseError.message);
+  }
+
   // `invalidate_referral_for_order` is idempotent, so a redelivery safely re-confirms.
   if (order.promo_code_id) {
     await inngest
