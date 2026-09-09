@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { ProductForm, type ProductFormValues } from "@/components/product-form";
 import { VariantsManager, type EditableVariant } from "@/components/variants-manager";
 import { DropsManager } from "@/components/drops-manager";
+import { CopyAssistant } from "@/components/copy-assistant";
 import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import { formatUsd, toCents } from "@/lib/money";
 import { getCategoryPermissions } from "@/lib/compliance/categories";
@@ -94,6 +95,17 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
 
       <section className="rounded-lg border p-5">
         <DropsManager productId={p.id} drops={toDrops(drops as DropRow[] | null)} />
+      </section>
+
+      <section className="space-y-3 rounded-lg border p-5">
+        <div>
+          <p className="text-sm font-medium">Social post</p>
+          <p className="text-muted-foreground text-sm">
+            A short post about this listing, from what you&apos;ve entered. Nothing is posted for
+            you — copy it and put it wherever you like.
+          </p>
+        </div>
+        <CopyAssistant productId={p.id} kind="social" />
       </section>
     </div>
   );

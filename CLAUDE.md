@@ -334,6 +334,7 @@ src/lib/compliance/{blocks,publication,delivery}.ts   ComplianceBlock (message +
 src/lib/compliance/{obligations,obligation-queries}.ts   recurring-deadline arithmetic (pure) · what this seller owes and when
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
 src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) · the quick-view read
+src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
@@ -1088,3 +1089,49 @@ creates events for them, so a nullable owner would be a shape nothing ever fills
 seeding a deadline nobody checked. `market_id` IS optional, because a farm open day has no market.
 Surfaces: `/events` (state calendar), a "What's on" section on each market page, a "Where to find us"
 strip on the storefront, and `/seller/events` to manage.
+
+
+**Phase 6 — the listing-copy assistant, and why the screen is the feature.** `/seller/products/[id]`
+can draft a product description or a social post from what the seller has entered
+(`ANTHROPIC_API_KEY`, optional — unset, the assistant says so and offers nothing rather than
+degrading to a template dressed as generated copy).
+
+**Everything else in this codebase is arranged so a seller cannot accidentally say something untrue
+about food**, and handing a language model the listing copy runs directly at all of it: allergens are
+a CHECK-enforced federal-nine vocabulary, disclaimers are quoted statute stored verbatim, and a label
+refuses to print rather than print a blank. The failure mode of a fluent model is a plausible
+sentence nobody entered. Four kinds are the problem and only the first is obvious:
+
+- an **absence** claim ("gluten-free", "nut-free", "vegan") — a home kitchen has no cross-contact
+  controls and no testing, and a model writes this cheerfully from an ingredient list that merely
+  lacks wheat. This is the one that can hurt somebody;
+- a **health** claim ("boosts immunity", "aids digestion") — FDA/FTC territory, and a cottage-food
+  producer is the least equipped party in the country to defend one;
+- a **regulatory-status** claim ("organic", "certified", "inspected") — rules 5–7 exist to stop a
+  listing implying inspection, and in most states the label on the jar says the literal opposite;
+- a **fabricated fact** ("award-winning", "shelf stable for a year") — plausible, unverifiable, and
+  the seller may not notice it is wrong in their own listing.
+
+So `src/lib/ai/claims.ts` (`screenCopy`, pure and tested from both ends) is the guardrail and the
+model is the convenience. A `block` finding disables the apply button; `warn` (puffery, "all-natural")
+informs without blocking. **False positives are treated as a real cost**, because a screen that cries
+wolf gets clicked past and then protects nobody: "cured bacon" is not a medical claim, "a lovely
+treat" is not a course of treatment, "free delivery" is about postage — each has a test. The
+medical-verb pattern carries a negative lookahead for prepositions so "treats for cold winter
+mornings" stays a plate of biscuits.
+
+**Three properties matter more than the copy quality.** (1) Nothing here writes to a product — the
+action reads and returns, and applying a draft is the ordinary product form the seller submits.
+(2) Every draft is screened before the seller sees it and the findings travel with it, including for
+a blocked draft: "here is what it wrote and here is what's wrong with it" teaches, where a silent
+retry does not — and editing re-screens on every keystroke, so deleting "gluten-free" makes the
+warning go away. (3) `CLAIM_INSTRUCTIONS` is derived from the same rule array the screen uses, so
+what the model is told and what its answer is checked against cannot drift.
+
+`prompt.ts` grounds it: only the seller's entered facts, in the ingredient order they typed (never
+re-sorted), with their bio and existing description passed in as **voice to match rather than text to
+replace**. `hasEnoughToGenerate` refuses on a bare title — a model given only "Sourdough loaf" writes
+a 48-hour cold ferment and a heritage starter because that is what sourdough copy sounds like.
+Rate-limited at `copyAssistant` (12 / 5 min), tighter than everything else because it is the one path
+that costs money per call rather than per month. `stripWrapping` lives in `ai/response.ts` rather than
+`ai/generate.ts` so it can be unit-tested — `generate.ts` imports `@/lib/env`, which vitest cannot load.

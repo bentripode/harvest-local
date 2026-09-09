@@ -37,6 +37,12 @@ export const RATE_LIMITS = {
   geocode: { max: 20, windowSecs: 300 },
   /** Asking a seller a public question. Needs an account, so keyed per user. */
   question: { max: 8, windowSecs: 300 },
+  /**
+   * The listing-copy assistant. Tighter than the rest because it is the one path that costs real
+   * money per call rather than per month — a seller writing one listing regenerates a handful of
+   * times, and nothing legitimate needs more.
+   */
+  copyAssistant: { max: 12, windowSecs: 300 },
 } as const satisfies Record<string, RateLimit>;
 
 /**

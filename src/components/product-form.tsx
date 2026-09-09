@@ -2,6 +2,8 @@
 
 import { useActionState, useState } from "react";
 
+import { CopyAssistant } from "@/components/copy-assistant";
+
 import { ComplianceBlockNotice } from "@/components/compliance-block-notice";
 import { useFormStatus } from "react-dom";
 import Image from "next/image";
@@ -67,6 +69,7 @@ export function ProductForm({
     {},
   );
 
+  const [description, setDescription] = useState(initial?.description ?? "");
   const [categoryId, setCategoryId] = useState(initial?.categoryId ?? "");
   const [subcategoryId, setSubcategoryId] = useState(initial?.subcategoryId ?? "");
   const [status, setStatus] = useState(initial?.status ?? "draft");
@@ -137,7 +140,18 @@ export function ProductForm({
 
       <div className="space-y-2">
         <Label htmlFor="description">Description</Label>
-        <Textarea id="description" name="description" rows={4} defaultValue={initial?.description} />
+        <Textarea
+          id="description"
+          name="description"
+          rows={4}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        {/* Only on a saved listing: the assistant grounds itself in the stored ingredients and
+            allergens, and a product that has never been saved has none for it to read. */}
+        {initial?.id ? (
+          <CopyAssistant productId={initial.id} kind="description" onUse={setDescription} />
+        ) : null}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
