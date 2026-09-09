@@ -110,6 +110,17 @@ export async function POST(request: NextRequest) {
         await handleInvoicePaid(admin, event.data.object as Stripe.Invoice);
         break;
 
+      // Connect events, delivered with `event.account` set to the seller's connected account. One
+      // handler for all five: a Payout object is a snapshot, so the latest one wins whichever
+      // transition delivered it, and an out-of-order or repeated delivery upserts the same row.
+      case "payout.created":
+      case "payout.updated":
+      case "payout.paid":
+      case "payout.failed":
+      case "payout.canceled":
+        await handlePayout(admin, event.data.object as Stripe.Payout, event.account ?? null);
+        break;
+
       default:
         // Acknowledged and recorded, no handler yet.
         break;
@@ -423,6 +434,60 @@ async function handleSubscription(admin: Admin, sub: Stripe.Subscription) {
       p_period_end: row.current_period_end,
     });
   }
+}
+
+/**
+ * Mirror a payout from a connected account.
+ *
+ * Every value written here is a field of the Stripe object. Nothing is computed, converted between
+ * meanings, or filled in when absent — a payout row that disagrees with the bank is worse than no
+ * payout row, and the seller's own dashboard is one click away to contradict us.
+ *
+ * Idempotent by construction: keyed on `stripe_payout_id`, and a Payout is a full snapshot, so a
+ * duplicate or out-of-order delivery writes the same fields again. The `stripe_events` gate upstream
+ * already suppresses exact repeats; this survives the ones it can't (a `payout.updated` arriving
+ * after the `payout.paid` it preceded).
+ */
+async function handlePayout(admin: Admin, payout: Stripe.Payout, accountId: string | null) {
+  if (!accountId) {
+    // A payout on the PLATFORM account — our own Stripe balance moving to our own bank. Real, and
+    // none of a seller's business, so it is not mirrored.
+    return;
+  }
+
+  const { data: seller } = await admin
+    .from("seller_profiles")
+    .select("id")
+    .eq("stripe_account_id", accountId)
+    .maybeSingle();
+
+  if (!seller) {
+    console.error("[webhook] payout for an unknown connected account", accountId);
+    return;
+  }
+
+  const { error } = await admin.from("payouts").upsert(
+    {
+      seller_id: seller.id,
+      stripe_payout_id: payout.id,
+      amount: toDecimalString(cents(payout.amount)),
+      currency: payout.currency,
+      status: payout.status,
+      // Stripe sends both as unix seconds. `arrival_date` is a banking DAY, not an instant, so it
+      // is stored as a date — rendering it in UTC is what it means.
+      arrival_date: payout.arrival_date
+        ? new Date(payout.arrival_date * 1000).toISOString().slice(0, 10)
+        : null,
+      stripe_created_at: payout.created ? new Date(payout.created * 1000).toISOString() : null,
+      failure_code: payout.failure_code ?? null,
+      failure_message: payout.failure_message ?? null,
+      method: payout.method ?? null,
+      statement_descriptor: payout.statement_descriptor ?? null,
+    },
+    { onConflict: "stripe_payout_id" },
+  );
+
+  if (error) throw new Error(`payout upsert: ${error.message}`);
 }
 
 /** Belt-and-suspenders cycle reset (§3.3) — fires alongside the renewal `subscription.updated`. */

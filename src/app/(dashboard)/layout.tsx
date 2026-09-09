@@ -42,6 +42,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
             <Link href="/seller/qr" className="hover:text-foreground shrink-0">
               QR codes
             </Link>
+            <Link href="/seller/payouts" className="hover:text-foreground shrink-0">
+              Payouts
+            </Link>
             <Link href="/seller/referrals" className="hover:text-foreground shrink-0">
               Referrals
             </Link>

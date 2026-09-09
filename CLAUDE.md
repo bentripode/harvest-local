@@ -338,6 +338,7 @@ src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · gro
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
+src/lib/payouts/{format,queries}.ts    payout status + copy (pure) · the mirror read · Stripe read-through
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
@@ -1135,3 +1136,45 @@ a 48-hour cold ferment and a heritage starter because that is what sourdough cop
 Rate-limited at `copyAssistant` (12 / 5 min), tighter than everything else because it is the one path
 that costs money per call rather than per month. `stripWrapping` lives in `ai/response.ts` rather than
 `ai/generate.ts` so it can be unit-tested — `generate.ts` imports `@/lib/env`, which vitest cannot load.
+
+
+**Phase 6 — the payout ledger.** `/seller/payouts` shows what Stripe has actually sent to the
+seller's bank. Deliberately a different page from `/seller` revenue, and the copy keeps them apart:
+**revenue is what buyers paid, a payout is what Stripe sent**, and the gap is processing fees,
+refunds and timing. Sellers ask about that gap constantly and the honest answer is to show both
+numbers under their real names, not to reconcile them with arithmetic of ours.
+
+**`payouts` (`20260909110000`) is a MIRROR and holds nothing we worked out.** Every column is a field
+of a Stripe `Payout`, written by the Connect webhook and by nothing else. There is deliberately no
+`net`, no `fees`, no `expected_total` — the moment the table carries a figure we derived, a seller
+has two numbers for the same thing and no way to know which is real. `status` is Stripe's own string
+stored verbatim rather than mapped onto a vocabulary of ours, which would need updating whenever
+Stripe adds a state and would be wrong in between; `payoutStatus` maps it for display and shows an
+unfamiliar status **as itself**.
+
+**There is no `payout_items` table, on purpose.** What is *inside* a payout is a list of balance
+transactions Stripe already owns; copying it would buy nothing (we never query it) and cost a second
+version of the truth that can drift. `getPayoutBreakdown` reads it through to Stripe when the seller
+opens one, matching lines back to our orders by `stripe_payment_intent_id` where it can and showing
+Stripe's own description where it can't. Refunds, adjustments and Stripe's fees are shown as what
+they are rather than folded away — a breakdown that quietly drops rows is one that doesn't add up.
+**Mirror what you must query; ask for the rest.**
+
+Handling: one handler for `payout.created|updated|paid|failed|canceled`. A Payout is a full snapshot,
+so the latest delivery wins and an out-of-order or repeated one upserts the same row (rule 2). These
+are **Connect** events — they arrive with `event.account` set and verify against
+`STRIPE_CONNECT_WEBHOOK_SECRET`; **with that secret unset no payout event verifies and the table
+stays empty**, which is the honest failure: an empty ledger rather than a wrong one. A payout with no
+`event.account` is the platform's own balance moving and is not mirrored. RLS has **no INSERT or
+UPDATE policy at all** — a payout row a seller could edit would be a record that disagrees with the
+bank while looking authoritative. `splitPayouts` puts failed and cancelled payouts in HISTORY, never
+in "on the way", because Stripe leaves `arrival_date` populated on a failure and repeating it would
+have a seller waiting on money that is not coming.
+
+**Money arrives as a NUMBER, not a string.** `MoneyFixed` in `src/lib/db/types.ts` corrects every
+money column to `string` on the stated grounds that "Postgres numeric crosses the wire as text".
+Against this PostgREST it does not: `payouts.amount`, `orders.total` and `refunds.amount` all come
+back as JS numbers. Nothing is broken by it — every money read goes through `toCents`, which takes
+`string | number` — but the declared type is wrong, and code trusting it would compile and then fail.
+Pinned by an assertion in `test/integration/payouts.test.ts` so a change in the wire format is
+reported rather than silently making the types right by accident.

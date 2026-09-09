@@ -141,6 +141,7 @@ export type Database = Omit<Generated, "public"> & {
       | "seller_revenue_buckets"
       | "referrals"
       | "refunds"
+      | "payouts"
     > & {
       profiles: ProfilesFixed;
       seller_profiles: SellerProfilesFixed;
@@ -167,6 +168,7 @@ export type Database = Omit<Generated, "public"> & {
       >;
       referrals: MoneyFixed<GenTables["referrals"], "discount_amount">;
       refunds: MoneyFixed<GenTables["refunds"], "amount">;
+      payouts: MoneyFixed<GenTables["payouts"], "amount">;
     };
   };
 };
@@ -196,6 +198,7 @@ export type Message = Row<"messages">;
 export type Report = Row<"reports">;
 export type Refund = Row<"refunds">;
 export type ProductDrop = Row<"product_drops">;
+export type Payout = Row<"payouts">;
 
 export type ReferralStatus = "pending" | "active" | "invalidated";
 

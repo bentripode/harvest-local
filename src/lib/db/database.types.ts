@@ -874,6 +874,65 @@ export type Database = {
           },
         ]
       }
+      payouts: {
+        Row: {
+          amount: number
+          arrival_date: string | null
+          created_at: string
+          currency: string
+          failure_code: string | null
+          failure_message: string | null
+          id: string
+          method: string | null
+          seller_id: string
+          statement_descriptor: string | null
+          status: string
+          stripe_created_at: string | null
+          stripe_payout_id: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          arrival_date?: string | null
+          created_at?: string
+          currency: string
+          failure_code?: string | null
+          failure_message?: string | null
+          id?: string
+          method?: string | null
+          seller_id: string
+          statement_descriptor?: string | null
+          status: string
+          stripe_created_at?: string | null
+          stripe_payout_id: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          arrival_date?: string | null
+          created_at?: string
+          currency?: string
+          failure_code?: string | null
+          failure_message?: string | null
+          id?: string
+          method?: string | null
+          seller_id?: string
+          statement_descriptor?: string | null
+          status?: string
+          stripe_created_at?: string | null
+          stripe_payout_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payouts_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pickup_locations: {
         Row: {
           address_id: string | null
