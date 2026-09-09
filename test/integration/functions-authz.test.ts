@@ -231,6 +231,27 @@ describeDb("SECURITY DEFINER authorization", () => {
     expect(error).not.toBeNull();
   });
 
+  // -- set_seller_vacation (the owner, and only the owner) ------------------
+  //
+  // It moves is_paused, which is the single lever every compliance gate hangs off, so a hole here
+  // would let one seller close another's shop.
+  it("set_seller_vacation refuses a storefront the caller does not own", async () => {
+    const { error } = await buyer.db.rpc("set_seller_vacation", {
+      p_seller_id: seller.id,
+      p_on: true,
+    });
+    expect(error).not.toBeNull();
+    expect(error!.message).toMatch(/not your storefront/i);
+  });
+
+  it("set_seller_vacation is not reachable anonymously", async () => {
+    const { error } = await anonDb().rpc("set_seller_vacation", {
+      p_seller_id: seller.id,
+      p_on: true,
+    });
+    expect(error).not.toBeNull();
+  });
+
   // -- the market importer (service-role only) ------------------------------
   //
   // upsert_market is SECURITY DEFINER and writes the public market directory, so a hole here would

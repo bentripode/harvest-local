@@ -113,7 +113,9 @@ export async function getMyFollows(): Promise<{
           .from("seller_profiles")
           .select("id, business_name, storefront_slug, avg_rating")
           .in("id", sellerIds)
-          .eq("is_paused", false)
+          // A seller on a break stays on your saved list — that is precisely when following
+          // them is worth something.
+          .or("is_paused.eq.false,pause_reason.eq.vacation")
       : Promise.resolve({ data: [] }),
     marketIds.length
       ? supabase.from("markets").select("id, name, slug, state, city").in("id", marketIds)

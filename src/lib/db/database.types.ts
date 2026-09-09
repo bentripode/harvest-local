@@ -1760,6 +1760,7 @@ export type Database = {
           homemade_food_statement: string | null
           id: string
           is_paused: boolean
+          on_vacation: boolean
           mailing_address: string | null
           pause_reason: string | null
           pickup_address_id: string | null
@@ -1789,6 +1790,7 @@ export type Database = {
           homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
+          on_vacation?: boolean
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
@@ -1818,6 +1820,7 @@ export type Database = {
           homemade_food_statement?: string | null
           id?: string
           is_paused?: boolean
+          on_vacation?: boolean
           mailing_address?: string | null
           pause_reason?: string | null
           pickup_address_id?: string | null
@@ -2700,6 +2703,10 @@ export type Database = {
       state_permits_food_axis: {
         Args: { p_axis: string; p_state_code: string }
         Returns: boolean
+      }
+      set_seller_vacation: {
+        Args: { p_on?: boolean; p_seller_id?: string }
+        Returns: string
       }
       sync_seller_license_pause: {
         Args: { p_seller_id: string }

@@ -35,11 +35,13 @@ export async function generateMetadata({ params }: PageProps<"/s/[slug]">): Prom
 
   const { data: seller } = await supabase
     .from("seller_profiles")
-    .select("business_name, bio, home_state, is_paused")
+    .select("business_name, bio, home_state, is_paused, pause_reason")
     .eq("storefront_slug", slug)
     .maybeSingle();
 
-  if (!seller || seller.is_paused) return { title: "Storefront not found — Harvest Local" };
+  // A seller who closed for the season keeps their page, so it keeps its metadata.
+  const closedByUs = seller?.is_paused && seller.pause_reason !== "vacation";
+  if (!seller || closedByUs) return { title: "Storefront not found — Harvest Local" };
 
   const title = `${seller.business_name} — ${stateName(seller.home_state)} | Harvest Local`;
   const description =
@@ -61,12 +63,15 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "id, profile_id, business_name, storefront_slug, bio, home_state, is_paused, delivery_enabled, delivery_radius_miles",
+      "id, profile_id, business_name, storefront_slug, bio, home_state, is_paused, pause_reason, delivery_enabled, delivery_radius_miles",
     )
     .eq("storefront_slug", slug)
     .maybeSingle();
 
-  if (!seller || seller.is_paused) notFound();
+  // Closed BY THE SELLER: the page stays up, read-only, so the link and the reviews survive a
+  // season off. Closed by us — a lapsed licence, a revenue cap — behaves as it always has.
+  const onBreak = !!seller?.is_paused && seller.pause_reason === "vacation";
+  if (!seller || (seller.is_paused && !onBreak)) notFound();
 
   const [
     { data: products },
@@ -103,7 +108,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const buyerState = browse.state;
   const blockedFrom =
     buyerState != null && !sameState(buyerState, seller.home_state) ? buyerState : null;
-  const canOrder = blockedFrom === null;
+  const canOrder = blockedFrom === null && !onBreak;
   const isOwner = !!user && user.id === seller.profile_id;
 
   return (
@@ -144,6 +149,14 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ) : null}
         </div>
       </header>
+
+      {onBreak ? (
+        <Notice>
+          <span className="font-medium">{seller.business_name} is closed right now.</span> You
+          can look around and follow them — we&apos;ll email you when they reopen and list
+          something.
+        </Notice>
+      ) : null}
 
       {blockedFrom ? (
         <Notice>

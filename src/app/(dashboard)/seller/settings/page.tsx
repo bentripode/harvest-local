@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
 import { PickupLocationsManager } from "@/components/pickup-locations-manager";
+import { VacationToggle } from "@/components/vacation-toggle";
 import {
   ComplianceBlockNotice,
   ComplianceCautionNotice,
@@ -84,6 +85,18 @@ export default async function SellerSettingsPage() {
           Your pickup address, local-delivery options, and notification emails.
         </p>
       </div>
+
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium">Open or closed</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <VacationToggle
+            onVacation={seller.on_vacation}
+            pauseReason={seller.is_paused ? seller.pause_reason : null}
+          />
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader className="pb-2">

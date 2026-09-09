@@ -28,7 +28,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     supabase
       .from("seller_profiles")
       .select("storefront_slug, updated_at")
-      .eq("is_paused", false)
+      // A seller who closed for the season keeps their page and their ranking; one closed by us
+      // 404s and must not be advertised to a crawler.
+      .or("is_paused.eq.false,pause_reason.eq.vacation")
       .order("updated_at", { ascending: false })
       .limit(5000),
     // Market pages are the directory's public surface and exist whether or not a seller is there
