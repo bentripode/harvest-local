@@ -31,11 +31,16 @@ export async function getLaunchFacts(seller: SellerProfile): Promise<LaunchFacts
       supabase.from("products").select("id", head).eq("seller_id", seller.id).eq("status", "draft"),
       // "Do they sell food" is derived from their categories, never self-declared — the same rule
       // the licence gate uses (`seller_sells_cottage_food`).
+      //
+      // Read as two plain queries rather than one embedded join. The join form
+      // (`select("id, categories!inner(...)", { count, head: true })` with a nested `.eq`) came back
+      // with a NULL count and an empty error, so `sellsFood` was silently always false — and a
+      // seller with no programme never saw the step that was blocking their food listings.
       supabase
         .from("products")
-        .select("id, categories!inner(requires_food_permit)", head)
+        .select("category_id, subcategory_id")
         .eq("seller_id", seller.id)
-        .eq("categories.requires_food_permit", true),
+        .neq("status", "archived"),
       supabase
         .from("pickup_locations")
         .select("id", head)
@@ -59,10 +64,28 @@ export async function getLaunchFacts(seller: SellerProfile): Promise<LaunchFacts
 
   const storefrontViews = (views.data ?? []).reduce((sum, row) => sum + (row.views ?? 0), 0);
 
+  // Both levels, matching the label and allergen guards: a food subcategory under a non-food parent
+  // still counts (`20260909170000`).
+  const categoryIds = [
+    ...new Set(
+      (foodListings.data ?? []).flatMap((p) => [p.category_id, p.subcategory_id]).filter(Boolean),
+    ),
+  ] as string[];
+
+  let sellsFood = false;
+  if (categoryIds.length > 0) {
+    const { count } = await supabase
+      .from("categories")
+      .select("id", { count: "exact", head: true })
+      .in("id", categoryIds)
+      .eq("requires_food_permit", true);
+    sellsFood = (count ?? 0) > 0;
+  }
+
   return {
     isLive: !seller.is_paused,
     pauseReason: seller.pause_reason,
-    sellsFood: (foodListings.count ?? 0) > 0,
+    sellsFood,
     hasProgramChoice: !!seller.food_program_id,
     activeListings: active.count ?? 0,
     draftListings: drafts.count ?? 0,
