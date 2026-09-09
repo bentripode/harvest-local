@@ -6,6 +6,8 @@ import { MarketNextOpen } from "@/components/market-next-open";
 import { WatchMarketForm } from "@/components/watch-market-form";
 import { getMarket } from "@/lib/markets/queries";
 import { getMarketSellers } from "@/lib/orders/pickup";
+import { FollowButton } from "@/components/follow-button";
+import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
 import { summarizeHours } from "@/lib/markets/schedule";
 import { isUsState, stateName } from "@/lib/geo/state";
@@ -37,7 +39,11 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
   const market = await getMarket(code, slug);
   if (!market) notFound();
 
-  const sellers = await getMarketSellers(market.id);
+  const [sellers, followerCount, viewerFollows] = await Promise.all([
+    getMarketSellers(market.id),
+    getFollowerCount("market", market.id),
+    isFollowing("market", market.id),
+  ]);
   const schedule = summarizeHours(market.hours);
   const directionsQuery = encodeURIComponent(
     [market.name, market.addressText, market.city, code, market.postalCode]
@@ -68,6 +74,17 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         {/* Server-rendered summary is time-zone free; the "next open" line uses the reader's own
             clock, because at 8pm Pacific the server already thinks it's tomorrow. */}
         <MarketNextOpen hours={market.hours} />
+        <div className="pt-1">
+          <FollowButton
+            target="market"
+            id={market.id}
+            following={viewerFollows}
+            count={followerCount}
+            path={`/markets/${state.toLowerCase()}/${slug}`}
+            label="Follow this market"
+            followingLabel="Following this market"
+          />
+        </div>
       </header>
 
       <div className="grid gap-6 md:grid-cols-2">

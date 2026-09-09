@@ -13,6 +13,7 @@ export type NotificationCategory =
   | "license_reminders"
   | "compliance"
   | "messages"
+  | "follows"
   | "admin";
 
 /** `notifications.template` → the category it belongs to. */
@@ -36,6 +37,8 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   license_threshold_approaching: "compliance",
   license_threshold_reached: "compliance",
   new_message: "messages",
+  new_product_from_seller: "follows",
+  seller_joined_market: "follows",
   referral_reward_review: "admin",
   referral_reward_attach_failed: "admin",
   report_filed: "admin",
@@ -52,6 +55,7 @@ export const SUPPRESSIBLE_CATEGORIES = [
   "messages",
   "referrals",
   "license_reminders",
+  "follows",
   "admin",
 ] as const;
 
@@ -102,6 +106,12 @@ export const CATEGORY_META: Record<SuppressibleCategory, CategoryMeta> = {
     description:
       "Heads-up emails 30, 7, and 1 day before a license expires. You're always emailed the day it expires.",
     audience: "seller",
+  },
+  follows: {
+    label: "Sellers and markets you follow",
+    description:
+      "When a seller you follow lists something new, or a seller starts selling at a market you follow.",
+    audience: "all",
   },
   admin: {
     label: "Admin queue alerts",

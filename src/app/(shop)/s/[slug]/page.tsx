@@ -18,6 +18,8 @@ import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries"
 import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
 import { getBrowseState } from "@/lib/geo/browse-state";
+import { FollowButton } from "@/components/follow-button";
+import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
 import { lowestVariantPrice, type VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
@@ -66,8 +68,16 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
   if (!seller || seller.is_paused) notFound();
 
-  const [{ data: products }, user, browse, reviewSummary, reviews, pickupLocations] =
-    await Promise.all([
+  const [
+    { data: products },
+    user,
+    browse,
+    reviewSummary,
+    reviews,
+    pickupLocations,
+    followerCount,
+    viewerFollows,
+  ] = await Promise.all([
     supabase
       .from("products")
       .select("*, variants:product_variants(id, name, price, quantity_available, is_active, net_weight_value, net_weight_unit)")
@@ -79,6 +89,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     getSellerReviewSummary(seller.id),
     getSellerReviews(seller.id),
     getActivePickupLocations(seller.id),
+    getFollowerCount("seller", seller.id),
+    isFollowing("seller", seller.id),
   ]);
 
   const list = (products ?? []) as (Product & { variants?: VariantLike[] })[];
@@ -118,11 +130,19 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ) : null}
         </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
-        {user && canOrder ? (
-          <div className="pt-2">
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <FollowButton
+            target="seller"
+            id={seller.id}
+            following={viewerFollows}
+            count={followerCount}
+            path={`/s/${slug}`}
+            label="Follow"
+          />
+          {user && canOrder ? (
             <MessageSellerButton sellerId={seller.id} label={`Message ${seller.business_name}`} />
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </header>
 
       {blockedFrom ? (

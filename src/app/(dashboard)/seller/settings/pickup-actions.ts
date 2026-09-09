@@ -7,6 +7,7 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { isUsState } from "@/lib/geo/state";
+import { inngest } from "@/lib/inngest/client";
 
 /**
  * Managing collection points.
@@ -178,6 +179,7 @@ export async function savePickupLocationAction(
     is_active: d.isActive,
   };
 
+  const isNew = !d.id;
   let locationId = d.id ?? null;
   if (locationId) {
     const { error } = await supabase.from("pickup_locations").update(row).eq("id", locationId);
@@ -212,6 +214,20 @@ export async function savePickupLocationAction(
       })),
     );
     if (slotError) return { error: slotError.message };
+  }
+
+  // A new booth at a market is news to everyone following it — and to the waitlist that has
+  // been collecting addresses against exactly this promise since the market pages shipped.
+  if (isNew && d.kind === "market" && d.isActive) {
+    try {
+      await inngest.send({
+        name: "harvest/market.seller_joined",
+        data: { marketId: d.marketId!, sellerId: seller.id },
+      });
+    } catch (err) {
+      // Saving the booth must not depend on the event bus.
+      console.error("[pickup] could not announce market join:", err);
+    }
   }
 
   revalidatePath("/seller/settings");

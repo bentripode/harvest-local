@@ -34,6 +34,9 @@ export function ShopHeader({
             </Link>
             {user ? (
               <>
+                <Link href="/saved" className="hover:text-foreground">
+                  Saved
+                </Link>
                 <Link href="/orders" className="hover:text-foreground">
                   My orders
                 </Link>

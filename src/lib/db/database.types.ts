@@ -302,6 +302,38 @@ export type Database = {
           },
         ]
       }
+      follows: {
+        Row: {
+          created_at: string
+          id: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          profile_id?: string
+          target_id?: string
+          target_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "follows_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       market_hours: {
         Row: {
           closes: string
@@ -2672,6 +2704,19 @@ export type Database = {
       sync_seller_license_pause: {
         Args: { p_seller_id: string }
         Returns: string
+      }
+      follower_counts: {
+        Args: { p_target_ids?: string[]; p_target_type?: string }
+        Returns: {
+          target_id: string
+          follower_count: number
+        }[]
+      }
+      followers_to_notify: {
+        Args: { p_target_id?: string; p_target_type?: string }
+        Returns: {
+          profile_id: string
+        }[]
       }
       nearby_sellers: {
         Args: {

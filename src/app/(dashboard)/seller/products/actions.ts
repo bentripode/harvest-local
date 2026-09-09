@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 import { createClient } from "@/lib/supabase/server";
+import { inngest } from "@/lib/inngest/client";
 import { requireRole } from "@/lib/auth";
 import { toCents, toDecimalString } from "@/lib/money";
 import { describeFoodSalesBlock } from "@/lib/compliance/food-sales";
@@ -264,6 +265,9 @@ export async function createProductAction(
 
   await syncTags(supabase, product.id, d.tagIds);
 
+  // Only a listing that is actually live is worth telling anyone about.
+  if (d.status === "active") await announcePublished(product.id);
+
   revalidatePath("/seller/products");
   redirect("/seller/products");
 }
@@ -363,7 +367,24 @@ export async function setProductStatusAction(formData: FormData): Promise<void> 
   // Publishing from the list skips the form, so this is where the label guard is met. The trigger's
   // message is already written for the seller; the hint says what to do about it.
   if (error) backToProducts(error.hint ? `${error.message}. ${error.hint}` : error.message);
+
+  if (status === "active") await announcePublished(productId);
   backToProducts();
+}
+
+/**
+ * Tell anyone following this seller that there is something new.
+ *
+ * Fire-and-forget: a listing must go live whether or not the event bus is reachable, so a
+ * failure here is logged and swallowed. `followed-seller-listed` re-reads the product and
+ * re-checks it is live before emailing anybody, so a duplicate event costs nothing.
+ */
+async function announcePublished(productId: string): Promise<void> {
+  try {
+    await inngest.send({ name: "harvest/product.published", data: { productId } });
+  } catch (err) {
+    console.error("[products] could not announce publish:", err);
+  }
 }
 
 type ServerSupabase = Awaited<ReturnType<typeof createClient>>;
