@@ -340,6 +340,7 @@ src/lib/admin/state-rules.ts           per-state cottage-food rules for the admi
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/payouts/{format,queries}.ts    payout status + copy (pure) · the mirror read · Stripe read-through
 src/lib/stories/{select,queries}.ts    daily rotation + excerpt (pure) · home / storefront reads
+src/lib/launch/{checklist,templates,queries}.ts   derived launch steps · copy that passes the claim screen · the counts
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
@@ -1224,3 +1225,38 @@ migration and a form together.
 
 `StoryEditor` shows the home-page excerpt live, through the same `storyExcerpt` the home page calls,
 so a seller who buries the good sentence in paragraph three sees it happening while they write.
+
+
+**Phase 6 — the launch playbook.** `/seller/launch` — what to do next, and the awkward messages
+written for you.
+
+**Every step is OBSERVED, not self-reported.** There are no checkboxes and no table behind the
+checklist: a step is done because the thing is true (a listing exists, a collection point exists,
+somebody has viewed the storefront) and undone because it isn't. That removes the two ways a launch
+checklist usually goes wrong — ticking something you never did, and being nagged about something you
+finished a month ago. `getLaunchFacts` is all `count(*)` with `head: true`, so nothing is remembered
+and nothing can go stale; a seller who deletes their last listing correctly goes back to "put up your
+first listing".
+
+**It also rules out the step this feature obviously wants: *tell your friends*.** We cannot see it,
+and a checkbox for it would be a lie whichever way it was ticked. What we *can* see is whether anyone
+has looked — `seller_view_counts` — which is the same question asked honestly, and the templates are
+where the help for it lives. `listingsWithGaps` is left at 0 for the same reason: the real answer
+needs the state's rule and the whole product row (`describeListingGaps`), `/seller/products` already
+renders it, and a wrong count here would send a seller hunting a problem that isn't there.
+
+**A step that genuinely can't be done yet is `blocked`, not `todo`** — "ask your first buyer for a
+review" before any order exists has nowhere to link to, and `launchProgress` doesn't count it against
+them, because a bar that is unreachable on day one is worst on the day it matters most. The gate step
+comes first and says *why* the storefront is shut, which is the single most useful line on the page.
+The programme step is skipped entirely for a seller who lists no food.
+
+**The templates are ours, so they pass the same screen the AI does.** `test/launch-templates.test.ts`
+runs every template through `screenCopy` — it would be an odd marketplace that refuses a seller
+"gluten-free" and then hands them a template saying it. The harder discipline is that a template must
+not put words in a seller's mouth about facts we don't have: none of them says what the seller makes
+or that it is any good. They do the structural part — the opening line, the ask, the link — and leave
+`[a sentence about what you make]` as a visible blank rather than a plausible invention, because a
+cheerful made-up description is a sentence about their business that nobody at their business wrote,
+and some sellers would send it unread. The referral template appears only when there is a real code
+AND a real percentage to quote.
