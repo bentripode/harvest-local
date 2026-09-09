@@ -1,17 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ProductCard } from "@/components/product-card";
 import { StatePicker } from "@/components/state-picker";
 import { OriginPicker } from "@/components/origin-picker";
 import { SellerMap } from "@/components/seller-map";
 import { createClient } from "@/lib/supabase/server";
-import { formatUsd, toCents } from "@/lib/money";
 import { stateName } from "@/lib/geo/state";
 import { getBrowseOrigin, getBrowseState } from "@/lib/geo/browse-state";
 import { formatDistance, getNearbySellers } from "@/lib/geo/nearby";
 import { env } from "@/lib/env";
+import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
+import type { CardProduct } from "@/lib/products/card";
+import type { VariantLike } from "@/lib/orders/sale-unit";
 import type { Product } from "@/lib/db/types";
 
 export const metadata: Metadata = {
@@ -47,22 +48,43 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
   // Ordering, distances and the state filter all come from SQL — see `nearby_sellers`.
   const nearby = await getNearbySellers(state, origin);
 
-  // Products for the cards, in one round trip, then stitched onto the ordered seller list.
+
   const supabase = await createClient();
+  // The card needs more than a title and a price: options decide the price, batches decide whether
+  // there is anything to buy, and allergens are a safety fact that belongs on the shelf. All still
+  // one round trip.
   const { data: products } = await supabase
     .from("products")
-    .select("id, title, price, images, quantity_available, status, seller_id")
+    .select(
+      `id, title, price, images, quantity_available, status, seller_id,
+       net_weight_value, net_weight_unit, allergens,
+       variants:product_variants(id, name, price, quantity_available, is_active),
+       drops:product_drops(${DROP_SELECT})`,
+    )
     .in(
       "seller_id",
       nearby.map((s) => s.sellerId),
     )
     .eq("status", "active");
 
-  const bySeller = new Map<string, Product[]>();
-  for (const p of (products ?? []) as Product[]) {
-    const list = bySeller.get(p.seller_id) ?? [];
-    list.push(p);
-    bySeller.set(p.seller_id, list);
+  type GalleryRow = Product & { variants?: VariantLike[]; drops?: DropRow[] };
+
+  const bySeller = new Map<string, CardProduct[]>();
+  for (const row of (products ?? []) as GalleryRow[]) {
+    const list = bySeller.get(row.seller_id) ?? [];
+    list.push({
+      id: row.id,
+      title: row.title,
+      price: row.price,
+      quantityAvailable: row.quantity_available,
+      netWeightValue: row.net_weight_value,
+      netWeightUnit: row.net_weight_unit,
+      allergens: row.allergens,
+      images: row.images,
+      variants: row.variants ?? [],
+      drops: toDrops(row.drops),
+    });
+    bySeller.set(row.seller_id, list);
   }
 
   return (
@@ -143,36 +165,12 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {items.slice(0, 6).map((p) => (
-                    <Link
+                    <ProductCard
                       key={p.id}
-                      href={`/s/${s.storefrontSlug}`}
-                      className="focus-visible:ring-ring rounded-xl focus-visible:ring-2 focus-visible:outline-none"
-                    >
-                      <Card className="h-full transition-shadow hover:shadow-md">
-                        <CardHeader className="pb-2">
-                          <CardTitle className="text-sm font-medium">{p.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-2">
-                          <div className="bg-muted relative aspect-video overflow-hidden rounded-md border">
-                            {p.images?.[0] ? (
-                              <Image
-                                src={p.images[0].url}
-                                alt=""
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 640px) 100vw, 33vw"
-                              />
-                            ) : null}
-                          </div>
-                          <p className="flex items-baseline justify-between text-sm font-medium">
-                            <span>{formatUsd(toCents(p.price))}</span>
-                            {distance ? (
-                              <span className="text-muted-foreground font-normal">{distance}</span>
-                            ) : null}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </Link>
+                      product={p}
+                      sellerSlug={s.storefrontSlug}
+                      footnote={distance}
+                    />
                   ))}
                 </div>
               </section>

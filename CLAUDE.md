@@ -332,6 +332,7 @@ src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · 
 src/lib/compliance/{blocks,publication,delivery}.ts   ComplianceBlock (message + citation + source) · the predisclosure publish gate · delivery-by-programme
 src/lib/compliance/{obligations,obligation-queries}.ts   recurring-deadline arithmetic (pure) · what this seller owes and when
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
+src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) · the quick-view read
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
@@ -1011,3 +1012,37 @@ and caps the line at whichever is smaller, the batch or the shelf; the collectio
 `order_items.drop_snapshot` at checkout so editing or cancelling the batch cannot move a date a buyer
 was promised. Seller UI: `DropsManager` on the listing page, and `/seller/drops` — the bake list,
 ordered by collection date rather than by listing, because the oven works by date.
+
+
+**Phase 6 — product cards and quick view.** `src/lib/products/card.ts` (`describeCard`) is the one
+answer to what a listing says about itself — price, net weight, what's left, allergens, and the batch
+line — and `/shop`, the storefront row and the quick view all read it.
+
+**It exists because the gallery was advertising a price nobody maintained.** `/shop` rendered
+`formatUsd(toCents(p.price))` on every card including listings that sell through variants;
+`products.price` is the column `resolveSaleUnit` explicitly refuses to fall back to once options
+exist, so a buyer could click a $8.50 card and land on a $6.00–$11.00 listing. `describeCard` prices
+from the active options, and says **"from $X" only where the buyer has a real choice** — a single
+option, or several at the same price, quote an exact figure, because "from" implies a decision that
+changes what you pay. `listingStock` totals the buyable options (any one of them unlimited makes the
+listing unlimited); a card cannot know which option the buyer will pick, so a single option's count
+would be a number about something not yet chosen. Net weight on a card drops the metric equivalent —
+that is a LABEL requirement (CT, NC, TN) carried by `renderLabel` and the pre-sale disclosure, and on
+a browse card it is a second number competing with the price.
+
+**The quick view is a pre-sale surface, so it carries the pre-sale disclosure.** `ProductQuickView`
+adds a second place to reach a basket, and in the eleven `predisclosure_required` jurisdictions the
+listing IS the disclosure (Tex. §437.0194(b)(2) — before payment; 410 ILCS 625/4(b)(10) — at the
+point of sale). So `getQuickView` **fails closed**: `canAddToBasket` is false whenever a disclosure
+is required and could not be built — a load error, a missing rule, an empty result — and the modal
+offers the storefront link instead of a button. `LabelDisclosure` renders inline above the button,
+never behind a toggle, the same rule the storefront follows.
+
+Detail is loaded **on open** rather than with the gallery: the disclosure is one SECURITY DEFINER
+call per product and `/shop` shows six per seller, so paying for all of them to serve one open would
+be slow for everyone. It also means the disclosure is fetched when the buyer reads it. The modal is a
+native `<dialog>` — focus trapping, Escape, inert background and `::backdrop` with no dependency —
+and its `AddToCart` gets `stockWithDrops`, the same batch-capped figure the storefront passes, so its
+quantity stepper cannot build a cart `priceCart` will refuse. The quick view is also where a buyer
+finally sees **ingredients and handling instructions**, which were collected for the label and shown
+to buyers nowhere.

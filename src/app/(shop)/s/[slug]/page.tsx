@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 import { getProductDisclosures } from "@/lib/labels/disclosure";
 import { LabelDisclosure } from "@/components/label-disclosure";
 
@@ -15,7 +14,6 @@ import { TrackStorefrontView } from "@/components/track-storefront-view";
 import { getUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSellerReviews, getSellerReviewSummary } from "@/lib/reviews/queries";
-import { formatUsd, toCents } from "@/lib/money";
 import { sameState, stateName } from "@/lib/geo/state";
 import { getBrowseState } from "@/lib/geo/browse-state";
 import { FollowButton } from "@/components/follow-button";
@@ -23,9 +21,11 @@ import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { getStorefrontPosts, getStorefrontQuestions } from "@/lib/storefront/queries";
 import { StorefrontQuestions } from "@/components/storefront-questions";
 import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
-import { lowestVariantPrice, type VariantLike } from "@/lib/orders/sale-unit";
+import type { VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
-import { describeDrop, gateByDrops, stockWithDrops } from "@/lib/orders/drops";
+import { stockWithDrops } from "@/lib/orders/drops";
+import { describeCard } from "@/lib/products/card";
+import { ProductQuickView } from "@/components/product-quick-view";
 import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import type { Product } from "@/lib/db/types";
 
@@ -115,11 +115,25 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   // Where the state requires the label before payment, the listing is the first chance to show it.
   const disclosures = await getProductDisclosures(list.map((p) => p.id));
 
-  // A listing with batches sells only through them, and only while one is open. Resolved once per
-  // product so the sentence on the card and the presence of the button cannot disagree.
-  const gates = new Map(list.map((p) => [p.id, gateByDrops(toDrops(p.drops))]));
-  const buyableNow = new Set(
-    list.filter((p) => !gates.get(p.id)!.sellsByDrop || gates.get(p.id)!.orderable).map((p) => p.id),
+  // Everything a row says about a listing — price, weight, what's left, whether a batch governs it
+  // — resolved once per product, so the sentence on the row and the presence of the basket button
+  // cannot disagree.
+  const facts = new Map(
+    list.map((p) => [
+      p.id,
+      describeCard({
+        id: p.id,
+        title: p.title,
+        price: p.price,
+        quantityAvailable: p.quantity_available,
+        netWeightValue: p.net_weight_value,
+        netWeightUnit: p.net_weight_unit,
+        allergens: p.allergens,
+        images: p.images,
+        variants: p.variants ?? [],
+        drops: toDrops(p.drops),
+      }),
+    ]),
   );
 
   // A guest with no state yet may still fill a basket — checkout is where an account and the real
@@ -279,7 +293,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
       ) : (
         <ul className="divide-y rounded-lg border">
           {list.map((p) => (
-            <li key={p.id} className="flex flex-wrap items-center gap-4 p-4">
+            <li key={p.id} className="flex flex-wrap items-start gap-4 p-4">
               <div className="bg-muted relative size-16 shrink-0 overflow-hidden rounded-md border">
                 {p.images?.[0] ? (
                   <Image src={p.images[0].url} alt="" fill className="object-cover" sizes="64px" />
@@ -290,45 +304,48 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
                 {p.description ? (
                   <p className="text-muted-foreground line-clamp-2 text-sm">{p.description}</p>
                 ) : null}
+                {/* Price, weight, stock, allergens and the batch line all come from
+                    `describeCard`, the same function the marketplace gallery and the quick view
+                    use — so a listing cannot quote one price here and another on /shop. */}
                 <p className="pt-1 text-sm font-medium">
-                  {/* A listing with options has no single price, so say so rather than showing
-                      the unused products.price column. */}
-                  {(() => {
-                    const from = lowestVariantPrice(p.variants ?? []);
-                    return from != null ? `from ${formatUsd(from)}` : formatUsd(toCents(p.price));
-                  })()}
-                  {p.quantity_available != null ? (
+                  {facts.get(p.id)!.priceLabel}
+                  {facts.get(p.id)!.availability && !facts.get(p.id)!.availabilityIsBatch ? (
                     <span className="text-muted-foreground font-normal">
                       {" "}
-                      · {p.quantity_available} available
+                      · {facts.get(p.id)!.availability}
                     </span>
                   ) : null}
-                  {formatNetWeight(p.net_weight_value, p.net_weight_unit) ? (
+                  {facts.get(p.id)!.netWeight ? (
                     <span className="text-muted-foreground font-normal">
                       {" "}
-                      · {formatNetWeight(p.net_weight_value, p.net_weight_unit)}
+                      · {facts.get(p.id)!.netWeight}
                     </span>
                   ) : null}
                 </p>
                 {/* Allergens are a buyer-safety fact, not seller admin — show them on the shelf. */}
-                {formatAllergens(p.allergens ?? []) ? (
+                {facts.get(p.id)!.allergens ? (
                   <p className="text-muted-foreground pt-0.5 text-xs">
-                    <span className="font-medium">Contains:</span>{" "}
-                    {formatAllergens(p.allergens ?? [])}
+                    <span className="font-medium">Contains:</span> {facts.get(p.id)!.allergens}
                   </p>
                 ) : null}
                 <LabelDisclosure disclosure={disclosures[p.id]} className="mt-2" />
 
                 {/* A batch listing says so on the shelf: how many are left and when they're
-                    collected. `describeDropGate` is null while orders are open, so a batch taking
-                    orders and an ordinary listing read alike. */}
-                {gates.get(p.id)?.current ? (
-                  <p className="pt-1 text-sm font-medium">
-                    {describeDrop(gates.get(p.id)!.current!)}
-                  </p>
+                    collected. */}
+                {facts.get(p.id)!.availabilityIsBatch ? (
+                  <p className="pt-1 text-sm font-medium">{facts.get(p.id)!.availability}</p>
                 ) : null}
+
+                {/* Ingredients and storage instructions are collected for the label and were shown
+                    to buyers nowhere. They are exactly what someone choosing food wants to read,
+                    and they are too long for a row, so they live behind this. */}
+                <ProductQuickView
+                  productId={p.id}
+                  triggerLabel="Details"
+                  className="mt-2 h-7 px-2 text-xs"
+                />
               </div>
-              {canOrder && buyableNow.has(p.id) ? (
+              {canOrder && facts.get(p.id)!.orderable ? (
                 <AddToCart
                   variants={p.variants ?? []}
                   seller={{
