@@ -37,6 +37,8 @@ export const TEMPLATE_CATEGORY: Record<string, NotificationCategory> = {
   license_threshold_approaching: "compliance",
   license_threshold_reached: "compliance",
   new_message: "messages",
+  question_asked: "messages",
+  question_answered: "messages",
   new_product_from_seller: "follows",
   seller_joined_market: "follows",
   referral_reward_review: "admin",

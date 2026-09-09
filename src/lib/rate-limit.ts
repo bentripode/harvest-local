@@ -35,6 +35,8 @@ export const RATE_LIMITS = {
    * is keyed by IP where there is no account.
    */
   geocode: { max: 20, windowSecs: 300 },
+  /** Asking a seller a public question. Needs an account, so keyed per user. */
+  question: { max: 8, windowSecs: 300 },
 } as const satisfies Record<string, RateLimit>;
 
 /**

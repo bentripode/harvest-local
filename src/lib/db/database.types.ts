@@ -1740,6 +1740,101 @@ export type Database = {
           },
         ]
       }
+      seller_posts: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          image_path: string | null
+          image_url: string | null
+          seller_id: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          image_path?: string | null
+          image_url?: string | null
+          seller_id: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          image_path?: string | null
+          image_url?: string | null
+          seller_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_posts_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_questions: {
+        Row: {
+          answer: string | null
+          answered_at: string | null
+          asker_id: string
+          asker_name: string | null
+          body: string
+          created_at: string
+          id: string
+          product_id: string | null
+          seller_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          answer?: string | null
+          answered_at?: string | null
+          asker_id: string
+          asker_name?: string | null
+          body: string
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          seller_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string | null
+          answered_at?: string | null
+          asker_id?: string
+          asker_name?: string | null
+          body?: string
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          seller_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_questions_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_questions_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_profiles: {
         Row: {
           avg_rating: number | null

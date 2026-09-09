@@ -145,6 +145,16 @@ const TEMPLATES: Record<string, TemplateMeta> = {
       `/markets/${String(p.market_state ?? "").toLowerCase()}/${String(p.market_slug ?? "")}`,
     ctaLabel: "See the market",
   },
+  question_asked: {
+    subject: () => "Someone asked you a question",
+    ctaPath: "/seller/questions",
+    ctaLabel: "Answer it",
+  },
+  question_answered: {
+    subject: (p) => `${String(p.business_name ?? "A seller")} answered your question`,
+    ctaPath: (p) => `/s/${String(p.storefront_slug ?? "")}`,
+    ctaLabel: "See the answer",
+  },
   new_message: {
     subject: (p) => `New message from ${String(p.sender_name ?? "a Harvest Local user")}`,
     ctaPath: (p) => `/messages/${String(p.conversation_id ?? "")}`,

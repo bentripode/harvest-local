@@ -20,6 +20,8 @@ import { sameState, stateName } from "@/lib/geo/state";
 import { getBrowseState } from "@/lib/geo/browse-state";
 import { FollowButton } from "@/components/follow-button";
 import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
+import { getStorefrontPosts, getStorefrontQuestions } from "@/lib/storefront/queries";
+import { StorefrontQuestions } from "@/components/storefront-questions";
 import { approximateLocation, getActivePickupLocations } from "@/lib/orders/pickup";
 import { lowestVariantPrice, type VariantLike } from "@/lib/orders/sale-unit";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
@@ -82,6 +84,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     pickupLocations,
     followerCount,
     viewerFollows,
+    posts,
+    questions,
   ] = await Promise.all([
     supabase
       .from("products")
@@ -96,6 +100,8 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
     getActivePickupLocations(seller.id),
     getFollowerCount("seller", seller.id),
     isFollowing("seller", seller.id),
+    getStorefrontPosts(seller.id),
+    getStorefrontQuestions(seller.id),
   ]);
 
   const list = (products ?? []) as (Product & { variants?: VariantLike[] })[];
@@ -176,6 +182,36 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           </Link>{" "}
           when you check out.
         </Notice>
+      ) : null}
+
+      {posts.length > 0 ? (
+        <section className="space-y-2">
+          <h2 className="text-sm font-medium">Latest from {seller.business_name}</h2>
+          <ul className="divide-y rounded-lg border">
+            {posts.map((post) => (
+              <li key={post.id} className="space-y-2 p-4 text-sm">
+                <p className="whitespace-pre-line">{post.body}</p>
+                {post.imageUrl ? (
+                  <div className="bg-muted relative aspect-video max-w-sm overflow-hidden rounded-md border">
+                    <Image
+                      src={post.imageUrl}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 384px"
+                    />
+                  </div>
+                ) : null}
+                <p className="text-muted-foreground text-xs">
+                  {new Date(post.createdAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
       ) : null}
 
       {/*
@@ -291,6 +327,13 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ))}
         </ul>
       )}
+
+      <StorefrontQuestions
+        sellerId={seller.id}
+        sellerName={seller.business_name}
+        slug={slug}
+        questions={questions}
+      />
 
       {reviews.length > 0 ? (
         <section className="space-y-3">
