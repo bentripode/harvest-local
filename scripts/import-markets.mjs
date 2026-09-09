@@ -41,6 +41,7 @@ import {
   parseDelimited,
   uniqueSlug,
 } from "./lib/usda-format.mjs";
+import { parseUsdaAddress } from "./lib/usda-address.mjs";
 
 const require = createRequire(import.meta.url);
 const { createClient } = require("@supabase/supabase-js");
@@ -87,21 +88,64 @@ async function loadCsv() {
   if (!flag("fetch")) throw new Error("pass --file <csv> or --fetch");
 
   process.stdout.write(`fetching ${DOWNLOAD_URL}\n`);
+  // The portal 403s any request whose user-agent looks automated, and 301s to a trailing slash.
+  // Both were previously read as "the portal is down"; it was not.
   const res = await fetch(DOWNLOAD_URL, {
-    headers: { "user-agent": "harvest-local market import" },
+    redirect: "follow",
+    headers: {
+      "user-agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36",
+      accept: "application/json,text/csv,*/*",
+    },
   });
   if (!res.ok) {
     throw new Error(
-      `download failed: HTTP ${res.status}. The portal is frequently down — download the CSV by ` +
-        `hand from https://www.usdalocalfoodportal.com/fe/datasharing/ and pass --file.`,
+      `download failed: HTTP ${res.status}. Download by hand from ` +
+        `https://www.usdalocalfoodportal.com/fe/datasharing/ and pass --file.`,
     );
   }
   return res.text();
 }
 
+/**
+ * The directory now serves JSON, and one free-text `location_address` where it used to have
+ * `location_city`, `location_state` and `location_zipcode` as their own columns.
+ *
+ * Rather than teach the whole pipeline a second shape, JSON is flattened into the same header +
+ * rows table the delimited path produces, with the address split back out into the columns the
+ * FIELDS map already names. A record whose state cannot be read is passed through with an empty
+ * one and skipped downstream, exactly like a CSV row missing its state — `markets.state` is the URL
+ * and the discovery half of rule 1, so guessing it is not an option.
+ */
+function tableFromJson(text) {
+  const records = JSON.parse(text);
+  if (!Array.isArray(records) || records.length === 0) return [];
+
+  const keys = [...new Set(records.flatMap((r) => Object.keys(r)))];
+  const derived = ["location_city", "location_state", "location_zipcode"];
+  const header = [...keys.filter((k) => !derived.includes(k)), ...derived];
+
+  const rows = [header];
+  for (const record of records) {
+    const parsed = parseUsdaAddress(record.location_address) ?? {};
+    rows.push(
+      header.map((key) => {
+        if (key === "location_city") return parsed.city ?? "";
+        if (key === "location_state") return parsed.state ?? "";
+        if (key === "location_zipcode") return parsed.zip ?? "";
+        if (key === "location_address") return parsed.street ?? record.location_address ?? "";
+        const v = record[key];
+        return v == null ? "" : String(v);
+      }),
+    );
+  }
+  return rows;
+}
+
 async function main() {
   const text = await loadCsv();
-  const rows = parseDelimited(text, detectDelimiter(text));
+  const looksJson = text.trimStart().startsWith("[") || text.trimStart().startsWith("{");
+  const rows = looksJson ? tableFromJson(text) : parseDelimited(text, detectDelimiter(text));
   if (rows.length < 2) throw new Error("no data rows");
 
   const index = buildIndex(rows[0]);
