@@ -172,6 +172,67 @@ export async function createProduct(
   return { id: data.id, title };
 }
 
+/**
+ * A seller with nothing wrong with them.
+ *
+ * `createSeller` alone is not that: it has no licence documents, so the first thing that calls
+ * `sync_seller_license_pause` — which includes the trigger on every product insert — pauses it for
+ * `license_unverified`. And even with documents, the function only ever LIFTS a pause when Connect
+ * and a live subscription hold, so a fixture without those stays shut.
+ *
+ * Any suite whose subject is not the licence gate wants this.
+ */
+export async function makeSellerOperational(sellerId: string): Promise<void> {
+  const admin = adminDb();
+  const future = new Date(Date.now() + 365 * 86_400_000).toISOString().slice(0, 10);
+
+  const { error: docError } = await admin.from("seller_licenses").insert([
+    {
+      seller_id: sellerId,
+      license_type: "id",
+      issuing_state: "TX",
+      expiration_date: future,
+      document_path: `${sellerId}/licenses/it-id.pdf`,
+      verification_status: "verified",
+    },
+    {
+      // A tax ID has no issuing state and no expiry; the CHECK constraints allow that for it alone.
+      seller_id: sellerId,
+      license_type: "tax_id",
+      issuing_state: null,
+      expiration_date: null,
+      document_path: `${sellerId}/licenses/it-tax.pdf`,
+      verification_status: "verified",
+    },
+  ]);
+  if (docError) throw new Error(`makeSellerOperational documents: ${docError.message}`);
+
+  const { error: connectError } = await admin
+    .from("seller_profiles")
+    .update({
+      connect_charges_enabled: true,
+      connect_details_submitted: true,
+      connect_payouts_enabled: true,
+      stripe_account_id: `acct_it_${sellerId.slice(0, 8)}`,
+    })
+    .eq("id", sellerId);
+  if (connectError) throw new Error(`makeSellerOperational connect: ${connectError.message}`);
+
+  const { error: subError } = await admin.from("subscriptions").upsert(
+    {
+      seller_id: sellerId,
+      stripe_customer_id: `cus_it_${sellerId.slice(0, 8)}`,
+      stripe_subscription_id: `sub_it_${sellerId.slice(0, 8)}`,
+      status: "active",
+    },
+    { onConflict: "seller_id" },
+  );
+  if (subError) throw new Error(`makeSellerOperational subscription: ${subError.message}`);
+
+  // Re-derive: the seller may already be paused from an earlier sync.
+  await admin.rpc("sync_seller_license_pause", { p_seller_id: sellerId });
+}
+
 /** Inserts an order via the service role (as the checkout action does) and tracks it for cleanup. */
 export async function createOrder(opts: {
   buyerId: string;

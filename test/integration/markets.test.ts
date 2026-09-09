@@ -87,11 +87,9 @@ describeDb("markets RLS", () => {
       .insert({ slug: `it-buyer-${stamp}`, name: "Nope", state: "TX" });
     expect(asBuyer.error).not.toBeNull();
 
-    const rename = await buyer.db
-      .from("markets")
-      .update({ name: "Hijacked" })
-      .eq("id", publishedId);
-    expect(rename.error).not.toBeNull();
+    // RLS filters rather than errors: an update that matches no permitted row simply affects
+    // none. The row still carrying its name is what proves the policy held.
+    await buyer.db.from("markets").update({ name: "Hijacked" }).eq("id", publishedId);
 
     const { data: row } = await adminDb()
       .from("markets")

@@ -6,6 +6,7 @@ import {
   cleanupAll,
   createSeller,
   createTestUser,
+  makeSellerOperational,
   describeDb,
   type TestUser,
 } from "./helpers";
@@ -28,6 +29,7 @@ describeDb("set_seller_vacation", () => {
     sellerUser = await createTestUser({ role: "seller", homeState: "TX" });
     stranger = await createTestUser({ homeState: "TX" });
     seller = await createSeller(sellerUser.id, { homeState: "TX" });
+    await makeSellerOperational(seller.id);
   });
 
   afterAll(cleanupAll);
@@ -139,20 +141,30 @@ describeDb("set_seller_vacation", () => {
     await sellerUser.db.rpc("set_seller_vacation", { p_seller_id: seller.id, p_on: true });
     expect((await state()).pause_reason).toBe("vacation");
 
-    // The licence check now fails — sync overwrites the weaker reason.
+    // Now genuinely break the licence — withdraw the verified ID document. This has to be a real
+    // failure of `seller_has_required_documents`, not an absent fixture: an earlier version of
+    // this test passed only because the seller had never had documents at all, which proved
+    // nothing about precedence.
+    const { error: withdrawError } = await adminDb()
+      .from("seller_licenses")
+      .update({ verification_status: "rejected", review_note: "IT: withdrawn to test precedence" })
+      .eq("seller_id", seller.id)
+      .eq("license_type", "id");
+    expect(withdrawError).toBeNull();
+
     const sync = await adminDb().rpc("sync_seller_license_pause", { p_seller_id: seller.id });
     expect(sync.error).toBeNull();
 
     const paused = await state();
     expect(paused.is_paused).toBe(true);
-    // Whatever it is now, it is no longer the seller's to lift.
-    expect(paused.pause_reason).not.toBe("vacation");
+    // The compliance reason has taken the row; it is no longer the seller's to lift.
+    expect(paused.pause_reason).toBe("license_unverified");
 
-    // And ending the holiday leaves them closed.
+    // And ending the holiday leaves them closed, for that reason.
     await sellerUser.db.rpc("set_seller_vacation", { p_seller_id: seller.id, p_on: false });
     const after = await state();
     expect(after.is_paused).toBe(true);
-    expect(after.pause_reason).not.toBeNull();
+    expect(after.pause_reason).toBe("license_unverified");
     expect(after.on_vacation).toBe(false);
   });
 });

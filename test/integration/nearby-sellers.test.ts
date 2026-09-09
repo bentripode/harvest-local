@@ -7,6 +7,7 @@ import {
   createProduct,
   createSeller,
   createTestUser,
+  makeSellerOperational,
   describeDb,
   type TestUser,
 } from "./helpers";
@@ -35,6 +36,9 @@ describeDb("nearby_sellers", () => {
     vtUser = await createTestUser({ role: "seller", homeState: "VT" });
     txSeller = await createSeller(txUser.id, { homeState: "TX" });
     vtSeller = await createSeller(vtUser.id, { homeState: "VT" });
+
+    await makeSellerOperational(txSeller.id);
+    await makeSellerOperational(vtSeller.id);
 
     // A live storefront needs something to sell to appear at all.
     await createProduct(txSeller.id);

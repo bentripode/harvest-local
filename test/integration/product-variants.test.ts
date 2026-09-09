@@ -107,6 +107,8 @@ describeDb("product_variants", () => {
 });
 
 describeDb("finalize_paid_order — variant stock", () => {
+  // orders.stripe_payment_intent_id is UNIQUE, so every finalize in this file needs its own.
+  let n = 0;
   let buyer: TestUser;
   let sellerUser: TestUser;
   let seller: { id: string };
@@ -146,7 +148,7 @@ describeDb("finalize_paid_order — variant stock", () => {
 
     const { error } = await adminDb().rpc("finalize_paid_order", {
       p_order_id: order.id,
-      p_payment_intent_id: "pi_it_variants",
+      p_payment_intent_id: `pi_it_variants_${++n}_${Date.now()}`,
       p_discount_total: "0",
       p_tax_total: "0",
       p_total: "15.00",
@@ -183,7 +185,7 @@ describeDb("finalize_paid_order — variant stock", () => {
 
     await adminDb().rpc("finalize_paid_order", {
       p_order_id: order.id,
-      p_payment_intent_id: "pi_it_variants",
+      p_payment_intent_id: `pi_it_variants_${++n}_${Date.now()}`,
       p_discount_total: "0",
       p_tax_total: "0",
       p_total: "20.00",
@@ -216,7 +218,7 @@ describeDb("finalize_paid_order — variant stock", () => {
 
     const args = {
       p_order_id: order.id,
-      p_payment_intent_id: "pi_it_variants",
+      p_payment_intent_id: `pi_it_variants_${++n}_${Date.now()}`,
       p_discount_total: "0",
       p_tax_total: "0",
       p_total: "8.00",
