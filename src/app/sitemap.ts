@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/shop`, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/markets`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/cottage-food-laws`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/sell`, changeFrequency: "monthly", priority: 0.9 },
   ];
 
   const supabase = await createClient();

@@ -84,7 +84,7 @@ export default async function CottageFoodLawsIndex() {
           it tells you when a filing is due. $20 a month, no commission, 90-day trial.
         </p>
         <p className="pt-2 text-sm">
-          <Link href="/signup?role=seller" className="underline">
+          <Link href="/sell" className="underline">
             Open a storefront
           </Link>{" "}
           ·{" "}

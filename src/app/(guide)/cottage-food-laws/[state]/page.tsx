@@ -163,7 +163,7 @@ export default async function StateCottageFoodPage({
           after. $20 a month, no cut of your sales, 90 days free.
         </p>
         <p className="pt-2 text-sm">
-          <Link href="/signup?role=seller" className="underline">
+          <Link href="/sell" className="underline">
             Open a storefront
           </Link>{" "}
           ·{" "}

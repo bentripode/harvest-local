@@ -32,7 +32,7 @@ export function SiteHeader({ profile }: { profile: Profile | null }) {
                 <Link href="/login">Sign in</Link>
               </Button>
               <Button asChild size="sm">
-                <Link href="/signup?role=seller">Start selling</Link>
+                <Link href="/sell">Start selling</Link>
               </Button>
             </>
           )}

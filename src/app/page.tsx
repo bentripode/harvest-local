@@ -38,7 +38,7 @@ export default async function HomePage() {
                 <Link href="/shop">Browse local sellers</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/signup?role=seller">Sell on Harvest Local</Link>
+                <Link href="/sell">Sell on Harvest Local</Link>
               </Button>
             </>
           ) : isSeller ? (
