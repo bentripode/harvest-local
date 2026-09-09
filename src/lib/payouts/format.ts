@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import { DAY_ABBR, MONTH_ABBR } from "@/lib/time/wall-clock";
 
 /**
@@ -14,7 +15,7 @@ import { DAY_ABBR, MONTH_ABBR } from "@/lib/time/wall-clock";
 export interface PayoutLike {
   stripePayoutId: string;
   /** Decimal string, as numeric arrives over the wire. */
-  amount: string;
+  amount: Money;
   currency: string;
   status: string;
   /** "YYYY-MM-DD" — a banking day, not an instant. */

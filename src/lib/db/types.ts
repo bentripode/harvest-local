@@ -7,9 +7,10 @@
  * THIS module, not from `database.types` directly.
  *
  * Deliberate corrections to the generator's output:
- *  1. Postgres `numeric` crosses the wire as a *string*, but the generator types it `number`.
- *     Every money column is corrected back to `string` so money stays exact end to end
- *     (see `src/lib/money.ts`).
+ *  1. Money columns accept a decimal *string* on writes as well as a number, because
+ *     `toDecimalString` produces one and Postgres takes it (see `src/lib/money.ts`). Reads are left
+ *     as the generator has them — `numeric` comes back as a NUMBER, which this file used to claim
+ *     it did not; see the note on `MoneyFixed`.
  *  2. jsonb columns are given their real shape instead of `Json` — `products.images`,
  *     `products.ingredients`, `profiles.notification_prefs`, `seller_profiles.delivery_windows`.
  *  3. function returns that are genuinely nullable — the generator emits every `Returns` as
@@ -29,20 +30,36 @@ export interface ProductImage {
 
 type GenTables = Generated["public"]["Tables"];
 
-/** `number` (or `number | null`, etc.) → `string`, preserving null/undefined via distribution. */
-type NumToStr<T> = T extends number ? string : T;
+/** `number` (or `number | null`, etc.) → `number | string`, preserving null via distribution. */
+type NumOrStr<T> = T extends number ? number | string : T;
 
 /**
- * Rewrite the listed money keys of a table's Row/Insert/Update from `number` to `string`
- * (Postgres `numeric` crosses the wire as text). Homomorphic mapping keeps `?` optionality.
+ * Money columns accept a decimal STRING on writes, and come back as a NUMBER on reads.
+ *
+ * This used to rewrite Row as well, on the stated grounds that "Postgres `numeric` crosses the wire
+ * as text". **It does not, against this PostgREST.** Verified across every money column on the live
+ * project — `orders.total`, `order_items.unit_price`, `refunds.amount`, `products.price`,
+ * `state_food_programs.revenue_cap`, all of them — and each one arrives as a JS number.
+ *
+ * Nothing broke while the declaration was wrong, because every money read in the app goes through
+ * `toCents`, which takes `string | number`. But the type was a lie, and code trusting it (a string
+ * method on a total, a `.length`, a `===` against a decimal string) would have compiled and then
+ * failed at runtime. Reads are now typed as what actually arrives.
+ *
+ * Writes are a genuine union: `toDecimalString` produces `"12.50"` and Postgres accepts a string
+ * for a numeric column, which is how money keeps its exactness on the way in (`src/lib/money.ts`).
+ * So Insert and Update widen to `number | string` rather than narrowing to one of them.
+ *
+ * Pinned by an assertion in `test/integration/payouts.test.ts`, so a future change in the wire
+ * format is reported rather than quietly making this right again by accident.
  */
 type MoneyFixed<
   T extends { Row: object; Insert: object; Update: object; Relationships: unknown },
   K extends string,
 > = {
-  Row: { [P in keyof T["Row"]]: P extends K ? NumToStr<T["Row"][P]> : T["Row"][P] };
-  Insert: { [P in keyof T["Insert"]]: P extends K ? NumToStr<T["Insert"][P]> : T["Insert"][P] };
-  Update: { [P in keyof T["Update"]]: P extends K ? NumToStr<T["Update"][P]> : T["Update"][P] };
+  Row: T["Row"];
+  Insert: { [P in keyof T["Insert"]]: P extends K ? NumOrStr<T["Insert"][P]> : T["Insert"][P] };
+  Update: { [P in keyof T["Update"]]: P extends K ? NumOrStr<T["Update"][P]> : T["Update"][P] };
   Relationships: T["Relationships"];
 };
 
@@ -78,30 +95,29 @@ type SellerProfilesFixed = {
 };
 
 type ProductsFixed = {
-  Row: Omit<GenTables["products"]["Row"], "price" | "images" | "ingredients" | "net_weight_value"> & {
-    price: string;
+  // `price` and `net_weight_value` are NOT corrected on the way out: numeric arrives as a JS
+  // number (see the note on MoneyFixed). Only the jsonb columns need a real shape.
+  Row: Omit<GenTables["products"]["Row"], "images" | "ingredients"> & {
     images: ProductImage[];
     ingredients: string[];
-    // numeric, so it arrives as a string like every other numeric — not money, but the same wire.
-    net_weight_value: string | null;
   };
   Insert: Omit<
     GenTables["products"]["Insert"],
     "price" | "images" | "ingredients" | "net_weight_value"
   > & {
-    price: string;
+    price: number | string;
     images?: ProductImage[];
     ingredients?: string[];
-    net_weight_value?: string | null;
+    net_weight_value?: number | string | null;
   };
   Update: Omit<
     GenTables["products"]["Update"],
     "price" | "images" | "ingredients" | "net_weight_value"
   > & {
-    price?: string;
+    price?: number | string;
     images?: ProductImage[];
     ingredients?: string[];
-    net_weight_value?: string | null;
+    net_weight_value?: number | string | null;
   };
   Relationships: GenTables["products"]["Relationships"];
 };

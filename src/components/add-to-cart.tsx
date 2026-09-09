@@ -5,12 +5,12 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/cart-provider";
-import { toCents, formatUsd } from "@/lib/money";
+import { toCents, formatUsd, type Money } from "@/lib/money";
 import { resolveSaleUnit, type VariantLike } from "@/lib/orders/sale-unit";
 
 interface Props {
   seller: { sellerId: string; sellerSlug: string; sellerName: string };
-  product: { id: string; title: string; price: string; quantityAvailable: number | null };
+  product: { id: string; title: string; price: Money; quantityAvailable: number | null };
   /** Empty for a listing sold as one thing. */
   variants?: VariantLike[];
 }
@@ -30,7 +30,12 @@ export function AddToCart({ seller, product, variants = [] }: Props) {
   const { addItem } = useCart();
 
   const resolved = resolveSaleUnit(
-    { id: product.id, title: product.title, price: product.price, quantity_available: product.quantityAvailable },
+    {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity_available: product.quantityAvailable,
+    },
     variants,
     variantId || null,
   );

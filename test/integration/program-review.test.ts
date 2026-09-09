@@ -19,7 +19,7 @@ describeDb("program review", () => {
   let original: {
     online_orders: string;
     cat_meat: string;
-    revenue_cap: string | null;
+    revenue_cap: number | null;
     cap_basis: string;
     cap_category: string | null;
   };

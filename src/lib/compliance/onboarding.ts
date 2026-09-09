@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -67,7 +68,7 @@ export async function getIntendedCategories(): Promise<IntendedCategory[]> {
   }));
 }
 
-function money(value: string | null): string {
+function money(value: Money | null): string {
   const n = Number(value ?? 0);
   return `$${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 }

@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -74,7 +75,7 @@ export interface FollowedMarket {
 export interface SavedProduct {
   id: string;
   title: string;
-  price: string;
+  price: Money;
   sellerSlug: string;
   businessName: string;
   followedAt: string;

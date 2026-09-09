@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import { CLAIM_INSTRUCTIONS } from "@/lib/ai/claims";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 
@@ -24,7 +25,7 @@ export interface CopySource {
   existingDescription: string | null;
   ingredients: string[];
   allergens: string[];
-  netWeightValue: string | null;
+  netWeightValue: Money | null;
   netWeightUnit: string | null;
   handlingInstructions: string | null;
   businessName: string;

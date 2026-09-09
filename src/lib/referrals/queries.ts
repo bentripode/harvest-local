@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -19,7 +20,7 @@ export interface ContributingReferral {
   buyerName: string;
   orderId: string;
   activatedAt: string | null;
-  discountAmount: string;
+  discountAmount: Money;
 }
 
 export interface ReferralProgress {

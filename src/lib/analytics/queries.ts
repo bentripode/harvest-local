@@ -1,7 +1,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
-import { toCents } from "@/lib/money";
+import { toCents, type Money } from "@/lib/money";
 
 /**
  * Seller dashboard analytics — derived entirely from `orders` / `order_items` / `seller_view_counts`,
@@ -48,9 +48,9 @@ export interface SellerStats {
 }
 
 interface OrderRow {
-  total: string;
-  discount_total: string;
-  delivery_fee: string;
+  total: Money;
+  discount_total: Money;
+  delivery_fee: Money;
   fulfillment_type: string;
   status: string;
   created_at: string;
@@ -159,7 +159,7 @@ export async function getSellerDashboardStats(
   for (const it of (itemData ?? []) as {
     title_snapshot: string;
     quantity: number;
-    line_total: string;
+    line_total: Money;
   }[]) {
     const cur = byTitle.get(it.title_snapshot) ?? { units: 0, revenueCents: 0 };
     cur.units += it.quantity;

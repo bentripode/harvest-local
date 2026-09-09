@@ -1,4 +1,4 @@
-import { formatUsd, toCents, type Cents } from "@/lib/money";
+import { formatUsd, toCents, type Cents, type Money } from "@/lib/money";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 import { gateByDrops, describeDrop, describeDropGate, type DropLike } from "@/lib/orders/drops";
 import type { VariantLike } from "@/lib/orders/sale-unit";
@@ -22,9 +22,9 @@ export interface CardProduct {
   id: string;
   title: string;
   /** `products.price` — used ONLY when the listing has no variants. */
-  price: string;
+  price: Money;
   quantityAvailable: number | null;
-  netWeightValue?: string | null;
+  netWeightValue?: Money | null;
   netWeightUnit?: string | null;
   allergens?: string[] | null;
   images?: { url: string; alt?: string }[] | null;

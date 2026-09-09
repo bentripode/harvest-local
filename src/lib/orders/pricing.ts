@@ -1,6 +1,6 @@
 import "server-only";
 
-import { addCents, cents, type Cents } from "@/lib/money";
+import { addCents, cents, type Cents, type Money } from "@/lib/money";
 import { resolveSaleUnit, SALE_UNIT_ERROR_COPY, type VariantLike } from "@/lib/orders/sale-unit";
 import {
   describeDropGate,
@@ -31,8 +31,9 @@ export interface CartRequestItem {
 /** A product row plus its variants and the resolved tax code / category for the item snapshot. */
 export type PricableProduct = Pick<
   Product,
-  "id" | "title" | "price" | "status" | "seller_id" | "quantity_available" | "tax_code"
+  "id" | "title" | "status" | "seller_id" | "quantity_available" | "tax_code"
 > & {
+  price: Money;
   category_tax_code: string | null;
   category_name: string | null;
   variants: VariantLike[];

@@ -61,7 +61,7 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
     tagIds: (productTags ?? []).map((t) => t.tag_id),
     images: p.images ?? [],
     ingredients: ingredientsToText(p.ingredients ?? []),
-    netWeightValue: p.net_weight_value ?? "",
+    netWeightValue: p.net_weight_value?.toString() ?? "",
     netWeightUnit: p.net_weight_unit ?? "",
     handlingInstructions: p.handling_instructions ?? "",
     allergens: p.allergens ?? [],

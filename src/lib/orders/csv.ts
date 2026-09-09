@@ -9,11 +9,11 @@ export interface OrderCsvRow {
   status: string;
   fulfillmentType: string;
   itemCount: number;
-  subtotal: string;
-  discountTotal: string;
-  deliveryFee: string;
-  taxTotal: string;
-  total: string;
+  subtotal: Money;
+  discountTotal: Money;
+  deliveryFee: Money;
+  taxTotal: Money;
+  total: Money;
   buyerName: string | null;
   buyerState: string;
   deliveryAddress: string | null;
@@ -68,4 +68,5 @@ export function ordersToCsv(rows: OrderCsvRow[]): string {
   }
   // Trailing newline — some tools expect one.
   return lines.join("\r\n") + "\r\n";
-}
+}import type { Money } from "@/lib/money";
+

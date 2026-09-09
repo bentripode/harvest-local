@@ -1,4 +1,4 @@
-import { toCents, type Cents } from "@/lib/money";
+import { toCents, type Cents, type Money } from "@/lib/money";
 
 /**
  * What is actually being sold on one line — the single place a price and a stock level come from.
@@ -13,17 +13,17 @@ import { toCents, type Cents } from "@/lib/money";
 export interface VariantLike {
   id: string;
   name: string;
-  price: string;
+  price: Money;
   quantity_available: number | null;
   is_active: boolean;
-  net_weight_value?: string | null;
+  net_weight_value?: Money | null;
   net_weight_unit?: string | null;
 }
 
 export interface ProductLike {
   id: string;
   title: string;
-  price: string;
+  price: Money;
   quantity_available: number | null;
 }
 

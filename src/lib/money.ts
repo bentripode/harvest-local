@@ -15,7 +15,19 @@ export function cents(value: number): Cents {
 }
 
 /** Parse a decimal string/number of dollars (from Postgres numeric or a form) into cents. */
-export function toCents(dollars: string | number): Cents {
+/**
+ * A money value as it may actually appear in this codebase.
+ *
+ * A `numeric` column comes back from PostgREST as a **number**; a value we produced with
+ * `toDecimalString` is a **string**. Both are exact — the string only exists so a write keeps its
+ * trailing zeros — and every consumer routes through `toCents`, which takes either. Reads and
+ * DB-shaped interfaces should use this rather than picking one and being wrong half the time.
+ *
+ * Form values are NOT this: an `<input>` always yields a string, and those stay typed `string`.
+ */
+export type Money = number | string;
+
+export function toCents(dollars: Money): Cents {
   const n = typeof dollars === "string" ? Number(dollars) : dollars;
   if (!Number.isFinite(n) || n < 0) {
     throw new Error(`toCents() expects a non-negative number, got ${dollars}`);

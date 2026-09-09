@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -21,7 +22,7 @@ export interface OrderDetail extends Order {
   items: OrderItem[];
   history: OrderStatusHistory[];
   /** Zero or more — an order can be refunded across several partial refunds. */
-  refunds: { amount: string; created_at: string }[];
+  refunds: { amount: Money; created_at: string }[];
 }
 
 const LIST_SELECT =
@@ -63,8 +64,8 @@ export async function getOrder(orderId: string): Promise<OrderDetail | null> {
 
   const detail = data as unknown as OrderDetail & {
     refunds:
-      | { amount: string; created_at: string }[]
-      | { amount: string; created_at: string }
+      | { amount: Money; created_at: string }[]
+      | { amount: Money; created_at: string }
       | null;
   };
   detail.history = [...detail.history].sort(

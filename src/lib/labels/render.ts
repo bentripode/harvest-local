@@ -9,6 +9,7 @@
  * `state_label_rules.disclaimer_text`, and printed as-is at the point size the state names.
  */
 
+import type { Money } from "@/lib/money";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 
 /** The vocabulary in `state_label_rules.required_elements`. */
@@ -135,7 +136,7 @@ export interface LabelSource {
   /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
   stateName: string | null;
   ingredients: string[];
-  netWeightValue: string | null;
+  netWeightValue: Money | null;
   netWeightUnit: string | null;
   allergens: string[];
   /** Per-batch, entered at print time rather than stored on the product. */

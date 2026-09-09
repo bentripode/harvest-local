@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -39,7 +40,7 @@ export interface QuickView {
   sellerId: string;
   sellerSlug: string;
   sellerName: string;
-  price: string;
+  price: Money;
   /**
    * What the buyer may actually take: the shelf capped by the open batch, whichever is smaller.
    * The storefront passes the same figure — a modal offering a quantity stepper that runs past the
