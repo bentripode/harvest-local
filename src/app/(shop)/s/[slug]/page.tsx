@@ -69,7 +69,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "id, profile_id, business_name, storefront_slug, bio, home_state, is_paused, pause_reason, delivery_enabled, delivery_radius_miles",
+      "id, profile_id, business_name, storefront_slug, bio, story, home_state, is_paused, pause_reason, delivery_enabled, delivery_radius_miles",
     )
     .eq("storefront_slug", slug)
     .maybeSingle();
@@ -188,6 +188,12 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
           ) : null}
         </p>
         {seller.bio ? <p className="max-w-2xl pt-2 text-sm">{seller.bio}</p> : null}
+        {/* The long version, in full — the home page shows an excerpt, this is where it lands. */}
+        {seller.story ? (
+          <p className="text-muted-foreground max-w-2xl pt-2 text-sm whitespace-pre-line">
+            {seller.story}
+          </p>
+        ) : null}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <FollowButton
             target="seller"

@@ -339,6 +339,7 @@ src/lib/labels/{render,queries}.ts     label composition (pure) · loading the r
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
 src/lib/payouts/{format,queries}.ts    payout status + copy (pure) · the mirror read · Stripe read-through
+src/lib/stories/{select,queries}.ts    daily rotation + excerpt (pure) · home / storefront reads
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
@@ -1178,3 +1179,48 @@ back as JS numbers. Nothing is broken by it — every money read goes through `t
 `string | number` — but the declared type is wrong, and code trusting it would compile and then fail.
 Pinned by an assertion in `test/integration/payouts.test.ts` so a change in the wire format is
 reported rather than silently making the types right by accident.
+
+
+**Phase 6 — seller stories.** `seller_profiles.story` + `story_on_home` (`20260909120000`) and a
+"Makers in <state>" section on the home page. The front page can argue the marketplace is worth
+using; what it could not do is show that it is made of people, which is the whole proposition of
+buying from a neighbour. Three sellers with no faces reads as empty; the same three with their
+stories reads as early.
+
+**One story per seller, so it lives on `seller_profiles`** rather than in a table of its own. "Who I
+am and why I make this" is one piece of writing; the thing a seller has many of already exists —
+`seller_posts`, their running feed. `bio` stays the one-liner under the storefront name.
+
+**The home page is opt-in** (`story_on_home` defaults false). A story is written for the seller's own
+storefront; putting somebody's words on the marketplace front page is a different act and they
+should choose it. The cost is a slower start, which is the very problem this solves — but publishing
+a person's writing without asking to solve it faster is not a trade to make. Clearing the story
+clears the flag, so an empty card can never reach the rotation.
+
+**A daily rotation, not "most recent."** Newest-first pays a seller to keep touching their story, and
+the ones who play that game push out the ones who wrote something once and got on with baking. So
+`pickDailyStories` is a stable shuffle on `hash(dayKey + sellerId)`: everyone comes up as often as
+everyone else, nobody can move themselves up, and it changes on its own. Two details were bugs first
+and are worth keeping: **the day key is hashed FIRST**, because FNV mixes bytes into an accumulator
+and whatever goes in last barely moves the result — with the day appended the rotation did not
+rotate at all; and there is a **final avalanche**, because raw FNV correlates enough on short similar
+ids that over 28 days only 7 of 12 sellers ever reached the front page. Both are asserted as
+properties (`changes from one day to the next`, `gives everyone a turn`), not as fixed outputs.
+The day key is UTC on purpose — unlike every other date in this codebase, nothing here is a claim
+about time; it only has to change once a day and be the same for everybody.
+
+**`worthShowing` needs two.** One story under "Meet a few makers" reads as a marketplace with one
+seller — better to show nothing, since the rest of the page already works.
+
+**No photograph on the cards, and no story-image columns.** `20260909120000` added
+`story_image_path` / `story_image_url`; `20260909130000` removed them the same day, because there is
+no image uploader in the seller UI to fill them — `seller_posts` has carried the identical pair
+unwritten since `20260908290000`. A column no code path fills is the same mistake as a nullable owner
+or a seeded deadline. Illustrating the card with the seller's newest *product* image was tried and
+dropped too: a product shot is a picture of a jar rather than of a person, and with only some sellers
+having one the cards came out at different heights with a grey box where a face should be. The words
+are the point; the storefront has the pictures. When there is an uploader, a story photo is a
+migration and a form together.
+
+`StoryEditor` shows the home-page excerpt live, through the same `storyExcerpt` the home page calls,
+so a seller who buries the good sentence in paragraph three sees it happening while they write.

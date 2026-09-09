@@ -3,10 +3,22 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { getAccessMode, getProfile } from "@/lib/auth";
+import { getBrowseState } from "@/lib/geo/browse-state";
+import { getHomeStories } from "@/lib/stories/queries";
+import { storyExcerpt, worthShowing } from "@/lib/stories/select";
+import { stateName } from "@/lib/geo/state";
 
 export default async function HomePage() {
-  const [profile, accessMode] = await Promise.all([getProfile(), getAccessMode()]);
+  const [profile, accessMode, browse] = await Promise.all([
+    getProfile(),
+    getAccessMode(),
+    getBrowseState(),
+  ]);
   const isSeller = profile?.role === "seller" || profile?.role === "admin";
+
+  // The strongest argument this page can make is that the marketplace is made of people. It is also
+  // the one that cannot be written in advance — it only exists once sellers have opted in.
+  const stories = await getHomeStories(browse.state);
 
   return (
     <>
@@ -73,6 +85,37 @@ export default async function HomePage() {
             </Link>
           </p>
         </div>
+        {/* Below the fold on purpose: someone who already knows what they want should reach the
+            shop button without scrolling past three strangers first. */}
+        {worthShowing(stories) ? (
+          <section className="w-full space-y-4 pt-8 text-left">
+            <div className="text-center">
+              <h2 className="text-xl font-semibold tracking-tight">
+                {browse.state ? `Makers in ${stateName(browse.state)}` : "Meet a few makers"}
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                In their own words. This changes daily.
+              </p>
+            </div>
+
+            {/* No photograph on these cards. A product shot is a picture of a jar, not of a person,
+                and with only some sellers having one the cards came out at different heights with a
+                grey box where a face should be. The words are the point; the storefront has the
+                pictures. */}
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {stories.map((s) => (
+                <li key={s.sellerId} className="flex h-full flex-col rounded-lg border p-4">
+                  <Link href={`/s/${s.storefrontSlug}`} className="font-medium hover:underline">
+                    {s.businessName}
+                  </Link>
+                  <p className="text-muted-foreground flex-1 pt-1 text-sm">
+                    {storyExcerpt(s.story)}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
       </main>
     </>
   );

@@ -2031,6 +2031,8 @@ export type Database = {
           producer_id_number: string | null
           profile_id: string
           storefront_slug: string
+          story: string | null
+          story_on_home: boolean
           stripe_account_id: string | null
           updated_at: string
         }
@@ -2061,6 +2063,8 @@ export type Database = {
           producer_id_number?: string | null
           profile_id: string
           storefront_slug: string
+          story?: string | null
+          story_on_home?: boolean
           stripe_account_id?: string | null
           updated_at?: string
         }
@@ -2091,6 +2095,8 @@ export type Database = {
           producer_id_number?: string | null
           profile_id?: string
           storefront_slug?: string
+          story?: string | null
+          story_on_home?: boolean
           stripe_account_id?: string | null
           updated_at?: string
         }
