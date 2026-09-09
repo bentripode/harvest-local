@@ -9,6 +9,7 @@ import { createClient } from "@/lib/supabase/server";
 import { stateName } from "@/lib/geo/state";
 import { getBrowseOrigin, getBrowseState } from "@/lib/geo/browse-state";
 import { formatDistance, getNearbySellers } from "@/lib/geo/nearby";
+import { describeDensity } from "@/lib/geo/density";
 import { env } from "@/lib/env";
 import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
 import type { CardProduct } from "@/lib/products/card";
@@ -69,6 +70,10 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
 
   type GalleryRow = Product & { variants?: VariantLike[]; drops?: DropRow[] };
 
+  // Reachable vs merely-in-the-state. The list order stays the same; what changes is that a seller
+  // 200 miles away is no longer presented as a result.
+  const density = describeDensity(nearby, stateName(state));
+
   const bySeller = new Map<string, CardProduct[]>();
   for (const row of (products ?? []) as GalleryRow[]) {
     const list = bySeller.get(row.seller_id) ?? [];
@@ -119,13 +124,26 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         </div>
       </div>
 
+      {/* What the page says about itself, before the list. In a thin state this is the honest
+          answer and the list underneath is the footnote — see lib/geo/density.ts. */}
+      <div>
+        <p className="font-medium">{density.headline}</p>
+        {density.detail ? (
+          <p className="text-muted-foreground text-sm">{density.detail}</p>
+        ) : null}
+      </div>
+
       {nearby.length === 0 ? (
         <Empty title={`No sellers in ${stateName(state)} yet`}>
           Nobody is listing here right now. If you make something —{" "}
           <Link href="/signup?role=seller" className="underline">
             open a storefront
           </Link>{" "}
-          and be the first.
+          and be the first. In the meantime,{" "}
+          <Link href={`/markets/${state.toLowerCase()}`} className="underline">
+            the market directory
+          </Link>{" "}
+          covers the whole state.
         </Empty>
       ) : view === "map" ? (
         <SellerMap
@@ -135,7 +153,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         />
       ) : (
         <div className="space-y-8">
-          {nearby.map((s) => {
+          {density.reachable.map((s) => {
             const items = bySeller.get(s.sellerId) ?? [];
             const distance = formatDistance(s.distanceMiles);
             return (
@@ -176,6 +194,35 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
               </section>
             );
           })}
+
+          {/* Kept, but under a heading that cannot be mistaken for a result. Someone deciding
+              whether to come back next month is better served by "there are four here, all a long
+              way off" than by a page that looks empty. */}
+          {density.distant.length > 0 ? (
+            <section className="space-y-2 border-t pt-6">
+              <h2 className="text-sm font-medium">
+                Elsewhere in {stateName(state)}
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                Too far to collect from, and outside their delivery area — but they are trading.
+              </p>
+              <ul className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-sm">
+                {density.distant.map((s) => (
+                  <li key={s.sellerId}>
+                    <Link href={`/s/${s.storefrontSlug}`} className="hover:underline">
+                      {s.businessName}
+                    </Link>
+                    {formatDistance(s.distanceMiles) ? (
+                      <span className="text-muted-foreground">
+                        {" "}
+                        · {formatDistance(s.distanceMiles)}
+                      </span>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
       )}
     </div>

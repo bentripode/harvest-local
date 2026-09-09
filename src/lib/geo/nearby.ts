@@ -39,5 +39,7 @@ export async function getNearbySellers(
     lat: r.approx_lat ?? null,
     locationLabel: r.location_label ?? null,
     isMarket: !!r.is_market,
+    deliveryEnabled: !!r.delivery_enabled,
+    deliveryRadiusMiles: r.delivery_radius_miles ?? null,
   }));
 }

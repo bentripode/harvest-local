@@ -323,6 +323,7 @@ src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clie
 src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
 src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
+src/lib/geo/density.ts                 reachability bands + the honest headline for a thin state (pure)
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
 src/lib/orders/{drops,drop-queries}.ts   pre-order batches: state + copy + the sell-by-batch gate (pure) · reads
 src/lib/events/{schedule,queries}.ts   wall-clock event arithmetic (pure) · state / market / seller reads
@@ -1260,3 +1261,36 @@ or that it is any good. They do the structural part — the opening line, the as
 cheerful made-up description is a sentence about their business that nobody at their business wrote,
 and some sellers would send it unread. The referral template appears only when there is a real code
 AND a real percentage to quote.
+
+
+**Phase 6 — density degradation.** `src/lib/geo/density.ts` decides what `/shop` says about itself
+before it lists anything.
+
+**The failure this fixes is a page that still "works".** `/shop` sorts by distance, which is right in
+a dense state. In a thin one the nearest storefront is 84 miles away, the page ranks it first, and
+"84 mi" reads as a result rather than as the answer "not really". Nothing errors and nothing is
+empty, so the buyer is quietly misled about whether the marketplace is any use to them. A marketplace
+with three sellers should say it has three sellers.
+
+**Distance is not reach.** A seller 40 miles off who delivers within 50 can get bread to your door; a
+seller 12 miles off who only trades from a Saturday market may never be any use. So `nearby_sellers`
+now returns `delivery_enabled` + `delivery_radius_miles` (`20260909140000`) and `classify` bands on
+**reachability**: `local` (≤25 mi), `delivers` (outside pickup range but inside their stated radius),
+`regional` (≤75 mi), `distant`, `unknown` (no origin, so no claim either way). A seller with delivery
+on and **no radius recorded is not assumed to reach anyone** — that means they have not said how far,
+and guessing would walk a buyer through checkout to be refused by `quoteDelivery`, which does know.
+
+**Widening never crosses a state line.** The obvious way to fill an empty page is to show the sellers
+over the border; that is exactly what rule 1 forbids at the discovery layer, and every one of them
+would be a dead end we had advertised. Degrading gracefully here means being straight about the state
+you are in, not quietly leaving it — asserted by a test.
+
+`distant` sellers are kept, under their own heading, never ranked into the main list: someone
+deciding whether to come back next month is better served by "there are four here, all a long way
+off" than by a page that looks empty, and a seller who just opened deserves to appear somewhere.
+
+**That migration is a DROP and CREATE, not `create or replace`** — Postgres will not let a replace
+change a return type, and this adds two columns to the returns-table. It fails outright, which is
+better than the sibling trap that bit `finalize_paid_order`, where changing the ARGUMENTS silently
+creates a second overload and leaves the old one being called forever. Grants have to be reapplied
+because they go with the dropped function.

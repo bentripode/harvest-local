@@ -16,6 +16,10 @@ export interface NearbySeller {
   lat: number | null;
   locationLabel: string | null;
   isMarket: boolean;
+  /** Whether they offer local delivery at all. */
+  deliveryEnabled: boolean;
+  /** How far they will drive. Null when they deliver but have not said how far. */
+  deliveryRadiusMiles: number | null;
 }
 
 /**

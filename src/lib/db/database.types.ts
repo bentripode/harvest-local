@@ -2958,6 +2958,8 @@ export type Database = {
           approx_lng: number
           avg_rating: number
           business_name: string
+          delivery_enabled: boolean
+          delivery_radius_miles: number
           distance_miles: number
           is_market: boolean
           location_label: string
