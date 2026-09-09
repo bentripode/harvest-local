@@ -1335,3 +1335,34 @@ under the parent's *first segment* (`crafts-artisan-goods` parents `crafts-candl
 asserted. The suite proves the fix blocks an acidified listing in Connecticut while letting the
 shelf-stable jam beside it through — Washington was the first choice for that test and is unusable,
 because its outright online ban means the control never reaches the axis check.
+
+
+**Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
+(`20260908230000`) declared `address_id ... on delete set null` alongside
+`check (market_id is not null or address_id is not null)`. Each half is sensible; together they are
+impossible. Deleting an address nulls the column, which leaves a row with neither a market nor an
+address, which the CHECK refuses — so the DELETE fails and rolls back whatever contained it.
+
+**That means deleting any profile that had ever set a pickup address failed**, because a profile
+delete cascades to their `addresses`. Every account deletion, every admin removal, anything a
+data-deletion request would need. `20260909180000` makes `address_id` **cascade**: a collection point
+whose address is gone is not a place, and keeping the row by nulling the column is what manufactured
+the forbidden state. The market FK stays `set null` on purpose — a market row disappearing is a
+directory edit, not the venue ceasing to exist.
+
+**It surfaced as test pollution, which is the part worth remembering.** Six `IT Storefront` fixtures
+had accumulated in the live project across a day of runs. `cleanupAll` ended
+`auth.admin.deleteUser(id).catch(() => {})`; every delete was failing with a generic "Database error
+deleting user" and **that one expression swallowed all of it**. A cleanup that cannot clean up has to
+be loud — it now reports each failure and a count, and logs rather than throws so a teardown never
+masks the test failure that caused it.
+
+A second, simpler leak came out with it: 24 market fixtures, because markets hang off no user and
+so cascade from nothing — every suite deletes its own in `afterAll`, and a suite that throws in
+`beforeAll` never gets there. `cleanupAll` now sweeps `slug like 'it-%' AND source = 'admin'`. Both
+conditions matter: a bare prefix match is unsafe on a real database ("It's A Market" slugs to
+`it-s-a-market`), and `admin` is the default that only fixtures use — imports are `usda` and no admin
+market surface exists. **If an admin market editor is ever built, that sweep needs a real registry.**
+
+`test/integration/account-deletion.test.ts` pins the whole path, including that deleting a seller
+does not take the market they had a booth at with them.

@@ -306,17 +306,69 @@ export async function completeOrder(orderId: string, fulfillment: "pickup" | "de
 /**
  * Deletes what this file created. Orders go first — `orders.buyer_id` is `on delete restrict`, so
  * removing the auth user would fail otherwise. Everything else cascades off the user.
+ *
+ * **A failed delete is reported, never swallowed.** This used to end `.catch(() => {})`, and that
+ * one expression let six `IT Storefront` fixtures accumulate in a live project across a full day of
+ * runs: `pickup_locations` had a foreign key and a CHECK that made deleting any seller with a pickup
+ * address impossible (fixed in `20260909180000`), every cleanup failed with a generic "Database
+ * error deleting user", and nothing said so. A cleanup that cannot clean up has to be loud, because
+ * the alternative is discovering it by noticing strange rows weeks later.
+ *
+ * It logs rather than throws: a teardown that throws masks the actual test failure that usually
+ * caused it. The count at the end is what makes a systematic problem obvious.
  */
 export async function cleanupAll(): Promise<void> {
   if (!dbConfigured) return;
   const admin = adminDb();
 
   if (createdOrderIds.length > 0) {
-    await admin.from("orders").delete().in("id", createdOrderIds);
+    const { error } = await admin.from("orders").delete().in("id", createdOrderIds);
+    if (error) console.error(`[cleanup] orders not deleted: ${error.message}`);
     createdOrderIds.length = 0;
   }
+
+  const failed: string[] = [];
   for (const id of createdUserIds) {
-    await admin.auth.admin.deleteUser(id).catch(() => {});
+    const { error } = await admin.auth.admin.deleteUser(id);
+    if (error) {
+      failed.push(id);
+      console.error(`[cleanup] user ${id} not deleted: ${error.message}`);
+    }
   }
   createdUserIds.length = 0;
+
+  if (failed.length > 0) {
+    console.error(
+      `[cleanup] LEFT ${failed.length} TEST USER(S) BEHIND. They are still in the database, ` +
+        `with everything that hangs off them. Find out why before running again.`,
+    );
+  }
+
+  await sweepFixtureMarkets(admin);
+}
+
+/**
+ * Remove market fixtures, including ones a crashed suite never got to.
+ *
+ * Markets hang off no user, so nothing cascades them away: every suite that makes one deletes it in
+ * its own `afterAll`, and a suite that throws in `beforeAll` never runs that. Twenty-four of them
+ * had piled up in a live project that way.
+ *
+ * Two conditions together, because a blanket `slug like 'it-%'` is not safe on a database with real
+ * markets in it — "It's A Market" slugs to `it-s-a-market`:
+ *
+ *   - the `it-` prefix every fixture in this directory uses, and
+ *   - `source = 'admin'`, the default. Imported markets are `usda`, and nothing in the app creates
+ *     an `admin` one — there is no admin market surface (see the note in 20260909100000).
+ *
+ * If an admin market editor is ever built, this needs a real registry instead.
+ */
+async function sweepFixtureMarkets(admin: Db): Promise<void> {
+  const { error } = await admin
+    .from("markets")
+    .delete()
+    .like("slug", "it-%")
+    .eq("source", "admin");
+
+  if (error) console.error(`[cleanup] market fixtures not swept: ${error.message}`);
 }
