@@ -67,8 +67,8 @@ export default async function SellerQrPage({ searchParams }: PageProps<"/seller/
       <div className="print:hidden">
         <h1 className="text-2xl sm:text-3xl">QR codes</h1>
         <p className="text-muted-foreground text-sm">
-          Put one on your booth sign, your packaging or a card by the till. Someone who came for
-          bread on Saturday can order on Thursday.
+          For your booth sign, your packaging, or a card by the till — so Saturday&apos;s customer
+          can order on Thursday.
         </p>
       </div>
 
@@ -112,7 +112,7 @@ export default async function SellerQrPage({ searchParams }: PageProps<"/seller/
 
       {rest.length > 0 ? (
         <section className="space-y-3 print:hidden">
-          <h2 className="text-sm font-medium">Individual pages</h2>
+          <h2 className="text-lg">Individual pages</h2>
           <p className="text-muted-foreground text-sm">
             A code per listing, for packaging or a shelf card — and one for each market you have a
             stall at, so someone can find the whole market again.

@@ -42,9 +42,8 @@ export default async function SellerEventsPage() {
       <div>
         <h1 className="text-2xl sm:text-3xl">Events</h1>
         <p className="text-muted-foreground text-sm">
-          Market stalls, pop-ups, farm open days. Anything you list here shows on your storefront,
-          on the {stateName(seller.home_state)} calendar, and — if you pick a market — on that
-          market&apos;s page.
+          Market stalls, pop-ups and open days. These show on your storefront and the{" "}
+          {stateName(seller.home_state)} calendar — and on a market&apos;s page if you pick one.
         </p>
       </div>
 

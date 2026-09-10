@@ -85,7 +85,9 @@ export default async function SellerReferralsPage() {
                     </span>
                     <span className="text-muted-foreground tabular-nums">
                       {r.activatedAt
-                        ? new Date(r.activatedAt).toLocaleDateString(undefined, { dateStyle: "medium" })
+                        ? new Date(r.activatedAt).toLocaleDateString(undefined, {
+                            dateStyle: "medium",
+                          })
                         : ""}
                     </span>
                   </li>
@@ -107,7 +109,7 @@ export default async function SellerReferralsPage() {
       </Card>
 
       <section className="space-y-3">
-        <h2 className="text-sm font-medium">Your codes</h2>
+        <h2 className="text-lg">Your codes</h2>
         {codes.length === 0 ? (
           <p className="text-muted-foreground rounded-lg border border-dashed p-4 text-sm">
             No codes yet.
@@ -134,7 +136,6 @@ export default async function SellerReferralsPage() {
         )}
         <PromoCodeForm />
       </section>
-
     </div>
   );
 }

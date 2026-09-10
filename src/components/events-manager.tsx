@@ -13,12 +13,7 @@ import {
   setEventStatusAction,
   type EventFormState,
 } from "@/app/(dashboard)/seller/events/actions";
-import {
-  formatEventWhen,
-  isPast,
-  localToday,
-  type EventLike,
-} from "@/lib/events/schedule";
+import { formatEventWhen, isPast, localToday, type EventLike } from "@/lib/events/schedule";
 
 /**
  * A seller's appearances.
@@ -94,7 +89,7 @@ export function EventsManager({
 
       {upcoming.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Coming up</h2>
+          <h2 className="text-lg">Coming up</h2>
           <ul className="space-y-3">
             {upcoming.map((e) => (
               <EventRow key={e.id} event={e} onEdit={() => setEditing(e)} />
@@ -105,7 +100,7 @@ export function EventsManager({
 
       {past.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Been and gone</h2>
+          <h2 className="text-lg">Been and gone</h2>
           <ul className="space-y-2">
             {past.slice(0, 20).map((e) => (
               <li key={e.id} className="text-muted-foreground text-sm">
@@ -148,7 +143,9 @@ function EventRow({ event, onEdit }: { event: ManagedEvent; onEdit: () => void }
       </p>
 
       {event.status === "cancelled" && event.cancelledNote ? (
-        <p className="text-muted-foreground text-xs">Reason shown to buyers: {event.cancelledNote}</p>
+        <p className="text-muted-foreground text-xs">
+          Reason shown to buyers: {event.cancelledNote}
+        </p>
       ) : null}
 
       <div className="flex flex-wrap items-center gap-2">
@@ -164,10 +161,7 @@ function EventRow({ event, onEdit }: { event: ManagedEvent; onEdit: () => void }
               name="status"
               value={event.status === "published" ? "hidden" : "published"}
             />
-            <Submit
-              label={event.status === "published" ? "Unlist" : "List it"}
-              pending="Saving…"
-            />
+            <Submit label={event.status === "published" ? "Unlist" : "List it"} pending="Saving…" />
           </form>
         ) : null}
 

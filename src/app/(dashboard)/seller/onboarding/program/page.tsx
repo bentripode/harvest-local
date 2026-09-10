@@ -65,9 +65,9 @@ export default async function FoodProgramPage() {
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl">Selling food in {stateName(seller.home_state)}</h1>
         <p className="text-muted-foreground text-sm">
-          Homemade food is regulated state by state. {stateName(seller.home_state)} decides what you
-          may sell, whether you need a permit, and whether you can take orders online at all.
-          Answering a couple of questions here sets up the rest of your storefront correctly.
+          {stateName(seller.home_state)} decides what you may sell, whether you need a permit, and
+          whether you can sell online at all. A couple of questions here get the rest of your
+          storefront right.
         </p>
       </div>
 
@@ -83,8 +83,8 @@ export default async function FoodProgramPage() {
         </p>
       ) : programs.length === 0 ? (
         <p className="text-muted-foreground rounded-lg border border-dashed p-4 text-sm">
-          We don&apos;t have {stateName(seller.home_state)}&apos;s cottage food programs on file yet.
-          Nothing is blocked, but check your state&apos;s own rules before selling food.
+          We don&apos;t have {stateName(seller.home_state)}&apos;s cottage food programs on file
+          yet. Nothing is blocked, but check your state&apos;s own rules before selling food.
         </p>
       ) : (
         <ProgramPicker

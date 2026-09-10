@@ -18,9 +18,7 @@ export const metadata = { title: "Payout — Harvest Local" };
  * and those are shown as what they are rather than folded away, because a breakdown that quietly
  * drops rows is a breakdown that doesn't add up.
  */
-export default async function PayoutDetailPage({
-  params,
-}: PageProps<"/seller/payouts/[id]">) {
+export default async function PayoutDetailPage({ params }: PageProps<"/seller/payouts/[id]">) {
   const { id } = await params;
   const { profile, seller } = await getSellerContext();
   if (profile.role === "buyer") redirect("/");
@@ -43,9 +41,7 @@ export default async function PayoutDetailPage({
       </nav>
 
       <header className="space-y-1">
-        <h1 className="text-2xl tabular-nums sm:text-3xl">
-          {formatUsd(toCents(payout.amount))}
-        </h1>
+        <h1 className="text-2xl tabular-nums sm:text-3xl">{formatUsd(toCents(payout.amount))}</h1>
         <p className="text-muted-foreground text-sm">
           {describePayout(payout)}
           {payout.method === "instant" ? " · instant" : ""}
@@ -73,7 +69,7 @@ export default async function PayoutDetailPage({
         </Card>
       ) : (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">What&apos;s in it</h2>
+          <h2 className="text-lg">What&apos;s in it</h2>
           <ul className="divide-y rounded-lg border">
             {breakdown.lines.map((line) => (
               <li key={line.id} className="flex flex-wrap items-baseline justify-between gap-2 p-3">

@@ -24,8 +24,8 @@ export default async function SavedPage() {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Saved</h1>
         <p className="text-muted-foreground text-sm">
-          Sellers, markets and products you follow. We&apos;ll email you when there&apos;s something
-          new — you can turn that off on{" "}
+          Sellers, markets and products you follow. We email you when there is something new — turn
+          that off in{" "}
           <Link href="/account" className="underline">
             your account
           </Link>
@@ -51,7 +51,10 @@ export default async function SavedPage() {
           <h2 className="text-lg font-medium">Sellers</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {sellers.map((s) => (
-              <li key={s.id} className="flex items-start justify-between gap-3 rounded-lg border p-4">
+              <li
+                key={s.id}
+                className="flex items-start justify-between gap-3 rounded-lg border p-4"
+              >
                 <div>
                   <Link href={`/s/${s.storefrontSlug}`} className="font-medium hover:underline">
                     {s.businessName}
@@ -78,7 +81,10 @@ export default async function SavedPage() {
           <h2 className="text-lg font-medium">Markets</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {markets.map((m) => (
-              <li key={m.id} className="flex items-start justify-between gap-3 rounded-lg border p-4">
+              <li
+                key={m.id}
+                className="flex items-start justify-between gap-3 rounded-lg border p-4"
+              >
                 <div>
                   <Link
                     href={`/markets/${m.state.toLowerCase()}/${m.slug}`}
@@ -109,7 +115,10 @@ export default async function SavedPage() {
           <h2 className="text-lg font-medium">Products</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {products.map((p) => (
-              <li key={p.id} className="flex items-start justify-between gap-3 rounded-lg border p-4">
+              <li
+                key={p.id}
+                className="flex items-start justify-between gap-3 rounded-lg border p-4"
+              >
                 <div>
                   <Link href={`/s/${p.sellerSlug}`} className="font-medium hover:underline">
                     {p.title}

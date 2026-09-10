@@ -40,14 +40,16 @@ const STATUS_VARIANT: Record<LicenseStatus, "default" | "secondary" | "destructi
   expired: "destructive",
 };
 
-const CHECKLIST_VARIANT: Record<DocumentStatus, "default" | "secondary" | "destructive" | "outline"> =
-  {
-    verified: "default",
-    pending: "secondary",
-    rejected: "destructive",
-    expired: "destructive",
-    missing: "outline",
-  };
+const CHECKLIST_VARIANT: Record<
+  DocumentStatus,
+  "default" | "secondary" | "destructive" | "outline"
+> = {
+  verified: "default",
+  pending: "secondary",
+  rejected: "destructive",
+  expired: "destructive",
+  missing: "outline",
+};
 
 function expiryPhrase(days: number): string {
   if (days < 0) return "past due";
@@ -93,15 +95,16 @@ export default async function CompliancePage() {
 
   const grossCents = toCents(revenue.grossThisYear);
   const capCents = revenue.cap ? toCents(revenue.cap) : null;
-  const pct = capCents && capCents > 0 ? Math.min(100, Math.round((grossCents / capCents) * 100)) : 0;
+  const pct =
+    capCents && capCents > 0 ? Math.min(100, Math.round((grossCents / capCents) * 100)) : 0;
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl sm:text-3xl">Compliance</h1>
         <p className="text-muted-foreground text-sm">
-          Cottage-food rules are per-state. We track your sales against your state&apos;s limit and
-          your license expiry, and pause your storefront automatically if either is crossed.
+          We watch your sales against your state&apos;s limit and your license expiry. Cross either
+          and your storefront pauses automatically.
         </p>
       </div>
 
@@ -112,7 +115,7 @@ export default async function CompliancePage() {
       {foodSales?.allowed !== false ? (
         <section className="space-y-2 rounded-lg border p-4">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="text-sm font-medium">Your food program</h2>
+            <h2 className="text-lg">Your food program</h2>
             {program ? null : <Badge variant="outline">not chosen</Badge>}
           </div>
           {program ? (
@@ -199,8 +202,7 @@ export default async function CompliancePage() {
           )}
           {revenue.capVerified ? null : (
             <p className="text-muted-foreground text-xs">
-              This cap is a placeholder — an admin hasn&apos;t entered the verified limit for
-              {" "}
+              This cap is a placeholder — an admin hasn&apos;t entered the verified limit for{" "}
               {stateName(revenue.state)} yet.
             </p>
           )}
@@ -209,13 +211,16 @@ export default async function CompliancePage() {
 
       {buckets.length > 0 ? (
         <section className="space-y-2 rounded-lg border p-4">
-          <h2 className="text-sm font-medium">
+          <h2 className="text-lg">
             Your state counts this cap separately for each{" "}
             {buckets[0].key.length === 36 ? "product" : "kind of food"}
           </h2>
           <ul className="divide-y">
             {buckets.map((b) => (
-              <li key={b.key} className="flex flex-wrap items-baseline justify-between gap-2 py-2 text-sm">
+              <li
+                key={b.key}
+                className="flex flex-wrap items-baseline justify-between gap-2 py-2 text-sm"
+              >
                 <span className={b.overCap ? "text-destructive font-medium" : ""}>{b.label}</span>
                 <span className="text-muted-foreground tabular-nums">
                   {formatUsd(toCents(b.gross))}
@@ -230,7 +235,7 @@ export default async function CompliancePage() {
 
       <section className="space-y-3">
         <div>
-          <h2 className="text-sm font-medium">Your documents</h2>
+          <h2 className="text-lg">Your documents</h2>
           <p className="text-muted-foreground text-sm">
             {outstanding.length === 0
               ? "Everything we need is verified."
@@ -306,7 +311,7 @@ export default async function CompliancePage() {
 
       {otherLicenses.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Other documents on file</h2>
+          <h2 className="text-lg">Other documents on file</h2>
           <ul className="divide-y rounded-lg border">
             {otherLicenses.map((l) => (
               <li key={l.id} className="flex flex-wrap items-center gap-3 p-3 text-sm">

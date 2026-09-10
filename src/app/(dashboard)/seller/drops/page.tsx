@@ -58,7 +58,7 @@ export default async function SellerDropsPage() {
 
       {toBake.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">To make</h2>
+          <h2 className="text-lg">To make</h2>
           <ul className="space-y-3">
             {toBake.map((d) => (
               <li key={d.id} className="rounded-lg border p-4">
@@ -91,7 +91,7 @@ export default async function SellerDropsPage() {
 
       {upcoming.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Announced</h2>
+          <h2 className="text-lg">Announced</h2>
           <ul className="space-y-3">
             {upcoming.map((d) => (
               <li key={d.id} className="rounded-lg border p-4 text-sm">
@@ -108,7 +108,7 @@ export default async function SellerDropsPage() {
 
       {done.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Finished</h2>
+          <h2 className="text-lg">Finished</h2>
           <ul className="space-y-2">
             {done.map((d) => (
               <li key={d.id} className="text-muted-foreground text-sm">

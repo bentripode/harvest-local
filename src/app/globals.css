@@ -177,4 +177,15 @@
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
+
+  /* Native checkboxes and radios were drawing in the browser's own blue — the one colour on the
+     page belonging to nothing in the palette, and there are thirteen of them across the settings
+     and product forms. One rule here rather than a class on each: they are plain inputs, and any
+     new form gets it for free. */
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="range"],
+  progress {
+    accent-color: var(--primary);
+  }
 }

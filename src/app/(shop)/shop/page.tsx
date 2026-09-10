@@ -198,7 +198,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
               way off" than by a page that looks empty. */}
           {density.distant.length > 0 ? (
             <section className="space-y-2 border-t pt-6">
-              <h2 className="text-sm font-medium">Elsewhere in {stateName(state)}</h2>
+              <h2 className="text-lg">Elsewhere in {stateName(state)}</h2>
               <p className="text-muted-foreground text-sm">
                 Too far to collect from, and outside their delivery area — but they are trading.
               </p>

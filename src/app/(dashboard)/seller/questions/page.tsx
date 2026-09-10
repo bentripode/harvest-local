@@ -1,10 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  SellerPostComposer,
-  SellerQuestionQueue,
-} from "@/components/seller-questions-manager";
+import { SellerPostComposer, SellerQuestionQueue } from "@/components/seller-questions-manager";
 import { getSellerContext } from "@/lib/auth";
 import { getSellerQuestionQueue, getStorefrontPosts } from "@/lib/storefront/queries";
 
@@ -25,8 +22,8 @@ export default async function SellerQuestionsPage() {
       <div>
         <h1 className="text-2xl sm:text-3xl">Updates &amp; questions</h1>
         <p className="text-muted-foreground text-sm">
-          Short updates show at the top of your storefront. Questions stay private until you answer
-          them — an answered one is public, with the asker&apos;s first name on it.
+          Updates show at the top of your storefront. A question stays private until you answer;
+          your answer is public, with the asker&apos;s first name.
         </p>
       </div>
 

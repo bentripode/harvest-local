@@ -30,9 +30,12 @@ export interface ObligationView {
 }
 
 function when(daysOut: number, dueDate: string): { text: string; tone: string } {
-  if (daysOut < 0) return { text: `Overdue since ${dueDate}`, tone: "text-destructive font-medium" };
-  if (daysOut === 0) return { text: `Due today (${dueDate})`, tone: "text-destructive font-medium" };
-  if (daysOut === 1) return { text: `Due tomorrow (${dueDate})`, tone: "text-destructive font-medium" };
+  if (daysOut < 0)
+    return { text: `Overdue since ${dueDate}`, tone: "text-destructive font-medium" };
+  if (daysOut === 0)
+    return { text: `Due today (${dueDate})`, tone: "text-destructive font-medium" };
+  if (daysOut === 1)
+    return { text: `Due tomorrow (${dueDate})`, tone: "text-destructive font-medium" };
   if (daysOut <= 30) return { text: `Due in ${daysOut} days (${dueDate})`, tone: "text-amber-700" };
   return { text: `Due ${dueDate}`, tone: "text-muted-foreground" };
 }
@@ -101,9 +104,8 @@ export function ObligationsCard({ obligations }: { obligations: ObligationView[]
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground mb-4 text-sm">
-          Things your programme asks for again and again — filings, training, renewals. We&apos;ll
-          remind you 30 days out, 10 days out and the day before. Telling us you&apos;ve done one
-          stops the reminders and restarts the clock; it isn&apos;t sent to your state.
+          Filings, training and renewals your programme repeats. We remind you 30 days, 10 days and
+          one day out. Marking one done restarts the clock — it is not sent to your state.
         </p>
         <ul className="space-y-4">
           {obligations.map((o) => (

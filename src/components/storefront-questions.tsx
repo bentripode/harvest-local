@@ -40,7 +40,7 @@ export function StorefrontQuestions({
 
   return (
     <section className="space-y-4">
-      <h2 className="text-sm font-medium">Questions</h2>
+      <h2 className="text-lg">Questions</h2>
 
       {questions.length > 0 ? (
         <ul className="divide-y rounded-lg border">

@@ -44,12 +44,11 @@ export default async function SellerPayoutsPage() {
       <div>
         <h1 className="text-2xl sm:text-3xl">Payouts</h1>
         <p className="text-muted-foreground text-sm">
-          Money Stripe has sent to your bank. This is not the same as your sales —{" "}
+          Money Stripe has sent to your bank. Not the same as{" "}
           <Link href="/seller" className="underline underline-offset-2">
             your revenue
-          </Link>{" "}
-          is what buyers paid, and a payout is what&apos;s left after Stripe&apos;s processing fees
-          and any refunds, on Stripe&apos;s schedule.
+          </Link>
+          : that is what buyers paid, this is what is left after Stripe&apos;s fees and refunds.
         </p>
       </div>
 
@@ -68,7 +67,7 @@ export default async function SellerPayoutsPage() {
       {upcoming.length > 0 ? (
         <section className="space-y-3">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="text-sm font-medium">On the way</h2>
+            <h2 className="text-lg">On the way</h2>
             <p className="text-sm">
               <span className="font-medium tabular-nums">{formatUsd(toCents(comingTotal))}</span>{" "}
               <span className="text-muted-foreground">across {upcoming.length}</span>
@@ -84,7 +83,7 @@ export default async function SellerPayoutsPage() {
 
       {history.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Sent</h2>
+          <h2 className="text-lg">Sent</h2>
           <ul className="space-y-3">
             {history.map((p) => (
               <PayoutRow key={p.id} payout={p} />

@@ -104,9 +104,8 @@ export default async function SellerSettingsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-muted-foreground text-sm">
-            A market stall, a farmstand, your own porch — add each place you hand orders over, with
-            the times you&apos;re there. Buyers pick one at checkout, and adding a market from the
-            directory also puts you on that market&apos;s page.
+            Each place you hand orders over, with the times you are there. Buyers pick one at
+            checkout — and adding a market puts you on that market&apos;s page too.
           </p>
           <PickupLocationsManager
             locations={pickupLocations}

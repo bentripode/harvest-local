@@ -24,9 +24,8 @@ export default async function SellerStoryPage() {
       <div>
         <h1 className="text-2xl sm:text-3xl">Your story</h1>
         <p className="text-muted-foreground text-sm">
-          Buyers on a local marketplace are choosing a person as much as a product. A few sentences
-          about how you started and what you make does more than any amount of description on the
-          listings.
+          A few sentences on how you started and what you make. Buyers here are choosing a person as
+          much as a product.
         </p>
       </div>
 

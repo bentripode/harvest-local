@@ -77,7 +77,8 @@ export function VariantsManager({
         <p className="text-sm font-medium">Options</p>
         <p className="text-muted-foreground text-sm">
           {rows.length === 0
-            ? `This listing sells as one thing at ${productPrice}. Add options if it comes in sizes or scents — each one gets its own price and stock.`
+            ? `Sells as one thing at ${productPrice}. Add options for sizes or scents — each gets its
+          own price and stock.`
             : "Buyers pick one of these. The listing's own price isn't used once options exist."}
         </p>
       </div>
@@ -152,7 +153,8 @@ export function VariantsManager({
               <div className="flex justify-between">
                 <p className="text-muted-foreground text-xs">
                   {/* The reason this field is here and not on the product. */}
-                  Only the weight differs per option — ingredients and allergens stay on the listing.
+                  Only the weight differs per option — ingredients and allergens stay on the
+                  listing.
                 </p>
                 <Button
                   type="button"

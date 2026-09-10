@@ -107,7 +107,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
 
       <div className="grid gap-6 md:grid-cols-2">
         <section className="space-y-2 rounded-lg border p-5">
-          <h2 className="text-sm font-medium">When it runs</h2>
+          <h2 className="text-lg">When it runs</h2>
           {schedule.length > 0 ? (
             <ul className="space-y-1 text-sm">
               {schedule.map((line) => (
@@ -125,7 +125,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         </section>
 
         <section className="space-y-2 rounded-lg border p-5">
-          <h2 className="text-sm font-medium">Where it is</h2>
+          <h2 className="text-lg">Where it is</h2>
           {market.addressText ? (
             <p className="text-sm">
               {market.addressText}
@@ -164,7 +164,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         whether Saturday is worth the trip needs the second.
       */}
       <section className="space-y-4">
-        <h2 className="text-sm font-medium">What&apos;s on</h2>
+        <h2 className="text-lg">What&apos;s on</h2>
         <EventList
           events={listedEvents}
           showVenue={false}
@@ -178,7 +178,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         claims and only the first is being made.
       */}
       <section className="space-y-4">
-        <h2 className="text-sm font-medium">Sellers at this market</h2>
+        <h2 className="text-lg">Sellers at this market</h2>
         {sellers.length > 0 ? (
           <>
             <ul className="grid gap-4 sm:grid-cols-2">
@@ -207,7 +207,9 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
                         <p className="text-muted-foreground pt-1 text-sm">{schedule[0]}</p>
                       ) : null}
                       {notice ? (
-                        <p className="text-muted-foreground pt-0.5 text-xs">Order ahead · {notice}</p>
+                        <p className="text-muted-foreground pt-0.5 text-xs">
+                          Order ahead · {notice}
+                        </p>
                       ) : null}
                     </Link>
                   </li>
