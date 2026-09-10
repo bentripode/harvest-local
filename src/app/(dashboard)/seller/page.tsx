@@ -34,7 +34,7 @@ export default async function SellerOverviewPage({ searchParams }: PageProps<"/s
     <div className="space-y-8">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
-          <SellerAvatar name={seller.business_name} />
+          <SellerAvatar name={seller.business_name} src={seller.avatar_url} />
           <div className="min-w-0">
             <h1 className="truncate text-2xl sm:text-3xl">{seller.business_name}</h1>
             <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">

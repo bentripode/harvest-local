@@ -40,6 +40,7 @@ export async function getNearbySellers(
     locationLabel: r.location_label ?? null,
     isMarket: !!r.is_market,
     deliveryEnabled: !!r.delivery_enabled,
+    avatarUrl: r.avatar_url ?? null,
     deliveryRadiusMiles: r.delivery_radius_miles ?? null,
   }));
 }

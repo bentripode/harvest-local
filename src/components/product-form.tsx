@@ -6,14 +6,12 @@ import { CopyAssistant } from "@/components/copy-assistant";
 
 import { ComplianceBlockNotice } from "@/components/compliance-block-notice";
 import { useFormStatus } from "react-dom";
-import Image from "next/image";
-import { X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ImageUploader } from "@/components/image-uploader";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { createClient } from "@/lib/supabase/client";
 import type { Category, ProductImage, Tag } from "@/lib/db/types";
 import type { CategoryPermissions } from "@/lib/compliance/categories";
 import {
@@ -79,8 +77,6 @@ export function ProductForm({
   const [allergens, setAllergens] = useState<string[]>(initial?.allergens ?? []);
   const [allergensNone, setAllergensNone] = useState(initial?.allergensConfirmed ?? false);
   const [images, setImages] = useState<ProductImage[]>(initial?.images ?? []);
-  const [uploading, setUploading] = useState(false);
-  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const permissionFor = (id: string) => categoryPermissions[id];
   const chosen = permissionFor(categoryId);
@@ -102,31 +98,6 @@ export function ProductForm({
     : [];
   // Ticking an allergen is itself an answer; "none of the nine" only applies to an empty list.
   const allergenAnswered = allergens.length > 0 || allergensNone;
-
-  async function handleUpload(files: FileList | null) {
-    if (!files?.length) return;
-    setUploading(true);
-    setUploadError(null);
-    const supabase = createClient();
-    try {
-      const next: ProductImage[] = [];
-      for (const file of Array.from(files)) {
-        const ext = file.name.split(".").pop() ?? "jpg";
-        const path = `${sellerId}/${crypto.randomUUID()}.${ext}`;
-        const { error } = await supabase.storage
-          .from("product-images")
-          .upload(path, file, { cacheControl: "3600", upsert: false });
-        if (error) throw error;
-        const { data } = supabase.storage.from("product-images").getPublicUrl(path);
-        next.push({ path, url: data.publicUrl });
-      }
-      setImages((prev) => [...prev, ...next]);
-    } catch (err) {
-      setUploadError(err instanceof Error ? err.message : "Upload failed.");
-    } finally {
-      setUploading(false);
-    }
-  }
 
   return (
     <form action={action} className="space-y-6">
@@ -311,8 +282,9 @@ export function ProductForm({
         </div>
         {formatNetWeight(weightValue, weightUnit) ? (
           <p className="text-muted-foreground text-xs">
-            On the label: <span className="font-mono">{formatNetWeight(weightValue, weightUnit)}</span>
-            . Some states require the metric equivalent, so it&apos;s worked out for you.
+            On the label:{" "}
+            <span className="font-mono">{formatNetWeight(weightValue, weightUnit)}</span>. Some
+            states require the metric equivalent, so it&apos;s worked out for you.
           </p>
         ) : null}
 
@@ -433,32 +405,15 @@ export function ProductForm({
       </fieldset>
 
       <div className="space-y-2">
-        <Label htmlFor="imageUpload">Photos</Label>
-        <div className="flex flex-wrap gap-3">
-          {images.map((img) => (
-            <div key={img.path} className="relative size-24 overflow-hidden rounded-md border">
-              <Image src={img.url} alt="" fill className="object-cover" sizes="96px" />
-              <button
-                type="button"
-                onClick={() => setImages((prev) => prev.filter((i) => i.path !== img.path))}
-                className="bg-background/80 absolute right-1 top-1 rounded-full p-0.5"
-                aria-label="Remove photo"
-              >
-                <X className="size-3.5" />
-              </button>
-            </div>
-          ))}
-        </div>
-        <Input
-          id="imageUpload"
-          type="file"
-          accept="image/jpeg,image/png,image/webp,image/avif"
+        <Label>Photos</Label>
+        <ImageUploader
+          sellerId={sellerId}
+          kind="product"
           multiple
-          disabled={uploading}
-          onChange={(e) => handleUpload(e.target.files)}
+          value={images}
+          onChange={setImages}
+          label="Add photos"
         />
-        {uploading ? <p className="text-muted-foreground text-xs">Uploading…</p> : null}
-        {uploadError ? <p className="text-destructive text-xs">{uploadError}</p> : null}
       </div>
 
       <div className="space-y-2">

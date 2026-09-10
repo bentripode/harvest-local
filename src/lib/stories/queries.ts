@@ -14,9 +14,11 @@ import { pickDailyStories, utcDayKey, type StoryLike } from "@/lib/stories/selec
 
 export interface HomeStory extends StoryLike {
   city: string | null;
+  /** Null for most sellers — the card falls back to an initial, never a grey silhouette. */
+  avatarUrl: string | null;
 }
 
-const SELECT = "id, business_name, storefront_slug, home_state, story";
+const SELECT = "id, business_name, storefront_slug, home_state, story, avatar_url";
 
 export async function getHomeStories(state: string | null, count = 3): Promise<HomeStory[]> {
   const supabase = await createClient();
@@ -46,6 +48,7 @@ export async function getHomeStories(state: string | null, count = 3): Promise<H
       homeState: row.home_state,
       story: row.story!,
       city: null,
+      avatarUrl: row.avatar_url,
     }));
 
   return pickDailyStories(stories, utcDayKey(), count);

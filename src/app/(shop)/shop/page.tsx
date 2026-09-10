@@ -164,7 +164,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
                   href={`/s/${s.storefrontSlug}`}
                   className="group flex items-center gap-3 no-underline"
                 >
-                  <SellerAvatar name={s.businessName} />
+                  <SellerAvatar name={s.businessName} src={s.avatarUrl} />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-medium group-hover:underline">
                       {s.businessName}

@@ -20,6 +20,8 @@ export interface NearbySeller {
   deliveryEnabled: boolean;
   /** How far they will drive. Null when they deliver but have not said how far. */
   deliveryRadiusMiles: number | null;
+  /** The seller's uploaded mark. Null for most, and the gallery draws an initial instead. */
+  avatarUrl: string | null;
 }
 
 /**

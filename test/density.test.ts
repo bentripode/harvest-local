@@ -27,6 +27,7 @@ const seller = (over: Partial<NearbySeller> = {}): NearbySeller => ({
   isMarket: false,
   deliveryEnabled: false,
   deliveryRadiusMiles: null,
+  avatarUrl: null,
   ...over,
 });
 

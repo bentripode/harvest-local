@@ -32,7 +32,7 @@ export default async function SellerQuestionsPage() {
           <CardTitle className="text-sm font-medium">Post an update</CardTitle>
         </CardHeader>
         <CardContent>
-          <SellerPostComposer posts={posts} />
+          <SellerPostComposer posts={posts} sellerId={seller.id} />
         </CardContent>
       </Card>
 

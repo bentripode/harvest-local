@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 
 import { Button } from "@/components/ui/button";
+import { ImageUploader, type UploadedImage } from "@/components/image-uploader";
 import {
   answerQuestionAction,
   createPostAction,
@@ -27,15 +28,25 @@ function Submit({ label, busy }: { label: string; busy: string }) {
  * Answering is what publishes a question, so the copy says so — a seller should know that the thing
  * they're replying to is currently private, and that their reply is not.
  */
-export function SellerPostComposer({ posts }: { posts: StorefrontPost[] }) {
+export function SellerPostComposer({
+  posts,
+  sellerId,
+}: {
+  posts: StorefrontPost[];
+  sellerId: string;
+}) {
   const [state, action] = useActionState<StorefrontFormState, FormData>(createPostAction, {});
   const [body, setBody] = useState("");
+  // `createPostAction` has accepted an imagePath since it was written; until the uploader existed
+  // there was no UI that could supply one, so every post went out without a photo.
+  const [photo, setPhoto] = useState<UploadedImage[]>([]);
 
   return (
     <div className="space-y-4">
       <form
         action={(fd) => {
           setBody("");
+          setPhoto([]);
           return action(fd);
         }}
         className="space-y-2"
@@ -55,6 +66,16 @@ export function SellerPostComposer({ posts }: { posts: StorefrontPost[] }) {
           placeholder="No bread this Saturday — back on the 14th with the usual."
           className="border-input w-full rounded-md border bg-transparent p-2.5 text-sm"
         />
+        <input type="hidden" name="imagePath" value={photo[0]?.path ?? ""} />
+        <input type="hidden" name="imageUrl" value={photo[0]?.url ?? ""} />
+        <ImageUploader
+          sellerId={sellerId}
+          kind="post"
+          value={photo}
+          onChange={setPhoto}
+          label="Add a photo"
+        />
+
         <div className="flex items-center gap-3">
           <Submit label="Post it" busy="Posting…" />
           <span className="text-muted-foreground text-xs">{body.length}/1000</span>

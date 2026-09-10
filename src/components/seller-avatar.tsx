@@ -1,25 +1,42 @@
+import Image from "next/image";
+
 /**
  * A seller's mark.
  *
- * There is no image uploader yet, so every seller is an initial on a tinted ground rather than a
- * photograph — and the tint is derived from the name, so a seller looks the same on the gallery,
- * their storefront and a basket. A single flat grey circle everywhere would read as a missing
- * image; a stable colour reads as an identity, which is what this stands in for until there is a
- * real one.
+ * Their photo where they have uploaded one, and otherwise an initial on a tinted ground — with the
+ * tint derived from the business name, so a seller looks the same on the gallery, their storefront
+ * and a basket.
  *
- * When the uploader lands this takes an optional `src` and nothing else changes.
+ * The initial is the fallback rather than a grey silhouette, and that matters more than it sounds:
+ * most sellers will never upload anything, so the no-photo case is the common one, and the same
+ * grey person repeated down a gallery reads as a page that failed to load. A stable colour reads as
+ * an identity.
  */
 export function SellerAvatar({
   name,
+  src,
   size = "md",
   className = "",
 }: {
   name: string;
+  /** The seller's uploaded photo, if they have one. */
+  src?: string | null;
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
   const box =
     size === "lg" ? "size-16 text-2xl" : size === "sm" ? "size-7 text-xs" : "size-10 text-base";
+  const px = size === "lg" ? 64 : size === "sm" ? 28 : 40;
+
+  if (src) {
+    return (
+      <span
+        className={`bg-muted relative inline-block shrink-0 overflow-hidden rounded-full ${box} ${className}`}
+      >
+        <Image src={src} alt="" fill className="object-cover" sizes={`${px}px`} />
+      </span>
+    );
+  }
 
   return (
     <span

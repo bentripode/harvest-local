@@ -69,7 +69,7 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
   const { data: seller } = await supabase
     .from("seller_profiles")
     .select(
-      "id, profile_id, business_name, storefront_slug, bio, story, home_state, is_paused, pause_reason, delivery_enabled, delivery_radius_miles",
+      "id, profile_id, business_name, storefront_slug, bio, story, home_state, is_paused, pause_reason, delivery_enabled, delivery_radius_miles, avatar_url, cover_url",
     )
     .eq("storefront_slug", slug)
     .maybeSingle();
@@ -181,8 +181,22 @@ export default async function StorefrontPage({ params }: PageProps<"/s/[slug]">)
 
       {/* The storefront reads as a profile: who they are, then what they have. */}
       <header className="space-y-4">
+        {/* No banner renders no band at all. An empty grey strip across the top looks like a page
+            that failed to load, which is worse than a page that simply hasn't got one. */}
+        {seller.cover_url ? (
+          <div className="bg-muted relative -mx-4 aspect-[3/1] overflow-hidden sm:mx-0 sm:rounded-2xl sm:border">
+            <Image
+              src={seller.cover_url}
+              alt=""
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1024px"
+            />
+          </div>
+        ) : null}
         <div className="flex items-center gap-4">
-          <SellerAvatar name={seller.business_name} size="lg" />
+          <SellerAvatar name={seller.business_name} src={seller.avatar_url} size="lg" />
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-2xl sm:text-3xl">{seller.business_name}</h1>
             <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">

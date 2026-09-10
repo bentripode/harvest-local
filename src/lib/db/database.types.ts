@@ -2005,6 +2005,8 @@ export type Database = {
       }
       seller_profiles: {
         Row: {
+          avatar_path: string | null
+          avatar_url: string | null
           avg_rating: number | null
           bio: string | null
           business_name: string
@@ -2012,6 +2014,8 @@ export type Database = {
           connect_details_submitted: boolean
           connect_payouts_enabled: boolean
           contact_phone: string | null
+          cover_path: string | null
+          cover_url: string | null
           created_at: string
           delivery_base_fee: number
           delivery_enabled: boolean
@@ -2037,6 +2041,8 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          avatar_path?: string | null
+          avatar_url?: string | null
           avg_rating?: number | null
           bio?: string | null
           business_name: string
@@ -2044,6 +2050,8 @@ export type Database = {
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
           contact_phone?: string | null
+          cover_path?: string | null
+          cover_url?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -2069,6 +2077,8 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          avatar_path?: string | null
+          avatar_url?: string | null
           avg_rating?: number | null
           bio?: string | null
           business_name?: string
@@ -2076,6 +2086,8 @@ export type Database = {
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
           contact_phone?: string | null
+          cover_path?: string | null
+          cover_url?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -2956,6 +2968,7 @@ export type Database = {
         Returns: {
           approx_lat: number
           approx_lng: number
+          avatar_url: string
           avg_rating: number
           business_name: string
           delivery_enabled: boolean

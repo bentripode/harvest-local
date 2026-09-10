@@ -78,7 +78,7 @@ export default async function HomePage() {
                   className="hover:border-primary/40 flex h-full flex-col gap-2 rounded-2xl border p-4 no-underline transition-colors"
                 >
                   <span className="flex items-center gap-2">
-                    <SellerAvatar name={s.businessName} size="sm" />
+                    <SellerAvatar name={s.businessName} src={s.avatarUrl} size="sm" />
                     <span className="truncate font-medium">{s.businessName}</span>
                   </span>
                   <span className="text-muted-foreground flex-1 text-sm">
