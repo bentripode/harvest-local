@@ -98,7 +98,7 @@ export default async function CompliancePage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Compliance</h1>
+        <h1 className="text-2xl sm:text-3xl">Compliance</h1>
         <p className="text-muted-foreground text-sm">
           Cottage-food rules are per-state. We track your sales against your state&apos;s limit and
           your license expiry, and pause your storefront automatically if either is crossed.

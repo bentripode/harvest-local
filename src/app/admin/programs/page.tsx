@@ -34,7 +34,7 @@ export default async function AdminProgramsPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-3">
-        <h1 className="text-2xl font-semibold tracking-tight">State food programs</h1>
+        <h1 className="text-2xl sm:text-3xl">State food programs</h1>
         <p className="text-muted-foreground text-sm">
           {programCount} programs across {states.length} jurisdictions. A seller doesn&apos;t operate
           in a state — they operate in a <em>program</em> within a state, and {multi.length} states

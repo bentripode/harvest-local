@@ -56,7 +56,7 @@ export default async function SellerLaunchPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Launch</h1>
+        <h1 className="text-2xl sm:text-3xl">Launch</h1>
         <p className="text-muted-foreground text-sm">
           {next
             ? `${progress.done} of ${progress.total} done. Next: ${next.title.toLowerCase()}.`
@@ -110,7 +110,7 @@ export default async function SellerLaunchPage() {
 
       <section className="space-y-4">
         <div>
-          <h2 className="text-lg font-semibold tracking-tight">Things to send</h2>
+          <h2 className="text-lg">Things to send</h2>
           <p className="text-muted-foreground text-sm">
             The structure, not the substance — edit anything that doesn&apos;t sound like you before
             you send it. Nothing here is posted for you.

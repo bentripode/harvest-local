@@ -37,7 +37,7 @@ export default async function SellerDropsPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Batches</h1>
+        <h1 className="text-2xl sm:text-3xl">Batches</h1>
         <p className="text-muted-foreground text-sm">
           What you&apos;ve committed to make, by collection date. Set one up on a listing&apos;s own
           page — a listing with batches sells through them and pauses between them.

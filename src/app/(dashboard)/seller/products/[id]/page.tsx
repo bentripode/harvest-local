@@ -81,7 +81,7 @@ export default async function EditProductPage({ params }: PageProps<"/seller/pro
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <h1 className="text-2xl font-semibold tracking-tight">Edit product</h1>
+      <h1 className="text-2xl sm:text-3xl">Edit product</h1>
       <ProductForm sellerId={seller.id} categories={categories} tags={tags} initial={initial}   categoryPermissions={categoryPermissions}
       />
 

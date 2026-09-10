@@ -63,7 +63,7 @@ export default async function FoodProgramPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold tracking-tight">Selling food in {stateName(seller.home_state)}</h1>
+        <h1 className="text-2xl sm:text-3xl">Selling food in {stateName(seller.home_state)}</h1>
         <p className="text-muted-foreground text-sm">
           Homemade food is regulated state by state. {stateName(seller.home_state)} decides what you
           may sell, whether you need a permit, and whether you can take orders online at all.

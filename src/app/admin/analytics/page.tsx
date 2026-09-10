@@ -10,7 +10,7 @@ export default async function AdminAnalyticsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Platform analytics</h1>
+        <h1 className="text-2xl sm:text-3xl">Platform analytics</h1>
         <p className="text-muted-foreground text-sm">Marketplace-wide, all sellers.</p>
       </div>
 

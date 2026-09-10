@@ -24,7 +24,7 @@ export default async function AdminReportsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Reports</h1>
+        <h1 className="text-2xl sm:text-3xl">Reports</h1>
         <p className="text-muted-foreground text-sm">
           Order disputes. Stripe refunds are issued from the order in the Stripe dashboard for now.
         </p>

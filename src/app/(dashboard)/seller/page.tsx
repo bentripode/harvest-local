@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SellerStatsPanel } from "@/components/seller-stats";
+import { SellerAvatar } from "@/components/seller-avatar";
 import { StarRating } from "@/components/star-rating";
 import { ReviewList } from "@/components/review-list";
 import { getSellerContext } from "@/lib/auth";
@@ -31,35 +32,41 @@ export default async function SellerOverviewPage({ searchParams }: PageProps<"/s
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight">{seller?.business_name}</h1>
-          <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
-            <span>
-              harvestlocal.com/s/{seller?.storefront_slug} · {seller?.home_state}
-            </span>
-            {reviewSummary.avg != null ? (
-              <span className="inline-flex items-center gap-1">
-                · <StarRating value={reviewSummary.avg} />
-                {reviewSummary.avg.toFixed(1)} ({reviewSummary.count})
-              </span>
-            ) : null}
-          </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
+          <SellerAvatar name={seller.business_name} />
+          <div className="min-w-0">
+            <h1 className="truncate text-2xl sm:text-3xl">{seller.business_name}</h1>
+            <p className="text-muted-foreground flex flex-wrap items-center gap-x-2 text-sm">
+              <Link href={`/s/${seller.storefront_slug}`} className="hover:text-foreground">
+                /s/{seller.storefront_slug}
+              </Link>
+              <span>· {seller.home_state}</span>
+              {reviewSummary.avg != null ? (
+                <span className="inline-flex items-center gap-1">
+                  · <StarRating value={reviewSummary.avg} />
+                  {reviewSummary.avg.toFixed(1)} ({reviewSummary.count})
+                </span>
+              ) : null}
+            </p>
+          </div>
         </div>
-        <Badge variant={seller?.is_paused ? "secondary" : "default"}>
-          {seller?.is_paused ? "Paused" : "Live"}
+        <Badge variant={seller.is_paused ? "secondary" : "default"}>
+          {seller.is_paused ? "Paused" : "Live"}
         </Badge>
       </div>
 
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-sm font-medium">Sales</h2>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 className="text-lg">Sales</h2>
         <div className="flex gap-1 text-sm">
           {WINDOW_DAYS.map((d) => (
             <Link
               key={d}
               href={d === 30 ? "/seller" : `/seller?range=${d}`}
-              className={`rounded-md px-2 py-1 ${
-                windowDays === d ? "bg-muted font-medium" : "text-muted-foreground hover:text-foreground"
+              className={`rounded-full px-3 py-1 no-underline ${
+                windowDays === d
+                  ? "bg-muted font-medium"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {d === 365 ? "1 year" : `${d} days`}
@@ -94,19 +101,32 @@ export default async function SellerOverviewPage({ searchParams }: PageProps<"/s
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Products</CardTitle>
+            <CardTitle className="text-sm font-medium">Storefront</CardTitle>
           </CardHeader>
           <CardContent>
-            <Button asChild size="sm" variant="outline">
-              <Link href="/seller/products">Manage listings</Link>
-            </Button>
+            <p className="text-lg font-semibold">{seller.is_paused ? "Closed" : "Open"}</p>
+            <p className="text-muted-foreground text-xs">
+              {seller.is_paused ? (seller.pause_reason ?? "paused") : "buyers can order"}
+            </p>
           </CardContent>
         </Card>
       </div>
 
+      <div className="flex flex-wrap gap-2">
+        <Button asChild size="sm" variant="outline">
+          <Link href="/seller/products">Manage listings</Link>
+        </Button>
+        <Button asChild size="sm" variant="outline">
+          <Link href="/seller/orders">Orders</Link>
+        </Button>
+        <Button asChild size="sm" variant="ghost">
+          <Link href={`/s/${seller.storefront_slug}`}>View storefront</Link>
+        </Button>
+      </div>
+
       {reviews.length > 0 ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium">Recent reviews</h2>
+          <h2 className="text-lg">Recent reviews</h2>
           <ReviewList reviews={reviews} respondable />
         </section>
       ) : null}

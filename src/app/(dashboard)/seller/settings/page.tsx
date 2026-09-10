@@ -80,7 +80,7 @@ export default async function SellerSettingsPage() {
   return (
     <div className="mx-auto max-w-xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
+        <h1 className="text-2xl sm:text-3xl">Settings</h1>
         <p className="text-muted-foreground text-sm">
           Your pickup address, local-delivery options, and notification emails.
         </p>

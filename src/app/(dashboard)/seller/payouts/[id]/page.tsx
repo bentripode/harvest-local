@@ -43,7 +43,7 @@ export default async function PayoutDetailPage({
       </nav>
 
       <header className="space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight tabular-nums">
+        <h1 className="text-2xl tabular-nums sm:text-3xl">
           {formatUsd(toCents(payout.amount))}
         </h1>
         <p className="text-muted-foreground text-sm">

@@ -42,7 +42,7 @@ export default async function SellerPayoutsPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Payouts</h1>
+        <h1 className="text-2xl sm:text-3xl">Payouts</h1>
         <p className="text-muted-foreground text-sm">
           Money Stripe has sent to your bank. This is not the same as your sales —{" "}
           <Link href="/seller" className="underline underline-offset-2">

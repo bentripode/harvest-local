@@ -48,7 +48,7 @@ export default async function ProductLabelPage({
     <div className="mx-auto max-w-3xl space-y-6">
       <div className="space-y-2 print:hidden">
         <div className="flex flex-wrap items-baseline gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl">
             {context.source.productName} — label
           </h1>
           <Link href={`/seller/products/${id}`} className="text-primary text-sm underline">

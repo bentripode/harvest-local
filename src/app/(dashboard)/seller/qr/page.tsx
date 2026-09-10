@@ -65,7 +65,7 @@ export default async function SellerQrPage({ searchParams }: PageProps<"/seller/
   return (
     <div className="mx-auto max-w-3xl space-y-8">
       <div className="print:hidden">
-        <h1 className="text-2xl font-semibold tracking-tight">QR codes</h1>
+        <h1 className="text-2xl sm:text-3xl">QR codes</h1>
         <p className="text-muted-foreground text-sm">
           Put one on your booth sign, your packaging or a card by the till. Someone who came for
           bread on Saturday can order on Thursday.

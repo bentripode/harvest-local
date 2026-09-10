@@ -23,7 +23,7 @@ export default async function SellerQuestionsPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Updates &amp; questions</h1>
+        <h1 className="text-2xl sm:text-3xl">Updates &amp; questions</h1>
         <p className="text-muted-foreground text-sm">
           Short updates show at the top of your storefront. Questions stay private until you answer
           them — an answered one is public, with the asker&apos;s first name on it.

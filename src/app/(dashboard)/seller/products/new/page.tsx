@@ -18,7 +18,7 @@ export default async function NewProductPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <h1 className="text-2xl font-semibold tracking-tight">New product</h1>
+      <h1 className="text-2xl sm:text-3xl">New product</h1>
       <ProductForm
         sellerId={seller.id}
         categories={categories}
