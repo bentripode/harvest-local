@@ -12,8 +12,8 @@ import { EventList, type ListedEvent } from "@/components/event-list";
 import { FollowButton } from "@/components/follow-button";
 import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
-import { safeWebsiteUrl } from "@/lib/markets/directory";
-import { hoursFromWebsite, summarizeHours } from "@/lib/markets/schedule";
+import { facebookToShow, safeWebsiteUrl, websiteToShow } from "@/lib/markets/directory";
+import { hoursNote, hoursProvenance, summarizeHours } from "@/lib/markets/schedule";
 import { isUsState, stateName } from "@/lib/geo/state";
 
 export async function generateMetadata({
@@ -65,7 +65,11 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
     market: e.market,
   }));
   const schedule = summarizeHours(market.hours);
-  const website = safeWebsiteUrl(market.websiteUrl);
+  const website = websiteToShow(market.websiteUrl, market.websiteStatus);
+  const facebook = facebookToShow(market.facebookUrl);
+  const provenance = hoursProvenance(market.hours);
+  const season = hoursNote(market.hours);
+  const sourceLink = safeWebsiteUrl(provenance?.url);
   const directionsQuery = encodeURIComponent(
     [market.name, market.addressText, market.city, code, market.postalCode]
       .filter(Boolean)
@@ -87,13 +91,13 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
 
       <header className="space-y-2">
         {market.imageUrl ? (
-          <div className="bg-muted relative size-24 overflow-hidden rounded-xl">
+          <div className="relative size-24 overflow-hidden rounded-xl border bg-white">
             <Image
               src={market.imageUrl}
               alt={`${market.name}, from its website`}
               fill
               sizes="96px"
-              className="object-cover"
+              className="object-contain p-1"
             />
           </div>
         ) : null}
@@ -128,11 +132,30 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
                   <li key={line}>{line}</li>
                 ))}
               </ul>
-              {/* Read from the market's own schema.org hours, not checked by a person. A site can
-                  be years out of date, and someone may drive here on the strength of it. */}
-              {hoursFromWebsite(market.hours) ? (
+              {season ? <p className="text-sm">{season}</p> : null}
+              {/* Not checked by a person: read from the market's own site, or gathered from other
+                  listings. Either can be out of date, and someone may drive here on it — so the
+                  page says where the times came from and where to check them. */}
+              {provenance?.source === "website" ? (
                 <p className="text-muted-foreground text-xs">
                   From the market&apos;s website. Worth checking there before you travel.
+                </p>
+              ) : provenance?.source === "research" ? (
+                <p className="text-muted-foreground text-xs">
+                  From other listings{provenance.note ? ` (${provenance.note})` : ""}, not the
+                  market itself.{" "}
+                  {sourceLink ? (
+                    <a
+                      href={sourceLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
+                    >
+                      See the source.
+                    </a>
+                  ) : null}{" "}
+                  Worth checking {facebook ? "their Facebook page" : "with the market"} before you
+                  travel.
                 </p>
               ) : null}
             </>
@@ -144,6 +167,10 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
               {website ? (
                 <a href={website} target="_blank" rel="noopener noreferrer" className="underline">
                   Check the market&apos;s website
+                </a>
+              ) : facebook ? (
+                <a href={facebook} target="_blank" rel="noopener noreferrer" className="underline">
+                  Check the market&apos;s Facebook page
                 </a>
               ) : (
                 "Check the market's own listing"
@@ -175,6 +202,11 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
             {website ? (
               <a href={website} target="_blank" rel="noreferrer noopener" className="underline">
                 Market website
+              </a>
+            ) : null}
+            {facebook ? (
+              <a href={facebook} target="_blank" rel="noreferrer noopener" className="underline">
+                Facebook page
               </a>
             ) : null}
             {market.phone ? <span className="text-muted-foreground">{market.phone}</span> : null}

@@ -12,6 +12,18 @@
  *   node scripts/import-markets.mjs --file fm.csv --state TX --state VT
  *   node scripts/import-markets.mjs --file fm.csv --dry-run
  *
+ *   node scripts/import-markets.mjs --contacts --state TX          # fill websites + phones (keyed API)
+ *   node scripts/import-markets.mjs --contacts --all-states
+ *   node scripts/import-markets.mjs --contacts --file tx.json      # a keyed-API response you saved
+ *
+ * `--contacts` exists because the bulk export has NO website, phone or hours column — its JSON
+ * dropped them — so every market imported from it has none. The keyed API (`USDA_API_KEY`, free
+ * from the portal) carries `media_website` and `contact_phone`, and nothing else the bulk import
+ * does not already have better: it has the description for 6 Texas markets where the bulk file had
+ * dozens. So this mode never re-imports a row; it matches on the listing id and UPDATES those two
+ * columns, and only where the API has a value. An absent website is "no information", never "clear
+ * it". (Neither source has opening hours; see scripts/market-websites.mjs.)
+ *
  * Needs NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (read from .env.local if present):
  * `upsert_market` is granted to service_role alone.
  *
@@ -34,8 +46,11 @@ import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 
 import {
+  apiRecords,
   buildIndex,
   clean,
+  contactFields,
+  US_STATES,
   detectDelimiter,
   num,
   parseDelimited,
@@ -235,7 +250,108 @@ async function main() {
   if (failures.length > 20) process.stdout.write(`  … and ${failures.length - 20} more\n`);
 }
 
-main().catch((err) => {
+// --- --contacts: websites and phones from the keyed API ------------------------
+
+const API_URL = "https://www.usdalocalfoodportal.com/api/farmersmarket/";
+const BROWSER_UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
+
+/**
+ * One state's listings from the keyed API. The portal answers 504 for long stretches and then
+ * recovers, so a failure is retried a minute apart before giving up on that state. The key never
+ * appears in output — errors name the state, not the URL.
+ */
+async function fetchStateContacts(state, key) {
+  const url = `${API_URL}?apikey=${encodeURIComponent(key)}&state=${state}`;
+  for (let attempt = 1; attempt <= 8; attempt++) {
+    try {
+      const res = await fetch(url, {
+        redirect: "follow",
+        signal: AbortSignal.timeout(300_000),
+        headers: { "user-agent": BROWSER_UA, accept: "application/json" },
+      });
+      const text = await res.text();
+      if (res.ok && /^\s*[[{]/.test(text)) return apiRecords(JSON.parse(text));
+      process.stdout.write(`  ${state}: HTTP ${res.status}, retrying (${attempt}/8)\n`);
+    } catch (err) {
+      process.stdout.write(`  ${state}: ${err.name}, retrying (${attempt}/8)\n`);
+    }
+    await new Promise((r) => setTimeout(r, 60_000));
+  }
+  throw new Error(`${state}: the USDA API did not answer after 8 attempts`);
+}
+
+async function enrichContacts() {
+  const file = value("file");
+  const states = flag("all-states") ? US_STATES : ONLY_STATES;
+  if (!file && states.length === 0) throw new Error("pass --state XX, --all-states, or --file");
+  if (!file && !env.USDA_API_KEY) throw new Error("USDA_API_KEY is not set (.env.local)");
+  if (!DRY_RUN && (!env.NEXT_PUBLIC_SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY)) {
+    throw new Error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required");
+  }
+  const db = DRY_RUN
+    ? null
+    : createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
+        auth: { persistSession: false },
+      });
+
+  const batches = file
+    ? [[file, apiRecords(JSON.parse(readFileSync(file, "utf8")))]]
+    : states.map((s) => [s, null]);
+
+  const total = { records: 0, withContact: 0, updated: 0, unmatched: 0, failed: 0 };
+  for (const [label, preloaded] of batches) {
+    const records = preloaded ?? (await fetchStateContacts(label, env.USDA_API_KEY));
+    let updated = 0;
+    let unmatched = 0;
+
+    for (const record of records) {
+      total.records++;
+      const { sourceId, website, phone, facebook } = contactFields(record);
+      if (!sourceId || (!website && !phone && !facebook)) continue;
+      total.withContact++;
+
+      const patch = {};
+      if (website) Object.assign(patch, { website_url: website, website_source: "usda" });
+      if (phone) patch.phone = phone;
+      if (facebook) patch.facebook_url = facebook;
+
+      if (DRY_RUN) {
+        updated++;
+        continue;
+      }
+      const { data, error } = await db
+        .from("markets")
+        .update(patch)
+        .eq("source", "usda")
+        .eq("source_id", sourceId)
+        .select("id");
+      if (error) {
+        total.failed++;
+        process.stdout.write(`  ! ${sourceId}: ${error.message}\n`);
+      } else if (!data || data.length === 0) {
+        unmatched++; // listed by the API but never imported (e.g. an unreadable address)
+      } else {
+        updated++;
+      }
+    }
+    total.updated += updated;
+    total.unmatched += unmatched;
+    process.stdout.write(
+      `${label}: ${records.length} listings, ${updated} ${DRY_RUN ? "would be " : ""}updated` +
+        `${unmatched ? `, ${unmatched} not in our directory` : ""}\n`,
+    );
+  }
+
+  process.stdout.write(
+    `\n${total.records} listings, ${total.withContact} with a website or phone, ` +
+      `${total.updated} ${DRY_RUN ? "would be " : ""}updated` +
+      `${total.unmatched ? `, ${total.unmatched} not in our directory` : ""}` +
+      `${total.failed ? `, ${total.failed} failed` : ""}\n`,
+  );
+}
+
+(flag("contacts") ? enrichContacts() : main()).catch((err) => {
   process.stderr.write(`${err.message}\n`);
   process.exit(1);
 });

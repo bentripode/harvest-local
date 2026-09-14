@@ -1,0 +1,2472 @@
+[
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "6701-burnet-road-market",
+    "notes": "Yelp marks the Travis County Farmers Market at 6701 Burnet Rd as closed; hours found only on old directory sites. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "abilene-farmers-market",
+    "website": "https://www.downtownabi.com/abilene-farmers-market/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Abilene Convention & Visitors Bureau and Abilene's Downtown Initiative",
+    "hoursSourceUrl": "https://www.abilenevisitors.com/directory/abilene-farmers-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "aggieland-farmers-market",
+    "facebook": "https://www.facebook.com/aggielandfarmersmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Rain or shine, at Post Oak Mall",
+    "hoursSourceNote": "Visit College Station",
+    "hoursSourceUrl": "https://visit.cstx.gov/events/aggieland-farmers-market/",
+    "notes": "aggielandfarmersmarket.com ('By Aggies, For Aggies') not used as the website: may be a different, student-run market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "all-natural-and-certified-organic-farmers-market-hope-farm",
+    "facebook": "https://www.facebook.com/hopemarkets.rgv/",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "October to July",
+    "hoursSourceNote": "the market's Facebook post and Foraged",
+    "hoursSourceUrl": "https://www.foraged.com/farmers-markets/texas/harlingen/all-natural-and-certified-organic-farmers-market-(hope-farm)"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "amarillo-community-market",
+    "notes": "Only 2023 hours found (8:30-noon); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "slug": "an-evening-market-at-troy-tx",
+    "checked": "2026-09-14",
+    "website": "https://www.cityoftroy.us/29737/farmers-market",
+    "facebook": "https://www.facebook.com/EveningMarketTroyTX/",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "February to November",
+    "hoursSourceNote": "Yelp, Nextdoor and a March 2026 event listing",
+    "hoursSourceUrl": "https://www.yelp.com/biz/evening-market-at-troy-tx-troy",
+    "notes": "Website is the one the market's Facebook page links to. That city page describes the Troy Farmers' Market (first Saturdays, April-August) at the same address, not this evening market; the Friday schedule comes from other listings. The chamber page search cited is a lapsed domain."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "angelina-county-farmers-market",
+    "website": "https://www.angelinacounty.net/angelina-county-farmers-market-follow-us-on-facebook/",
+    "notes": "Hours not recorded: Yelp and other listings disagree (Mon-Sun long hours vs Fri-Sat 9-3)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "annetta-valley-farmers-market",
+    "facebook": "https://www.facebook.com/AnnettaValleyFarmersMarket/",
+    "notes": "Sundays 11-3, May-December appears only on undated directory listings; not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "apple-country-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "17:30"
+      }
+    ],
+    "season": "June to September",
+    "hoursSourceNote": "Texas A&M AgriLife local produce listings",
+    "hoursSourceUrl": "https://texaslocalproduce.tamu.edu/lubbock-county-farmers-markets/",
+    "notes": "Listed website (applecountryorchards.com) is now spam; no replacement found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "apple-country-farmers-market-ii",
+    "notes": "No hours found for the 45th St location."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "area-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "arlington-foodies-farmer-s-market",
+    "notes": "Meets on the 4th Saturday Jan-Sep and 3rd Saturday Nov-Dec per LocalHarvest; monthly schedules cannot be expressed as weekly hours, so none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "athens-farmers-market",
+    "notes": "Older listing (212 N Palestine) for what appears to be the same market now at 110 W Tyler; hours recorded on athens-tx-farmers-market only. Its USDA website now belongs to a medical clinic."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "athens-tx-farmers-market",
+    "website": "https://visitathenstexas.com/178/Athens-Farmers-Market",
+    "facebook": "https://www.facebook.com/ATxFM/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October (until 1 p.m. in May and June); pop-up markets on the 1st and 4th Saturdays off-season",
+    "hoursSourceNote": "Visit Athens, TX (city tourism)",
+    "hoursSourceUrl": "https://visitathenstexas.com/178/Athens-Farmers-Market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "austin-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "13:00",
+        "closes": "17:00"
+      }
+    ],
+    "hoursSourceNote": "Farmer George Farmers Markets and Yelp (updated June 2026)",
+    "hoursSourceUrl": "https://farmergeorge.market/",
+    "notes": "This listing is the Gateway Farmers Market by Farmer George at 9607 Research Blvd."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "austin-farmers-market-association-i",
+    "notes": "422 W Guadalupe is Republic Square, home of the SFC Farmers' Market Downtown, which has its own listing; hours recorded there, not duplicated here."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "austin-farmers-market-association-iii",
+    "notes": "Montopolis satellite market (Wednesday midday, WIC-clinic style) per old listings; no current information, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "austin-farmers-market-association-vi",
+    "notes": "St. John's Community Center satellite market (Wednesday noon-2) per old listings; no current information, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bangs-farmers-market",
+    "notes": "Six set Saturdays a year (Mar/Apr/May, Sep/Oct/Nov) 10-2 per the City of Bangs; not weekly, none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "barton-creek-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "hoursSourceNote": "Visit Austin and the Austin Chronicle calendar",
+    "hoursSourceUrl": "https://www.austintexas.org/listings/barton-creek-farmers-market/4692/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bastrop-1832-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Visit Bastrop and the market's own site",
+    "hoursSourceUrl": "https://www.visitbastrop.com/listing/bastrop-1832-farmers-market/81/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bay-area-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, Baybrook Mall parking lot",
+    "hoursSourceNote": "Bay Area Farmers Market Group and Yelp (updated July 2026)",
+    "hoursSourceUrl": "https://www.bayareafarmersmarketgroup.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bayou-city-farmers-market",
+    "notes": "3000 Richmond Ave is the Urban Harvest Farmers Market per Yelp; not the same as the Bayou City Community Market on Hillcroft. Ambiguous; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "baytown-farmers-market",
+    "notes": "Now 'The Market at Town Square': six set dates a year (three spring, three fall), 10-2, evenings in July-August. Not expressible as weekly hours; none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "beach-street-local-market",
+    "notes": "Third Sunday of the month, March-December, 10-2; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "beaumont-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Year-round, under the pavilion at the Beaumont Athletic Complex, 6525 College St",
+    "hoursSourceNote": "Beaumont Convention & Visitors Bureau",
+    "hoursSourceUrl": "https://www.beaumontcvb.com/things-to-do/shopping/farmers-markets/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bedford-farmers-market",
+    "notes": "Store-like hours only from directory listings; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "bell-county-farmers-market-association-ii",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "braeswood-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "At St. Phillip's United Methodist Church, 5501 Beechnut",
+    "hoursSourceNote": "the market's own site and Yelp (updated August 2026)",
+    "hoursSourceUrl": "https://braeswoodfarmersmarket.com/",
+    "notes": "Now at 5501 Beechnut rather than 5401 S Braeswood."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "brazos-valley-farmers-market",
+    "website": "https://tfmibc.com/",
+    "facebook": "https://www.facebook.com/brazos.valley.farmers.market/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round; now 'The Farmers' Market in Brazos County' at 206 W Villa Maria Rd, Midtown Park",
+    "hoursSourceNote": "Destination Bryan (city tourism)",
+    "hoursSourceUrl": "https://www.destinationbryan.com/things-to-do/midtown/the-farmers-market-in-brazos-county/",
+    "notes": "Moved from the USDA address (201 N Texas Ave) to 206 W Villa Maria Rd; the map pin is still the old one."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "burleson-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to October",
+    "hoursSourceNote": "the market's own site and the Burleson Chamber",
+    "hoursSourceUrl": "https://burlesonfarmersmarket.com/",
+    "notes": "Sources give 141 W Renfro St; USDA has 217 W Renfro."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "burton-farmers-and-artisans-market",
+    "notes": "First Saturday of the month, March to November, 10-2 (Burton Chamber); monthly, none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "buy-local-farmers-market-fall-creek",
+    "website": "https://buylocalmarket.org/fall-creek-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Rain or shine, at the Park at Fall Creek",
+    "hoursSourceNote": "Buy Local Market's own site",
+    "hoursSourceUrl": "https://buylocalmarket.org/fall-creek-farmers-market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "canton-farmers-market",
+    "website": "https://www.cantonfarmersmarket.com/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 6 to October 3, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cantonfarmersmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "celina-s-friday-night-market",
+    "notes": "Monthly, one Friday 6-9 pm, spring to fall (Visit Celina); none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "chaparral-crossing-farmers-market",
+    "notes": "First Sunday of the month 10-1 at Charlie Dobbin's Park; monthly, none recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "charlie-thornberry-certified-farmers-market-association",
+    "notes": "713 Ohio Ave is now the Downtown Wichita Falls Farmers Market (Sat 9-1, farmersmarketwf.com); the Wichita Falls Farmers Market Association is at 807 Austin St. Neither names Charlie Thornberry, so which one this listing is could not be settled; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "charlie-thornberry-farmers-market",
+    "notes": "Same as charlie-thornberry-certified-farmers-market-association: ambiguous between the Downtown Wichita Falls market (713 Ohio) and the Association market (807 Austin St); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "city-hall-farmers-market",
+    "notes": "Urban Harvest @ City Hall: sources disagree (Wednesday lunch in spring/fall vs select Saturdays); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "clear-lake-shores-farmers-market",
+    "notes": "Marked closed on Yelp (February 2026)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "coastal-community-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "collin-county-farmers-market",
+    "notes": "Marked closed on Yelp (June 2026)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "collins-garden-park-farmers-market",
+    "notes": "Only a directory listing with template-looking dates; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "community-fresh-farmers-market",
+    "notes": "Saturdays 9-1 appears only on undated directory listings (LocalHarvest, Foraged); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "concho-valley-farmers-market",
+    "facebook": "https://www.facebook.com/Conchovalleyfarmersmarket/",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "11:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "11:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October",
+    "hoursSourceNote": "ConchoValleyHomepage.com, 2026 season opening",
+    "hoursSourceUrl": "https://www.conchovalleyhomepage.com/news/local-news/concho-valley-farmers-market-opens-for-2026-season/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "coppell-farmers-market",
+    "facebook": "https://www.facebook.com/CoppellFarmersMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Only the 2nd and 4th Saturdays from January to March",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://coppellfarmersmarket.org/visit/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "corpus-christi-downtown-farmers-market",
+    "website": "https://www.growlocalsouthtexas.org/farmersmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "At the Art Center of Corpus Christi; may shift around holidays",
+    "hoursSourceNote": "Grow Local South Texas and the Art Center of Corpus Christi (2026)",
+    "hoursSourceUrl": "https://www.artcentercc.org/downtown-farmers-market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "corpus-christi-southside-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "hoursSourceNote": "Visit Corpus Christi and Yelp (updated July 2026)",
+    "hoursSourceUrl": "https://www.visitcorpuschristi.com/listing/corpus-christi-southside-farmers-market/633/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "cowtown-farmers-market",
+    "website": "https://www.cowtownmarket.com/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round; smaller Wednesday markets mid-June to mid-August",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cowtownmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "dallas-farmers-market-dallas",
+    "website": "https://dallasfarmersmarket.org/",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "hoursSourceNote": "the market's own website",
+    "hoursSourceUrl": "https://dallasfarmersmarket.org/",
+    "notes": "Duplicate USDA listing of dallas-farmers-market; hours as published on its site (schema.org)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "day-star-organic-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "hoursSourceNote": "Yelp (updated March 2026)",
+    "hoursSourceUrl": "https://www.yelp.com/biz/day-star-organic-farm-georgetown",
+    "notes": "An organic farm's own Saturday market at the farm."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "deaf-smith-chamber-of-commerce-farmers-market",
+    "notes": "Only 2019 information (Wednesdays from 4 pm); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "decatur-community-market",
+    "notes": "Hours found are from 2018; decaturcommunitymarket.com did not resolve (September 2026). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "denton-community-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "March 1 to December 20, 2026; winter market indoors at 321 E McKinney St",
+    "hoursSourceNote": "The Lasso (TWU) and the market's own site, 2026",
+    "hoursSourceUrl": "https://www.twulasso.com/denton-community-market-returns-for-spring-2026/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "denton-county-farmers-market",
+    "notes": "Tue/Thu/Sat 7-11, June-September appears only on directory listings; its own site (dentonfarmersmarket.com) has a broken certificate. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "dignowity-hill-farmers-market",
+    "notes": "2nd and 4th Sundays 9-2 (older sources); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-brenham-first-fridays-farmer-and-artisan-market",
+    "notes": "First Friday of each month by its name; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-canton-farmers-market",
+    "notes": "Sat 8-12 late April-early October only on undated directory listings; the separate Canton Farmers Market (Hwy 243) may have succeeded it. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-denison-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April 25 to October 3, 2026",
+    "hoursSourceNote": "Discover Denison and the market's own site, 2026",
+    "hoursSourceUrl": "https://discoverdenison.com/event/downtown-denison-farmers-market-2026/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-farmers-market",
+    "notes": "Fri-Sun 9-3 at Hulen Mall per an undated AgriLife list; not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-farmers-market-bay-city",
+    "notes": "Found schedule (summer Sat 9-12 to Aug 23; fall 5-8 pm Sep 4-Dec 18) matches the 2025 calendar, not 2026; not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-farmers-market-i",
+    "notes": "No hours found (600 W Rosedale)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-mesquite-farmers-market",
+    "website": "https://www.downtownmesquitetx.com/p/explore/downtown-mesquite-farmer-market",
+    "facebook": "https://www.facebook.com/MesquiteFarmersMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to November, at Front Street Station",
+    "hoursSourceNote": "Downtown Mesquite (City of Mesquite)",
+    "hoursSourceUrl": "https://www.downtownmesquitetx.com/p/explore/downtown-mesquite-farmer-market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-rosenberg-farmer-s-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "downtown-sanger-farmers-market",
+    "website": "https://www.thefarmerswifemarkets.com/aboutdsfarmersmarket",
+    "notes": "1st and 3rd weekends, mid-March to November, hours vary by date; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "eagle-springs-farmers-market",
+    "notes": "Tuesday afternoons, but sources disagree (3-7 vs 4-7) and the newest is 2023; not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "east-texas-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "east-texas-fresh-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "east-texas-state-fair-farmers-market",
+    "notes": "Sources disagree (Saturdays year-round vs Saturdays May-July); the fairgrounds have moved. Not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "efwma-s-fresh-food-market",
+    "notes": "Saturday 9-11 only from a data aggregator; not recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "elgin-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Year-round, Veterans' Memorial Park",
+    "hoursSourceNote": "the market's own site and Explore Elgin Area (2026)",
+    "hoursSourceUrl": "https://www.elginfarmersmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "ella-austin-community-center-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "ennis-farmers-market",
+    "website": "https://ennistx.com/choose-ennis/farmers-market",
+    "facebook": "https://www.facebook.com/downtownennisbluebonnetmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 25 to October 31, 2026 (now the Bluebonnet Market)",
+    "hoursSourceNote": "City of Ennis Economic Development",
+    "hoursSourceUrl": "https://ennistx.com/choose-ennis/farmers-market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "evening-market-at-troy-tx",
+    "website": "https://www.cityoftroy.us/29737/farmers-market",
+    "facebook": "https://www.facebook.com/EveningMarketTroyTX/",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "February to November",
+    "hoursSourceNote": "Yelp, Nextdoor and a March 2026 event listing",
+    "hoursSourceUrl": "https://www.yelp.com/biz/evening-market-at-troy-tx-troy",
+    "notes": "Duplicate USDA listing of an-evening-market-at-troy-tx; same research."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "fall-creek-farmers-market",
+    "website": "https://buylocalmarket.org/fall-creek-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Rain or shine, at the Park at Fall Creek",
+    "hoursSourceNote": "Buy Local Market's own site",
+    "hoursSourceUrl": "https://buylocalmarket.org/fall-creek-farmers-market",
+    "notes": "Same market as buy-local-farmers-market-fall-creek (duplicate USDA listing)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-at-imperial",
+    "website": "https://www.sugarlandtx.gov/2508/Farmers-Market-at-Imperial-Park",
+    "facebook": "https://www.facebook.com/FarmersMarketAtImperial/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine, at Imperial Park Recreation Center",
+    "hoursSourceNote": "City of Sugar Land",
+    "hoursSourceUrl": "https://www.sugarlandtx.gov/2508/Farmers-Market-at-Imperial-Park"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-at-the-cibolo",
+    "website": "https://www.cibolo.org/farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "At Herff Farm",
+    "hoursSourceNote": "the Cibolo Center's own site",
+    "hoursSourceUrl": "https://www.cibolo.org/farmers-market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-centerville-texas",
+    "notes": "One source says a Centerville market is on hiatus; another mentions a Saturday courthouse-square market. Could not tell which Centerville; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-fort-worth-inc",
+    "website": "https://www.farmersmarketftw.com/",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round produce market",
+    "hoursSourceNote": "the market's own site and Yelp (updated September 2026)",
+    "hoursSourceUrl": "https://www.farmersmarketftw.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-of-grapevine",
+    "facebook": "https://www.facebook.com/fmograpevine/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Weekly April to December; 2nd and 4th Saturdays January to March",
+    "hoursSourceNote": "Grapevine Convention & Visitors Bureau",
+    "hoursSourceUrl": "https://www.grapevinetexasusa.com/listing/farmers-market-of-grapevine/2377/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-on-grand-parkway",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Rain or shine, at the Church of the Holy Apostles",
+    "hoursSourceNote": "the market's own site and Covering Katy (2026)",
+    "hoursSourceUrl": "http://www.farmersmarketongrandparkway.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-partners",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Rain or shine; 2026 season from January 17",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://farmersmarketpartners.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "for-oak-cliff-farmers-market",
+    "website": "https://www.foroakcliff.org/",
+    "notes": "First Saturday of the month, April-December, 10-2 (Dallasites101); not weekly, no hours recorded. Its old domain (focfarmersmarket.org) now serves gambling spam; replaced with For Oak Cliff's own page."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "for-oak-cliff-farmers-market-2",
+    "website": "https://www.foroakcliff.org/",
+    "notes": "Duplicate of for-oak-cliff-farmers-market; first Saturdays April-December, no weekly hours recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "four-seasons-markets-at-firewheel",
+    "notes": "Conflicting schedules (Sat 9-2 vs Sat-Sun 10-4 for a 'Farmers Market at Firewheel'); possibly two markets. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "friendswood-farmers-market",
+    "notes": "Conflicting: 'Sunday 11-3' is the Bay Area Farmers Market Group's schedule (probably from before it moved to Baybrook Mall); friendswoodmarket.com is a separate first-Saturday market. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "friendswood-farmers-market-friendswood",
+    "notes": "Duplicate of friendswood-farmers-market; same conflict, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "fulshear-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, except the Saturdays at Christmas and New Year",
+    "hoursSourceNote": "the market's own site (2026)",
+    "hoursSourceUrl": "https://fulshearfarmersmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "galveston-s-own-farmers-market",
+    "website": "https://galvestonsownfarmersmarket.com/market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Until noon June to September",
+    "hoursSourceNote": "Visit Galveston and 365 Things in Houston",
+    "hoursSourceUrl": "https://www.visitgalveston.com/directory/galvestons-own-farmers-market/",
+    "notes": "Yelp (July 2026) shows the market at 3304 Market St; the USDA address (2508 Post Office St) may be out of date. A separate Thursday market runs at 2222 28th St."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "galveston-west-end-farmers-market",
+    "notes": "1st and 3rd Saturdays 8-12; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "garden-ridge-farmers-market",
+    "notes": "The original market at Garden Ridge City Hall has closed; its successor, Garden Ridge Market Days, is monthly (2nd Saturdays) at another address. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "good-local-market-white-rock-farmers-market",
+    "website": "https://www.goodlocalmarkets.org/locations",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "hoursSourceNote": "Good Local Markets' own site",
+    "hoursSourceUrl": "https://www.goodlocalmarkets.org/locations",
+    "notes": "Duplicate USDA listing of good-local-markets-white-rock-farmers-market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "good-local-markets-lakewood-tower-farmers-market",
+    "website": "https://www.goodlocalmarkets.org/locations",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "At 6301 Gaston Ave (Wells Fargo lot by Lakewood Tower)",
+    "hoursSourceNote": "Good Local Markets' own site",
+    "hoursSourceUrl": "https://www.goodlocalmarkets.org/locations"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "good-local-markets-white-rock-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "hoursSourceNote": "Good Local Markets' own site",
+    "hoursSourceUrl": "https://www.goodlocalmarkets.org/locations"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "grand-prairie-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 4 to December 12, 2026, rain or shine; closed Thanksgiving weekend",
+    "hoursSourceNote": "City of Grand Prairie",
+    "hoursSourceUrl": "https://www.gptx.org/News-Articles/Farmers-Market-Opening-2026"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "grapevine-farmers-market",
+    "facebook": "https://www.facebook.com/fmograpevine/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Weekly April to December; 2nd and 4th Saturdays January to March",
+    "hoursSourceNote": "Grapevine Convention & Visitors Bureau",
+    "hoursSourceUrl": "https://www.grapevinetexasusa.com/listing/farmers-market-of-grapevine/2377/",
+    "notes": "Duplicate USDA listing of farmers-market-of-grapevine."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "grass-roots-farmers-market",
+    "notes": "Older news only; a 2026 report describes a different Gilmer market every other Saturday. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "green-avenue-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "grow-n-growers-farmers-market",
+    "notes": "Sources place the market at Firemen's Park, McAllen (Sat 9-12) rather than San Juan; location conflict, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "grow-n-growers-farmers-market-2",
+    "notes": "Same conflict as grow-n-growers-farmers-market (McAllen vs Edinburg); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "guadalupe-valley-gardeners-market",
+    "notes": "Tue/Fri 2-6, Sat 9-12 at 510 E Court St appears only on directory listings, at a different address from USDA's; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "harlingen-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "15:00",
+        "closes": "16:30"
+      }
+    ],
+    "season": "Mid-October to mid-June, next to City Hall",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.harlingenfarmersmarket.com/visit-us"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "heights-epicurean-farmers-market",
+    "notes": "Marked closed on Yelp (July 2025)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hill-country-farmers-market",
+    "notes": "The Hill Country Farmers Market Association runs several San Antonio markets; the Huebner Rd hours date from 2015. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hill-country-farmers-market-association",
+    "notes": "24133 Boerne Stage Rd is listed as the Leon Springs Farmers Market (Sat 10-3) by an unclear source; the association's site is now spam. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "historic-longview-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "March to November",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.historiclongviewfarmersmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "historic-mckinney-farmers-market-at-chestnut-square-historic-village",
+    "website": "https://www.chestnutsquare.org/farmers-market",
+    "facebook": "https://www.facebook.com/McKinneyfarmersmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round; 9 a.m.-noon January to March; closed the Saturdays after Thanksgiving and Christmas",
+    "hoursSourceNote": "Chestnut Square's 2026 rules of operation",
+    "hoursSourceUrl": "https://www.chestnutsquare.org/farmers-market",
+    "notes": "Sources give 315 S Chestnut St; USDA has 6851 Virginia Pkwy."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "home-sweet-farm-market",
+    "notes": "Now the HSF Biergarten (a bar with bar hours), not a farmers market; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hometown-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:30",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Indoor vendor market, open daily",
+    "hoursSourceNote": "Yelp (updated August 2026)",
+    "hoursSourceUrl": "https://www.yelp.com/biz/hometown-farmers-market-waxahachie"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hope-farm-farmers-market",
+    "facebook": "https://www.facebook.com/hopemarkets.rgv/",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "October to July",
+    "hoursSourceNote": "the market's Facebook post and Foraged",
+    "hoursSourceUrl": "https://www.foraged.com/farmers-markets/texas/harlingen/all-natural-and-certified-organic-farmers-market-(hope-farm)",
+    "notes": "Duplicate USDA listing of all-natural-and-certified-organic-farmers-market-hope-farm."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hope-farmers-market",
+    "notes": "Marked closed on Yelp (June 2026) and Time Out."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hope-farms-first-wednesday-market",
+    "notes": "First Wednesday of the month by its name; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "huntsville-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 through July, on University Ave near Rather Park",
+    "hoursSourceNote": "City of Huntsville calendar",
+    "hoursSourceUrl": "https://huntsvilletx.gov/Calendar.aspx?EID=3182"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hutto-silos-farmers-market",
+    "website": "https://www.lakelinefarmersmarket.com/silosfarmersmarket",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "At the Cotton Gin, Hutto Co-Op District",
+    "hoursSourceNote": "Lakeline Farmers Markets (the organiser)",
+    "hoursSourceUrl": "https://www.lakelinefarmersmarket.com/silosfarmersmarket",
+    "notes": "Its USDA website is now gambling spam; replaced with the organiser's page."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "hwy-80-produce",
+    "notes": "Daily produce-stand hours appear only on directory listings; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "independent-growers-market",
+    "notes": "Wed and Sat 7-10 appears only on directory listings; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "iron-farm-farmers-market",
+    "notes": "Listed as permanently closed by a directory (Iron Farm now sells meats); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "jefferson-farmers-market",
+    "notes": "No results for Jefferson, TX."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "justin-farmers-market",
+    "website": "https://www.thefarmerswifemarkets.com/justin",
+    "notes": "Second Saturday of the month, April-October; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "katy-farmers-market",
+    "notes": "Sat 9-1 by South Fry Rd appears only on LocalHarvest; its website is a parked domain. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "keller-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to late November, Bear Creek Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://kellerfarmersmarket.com/location-hours/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "killeen-farmers-market",
+    "notes": "Yelp lists the farm at 4616 FM 2808 as closed (August 2026); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "kingwood-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "April to October 2026, Town Center Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://kwdfarmersmarket.com/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "lakewood-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Relocated to 6301 Gaston Ave (Wells Fargo lot by Lakewood Tower)",
+    "hoursSourceNote": "Good Local Markets' own site",
+    "hoursSourceUrl": "https://www.goodlocalmarkets.org/locations",
+    "notes": "Good Local's Sunday market moved from 6434 E Mockingbird to 6301 Gaston; same market as good-local-markets-lakewood-tower-farmers-market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "let-s-grow-crazy",
+    "notes": "1st and 3rd Saturdays April-November, 9-12; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "little-elm-farmers-market",
+    "notes": "The Eldorado Pkwy market is marked closed on Yelp (May 2026); the town's new 'Farmers Market at The Lawn' is elsewhere with varying hours. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "local-kerrville-farmers-market",
+    "website": "https://downtownkerrville.com/events/5/kerrville-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Weekly April to October; first Friday of the month November to March (3 p.m. to dark). At the A.C. Schreiner property, 529 Water St",
+    "hoursSourceNote": "the market's own site and Historic Downtown Kerrville",
+    "hoursSourceUrl": "https://downtownkerrville.com/events/5/kerrville-farmers-market",
+    "notes": "Matched through its Barnett St parking (First Baptist Church); now held at 529 Water St. kerrvillefarmersmarket.com did not resolve (September 2026)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "lubbock-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to October 24, 2026, at 5th St & Avenue J",
+    "hoursSourceNote": "Lubbock Downtown Farmers Market's own site",
+    "hoursSourceUrl": "https://lubbockdowntownfarmersmarket.com/",
+    "notes": "Now held at 5th St & Ave J rather than 1822 Buddy Holly Ave."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "lucas-farmers-market",
+    "website": "https://www.lucastexas.us/259/Lucas-Farmers-Market",
+    "notes": "2nd and 4th Saturdays, April 25-October 24, 2026, 8-12 (City of Lucas); not weekly, no hours recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "main-plaza-farmers-market",
+    "website": "https://mainplaza.org/event/main-plaza-farmers-market/",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "March to December",
+    "hoursSourceNote": "Main Plaza's own site",
+    "hoursSourceUrl": "https://mainplaza.org/event/main-plaza-farmers-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "main-street-farmers-market",
+    "notes": "Several Sulphur Springs markets with different days (and one source is Sulphur Springs, Arkansas); could not tell which is this listing. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "manor-farmers-market",
+    "notes": "Conflicting: Wed 4-7 at Jennie Lane Park vs Wed 5-8 at ShadowGlen Clubhouse. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "market-on-the-bayou-certified-farmers-market",
+    "website": "https://marketonthebayou.com/",
+    "notes": "2nd and 4th Saturdays year-round, 10-2, now at 1655 W FM 646; not weekly, no hours recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "martindale-market",
+    "notes": "Monthly (First Fridays or 4th Saturdays by source); a directory lists it as permanently closed. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "melissa-farmers-market",
+    "notes": "Sources disagree (10-2 / 5-8 vs Sat 8-12 vs Sat 9-1). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "memorial-villages-farmers-market",
+    "website": "http://www.mvfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/mvfm024/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine",
+    "hoursSourceNote": "Visit Houston and Yelp (updated September 2026)",
+    "hoursSourceUrl": "https://www.visithoustontexas.com/listings/memorial-villages-farmers-market/29536/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "midland-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to November",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://midlanddowntownfarmersmarket.com/market-schedule"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "midtown-farmers-market",
+    "notes": "The 3701 Travis St market is marked closed on Yelp (September 2025); a separate Midtown market runs at Elizabeth Baldwin Park. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "mineola-farmers-market",
+    "website": "https://www.mineola.com/page/farmers-market/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, Farmers Market Pavilion on Front St",
+    "hoursSourceNote": "City of Mineola",
+    "hoursSourceUrl": "https://www.mineola.com/page/farmers-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "mission-marquee-plaza-farmers-market",
+    "notes": "1st and 3rd Saturdays, March-November, 9-1; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "nacogdoches-farmers-market",
+    "website": "https://nacogdochesfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/nacogdochesfarmersmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, at the Old Hitch Lot, 107 Pearl St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://nacogdochesfarmersmarket.com/about/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "natural-living-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "navarro-county-farmers-market",
+    "notes": "Tue and Sat 7-12, May-October, but the newest sources are 2019-2023; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "new-braunfels-farmers-market",
+    "website": "https://www.nbfarmersmarket.com/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.nbfarmersmarket.com/about"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "new-braunfels-food-bank-farmers-market",
+    "notes": "A Farmers Market Nutrition Program (vouchers) on the first Wednesday, not a weekly market; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "north-central-texas-farmers-market-corporation-i",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 4 to December 12, 2026, rain or shine; closed Thanksgiving weekend",
+    "hoursSourceNote": "City of Grand Prairie",
+    "hoursSourceUrl": "https://www.gptx.org/News-Articles/Farmers-Market-Opening-2026",
+    "notes": "130 W Church St adjoins Grand Prairie's Market Square (120 W Main); treated as the Grand Prairie Farmers Market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "north-central-texas-farmers-market-corporation-iii",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Weekly April to December; 2nd and 4th Saturdays January to March",
+    "hoursSourceNote": "Grapevine Convention & Visitors Bureau",
+    "hoursSourceUrl": "https://www.grapevinetexasusa.com/listing/farmers-market-of-grapevine/2377/",
+    "notes": "Same address as the Farmers Market of Grapevine (325 S Main St); treated as that market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pearl-brewery-farmers-market-association",
+    "website": "https://atpearl.com/weekend-market/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; a separate makers market runs Sundays",
+    "hoursSourceNote": "Pearl's own site and Visit San Antonio",
+    "hoursSourceUrl": "https://atpearl.com/weekend-market/",
+    "notes": "Duplicate USDA listing of pearl-farmers-market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pearl-farmers-market",
+    "website": "https://atpearl.com/weekend-market/",
+    "facebook": "https://www.facebook.com/pearlfarmersmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; a separate makers market runs Sundays",
+    "hoursSourceNote": "Pearl's own site and Visit San Antonio",
+    "hoursSourceUrl": "https://atpearl.com/weekend-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pearland-old-townsite-farmers-market",
+    "notes": "2nd and 4th Saturdays (some 5th), 8-12; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "permian-basin-farmers-market",
+    "notes": "Tue and Sat from 7 until sold out, but the newest source is 2022; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pflugerville-pfarmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Early May to late October, plus special market days in March, April, November and December",
+    "hoursSourceNote": "City of Pflugerville",
+    "hoursSourceUrl": "https://www.pflugervilletx.gov/717/Pfarmers-Market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pharrmers-market-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Yelp (updated March 2026) and VendorsMap 2026 listing",
+    "hoursSourceUrl": "https://www.yelp.com/biz/pharrmers-market-pharr",
+    "notes": "724 N Cage is the Thursday Pharrmers Market; the separate Saturday 'Farmers Market in Pharr' is a different market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "pica-pica-plaza-farmers-market",
+    "notes": "Conflicting: Wednesday 9-1 (San Antonio Food Bank) vs every Friday (a 2022 flyer). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "red-river-farmers-market",
+    "notes": "Tue/Thu/Sat 7:30-1 appears only on undated directory listings (newest 2024); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "richardson-farmers-market",
+    "notes": "Sources disagree (Sat 9-1 vs 10-2; seasonal changes reported). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "richland-chambers-lake-farmers-market",
+    "notes": "Listed as permanently closed by a directory; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "richland-hills-farmers-market",
+    "notes": "No hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "river-valley-farmers-market",
+    "notes": "No hours found; Elgin's current market is the Elgin Farmers' Market (Thursdays, separate listing)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "river-valley-farmers-market-2",
+    "notes": "No hours found; 1308 Chestnut St adjoins the Bastrop 1832 Farmers Market (1302 Chestnut), which may have replaced it."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "rose-city-farmers-market",
+    "website": "https://www.rosecityfarmersmarket.com/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April 4 to November 28, 2026; 2nd and 4th Saturdays 9-1 from December to March; now at 221 S Broadway Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rosecityfarmersmarket.com/faq",
+    "notes": "Older listing (7212 Old Jacksonville Hwy) for the Rose City Farmers Market, now at ETX Brewery, 221 S Broadway."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "rose-city-farmers-market-tyler",
+    "website": "https://www.rosecityfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/rosecityfarmersmarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April 4 to November 28, 2026; 2nd and 4th Saturdays 9-1 from December to March",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rosecityfarmersmarket.com/faq"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "round-rock-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, at 2111 IH-35 (Rock Creek)",
+    "hoursSourceNote": "Farmer George Farmers Markets",
+    "hoursSourceUrl": "https://farmergeorge.market/",
+    "notes": "Now at 2111 IH-35 rather than 201 University Oaks Blvd."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "round-top-farmers-market",
+    "notes": "No Round Top market found; the nearest listing is a La Grange farm market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "saha-farmers-market",
+    "notes": "Thursdays 10-1, March-December appears only on a 2025 directory listing; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "saint-michael-s-farmers-market",
+    "facebook": "https://www.facebook.com/SaintMichaelsMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April 18 to September 5, 2026, rain or shine",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://saintmichaelsmarket.com/location-hours/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "salado-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 4 to September 19, 2026, at Barrow Brewing Company",
+    "hoursSourceNote": "Discover Temple and the Salado Village Voice (2026)",
+    "hoursSourceUrl": "https://www.discovertemple.com/event/salado-farmers-market/3782/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sam-houston-high-school-farmers-market",
+    "notes": "The Eastside Pride Market: third Saturday of the month, 10-2; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-angelo-farmers-market",
+    "facebook": "https://www.facebook.com/Conchovalleyfarmersmarket/",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "11:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "11:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October",
+    "hoursSourceNote": "ConchoValleyHomepage.com, 2026 season opening",
+    "hoursSourceUrl": "https://www.conchovalleyhomepage.com/news/local-news/concho-valley-farmers-market-opens-for-2026-season/",
+    "notes": "Same address (609 S Oakes St) as the Concho Valley Farmers' Market; treated as that market."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-ii",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-iii",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-iv",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-v",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-vi",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-farmers-market-association-viii",
+    "notes": "Satellite site of the San Antonio Farmers Market Association, whose known market is Olmos Basin (100 Jackson Keller Rd, Tue and Sat). No current information for this address; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-antonio-food-bank-farmers-market",
+    "notes": "2026 schedule not stated clearly (one source: Fridays 10-1); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-marcos-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Downtown square",
+    "hoursSourceNote": "Visit San Marcos",
+    "hoursSourceUrl": "https://www.visitsanmarcos.com/things-to-do/shopping/farmers-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-marcos-new-braunfeis-farmers-market-assoc-ii",
+    "notes": "Association site in Buda; no current information."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "san-marcos-new-braunfels-farmers-market-association",
+    "notes": "Association site on C.M. Allen Pkwy; the current San Marcos market is Saturdays downtown (separate listing)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sealy-farmers-market",
+    "notes": "No 2026 hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "seguin-farmers-market-association",
+    "notes": "No hours found; Seguin's current Saturday market is the Austin Street Market (not in this directory)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sfc-farmers-market-at-sunset-valley",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine",
+    "hoursSourceNote": "Sustainable Food Center and Yelp (updated August 2026)",
+    "hoursSourceUrl": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sfc-farmers-market-east",
+    "notes": "Not among Sustainable Food Center's current markets (Downtown and Sunset Valley only, 2026); likely closed."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sherman-farmers-market",
+    "facebook": "https://www.facebook.com/shermanfarmersmarket/",
+    "notes": "Hours given as 9-4 with no day stated; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association-i",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association-ii",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association-iv",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association-v",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "south-texas-farmers-market-association-vi",
+    "notes": "South Texas Farmers Market Association site; no current hours found."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "star-farmers-market",
+    "notes": "A produce store; sources disagree (9-4 vs Mon/Tue/Fri 9-5). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "studebaker-farmers-market",
+    "notes": "No website, phone or hours found online."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sustainable-food-center-farmers-market-downtown",
+    "facebook": "https://www.facebook.com/SFCFarmersMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine, Republic Square",
+    "hoursSourceNote": "Sustainable Food Center and the City of Austin",
+    "hoursSourceUrl": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sustainable-food-center-farmers-market-sunset-valley",
+    "facebook": "https://www.facebook.com/SFCFarmersMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, rain or shine",
+    "hoursSourceNote": "Sustainable Food Center and Yelp (updated August 2026)",
+    "hoursSourceUrl": "https://sustainablefoodcenter.org/farmers-markets-support/sfc-farmers-markets/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "sweet-magnolia-market",
+    "notes": "Closed (Yelp, May 2025; Yellow Pages). Its domain is now an unrelated car blog."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "temple-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to September, West Temple Park behind Fire Station #7",
+    "hoursSourceNote": "City of Temple and Discover Temple",
+    "hoursSourceUrl": "https://www.discovertemple.com/things-to-do/outdoors/farmers-markets/",
+    "notes": "The city page recorded earlier no longer resolves (ci.temple.tx.us); no website recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "texarkana-texas-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to August 1, 2026, at the Downtown Post Office and Courthouse, 500 N Stateline Ave",
+    "hoursSourceNote": "City of Texarkana, Texas (2026 season notice)",
+    "hoursSourceUrl": "https://texarkanatexas.gov/CivicAlerts.aspx?AID=403"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "texas-farmers-market-at-lakeline",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, Lakeline Mall parking lot",
+    "hoursSourceNote": "Texas Farmers' Market's own site",
+    "hoursSourceUrl": "https://texasfarmersmarket.org/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "texas-farmers-market-at-mueller",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Branch Park Pavilion",
+    "hoursSourceNote": "Texas Farmers' Market's own site",
+    "hoursSourceUrl": "https://texasfarmersmarket.org/mueller"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "the-artisan-farmers-market",
+    "notes": "An online marketplace (open 24/7 for orders), not a market with opening hours; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "the-coupland-farmers-and-artisan-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Spring through fall, at the Coupland Depot and Museum",
+    "hoursSourceNote": "Do512 weekly listing and LocalHarvest",
+    "hoursSourceUrl": "https://family.do512.com/events/weekly/sun/the-coupland-farmers-artisan-market-tickets"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "the-groves-marketplace",
+    "notes": "Reported permanently closed and merged with the Fall Creek Farmers Market (Houston Chronicle); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "the-market-at-alhambra",
+    "notes": "519 S 17th St is now a closed restaurant; 'The Market @ McAllen' has moved to the McAllen Public Library. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "the-woodlands-farmer-s-market-at-gogan-s-mill",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Until noon June to September; rain or shine; closed the Saturday between Christmas and New Year",
+    "hoursSourceNote": "The Woodlands Township (2026) and Grogan's Mill Village Association",
+    "hoursSourceUrl": "https://www.thewoodlandstownship-tx.gov/Events-directory/2026/2026-The-Woodlands-Farmers-Market-summer-hours"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tomball-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, Old Town Tomball",
+    "hoursSourceNote": "Visit Tomball",
+    "hoursSourceUrl": "https://visittomball.com/tomball-farmers-market/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-i",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-ii",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-iii",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-iv",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-v",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-vi",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tri-county-farmers-market-association-vii",
+    "notes": "Tri-County Farmers Market Association site; only old directory hours (e.g. Mondays at 1015 Rittiman). Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "troy-farmers-market-arts-and-crafts",
+    "website": "https://www.cityoftroy.us/29737/farmers-market",
+    "notes": "The City of Troy page: first Saturday of the month, April-August, at 201 E Main St; not weekly, no hours recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "troy-farmers-market-arts-and-crafts-troy",
+    "website": "https://www.cityoftroy.us/29737/farmers-market",
+    "notes": "Duplicate of troy-farmers-market-arts-and-crafts; first Saturdays April-August, no weekly hours recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tyler-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 23 to August 29",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.tylerfarmersmarket.org/"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "tyler-farmers-market-association",
+    "notes": "2112 W Front St is the East Texas State Fair Farmers Market; sources conflict and the fairgrounds have moved. Nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "urban-harvest-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round; now at St. John's School, 2752 Buffalo Speedway",
+    "hoursSourceNote": "Urban Harvest and Visit Houston",
+    "hoursSourceUrl": "https://www.urbanharvest.org/urban-harvest-farmers-market/",
+    "notes": "Moved from 3000 Richmond Ave to 2752 Buffalo Speedway."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "victoria-farmers-market",
+    "notes": "Run by the Food Bank of the Golden Crescent at 2805 N Navarro; no market hours found (the site-wide schedule is the food bank's office hours)."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "waco-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (until noon in July and August); a Wednesday evening market also runs 5-8 pm",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://wacodowntownfarmersmarket.org/locations"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "washington-on-the-brazos-farmers-market",
+    "notes": "3rd Saturday of the month, March-July and September-November, 10-2; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "waxahachie-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Rain or shine, indoors; 9 a.m.-noon November to March. Now at 701 Howard Rd",
+    "hoursSourceNote": "City of Waxahachie and Waxahachie CVB (2026)",
+    "hoursSourceUrl": "https://www.waxahachietx.gov/323/Farmers-Market"
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "weimar-farmers-market",
+    "notes": "Second Saturday of the month, January-November, 8-12; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "west-island-farmers-market",
+    "notes": "Same address as the Galveston West End Farmers' Market (1st and 3rd Saturdays); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "west-village-farm-to-market",
+    "notes": "The Saturday market dates from 2011; West Village now runs 'The Night Crop', first Wednesday monthly April-October. Not weekly, nothing recorded; its old domain is for sale."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "westchase-district-farmers-market",
+    "notes": "Marked closed on Yelp (July 2026); nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "wharton-county-farmers-market",
+    "notes": "Saturday 9-12, spring to fall, but the newest source is March 2023; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "white-oak-farmers-market",
+    "notes": "Saturday 8-12 appears only on undated directory listings; nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "white-rock-local-market",
+    "notes": "2nd and 4th Saturdays, March-December, rotating between two sites; not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "wic-clinic-callaghan-farmers-market",
+    "notes": "San Antonio Food Bank WIC-clinic market, held one set weekday a month (e.g. 1st Thursday); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "wic-clinic-naco-perrin-farmers-market",
+    "notes": "San Antonio Food Bank WIC-clinic market, held one set weekday a month (e.g. 1st Thursday); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "wic-clinic-pecan-valley-farmers-market",
+    "notes": "San Antonio Food Bank WIC-clinic market, held one set weekday a month (e.g. 1st Thursday); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "wic-clinic-salinas-farmers-market",
+    "notes": "San Antonio Food Bank WIC-clinic market, held one set weekday a month (e.g. 1st Thursday); not weekly, nothing recorded."
+  },
+  {
+    "state": "TX",
+    "checked": "2026-09-14",
+    "slug": "winnsboro-farmers-market",
+    "website": "https://winnsborofarmersmarket.com/",
+    "facebook": "https://www.facebook.com/WinnsboroFarmersMarket/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to October; winter market the 2nd Saturday of the month, 9-noon, November to March",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://winnsborofarmersmarket.com/"
+  }
+]

@@ -410,6 +410,8 @@ export type Database = {
           note: string | null
           opens: string
           source: string
+          source_note: string | null
+          source_url: string | null
         }
         Insert: {
           closes: string
@@ -420,6 +422,8 @@ export type Database = {
           note?: string | null
           opens: string
           source?: string
+          source_note?: string | null
+          source_url?: string | null
         }
         Update: {
           closes?: string
@@ -430,6 +434,8 @@ export type Database = {
           note?: string | null
           opens?: string
           source?: string
+          source_note?: string | null
+          source_url?: string | null
         }
         Relationships: [
           {
@@ -485,9 +491,11 @@ export type Database = {
           address_text: string | null
           city: string | null
           created_at: string
+          facebook_url: string | null
           hours_text: string | null
           id: string
           image_path: string | null
+          image_rejected_source_url: string | null
           image_source_url: string | null
           image_url: string | null
           location: unknown
@@ -504,15 +512,19 @@ export type Database = {
           updated_at: string
           website_check_note: string | null
           website_checked_at: string | null
+          website_source: string | null
+          website_status: string | null
           website_url: string | null
         }
         Insert: {
           address_text?: string | null
           city?: string | null
           created_at?: string
+          facebook_url?: string | null
           hours_text?: string | null
           id?: string
           image_path?: string | null
+          image_rejected_source_url?: string | null
           image_source_url?: string | null
           image_url?: string | null
           location?: unknown
@@ -529,15 +541,19 @@ export type Database = {
           updated_at?: string
           website_check_note?: string | null
           website_checked_at?: string | null
+          website_source?: string | null
+          website_status?: string | null
           website_url?: string | null
         }
         Update: {
           address_text?: string | null
           city?: string | null
           created_at?: string
+          facebook_url?: string | null
           hours_text?: string | null
           id?: string
           image_path?: string | null
+          image_rejected_source_url?: string | null
           image_source_url?: string | null
           image_url?: string | null
           location?: unknown
@@ -554,6 +570,8 @@ export type Database = {
           updated_at?: string
           website_check_note?: string | null
           website_checked_at?: string | null
+          website_source?: string | null
+          website_status?: string | null
           website_url?: string | null
         }
         Relationships: []

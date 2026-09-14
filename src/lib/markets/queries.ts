@@ -13,8 +13,9 @@ import type { MarketHour } from "@/lib/markets/schedule";
  */
 
 const MARKET_COLUMNS =
-  "id, slug, name, state, city, address_text, postal_code, season_text, hours_text, website_url, phone, image_url, lng, lat";
-const HOURS_EMBED = "hours:market_hours(day_of_week, opens, closes, note, source)";
+  "id, slug, name, state, city, address_text, postal_code, season_text, hours_text, website_url, website_status, facebook_url, phone, image_url, lng, lat";
+const HOURS_EMBED =
+  "hours:market_hours(day_of_week, opens, closes, note, source, source_note, source_url)";
 
 /** PostgREST caps a response at 1000 rows on this project, so a state is read in pages of this. */
 const PAGE = 1000;
@@ -35,6 +36,10 @@ export interface MarketSummary {
   /** The source directory's free text. Null upstream far more often than not. */
   hoursText: string | null;
   websiteUrl: string | null;
+  /** The website scan's verdict on `websiteUrl`; render the link through `websiteToShow`. */
+  websiteStatus: string | null;
+  /** The market's Facebook page — a link only; render through `facebookToShow`. */
+  facebookUrl: string | null;
   phone: string | null;
   /** Our thumbnail copy of the market's own link-preview image, or null. */
   imageUrl: string | null;
@@ -54,12 +59,22 @@ type MarketRow = {
   season_text: string | null;
   hours_text: string | null;
   website_url: string | null;
+  website_status: string | null;
+  facebook_url: string | null;
   phone: string | null;
   image_url: string | null;
   lng: number | null;
   lat: number | null;
   hours?:
-    | { day_of_week: number; opens: string; closes: string; note: string | null; source: string }[]
+    | {
+        day_of_week: number;
+        opens: string;
+        closes: string;
+        note: string | null;
+        source: string;
+        source_note: string | null;
+        source_url: string | null;
+      }[]
     | null;
 };
 
@@ -75,6 +90,8 @@ function toSummary(row: MarketRow): MarketSummary {
     seasonText: row.season_text,
     hoursText: row.hours_text,
     websiteUrl: row.website_url,
+    websiteStatus: row.website_status,
+    facebookUrl: row.facebook_url,
     phone: row.phone,
     imageUrl: row.image_url,
     lng: row.lng,
@@ -84,7 +101,9 @@ function toSummary(row: MarketRow): MarketSummary {
       opens: h.opens,
       closes: h.closes,
       note: h.note,
-      source: h.source === "website" ? "website" : "admin",
+      source: h.source === "website" || h.source === "research" ? h.source : "admin",
+      sourceNote: h.source_note,
+      sourceUrl: h.source_url,
     })),
   };
 }

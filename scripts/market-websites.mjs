@@ -9,6 +9,8 @@
  *   node scripts/market-websites.mjs --state TX                         # every TX market with a site
  *   node scripts/market-websites.mjs --state TX --limit 20 --dry-run    # look, don't write
  *   node scripts/market-websites.mjs --state TX --recheck-days 0        # revisit even recent ones
+ *   node scripts/market-websites.mjs --state TX --retry-failed          # only unreachable / timed out / unsaved
+ *   node scripts/market-websites.mjs --state TX --status unrelated      # re-judge one verdict after a rule change
  *
  * Needs NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (read from .env.local), except for
  * --url. Uses sharp (installed with Next) to make the thumbnail.
@@ -38,9 +40,11 @@ import { createRequire } from "node:module";
 import {
   isSocialHost,
   openingHours,
+  pageVerdict,
   previewImage,
   robotsAllows,
   robotsRules,
+  siteKey,
   siteUrl,
 } from "./lib/market-site.mjs";
 
@@ -69,6 +73,12 @@ const ONE_URL = value("url");
 const STATE = value("state")?.toUpperCase();
 const LIMIT = Number(value("limit") ?? Infinity);
 const RECHECK_DAYS = Number(value("recheck-days") ?? 30);
+// Revisit only the visits that failed for reasons that may have been ours (our network, a blip on
+// their end) rather than a clear answer from the site — instead of re-crawling every site.
+const RETRY_FAILED = flag("retry-failed");
+// Revisit markets holding one verdict, whenever they were checked — for re-judging a verdict after
+// the rules behind it change (`--status unrelated`).
+const ONLY_STATUS = value("status");
 
 const SITE = env.NEXT_PUBLIC_SITE_URL || "https://harvestlocal.app";
 const USER_AGENT = `HarvestLocalBot/1.0 (+${SITE}; farmers market directory)`;
@@ -110,8 +120,14 @@ async function fetchCapped(url, { accept, maxBytes }) {
 
 const robotsCache = new Map();
 
-/** Whether we may fetch `url`. Cached per origin for the run. */
-async function mayFetch(url) {
+/**
+ * May we fetch `url`? Returns null for yes, or the note to record for no. Cached per origin.
+ *
+ * The three noes are kept apart because the note is what someone reads later to learn why a market
+ * has no picture: a site that is simply gone (DNS or connection failure — common, since the
+ * directory's addresses date back years) is not a site that asked us to stay away.
+ */
+async function refusal(url) {
   const origin = url.origin;
   if (!robotsCache.has(origin)) {
     robotsCache.set(
@@ -122,57 +138,97 @@ async function mayFetch(url) {
             accept: "text/plain",
             maxBytes: 512 * 1024,
           });
-          if (res.status >= 500) return [{ allow: false, path: "/" }];
-          if (!res.ok || !body) return [];
-          return robotsRules(body.toString("utf8"), USER_AGENT);
-        } catch {
-          return [{ allow: false, path: "/" }]; // unreachable: assume no
+          // RFC 9309 §2.3.1.4: a server error on robots.txt means assume complete disallow.
+          if (res.status >= 500) return { blocked: "robots.txt server error, treated as no" };
+          if (!res.ok || !body) return { rules: [] };
+          return { rules: robotsRules(body.toString("utf8"), USER_AGENT) };
+        } catch (err) {
+          return { blocked: err.name === "TimeoutError" ? "timed out" : "site unreachable" };
         }
       })(),
     );
   }
-  const rules = await robotsCache.get(origin);
-  return robotsAllows(rules, url.pathname + url.search);
+  const robots = await robotsCache.get(origin);
+  if (robots.blocked) return robots.blocked;
+  return robotsAllows(robots.rules, url.pathname + url.search) ? null : "robots.txt disallows";
 }
 
-/** Read one market's site. Returns { note, imageUrl?, imageBytes?, hours? } and writes nothing. */
-async function readSite(rawUrl) {
+const VERDICT_NOTES = {
+  parked: "domain for sale, not the market's",
+  taken_over: "domain taken over by spam, not the market's",
+  unrelated: "page does not mention the market",
+  unreadable: "page has too little text to read (built by JavaScript?)",
+};
+/** The verdicts that mean the site is not the market's any more — the link goes, and what we took. */
+const AGAINST = new Set(["unreachable", "parked", "taken_over", "unrelated"]);
+
+/**
+ * Read one market's site and write nothing. Returns `{ note, status, imageUrl?, imageBytes?,
+ * hours? }`, where `status` is the `website_status` verdict — or undefined when this visit says
+ * nothing either way (a 403, robots.txt, a timeout), which the caller must not treat as "gone".
+ */
+async function readSite(rawUrl, marketName, rejectedImage = null) {
   const url = siteUrl(rawUrl);
   if (!url) return { note: "website address unusable" };
   if (isSocialHost(url.hostname)) return { note: "social media page, not scanned" };
-  if (!(await mayFetch(url))) return { note: "robots.txt disallows" };
+  const pageRefused = await refusal(url);
+  if (pageRefused) {
+    return { note: pageRefused, status: pageRefused === "site unreachable" ? "unreachable" : undefined };
+  }
 
   let page;
   try {
     page = await fetchCapped(url, { accept: "text/html,application/xhtml+xml", maxBytes: PAGE_MAX_BYTES });
   } catch (err) {
-    return { note: err.name === "TimeoutError" ? "timed out" : "unreachable" };
+    return err.name === "TimeoutError"
+      ? { note: "timed out" }
+      : { note: "site unreachable", status: "unreachable" };
   }
-  if (!page.res.ok) return { note: `HTTP ${page.res.status}` };
+  if (!page.res.ok) {
+    const gone = page.res.status === 404 || page.res.status === 410;
+    return { note: `HTTP ${page.res.status}`, status: gone ? "unreachable" : undefined };
+  }
   if (!page.body) return { note: "page too large" };
   if (!/html/i.test(page.res.headers.get("content-type") ?? "")) return { note: "not an HTML page" };
 
   const finalUrl = page.res.url || url.toString();
   const html = page.body.toString("utf8");
-  const hours = openingHours(html);
+
+  // Before anything is taken from it: is this page still the market's? A lapsed domain's new
+  // owner supplies a preview image too, and in Texas two of them were gambling adverts.
+  const verdict = pageVerdict(html, finalUrl, marketName);
+  // "unreadable" clears any earlier verdict (status null: the link shows again) but takes nothing,
+  // because a page we could not read cannot confirm a picture or a schedule is the market's.
+  if (verdict === "unreadable") return { note: VERDICT_NOTES.unreadable, status: null };
+  if (verdict !== "ok") return { note: VERDICT_NOTES[verdict], status: verdict };
+
+  const hours = openingHours(html, marketName);
   const imageUrl = previewImage(html, finalUrl);
-  if (!imageUrl) return { note: "no preview image", hours };
+  // `noImage`: the site answered and has no usable picture — as opposed to a picture we failed to
+  // fetch this time, which must not wipe the one we already hold.
+  if (!imageUrl) return { note: "no preview image", status: "ok", hours, noImage: true };
+  if (imageUrl === rejectedImage) {
+    return { note: "image was rejected on review", status: "ok", hours, noImage: true };
+  }
 
   const img = new URL(imageUrl);
-  if (!(await mayFetch(img))) return { note: "robots.txt disallows the image", hours };
+  const imageRefused = await refusal(img);
+  if (imageRefused) return { note: `image: ${imageRefused}`, status: "ok", hours };
 
   await sleep(PAUSE_MS);
   let image;
   try {
     image = await fetchCapped(img, { accept: "image/avif,image/webp,image/png,image/jpeg,image/*", maxBytes: IMAGE_MAX_BYTES });
   } catch {
-    return { note: "image unreachable", hours };
+    return { note: "image unreachable", status: "ok", hours };
   }
   const type = image.res.headers.get("content-type") ?? "";
-  if (!image.res.ok || !image.body) return { note: `image HTTP ${image.res.status}`, hours };
-  if (!/^image\//i.test(type) || /svg/i.test(type)) return { note: "image not a photo format", hours };
+  if (!image.res.ok || !image.body) return { note: `image HTTP ${image.res.status}`, status: "ok", hours };
+  if (!/^image\//i.test(type) || /svg/i.test(type)) {
+    return { note: "image not a photo format", status: "ok", hours };
+  }
 
-  return { note: "ok", imageUrl, imageBytes: image.body, hours };
+  return { note: "ok", status: "ok", imageUrl, imageBytes: image.body, hours };
 }
 
 async function thumbnail(bytes) {
@@ -195,8 +251,11 @@ async function thumbnail(bytes) {
 // --- one URL, nothing written ----------------------------------------------
 
 async function inspectOne(rawUrl) {
-  const result = await readSite(rawUrl);
+  const name = value("name");
+  if (!name) console.log("(no --name: the page check and hours need the market's name)");
+  const result = await readSite(rawUrl, name ?? "");
   console.log(`note:  ${result.note}`);
+  console.log(`site:  ${result.status ?? "no verdict"}`);
   console.log(`image: ${result.imageUrl ?? "—"}`);
   if (result.imageBytes) {
     const thumb = await thumbnail(result.imageBytes);
@@ -221,9 +280,17 @@ async function scanDirectory() {
   for (let from = 0; ; from += 1000) {
     let q = db
       .from("markets")
-      .select("id, state, slug, name, website_url, website_checked_at, hours:market_hours(source)")
+      .select(
+        "id, state, slug, name, website_url, website_checked_at, website_check_note, image_path, image_rejected_source_url, hours:market_hours(source)",
+      )
       .not("website_url", "is", null)
-      .or(`website_checked_at.is.null,website_checked_at.lt."${cutoff}"`)
+      .or(
+        ONLY_STATUS
+          ? `website_status.eq.${ONLY_STATUS.replace(/[^a-z_]/g, "")}`
+          : RETRY_FAILED
+          ? "website_checked_at.is.null,website_check_note.ilike.*unreachable*,website_check_note.ilike.*timed out*"
+          : `website_checked_at.is.null,website_checked_at.lt."${cutoff}"`,
+      )
       .order("state")
       .order("slug")
       .range(from, from + 999);
@@ -237,6 +304,24 @@ async function scanDirectory() {
   if (todo.length === 0) {
     console.log("Nothing to do — no market with a website is due a visit.");
     return;
+  }
+
+  // How many markets, in any state, list each site. A page shared by several markets can still
+  // give the organiser's picture, but its schedule cannot be every one of those markets' schedule.
+  const siteCounts = new Map();
+  for (let from = 0; ; from += 1000) {
+    const { data, error } = await db
+      .from("markets")
+      .select("website_url")
+      .not("website_url", "is", null)
+      .order("id")
+      .range(from, from + 999);
+    if (error) throw new Error(error.message);
+    for (const row of data) {
+      const key = siteKey(row.website_url);
+      if (key) siteCounts.set(key, (siteCounts.get(key) ?? 0) + 1);
+    }
+    if (data.length < 1000) break;
   }
 
   // One queue per site, so a site is never hit by two requests at once.
@@ -253,9 +338,23 @@ async function scanDirectory() {
   let done = 0;
 
   async function handle(m) {
-    const result = await readSite(m.website_url);
-    const note = result.note;
-    const update = { website_checked_at: new Date().toISOString(), website_check_note: note };
+    const result = await readSite(m.website_url, m.name, m.image_rejected_source_url);
+    const update = { website_checked_at: new Date().toISOString(), website_check_note: result.note };
+
+    // What this visit means for what we already hold. A clear verdict against the site drops the
+    // picture and the website hours, because they came from a site that is no longer the market's.
+    // "ok" replaces them with whatever the site offers now. No verdict (a 403, robots.txt, a
+    // timeout) changes nothing: it is not news about the market.
+    const against = AGAINST.has(result.status);
+    if (result.status !== undefined) update.website_status = result.status;
+    if (against) result.hours = null;
+    const dropImage = against || result.noImage === true;
+    const replaceHours = result.status !== undefined;
+
+    if (dropImage && m.image_path) {
+      Object.assign(update, { image_path: null, image_url: null, image_source_url: null });
+      if (!DRY_RUN) await db.storage.from(BUCKET).remove([m.image_path]);
+    }
 
     if (result.imageBytes) {
       const thumb = await thumbnail(result.imageBytes).catch(() => null);
@@ -282,8 +381,17 @@ async function scanDirectory() {
     }
 
     const personEntered = (m.hours ?? []).some((h) => h.source !== "website");
-    if (result.hours && !personEntered && !DRY_RUN) {
+    const sharedBy = siteCounts.get(siteKey(m.website_url)) ?? 1;
+    if (result.hours && sharedBy > 1) {
+      update.website_check_note += `; hours not used, site shared by ${sharedBy} markets`;
+      result.hours = null;
+    }
+    // Website hours are replaced wholesale on any visit with a verdict — including by nothing, when
+    // the site stopped publishing them — and a person's rows are never touched.
+    if (replaceHours && !personEntered && !DRY_RUN) {
       await db.from("market_hours").delete().eq("market_id", m.id).eq("source", "website");
+    }
+    if (result.hours && replaceHours && !personEntered && !DRY_RUN) {
       const { error } = await db.from("market_hours").insert(
         result.hours.map((h) => ({
           market_id: m.id,

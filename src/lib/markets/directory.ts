@@ -85,6 +85,38 @@ export function safeWebsiteUrl(raw: string | null | undefined): string | null {
   }
 }
 
+/**
+ * The scan's verdicts that mean "this address is not the market's any more"
+ * (20260914120000_market_website_status.sql). A lapsed market domain in Texas was serving gambling
+ * spam, and the card was linking buyers to it.
+ */
+const NOT_THE_MARKETS = new Set(["unreachable", "parked", "taken_over", "unrelated"]);
+
+/**
+ * The website to link to, or null. Refused when unsafe (see `safeWebsiteUrl`) or when the last
+ * scan found the site gone or no longer the market's. A null status — never scanned, or a visit
+ * that could not decide (a 403, a timeout) — still links: no evidence it is wrong.
+ */
+export function websiteToShow(
+  raw: string | null | undefined,
+  status: string | null | undefined,
+): string | null {
+  if (status && NOT_THE_MARKETS.has(status)) return null;
+  return safeWebsiteUrl(raw);
+}
+
+/**
+ * A market's Facebook page as a link, or null. The value comes from the directory or research and
+ * lands in an `href`, so it must be http(s) (see `safeWebsiteUrl`) AND actually on Facebook — a
+ * field labelled "Facebook" pointing somewhere else is a mistake at best.
+ */
+export function facebookToShow(raw: string | null | undefined): string | null {
+  const url = safeWebsiteUrl(raw);
+  if (!url) return null;
+  const host = new URL(url).hostname.toLowerCase();
+  return /(^|\.)(facebook\.com|fb\.com|fb\.me)$/.test(host) ? url : null;
+}
+
 /** "aggielandfarmersmarket.org" — what the link says, so a reader knows where it goes. */
 export function websiteLabel(url: string): string {
   try {

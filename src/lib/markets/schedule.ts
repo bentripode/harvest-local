@@ -31,17 +31,49 @@ export interface MarketHour {
   opens: string; // "09:00" or "09:00:00"
   closes: string;
   note?: string | null;
-  /** Who said so: a person (`admin`), or the market's own site's schema.org hours (`website`). */
-  source?: "admin" | "website";
+  /**
+   * Who said so: a person (`admin`), the market's own site's schema.org hours (`website`), or
+   * research across other listings (`research`), which carries `sourceNote` / `sourceUrl`.
+   */
+  source?: "admin" | "website" | "research";
+  sourceNote?: string | null;
+  sourceUrl?: string | null;
+}
+
+export interface HoursProvenance {
+  source: "website" | "research";
+  /** Short, for a card: "from their website" / "from other listings". */
+  short: string;
+  /** For the market page, e.g. "Yelp, Nextdoor and a 2026 event listing". Research only. */
+  note: string | null;
+  url: string | null;
 }
 
 /**
- * True when every recorded slot came from the market's website rather than from a person. The
- * page says so beside the times, because a site can be years out of date and a buyer may drive on
- * the strength of it.
+ * Where the recorded hours came from, when it was not a person — so the page can say so beside the
+ * times, because a website can be years out of date, listings can disagree, and a buyer may drive
+ * on the strength of it. Null when a person entered them (or there are none).
  */
-export function hoursFromWebsite(hours: MarketHour[]): boolean {
-  return hours.length > 0 && hours.every((h) => h.source === "website");
+export function hoursProvenance(hours: MarketHour[]): HoursProvenance | null {
+  if (hours.length === 0) return null;
+  if (hours.every((h) => h.source === "website")) {
+    return { source: "website", short: "from their website", note: null, url: null };
+  }
+  if (hours.every((h) => h.source === "research")) {
+    const first = hours.find((h) => h.sourceNote) ?? hours[0];
+    return {
+      source: "research",
+      short: "from other listings",
+      note: first.sourceNote ?? null,
+      url: first.sourceUrl ?? null,
+    };
+  }
+  return null;
+}
+
+/** A season or other qualifier recorded with the hours ("February to November"), if any. */
+export function hoursNote(hours: MarketHour[]): string | null {
+  return hours.find((h) => h.note)?.note ?? null;
 }
 
 export function formatSpan(hour: MarketHour): string {
@@ -63,14 +95,41 @@ export function summarizeHours(hours: MarketHour[]): string[] {
     .map((h) => `${DAY_NAMES[h.dayOfWeek] ?? "—"} · ${formatSpan(h)}`);
 }
 
-/** A compact one-liner for a card: "Sat · 9:00 AM – 3:00 PM", or several days joined. */
+/** Monday-first position, so a weekend reads "Sat, Sun" and a working week is one run. */
+const mondayFirst = (day: number) => (day + 6) % 7;
+
+/** "Daily", "Mon–Fri", "Sat, Sun", "Tue, Thu": days that share a time span, as a reader says them. */
+function dayLabel(days: number[]): string {
+  const sorted = [...new Set(days)].sort((a, b) => mondayFirst(a) - mondayFirst(b));
+  if (sorted.length === 7) return "Daily";
+  const parts: string[] = [];
+  for (let i = 0; i < sorted.length; ) {
+    let j = i;
+    while (j + 1 < sorted.length && mondayFirst(sorted[j + 1]) === mondayFirst(sorted[j]) + 1) j++;
+    const run = sorted.slice(i, j + 1).map((d) => DAY_ABBR[d] ?? "—");
+    parts.push(run.length >= 3 ? `${run[0]}–${run[run.length - 1]}` : run.join(", "));
+    i = j + 1;
+  }
+  return parts.join(", ");
+}
+
+/**
+ * A compact one-liner for a card. Days sharing a time span are grouped — a market hall open every
+ * day reads "Daily · 10:00 AM – 7:00 PM", not seven repetitions of it — and groups past `max` are
+ * counted rather than silently dropped.
+ */
 export function shortSummary(hours: MarketHour[], max = 2): string | null {
   if (hours.length === 0) return null;
-  const sorted = [...hours].sort(byDayThenOpen);
-  const shown = sorted
-    .slice(0, max)
-    .map((h) => `${DAY_ABBR[h.dayOfWeek] ?? "—"} · ${formatSpan(h)}`);
-  const rest = sorted.length - shown.length;
+  const groups = new Map<string, number[]>();
+  for (const h of [...hours].sort(byDayThenOpen)) {
+    const span = formatSpan(h);
+    groups.set(span, [...(groups.get(span) ?? []), h.dayOfWeek]);
+  }
+  const ordered = [...groups.entries()].sort(
+    ([, a], [, b]) => Math.min(...a.map(mondayFirst)) - Math.min(...b.map(mondayFirst)),
+  );
+  const shown = ordered.slice(0, max).map(([span, days]) => `${dayLabel(days)} · ${span}`);
+  const rest = ordered.length - shown.length;
   return rest > 0 ? `${shown.join(", ")} +${rest} more` : shown.join(", ");
 }
 

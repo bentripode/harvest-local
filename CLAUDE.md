@@ -316,6 +316,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase migration new <name>` | New migration file |
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
+| `node scripts/import-markets.mjs --contacts --state TX` | Fill market websites + phones from the keyed USDA API (`USDA_API_KEY`); updates only, never clears. `--all-states`, `--file <saved.json>`, `--dry-run` |
 | `node scripts/market-websites.mjs --state TX` | Visit each market's own site: copy its link-preview image to `market-images`, read schema.org opening hours. Obeys robots.txt; `--url <site>` inspects one and writes nothing; `--dry-run`, `--limit`, `--recheck-days` |
 | `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
@@ -1365,11 +1366,59 @@ one clustered GeoJSON source, not a marker per market, and swaps data on search 
 rebuilding. `listing_desc` (stored as `season_text`) is the market describing itself, not a season:
 it is off the cards and on the market page as "About this market".
 
-**The USDA export carries no website, phone or hours.** Its JSON has 7,148 listings and none of
-those fields (`webscriping` is a "1" flag, not a URL) — the `media_website` / `season1time` names in
-`usda-format.mjs` are from the old CSV and the keyed API. So every market's `website_url` is null
-until a source that has them is imported, and the website scan (`scripts/market-websites.mjs`,
-`20260914110000`) has nothing to visit. When it does run: the picture is **only** the one the site
+**The USDA bulk export carries no website, phone or hours.** Its JSON has 7,148 listings and none
+of those fields (`webscriping` is a "1" flag, not a URL). The **keyed API** (`USDA_API_KEY`,
+`/api/farmersmarket/?apikey=…&state=XX`) has `media_website` and `contact_phone` — 143 and 125 of
+Texas's 209 — but still no hours, and its `listing_image` is USDA's placeholder for 202 of 209.
+`import-markets.mjs --contacts` fills those two columns **by listing id, UPDATE only, and only
+where the API has a value**: a re-import from the API would wipe descriptions it lacks (it has 6
+for Texas; the bulk file had dozens). The portal 504s for long stretches, so each state is retried a
+minute apart. The website scan (`scripts/market-websites.mjs`, `20260914110000`) then visits them.
+Its notes say what happened — "site unreachable" (common: the directory's addresses are years old)
+is kept apart from "robots.txt disallows". **A site listed for more than one market** (organisers
+reuse one address — Good Local Markets for White Rock and Lakewood Village) gives its picture but
+never its hours: one schedule on that page cannot be every one of those markets'.
+
+**A lapsed market domain is someone else's website, and the first Texas scan proved it.** Two
+served Indonesian gambling spam (one preview image a sexualised slot-machine advert), two were
+HugeDomains for-sale pages, one was a French car blog that kept "Sweet Magnolia Market" as its own
+brand — and the cards were linking buyers to all of them. So `pageVerdict()` runs before anything is
+taken from a page: `parked`, `taken_over` (a spam vocabulary chosen so "vendor slot" cannot trip
+it), `unrelated`, or `ok` — and `ok` needs "farmers market" or the market's distinctive words PLUS
+market vocabulary **after the market's own name is removed from the text**, which is what catches a
+buyer who kept the brand. The verdict lands in `markets.website_status` (`20260914120000`) and
+`websiteToShow()` stops linking to anything but `ok` or unknown. A page with under 500 characters of
+readable text is **`unreadable`, not `unrelated`** — the first version called twelve JavaScript-built
+sites (the Austin Farmers Market Association's among them) someone else's and hid their links;
+unreadable clears the status (link shown) and takes nothing. **Hours also need a JSON-LD node
+whose `name` identifies the market** (`nodeNamesMarket`): Victoria's listed page carried the Food Bank
+of the Golden Crescent's Monday-to-Friday office hours as site-wide schema, and the first rule
+("exactly one schedule") accepted them. **None of this replaces looking**: every one of these was
+found by reviewing a contact sheet of the thumbnails, not by a test, so a new state's pictures get
+looked at before they ship. A picture a person removes goes in `image_rejected_source_url` and the
+scan will not copy that exact image back.
+
+**Research fills what neither source has, and the file is the record.** `data/markets/research-<state>.json`
+(one entry per market: website, Facebook link, weekly hours, season, `hoursSourceNote` +
+`hoursSourceUrl`, `checked`, and `notes` for everything *not* recorded and why) is validated by
+`scripts/lib/market-research.mjs` and published by `scripts/apply-market-research.mjs`
+(`20260914130000`: `markets.facebook_url`, `website_source`, `market_hours.source = 'research'` +
+`source_note`/`source_url`). It never replaces a working USDA website, a person's hours or a site's
+own schema.org hours, and the page prints "From other listings (…; checked Sep 2026)" with the
+source linked. **Texas was researched in full on 2026-09-14** — 234 markets, 89 weekly schedules.
+The rules that kept it honest, all learnt on Texas: **hours only from a source that names this
+market and is recent** (2025–26; undated directory sites like LocalHarvest, Foraged or CropCart
+don't count on their own); **conflicting sources = no hours**, with the conflict in `notes`
+(Troy's city page describes the *other* Troy market); **monthly or biweekly markets get no hours**
+— `market_hours` is weekly, and "Saturday 8–12" on a 2nd-and-4th-Saturday market is a false
+promise on two Saturdays a month; **check a summary's dates against the calendar** (Bay City's
+"Sep 4–Dec 18" fell on Thursdays in 2025, not 2026); and **search summaries copy templates** —
+three unrelated towns came back with the identical six "select Saturday" dates. Duplicate USDA
+listings of one market get the same entry, marked in `notes`. **Facebook is linked, never
+collected**: facebook.com/robots.txt forbids automated collection, so a market whose only logo is
+on Facebook keeps the icon until someone adds one by hand.
+
+The picture is **only** the one the site
 offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
 480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
 `openingHours(Specification)`, only when the page has exactly one schedule that parses completely,

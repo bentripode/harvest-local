@@ -98,6 +98,110 @@ export function previewImage(html, pageUrl) {
   return null;
 }
 
+// --- is this page still the market's? -----------------------------------------
+
+/**
+ * Words that say nothing about WHICH market: every other listing is a "Downtown Community Farmers
+ * Market". What is left — "Dallas", "Mueller", "Victoria" — is what a page has to say to be about
+ * this market.
+ */
+const GENERIC = new Set([
+  "farmers", "farmer", "farmer's", "market", "markets", "the", "of", "at", "and", "a", "an", "on",
+  "in", "by", "community", "local", "downtown", "association", "assoc", "inc", "llc", "co", "s",
+]);
+
+function words(s) {
+  return String(s ?? "")
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean);
+}
+
+export function distinctiveTokens(name) {
+  return [...new Set(words(name).filter((w) => !GENERIC.has(w)))];
+}
+
+/** Page text a reader sees, for the checks below: markup, scripts and styles removed. */
+export function visibleText(html) {
+  return decodeEntities(
+    html
+      .replace(/<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>|<noscript\b[\s\S]*?<\/noscript>/gi, " ")
+      .replace(/<[^>]+>/g, " "),
+  ).replace(/\s+/g, " ");
+}
+
+const PARKING_HOSTS = /(^|\.)(hugedomains|sedo|sedoparking|afternic|dan|bodis|parkingcrew|above|undeveloped|domainmarket|buydomains)\.com$/i;
+const PARKED_TEXT = /\b(?:this )?domain(?: name)? (?:is|may be) for sale\b|\bbuy this domain\b|\bdomain has expired\b|\bis for sale\s*\|\s*hugedomains\b|\bthis domain is parked\b/i;
+// Expired market domains in this directory get bought for gambling spam, mostly Indonesian. These
+// are that vocabulary, chosen so an ordinary market page cannot trip them ("slot" alone is a vendor
+// slot; "slot gacor" is not).
+const SPAM_TEXT = /\b(?:togel|situs|gacor|maxwin|judi online|slot (?:online|deposit|gacor|resmi|thailand)|sbobet|bandar (?:togel|slot)|link alternatif)\b/i;
+
+/**
+ * What the page at a market's listed address is now:
+ *   - "parked"     a registrar's for-sale page — the domain lapsed.
+ *   - "taken_over" someone else's spam on the market's old domain.
+ *   - "unrelated"  a real page that never mentions this market or a farmers market (a car blog on
+ *                  a reused domain; a clinic; a city's homepage).
+ *   - "unreadable" too little text to say — built by JavaScript, or a bare redirect. No verdict.
+ *   - "ok"         mentions "farmers market", or names this market and uses market vocabulary.
+ * Only an "ok" page may give the market a picture or hours.
+ */
+export function pageVerdict(html, finalUrl, marketName) {
+  const host = (() => {
+    try {
+      return new URL(finalUrl).hostname;
+    } catch {
+      return "";
+    }
+  })();
+  const head = metaTags(html)
+    .filter((m) => /^(og:title|og:site_name|og:description|description|twitter:title)$/i.test(m.property ?? m.name ?? ""))
+    .map((m) => m.content)
+    .join(" ");
+  const title = decodeEntities(html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
+  const text = `${title} ${head} ${visibleText(html)}`;
+
+  if (PARKING_HOSTS.test(host) || PARKED_TEXT.test(text)) return "parked";
+  if (SPAM_TEXT.test(text)) return "taken_over";
+
+  // The market's own name is taken out before looking for market-ness, because a lapsed domain's
+  // buyer often keeps the old name as their brand: "Sweet Magnolia Market vous propose des analyses
+  // approfondies…" is a French car blog, and it says "market" only inside the name. Words are
+  // compared normalised, so "focfarmersmarket" (the old domain echoed on a spam page) never reads
+  // as the phrase "farmers market".
+  const all = words(text).join(" ");
+  const name = words(marketName).join(" ");
+  // A loop rather than one split: back-to-back copies of the name (a page whose title is also its
+  // first heading) share the space between them, and a single pass removes only every other one.
+  let rest = ` ${all} `;
+  while (name && rest.includes(` ${name} `)) rest = rest.replace(` ${name} `, " ");
+  const restWords = new Set(rest.split(" "));
+
+  if (/\bfarmers? markets?\b|\bfarmer s markets?\b/.test(rest)) return "ok";
+  // Too little text to judge: a page whose content is drawn by JavaScript, or a bare redirect. Half
+  // of Texas's "unrelated" verdicts were this — the Austin Farmers Market Association's own site
+  // among them. Not reading a page is not evidence it belongs to someone else.
+  if (visibleText(html).trim().length < MIN_READABLE_CHARS) return "unreadable";
+  const allWords = new Set(all.split(" "));
+  const named = distinctiveTokens(marketName).some((t) => allWords.has(t));
+  const context = MARKET_CONTEXT.some((w) => restWords.has(w));
+  return named && context ? "ok" : "unrelated";
+}
+
+const MIN_READABLE_CHARS = 500;
+
+/** What a market's own page talks about, beyond its name. A car blog uses none of these. */
+const MARKET_CONTEXT = [
+  "market", "markets", "mercado", "vendor", "vendors", "farm", "farms", "farmer", "farmers",
+  "growers", "produce", "vegetables", "fruit", "eggs", "honey", "baked", "artisan", "artisans",
+  "crafts", "handmade", "homegrown", "booth", "booths", "stall", "stalls", "ebt", "snap",
+];
+
 // --- opening hours -----------------------------------------------------------
 
 const DAY_INDEX = {
@@ -171,17 +275,34 @@ function fromOpeningHoursString(raw) {
 }
 
 /**
- * The weekly schedule a page publishes as schema.org data, or null.
- *
- * Refuses rather than guesses, in each of these cases: any entry that will not parse (one bad line
- * poisons the set — a half-read schedule reads as the whole one); an Event node (its times are the
- * event's, not the market's); and more than one node with hours, because an association's site
- * that lists three markets gives no way to know which schedule is this market's.
+ * Does a JSON-LD node's `name` identify this market? Its distinctive words and the market's must
+ * overlap, one set containing the other: "Dallas Farmers Market" names Dallas Farmers Market, and
+ * "Texas Farmers' Market" names Texas Farmers' Market at Mueller. A market whose name is nothing
+ * but generic words ("Farmers Market") can never be confirmed, so it never gets hours this way.
  */
-export function openingHours(html, today = new Date().toISOString().slice(0, 10)) {
+export function nodeNamesMarket(nodeName, marketName) {
+  const node = distinctiveTokens(nodeName);
+  const market = distinctiveTokens(marketName);
+  if (node.length === 0 || market.length === 0) return false;
+  const inMarket = node.every((t) => market.includes(t));
+  const inNode = market.every((t) => node.includes(t));
+  return inMarket || inNode;
+}
+
+/**
+ * The weekly schedule a page publishes as schema.org data for THIS market, or null.
+ *
+ * Refuses rather than guesses, in each of these cases: a node whose `name` does not identify the
+ * market (a site-wide Organization block is the owner's office hours — a food bank's Monday-to-
+ * Friday 8-4:30 is how this rule was found); any entry that will not parse (one bad line poisons
+ * the set — a half-read schedule reads as the whole one); an Event node (its times are the
+ * event's); and more than one matching node, because nothing then says which schedule is this one.
+ */
+export function openingHours(html, marketName, today = new Date().toISOString().slice(0, 10)) {
   const sets = [];
   for (const node of jsonLdNodes(html)) {
     if (typesOf(node).some((t) => /Event/i.test(t))) continue;
+    if (typeof node.name !== "string" || !nodeNamesMarket(node.name, marketName)) continue;
     const specs = node.openingHoursSpecification;
     const strings = node.openingHours;
     if (specs === undefined && strings === undefined) continue;
@@ -278,6 +399,20 @@ const SOCIAL = /(^|\.)(facebook|fb|instagram|twitter|x|tiktok|linkedin|youtube|p
 
 export function isSocialHost(hostname) {
   return SOCIAL.test(hostname);
+}
+
+/**
+ * One key per site, so "http://www.x.org/" and "x.org" are recognised as the same page. Used to
+ * find websites listed for more than one market: an organiser running three markets often gives
+ * the same address for all of them, and a single schedule on that page cannot be all three
+ * markets' schedule.
+ */
+export function siteKey(raw) {
+  const url = siteUrl(raw);
+  if (!url) return null;
+  const host = url.hostname.toLowerCase().replace(/^www\./, "");
+  const path = url.pathname.replace(/\/+$/, "").toLowerCase();
+  return host + path;
 }
 
 /** Same rules as `safeWebsiteUrl` in src/lib/markets/directory.ts: http(s) only, bare host → http. */

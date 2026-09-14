@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  apiRecords,
   buildIndex as buildIndexUntyped,
   clean,
+  contactFields,
   detectDelimiter,
   num,
   parseDelimited,
@@ -22,6 +24,35 @@ const buildIndex = buildIndexUntyped as (header: string[]) => FieldIndex;
  * slug rule that collides corrupts the directory invisibly. These cover the parts that fail
  * silently.
  */
+
+describe("apiRecords / contactFields (the keyed API)", () => {
+  it("unwraps { data: [...] } and a bare array, and refuses anything else", () => {
+    expect(apiRecords({ data: [{ listing_id: "1" }] })).toHaveLength(1);
+    expect(apiRecords([{ listing_id: "1" }])).toHaveLength(1);
+    expect(() => apiRecords({ error: "bad key" })).toThrow(/no listing array/);
+    expect(() => apiRecords(null)).toThrow();
+  });
+
+  it("returns only what is present — never an empty string that would clear a field", () => {
+    expect(
+      contactFields({ listing_id: 301213, media_website: "goodlocalmarkets.org", contact_phone: "" }),
+    ).toEqual({ sourceId: "301213", website: "goodlocalmarkets.org", phone: null, facebook: null });
+    expect(
+      contactFields({
+        listing_id: "5",
+        media_website: " null ",
+        contact_phone: "713-520-0443",
+        media_facebook: "https://www.facebook.com/HopeFarmsHTX",
+      }),
+    ).toEqual({
+      sourceId: "5",
+      website: null,
+      phone: "713-520-0443",
+      facebook: "https://www.facebook.com/HopeFarmsHTX",
+    });
+    expect(contactFields({}).sourceId).toBeNull();
+  });
+});
 
 describe("detectDelimiter", () => {
   it("picks pipe for the directory's own export", () => {

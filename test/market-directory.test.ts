@@ -2,12 +2,14 @@ import { describe, expect, it } from "vitest";
 
 import {
   directoryHref,
+  facebookToShow,
   filterMarkets,
   matchesMarket,
   parseQuery,
   parseView,
   safeWebsiteUrl,
   websiteLabel,
+  websiteToShow,
 } from "@/lib/markets/directory";
 
 const market = (over: Partial<Parameters<typeof matchesMarket>[0]> = {}) => ({
@@ -98,6 +100,39 @@ describe("safeWebsiteUrl", () => {
     expect(safeWebsiteUrl("localhost")).toBeNull();
     expect(safeWebsiteUrl("")).toBeNull();
     expect(safeWebsiteUrl(null)).toBeNull();
+  });
+});
+
+describe("websiteToShow", () => {
+  it("links when the site is fine or nobody has decided", () => {
+    expect(websiteToShow("https://market.org", "ok")).toBe("https://market.org/");
+    expect(websiteToShow("https://market.org", null)).toBe("https://market.org/");
+  });
+
+  it("stops linking to a site that is gone or no longer the market's", () => {
+    for (const status of ["unreachable", "parked", "taken_over", "unrelated"]) {
+      expect(websiteToShow("https://market.org", status)).toBeNull();
+    }
+  });
+
+  it("still refuses an unsafe address whatever the status", () => {
+    expect(websiteToShow("javascript:alert(1)", "ok")).toBeNull();
+  });
+});
+
+describe("facebookToShow", () => {
+  it("links a Facebook page, with or without a scheme", () => {
+    expect(facebookToShow("https://www.facebook.com/EveningMarketTroyTX/")).toBe(
+      "https://www.facebook.com/EveningMarketTroyTX/",
+    );
+    expect(facebookToShow("www.facebook.com/foroakcliff")).toBe("http://www.facebook.com/foroakcliff");
+  });
+
+  it("refuses anything that is not on Facebook, or not a web link", () => {
+    expect(facebookToShow("https://facebook.com.evil.example/x")).toBeNull();
+    expect(facebookToShow("https://example.org/facebook")).toBeNull();
+    expect(facebookToShow("javascript:alert(1)")).toBeNull();
+    expect(facebookToShow(null)).toBeNull();
   });
 });
 

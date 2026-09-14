@@ -72,6 +72,19 @@ describe("shortSummary", () => {
     ];
     expect(shortSummary(hours, 2)).toBe("Mon · 8:00 AM – 12:00 PM, Wed · 4:00 PM – 7:00 PM +1 more");
   });
+
+  it("says Daily for the same hours every day, instead of repeating them seven times", () => {
+    const daily = [0, 1, 2, 3, 4, 5, 6].map((d) => ({ dayOfWeek: d, opens: "10:00", closes: "19:00" }));
+    expect(shortSummary(daily)).toBe("Daily · 10:00 AM – 7:00 PM");
+  });
+
+  it("runs a working week together and keeps a weekend in reading order", () => {
+    const weekdays = [1, 2, 3, 4, 5].map((d) => ({ dayOfWeek: d, opens: "08:00", closes: "12:00" }));
+    const weekend = [0, 6].map((d) => ({ dayOfWeek: d, opens: "09:00", closes: "13:00" }));
+    expect(shortSummary([...weekend, ...weekdays])).toBe(
+      "Mon–Fri · 8:00 AM – 12:00 PM, Sat, Sun · 9:00 AM – 1:00 PM",
+    );
+  });
 });
 
 describe("nextOccurrence", () => {

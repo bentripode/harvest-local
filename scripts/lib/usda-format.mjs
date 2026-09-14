@@ -134,6 +134,40 @@ export const clean = (v) => {
   return s === "" || s.toLowerCase() === "null" ? null : s;
 };
 
+/** The 51 jurisdictions the compliance tables cover — the states the keyed API is asked about. */
+export const US_STATES = [
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA",
+  "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM",
+  "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA",
+  "WV", "WI", "WY",
+];
+
+/**
+ * The keyed API wraps its listings as `{ "data": [...] }`; the bulk export is a bare array. Either
+ * way, the records — or a refusal, so an error page is never read as "no markets".
+ */
+export function apiRecords(json) {
+  const records = Array.isArray(json) ? json : json?.data;
+  if (!Array.isArray(records)) {
+    throw new Error("USDA response has no listing array — was that an error page?");
+  }
+  return records;
+}
+
+/**
+ * The contact details the keyed API adds and the bulk export lacks, for filling in rows the bulk
+ * import already made. Only what is actually present: an absent website comes back null, and the
+ * caller must treat null as "no information" rather than "clear it".
+ */
+export function contactFields(record) {
+  return {
+    sourceId: clean(record?.listing_id == null ? null : String(record.listing_id)),
+    website: clean(record?.media_website),
+    phone: clean(record?.contact_phone),
+    facebook: clean(record?.media_facebook),
+  };
+}
+
 /**
  * A coordinate, or null. The null check is load-bearing: `Number(null)` is 0, so without it a
  * listing with no coordinates imports at 0°N 0°E — a point in the Gulf of Guinea that would then
