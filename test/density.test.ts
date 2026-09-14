@@ -85,8 +85,9 @@ describe("describeDensity — the thin-state case", () => {
     );
     expect(view.reachable).toHaveLength(0);
     expect(view.headline).toBe("Nobody within 75 miles of you.");
-    expect(view.detail).toContain("Amarillo");
-    expect(view.detail).toContain("200 mi away");
+    // Exact, not `toContain`: the containment checks passed for months over "1 seller in Texas. —
+    // the nearest is…", a full stop from `countSentence` landing in the middle of the sentence.
+    expect(view.detail).toBe("1 seller in Texas — the nearest is in Amarillo, 200 mi away.");
   });
 
   it("keeps the distant sellers in their own list rather than dropping them", () => {

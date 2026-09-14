@@ -130,7 +130,7 @@ export function describeDensity(sellers: NearbySeller[], stateName: string): Den
       unmeasured: false,
       headline: `Nobody within ${REGIONAL_MILES} miles of you.`,
       detail:
-        `${countSentence(distant.length, stateName)}${where}, ` +
+        `${countPhrase(distant.length, stateName)}${where}, ` +
         `${formatDistance(nearest?.distanceMiles ?? null) ?? "a long way"} away.`,
     };
   }
@@ -169,5 +169,10 @@ function buildDetail(
 
 function countSentence(n: number, stateName: string): string {
   if (n === 0) return `No sellers in ${stateName} yet.`;
-  return `${n} ${n === 1 ? "seller" : "sellers"} in ${stateName}.`;
+  return `${countPhrase(n, stateName)}.`;
+}
+
+/** The same count without the full stop, for when it opens a longer sentence. */
+function countPhrase(n: number, stateName: string): string {
+  return `${n} ${n === 1 ? "seller" : "sellers"} in ${stateName}`;
 }
