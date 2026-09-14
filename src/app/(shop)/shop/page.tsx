@@ -7,6 +7,13 @@ import { OriginPicker } from "@/components/origin-picker";
 import { SellerMap } from "@/components/seller-map";
 import { SellerAvatar } from "@/components/seller-avatar";
 import { createClient } from "@/lib/supabase/server";
+import { getCategories } from "@/lib/catalog";
+import {
+  emptyCategorySentence,
+  resolveCategory,
+  shopHref,
+  topLevelCategories,
+} from "@/lib/products/category-filter";
 import { stateName } from "@/lib/geo/state";
 import { getBrowseOrigin, getBrowseState } from "@/lib/geo/browse-state";
 import { formatDistance, getNearbySellers } from "@/lib/geo/nearby";
@@ -47,13 +54,18 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
   const view = sp?.view === "map" ? "map" : "list";
 
   // Ordering, distances and the state filter all come from SQL — see `nearby_sellers`.
-  const nearby = await getNearbySellers(state, origin);
+  const [nearby, allCategories] = await Promise.all([
+    getNearbySellers(state, origin),
+    getCategories(),
+  ]);
+  const categories = topLevelCategories(allCategories);
+  const category = resolveCategory(sp?.category, categories);
 
   const supabase = await createClient();
   // The card needs more than a title and a price: options decide the price, batches decide whether
   // there is anything to buy, and allergens are a safety fact that belongs on the shelf. All still
   // one round trip.
-  const { data: products } = await supabase
+  let productQuery = supabase
     .from("products")
     .select(
       `id, title, price, images, quantity_available, status, seller_id,
@@ -66,12 +78,10 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
       nearby.map((s) => s.sellerId),
     )
     .eq("status", "active");
+  if (category) productQuery = productQuery.eq("category_id", category.id);
+  const { data: products } = await productQuery;
 
   type GalleryRow = Product & { variants?: VariantLike[]; drops?: DropRow[] };
-
-  // Reachable vs merely-in-the-state. The list order stays the same; what changes is that a seller
-  // 200 miles away is no longer presented as a result.
-  const density = describeDensity(nearby, stateName(state));
 
   const bySeller = new Map<string, CardProduct[]>();
   for (const row of (products ?? []) as GalleryRow[]) {
@@ -91,17 +101,29 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
     bySeller.set(row.seller_id, list);
   }
 
+  // A category narrows the state's sellers to the ones with something in it — it never adds one,
+  // because the list is still `nearby_sellers(state)`. Density is then described over what is
+  // actually shown, so "3 sellers within 25 miles" under "Baked Goods" means three bakers.
+  const shown = category ? nearby.filter((s) => bySeller.has(s.sellerId)) : nearby;
+
+  // Reachable vs merely-in-the-state. The list order stays the same; what changes is that a seller
+  // 200 miles away is no longer presented as a result.
+  const density = describeDensity(shown, stateName(state));
+
   const hasSellers = nearby.length > 0;
+  const hasShown = shown.length > 0;
 
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <h1 className="text-2xl sm:text-3xl">Sellers in {stateName(state)}</h1>
+        <h1 className="text-2xl sm:text-3xl">
+          {category ? `${category.name} in ${stateName(state)}` : `Sellers in ${stateName(state)}`}
+        </h1>
         {/* The density sentence IS the subtitle. It used to sit in a block of its own under two
             rows of controls, below a generic line ("Nearest first.") that said less and was read
             first — see lib/geo/density.ts. In a thin state this is the honest answer and the list
             underneath is the footnote. */}
-        {hasSellers ? (
+        {hasShown ? (
           <>
             <p className="text-foreground">{density.headline}</p>
             {density.detail ? (
@@ -117,12 +139,18 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         <StatePicker current={state} hideLabel submitLabel="Change" />
         <OriginPicker current={origin?.label ?? null} />
         <div className="ml-auto flex gap-1" role="group" aria-label="View">
-          <ViewLink current={view} target="list">
+          <Chip
+            href={shopHref({ view: "list", category: category?.slug ?? null })}
+            active={view === "list"}
+          >
             List
-          </ViewLink>
-          <ViewLink current={view} target="map">
+          </Chip>
+          <Chip
+            href={shopHref({ view: "map", category: category?.slug ?? null })}
+            active={view === "map"}
+          >
             Map
-          </ViewLink>
+          </Chip>
         </div>
       </div>
 
@@ -131,6 +159,28 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
         <p className="text-muted-foreground -mt-3 text-xs">
           We guessed {stateName(state)} from your connection.
         </p>
+      ) : null}
+
+      {/* One row that scrolls sideways on a phone rather than wrapping into three, running to the
+          screen edge so it is visibly cut off rather than looking complete. Hidden until the state
+          has a seller, since every choice would lead to the same empty page. */}
+      {hasSellers ? (
+        <nav aria-label="Category" className="-mx-4 overflow-x-auto px-4 sm:-mx-6 sm:px-6">
+          <div className="flex w-max gap-1.5">
+            <Chip href={shopHref({ view, category: null })} active={!category}>
+              All
+            </Chip>
+            {categories.map((c) => (
+              <Chip
+                key={c.id}
+                href={shopHref({ view, category: c.slug })}
+                active={category?.id === c.id}
+              >
+                {c.name}
+              </Chip>
+            ))}
+          </div>
+        </nav>
       ) : null}
 
       {!hasSellers ? (
@@ -145,9 +195,17 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
           </Link>{" "}
           covers the whole state.
         </Empty>
+      ) : category && !hasShown ? (
+        // Not "no sellers yet" — there are sellers, just none with this. Saying the state is empty
+        // would be the density module's headline answering a question nobody asked.
+        <Empty title={emptyCategorySentence(category.name, stateName(state))}>
+          <Link href={shopHref({ view, category: null })} className="underline">
+            See everything in {stateName(state)}
+          </Link>
+        </Empty>
       ) : view === "map" ? (
         <SellerMap
-          sellers={nearby}
+          sellers={shown}
           token={env.NEXT_PUBLIC_MAPBOX_TOKEN ?? null}
           center={origin ? { lng: origin.lng, lat: origin.lat } : null}
         />
@@ -225,21 +283,20 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
   );
 }
 
-function ViewLink({
-  current,
-  target,
+function Chip({
+  href,
+  active,
   children,
 }: {
-  current: string;
-  target: "list" | "map";
+  href: string;
+  active: boolean;
   children: React.ReactNode;
 }) {
-  const active = current === target;
   return (
     <Link
-      href={target === "list" ? "/shop" : "/shop?view=map"}
+      href={href}
       aria-current={active ? "true" : undefined}
-      className={`rounded-full border px-3 py-1.5 text-sm no-underline ${
+      className={`shrink-0 rounded-full border px-3 py-1.5 text-sm whitespace-nowrap no-underline ${
         active ? "border-primary bg-primary/5 font-medium" : "hover:bg-muted/50"
       }`}
     >

@@ -1,0 +1,110 @@
+{
+  "/stock/category-baked-goods.jpg": {
+    "kind": "photo",
+    "pexelsId": 4444068,
+    "pexelsUrl": "https://www.pexels.com/photo/brown-bread-on-the-chipping-board-4444068/",
+    "author": "Hana Brannigan",
+    "authorUrl": "https://www.pexels.com/@thishanabee",
+    "alt": "Top view of freshly baked rustic bread on a wooden cutting board with a wooden spoon. Ideal for rustic food photography.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#A8998D",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-beverages.jpg": {
+    "kind": "photo",
+    "pexelsId": 792613,
+    "pexelsUrl": "https://www.pexels.com/photo/lemon-iced-tea-with-lemon-fruits-792613/",
+    "author": "Barbara Webb",
+    "authorUrl": "https://www.pexels.com/@texasgal51",
+    "alt": "Close-up of a refreshing iced tea with lemon slices and whole lemons on a wooden table.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#AD8F60",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-crafts-artisan-goods.jpg": {
+    "kind": "photo",
+    "pexelsId": 6755750,
+    "pexelsUrl": "https://www.pexels.com/photo/overhead-shot-of-candle-wax-on-a-person-s-hand-6755750/",
+    "author": "Vlada Karpovich",
+    "authorUrl": "https://www.pexels.com/@vlada-karpovich",
+    "alt": "A close-up of a hand holding candle wax, showcasing candle-making with natural ingredients.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#9E7358",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-dairy-eggs.jpg": {
+    "kind": "photo",
+    "pexelsId": 9331862,
+    "pexelsUrl": "https://www.pexels.com/photo/eggs-on-brown-wooden-bowl-9331862/",
+    "author": "Graham  Roy",
+    "authorUrl": "https://www.pexels.com/@graham-roy",
+    "alt": "Artistic still life of colorful eggs in a wooden bowl, showcasing natural beauty.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#775D46",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-flowers-plants.jpg": {
+    "kind": "photo",
+    "pexelsId": 8073069,
+    "pexelsUrl": "https://www.pexels.com/photo/a-bouquet-of-blooming-flowers-under-the-blue-sky-8073069/",
+    "author": "Yakup  Tuğ",
+    "authorUrl": "https://www.pexels.com/@yakup-tug-59970386",
+    "alt": "A colorful bouquet of wildflowers being held against a clear blue sky, showcasing vibrant spring blooms.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#8DA3AE",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-meat-seafood.jpg": {
+    "kind": "photo",
+    "pexelsId": 1314041,
+    "pexelsUrl": "https://www.pexels.com/photo/brown-wooden-chopping-board-with-meat-on-top-1314041/",
+    "author": "Fábio Bueno",
+    "authorUrl": "https://www.pexels.com/@fabio-bueno-560364",
+    "alt": "Top view of seasoned raw beef steak on wooden board with tongs, ready for cooking.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#C18B73",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-pantry-preserves.jpg": {
+    "kind": "photo",
+    "pexelsId": 38773865,
+    "pexelsUrl": "https://www.pexels.com/photo/close-up-of-natural-honeycomb-with-honey-38773865/",
+    "author": "Christian Toon",
+    "authorUrl": "https://www.pexels.com/@christian-toon-2163215954",
+    "alt": "Golden honeycomb close-up with honey dripping against a blurred background.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#A17F38",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/category-produce.jpg": {
+    "kind": "photo",
+    "pexelsId": 9540183,
+    "pexelsUrl": "https://www.pexels.com/photo/brown-woven-basket-with-apple-fruits-9540183/",
+    "author": "Nikolaeva Nastia",
+    "authorUrl": "https://www.pexels.com/@nikolaeva-nastia-3312562",
+    "alt": "A wicker basket filled with orange and white pumpkins lying on green grass in a natural setting.",
+    "width": 800,
+    "height": 800,
+    "avgColor": "#5F5742",
+    "downloaded": "2026-09-14"
+  },
+  "/stock/home-preserves-shelf.jpg": {
+    "kind": "photo",
+    "pexelsId": 35567499,
+    "pexelsUrl": "https://www.pexels.com/photo/homemade-preserves-in-mason-jars-on-wooden-shelf-35567499/",
+    "author": "Yasin Onuş",
+    "authorUrl": "https://www.pexels.com/@yasin-onus-520099596",
+    "alt": "Homemade preserves in mason jars neatly arranged on a rustic wooden shelf.",
+    "width": 2000,
+    "height": 1185,
+    "avgColor": "#6C472D",
+    "downloaded": "2026-09-14"
+  }
+}

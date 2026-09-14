@@ -291,6 +291,16 @@ Never write an order, or code a path that could write an order, that crosses sta
 - **Env vars** are validated in `src/lib/env.ts` (Zod). Server-only secrets never get the
   `NEXT_PUBLIC_` prefix. Read `process.env` through `env` so a missing var fails loudly at startup.
 - Keep the routing provider (Mapbox vs. Google) behind `src/lib/geo/` interfaces.
+- **Stock photos (Pexels) illustrate the marketplace, never a seller.** Home page, category tiles,
+  empty states, "sell with us" pages — yes. A product image, avatar, storefront banner or story
+  photo — never: a buyer reads a picture on a listing as *this seller's goods*, and a stock loaf is
+  somebody else's. Same for identifiable people — the Pexels licence forbids implying they endorse
+  anything, so a stock face is never captioned as a maker or a customer. Every file comes in through
+  `scripts/pexels.mjs`, which copies it into `public/` (no hotlinking) and records the author in
+  `src/lib/stock/credits.json`; `/credits` lists every one from that file, and a photo credits
+  inline where the layout allows. **Look at the full-size file before using it**: the preview
+  thumbnails hid a Vietnamese price list, a "VEGAN" sign, a brand on bread paper and a jam lid
+  stamped "EXP DATE 2023" — all found only at full size, all wrong for a food marketplace.
 
 ## Commands
 
@@ -306,6 +316,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase migration new <name>` | New migration file |
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
+| `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
 | `npx supabase gen types typescript --local > src/lib/db/database.types.ts` | Regenerate DB types |
 | `stripe listen --forward-to localhost:3000/api/webhooks/stripe` | Forward Stripe test webhooks locally |
@@ -335,6 +346,8 @@ src/lib/compliance/{blocks,publication,delivery}.ts   ComplianceBlock (message +
 src/lib/compliance/{obligations,obligation-queries}.ts   recurring-deadline arithmetic (pure) · what this seller owes and when
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
 src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) · the quick-view read
+src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narrows nearby_sellers(state), never widens it (pure)
+src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
 src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
