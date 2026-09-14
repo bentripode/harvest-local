@@ -409,6 +409,7 @@ export type Database = {
           market_id: string
           note: string | null
           opens: string
+          source: string
         }
         Insert: {
           closes: string
@@ -418,6 +419,7 @@ export type Database = {
           market_id: string
           note?: string | null
           opens: string
+          source?: string
         }
         Update: {
           closes?: string
@@ -427,6 +429,7 @@ export type Database = {
           market_id?: string
           note?: string | null
           opens?: string
+          source?: string
         }
         Relationships: [
           {
@@ -484,6 +487,9 @@ export type Database = {
           created_at: string
           hours_text: string | null
           id: string
+          image_path: string | null
+          image_source_url: string | null
+          image_url: string | null
           location: unknown
           name: string
           phone: string | null
@@ -496,6 +502,8 @@ export type Database = {
           state: string
           status: string
           updated_at: string
+          website_check_note: string | null
+          website_checked_at: string | null
           website_url: string | null
         }
         Insert: {
@@ -504,6 +512,9 @@ export type Database = {
           created_at?: string
           hours_text?: string | null
           id?: string
+          image_path?: string | null
+          image_source_url?: string | null
+          image_url?: string | null
           location?: unknown
           name: string
           phone?: string | null
@@ -516,6 +527,8 @@ export type Database = {
           state: string
           status?: string
           updated_at?: string
+          website_check_note?: string | null
+          website_checked_at?: string | null
           website_url?: string | null
         }
         Update: {
@@ -524,6 +537,9 @@ export type Database = {
           created_at?: string
           hours_text?: string | null
           id?: string
+          image_path?: string | null
+          image_source_url?: string | null
+          image_url?: string | null
           location?: unknown
           name?: string
           phone?: string | null
@@ -536,6 +552,8 @@ export type Database = {
           state?: string
           status?: string
           updated_at?: string
+          website_check_note?: string | null
+          website_checked_at?: string | null
           website_url?: string | null
         }
         Relationships: []
@@ -2953,6 +2971,14 @@ export type Database = {
       }
       is_platform_context: { Args: never; Returns: boolean }
       is_service_role: { Args: never; Returns: boolean }
+      lat: {
+        Args: { m: Database["public"]["Tables"]["markets"]["Row"] }
+        Returns: number
+      }
+      lng: {
+        Args: { m: Database["public"]["Tables"]["markets"]["Row"] }
+        Returns: number
+      }
       mark_conversation_read: {
         Args: { p_conversation_id: string }
         Returns: undefined

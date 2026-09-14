@@ -316,6 +316,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase migration new <name>` | New migration file |
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
+| `node scripts/market-websites.mjs --state TX` | Visit each market's own site: copy its link-preview image to `market-images`, read schema.org opening hours. Obeys robots.txt; `--url <site>` inspects one and writes nothing; `--dry-run`, `--limit`, `--recheck-days` |
 | `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
 | `npx supabase gen types typescript --local > src/lib/db/database.types.ts` | Regenerate DB types |
@@ -348,6 +349,9 @@ src/lib/products/labeling.ts           ingredients / allergens / net weight for 
 src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) · the quick-view read
 src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narrows nearby_sellers(state), never widens it (pure)
 src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
+src/lib/markets/{queries,schedule,directory}.ts   market reads (paged, with lng/lat) · hours arithmetic · search + safe website links (pure)
+src/components/market-{directory,map,card}.tsx    /markets search + list/map toggle · clustered Mapbox map · the card
+scripts/lib/market-site.mjs            og:image / schema.org hours / robots.txt readers for the website scan (pure)
 src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
@@ -1349,6 +1353,29 @@ asserted. The suite proves the fix blocks an acidified listing in Connecticut wh
 shelf-stable jam beside it through — Washington was the first choice for that test and is unusable,
 because its outright online ban means the control never reaches the axis check.
 
+
+**Phase 6 — the market directory: search, a map, and what markets say about themselves.**
+`/markets` and `/markets/<state>` share `MarketDirectory`: the server sends the whole state (608 at
+most, CA) and search filters it in the browser — every word must appear in the name, town, ZIP or
+address — with `?q=` / `?view=map` kept in the URL by `history.replaceState`. `getMarketsInState`
+used to `limit(200)`, which silently cut Texas (236) off at the letter S; it now pages past
+PostgREST's 1000-row cap. Coordinates come from the `lng` / `lat` **computed fields**
+(`20260914100000`) — invoker rights, so a hidden market cannot be located through them. The map is
+one clustered GeoJSON source, not a marker per market, and swaps data on search rather than
+rebuilding. `listing_desc` (stored as `season_text`) is the market describing itself, not a season:
+it is off the cards and on the market page as "About this market".
+
+**The USDA export carries no website, phone or hours.** Its JSON has 7,148 listings and none of
+those fields (`webscriping` is a "1" flag, not a URL) — the `media_website` / `season1time` names in
+`usda-format.mjs` are from the old CSV and the keyed API. So every market's `website_url` is null
+until a source that has them is imported, and the website scan (`scripts/market-websites.mjs`,
+`20260914110000`) has nothing to visit. When it does run: the picture is **only** the one the site
+offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
+480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
+`openingHours(Specification)`, only when the page has exactly one schedule that parses completely,
+written as `market_hours.source = 'website'`, and never over a person's (`admin`) rows. The card and
+the market page both say when hours came from the website. A market with no picture shows an icon —
+never a stock photo, which on a named market's card would read as that market.
 
 **Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
 (`20260908230000`) declared `address_id ... on delete set null` alongside

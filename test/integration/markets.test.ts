@@ -29,6 +29,7 @@ describeDb("markets RLS", () => {
           state: "TX",
           city: "Austin",
           status: "published",
+          location: "SRID=4326;POINT(-97.7431 30.2672)",
         },
         {
           slug: `it-hidden-${stamp}`,
@@ -36,6 +37,7 @@ describeDb("markets RLS", () => {
           state: "TX",
           city: "Austin",
           status: "hidden",
+          location: "SRID=4326;POINT(-97.75 30.25)",
         },
       ])
       .select("id, status");
@@ -69,6 +71,48 @@ describeDb("markets RLS", () => {
 
     const asBuyer = await buyer.db.from("markets").select("id").eq("id", hiddenId).maybeSingle();
     expect(asBuyer.data).toBeNull();
+  });
+
+  // `lng` / `lat` are computed fields (20260914100000) granted to anon — the functions-authz rule
+  // in CLAUDE.md applies, and this is where the market fixtures live.
+  it("gives a signed-out visitor a published market's coordinates", async () => {
+    const { data, error } = await anonDb()
+      .from("markets")
+      .select("id, lng, lat")
+      .eq("id", publishedId)
+      .maybeSingle();
+    expect(error).toBeNull();
+    const row = data as unknown as { lng: number; lat: number } | null;
+    expect(row?.lng).toBeCloseTo(-97.7431, 4);
+    expect(row?.lat).toBeCloseTo(30.2672, 4);
+  });
+
+  it("will not locate a hidden market through the computed fields", async () => {
+    const { data } = await anonDb()
+      .from("markets")
+      .select("id, lng, lat")
+      .eq("id", hiddenId)
+      .maybeSingle();
+    expect(data).toBeNull();
+  });
+
+  it("records who set a market's hours, defaulting to a person", async () => {
+    const db = adminDb();
+    const ok = await db
+      .from("market_hours")
+      .insert({ market_id: publishedId, day_of_week: 6, opens: "08:00", closes: "12:00" })
+      .select("source")
+      .single();
+    expect(ok.data?.source).toBe("admin");
+
+    const bad = await db.from("market_hours").insert({
+      market_id: publishedId,
+      day_of_week: 0,
+      opens: "08:00",
+      closes: "12:00",
+      source: "guessed",
+    });
+    expect(bad.error).not.toBeNull();
   });
 
   it("shows a hidden market to an admin", async () => {

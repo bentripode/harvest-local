@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { StatePicker } from "@/components/state-picker";
-import { MarketCard } from "@/components/market-card";
+import { MarketDirectory } from "@/components/market-directory";
+import { env } from "@/lib/env";
 import { getBrowseState } from "@/lib/geo/browse-state";
+import { parseQuery, parseView } from "@/lib/markets/directory";
 import { getMarketsInState } from "@/lib/markets/queries";
 import { stateName } from "@/lib/geo/state";
 
@@ -13,8 +15,8 @@ export const metadata: Metadata = {
     "Find farmers markets in your state — when they run, where they are, and which local sellers you can order from.",
 };
 
-export default async function MarketsPage() {
-  const { state, source } = await getBrowseState();
+export default async function MarketsPage({ searchParams }: PageProps<"/markets">) {
+  const [{ state, source }, sp] = await Promise.all([getBrowseState(), searchParams]);
 
   if (!state) {
     return (
@@ -37,11 +39,9 @@ export default async function MarketsPage() {
           <h1 className="text-2xl font-semibold tracking-tight">
             Farmers markets in {stateName(state)}
           </h1>
-          <p className="text-muted-foreground text-sm">
-            {markets.length > 0
-              ? `${markets.length} market${markets.length === 1 ? "" : "s"} we know about.`
-              : "Where local sellers set up in person."}
-          </p>
+          {markets.length === 0 ? (
+            <p className="text-muted-foreground text-sm">Where local sellers set up in person.</p>
+          ) : null}
           {source === "geo" ? (
             <p className="text-muted-foreground pt-1 text-xs">
               We guessed {stateName(state)} from your connection. Not right? Pick your state.
@@ -63,13 +63,14 @@ export default async function MarketsPage() {
           </p>
         </div>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {markets.map((m) => (
-            <li key={m.id}>
-              <MarketCard market={m} />
-            </li>
-          ))}
-        </ul>
+        <MarketDirectory
+          markets={markets}
+          stateName={stateName(state)}
+          basePath="/markets"
+          mapboxToken={env.NEXT_PUBLIC_MAPBOX_TOKEN ?? null}
+          initialView={parseView(sp?.view)}
+          initialQuery={parseQuery(sp?.q)}
+        />
       )}
     </div>
   );

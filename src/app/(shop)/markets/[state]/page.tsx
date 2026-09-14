@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-import { MarketCard } from "@/components/market-card";
+import { MarketDirectory } from "@/components/market-directory";
+import { env } from "@/lib/env";
+import { parseQuery, parseView } from "@/lib/markets/directory";
 import { getMarketsInState } from "@/lib/markets/queries";
 import { isUsState, stateName } from "@/lib/geo/state";
 
@@ -25,8 +27,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function StateMarketsPage({ params }: PageProps<"/markets/[state]">) {
-  const { state } = await params;
+export default async function StateMarketsPage({
+  params,
+  searchParams,
+}: PageProps<"/markets/[state]">) {
+  const [{ state }, sp] = await Promise.all([params, searchParams]);
   const code = state.toUpperCase();
   if (!isUsState(code)) notFound();
 
@@ -44,11 +49,11 @@ export default async function StateMarketsPage({ params }: PageProps<"/markets/[
 
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Farmers markets in {name}</h1>
-        <p className="text-muted-foreground text-sm">
-          {markets.length > 0
-            ? `${markets.length} market${markets.length === 1 ? "" : "s"} in our directory.`
-            : `We don't have any ${name} markets listed yet.`}
-        </p>
+        {markets.length === 0 ? (
+          <p className="text-muted-foreground text-sm">
+            We don&apos;t have any {name} markets listed yet.
+          </p>
+        ) : null}
       </div>
 
       {markets.length === 0 ? (
@@ -62,13 +67,14 @@ export default async function StateMarketsPage({ params }: PageProps<"/markets/[
           </p>
         </div>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {markets.map((m) => (
-            <li key={m.id}>
-              <MarketCard market={m} />
-            </li>
-          ))}
-        </ul>
+        <MarketDirectory
+          markets={markets}
+          stateName={name}
+          basePath={`/markets/${code.toLowerCase()}`}
+          mapboxToken={env.NEXT_PUBLIC_MAPBOX_TOKEN ?? null}
+          initialView={parseView(sp?.view)}
+          initialQuery={parseQuery(sp?.q)}
+        />
       )}
     </div>
   );

@@ -31,6 +31,17 @@ export interface MarketHour {
   opens: string; // "09:00" or "09:00:00"
   closes: string;
   note?: string | null;
+  /** Who said so: a person (`admin`), or the market's own site's schema.org hours (`website`). */
+  source?: "admin" | "website";
+}
+
+/**
+ * True when every recorded slot came from the market's website rather than from a person. The
+ * page says so beside the times, because a site can be years out of date and a buyer may drive on
+ * the strength of it.
+ */
+export function hoursFromWebsite(hours: MarketHour[]): boolean {
+  return hours.length > 0 && hours.every((h) => h.source === "website");
 }
 
 export function formatSpan(hour: MarketHour): string {

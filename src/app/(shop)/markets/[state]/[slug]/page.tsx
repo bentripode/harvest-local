@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -11,7 +12,8 @@ import { EventList, type ListedEvent } from "@/components/event-list";
 import { FollowButton } from "@/components/follow-button";
 import { getFollowerCount, isFollowing } from "@/lib/follows/queries";
 import { describePrepTime, summarizeSlots } from "@/lib/orders/pickup-schedule";
-import { summarizeHours } from "@/lib/markets/schedule";
+import { safeWebsiteUrl } from "@/lib/markets/directory";
+import { hoursFromWebsite, summarizeHours } from "@/lib/markets/schedule";
 import { isUsState, stateName } from "@/lib/geo/state";
 
 export async function generateMetadata({
@@ -63,6 +65,7 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
     market: e.market,
   }));
   const schedule = summarizeHours(market.hours);
+  const website = safeWebsiteUrl(market.websiteUrl);
   const directionsQuery = encodeURIComponent(
     [market.name, market.addressText, market.city, code, market.postalCode]
       .filter(Boolean)
@@ -83,11 +86,21 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
       </nav>
 
       <header className="space-y-2">
+        {market.imageUrl ? (
+          <div className="bg-muted relative size-24 overflow-hidden rounded-xl">
+            <Image
+              src={market.imageUrl}
+              alt={`${market.name}, from its website`}
+              fill
+              sizes="96px"
+              className="object-cover"
+            />
+          </div>
+        ) : null}
         <h1 className="text-2xl font-semibold tracking-tight">{market.name}</h1>
         <p className="text-muted-foreground text-sm">
           {market.city ? `${market.city}, ` : ""}
           {stateName(code)}
-          {market.seasonText ? ` · Season: ${market.seasonText}` : ""}
         </p>
         {/* Server-rendered summary is time-zone free; the "next open" line uses the reader's own
             clock, because at 8pm Pacific the server already thinks it's tomorrow. */}
@@ -109,16 +122,32 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         <section className="space-y-2 rounded-lg border p-5">
           <h2 className="text-lg">When it runs</h2>
           {schedule.length > 0 ? (
-            <ul className="space-y-1 text-sm">
-              {schedule.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
+            <>
+              <ul className="space-y-1 text-sm">
+                {schedule.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+              {/* Read from the market's own schema.org hours, not checked by a person. A site can
+                  be years out of date, and someone may drive here on the strength of it. */}
+              {hoursFromWebsite(market.hours) ? (
+                <p className="text-muted-foreground text-xs">
+                  From the market&apos;s website. Worth checking there before you travel.
+                </p>
+              ) : null}
+            </>
           ) : market.hoursText ? (
             <p className="text-sm">{market.hoursText}</p>
           ) : (
             <p className="text-muted-foreground text-sm">
-              We don&apos;t have opening times for this market. Check the market&apos;s own listing
+              We don&apos;t have opening times for this market.{" "}
+              {website ? (
+                <a href={website} target="_blank" rel="noopener noreferrer" className="underline">
+                  Check the market&apos;s website
+                </a>
+              ) : (
+                "Check the market's own listing"
+              )}{" "}
               before you travel.
             </p>
           )}
@@ -143,13 +172,8 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
             >
               Get directions
             </a>
-            {market.websiteUrl ? (
-              <a
-                href={market.websiteUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="underline"
-              >
+            {website ? (
+              <a href={website} target="_blank" rel="noreferrer noopener" className="underline">
                 Market website
               </a>
             ) : null}
@@ -157,6 +181,17 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
           </div>
         </section>
       </div>
+
+      {/* What the directory calls `listing_desc` — the market describing itself. It used to ride
+          on the subtitle as "Season: …", which it almost never is. */}
+      {market.seasonText ? (
+        <section className="space-y-2">
+          <h2 className="text-lg">About this market</h2>
+          <p className="text-muted-foreground max-w-prose text-sm whitespace-pre-line">
+            {market.seasonText}
+          </p>
+        </section>
+      ) : null}
 
       {/*
         What's on. Distinct from the opening hours above: `market_hours` is the market's standing
