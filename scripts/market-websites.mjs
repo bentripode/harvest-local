@@ -31,6 +31,7 @@
  *   - Read hours out of prose. Only schema.org openingHours / openingHoursSpecification, and only
  *     when the page has exactly one schedule that parses completely.
  *   - Touch hours a person entered. A market with any `source = 'admin'` row is left alone.
+ *   - Touch a picture a person uploaded on /admin/markets (`image_source = 'admin'`).
  */
 
 import { createHash } from "node:crypto";
@@ -240,12 +241,17 @@ async function thumbnail(bytes) {
   }
   const meta = await sharp(bytes).metadata();
   if (!meta.width || !meta.height || Math.min(meta.width, meta.height) < MIN_IMAGE_PX) return null;
-  return sharp(bytes)
+  const thumb = await sharp(bytes)
     .rotate()
     .resize(THUMB_PX, THUMB_PX, { fit: "inside", withoutEnlargement: true })
     .flatten({ background: "#ffffff" })
     .jpeg({ quality: 80, mozjpeg: true })
     .toBuffer();
+  // A white logo drawn on transparency flattens to a white square — six of them reached the CA,
+  // MN and MI cards before anyone looked. One flat colour is not a picture of anything. (Measured
+  // on the output: `stats()` on a pipeline reads the input, alpha channel and all.)
+  const { channels } = await sharp(thumb).stats();
+  return channels.every((c) => c.stdev < 4) ? "blank" : thumb;
 }
 
 // --- one URL, nothing written ----------------------------------------------
@@ -259,7 +265,13 @@ async function inspectOne(rawUrl) {
   console.log(`image: ${result.imageUrl ?? "—"}`);
   if (result.imageBytes) {
     const thumb = await thumbnail(result.imageBytes);
-    console.log(thumb ? `thumb: ${Math.round(thumb.length / 1024)} KB` : "thumb: image too small to use");
+    console.log(
+      thumb === "blank"
+        ? "thumb: one flat colour — not used"
+        : thumb
+          ? `thumb: ${Math.round(thumb.length / 1024)} KB`
+          : "thumb: image too small to use",
+    );
   }
   console.log(`hours: ${result.hours ? JSON.stringify(result.hours) : "— (none published as schema.org data)"}`);
 }
@@ -281,7 +293,7 @@ async function scanDirectory() {
     let q = db
       .from("markets")
       .select(
-        "id, state, slug, name, website_url, website_checked_at, website_check_note, image_path, image_rejected_source_url, hours:market_hours(source)",
+        "id, state, slug, name, website_url, website_checked_at, website_check_note, image_path, image_source, image_rejected_source_url, hours:market_hours(source)",
       )
       .not("website_url", "is", null)
       .or(
@@ -351,8 +363,18 @@ async function scanDirectory() {
     const dropImage = against || result.noImage === true;
     const replaceHours = result.status !== undefined;
 
-    if (dropImage && m.image_path) {
-      Object.assign(update, { image_path: null, image_url: null, image_source_url: null });
+    // A picture a person uploaded on /admin/markets is theirs to change, not the scan's: neither
+    // replaced nor cleared, whatever the site says now.
+    const personPicked = m.image_source === "admin";
+    if (personPicked) result.imageBytes = null;
+
+    if (dropImage && m.image_path && !personPicked) {
+      Object.assign(update, {
+        image_path: null,
+        image_url: null,
+        image_source_url: null,
+        image_source: null,
+      });
       if (!DRY_RUN) await db.storage.from(BUCKET).remove([m.image_path]);
     }
 
@@ -360,6 +382,8 @@ async function scanDirectory() {
       const thumb = await thumbnail(result.imageBytes).catch(() => null);
       if (!thumb) {
         update.website_check_note = "image too small or unreadable";
+      } else if (thumb === "blank") {
+        update.website_check_note = "image is one flat colour (a white logo on transparency?)";
       } else if (!DRY_RUN) {
         const path = `${m.state.toLowerCase()}/${m.slug}.jpg`;
         const { error } = await db.storage
@@ -375,6 +399,7 @@ async function scanDirectory() {
             image_path: path,
             image_url: `${data.publicUrl}?v=${v}`,
             image_source_url: result.imageUrl,
+            image_source: "website",
           });
         }
       }

@@ -496,6 +496,7 @@ export type Database = {
           id: string
           image_path: string | null
           image_rejected_source_url: string | null
+          image_source: string | null
           image_source_url: string | null
           image_url: string | null
           location: unknown
@@ -525,6 +526,7 @@ export type Database = {
           id?: string
           image_path?: string | null
           image_rejected_source_url?: string | null
+          image_source?: string | null
           image_source_url?: string | null
           image_url?: string | null
           location?: unknown
@@ -554,6 +556,7 @@ export type Database = {
           id?: string
           image_path?: string | null
           image_rejected_source_url?: string | null
+          image_source?: string | null
           image_source_url?: string | null
           image_url?: string | null
           location?: unknown
