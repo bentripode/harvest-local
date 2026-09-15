@@ -136,6 +136,16 @@ describeDb("nearby_sellers", () => {
       .eq("id", txSeller.id);
   });
 
+  /**
+   * An exhaustive allowlist, not a snapshot: the point is that adding a column to `nearby_sellers`
+   * turns this red until a person has confirmed the new one cannot carry a street address. Anon is
+   * the caller on purpose — this is what a signed-out visitor receives.
+   *
+   * `approx_lat` / `approx_lng` are rounded to two decimals (~1km) by the function itself, and
+   * `location_label` is a label ("Pickup"), never an address. `delivery_enabled` (boolean) and
+   * `delivery_radius_miles` (int) were added by the density work (20260909140000) so /shop can
+   * band sellers by reach rather than distance; `avatar_url` is a storage URL. None is an address.
+   */
   it("returns no column that could carry a street address", async () => {
     const { data } = await anonDb().rpc("nearby_sellers", { p_state: "TX" });
     const row = (data ?? [])[0];
@@ -144,8 +154,11 @@ describeDb("nearby_sellers", () => {
       [
         "approx_lat",
         "approx_lng",
+        "avatar_url",
         "avg_rating",
         "business_name",
+        "delivery_enabled",
+        "delivery_radius_miles",
         "distance_miles",
         "is_market",
         "location_label",

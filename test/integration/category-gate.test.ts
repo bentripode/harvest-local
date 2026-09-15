@@ -168,6 +168,16 @@ describeDb("food category gate", () => {
     expect(error).not.toBeNull();
   });
 
+  /**
+   * "Juice & Cider" could be acidified, refrigerated or neither, so it is left unmapped rather than
+   * guessed at — a wrong mapping either blocks legal trade or permits illegal trade.
+   *
+   * The produce categories used to be on this list. They left it when 20260909150000 set
+   * `requires_food_permit = false` for produce and its children: every state's cottage food law is
+   * defined by the act of preparing food in a home kitchen, so a raw agricultural commodity is
+   * outside it. They are still unmapped; they are simply no longer food-permit categories, so this
+   * query no longer reaches them.
+   */
   it("leaves the genuinely ambiguous categories unmapped rather than guessing", async () => {
     const { data } = await admin
       .from("categories")
@@ -177,12 +187,6 @@ describeDb("food category gate", () => {
       .filter((c) => (c.food_axes as string[]).length === 0)
       .map((c) => c.slug)
       .sort();
-    expect(unmapped).toEqual([
-      "beverages-juice-cider",
-      "produce",
-      "produce-fruit",
-      "produce-herbs",
-      "produce-vegetables",
-    ]);
+    expect(unmapped).toEqual(["beverages-juice-cider"]);
   });
 });
