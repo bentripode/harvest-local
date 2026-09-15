@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -15,7 +16,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export interface StateRule {
   stateCode: string;
-  revenueCap: string | null;
+  revenueCap: Money | null;
   requiresLicense: boolean;
   notes: string | null;
   verifiedAt: string | null;

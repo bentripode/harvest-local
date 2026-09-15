@@ -13,7 +13,7 @@ export default async function AdminStatesPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold tracking-tight">State cottage-food rules</h1>
+        <h1 className="text-2xl sm:text-3xl">State cottage-food rules</h1>
         <p className="text-muted-foreground text-sm">
           The annual gross-sales cap each seller is held to. When a seller crosses their state&apos;s
           cap, <code className="text-xs">record_order_revenue</code> pauses their storefront for the

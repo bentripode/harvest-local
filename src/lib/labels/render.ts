@@ -9,6 +9,7 @@
  * `state_label_rules.disclaimer_text`, and printed as-is at the point size the state names.
  */
 
+import type { Money } from "@/lib/money";
 import { formatAllergens, formatNetWeight } from "@/lib/products/labeling";
 
 /** The vocabulary in `state_label_rules.required_elements`. */
@@ -135,7 +136,7 @@ export interface LabelSource {
   /** The producer's state, spelled out. Only used where a state asks for it beside the town. */
   stateName: string | null;
   ingredients: string[];
-  netWeightValue: string | null;
+  netWeightValue: Money | null;
   netWeightUnit: string | null;
   allergens: string[];
   /** Per-batch, entered at print time rather than stored on the product. */
@@ -243,6 +244,16 @@ const NO_CAPTION = new Set<LabelElement>([
 
 function isElement(value: string): value is LabelElement {
   return value in ELEMENT_LABEL;
+}
+
+/**
+ * The reader-facing name for an element key. Shared with the public cottage-food guide, so the
+ * words a seller sees on the label sheet and the words a stranger reads on the state page are the
+ * same words. An unrecognised key is returned as-is rather than dropped — a rule naming an element
+ * we don't model should be visible, not silently shorter.
+ */
+export function elementLabel(key: string): string {
+  return isElement(key) ? ELEMENT_LABEL[key] : key;
 }
 
 /**

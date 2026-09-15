@@ -14,6 +14,10 @@ import { programReviewScan } from "@/lib/inngest/functions/program-review-scan";
 import { obligationReminders } from "@/lib/inngest/functions/obligation-reminders";
 import { complianceChangeSweep } from "@/lib/inngest/functions/compliance-change-sweep";
 import { sourceWatch } from "@/lib/inngest/functions/source-watch";
+import {
+  followedSellerListed,
+  followedMarketGainedSeller,
+} from "@/lib/inngest/functions/follow-notify";
 
 /**
  * The endpoint Inngest calls to run our functions. `serve` verifies the request signature
@@ -36,5 +40,7 @@ export const { GET, POST, PUT } = serve({
     obligationReminders,
     complianceChangeSweep,
     sourceWatch,
+    followedSellerListed,
+    followedMarketGainedSeller,
   ],
 });

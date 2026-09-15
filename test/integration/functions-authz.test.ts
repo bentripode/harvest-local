@@ -2,6 +2,7 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 
 import {
   adminDb,
+  anonDb,
   cleanupAll,
   createOrder,
   createSeller,
@@ -212,5 +213,117 @@ describeDb("SECURITY DEFINER authorization", () => {
       p_seller_id: "00000000-0000-0000-0000-000000000000",
     });
     expect(error).not.toBeNull();
+  });
+
+  // -- order_pickup_address (a party to the order, and only after payment) ---
+  //
+  // It hands out an address that `addresses` RLS keeps owner-only, and for a cottage seller that
+  // address is their house. Two ways to get it wrong: give it to a stranger, or give it away before
+  // the sale.
+  it("refuses order_pickup_address to someone who isn't a party to the order", async () => {
+    const { error } = await stranger.db.rpc("order_pickup_address", { p_order_id: order.id });
+    expect(error).not.toBeNull();
+    expect(error!.message).toMatch(/not a party/i);
+  });
+
+  it("refuses order_pickup_address anonymously", async () => {
+    const { error } = await anonDb().rpc("order_pickup_address", { p_order_id: order.id });
+    expect(error).not.toBeNull();
+  });
+
+  // -- set_seller_vacation (the owner, and only the owner) ------------------
+  //
+  // It moves is_paused, which is the single lever every compliance gate hangs off, so a hole here
+  // would let one seller close another's shop.
+  it("set_seller_vacation refuses a storefront the caller does not own", async () => {
+    const { error } = await buyer.db.rpc("set_seller_vacation", {
+      p_seller_id: seller.id,
+      p_on: true,
+    });
+    expect(error).not.toBeNull();
+    expect(error!.message).toMatch(/not your storefront/i);
+  });
+
+  it("set_seller_vacation is not reachable anonymously", async () => {
+    const { error } = await anonDb().rpc("set_seller_vacation", {
+      p_seller_id: seller.id,
+      p_on: true,
+    });
+    expect(error).not.toBeNull();
+  });
+
+  // -- pre-order batches (service-role only) --------------------------------
+  //
+  // These three move `units_claimed`, which is the record of real orders against a real oven.
+  // Reachable by a client, they would let anyone claim out a rival's batch or hand themselves back
+  // units they never paid for. The batch-specific behaviour lives in product-drops.test.ts; this is
+  // the standing check that the grants have not widened.
+  const NO_SUCH_DROP = "00000000-0000-0000-0000-000000000000";
+
+  it("claim_drop_units is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("claim_drop_units", {
+        p_drop_id: NO_SUCH_DROP,
+        p_units: 1,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
+  it("release_drop_units is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("release_drop_units", {
+        p_drop_id: NO_SUCH_DROP,
+        p_units: 1,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
+  it("release_drop_units_for_order is not reachable by a client", async () => {
+    for (const db of [buyer.db, anonDb()]) {
+      const { error } = await db.rpc("release_drop_units_for_order", {
+        p_order_id: NO_SUCH_DROP,
+      });
+      expect(error?.code).toBe("42501");
+    }
+  });
+
+  // -- the market importer (service-role only) ------------------------------
+  //
+  // upsert_market is SECURITY DEFINER and writes the public market directory, so a hole here would
+  // let any signed-in user publish a page under our domain.
+  //
+  // Every argument has to be supplied. Only `p_source_updated_at` has a default, so a partial call
+  // matches no overload and PostgREST answers PGRST202 — which is an error, and which an earlier
+  // version of these two tests accepted as proof of a locked-down function. It proved nothing.
+  // Asserting 42501 specifically is what makes them fail if the grant is ever widened.
+  const marketArgs = (tag: string) => ({
+    p_source: "usda",
+    p_source_id: `authz-probe-${tag}-${Date.now()}`,
+    p_slug: `authz-probe-${tag}`,
+    p_name: "Authz Probe Market",
+    p_state: "TX",
+    p_city: "Austin",
+    p_address: "1 Probe Street",
+    p_postal: "78704",
+    p_lng: -97.75,
+    p_lat: 30.27,
+    p_season: "Year round",
+    p_hours: "Sat 9-1",
+    p_website: "https://example.test",
+    p_phone: "512-555-0100",
+  });
+
+  it("upsert_market is not reachable by an authenticated client", async () => {
+    const { error } = await buyer.db.rpc("upsert_market", marketArgs("auth"));
+    expect(error).not.toBeNull();
+    expect(error!.code).toBe("42501");
+  });
+
+  it("upsert_market is not reachable anonymously", async () => {
+    const { error } = await anonDb().rpc("upsert_market", marketArgs("anon"));
+    expect(error).not.toBeNull();
+    expect(error!.code).toBe("42501");
   });
 });

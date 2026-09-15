@@ -291,6 +291,16 @@ Never write an order, or code a path that could write an order, that crosses sta
 - **Env vars** are validated in `src/lib/env.ts` (Zod). Server-only secrets never get the
   `NEXT_PUBLIC_` prefix. Read `process.env` through `env` so a missing var fails loudly at startup.
 - Keep the routing provider (Mapbox vs. Google) behind `src/lib/geo/` interfaces.
+- **Stock photos (Pexels) illustrate the marketplace, never a seller.** Home page, category tiles,
+  empty states, "sell with us" pages — yes. A product image, avatar, storefront banner or story
+  photo — never: a buyer reads a picture on a listing as *this seller's goods*, and a stock loaf is
+  somebody else's. Same for identifiable people — the Pexels licence forbids implying they endorse
+  anything, so a stock face is never captioned as a maker or a customer. Every file comes in through
+  `scripts/pexels.mjs`, which copies it into `public/` (no hotlinking) and records the author in
+  `src/lib/stock/credits.json`; `/credits` lists every one from that file, and a photo credits
+  inline where the layout allows. **Look at the full-size file before using it**: the preview
+  thumbnails hid a Vietnamese price list, a "VEGAN" sign, a brand on bread paper and a jam lid
+  stamped "EXP DATE 2023" — all found only at full size, all wrong for a food marketplace.
 
 ## Commands
 
@@ -306,6 +316,9 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `npx supabase migration new <name>` | New migration file |
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
+| `node scripts/import-markets.mjs --contacts --state TX` | Fill market websites + phones from the keyed USDA API (`USDA_API_KEY`); updates only, never clears. `--all-states`, `--file <saved.json>`, `--dry-run` |
+| `node scripts/market-websites.mjs --state TX` | Visit each market's own site: copy its link-preview image to `market-images`, read schema.org opening hours. Obeys robots.txt; `--url <site>` inspects one and writes nothing; `--dry-run`, `--limit`, `--recheck-days` |
+| `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
 | `npx supabase gen types typescript --local > src/lib/db/database.types.ts` | Regenerate DB types |
 | `stripe listen --forward-to localhost:3000/api/webhooks/stripe` | Forward Stripe test webhooks locally |
@@ -323,7 +336,10 @@ src/lib/supabase/{client,server,admin}.ts   browser / server / service-role clie
 src/lib/stripe/{client,config,checkout}.ts  Stripe SDK · price/coupon constants · Checkout builder
 src/lib/money.ts                       server-side money helpers (cents)
 src/lib/geo/{state,address,geocode,routing}.ts   geofence predicate · address schema/format · Mapbox geocoding · routing interface
+src/lib/geo/density.ts                 reachability bands + the honest headline for a thin state (pure)
 src/lib/orders/{pricing,status,queries,delivery}.ts   server re-pricing · status map · order reads · delivery-fee quote
+src/lib/orders/{drops,drop-queries}.ts   pre-order batches: state + copy + the sell-by-batch gate (pure) · reads
+src/lib/events/{schedule,queries}.ts   wall-clock event arithmetic (pure) · state / market / seller reads
 src/lib/compliance.ts                  revenue-status / license / notification reads
 src/lib/licenses/{queries,labels,requirements}.ts   admin queue reads · type labels · the required document set + checklist
 src/lib/crypto/secret-box.ts           AES-256-GCM keyring for the tax ID · rotation (no in-app decrypt path)
@@ -331,9 +347,19 @@ src/lib/compliance/{programs,food-sales,categories,onboarding}.ts   programs · 
 src/lib/compliance/{blocks,publication,delivery}.ts   ComplianceBlock (message + citation + source) · the predisclosure publish gate · delivery-by-programme
 src/lib/compliance/{obligations,obligation-queries}.ts   recurring-deadline arithmetic (pure) · what this seller owes and when
 src/lib/products/labeling.ts           ingredients / allergens / net weight for the label
+src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) · the quick-view read
+src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narrows nearby_sellers(state), never widens it (pure)
+src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
+src/lib/markets/{queries,schedule,directory}.ts   market reads (paged, with lng/lat) · hours arithmetic · search + safe website links (pure)
+src/components/market-{directory,map,card}.tsx    /markets search + list/map toggle · clustered Mapbox map · the card
+scripts/lib/market-site.mjs            og:image / schema.org hours / robots.txt readers for the website scan (pure)
+src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
 src/lib/labels/{render,queries}.ts     label composition (pure) · loading the rule + product + seller · describeListingGaps
 src/lib/admin/state-rules.ts           per-state cottage-food rules for the admin editor
 src/lib/analytics/queries.ts           seller dashboard stats (revenue/AOV/fulfillment/top products from orders)
+src/lib/payouts/{format,queries}.ts    payout status + copy (pure) · the mirror read · Stripe read-through
+src/lib/stories/{select,queries}.ts    daily rotation + excerpt (pure) · home / storefront reads
+src/lib/launch/{checklist,templates,queries}.ts   derived launch steps · copy that passes the claim screen · the counts
 src/lib/reviews/queries.ts             seller reviews + rating summary reads
 src/lib/messages/queries.ts            conversation list / thread / unread-count reads
 src/app/messages/                      buyer↔seller inbox + thread (own layout, both roles)
@@ -951,3 +977,481 @@ because a seller who trusts it stops looking. Completion is self-reported; the s
 `revalidatePath("/", "layout")`. `public` removes the home-page early-access notice and swaps the
 logged-out CTA to "Sign up to shop" / "Sell on Harvest Local" (`sellers_only` → "Start selling" /
 "Sign in"). `access_mode` is presentational only — nothing hard-gates buyers from `/shop`.
+
+
+**Phase 6 — pre-orders and limited batches ("drops").** A cottage baker's core problem is baking to
+demand rather than to guess, and `quantity_available` is an open-ended shelf, not a batch with a
+deadline. `product_drops` (`20260908340000`) is one bake of one listing: an order window
+(`opens_at`/`closes_at`, timestamptz), a collection date (`fulfillment_date`, a DATE), and a hard
+`unit_cap`.
+
+**The governing rule is that it must UNDER-sell, never over-sell.** The cap is not a stock level, it
+is a physical fact — a seller handed a twenty-first order for a twenty-loaf bake cannot solve it at
+6am on Saturday, while one who sold nineteen can take the twentieth by hand. Everything is arranged
+so a failure strands units (recoverable) rather than selling them twice (not):
+
+- `units_claimed` is a counter with `product_drops_within_cap` (`units_claimed <= unit_cap`) against
+  it, incremented by **`claim_drop_units`** under a `select ... for update` row lock. Two buyers
+  racing for the last loaf serialise and the loser is refused by the constraint, not by a count read
+  a moment before the winner committed. Counting live order rows instead would be prettier and would
+  lose that race, because the order rows are written in a later statement than the count.
+- The claim is taken **before** the order is written, so a Stripe failure cannot leave a claimed unit
+  with no order. `claim_drop_units` **raises** rather than returning false, so a caller that forgets
+  to check still cannot oversell.
+- Two releases, and using the wrong one oversells. **`release_drop_units_for_order`** is keyed on an
+  ORDER and made idempotent by clearing `drop_id` off the items as it goes — that is the one for the
+  Stripe webhook's `unwindOrder` and for a seller cancelling, both of which run twice (rule 2).
+  **`release_drop_units(drop, units)`** (`20260908350000`) is the compensating path for a checkout
+  whose write failed after the claim, when there is no order to key on; it is deliberately **not**
+  idempotent and must never be the webhook's.
+
+**A listing with a batch sells ONLY through it, and goes quiet between batches** (`gateByDrops`).
+Falling back to ordinary open-ended selling once a window shuts is the oversell the whole feature
+exists to prevent: the baker caps Saturday at twenty, the window closes Thursday night, and on Friday
+someone buys five more with no batch and no collection date attached. Cancelling every batch is what
+takes a listing back out of batch mode. The cost — a listing that goes quiet until the next batch is
+scheduled — is the direction to fail in, and `DropsManager` says so in as many words.
+
+**One live window per listing**, enforced by a GiST exclusion constraint
+(`product_drops_no_overlap`, `product_id` + `tstzrange(opens_at, closes_at)`, `where cancelled_at is
+null`) rather than by convention: two overlapping windows have no answer to "which batch is this
+order for", and that ambiguity reaches the buyer as a wrong collection date.
+
+**`units_claimed` is frozen against the seller** (`product_drops_guard_claims`, alongside
+`product_id` and `seller_id`). An UPDATE policy wide enough to let a seller rename a batch is wide
+enough to let them zero the counter. The **cap itself stays editable** — a seller who decides to bake
+five more should be able to say so — and `product_drops_within_cap` is what stops them setting it
+below what buyers have already ordered.
+
+**Timezone discipline, and it cuts both ways in one table.** `fulfillment_date` is a DATE — a
+wall-clock day at the seller's place — so `formatFulfillment` renders "Saturday 14 December"
+anywhere. `opens_at`/`closes_at` are instants, and the server runs UTC, so naming their day would
+print "orders open Tuesday 15 December" for a Texas window that opens at 6pm on the Monday. Those are
+rendered as **durations** (`closesIn` / `opensIn`, both rounding DOWN so a buyer is never told they
+have more time than they do). Same trap as `markets/schedule.ts`.
+
+`src/lib/orders/drops.ts` is the pure half (state, `unitsLeft`, `describeDrop`, `gateByDrops`,
+`stockWithDrops`, `dropSnapshot`) and `drop-queries.ts` the reads. `priceCart` refuses a shut batch
+and caps the line at whichever is smaller, the batch or the shelf; the collection date is frozen onto
+`order_items.drop_snapshot` at checkout so editing or cancelling the batch cannot move a date a buyer
+was promised. Seller UI: `DropsManager` on the listing page, and `/seller/drops` — the bake list,
+ordered by collection date rather than by listing, because the oven works by date.
+
+
+**Phase 6 — product cards and quick view.** `src/lib/products/card.ts` (`describeCard`) is the one
+answer to what a listing says about itself — price, net weight, what's left, allergens, and the batch
+line — and `/shop`, the storefront row and the quick view all read it.
+
+**It exists because the gallery was advertising a price nobody maintained.** `/shop` rendered
+`formatUsd(toCents(p.price))` on every card including listings that sell through variants;
+`products.price` is the column `resolveSaleUnit` explicitly refuses to fall back to once options
+exist, so a buyer could click a $8.50 card and land on a $6.00–$11.00 listing. `describeCard` prices
+from the active options, and says **"from $X" only where the buyer has a real choice** — a single
+option, or several at the same price, quote an exact figure, because "from" implies a decision that
+changes what you pay. `listingStock` totals the buyable options (any one of them unlimited makes the
+listing unlimited); a card cannot know which option the buyer will pick, so a single option's count
+would be a number about something not yet chosen. Net weight on a card drops the metric equivalent —
+that is a LABEL requirement (CT, NC, TN) carried by `renderLabel` and the pre-sale disclosure, and on
+a browse card it is a second number competing with the price.
+
+**The quick view is a pre-sale surface, so it carries the pre-sale disclosure.** `ProductQuickView`
+adds a second place to reach a basket, and in the eleven `predisclosure_required` jurisdictions the
+listing IS the disclosure (Tex. §437.0194(b)(2) — before payment; 410 ILCS 625/4(b)(10) — at the
+point of sale). So `getQuickView` **fails closed**: `canAddToBasket` is false whenever a disclosure
+is required and could not be built — a load error, a missing rule, an empty result — and the modal
+offers the storefront link instead of a button. `LabelDisclosure` renders inline above the button,
+never behind a toggle, the same rule the storefront follows.
+
+Detail is loaded **on open** rather than with the gallery: the disclosure is one SECURITY DEFINER
+call per product and `/shop` shows six per seller, so paying for all of them to serve one open would
+be slow for everyone. It also means the disclosure is fetched when the buyer reads it. The modal is a
+native `<dialog>` — focus trapping, Escape, inert background and `::backdrop` with no dependency —
+and its `AddToCart` gets `stockWithDrops`, the same batch-capped figure the storefront passes, so its
+quantity stepper cannot build a cart `priceCart` will refuse. The quick view is also where a buyer
+finally sees **ingredients and handling instructions**, which were collected for the label and shown
+to buyers nowhere.
+
+
+**Phase 6 — events: where to find a seller in person.** `events` (`20260909100000`) is one seller
+appearance — a date, a wall-clock time, and usually a market. Markets, pickup locations and drops all
+answer "where and when" for an ORDER; none of them answered the question a buyer asks first, which is
+what is on near me this weekend. A market page can say "open Saturdays 9–3" and still not tell you
+the baker you follow is only there on the second Saturday.
+
+**Wall clock, not instants — the third time this decision has come up and the same answer.**
+`event_date` is a DATE and `starts_at`/`ends_at` are TIMEs, exactly like `market_hours`, because 9am
+at a stall in Denton is 9am in Denton. A timestamptz would force a time zone per market that we do
+not have. The consequence is that "is this today?" cannot be answered on a UTC server, so every
+function in `src/lib/events/schedule.ts` that compares against now **takes the reference day as an
+argument** and the caller supplies it: `EventList` and `EventStrip` are client components calling
+`localToday()`, the same reason `MarketNextOpen` is one. Dates move through the module as
+`"YYYY-MM-DD"` strings rather than `Date`s — a `Date` is an instant, and the moment one enters
+somebody compares it to another instant and the bug is back. Strings in that format sort correctly
+with `<`, which is the whole trick.
+
+**The SQL window starts a day early, on purpose.** `events/queries.ts` filters `event_date >=`
+yesterday-in-UTC and lets the pure module do the real filtering against the reader's date. At 8pm
+Pacific, UTC has already turned over, so `>= current_date` would hide a market that is still running.
+Showing one stale day is a row someone scrolls past; hiding today's market is the buyer missing it.
+
+**`state` is derived, never supplied.** `events_set_state` (BEFORE INSERT OR UPDATE) takes it from
+the storefront and refuses a market in another state — the same shape as
+`pickup_locations_guard_market_state`, and the same reason: the calendar is the discovery layer of
+rule 1, and advertising an out-of-state seller at a local market invites an order the data layer will
+then refuse. A tampered form field cannot put an event on another state's calendar, and it re-derives
+on update so a market cannot be swapped across a border afterwards.
+
+**A cancelled event stays on the calendar until its date passes**, marked off and carrying the
+seller's reason (`cancelled_note`, which the form requires). Someone rearranged their Saturday around
+it; deleting the row tells them nothing.
+
+**`seller_id` is NOT NULL on purpose.** A market's own programme — opening day, a harvest festival —
+is a real thing this table could carry, but markets are imported and admin-owned and no surface
+creates events for them, so a nullable owner would be a shape nothing ever fills: the same mistake as
+seeding a deadline nobody checked. `market_id` IS optional, because a farm open day has no market.
+Surfaces: `/events` (state calendar), a "What's on" section on each market page, a "Where to find us"
+strip on the storefront, and `/seller/events` to manage.
+
+
+**Phase 6 — the listing-copy assistant, and why the screen is the feature.** `/seller/products/[id]`
+can draft a product description or a social post from what the seller has entered
+(`ANTHROPIC_API_KEY`, optional — unset, the assistant says so and offers nothing rather than
+degrading to a template dressed as generated copy).
+
+**Everything else in this codebase is arranged so a seller cannot accidentally say something untrue
+about food**, and handing a language model the listing copy runs directly at all of it: allergens are
+a CHECK-enforced federal-nine vocabulary, disclaimers are quoted statute stored verbatim, and a label
+refuses to print rather than print a blank. The failure mode of a fluent model is a plausible
+sentence nobody entered. Four kinds are the problem and only the first is obvious:
+
+- an **absence** claim ("gluten-free", "nut-free", "vegan") — a home kitchen has no cross-contact
+  controls and no testing, and a model writes this cheerfully from an ingredient list that merely
+  lacks wheat. This is the one that can hurt somebody;
+- a **health** claim ("boosts immunity", "aids digestion") — FDA/FTC territory, and a cottage-food
+  producer is the least equipped party in the country to defend one;
+- a **regulatory-status** claim ("organic", "certified", "inspected") — rules 5–7 exist to stop a
+  listing implying inspection, and in most states the label on the jar says the literal opposite;
+- a **fabricated fact** ("award-winning", "shelf stable for a year") — plausible, unverifiable, and
+  the seller may not notice it is wrong in their own listing.
+
+So `src/lib/ai/claims.ts` (`screenCopy`, pure and tested from both ends) is the guardrail and the
+model is the convenience. A `block` finding disables the apply button; `warn` (puffery, "all-natural")
+informs without blocking. **False positives are treated as a real cost**, because a screen that cries
+wolf gets clicked past and then protects nobody: "cured bacon" is not a medical claim, "a lovely
+treat" is not a course of treatment, "free delivery" is about postage — each has a test. The
+medical-verb pattern carries a negative lookahead for prepositions so "treats for cold winter
+mornings" stays a plate of biscuits.
+
+**Three properties matter more than the copy quality.** (1) Nothing here writes to a product — the
+action reads and returns, and applying a draft is the ordinary product form the seller submits.
+(2) Every draft is screened before the seller sees it and the findings travel with it, including for
+a blocked draft: "here is what it wrote and here is what's wrong with it" teaches, where a silent
+retry does not — and editing re-screens on every keystroke, so deleting "gluten-free" makes the
+warning go away. (3) `CLAIM_INSTRUCTIONS` is derived from the same rule array the screen uses, so
+what the model is told and what its answer is checked against cannot drift.
+
+`prompt.ts` grounds it: only the seller's entered facts, in the ingredient order they typed (never
+re-sorted), with their bio and existing description passed in as **voice to match rather than text to
+replace**. `hasEnoughToGenerate` refuses on a bare title — a model given only "Sourdough loaf" writes
+a 48-hour cold ferment and a heritage starter because that is what sourdough copy sounds like.
+Rate-limited at `copyAssistant` (12 / 5 min), tighter than everything else because it is the one path
+that costs money per call rather than per month. `stripWrapping` lives in `ai/response.ts` rather than
+`ai/generate.ts` so it can be unit-tested — `generate.ts` imports `@/lib/env`, which vitest cannot load.
+
+
+**Phase 6 — the payout ledger.** `/seller/payouts` shows what Stripe has actually sent to the
+seller's bank. Deliberately a different page from `/seller` revenue, and the copy keeps them apart:
+**revenue is what buyers paid, a payout is what Stripe sent**, and the gap is processing fees,
+refunds and timing. Sellers ask about that gap constantly and the honest answer is to show both
+numbers under their real names, not to reconcile them with arithmetic of ours.
+
+**`payouts` (`20260909110000`) is a MIRROR and holds nothing we worked out.** Every column is a field
+of a Stripe `Payout`, written by the Connect webhook and by nothing else. There is deliberately no
+`net`, no `fees`, no `expected_total` — the moment the table carries a figure we derived, a seller
+has two numbers for the same thing and no way to know which is real. `status` is Stripe's own string
+stored verbatim rather than mapped onto a vocabulary of ours, which would need updating whenever
+Stripe adds a state and would be wrong in between; `payoutStatus` maps it for display and shows an
+unfamiliar status **as itself**.
+
+**There is no `payout_items` table, on purpose.** What is *inside* a payout is a list of balance
+transactions Stripe already owns; copying it would buy nothing (we never query it) and cost a second
+version of the truth that can drift. `getPayoutBreakdown` reads it through to Stripe when the seller
+opens one, matching lines back to our orders by `stripe_payment_intent_id` where it can and showing
+Stripe's own description where it can't. Refunds, adjustments and Stripe's fees are shown as what
+they are rather than folded away — a breakdown that quietly drops rows is one that doesn't add up.
+**Mirror what you must query; ask for the rest.**
+
+Handling: one handler for `payout.created|updated|paid|failed|canceled`. A Payout is a full snapshot,
+so the latest delivery wins and an out-of-order or repeated one upserts the same row (rule 2). These
+are **Connect** events — they arrive with `event.account` set and verify against
+`STRIPE_CONNECT_WEBHOOK_SECRET`; **with that secret unset no payout event verifies and the table
+stays empty**, which is the honest failure: an empty ledger rather than a wrong one. A payout with no
+`event.account` is the platform's own balance moving and is not mirrored. RLS has **no INSERT or
+UPDATE policy at all** — a payout row a seller could edit would be a record that disagrees with the
+bank while looking authoritative. `splitPayouts` puts failed and cancelled payouts in HISTORY, never
+in "on the way", because Stripe leaves `arrival_date` populated on a failure and repeating it would
+have a seller waiting on money that is not coming.
+
+**Money arrives as a NUMBER, not a string.** `MoneyFixed` in `src/lib/db/types.ts` corrects every
+money column to `string` on the stated grounds that "Postgres numeric crosses the wire as text".
+Against this PostgREST it does not: `payouts.amount`, `orders.total` and `refunds.amount` all come
+back as JS numbers. Nothing is broken by it — every money read goes through `toCents`, which takes
+`string | number` — but the declared type is wrong, and code trusting it would compile and then fail.
+Pinned by an assertion in `test/integration/payouts.test.ts` so a change in the wire format is
+reported rather than silently making the types right by accident.
+
+
+**Phase 6 — seller stories.** `seller_profiles.story` + `story_on_home` (`20260909120000`) and a
+"Makers in <state>" section on the home page. The front page can argue the marketplace is worth
+using; what it could not do is show that it is made of people, which is the whole proposition of
+buying from a neighbour. Three sellers with no faces reads as empty; the same three with their
+stories reads as early.
+
+**One story per seller, so it lives on `seller_profiles`** rather than in a table of its own. "Who I
+am and why I make this" is one piece of writing; the thing a seller has many of already exists —
+`seller_posts`, their running feed. `bio` stays the one-liner under the storefront name.
+
+**The home page is opt-in** (`story_on_home` defaults false). A story is written for the seller's own
+storefront; putting somebody's words on the marketplace front page is a different act and they
+should choose it. The cost is a slower start, which is the very problem this solves — but publishing
+a person's writing without asking to solve it faster is not a trade to make. Clearing the story
+clears the flag, so an empty card can never reach the rotation.
+
+**A daily rotation, not "most recent."** Newest-first pays a seller to keep touching their story, and
+the ones who play that game push out the ones who wrote something once and got on with baking. So
+`pickDailyStories` is a stable shuffle on `hash(dayKey + sellerId)`: everyone comes up as often as
+everyone else, nobody can move themselves up, and it changes on its own. Two details were bugs first
+and are worth keeping: **the day key is hashed FIRST**, because FNV mixes bytes into an accumulator
+and whatever goes in last barely moves the result — with the day appended the rotation did not
+rotate at all; and there is a **final avalanche**, because raw FNV correlates enough on short similar
+ids that over 28 days only 7 of 12 sellers ever reached the front page. Both are asserted as
+properties (`changes from one day to the next`, `gives everyone a turn`), not as fixed outputs.
+The day key is UTC on purpose — unlike every other date in this codebase, nothing here is a claim
+about time; it only has to change once a day and be the same for everybody.
+
+**`worthShowing` needs two.** One story under "Meet a few makers" reads as a marketplace with one
+seller — better to show nothing, since the rest of the page already works.
+
+**No photograph on the cards, and no story-image columns.** `20260909120000` added
+`story_image_path` / `story_image_url`; `20260909130000` removed them the same day, because there is
+no image uploader in the seller UI to fill them — `seller_posts` has carried the identical pair
+unwritten since `20260908290000`. A column no code path fills is the same mistake as a nullable owner
+or a seeded deadline. Illustrating the card with the seller's newest *product* image was tried and
+dropped too: a product shot is a picture of a jar rather than of a person, and with only some sellers
+having one the cards came out at different heights with a grey box where a face should be. The words
+are the point; the storefront has the pictures. When there is an uploader, a story photo is a
+migration and a form together.
+
+`StoryEditor` shows the home-page excerpt live, through the same `storyExcerpt` the home page calls,
+so a seller who buries the good sentence in paragraph three sees it happening while they write.
+
+
+**Phase 6 — the launch playbook.** `/seller/launch` — what to do next, and the awkward messages
+written for you.
+
+**Every step is OBSERVED, not self-reported.** There are no checkboxes and no table behind the
+checklist: a step is done because the thing is true (a listing exists, a collection point exists,
+somebody has viewed the storefront) and undone because it isn't. That removes the two ways a launch
+checklist usually goes wrong — ticking something you never did, and being nagged about something you
+finished a month ago. `getLaunchFacts` is all `count(*)` with `head: true`, so nothing is remembered
+and nothing can go stale; a seller who deletes their last listing correctly goes back to "put up your
+first listing".
+
+**It also rules out the step this feature obviously wants: *tell your friends*.** We cannot see it,
+and a checkbox for it would be a lie whichever way it was ticked. What we *can* see is whether anyone
+has looked — `seller_view_counts` — which is the same question asked honestly, and the templates are
+where the help for it lives. `listingsWithGaps` is left at 0 for the same reason: the real answer
+needs the state's rule and the whole product row (`describeListingGaps`), `/seller/products` already
+renders it, and a wrong count here would send a seller hunting a problem that isn't there.
+
+**A step that genuinely can't be done yet is `blocked`, not `todo`** — "ask your first buyer for a
+review" before any order exists has nowhere to link to, and `launchProgress` doesn't count it against
+them, because a bar that is unreachable on day one is worst on the day it matters most. The gate step
+comes first and says *why* the storefront is shut, which is the single most useful line on the page.
+The programme step is skipped entirely for a seller who lists no food.
+
+**The templates are ours, so they pass the same screen the AI does.** `test/launch-templates.test.ts`
+runs every template through `screenCopy` — it would be an odd marketplace that refuses a seller
+"gluten-free" and then hands them a template saying it. The harder discipline is that a template must
+not put words in a seller's mouth about facts we don't have: none of them says what the seller makes
+or that it is any good. They do the structural part — the opening line, the ask, the link — and leave
+`[a sentence about what you make]` as a visible blank rather than a plausible invention, because a
+cheerful made-up description is a sentence about their business that nobody at their business wrote,
+and some sellers would send it unread. The referral template appears only when there is a real code
+AND a real percentage to quote.
+
+
+**Phase 6 — density degradation.** `src/lib/geo/density.ts` decides what `/shop` says about itself
+before it lists anything.
+
+**The failure this fixes is a page that still "works".** `/shop` sorts by distance, which is right in
+a dense state. In a thin one the nearest storefront is 84 miles away, the page ranks it first, and
+"84 mi" reads as a result rather than as the answer "not really". Nothing errors and nothing is
+empty, so the buyer is quietly misled about whether the marketplace is any use to them. A marketplace
+with three sellers should say it has three sellers.
+
+**Distance is not reach.** A seller 40 miles off who delivers within 50 can get bread to your door; a
+seller 12 miles off who only trades from a Saturday market may never be any use. So `nearby_sellers`
+now returns `delivery_enabled` + `delivery_radius_miles` (`20260909140000`) and `classify` bands on
+**reachability**: `local` (≤25 mi), `delivers` (outside pickup range but inside their stated radius),
+`regional` (≤75 mi), `distant`, `unknown` (no origin, so no claim either way). A seller with delivery
+on and **no radius recorded is not assumed to reach anyone** — that means they have not said how far,
+and guessing would walk a buyer through checkout to be refused by `quoteDelivery`, which does know.
+
+**Widening never crosses a state line.** The obvious way to fill an empty page is to show the sellers
+over the border; that is exactly what rule 1 forbids at the discovery layer, and every one of them
+would be a dead end we had advertised. Degrading gracefully here means being straight about the state
+you are in, not quietly leaving it — asserted by a test.
+
+`distant` sellers are kept, under their own heading, never ranked into the main list: someone
+deciding whether to come back next month is better served by "there are four here, all a long way
+off" than by a page that looks empty, and a seller who just opened deserves to appear somewhere.
+
+**That migration is a DROP and CREATE, not `create or replace`** — Postgres will not let a replace
+change a return type, and this adds two columns to the returns-table. It fails outright, which is
+better than the sibling trap that bit `finalize_paid_order`, where changing the ARGUMENTS silently
+creates a second overload and leaves the old one being called forever. Grants have to be reapplied
+because they go with the dropped function.
+
+
+**Phase 6 — the taxonomy rethink, and the two holes it found.** The shopping taxonomy was carrying
+two jobs on one flag and enforcing only half of the two levels it has.
+
+**1. `requires_food_permit` conflated "is food" with "is COTTAGE food", and produce is where they
+diverge** (`20260909150000`). It was seeded true for every food top-level including **Produce**, by a
+migration whose own comment admitted "Not a legal determination — an admin should confirm it". Nobody
+did, and it is the load-bearing flag for **five** gates. A grower listing tomatoes therefore had to
+hold a verified **cottage food permit** before their storefront would open, choose a cottage food
+**programme**, supply an **ingredients list** and a **net weight** for a tomato, answer the
+**allergen** question, and in **DE, MI, MS, NV and WA** could not list at all — because the
+online-sales gate keys on the same flag. RCW 69.22 is Washington's *Cottage Food Operations* act; it
+governs food prepared in a home kitchen and has nothing to say about a farmer selling what they grew.
+Every state's cottage food law is defined by that **act** of preparing, so a raw agricultural
+commodity is outside it. Corrected to false, with `sync_seller_license_pause` re-run for anyone the
+old rule had wrongly paused — a category edit fires no trigger, so fixing the rule without fixing the
+sellers it caught would be half a fix. The boundary now lives in the **names**: "Herbs" became
+**"Fresh Herbs"**, because a jar of dried oregano is a shelf-stable cottage food product and must not
+find a home under Produce.
+
+**2. The axis gate read only the top level, so every subcategory axis was dead data**
+(`20260909170000`). `products_guard_food_categories` resolved `food_axes` from `new.category_id`
+alone. **Pickles & Ferments** carries `{acidified, fermented}`; its parent **Pantry & Preserves**
+carries `{shelf_stable}`. The gate saw shelf-stable, asked the seller's programme about shelf-stable,
+got yes, and published the jar — in **13 states that ban acidified or fermented food under every
+programme they run** (CA, CO, CT, DE, HI, LA, MD, MO, NE, NJ, NY, OH, WA). The same silence hid the
+opposite case: **Juice & Cider** is deliberately unmapped and the parent's `shelf_stable` was
+answering for it anyway. Now the axes of category and subcategory are **unioned** — a jar of pickles
+is shelf-stable *and* acidified, and a state banning either must block it — which is the shape the
+label and allergen guards already used (`bool_or` across both). The trigger's column list gained
+`subcategory_id`, without which a seller could publish under a permitted subcategory and then switch
+to a banned one unchallenged.
+
+`test/integration/category-taxonomy.test.ts` pins the invariants, because the alternative is reading
+a tree by eye — and `20260909150000` renamed a category by matching `slug = 'herbs'` when the row is
+`produce-herbs`, so the UPDATE hit nothing and **reported success**. Subcategory slugs are namespaced
+under the parent's *first segment* (`crafts-artisan-goods` parents `crafts-candles`), which is also
+asserted. The suite proves the fix blocks an acidified listing in Connecticut while letting the
+shelf-stable jam beside it through — Washington was the first choice for that test and is unusable,
+because its outright online ban means the control never reaches the axis check.
+
+
+**Phase 6 — the market directory: search, a map, and what markets say about themselves.**
+`/markets` and `/markets/<state>` share `MarketDirectory`: the server sends the whole state (608 at
+most, CA) and search filters it in the browser — every word must appear in the name, town, ZIP or
+address — with `?q=` / `?view=map` kept in the URL by `history.replaceState`. `getMarketsInState`
+used to `limit(200)`, which silently cut Texas (236) off at the letter S; it now pages past
+PostgREST's 1000-row cap. Coordinates come from the `lng` / `lat` **computed fields**
+(`20260914100000`) — invoker rights, so a hidden market cannot be located through them. The map is
+one clustered GeoJSON source, not a marker per market, and swaps data on search rather than
+rebuilding. `listing_desc` (stored as `season_text`) is the market describing itself, not a season:
+it is off the cards and on the market page as "About this market".
+
+**The USDA bulk export carries no website, phone or hours.** Its JSON has 7,148 listings and none
+of those fields (`webscriping` is a "1" flag, not a URL). The **keyed API** (`USDA_API_KEY`,
+`/api/farmersmarket/?apikey=…&state=XX`) has `media_website` and `contact_phone` — 143 and 125 of
+Texas's 209 — but still no hours, and its `listing_image` is USDA's placeholder for 202 of 209.
+`import-markets.mjs --contacts` fills those two columns **by listing id, UPDATE only, and only
+where the API has a value**: a re-import from the API would wipe descriptions it lacks (it has 6
+for Texas; the bulk file had dozens). The portal 504s for long stretches, so each state is retried a
+minute apart. The website scan (`scripts/market-websites.mjs`, `20260914110000`) then visits them.
+Its notes say what happened — "site unreachable" (common: the directory's addresses are years old)
+is kept apart from "robots.txt disallows". **A site listed for more than one market** (organisers
+reuse one address — Good Local Markets for White Rock and Lakewood Village) gives its picture but
+never its hours: one schedule on that page cannot be every one of those markets'.
+
+**A lapsed market domain is someone else's website, and the first Texas scan proved it.** Two
+served Indonesian gambling spam (one preview image a sexualised slot-machine advert), two were
+HugeDomains for-sale pages, one was a French car blog that kept "Sweet Magnolia Market" as its own
+brand — and the cards were linking buyers to all of them. So `pageVerdict()` runs before anything is
+taken from a page: `parked`, `taken_over` (a spam vocabulary chosen so "vendor slot" cannot trip
+it), `unrelated`, or `ok` — and `ok` needs "farmers market" or the market's distinctive words PLUS
+market vocabulary **after the market's own name is removed from the text**, which is what catches a
+buyer who kept the brand. The verdict lands in `markets.website_status` (`20260914120000`) and
+`websiteToShow()` stops linking to anything but `ok` or unknown. A page with under 500 characters of
+readable text is **`unreadable`, not `unrelated`** — the first version called twelve JavaScript-built
+sites (the Austin Farmers Market Association's among them) someone else's and hid their links;
+unreadable clears the status (link shown) and takes nothing. **Hours also need a JSON-LD node
+whose `name` identifies the market** (`nodeNamesMarket`): Victoria's listed page carried the Food Bank
+of the Golden Crescent's Monday-to-Friday office hours as site-wide schema, and the first rule
+("exactly one schedule") accepted them. **None of this replaces looking**: every one of these was
+found by reviewing a contact sheet of the thumbnails, not by a test, so a new state's pictures get
+looked at before they ship. A picture a person removes goes in `image_rejected_source_url` and the
+scan will not copy that exact image back.
+
+**Research fills what neither source has, and the file is the record.** `data/markets/research-<state>.json`
+(one entry per market: website, Facebook link, weekly hours, season, `hoursSourceNote` +
+`hoursSourceUrl`, `checked`, and `notes` for everything *not* recorded and why) is validated by
+`scripts/lib/market-research.mjs` and published by `scripts/apply-market-research.mjs`
+(`20260914130000`: `markets.facebook_url`, `website_source`, `market_hours.source = 'research'` +
+`source_note`/`source_url`). It never replaces a working USDA website, a person's hours or a site's
+own schema.org hours, and the page prints "From other listings (…; checked Sep 2026)" with the
+source linked. **Texas was researched in full on 2026-09-14** — 234 markets, 89 weekly schedules.
+The rules that kept it honest, all learnt on Texas: **hours only from a source that names this
+market and is recent** (2025–26; undated directory sites like LocalHarvest, Foraged or CropCart
+don't count on their own); **conflicting sources = no hours**, with the conflict in `notes`
+(Troy's city page describes the *other* Troy market); **monthly or biweekly markets get no hours**
+— `market_hours` is weekly, and "Saturday 8–12" on a 2nd-and-4th-Saturday market is a false
+promise on two Saturdays a month; **check a summary's dates against the calendar** (Bay City's
+"Sep 4–Dec 18" fell on Thursdays in 2025, not 2026); and **search summaries copy templates** —
+three unrelated towns came back with the identical six "select Saturday" dates. Duplicate USDA
+listings of one market get the same entry, marked in `notes`. **Facebook is linked, never
+collected**: facebook.com/robots.txt forbids automated collection, so a market whose only logo is
+on Facebook keeps the icon until someone adds one by hand.
+
+The picture is **only** the one the site
+offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
+480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
+`openingHours(Specification)`, only when the page has exactly one schedule that parses completely,
+written as `market_hours.source = 'website'`, and never over a person's (`admin`) rows. The card and
+the market page both say when hours came from the website. A market with no picture shows an icon —
+never a stock photo, which on a named market's card would read as that market.
+
+**Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
+(`20260908230000`) declared `address_id ... on delete set null` alongside
+`check (market_id is not null or address_id is not null)`. Each half is sensible; together they are
+impossible. Deleting an address nulls the column, which leaves a row with neither a market nor an
+address, which the CHECK refuses — so the DELETE fails and rolls back whatever contained it.
+
+**That means deleting any profile that had ever set a pickup address failed**, because a profile
+delete cascades to their `addresses`. Every account deletion, every admin removal, anything a
+data-deletion request would need. `20260909180000` makes `address_id` **cascade**: a collection point
+whose address is gone is not a place, and keeping the row by nulling the column is what manufactured
+the forbidden state. The market FK stays `set null` on purpose — a market row disappearing is a
+directory edit, not the venue ceasing to exist.
+
+**It surfaced as test pollution, which is the part worth remembering.** Six `IT Storefront` fixtures
+had accumulated in the live project across a day of runs. `cleanupAll` ended
+`auth.admin.deleteUser(id).catch(() => {})`; every delete was failing with a generic "Database error
+deleting user" and **that one expression swallowed all of it**. A cleanup that cannot clean up has to
+be loud — it now reports each failure and a count, and logs rather than throws so a teardown never
+masks the test failure that caused it.
+
+A second, simpler leak came out with it: 24 market fixtures, because markets hang off no user and
+so cascade from nothing — every suite deletes its own in `afterAll`, and a suite that throws in
+`beforeAll` never gets there. `cleanupAll` now sweeps `slug like 'it-%' AND source = 'admin'`. Both
+conditions matter: a bare prefix match is unsafe on a real database ("It's A Market" slugs to
+`it-s-a-market`), and `admin` is the default that only fixtures use — imports are `usda` and no admin
+market surface exists. **If an admin market editor is ever built, that sweep needs a real registry.**
+
+`test/integration/account-deletion.test.ts` pins the whole path, including that deleting a seller
+does not take the market they had a booth at with them.

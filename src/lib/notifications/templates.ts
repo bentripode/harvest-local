@@ -134,6 +134,27 @@ const TEMPLATES: Record<string, TemplateMeta> = {
     ctaPath: "/orders",
     ctaLabel: "View orders",
   },
+  new_product_from_seller: {
+    subject: (p) => `${String(p.business_name ?? "A seller you follow")} listed something new`,
+    ctaPath: (p) => `/s/${String(p.storefront_slug ?? "")}`,
+    ctaLabel: "See what's new",
+  },
+  seller_joined_market: {
+    subject: (p) => `A new seller at ${String(p.market_name ?? "a market you follow")}`,
+    ctaPath: (p) =>
+      `/markets/${String(p.market_state ?? "").toLowerCase()}/${String(p.market_slug ?? "")}`,
+    ctaLabel: "See the market",
+  },
+  question_asked: {
+    subject: () => "Someone asked you a question",
+    ctaPath: "/seller/questions",
+    ctaLabel: "Answer it",
+  },
+  question_answered: {
+    subject: (p) => `${String(p.business_name ?? "A seller")} answered your question`,
+    ctaPath: (p) => `/s/${String(p.storefront_slug ?? "")}`,
+    ctaLabel: "See the answer",
+  },
   new_message: {
     subject: (p) => `New message from ${String(p.sender_name ?? "a Harvest Local user")}`,
     ctaPath: (p) => `/messages/${String(p.conversation_id ?? "")}`,

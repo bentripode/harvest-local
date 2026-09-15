@@ -30,7 +30,7 @@ export default async function OnboardingPage({ searchParams }: PageProps<"/selle
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Set up your storefront</h1>
+        <h1 className="text-2xl sm:text-3xl">Set up your storefront</h1>
         <p className="text-muted-foreground text-sm">
           Four steps and you&apos;re live. Your first 90 days are free.
         </p>

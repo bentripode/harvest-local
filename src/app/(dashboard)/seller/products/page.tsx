@@ -46,9 +46,9 @@ export default async function ProductsPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Products</h1>
+          <h1 className="text-2xl sm:text-3xl">Products</h1>
           <p className="text-muted-foreground text-sm">
             {onboardingComplete
               ? "Active products appear on your storefront."
@@ -89,24 +89,47 @@ export default async function ProductsPage({
   );
 }
 
+/**
+ * One listing in the seller's catalogue.
+ *
+ * The row used to put a thumbnail, the title, the price, a status badge and FOUR controls — Edit,
+ * Label, Publish/Unpublish and Delete — on a single non-wrapping flex line. Below about 900px the
+ * title column collapsed to nothing and every button wrapped onto two lines of its own.
+ *
+ * Now it is a two-part block: the listing on top, its controls underneath. Delete is separated from
+ * the rest and pushed to the far end, because it is the one action here with no undo and it was
+ * sitting a thumb's width from "Unpublish".
+ */
 function ProductRow({ product, isFood }: { product: Product; isFood: boolean }) {
   const cover = product.images?.[0];
+  const live = product.status === "active";
+
   return (
-    <li className="flex items-center gap-4 p-4">
-      <div className="bg-muted relative size-14 shrink-0 overflow-hidden rounded-md border">
-        {cover ? (
-          <Image src={cover.url} alt="" fill className="object-cover" sizes="56px" />
-        ) : null}
+    <li className="space-y-3 p-4">
+      <div className="flex items-start gap-3">
+        <div className="bg-muted relative size-14 shrink-0 overflow-hidden rounded-lg border">
+          {cover ? (
+            <Image src={cover.url} alt="" fill className="object-cover" sizes="56px" />
+          ) : (
+            <span
+              aria-hidden
+              className="text-muted-foreground/50 font-heading absolute inset-0 flex items-center justify-center text-xl"
+            >
+              {product.title.trim().charAt(0).toUpperCase()}
+            </span>
+          )}
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-medium">{product.title}</p>
+          <p className="text-muted-foreground text-sm tabular-nums">
+            {formatUsd(toCents(product.price))}
+            {product.quantity_available != null ? ` · ${product.quantity_available} available` : ""}
+          </p>
+        </div>
+        <Badge variant={live ? "default" : "secondary"}>{product.status}</Badge>
       </div>
-      <div className="min-w-0 flex-1">
-        <p className="truncate font-medium">{product.title}</p>
-        <p className="text-muted-foreground text-sm">
-          {formatUsd(toCents(product.price))}
-          {product.quantity_available != null ? ` · ${product.quantity_available} available` : ""}
-        </p>
-      </div>
-      <Badge variant={product.status === "active" ? "default" : "secondary"}>{product.status}</Badge>
-      <div className="flex items-center gap-2">
+
+      <div className="flex flex-wrap items-center gap-2">
         <Button asChild variant="outline" size="sm">
           <Link href={`/seller/products/${product.id}`}>Edit</Link>
         </Button>
@@ -117,16 +140,12 @@ function ProductRow({ product, isFood }: { product: Product; isFood: boolean }) 
         ) : null}
         <form action={setProductStatusAction}>
           <input type="hidden" name="productId" value={product.id} />
-          <input
-            type="hidden"
-            name="status"
-            value={product.status === "active" ? "draft" : "active"}
-          />
+          <input type="hidden" name="status" value={live ? "draft" : "active"} />
           <Button variant="ghost" size="sm" type="submit">
-            {product.status === "active" ? "Unpublish" : "Publish"}
+            {live ? "Unpublish" : "Publish"}
           </Button>
         </form>
-        <form action={deleteProductAction}>
+        <form action={deleteProductAction} className="ml-auto">
           <input type="hidden" name="productId" value={product.id} />
           <Button variant="ghost" size="sm" type="submit" className="text-destructive">
             Delete

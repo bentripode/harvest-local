@@ -32,7 +32,7 @@ export default async function SellerReferralsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Referrals</h1>
+        <h1 className="text-2xl sm:text-3xl">Referrals</h1>
         <p className="text-muted-foreground text-sm">
           Share a code. Buyers get {config.discountPercent}% off their order; bring in{" "}
           {progress.threshold} in a billing cycle and your next month is free.
@@ -85,7 +85,9 @@ export default async function SellerReferralsPage() {
                     </span>
                     <span className="text-muted-foreground tabular-nums">
                       {r.activatedAt
-                        ? new Date(r.activatedAt).toLocaleDateString(undefined, { dateStyle: "medium" })
+                        ? new Date(r.activatedAt).toLocaleDateString(undefined, {
+                            dateStyle: "medium",
+                          })
                         : ""}
                     </span>
                   </li>
@@ -107,7 +109,7 @@ export default async function SellerReferralsPage() {
       </Card>
 
       <section className="space-y-3">
-        <h2 className="text-sm font-medium">Your codes</h2>
+        <h2 className="text-lg">Your codes</h2>
         {codes.length === 0 ? (
           <p className="text-muted-foreground rounded-lg border border-dashed p-4 text-sm">
             No codes yet.
@@ -134,7 +136,6 @@ export default async function SellerReferralsPage() {
         )}
         <PromoCodeForm />
       </section>
-
     </div>
   );
 }

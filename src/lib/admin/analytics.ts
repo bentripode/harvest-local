@@ -1,7 +1,7 @@
 import "server-only";
 
 import { createAdminClient } from "@/lib/supabase/admin";
-import { toCents } from "@/lib/money";
+import { toCents, type Money } from "@/lib/money";
 
 /**
  * Platform-wide analytics for the superadmin dashboard. Uses the service-role client — callers
@@ -47,7 +47,7 @@ export async function getPlatformStats(): Promise<PlatformStats> {
   const completed = orderRows.filter((o) => o.status === "completed");
   const completed30 = completed.filter((o) => new Date(o.created_at).getTime() >= cutoff30);
 
-  const sum = (rows: { total: string }[]) =>
+  const sum = (rows: { total: Money }[]) =>
     rows.reduce((n, o) => n + toCents(o.total), 0);
 
   const refundedCents = (refunds.data ?? []).reduce((n, r) => n + toCents(r.amount), 0);

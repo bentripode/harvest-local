@@ -172,6 +172,67 @@ export async function createProduct(
   return { id: data.id, title };
 }
 
+/**
+ * A seller with nothing wrong with them.
+ *
+ * `createSeller` alone is not that: it has no licence documents, so the first thing that calls
+ * `sync_seller_license_pause` — which includes the trigger on every product insert — pauses it for
+ * `license_unverified`. And even with documents, the function only ever LIFTS a pause when Connect
+ * and a live subscription hold, so a fixture without those stays shut.
+ *
+ * Any suite whose subject is not the licence gate wants this.
+ */
+export async function makeSellerOperational(sellerId: string): Promise<void> {
+  const admin = adminDb();
+  const future = new Date(Date.now() + 365 * 86_400_000).toISOString().slice(0, 10);
+
+  const { error: docError } = await admin.from("seller_licenses").insert([
+    {
+      seller_id: sellerId,
+      license_type: "id",
+      issuing_state: "TX",
+      expiration_date: future,
+      document_path: `${sellerId}/licenses/it-id.pdf`,
+      verification_status: "verified",
+    },
+    {
+      // A tax ID has no issuing state and no expiry; the CHECK constraints allow that for it alone.
+      seller_id: sellerId,
+      license_type: "tax_id",
+      issuing_state: null,
+      expiration_date: null,
+      document_path: `${sellerId}/licenses/it-tax.pdf`,
+      verification_status: "verified",
+    },
+  ]);
+  if (docError) throw new Error(`makeSellerOperational documents: ${docError.message}`);
+
+  const { error: connectError } = await admin
+    .from("seller_profiles")
+    .update({
+      connect_charges_enabled: true,
+      connect_details_submitted: true,
+      connect_payouts_enabled: true,
+      stripe_account_id: `acct_it_${sellerId.slice(0, 8)}`,
+    })
+    .eq("id", sellerId);
+  if (connectError) throw new Error(`makeSellerOperational connect: ${connectError.message}`);
+
+  const { error: subError } = await admin.from("subscriptions").upsert(
+    {
+      seller_id: sellerId,
+      stripe_customer_id: `cus_it_${sellerId.slice(0, 8)}`,
+      stripe_subscription_id: `sub_it_${sellerId.slice(0, 8)}`,
+      status: "active",
+    },
+    { onConflict: "seller_id" },
+  );
+  if (subError) throw new Error(`makeSellerOperational subscription: ${subError.message}`);
+
+  // Re-derive: the seller may already be paused from an earlier sync.
+  await admin.rpc("sync_seller_license_pause", { p_seller_id: sellerId });
+}
+
 /** Inserts an order via the service role (as the checkout action does) and tracks it for cleanup. */
 export async function createOrder(opts: {
   buyerId: string;
@@ -208,7 +269,7 @@ export async function createOrder(opts: {
 export async function addOrderItem(
   orderId: string,
   product: { id: string; title: string },
-  opts: { quantity?: number; unitPrice?: string } = {},
+  opts: { quantity?: number; unitPrice?: string; dropId?: string } = {},
 ): Promise<void> {
   const admin = adminDb();
   const quantity = opts.quantity ?? 1;
@@ -220,6 +281,8 @@ export async function addOrderItem(
     quantity,
     unit_price: unitPrice,
     line_total: (Number(unitPrice) * quantity).toFixed(2),
+    // The link a release consumes. Set it to mirror what checkout writes after claiming units.
+    drop_id: opts.dropId ?? null,
   });
   if (error) throw new Error(`addOrderItem: ${error.message}`);
 }
@@ -243,17 +306,69 @@ export async function completeOrder(orderId: string, fulfillment: "pickup" | "de
 /**
  * Deletes what this file created. Orders go first — `orders.buyer_id` is `on delete restrict`, so
  * removing the auth user would fail otherwise. Everything else cascades off the user.
+ *
+ * **A failed delete is reported, never swallowed.** This used to end `.catch(() => {})`, and that
+ * one expression let six `IT Storefront` fixtures accumulate in a live project across a full day of
+ * runs: `pickup_locations` had a foreign key and a CHECK that made deleting any seller with a pickup
+ * address impossible (fixed in `20260909180000`), every cleanup failed with a generic "Database
+ * error deleting user", and nothing said so. A cleanup that cannot clean up has to be loud, because
+ * the alternative is discovering it by noticing strange rows weeks later.
+ *
+ * It logs rather than throws: a teardown that throws masks the actual test failure that usually
+ * caused it. The count at the end is what makes a systematic problem obvious.
  */
 export async function cleanupAll(): Promise<void> {
   if (!dbConfigured) return;
   const admin = adminDb();
 
   if (createdOrderIds.length > 0) {
-    await admin.from("orders").delete().in("id", createdOrderIds);
+    const { error } = await admin.from("orders").delete().in("id", createdOrderIds);
+    if (error) console.error(`[cleanup] orders not deleted: ${error.message}`);
     createdOrderIds.length = 0;
   }
+
+  const failed: string[] = [];
   for (const id of createdUserIds) {
-    await admin.auth.admin.deleteUser(id).catch(() => {});
+    const { error } = await admin.auth.admin.deleteUser(id);
+    if (error) {
+      failed.push(id);
+      console.error(`[cleanup] user ${id} not deleted: ${error.message}`);
+    }
   }
   createdUserIds.length = 0;
+
+  if (failed.length > 0) {
+    console.error(
+      `[cleanup] LEFT ${failed.length} TEST USER(S) BEHIND. They are still in the database, ` +
+        `with everything that hangs off them. Find out why before running again.`,
+    );
+  }
+
+  await sweepFixtureMarkets(admin);
+}
+
+/**
+ * Remove market fixtures, including ones a crashed suite never got to.
+ *
+ * Markets hang off no user, so nothing cascades them away: every suite that makes one deletes it in
+ * its own `afterAll`, and a suite that throws in `beforeAll` never runs that. Twenty-four of them
+ * had piled up in a live project that way.
+ *
+ * Two conditions together, because a blanket `slug like 'it-%'` is not safe on a database with real
+ * markets in it — "It's A Market" slugs to `it-s-a-market`:
+ *
+ *   - the `it-` prefix every fixture in this directory uses, and
+ *   - `source = 'admin'`, the default. Imported markets are `usda`, and nothing in the app creates
+ *     an `admin` one — there is no admin market surface (see the note in 20260909100000).
+ *
+ * If an admin market editor is ever built, this needs a real registry instead.
+ */
+async function sweepFixtureMarkets(admin: Db): Promise<void> {
+  const { error } = await admin
+    .from("markets")
+    .delete()
+    .like("slug", "it-%")
+    .eq("source", "admin");
+
+  if (error) console.error(`[cleanup] market fixtures not swept: ${error.message}`);
 }

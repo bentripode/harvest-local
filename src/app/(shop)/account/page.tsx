@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AddressBook } from "@/components/address-book";
 import { NotificationPrefsForm } from "@/components/notification-prefs-form";
@@ -76,6 +77,14 @@ export default async function AccountPage() {
           />
         </CardContent>
       </Card>
+
+      {/* Sign out lives here because the header's button is desktop-only — on a phone this page,
+          reached from the "You" tab, is the only route to it. */}
+      <form action="/auth/signout" method="post">
+        <Button variant="outline" className="w-full sm:w-auto" type="submit">
+          Sign out
+        </Button>
+      </form>
     </div>
   );
 }

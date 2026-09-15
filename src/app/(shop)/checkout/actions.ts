@@ -1,7 +1,6 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import {
   getProductDisclosures,
@@ -16,10 +15,13 @@ import { buildCheckoutSessionParams } from "@/lib/stripe/checkout";
 import { env } from "@/lib/env";
 import { cents, toDecimalString } from "@/lib/money";
 import { CartError, priceCart, type PricableProduct } from "@/lib/orders/pricing";
-import { isUsState, sameState, US_STATES } from "@/lib/geo/state";
+import { isUsState, sameState } from "@/lib/geo/state";
 import { addressSchema, formatAddress, type AddressInput } from "@/lib/geo/address";
 import { geocodeAddress } from "@/lib/geo/geocode";
 import { quoteDelivery } from "@/lib/orders/delivery";
+import { getActivePickupLocations, type PickupLocation } from "@/lib/orders/pickup";
+import { DROP_SELECT, toDrops, type DropRow } from "@/lib/orders/drop-queries";
+import { upcomingPickups } from "@/lib/orders/pickup-schedule";
 import { getDeliveryPermission } from "@/lib/compliance/delivery";
 import { validatePromoCode } from "@/lib/referrals/validate";
 import { ensureBuyerDiscountCoupon } from "@/lib/stripe/coupons";
@@ -30,11 +32,19 @@ import { getMyAddresses, type SavedAddress } from "@/lib/addresses/queries";
 const cartPayloadSchema = z.object({
   sellerId: z.string().uuid(),
   items: z
-    .array(z.object({ productId: z.string().uuid(), quantity: z.number().int().min(1).max(99) }))
+    .array(
+      z.object({
+        productId: z.string().uuid(),
+        variantId: z.string().uuid().optional(),
+        quantity: z.number().int().min(1).max(99),
+      }),
+    )
     .min(1)
     .max(50),
   promoCode: z.string().max(32).optional(),
   fulfillment: z.enum(["pickup", "delivery"]).default("pickup"),
+  pickupLocationId: z.string().uuid().optional(),
+  pickupWindow: z.string().trim().max(120).optional(),
   deliveryAddress: addressSchema.optional(),
   deliveryWindow: z.string().trim().max(80).optional(),
 });
@@ -57,7 +67,7 @@ async function reprice(payload: CartPayload) {
   const { data: products } = await supabase
     .from("products")
     .select(
-      "id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code)",
+      `id, title, price, status, seller_id, quantity_available, tax_code, category:categories!products_category_id_fkey(name, tax_code), variants:product_variants(id, name, price, quantity_available, is_active), drops:product_drops(${DROP_SELECT})`,
     )
     .in(
       "id",
@@ -76,6 +86,8 @@ async function reprice(payload: CartPayload) {
       tax_code: p.tax_code,
       category_tax_code: category?.tax_code ?? null,
       category_name: category?.name ?? null,
+      variants: (p.variants ?? []) as PricableProduct["variants"],
+      drops: toDrops(p.drops as DropRow[] | null),
     };
   });
 
@@ -138,6 +150,8 @@ export interface RepriceResult {
   sellerLive?: boolean;
   sellerDeliveryEnabled?: boolean;
   sellerDeliveryWindows?: string[];
+  /** The collection points the buyer may choose between. Empty = collect from the seller. */
+  pickupLocations?: PickupLocation[];
   lines?: { title: string; quantity: number; unitPrice: number; lineTotal: number }[];
   subtotal?: number;
   /** Present only when a promo code was submitted. */
@@ -212,6 +226,7 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
     sellerLive,
     sellerDeliveryEnabled: seller.delivery_enabled,
     sellerDeliveryWindows: seller.delivery_windows ?? [],
+    pickupLocations: await getActivePickupLocations(seller.id),
     subtotal: priced.subtotal,
     lines: priced.lines.map((l) => ({
       title: l.title,
@@ -222,31 +237,6 @@ export async function repriceCartAction(input: unknown): Promise<RepriceResult> 
     promo,
     delivery,
   };
-}
-
-export interface StateFormState {
-  error?: string;
-}
-
-/** Buyer self-attests their state (Phase 2). Backed by the same-state CHECK + checkout guard. */
-export async function setBuyerStateAction(
-  _prev: StateFormState,
-  formData: FormData,
-): Promise<StateFormState> {
-  const { user } = await requireUser("/shop");
-  const state = z.enum(US_STATES).safeParse(formData.get("state"));
-  if (!state.success) return { error: "Choose your state." };
-
-  const supabase = await createClient();
-  const { error } = await supabase
-    .from("profiles")
-    .update({ home_state: state.data })
-    .eq("id", user.id);
-  if (error) return { error: error.message };
-
-  revalidatePath("/shop");
-  revalidatePath("/checkout");
-  return {};
 }
 
 /**
@@ -297,6 +287,39 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   let deliveryText: string | null = null;
   let deliveryWindow: string | null = null;
   let buyerState = profile.home_state;
+
+  // Pickup: which collection point, and when. Frozen onto the order like every other order fact,
+  // as text as well as an id, so it survives the seller renaming or deleting the location.
+  let pickupLocationId: string | null = null;
+  let pickupLocationText: string | null = null;
+  let pickupWindow: string | null = null;
+
+  if (!isDelivery) {
+    const locations = await getActivePickupLocations(seller.id);
+    if (locations.length > 0) {
+      const chosen = locations.find((l) => l.id === payload.pickupLocationId);
+      if (!chosen) redirect("/checkout?error=pickup");
+
+      // The window has to be one this location actually offers. Re-derived here rather than
+      // trusted from the form — the client computes the same list to display it, but the server
+      // decides. Generous horizon so a slow checkout doesn't invalidate a legitimate choice.
+      const offered = upcomingPickups(chosen.slots, {
+        prepHours: chosen.prepHours,
+        limit: 40,
+        horizonDays: 90,
+      });
+      if (offered.length > 0) {
+        const match = offered.find((o) => o.label === payload.pickupWindow);
+        if (!match) redirect("/checkout?error=pickup_window");
+        pickupWindow = match.label;
+      }
+
+      pickupLocationId = chosen.id;
+      pickupLocationText = [chosen.label, chosen.market?.name ?? chosen.city]
+        .filter(Boolean)
+        .join(" · ");
+    }
+  }
 
   if (isDelivery) {
     if (!payload.deliveryAddress) redirect("/checkout?error=delivery");
@@ -355,6 +378,46 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   // Stripe-computed session (same as a no-promo order).
   const preTaxTotal = toDecimalString(cents(priced.subtotal - discountCents + deliveryFeeCents));
 
+  // ---------------------------------------------------------------------
+  // Claim the batch units BEFORE the order exists.
+  //
+  // `claim_drop_units` takes a row lock and refuses past the cap, so two buyers racing for the last
+  // loaf serialise and the second is turned away. Doing it the other way round — write the order,
+  // then claim — means the losing order already exists by the time we find out there was nothing
+  // left, and the seller is holding a twenty-first order for a twenty-loaf bake.
+  //
+  // Everything after this point compensates on failure via `releaseClaims`.
+  // ---------------------------------------------------------------------
+  const wanted = new Map<string, number>();
+  for (const line of priced.lines) {
+    if (line.dropId) wanted.set(line.dropId, (wanted.get(line.dropId) ?? 0) + line.quantity);
+  }
+
+  /** Hand back exactly what this request took. Only ever called with claims we actually made. */
+  async function releaseClaims(taken: { dropId: string; units: number }[]) {
+    for (const { dropId, units } of taken) {
+      const { error } = await admin.rpc("release_drop_units", {
+        p_drop_id: dropId,
+        p_units: units,
+      });
+      // A failure here strands units: the batch reads fuller than it is, which under-sells and can
+      // be unpicked by hand. Loud in the log because it needs a person.
+      if (error) console.error("[checkout] could not release drop units", dropId, error.message);
+    }
+  }
+
+  const taken: { dropId: string; units: number }[] = [];
+  for (const [dropId, units] of wanted) {
+    const { error } = await admin.rpc("claim_drop_units", { p_drop_id: dropId, p_units: units });
+    if (error) {
+      // Someone else got the last of it, or the window shut while they were filling the form. Give
+      // back whatever this attempt already took and send them back to see the batch as it stands.
+      await releaseClaims(taken);
+      redirect("/checkout?error=drop");
+    }
+    taken.push({ dropId, units });
+  }
+
   const { data: order, error: orderError } = await admin
     .from("orders")
     .insert({
@@ -373,10 +436,16 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       delivery_distance_miles: deliveryDistance == null ? null : String(deliveryDistance),
       delivery_address_text: deliveryText,
       delivery_window: deliveryWindow,
+      pickup_location_id: pickupLocationId,
+      pickup_location_text: pickupLocationText,
+      pickup_window: pickupWindow,
     })
     .select("id")
     .single();
-  if (orderError || !order) redirect("/checkout?error=order");
+  if (orderError || !order) {
+    await releaseClaims(taken);
+    redirect("/checkout?error=order");
+  }
 
   const { error: itemsError } = await admin.from("order_items").insert(
     priced.lines.map((line) => ({
@@ -388,9 +457,18 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
       line_total: toDecimalString(line.lineTotal),
       category_snapshot: line.categorySnapshot,
       tax_code: line.taxCode,
+      variant_id: line.variantId,
+      variant_snapshot: line.variantName,
+      drop_id: line.dropId,
+      drop_snapshot: line.dropSnapshot,
     })),
   );
-  if (itemsError) redirect("/checkout?error=order");
+  if (itemsError) {
+    // One statement, so nothing was inserted and there is no drop_id for the order-keyed release
+    // to consume. Give the units back the same way we took them.
+    await releaseClaims(taken);
+    redirect("/checkout?error=order");
+  }
 
   let checkoutUrl: string | null = null;
   try {
@@ -414,6 +492,9 @@ export async function startCheckoutAction(formData: FormData): Promise<void> {
   } catch (err) {
     console.error("[checkout] Stripe session creation failed:", err);
     await admin.from("orders").update({ status: "cancelled" }).eq("id", order.id);
+    // The items exist and carry drop_id, so from here on the order-keyed release is the right one:
+    // it is idempotent, and this order may also be unwound later by a webhook.
+    await admin.rpc("release_drop_units_for_order", { p_order_id: order.id });
     redirect(`/orders/${order.id}?checkout=error`);
   }
 

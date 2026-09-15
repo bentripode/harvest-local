@@ -1,0 +1,4556 @@
+[
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "125th-street-farmers-market",
+    "notes": "The state Office of General Services now describes a monthly market at the Adam Clayton Powell Jr. State Office Building; no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "175th-street-greenmarket",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 25 to November 19, 2026, W 175th St btwn Wadsworth & Broadway",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "4th-ave-sunset-park-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "From July 11, 2026, 4th Ave between 59th and 60th Sts",
+    "hoursSourceNote": "GrowNYC (market operator)",
+    "hoursSourceUrl": "https://grownyc.org/locations/4th-ave-sunset-park-greenmarket/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "79th-street-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, 79th St & Columbus Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "82nd-street-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Year-round, 82nd St btwn 1st & York Aves",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "97th-street-greenmarket",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 97th St btwn Amsterdam & Columbus Aves",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "abingdon-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Hudson St & W 12th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "akwesasne-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 13 to October 10, 2026, 30 Margaret Terrance Memorial Way",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "alden-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 1 to September 28, 2026",
+    "hoursSourceNote": "Alden Chamber of Commerce",
+    "hoursSourceUrl": "https://aldenny.org/farmers-market/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "alexandria-bay-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 12 to September 12, 2026, Swan Bay Resort & Marina",
+    "hoursSourceNote": "Swan Bay Resort & Marina (market host)",
+    "hoursSourceUrl": "https://www.swanbayresort.com/the-farmers-market"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "am-pm-farmacy",
+    "notes": "A self-serve farm stand, not a weekly farmers market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "amenia-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Late May through December at Amenia Town Hall; first and third Saturdays 10-2, January to April",
+    "hoursSourceNote": "North East Community Center (market operator)",
+    "hoursSourceUrl": "https://www.neccmillerton.org/farmers-market-amenia"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "andes-indoor-farmers-market",
+    "notes": "Only a Saturday summer market at 72 Main St was found; no current hours for the indoor market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ann-street-market",
+    "website": "https://www.newburghnyfarmersmarket.org/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Newburgh Farmers' Market: summer Saturdays 10-3, May 2 to November 21, 2026 on Safe Harbors Green (97 Broadway); winter Saturdays 10-2, December 5, 2026 to April 24, 2027 in the Ritz Theater lobby (107 Broadway)",
+    "hoursSourceNote": "Newburgh Farmers' Market (the market's own site)",
+    "hoursSourceUrl": "https://www.newburghnyfarmersmarket.org/",
+    "notes": "Hours recorded are the winter times; the summer market stays open until 3."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "auburn-farmers-co-op-market-inc",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 6 to October 31, 2026, 96 State St Curley's Restaurant Pkg Lot; June 4 to October 29, 2026, 96 State St Curley's Restaurant Pkg Lot",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "aurora-farmers-market",
+    "notes": "Saturday 10-2, June-October appears only in undated listings; not on the state's June 2026 list."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "avon-market-days",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June through October, Tops Friendly Markets lot (270 E. Main St)",
+    "hoursSourceNote": "Village of Avon",
+    "hoursSourceUrl": "https://www.villageofavonny.gov/events/avon-market-days-4"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "babylon-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 1 to October 26, 2026, 244 W Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "barryville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to October 31, 2026, 3405 NY-97",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "bartel-pritchard-greenmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Prospect Park West & 15th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "belmont-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 4 to October 8, 2026, 5429 State Route 19N",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "bensonhurst-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 7 to November 29, 2026, 18th Ave btwn 81st & 82nd St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "berkshire-rome-vendors-market",
+    "notes": "Friday 9-6 appears only in a previous season's listing; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "blasdell-farmers-market",
+    "notes": "Wednesday 9-2, May to October appears only in undated listings; not on the state's June 2026 list."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "blue-fields-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "boonville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June 18 to October 1, 2026, Upper Erwin Park Moose River Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "boonville-winter-farmers-market",
+    "notes": "Monthly (first Saturday, 9-noon, November to May) in listings; not a weekly market, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brant-lake-farmers-market",
+    "notes": "Saturdays 9-2, late May to mid-October at Clark's Country Mall in undated tourism listings; the market's own site gives no schedule. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brewster-farmers-market",
+    "notes": "Wednesday and Saturday 9-2 appear with 2025 dates only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brightly-s-farm-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 525 Drake Rd Hamlin",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brighton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 26 to November 22, 2026, Golisano Institute, 150 Sawgrass Dr Rochester",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Moved from 1150 Winton Rd to the Golisano Institute."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "broadalbin-farmers-market",
+    "notes": "Fridays 3-6 at the Fulton County Visitor Center (Routes 29/30 roundabout, Broadalbin) in a county tourism post whose year could not be confirmed; the directory listing's town reads Middleburgh. No hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "broadway-market-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round indoor public market, 999 Broadway",
+    "hoursSourceNote": "Visit Buffalo Niagara",
+    "hoursSourceUrl": "https://visitbuffalo.com/businesses/broadway-market/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brooklyn-borough-hall-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, Montague St & Court St; Year-round, Montague St & Court St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brooktondale-caroline-farmers-market",
+    "notes": "Saturday 10-2, May-October at the Brooktondale Community Center appears only in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "broome-county-regional-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 840 Upper Front St Binghamton",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "brunswick-farmers-market",
+    "notes": "No current information found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "burnap-s-farm-market-and-garden-cafe",
+    "notes": "A farm store with a café, open most days (café hours are on its own site); not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "burnt-hills-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "callicoon-indoor-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "December 1 to March 30, 2026, Delaware Youth Center, 8 Creamery Rd Callicoon",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cambridge-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 17 to October 25, 2026, Owlkill Commons 17 W Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "canajoharie-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 17 to October 25, 2026, 24 Church St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "canal-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round on Saturdays: 9-2, June 6 to October 31, 2026 at 127 West Center St; 9-1 in winter (November to May) at 345 North Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "canandaigua-farmers-winter-market",
+    "notes": "Every other Saturday, November to May; not weekly, so no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "canandaigua-va-farmers-market",
+    "notes": "Listed as June to October at the VA Medical Center; no current days or hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "candor-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "June 18 to November 24, 2026, Town Hall 101 Owego Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "canton-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 8 to October 30, 2026, Village Green Park 17 Park St; May 12 to October 27, 2026, Village Green Park 17 Park St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cape-street-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 2 to September 29, 2026, 357 Broadway St",
+    "hoursSourceNote": "Cape Vincent Chamber of Commerce (market operator)",
+    "hoursSourceUrl": "https://capevincent.org/capestreetmarket/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cape-vincent-farmers-market",
+    "notes": "A farmers and crafters market on the Village Green; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "capital-district-farmers-market-in-menands-wholesale",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "05:30",
+        "closes": "07:30"
+      },
+      {
+        "day": "Wed",
+        "opens": "05:30",
+        "closes": "07:30"
+      },
+      {
+        "day": "Fri",
+        "opens": "05:30",
+        "closes": "07:30"
+      }
+    ],
+    "season": "Spring through fall (wholesale hours); a public retail market runs Saturdays 10-2",
+    "hoursSourceNote": "Capital District Regional Market (market operator)",
+    "hoursSourceUrl": "https://cdregionalmarket.com/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "carmel-farmers-market-at-lake-mahopac",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 7 to October 18, 2026 (no market July 5 or September 6)",
+    "hoursSourceNote": "Town of Carmel",
+    "hoursSourceUrl": "https://www.townofcarmelny.gov/215/Farmers-Market"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "caroline-farmers-market",
+    "notes": "Same market as brooktondale-caroline-farmers-market; Saturday 10-2 in undated listings only."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "carroll-gardens-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Smith St & Carroll St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "catskill-farmers-and-artisans-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 24 to October 25, 2026, 145 Water St County Lot",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as catskill-farmers-market (now at 145 Water St)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "catskill-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 24 to October 25, 2026, 145 Water St County Lot",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cazenovia-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to October 24, 2026, Memorial Park 36-38 Albany St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "central-avenue-farmers-market",
+    "notes": "No current information found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "central-new-york-regional-farmers-market-saturday-and-sunday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 2100 Park St Syracuse; Year-round, 2100 Park St Syracuse",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chamberlain-acres-farmers-market",
+    "notes": "A garden center; a Sunday farmers market (11-3) appears only in 2023 listings. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chappaqua-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to December 19, 2026, Chappaqua Train Station, 108 Allen Place",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chatham-farmers-market",
+    "notes": "The Chatham Farmers & Makers Market (Fridays 4-7) is described only with an earlier year's opening date; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chelsea-s-down-to-earth-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 18 to December 19, 2026, 383 W 23rd St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chestnut-street-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to the end of September 2026, St. John's Lutheran Church lot",
+    "hoursSourceNote": "WKTV report on the market opening its sixth season (May 2026)",
+    "hoursSourceUrl": "https://www.wktv.com/news/local/chestnut-street-farmers-market-in-rome-opens-for-6th-year/article_a0a98b88-aee1-4642-b8d5-4221bc96d5e4.html"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "chili-farmers-market",
+    "notes": "Saturday 8-1, May-October appears only in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cicero-farmers-market",
+    "notes": "No current information found for Cicero, NY (search results describe Cicero, Indiana)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cincinnatus-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to October 3, 2026, Cortland-Chenango Rural Services, 2704 Lower Cincinnatus Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clarence-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 6 to October 31, 2026, Town lot btwn Ransom & Salt Rds, 10717 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as clarence-hollow-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clarence-hollow-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 6 to October 31, 2026, Town lot btwn Ransom & Salt Rds, 10717 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clifton-park-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June 1 to October 31, 2026, Shenendowa Methodist Church , 971 Rt 146",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clinton-bailey-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 1443-1517 Clinton St Buffalo; Year-round, 1517 Clinton St Buffalo",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clinton-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 4 to October 1, 2026, Village Green 21 West Park Row",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "clyde-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 23 to October 2026, Village Park",
+    "hoursSourceNote": "Wayne County Tourism 2026 farmers market list",
+    "hoursSourceUrl": "https://www.waynecountytourism.com/2026/05/06/wayne-county-farmers-markets/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cold-spring-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 30 to October 31, 2026, Boscobel House and Gardens (1601 Route 9D, Garrison)",
+    "hoursSourceNote": "Cold Spring Farmers' Market (the market's own site)",
+    "hoursSourceUrl": "https://www.coldspringfarmersmarket.org/location-and-hours"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "colden-community-farmers-market",
+    "notes": "Saturday 9-1, May-October appears only in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "coopertown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, Pioneer Alley 101 Main St; May 5 to December 29, 2026, Pioneer Alley 101 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "copake-hillsdale-farmers-market",
+    "website": "https://www.copakehillsdalefarmersmarket.com/",
+    "notes": "PIN: this listing is mapped in the wrong town, so no hours are recorded until its location is fixed. It is mapped in Granville; the market is in Roeliff Jansen Park, Hillsdale (Saturdays 9-1, May 16 to Thanksgiving 2026, per its own site)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "corfu-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "July 6 to September 21, 2026, 63 Alleghany Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "corning-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 4 to October 29, 2026, Riverfront Centennial Park , 1 Riverfront Plaza Gaffer District",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "corning-indoor-winter-farmers-market",
+    "notes": "First and third Saturdays, November to March; not weekly, so no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "corona-greenmarket",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 12 to November 20, 2026, Roosevelt Ave & 103rd St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cortelyou-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Cortelyou Rd btwn Rugby & Argyle Rds",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "countryside-grocery-and-farmers-market",
+    "notes": "A country grocery on a working farm with store hours (weekdays 9-6, Saturdays until 2, spring to fall) in undated listings; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "cravings-and-crafts-farmers-market",
+    "notes": "No current information found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "culinary-kids-farmers-market",
+    "notes": "Saturday 10-3 is from a 2014 article; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dag-hammarskjold-greenmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, E 47th St & 2nd Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "danby-farmers-market",
+    "notes": "A 3:30-6:30 pm summer market (mid-July to August) with no day found. No hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dara-farms-seed-and-marketplace-inc",
+    "notes": "Dara Farms is a seasonal farm store; no market hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dave-s-veggies-greenhouses-and-farm-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 1 to October 31, 2026, 5178 NYS Route 41 Homer",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "deep-roots-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 30 to November 7, 2026, 100 Garvies Point Rd Glen Cove",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "delaware-area-neighborhood-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 23 to November 3, 2026, Delaware Branch Library parking lot, 331 Delaware Ave Albany",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as delaware-community-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "delaware-community-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 23 to November 3, 2026, Delaware Branch Library parking lot, 331 Delaware Ave Albany",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "delhi-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 6 to October 28, 2026, Courthouse Square Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "delmar-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to December 19, 2026, Bethlehem Middle School, 332 Kenwood Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "deposit-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dewitt-farmers-market",
+    "notes": "No current hours found for the Carrier Park market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dolgeville-farmers-market-flea-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to October 31, 2026, Plowe Park S Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "domino-park-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 14 to November 22, 2026, River St btwn S 3rd St & S 4th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-battery-park-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 10 to November 22, 2026, River Terrace between Murray St and North End Ave",
+    "hoursSourceNote": "Down to Earth Markets (market operator)",
+    "hoursSourceUrl": "https://downtoearthmarkets.com/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-chelsea-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 18 to December 19, 2026, 383 W 23rd St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as chelsea-s-down-to-earth-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-cunningham-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 19 to December 20, 2026, 19600 Union Tpke Fresh Meadows",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-larchmont-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 4 to December 19, 2026, Metro North lot off Chatsworth Ave, 122 Myrtle Blvd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-mamaroneck-winter-farmers-market",
+    "notes": "Saturdays January to April at St. Thomas Episcopal Church; hours not found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-mcgolrick-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 5 to December 20, 2026, 130 Russell St (Center Pavillion)",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-morningside-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 4 to December 19, 2026, 237 Manhattan Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-ossining-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to December 19, 2026, 15 Spring St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-ossining-winter-farmers-market",
+    "notes": "A winter market at 34 S. Highland Ave; hours not found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-park-slope-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 5 to December 20, 2026, 298 4th St at 5th Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-rye-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 26 to November 2, 2026, Theodore Fremd Ave Lot",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "down-to-earth-scarsdale-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 3 to November 22, 2026, Chase Rd & Spencer Pl",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as scarsdale-farmers-market (Chase Rd & Spencer Pl)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "downtown-binghamton-farmers-market",
+    "notes": "No current weekly farmers market found at 52 Court St."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "downtown-country-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 4 to October 15, 2026, 20 Fountain Plaza Buffalo",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "downtown-farmers-market",
+    "notes": "No current hours found for the Collier St site."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "downtown-syracuse-farmers-market",
+    "notes": "PIN: this listing is mapped in the wrong town, so no hours are recorded until its location is fixed. It is mapped in Fayetteville; the market is in Clinton Square, Syracuse (Tuesdays 8-2, June 9 to October 13, 2026, per the Downtown Committee of Syracuse)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dundee-farmers-market",
+    "notes": "Sundays 10-2 in 2025, moved to the municipal lots at Van Nest and Ypsilanti Streets; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "dunham-public-library-winter-market",
+    "notes": "First and third Mondays (3-7) in the library's community room in listings; not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "east-greenbush-community-library-farmers-market",
+    "notes": "Wednesdays 4-7 (4-6:30 in September) in library listings whose dates don't fall on Wednesdays in 2026; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "east-hampton-farmers-market-llc",
+    "notes": "Fridays 9-1 at Nick & Toni's through Labor Day in listings that don't give the year; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "east-meadow-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 20 to October 24, 2026, Parking Field 8 Eisenhower Pk, East Meadow",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Listed by the state as the CCE Nassau market in Eisenhower Park."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "east-new-york-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 27 to November 14, 2026, 620 Schenck Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "east-side-farmers-market",
+    "notes": "The EastSide Market (Fridays 2:30-6, June to mid-October) appears only in directory listings; not confirmed for 2026. Same market as eastside-market and elmira-eastside-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "eastchester-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "eastside-market",
+    "notes": "Fridays 2:30-6, June to mid-October in directory listings only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "eastside-neighborhood-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 3 to October 28, 2026, Westcott Community Ctr , 826 Euclid Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "eden-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:30"
+      }
+    ],
+    "season": "June to July 2026, Eden Legion grounds",
+    "hoursSourceNote": "Buffalo Spree 2026 farmers market list",
+    "hoursSourceUrl": "https://www.buffalospree.com/food_drink/food_drink_news/2026-farmers-markets-and-urban-farm-stands-in-wny/article_24ba33aa-37a4-435a-a225-38985628d3e1.html"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "elizabethtown-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 12 to August 28, 2026, 7590 Court St, Behind Adirondack Center Museum",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "elmira-eastside-farmers-market",
+    "notes": "Fridays 2:30-6, June to mid-October in directory listings only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "elmwood-bidwell-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to November 28, 2026, Bidwell Parkway corner of Elmwood Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "empire-state-plaza-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Empire State Plaza, (Winter inside South Concourse)",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "enchanted-mountain-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to October 23, 2026, 1900 Constitution Ave Olean",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fairport-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, Village Landing lot off South Main St",
+    "hoursSourceNote": "Village of Fairport",
+    "hoursSourceUrl": "https://www.village.fairport.ny.us/community/farmers_market/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "family-fruit-farmers-market",
+    "notes": "Family Fruit is a produce store and caterer (open Monday to Saturday), not a farmers market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "farm-and-artisan-market-at-the-villa",
+    "notes": "Saturdays 9-2, spring to fall, in undated listings only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "farmer-browns-marketplace-farmers-market",
+    "notes": "Farmer Browns Marketplace is a year-round greenhouse and garden center, not a weekly farmers market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-at-the-williamsville-mill",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to October 31, 2026, now in the Amherst Town Hall lot (5583 Main St)",
+    "hoursSourceNote": "Williamsville Business Association (market operator)",
+    "hoursSourceUrl": "https://willvill.com/events/williamsville-farmers-market/",
+    "notes": "Moved from the Williamsville Mill."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "farmers-market-in-menands",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Spring through fall, enclosed pavilion at 381 Broadway",
+    "hoursSourceNote": "Capital District Regional Market (market operator)",
+    "hoursSourceUrl": "https://cdregionalmarket.com/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fillmore-farmers-market",
+    "notes": "Saturdays 9-1 in an undated Farmers Market Federation listing; not on the state's 2026 FMNP list. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "first-united-methodist-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to December 19, 2026, Bethlehem Middle School, 332 Kenwood Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "The Delmar market, now at Bethlehem Middle School; same as delmar-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "flanders-farmers-market",
+    "notes": "Saturdays 10-1 at the Crohan Community Center when it opened (years ago); not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "florida-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 16 to October 20, 2026, Route 12 A & 94 across from Dollar Tree",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "flushing-greenmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "2026, Bowne Playground (Sanford Ave & Union St)",
+    "hoursSourceNote": "NYC Department of Health Farmers Market Map 2026",
+    "hoursSourceUrl": "https://www.nyc.gov/assets/doh/downloads/pdf/cdp/farmers-markets-map.pdf"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fordham-farmers-market",
+    "notes": "A Friday market launched in 2024; not on NYC Health's 2026 farmers market map."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fort-edward-canal-street-marketplace-farmers-market",
+    "notes": "PIN: this listing is mapped in the wrong town, so no hours are recorded until its location is fixed. It is mapped on Canal Street in Manhattan; the market is at 63 Canal St, Fort Edward (Thursdays 4-7, June 4 to September 24, 2026, per the state list)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fort-edward-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 4 to September 24, 2026, 63 Canal St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Appears to be the same Fort Edward market (Canal Street Marketplace)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fredonia-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays year-round: 9-1, May 16 to October 31, 2026 at Barker Commons (9 Church St); 10-1 in winter at the Masonic Lodge (321 East Main St)",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "freevilefarmersmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "May 3 to November 1, 2026, 43 Main St Freeville",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "fulton-stall-market-indoor-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "11:30",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "11:30",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "11:30",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "11:30",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "11:30",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "11:30",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round indoor market at 91 South St; outdoor farmers market Saturdays 10-4",
+    "hoursSourceNote": "Fulton Stall Market (the market's own site)",
+    "hoursSourceUrl": "https://fultonstallmarket.org/visit"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "genesee-county-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 5 to October 30, 2026, School St & Jackson St Batavia; June 9 to October 27, 2026, School St & Jackson St Batavia",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Listed by the state as the Genesee Country market at School and Jackson Sts."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "glen-cove-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Deep Roots Farmers Market, May 30 to November 7, 2026",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets FMNP authorized market list (published 9/8/2026)",
+    "hoursSourceUrl": "https://agriculture.ny.gov/counties-h-r-fmnp-market-schedules-0",
+    "notes": "Same market as deep-roots-farmers-market (listed twice). The state list gives 100 Garvies Point Rd; 2026 event listings give Village Square."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "glens-falls-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "November 2 to April 26, 2026, 57 South St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "good-ole-days-indoor-farm-market-macedon-center",
+    "notes": "Saturdays 8:30-3, April to December, in undated directory listings only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "gossett-s-farmer-s-market",
+    "notes": "Saturdays 9-1 year-round at Gossett Brothers Nursery in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "grass-roots-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "July 7 to November 28, 2026, Jackie Robinson Park W 145th St, btwn Edgecomb & Bradhurst Aves",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "greater-bellport-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "green-hills-farmers-market",
+    "notes": "Green Hills Farms is a grocery store (open daily); no separate market schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "greenport-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 23 to October 10, 2026, now in Mitchell Park (115 Front Street)",
+    "hoursSourceNote": "Northforker report on the 2026 season",
+    "hoursSourceUrl": "https://northforker.com/2026/05/greenport-farmers-market-kicks-off-season-this-saturday-with-new-vendors-new-schedule/",
+    "notes": "Moved from First Street and from Friday afternoons to Saturday mornings for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "greenwich-farmers-market",
+    "notes": "Thursdays 2-5 in the former IGA lot in an undated county listing; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "groton-farmers-market",
+    "notes": "No current hours found (2026 results are for Groton, Connecticut)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "guilderland-farmers-market",
+    "notes": "Sundays 10-2 in the library's 2024 listing; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hamburg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to October 31, 2026, Moose Lodge #992 45 Church St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hamilton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to October 24, 2026, Village Green 3 Broad St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hamlin-farmers-market",
+    "notes": "No current hours found; Hamlin's 2026 state listings are farm stands."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hancock-community-education-farmers-market",
+    "notes": "Sources disagree for 2026 (Saturdays May 23 to October 3 in one listing, Thursdays 4-7 June 25 to August 13 on hancockfarmers.com); no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "harlem-hospital-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 15 to November 20, 2026, 530 Malcolm X Blvd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "harvest-home-jacobi-hospital-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 15 to November 20, 2026, 1400 Pelham Parkway",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "harvest-home-murray-hill-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map or Harvest Home's 2026 list; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "harvest-home-youth-market",
+    "notes": "Not on NYC Health's 2026 farmers market map or Harvest Home's 2026 list; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "herkimer-early-birds-farmers-market",
+    "notes": "Not clear whether this is the Saturday Herkimer market (listed separately); no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "herkimer-farmers-market",
+    "notes": "Not on Cornell Cooperative Extension's Herkimer County list or the state's 2026 FMNP list; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "high-school-for-public-service-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "highland-park-winter-farmers-market",
+    "notes": "A winter market (November to May) in undated listings; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hilltown-farmers-market-preston-hollow",
+    "notes": "Listings describe a greenhouse's store hours rather than a weekly market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hilltown-farmers-market-rensselaerville",
+    "notes": "No current market hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hilton-farmers-market",
+    "notes": "Sundays 9-2, mid-June to October in undated listings only; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "holland-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to October 25, 2026, R & S Plaza 7238 Olean Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "homer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 23 to October 31, 2026, Homer Center for the Arts, 72 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hornell-farmers-market",
+    "notes": "Thursdays 12-4, May to October at the Broadway Mall in an undated state tourism listing; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "horseheads-farmers-market",
+    "notes": "Saturdays 10-2 at Teal Park in undated listings; the village's 2026 market is Friday Nights at Thorne (Thorne Street Park). No hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hudson-falls-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hudson-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 18 to November 28, 2026, DMV parking lot 6th & Columbia Sts",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hudson-valley-regional-farmers-market",
+    "notes": "Sundays 10-2 year-round in undated listings; the market's former website now redirects to an unrelated shop. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "huntington-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "June 7 to November 22, 2026, Elm St parking lot 228 Elm St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "hyde-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 6 to October 31, 2026, 4390 Albany Post Road (across from Town Hall)",
+    "hoursSourceNote": "Town of Hyde Park",
+    "hoursSourceUrl": "https://www.hydeparkny.gov/541/Hyde-Park-Farmers-Market"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ilion-farmers-market",
+    "notes": "The Ilion Farmers Market at Clapsaddle Farm is listed as closed until further notice."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "indian-lake-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "July 4 to September 26, 2026, 106 Crow Hill Road",
+    "hoursSourceNote": "Regional Office of Sustainable Tourism (ROOST) 2026 Adirondack farmers market list",
+    "hoursSourceUrl": "https://www.roostadk.com/news/2026/farmers-markets-planned-throughout-adirondacks"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "inwood-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, Isham St btwn Seaman Ave & Cooper St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "irondequoit-farmers-market",
+    "notes": "Thursday evenings from 4 until dusk, May to October, in the Quinlan Farmers' Market Building; no fixed closing time, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ithaca-farmers-market-saturday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "April 4 to December 19, 2026, Steamboat Landing 545 3rd St; April 5 to December 20, 2026, Steamboat Landing 545 3rd St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "jackson-heights-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 34th Ave & 79th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "jamestown-farmers-market-summer",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 6 to November 22, 2026, 116 E Third St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "jamestown-farmers-market-winter",
+    "notes": "Second and fourth Saturdays 9-1, January to May (state list, June 2026); not weekly, so no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "john-jay-homestead-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, in Lot 2 (190 Katonah Ave) in downtown Katonah",
+    "hoursSourceNote": "John Jay Homestead (the market's operator)",
+    "hoursSourceUrl": "https://johnjayhomestead.org/events/farm-market/",
+    "notes": "Held in downtown Katonah, not at the homestead on Jay Street. Members-only first pick 9-9:30."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "johnson-city-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "johnstown-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June 23 to October 13, 2026, Briggs St Rec Center, Briggs St & Route 30A",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "joseph-addabbo-family-health-center-s-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "katonah-lewisboro-farmers-market",
+    "notes": "The indoor winter market at John Jay High School appears only in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kauneonga-lake-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 28 to September 6, 2026, Village Square 3594 State Rt 55",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "keeseville-farmers-market",
+    "notes": "Only 2025 listings found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kenmore-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 21 to October 25, 2026",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets FMNP authorized market list (published 9/8/2026)",
+    "hoursSourceUrl": "https://agriculture.ny.gov/counties-g-fmnp-market-schedules-0",
+    "notes": "Buffalo Spree's 2026 list agrees (Sundays 9-1)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kennedy-plaza-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, 1 W Chester St; May 6 to November 25, 2026, 1 W Chester St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kingston-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, 285 Wall St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kingston-new-york-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, 285 Wall St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as kingston-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "kingston-winter-farmers-market",
+    "notes": "Alternate Saturdays 10-2, December to March (state list, June 2026); not weekly, so no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "koo-koose-farmers-market",
+    "notes": "Saturdays 9-1, mid-June to early October at the Town Garage Pavilion in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "la-familia-verde-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "July 7 to November 10, 2026, Walter Gladwin Park, East Tremont & Arthur Aves",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "la-grange-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lake-placid-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "July 1 to September 2, 2026 (no market July 15), at the Olympic Speed Skating Oval, 2634 Main Street",
+    "hoursSourceNote": "High Peaks Farmers' Markets (the market's operator)",
+    "hoursSourceUrl": "https://www.highpeaksfarmersmarkets.com/lake-placid"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lakeside-farmers-market-at-greenwood-lake",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to October 31, 2026, Winstanley Park 133 Windermere Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lakeville-ucc-farmers-market",
+    "notes": "Fridays 4-7 at Lakeville United Church of Christ in listings whose dates fall in 2021; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lancaster-market",
+    "notes": "2026 listings put the Lancaster Farmers Market (Saturdays 9-1) at Broadway and Central, not 11 W Main St; not confirmed."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lansing-farmers-market",
+    "notes": "Saturdays 10-1, June to October in listings dating from 2013; the market's website no longer resolves. Not confirmed for 2026. Same market as lansing-ny-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lansing-ny-farmers-market",
+    "notes": "Saturdays 10-1, June to October in listings dating from 2013; the market's website no longer resolves. Not confirmed for 2026. Same market as lansing-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lebanon-valley-farmers-market",
+    "notes": "No current market found; New Lebanon Farmers Market & Grocery on Route 20 is a store."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lima-presbyterian-church-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 23 to October 20, 2026, 7295 W Main St Corner of Route 15A",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "little-falls-farmers-and-flea-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to October 31, 2026, M&T Bank parking lot Albany St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "little-falls-winter-farmers-market",
+    "notes": "No current winter schedule found; the summer market is listed separately."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lockport-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to October 24, 2026, 69 Canal St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lockport-community-winter-farmers-market",
+    "notes": "First and third Saturdays 10-2, November to May (state list, June 2026); not weekly, so no weekly hours."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "locust-valley-farmers-market",
+    "notes": "Saturdays 8-1 from June on Forest Avenue in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lyme-community-center-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "From June 12, 2026, at the Lyme Community Center",
+    "hoursSourceNote": "Lyme Community Foundation newsletter (Lyme Light, May 2026)",
+    "hoursSourceUrl": "https://www.lymecommunityfoundation.org/uploads/1/4/3/4/143451212/may_2026_lyme_light.pdf"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lyons-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "11:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June 9 to September 29, 2026, Riverside Park 6904 Laura St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "lyons-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 20 to October 31, 2026, Village Square 26 Church St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "macedon-farmers-market",
+    "notes": "The Macedon Village Farmers' Market runs four times a year (fifth Saturdays, 9-1, on Smith Street); not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mahopac-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "main-street-farmers-market",
+    "notes": "Only a 2018 listing found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "malone-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "May 13 to October 7, 2026, 27 Airport Rd (Rte 11)",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "manlius-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "June 29 to August 10, 2026, Manlius Village Centre parking lot, with the summer concert series",
+    "hoursSourceNote": "Eagle Bulletin report on the village's new 2026 market (May 18, 2026)",
+    "hoursSourceUrl": "https://www.eaglenewsonline.com/eagle_bulletin/village-of-manlius-to-pair-monday-evening-summer-concert-series-with-new-farmers-market/article_4593680a-a62e-4e91-8066-7ed64e045e1a.html"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "massena-farmers-and-artisans-cooperative-market",
+    "notes": "Sundays 10-2 at the Tractor Supply lot in 2024 listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mendon-farmers-market",
+    "notes": "No current hours found; the market's website no longer resolves."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "metropolitan-hospital-market",
+    "notes": "PIN: this listing is mapped in the wrong place (1 2nd Ave, East Village), so no hours are recorded until its location is fixed. Harvest Home Metropolitan Hospital Farmers Market is at E. 97th St & 2nd Ave, Fridays 8-3 (NYC Health 2026 map; state FMNP list gives May 15 to November 20, 2026)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mexico-farmers-market",
+    "notes": "The village describes Wednesdays 4-8 in July and August behind Mexico High School (3338 Main St) without giving a year; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "middleport-farmers-market",
+    "notes": "No current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "milan-farmers-market-12571",
+    "notes": "No current hours found; the market's website no longer resolves."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "milford-farmers-and-craft-market",
+    "notes": "Sundays 10-2, Memorial Day to Columbus Day weekends in undated listings, some saying it has closed; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "millerton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to November 28, 2026, Millerton Methodist Church, 6 Dutchess Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "millerton-farmers-market-winter-season",
+    "notes": "The winter market meets on the second and fourth Saturdays (10-2) at the Methodist church; not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mohawk-farmers-market",
+    "notes": "No market found; the state's 2026 list has only a farm stand on West Main Street (Thursdays)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "monday-neighborhood-farmers-market",
+    "notes": "No current schedule found. Same market as watertown-monday-neighborhood-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "monroe-village-farmers-market",
+    "notes": "No 2026 schedule found (2026 results are for Monroe in Orange County); the market's website was unreachable."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "montour-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 11 to October 8, 2026, 301 Clawson Blvd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "moravia-farmers-market",
+    "notes": "Thursdays, June to October in undated listings, no exact hours; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "morgans-farm-market",
+    "notes": "Morgan's Farm Market is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mount-morris-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 28 to October 29, 2026, 117 Main St behind Firehouse",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mount-morris-village-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 28 to October 29, 2026, 117 Main St behind Firehouse",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as mount-morris-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mount-sinai-greenmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "June 17 to November 25, 2026, Madison Ave & 99th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "mount-vernon-farmers-market",
+    "notes": "The Fresh Connect market at City Hall Plaza appears only in undated listings, some saying it has closed; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "muscoot-farmers-market",
+    "notes": "A Sunday market at Muscoot Farm; no exact 2026 hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "myrtle-wycoff-greenmarket",
+    "notes": "Not on NYC Health's 2026 farmers market map or the state's 2026 FMNP list; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "naples-natural-farmers-market",
+    "notes": "A Tuesday evening market on Main Street appears in 2025 listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "narrowsburg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to October 31, 2026, 7 Erie Ave Narrowsburg",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "nesconset-farmers-market",
+    "notes": "Saturdays July to November in undated listings that disagree on closing time (1 or 2); not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "new-cassel-farmers-market",
+    "notes": "Saturdays, July 25 to October 31, 2026 in listings without hours; no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "new-paltz-farmers-market",
+    "notes": "Sundays 10-3, June to November on Main Street in an undated state tourism listing; not confirmed for 2026. The Saturday market at 196 Main Street is the Hudson Valley Open Market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "new-york-hall-of-science-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; the 2026 Saturday market at the museum is the Queens Night Market, a different event."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "newburgh-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 2 to November 21, 2026, 97 Broadway",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "newburgh-healthy-orange-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 23 to October 27, 2026, 130 Broadway (lawn next to DMV bldg), btwn Johnston & Landers St Newburgh",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "north-amherst-bnhv-farmers-market-amherst-museum",
+    "notes": "No 2026 market found at the Buffalo Niagara Heritage Village; the Town of Amherst says its Bassett Park market is not being held in 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "north-buffalo-farmers-market",
+    "notes": "Thursdays 4-7 in summer and Saturdays 9-noon in the fall in 2024 listings; not confirmed for 2026, and the day changes mid-season."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "north-salem-artisanal-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to October 10, 2026, 3 Back St Croton Falls",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "northside-farmers-market",
+    "notes": "Wednesdays 2-6 at 435 W. State Street in listings from a previous season; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "northville-farmers-market",
+    "notes": "Saturdays 10-1 at Waterfront Park in listings whose dates fall on Saturdays in 2022, not 2026; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "norwich-farmers-market",
+    "notes": "Wednesdays 10-2 in East Park in undated listings; not confirmed for 2026. (The market's listed website is for Norwich, Vermont.)"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "nota-farmers-market",
+    "notes": "Monday evenings 4-7, June to September, on the lawn at Asbury First United Methodist Church (1050 East Ave) in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "oculus-plaza-greenmarket",
+    "notes": "Tuesdays at Oculus Plaza in undated listings; Not on NYC Health's 2026 farmers market map. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "olde-school-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "olean-center-mall-farmers-market",
+    "notes": "Not in 2026 guides; Olean's markets are listed at Lincoln Park (Saturdays) and 1900 Constitution Avenue (Fridays)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "oneida-county-public-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, REA Wing Union Station, 321 Main St Utica",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "oneida-county-public-market-utica",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, REA Wing Union Station, 321 Main St Utica",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of oneida-county-public-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "oneonta-farmers-market-saturday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, Dietz St btwn Main & Wall",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ontario-orchards-farms-and-farmers-market",
+    "notes": "Ontario Orchards is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "orleans-county-farmers-market-albion",
+    "notes": "Sundays 10-3 in listings whose dates fall in 2024, and the Albion market has since moved to Main Street; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "otsiningo-park-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ovid-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 20 to September 26, 2026, Three Bears Park",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "owego-farmers-market",
+    "notes": "Owego's 2026 market runs Tuesdays 9-1 and Fridays 3-7 at 3732 Waverly Road (Seven Counties market), not at 153 Main Street; no hours recorded here."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pakatakan-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to November 28, 2026, Round Barn of Halcottville, 46676 State Hwy 30",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "palisades-winter-farmers-market",
+    "notes": "A winter market (Saturdays 9-2, January to March) in listings last dated 2023; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "palmyra-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 3 to October 7, 2026, Village Park 155 E Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "parker-s-historic-cider-mill-and-farmer-s-market",
+    "notes": "Parker's Cider Mill is a farm store (Fridays and Saturdays in listings), not a weekly farmers market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "patchogue-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 31 to November 1, 2026, at the LIRR station (Division St and S. Ocean Ave)",
+    "hoursSourceNote": "Village of Patchogue announcement (May 27, 2026)",
+    "hoursSourceUrl": "https://patchoguevillage.gov/CivicAlerts.aspx?AID=281"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "peaceful-soul-farmers-market",
+    "notes": "Tuesdays 9-2, June to October in the Native Pride lot in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pearl-river-farmers-market",
+    "notes": "Saturdays 10-2 in 2026 listings, but the town's notice says the market paused and returned July 11 at a different site (Central Avenue Field), and that notice is now gone; no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "peekskill-farmers-market",
+    "notes": "PIN: this listing is mapped in the wrong town, so no hours are recorded until its location is fixed. It is mapped on Bank Street in Manhattan; the market is on Bank Street, Peekskill (Saturdays 9-2, June 6 to November 21, 2026, per Destination Peekskill and the state FMNP list)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "penfield-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pennings-orchard-and-farm-market",
+    "notes": "Pennings is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "philadelphia-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "philmont-farmers-market",
+    "notes": "Sundays 10-2, May to mid-October in undated listings; the Philmont Cooperative's own page now lists only its year-round store. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "phoenicia-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 17 to November 1, 2026, Parish Field Phoenicia",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pine-island-farmers-market",
+    "notes": "Held at W. Rogowski Farm, which Yelp lists as closed; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pittsford-village-farmers-market",
+    "notes": "Saturdays 9-1 behind the Spiegel Community Center in older listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pleasantville-farmers-market-outdoor",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April 4 to December 26, 2026, Memorial Plaza Parking Lot, off Manville Rd next to Train Station",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pomonok-farmers-market",
+    "notes": "Wednesdays, July to November in undated listings; Not on NYC Health's 2026 farmers market map. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "port-henry-waterfront-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "June 19 to September 4, 2026",
+    "hoursSourceNote": "Regional Office of Sustainable Tourism (ROOST) 2026 Adirondack farmers market list",
+    "hoursSourceUrl": "https://www.roostadk.com/news/2026/farmers-markets-planned-throughout-adirondacks"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "port-jefferson-farmers-market",
+    "notes": "Sundays 9-2, May to November in Harborfront Park in 2025 listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "port-jervis-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to September 26, 2026, Orange Square Veterans Memorial Park, 1 N Broome St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "port-washington-farmers-market",
+    "website": "https://www.pwfarmersmarket.org/",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 13 to October 31, 2026, Port Washington Town Dock (347 Main St)",
+    "hoursSourceNote": "Port Washington Farmers Market (the market's own site); dates from the state FMNP list (9/8/2026)",
+    "hoursSourceUrl": "https://www.pwfarmersmarket.org/",
+    "notes": "Same market as port-washington-organic-farmers-market (listed twice). Now at the Town Dock rather than 52 Main Street."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "port-washington-organic-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June 13 to October 31, 2026, Port Washington Town Dock , 347 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "potsdam-farmers-market",
+    "notes": "PIN: this listing is mapped in the wrong town, so no hours are recorded until its location is fixed. It carries a Manhattan address and pin; the market is in Ives Park, Potsdam (Saturdays 9-2, June 6 to October 31, 2026, per the state list)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "potsdam-main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 6 to October 31, 2026, Ives Park 3 Riverview Dr",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Appears to be the same Potsdam market (Ives Park)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "prestwick-chase-farmers-market",
+    "notes": "Mondays 3-6 at the Prestwick Chase senior community in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "pulaski-farmers-market-and-music-in-the-park",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "June 5 to August 28, 2026, South Park 3 Bridge St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "putnam-valley-farmers-market",
+    "notes": "Fridays 3-6:30 at the Tompkins Corners Cultural Center in listings whose dates fall in 2023; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "queens-botanical-garden-farmers-market",
+    "notes": "Fridays on Dahlia Avenue in listings without a year; Not on NYC Health's 2026 farmers market map. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "queens-hospital-center-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "queensbury-farmers-market",
+    "notes": "Only 2025 listings found, which disagree on the location."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "ramapo-farmers-market",
+    "notes": "Sundays June to September/October at Levy Park in undated listings that disagree on the season; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "red-hook-village-farmers-market",
+    "notes": "Saturdays 10-2 in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "rhinebeck-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to December 27, 2026, 61 E Market St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "riverhead-farmers-market",
+    "notes": "The 2026 Riverhead market ran monthly (third Saturdays, March to May) at the East End Food Hub; not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "rochester-public-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "06:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 280 N Union St off East Main St; Year-round, 280 N Union St off East Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "rockefeller-center-greenmarket",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "August 12 to October 28, 2026, Rockefeller Center Plaza at 50th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "rome-farmers-market",
+    "notes": "The market's 2026 page lists Friday entertainment (July to September) but no market hours; no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "roosevelt-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "11:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "July 25 to October 24, 2026, 380 Nassau Rd Roosevelt",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "roslyn-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 3 to December 23, 2026, Christopher Morley Park , 500 Searingtown Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "rouse-point-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 12 to September 11, 2026, Dodge Memorial Library Lawn , 144 Lake St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "salamanca-farmers-market",
+    "notes": "The city moved the market to Jefferson Park for 2026 (Tuesdays 11-5 in one listing, but its dates don't fall on Tuesdays); no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "saranac-farmers-greenmarket",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "saratoga-farmers-market-clifton-park",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June 1 to October 31, 2026, Shenendowa Methodist Church , 971 Rt 146",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same site as clifton-park-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sauder-s-farmers-market",
+    "notes": "Sauders is a store (grocery, bakery and deli), not a weekly farmers market; no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "saugerties-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 23 to October 24, 2026, 115 Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "saw-mill-farmers-market",
+    "notes": "Listed as running June to November 2026 (Groundwork Hudson Valley, Philipse Manor Hall) but no day or hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "scarsdale-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 3 to November 22, 2026, Chase Rd & Spencer Pl",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "schenectady-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April 12 to November 22, 2026, Franklin St & Jay St near City Hall",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "schenectady-greenmarket-winter",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "December 7 to March 29, 2026, Proctors Theater 432 State St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "schoharie-country-music-festival-farmers-market-saturday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "July 11 to November 28, 2026, Gathering Place Community Center, 127 Kenyon Rd Cobleskill",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "schoharie-county-festival-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "July 11 to November 28, 2026, Gathering Place Community Center, 127 Kenyon Rd Cobleskill",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same market as schoharie-country-music-festival-farmers-market-saturday."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "scottsville-farmers-markets",
+    "notes": "Saturdays 9-1 in undated listings that disagree on the season; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "seneca-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 16 to October 20, 2026, Rec Center parking lot 35 Water St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "shiloh-community-farmers-market-grand-opening",
+    "notes": "A grand-opening listing for the market at New Shiloh Baptist Church; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "shinglekill-falls-farmers-market",
+    "notes": "Monthly (third Mondays, 4-7) at Shinglekill Falls; not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "side-track-farmers-market",
+    "notes": "The market's site gives no current schedule (it mentions moving to Saturday afternoons); no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sidney-farmers-market",
+    "notes": "Saturday mornings, late May to mid-October in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "siler-s-farm-market",
+    "notes": "Siler's is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "skaneateles-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "12:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 23 to October 10, 2026, Austin Park Pavilion 1 E Austin St; May 21 to October 8, 2026, Austin Park Pavilion 1 E Austin St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "skaneateles-greener-bean-farmers-market",
+    "notes": "No current schedule found; Skaneateles' 2026 markets are in Austin Park."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "slate-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 10 to October 14, 2026, Veteran's Memorial Park Granville, Quaker & Morrison Sts",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "slate-valley-farmers-market-granville",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 10 to October 14, 2026, Veteran's Memorial Park Granville, Quaker & Morrison Sts",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of slate-valley-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sodus-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 10 to October 7, 2026, Sodus Methodist Church Lot, 58 W Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sodus-farmers-market-sodus",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 10 to October 7, 2026, Sodus Methodist Church Lot, 58 W Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of sodus-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "south-village-farmers-market",
+    "notes": "Not on NYC Health's 2026 farmers market map; no current hours found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "south-wedge-farmers-market",
+    "notes": "Thursdays 4-7, June to October at Genesee Gateway Park in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "southern-tier-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to October 23, 2026, 1900 Constitution Ave Olean",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Same site as enchanted-mountain-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "springville-farmers-market",
+    "notes": "2026 guides put the Saturday Springville Farmers Market at 65 Franklin Street; the listed 341 W. Main Street is Gentner's Commission Market (Wednesdays). No hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "st-george-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, St Marks Pl & Hyatt St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "st-john-s-church-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "July 9 to October 29, 2026, Church Courtyard 1 Hudson St Yonkers",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "staten-island-ferry-greenmarket",
+    "notes": "Tuesdays and Fridays in the Whitehall terminal in undated listings; Not on NYC Health's 2026 farmers market map. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "staten-island-mall-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 6 to November 21, 2026, Marsh Ave & Ring Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "stuyvesant-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "suffolk-y-jcc-farmers-market",
+    "notes": "An indoor winter market (Sundays 9-1, January to March) in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sullivan-fresh-mobile-farmers-market-at-wurtsboro",
+    "notes": "A Sullivan Fresh mobile market stop (Thursdays 4-5:30 at the Community Church of Wurtsboro in listings); the 2026 schedule could not be confirmed."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sullivan-fresh-monticello-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 25 to September 24, 2026, 10 Jefferson St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sunday-putnam-market",
+    "notes": "Sundays 9-4 in Temple Beth Shalom's lot in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "sunset-view-farmers-market",
+    "notes": "Sunset View Creamery held a Thursday farm market (4-7) in 2021; the farm store is at 4970 County Road 14. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "syosset-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 9 to October 31, 2026, Syosset train station parking lot",
+    "hoursSourceNote": "Your North Shore Living 2026 Nassau County farmers market guide",
+    "hoursSourceUrl": "https://yournorthshoreliving.com/nassau-county-farmers-markets-2026/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "syracuse-farm-fresh-mobile-market",
+    "notes": "A mobile market stop; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-city-of-poughkeepsie-water-front-farmers-market",
+    "notes": "Tuesdays 2-5:30 at the Mid-Hudson Discovery Museum pavilion on the museum's page, which shows a 2023 date; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-cross-roads-farm-and-craft-market",
+    "notes": "A seasonal farm and craft store (May to December); no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-emerald-pearl-artist-market",
+    "notes": "No current market found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-mall-at-greece-ridge-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 6 to October 24, 2026, 271 Greece Ridge Center Dr Rochester; June 4 to November 21, 2026, 271 Greece Ridge Center Dr Rochester",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-tash-the-tarrytown-sleepy-hollow-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 9 to December 5, 2026, Patriots Park Rt 9 Tarrytown",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "the-windmill-farm-and-craft-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:30"
+      }
+    ],
+    "season": "April 18 to November 28, 2026, 3900 Rte 14A Hobson Rd Penn Yan",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "tj-s-farmers-market",
+    "notes": "TJ's is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "tompkins-square-greenmarket",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, Ave A & 7th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "town-of-conquest-farmers-market",
+    "notes": "The Port Byron market (Wednesdays 3-6, June to September) appears only in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "town-of-pendleton-farmers-market",
+    "notes": "Pendleton Station Market runs on monthly Sundays (9-1, June to November 2026, per Buffalo Spree); not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "tribeca-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, Greenwich St & Chambers St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "troy-waterfront-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays year-round: River St, May 2 to October 31, 2026; indoors at the Troy Atrium (49 4th St) November to April",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "troy-waterfront-farmers-market-troy",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays year-round: River St, May 2 to October 31, 2026; indoors at the Troy Atrium (49 4th St) November to April",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of troy-waterfront-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "tucker-greenmarket",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, W 66th St & Broadway; Year-round, 66th St & Broadway",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "The USDA listing carries the Tribeca address by mistake; Tucker Square is at W 66th St and Broadway."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "unadilla-farmers-market",
+    "notes": "No current market found; Unadilla's 2026 listings are for Covered Bridge Farm Market, a farm store."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "union-square-greenmarket",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, Union Square W & 17th St; Year-round, Union Square W & 17th St; Year-round, Union Square W & 17th St; Year-round, Union Square W & 17th St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "utica-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June 24 to October 28, 2026, 313 Elizabeth St Chancellor Park",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "valley-stream-farmers-market",
+    "notes": "Thursdays 7-1 in old social media posts; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "vestal-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to November 25, 2026, Library parking lot, near museum, 320 Vestal Pkwy East",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "victor-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 3 to October 28, 2026, Village Hall parking lot 60 East Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "vienna-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 4 to October 22, 2026, 2040 Rt 49 North Bay",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Listed by the state at 2040 Route 49, North Bay."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "village-of-champlain-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "July 18 to September 19, 2026, Paquette Park Gazebo Main St (Rte 9)",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "village-of-fredonia-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "November 1 to May 17 at the Masonic Lodge (321 East Main St); the summer market runs Saturdays 9-1 at Barker Commons",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "village-of-tuckahoe-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 31 to November 22, 2026, Depot Square by the Metro-North station (Farm & Maker Market)",
+    "hoursSourceNote": "Village of Tuckahoe",
+    "hoursSourceUrl": "https://www.tuckahoe.gov/274/Tuckahoe-Farm-Maker-Market"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "virgil-farmers-market",
+    "notes": "Returning in 2026 on a new day and time that no listing gives; no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "voorheesville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "June 17 to September 30, 2026, First United Methodist Church lot, 68 Maple Ave",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "walton-farmers-market",
+    "notes": "The town's page describes the 2019 season (Fridays at Veterans Plaza); other listings carry 2023 dates. Not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "warrensburgh-riverfront-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 29 to October 9, 2026, Farmers' Market Park on River Street (festival days at the Recreation Field)",
+    "hoursSourceNote": "Lake George Examiner report on the 2026 season",
+    "hoursSourceUrl": "https://www.lakegeorgeexaminer.com/rhubarb-festival-to-kick-off-warrensburgh-riverfront-markets-2026-season/"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "waterford-harbor-farmers-market",
+    "notes": "Sundays 9-1, June to October on the Harbor promenade in undated listings; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "waterloo-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 4 to October 15, 2026, 1171 Waterloo-Geneva Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "waterloo-rotary-farm-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June 4 to October 15, 2026, 1171 Waterloo-Geneva Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Appears to be the same Waterloo market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-mobile-farmers-market-curtis-apartments",
+    "notes": "A mobile market stop; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-mobile-farmers-market-leray-apartments",
+    "notes": "A mobile market stop; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-mobile-farmers-market-midtown-towers-housing",
+    "notes": "A mobile market stop; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-mobile-farmers-market-north-country-children-s-clinic",
+    "notes": "A mobile market stop; no current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-monday-neighborhood-farmers-market",
+    "notes": "No current schedule found. Same market as monday-neighborhood-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watertown-saturday-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to November 14, 2026, JB Wise Pavilion 175 Black River Pkwy",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "watt-farms-country-market",
+    "notes": "Watt Farms is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "wayland-farmers-market",
+    "notes": "No current schedule found (2026 results are for Wayland, Massachusetts)."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "webster-s-joe-obbie-farmers-market-inc",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June 13 to October 31, 2026, 1034 Ridge Rd",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "weedsport-area-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "weeksville-farmers-market",
+    "notes": "Weeksville Green runs monthly in 2026 (e.g. July 11 and August 22, 12-5); not weekly, so no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "wellsville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June to September 2026, 155 North Main Street",
+    "hoursSourceNote": "Buffalo Spree 2026 farmers market list (Wellsville Village Farmers Market)",
+    "hoursSourceUrl": "https://www.buffalospree.com/food_drink/food_drink_news/2026-farmers-markets-and-urban-farm-stands-in-wny/article_24ba33aa-37a4-435a-a225-38985628d3e1.html"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "west-point-town-of-highlands-farmers-market",
+    "website": "https://www.wptohmarket.com/",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June 21 to November 1, 2026 (no market October 11), municipal lot across from Sacred Heart Church, 346 Main Street",
+    "hoursSourceNote": "West Point-Town of Highlands Farmers Market (the market's own site)",
+    "hoursSourceUrl": "https://www.wptohmarket.com/faq"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "westhampton-beach-farmers-market",
+    "notes": "Saturdays 9-1 on the Village Green in chamber listings, but the 2026 season dates could not be read; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "westside-farmers-market",
+    "notes": "The listed address (831 Genesee St) is Rochester's Westside Farmers' Market (Tuesdays 4-7, June 2 to October 6, 2026 on the state FMNP list), but this listing is placed in Corfu, so no hours are recorded here."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "white-plains-international-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:30",
+        "closes": "14:45"
+      }
+    ],
+    "season": "April 24 to November 27, 2026, 125 Court St , btwn Martine Ave & Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "white-plains-international-open-air-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:30",
+        "closes": "14:45"
+      }
+    ],
+    "season": "April 24 to November 27, 2026, 125 Court St , btwn Martine Ave & Main St",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of white-plains-international-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "white-s-farm-market",
+    "notes": "White's Farm Market is a farm store with daily store hours, not a weekly farmers market, so no market hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "whitesboro-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "14:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June 1 to September 28, 2026, on the Village Green (Main and Clinton Streets)",
+    "hoursSourceNote": "WKTV report on the 2026 season (June 1, 2026)",
+    "hoursSourceUrl": "https://www.wktv.com/news/local-business/whitesboro-farmers-market-open-every-monday-until-sept-28/article_6e0aaf11-c85d-48c3-bab8-64c33fc1d785.html"
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "whitney-point-farmers-market",
+    "notes": "No current schedule found."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "williamson-ny-farmers-market",
+    "notes": "Thursdays 2:30-6:30 at 4098 Main Street in listings whose dates fall on Thursdays in 2025; not confirmed for 2026."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "winter-farmers-market-at-circa-restaurant",
+    "notes": "Cazenovia's winter market moved from Circa to the Methodist church (last 2026 winter market April 25); no current winter schedule recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "yonkers-down-to-earth-market",
+    "notes": "Sundays, June to November in Van Der Donck Park in listings without hours; no hours recorded."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "yonkers-st-john-s-church-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "July 9 to October 29, 2026, Church Courtyard 1 Hudson St Yonkers",
+    "hoursSourceNote": "New York State Department of Agriculture and Markets farmers market list (data.ny.gov, updated June 2026)",
+    "hoursSourceUrl": "https://data.ny.gov/Economic-Development/Farmers-Markets-in-New-York-State/qq4h-8p86",
+    "notes": "Duplicate USDA listing of st-john-s-church-farmers-market."
+  },
+  {
+    "state": "NY",
+    "checked": "2026-09-14",
+    "slug": "youthmarket-flatbush-junction",
+    "notes": "Not on NYC Health's 2026 farmers market map; this listing is also mapped at GrowNYC's office on Chambers Street, not in Flatbush."
+  }
+]

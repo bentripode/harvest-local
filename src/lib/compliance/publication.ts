@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -45,7 +46,7 @@ export interface PublicationInput {
   status: string;
   title: string;
   ingredients?: string;
-  netWeightValue?: string;
+  netWeightValue?: Money;
   netWeightUnit?: string;
   allergens: string[];
   handlingInstructions?: string;

@@ -12,6 +12,13 @@ export const stripeConfig = {
   subscriptionPriceId: env.STRIPE_SUBSCRIPTION_PRICE_ID,
   sellerTrialDays: env.STRIPE_SELLER_TRIAL_DAYS,
   freeMonthCouponId: "FREE_MONTH_100",
+  /**
+   * What the marketing pages say the subscription costs. DISPLAY ONLY — Stripe is the source of
+   * truth for money (CLAUDE.md rule 3) and nothing charges against this number. It lives here so
+   * there is one place to change when the Price in Stripe changes, rather than a figure typed
+   * into prose in three files.
+   */
+  sellerMonthlyUsd: 20,
 } as const;
 
 /** Connect onboarding return / refresh URLs. */

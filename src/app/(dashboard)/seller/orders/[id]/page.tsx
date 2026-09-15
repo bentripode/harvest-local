@@ -8,6 +8,7 @@ import { MessageSellerButton } from "@/components/message-seller-button";
 import { ReportOrderForm, ExistingReport } from "@/components/report-order-form";
 import { getSellerContext } from "@/lib/auth";
 import { getOrder } from "@/lib/orders/queries";
+import { formatPickupAddress, getOrderPickupAddress } from "@/lib/orders/pickup";
 import { getReportForOrder } from "@/lib/reports/queries";
 import { ORDER_STATUS_LABELS } from "@/lib/orders/status";
 import { formatUsd, toCents } from "@/lib/money";
@@ -26,6 +27,8 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
   const report =
     order.status !== "pending_payment" ? await getReportForOrder(id, profile.id) : null;
   const refundedCents = order.refunds.reduce((n, r) => n + toCents(r.amount), 0);
+  const pickupAddress =
+    order.fulfillment_type === "pickup" ? await getOrderPickupAddress(id) : null;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -33,9 +36,9 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
         ← All orders
       </Link>
 
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl">
             Order {order.id.slice(0, 8)}
           </h1>
           <p className="text-muted-foreground text-sm">
@@ -62,6 +65,9 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
             <li key={item.id} className="flex items-center justify-between gap-4 p-3 text-sm">
               <span>
                 {item.quantity} × {item.title_snapshot}
+                {item.drop_snapshot ? (
+                  <span className="text-muted-foreground block text-xs">{item.drop_snapshot}</span>
+                ) : null}
               </span>
               <span className="tabular-nums">{formatUsd(toCents(item.line_total))}</span>
             </li>
@@ -89,6 +95,19 @@ export default async function SellerOrderPage({ params }: PageProps<"/seller/ord
           ) : null}
         </div>
       </section>
+
+      {order.fulfillment_type === "pickup" && order.pickup_location_text ? (
+        <section className="rounded-lg border p-4 text-sm">
+          <h2 className="mb-1 font-medium">Handing over at</h2>
+          <p className="text-muted-foreground">{order.pickup_location_text}</p>
+          {order.pickup_window ? (
+            <p className="mt-1 font-medium">{order.pickup_window}</p>
+          ) : null}
+          {pickupAddress ? (
+            <p className="text-muted-foreground mt-1">{formatPickupAddress(pickupAddress)}</p>
+          ) : null}
+        </section>
+      ) : null}
 
       {order.fulfillment_type === "delivery" && order.delivery_address_text ? (
         <section className="rounded-lg border p-4 text-sm">

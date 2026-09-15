@@ -13,7 +13,7 @@ describeDb("state cottage-food rules", () => {
   let sellerUser: TestUser;
   let adminUser: TestUser;
   const state = "TX";
-  let original: { revenue_cap: string | null; verified_at: string | null };
+  let original: { revenue_cap: number | null; verified_at: string | null };
 
   beforeAll(async () => {
     sellerUser = await createTestUser({ role: "seller", homeState: state });

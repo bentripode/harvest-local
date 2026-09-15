@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DeliverySettingsForm } from "@/components/delivery-settings-form";
+import { PickupLocationsManager } from "@/components/pickup-locations-manager";
+import { VacationToggle } from "@/components/vacation-toggle";
 import {
   ComplianceBlockNotice,
   ComplianceCautionNotice,
@@ -17,6 +19,7 @@ import { createClient } from "@/lib/supabase/server";
 import { env } from "@/lib/env";
 import { getSellerLabelNeeds } from "@/lib/labels/queries";
 import { getDeliveryPermission } from "@/lib/compliance/delivery";
+import { getMarketsForSeller, getSellerPickupLocations } from "@/lib/orders/pickup";
 import {
   CATEGORY_META,
   SUPPRESSIBLE_CATEGORIES,
@@ -55,8 +58,14 @@ export default async function SellerSettingsPage() {
       mailingAddressIsAlternative,
     },
     deliveryPermission,
-  ] =
-    await Promise.all([getSellerLabelNeeds(seller.id), getDeliveryPermission(seller.id)]);
+    pickupLocations,
+    stateMarkets,
+  ] = await Promise.all([
+    getSellerLabelNeeds(seller.id),
+    getDeliveryPermission(seller.id),
+    getSellerPickupLocations(seller.id),
+    getMarketsForSeller(seller.home_state),
+  ]);
 
   // Suppressible categories relevant to a seller (admins additionally see the admin-queue toggle).
   const emailCategories = SUPPRESSIBLE_CATEGORIES.filter((c: SuppressibleCategory) => {
@@ -71,7 +80,7 @@ export default async function SellerSettingsPage() {
   return (
     <div className="mx-auto max-w-xl space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
+        <h1 className="text-2xl sm:text-3xl">Settings</h1>
         <p className="text-muted-foreground text-sm">
           Your pickup address, local-delivery options, and notification emails.
         </p>
@@ -79,7 +88,38 @@ export default async function SellerSettingsPage() {
 
       <Card>
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Pickup &amp; delivery</CardTitle>
+          <CardTitle className="text-sm font-medium">Open or closed</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <VacationToggle
+            onVacation={seller.on_vacation}
+            pauseReason={seller.is_paused ? seller.pause_reason : null}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium">Where buyers collect</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-muted-foreground text-sm">
+            Each place you hand orders over, with the times you are there. Buyers pick one at
+            checkout — and adding a market puts you on that market&apos;s page too.
+          </p>
+          <PickupLocationsManager
+            locations={pickupLocations}
+            markets={stateMarkets}
+            homeState={seller.home_state}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-2">
+          {/* This address is the kitchen — the label's "made at" and the delivery origin. It is
+              deliberately not one of the collection points above. */}
+          <CardTitle className="text-sm font-medium">Your kitchen &amp; local delivery</CardTitle>
         </CardHeader>
         <CardContent>
           {!mapboxConfigured ? (

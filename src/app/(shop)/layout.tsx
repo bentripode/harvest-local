@@ -1,5 +1,6 @@
 import { CartProvider } from "@/components/cart-provider";
-import { ShopHeader } from "@/components/shop-header";
+import { ShopShell } from "@/components/shop-shell";
+import { TabBarSpacer } from "@/components/tab-bar";
 import { getProfile, getUser } from "@/lib/auth";
 import { getUnreadMessageCount } from "@/lib/messages/queries";
 
@@ -11,8 +12,12 @@ export default async function ShopLayout({ children }: { children: React.ReactNo
   return (
     <CartProvider>
       <div className="flex min-h-full flex-col">
-        <ShopHeader user={user} isSeller={isSeller} unreadMessages={unreadMessages} />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">{children}</main>
+        <ShopShell user={user} isSeller={isSeller} unreadMessages={unreadMessages} />
+        {/* Tighter gutters and a shorter top gap on a phone; desktop framing is unchanged. */}
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 sm:py-10">
+          {children}
+        </main>
+        <TabBarSpacer />
       </div>
     </CartProvider>
   );

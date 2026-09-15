@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { useCart } from "@/components/cart-provider";
 import { CheckoutButton } from "@/components/checkout-button";
+import { PickupPicker } from "@/components/pickup-picker";
+import { upcomingPickups } from "@/lib/orders/pickup-schedule";
 import { StatePicker } from "@/components/state-picker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,9 +32,17 @@ export default function CheckoutPage() {
 
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [disclosures, setDisclosures] = useState<Record<string, ProductDisclosure>>({});
-  const [addr, setAddr] = useState<Address>({ line1: "", line2: "", city: "", state: "", postal: "" });
+  const [addr, setAddr] = useState<Address>({
+    line1: "",
+    line2: "",
+    city: "",
+    state: "",
+    postal: "",
+  });
   const [appliedAddr, setAppliedAddr] = useState<Address | null>(null);
   const [deliveryWindow, setDeliveryWindow] = useState("");
+  const [pickupLocationId, setPickupLocationId] = useState("");
+  const [pickupWindow, setPickupWindow] = useState("");
   const [savedAddresses, setSavedAddresses] = useState<SavedAddress[]>([]);
 
   useEffect(() => {
@@ -74,7 +84,11 @@ export default function CheckoutPage() {
     let cancelled = false;
     repriceCartAction({
       sellerId: cart.sellerId,
-      items: cart.items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+      items: cart.items.map((i) => ({
+        productId: i.productId,
+        ...(i.variantId ? { variantId: i.variantId } : {}),
+        quantity: i.quantity,
+      })),
       promoCode: appliedCode || undefined,
       fulfillment,
       deliveryAddress:
@@ -142,13 +156,26 @@ export default function CheckoutPage() {
   const deliveryOk = result.delivery?.ok === true ? result.delivery : null;
   const deliveryError = result.delivery && !result.delivery.ok ? result.delivery.error : null;
 
+  const pickupLocations = result.pickupLocations ?? [];
+  const chosenPickup =
+    pickupLocations.find((l) => l.id === pickupLocationId) ??
+    (pickupLocations.length === 1 ? pickupLocations[0] : null);
+  // Computed on the buyer's own clock: the server runs UTC and would offer tomorrow's slot as
+  // today's all evening on the west coast. startCheckoutAction re-derives the same list and
+  // decides — this only chooses what to show.
+  const pickupOptions = chosenPickup
+    ? upcomingPickups(chosenPickup.slots, { prepHours: chosenPickup.prepHours, limit: 12 })
+    : [];
+  const pickupRequired = fulfillment === "pickup" && pickupLocations.length > 0;
+  const pickupMissing =
+    pickupRequired && (!chosenPickup || (pickupOptions.length > 0 && !pickupWindow));
+
   const deliveryWindows = result.sellerDeliveryWindows ?? [];
   const windowRequired = fulfillment === "delivery" && deliveryWindows.length > 0;
   const windowMissing = windowRequired && !deliveryWindow;
   const deliveryUnresolved =
-    fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing);
-  const blocked =
-    needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
+    (fulfillment === "delivery" && (!appliedAddr || !deliveryOk || windowMissing)) || pickupMissing;
+  const blocked = needsState || stateMismatch || !result.sellerLive || deliveryUnresolved;
 
   const subtotal = result.subtotal ?? 0;
   const total = subtotal - (promoOk?.discountCents ?? 0) + (deliveryOk?.feeCents ?? 0);
@@ -156,13 +183,13 @@ export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-xl space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Checkout</h1>
+        <h1 className="text-2xl sm:text-3xl">Checkout</h1>
         <p className="text-muted-foreground text-sm">
           {result.sellerName} · {stateName(result.sellerState)}
         </p>
       </div>
 
-      <ul className="divide-y rounded-lg border">
+      <ul className="divide-y rounded-2xl border">
         {result.lines?.map((l, i) => (
           <li key={i} className="flex items-center justify-between gap-4 p-3 text-sm">
             <span>
@@ -191,8 +218,23 @@ export default function CheckoutPage() {
             ))}
           </div>
 
+          {fulfillment === "pickup" && pickupLocations.length > 0 ? (
+            <PickupPicker
+              locations={pickupLocations}
+              chosen={chosenPickup}
+              options={pickupOptions}
+              locationId={chosenPickup?.id ?? ""}
+              onLocation={(id) => {
+                setPickupLocationId(id);
+                setPickupWindow("");
+              }}
+              window={pickupWindow}
+              onWindow={setPickupWindow}
+            />
+          ) : null}
+
           {fulfillment === "delivery" ? (
-            <div className="space-y-3 rounded-md border p-3">
+            <div className="space-y-3 rounded-xl border p-3">
               {savedAddresses.length > 0 ? (
                 <div className="space-y-2">
                   <Label htmlFor="d-saved">Use a saved address</Label>
@@ -287,6 +329,24 @@ export default function CheckoutPage() {
             </div>
           ) : null}
         </div>
+      ) : fulfillment === "pickup" && pickupLocations.length > 0 ? (
+        // No delivery on offer, so there is no choice to make — but the buyer still has to say
+        // where and when they're collecting.
+        <div className="space-y-3">
+          <p className="text-sm font-medium">Where are you collecting?</p>
+          <PickupPicker
+            locations={pickupLocations}
+            chosen={chosenPickup}
+            options={pickupOptions}
+            locationId={chosenPickup?.id ?? ""}
+            onLocation={(id) => {
+              setPickupLocationId(id);
+              setPickupWindow("");
+            }}
+            window={pickupWindow}
+            onWindow={setPickupWindow}
+          />
+        </div>
       ) : null}
 
       <div className="space-y-2">
@@ -358,7 +418,7 @@ export default function CheckoutPage() {
       </div>
 
       {needsState ? (
-        <div className="bg-muted/50 space-y-3 rounded-md border p-4">
+        <div className="bg-muted/50 space-y-3 rounded-xl border p-4">
           <p className="text-sm font-medium">Confirm your state to continue</p>
           <p className="text-muted-foreground text-sm">
             Orders stay within a single state. {result.sellerName} sells in{" "}
@@ -367,19 +427,19 @@ export default function CheckoutPage() {
           <StatePicker />
         </div>
       ) : stateMismatch ? (
-        <p className="text-destructive rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm">
+        <p className="text-destructive border-destructive/30 bg-destructive/5 rounded-xl border p-3 text-sm">
           You&apos;re in {stateName(result.buyerState)} and this seller is in{" "}
           {stateName(result.sellerState)}. Harvest Local can&apos;t process cross-state orders.
         </p>
       ) : !result.sellerLive ? (
-        <p className="text-destructive rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm">
+        <p className="text-destructive border-destructive/30 bg-destructive/5 rounded-xl border p-3 text-sm">
           This seller isn&apos;t accepting orders right now.
         </p>
       ) : null}
 
       {cart.items.some((i) => disclosures[i.productId]?.required) ? (
         <section className="space-y-2">
-          <h2 className="text-sm font-medium">
+          <h2 className="text-base">
             {stateName(result?.sellerState ?? "")} requires you to see the label before you buy
           </h2>
           {cart.items.map((i) => (
@@ -388,23 +448,27 @@ export default function CheckoutPage() {
         </section>
       ) : null}
 
-      <CheckoutButton
-        disabled={blocked}
-        promoCode={promoOk?.code}
-        fulfillment={fulfillment}
-        deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
-        deliveryWindow={windowRequired ? deliveryWindow : undefined}
-      />
-      <p className="text-muted-foreground text-center text-xs">
-        You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.
-      </p>
+      <div className="bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky bottom-14 z-20 space-y-2 border-t py-4 backdrop-blur-md md:static md:bottom-auto md:border-0 md:backdrop-blur-none">
+        <CheckoutButton
+          disabled={blocked}
+          promoCode={promoOk?.code}
+          fulfillment={fulfillment}
+          deliveryAddress={fulfillment === "delivery" && deliveryOk ? appliedAddr : null}
+          deliveryWindow={windowRequired ? deliveryWindow : undefined}
+          pickupLocationId={pickupRequired ? (chosenPickup?.id ?? "") : undefined}
+          pickupWindow={pickupRequired && pickupOptions.length > 0 ? pickupWindow : undefined}
+        />
+        <p className="text-muted-foreground text-center text-xs">
+          You&apos;ll be redirected to Stripe to pay. Your order is confirmed once payment clears.
+        </p>
+      </div>
     </div>
   );
 }
 
 function Panel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-md rounded-lg border border-dashed p-10 text-center text-sm">
+    <div className="mx-auto max-w-md rounded-2xl border border-dashed p-10 text-center text-sm">
       {children}
     </div>
   );

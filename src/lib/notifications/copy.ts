@@ -66,6 +66,14 @@ export const NOTIFICATION_COPY: Record<string, (p: Payload) => string> = {
     `Order ${s(p.order_id).slice(0, 8)} (${s(p.business_name)}) was ${
       p.cancelled === false ? "partially " : ""
     }refunded ${usd(p.amount)}.${p.cancelled === false ? "" : " The order is cancelled."}`,
+  new_product_from_seller: (p) =>
+    `${s(p.business_name, "A seller you follow")} listed ${s(p.product_title, "something new")}.`,
+  seller_joined_market: (p) =>
+    `${s(p.business_name, "A new seller")} is now selling at ${s(p.market_name, "a market you follow")}.`,
+  question_asked: (p) =>
+    `Someone asked a question on ${s(p.business_name, "your storefront")}. Nobody else can see it until you answer.`,
+  question_answered: (p) =>
+    `${s(p.business_name, "A seller")} answered your question.`,
   new_message: (p) =>
     `${s(p.sender_name, "Someone")} sent you a message${
       p.order_ref ? ` about order ${s(p.order_ref)}` : ""

@@ -12,6 +12,14 @@ const supabaseHost = (() => {
 })();
 
 const nextConfig: NextConfig = {
+  // Reaching `npm run dev` from a phone means the browser's origin is this machine's LAN address,
+  // not localhost — and Next refuses cross-origin dev requests (HMR, server actions, /_next assets)
+  // from an origin it was not told about. The private ranges are listed rather than a single
+  // address because DHCP moves it.
+  //
+  // Dev only: `next build` ignores this, so it widens nothing in production.
+  allowedDevOrigins: ["192.168.0.0/16", "10.0.0.0/8", "172.16.0.0/12", "*.local"],
+
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },

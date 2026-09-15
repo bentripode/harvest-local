@@ -105,6 +105,16 @@ const serverSchema = z.object({
   // one. With neither set, delivery is unavailable and pickup is unaffected.
   NEXT_PUBLIC_MAPBOX_TOKEN: z.string().optional(),
   MAPBOX_TOKEN: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+
+  // Anthropic, for the listing-copy assistant. Optional — with no key the assistant says so and
+  // offers nothing, rather than degrading to something invented. It never writes to a product:
+  // every generation is a draft the seller reads, edits and applies by hand.
+  ANTHROPIC_API_KEY: z
+    .string()
+    .startsWith("sk-ant-")
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
 });
 
 const clientSchema = serverSchema.pick({

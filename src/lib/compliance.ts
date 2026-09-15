@@ -1,3 +1,4 @@
+import type { Money } from "@/lib/money";
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
@@ -11,8 +12,8 @@ import type { Notification, SellerLicense, StateCottageFoodRule } from "@/lib/db
 export interface RevenueStatus {
   year: number;
   state: string;
-  grossThisYear: string; // decimal string, dollars
-  cap: string | null;
+  grossThisYear: Money;
+  cap: Money | null;
   overCap: boolean;
   /** False while the state's rules are still the seeded placeholder (see /admin/states). */
   capVerified: boolean;
@@ -43,7 +44,7 @@ export async function getRevenueStatus(
   return {
     year,
     state,
-    grossThisYear: tracking?.gross_revenue ?? "0.00",
+    grossThisYear: tracking?.gross_revenue ?? 0,
     cap: rule?.revenue_cap ?? null,
     overCap: tracking?.is_over_cap ?? false,
     capVerified: !!rule?.verified_at,
@@ -173,8 +174,8 @@ export function daysUntil(dateStr: string): number {
 export interface RevenueBucket {
   key: string;
   label: string;
-  gross: string;
-  cap: string | null;
+  gross: Money;
+  cap: Money | null;
   overCap: boolean;
 }
 

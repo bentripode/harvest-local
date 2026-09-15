@@ -25,6 +25,24 @@ export const RATE_LIMITS = {
   conversation: { max: 12, windowSecs: 60 },
   /** Filing an order report. */
   report: { max: 6, windowSecs: 300 },
+  /**
+   * Joining a market waitlist. The one public write path with no account behind it, so it is
+   * keyed by IP and set tighter than the rest — a person signs up for one or two markets.
+   */
+  marketWatch: { max: 5, windowSecs: 300 },
+  /**
+   * Geocoding a ZIP to sort the shop by distance. Open to guests and metered by Mapbox, so it
+   * is keyed by IP where there is no account.
+   */
+  geocode: { max: 20, windowSecs: 300 },
+  /** Asking a seller a public question. Needs an account, so keyed per user. */
+  question: { max: 8, windowSecs: 300 },
+  /**
+   * The listing-copy assistant. Tighter than the rest because it is the one path that costs real
+   * money per call rather than per month — a seller writing one listing regenerates a handful of
+   * times, and nothing legitimate needs more.
+   */
+  copyAssistant: { max: 12, windowSecs: 300 },
 } as const satisfies Record<string, RateLimit>;
 
 /**

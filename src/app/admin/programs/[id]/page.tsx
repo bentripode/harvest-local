@@ -38,7 +38,7 @@ export default async function ReviewProgramPage({ params }: PageProps<"/admin/pr
           ← All programs
         </Link>
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight">{program.name}</h1>
+          <h1 className="text-2xl sm:text-3xl">{program.name}</h1>
           <span className="text-muted-foreground font-mono text-sm">{program.state_code}</span>
           {program.verified_at ? (
             <Badge variant="default">

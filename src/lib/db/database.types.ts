@@ -245,6 +245,104 @@ export type Database = {
           },
         ]
       }
+      events: {
+        Row: {
+          cancelled_note: string | null
+          created_at: string
+          description: string | null
+          ends_at: string | null
+          event_date: string
+          id: string
+          location_text: string | null
+          market_id: string | null
+          seller_id: string
+          starts_at: string | null
+          state: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cancelled_note?: string | null
+          created_at?: string
+          description?: string | null
+          ends_at?: string | null
+          event_date: string
+          id?: string
+          location_text?: string | null
+          market_id?: string | null
+          seller_id: string
+          starts_at?: string | null
+          state: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cancelled_note?: string | null
+          created_at?: string
+          description?: string | null
+          ends_at?: string | null
+          event_date?: string
+          id?: string
+          location_text?: string | null
+          market_id?: string | null
+          seller_id?: string
+          starts_at?: string | null
+          state?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "events_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      follows: {
+        Row: {
+          created_at: string
+          id: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          profile_id: string
+          target_id: string
+          target_type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          profile_id?: string
+          target_id?: string
+          target_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "follows_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       label_print_runs: {
         Row: {
           copies: number
@@ -301,6 +399,185 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      market_hours: {
+        Row: {
+          closes: string
+          created_at: string
+          day_of_week: number
+          id: string
+          market_id: string
+          note: string | null
+          opens: string
+          source: string
+          source_note: string | null
+          source_url: string | null
+        }
+        Insert: {
+          closes: string
+          created_at?: string
+          day_of_week: number
+          id?: string
+          market_id: string
+          note?: string | null
+          opens: string
+          source?: string
+          source_note?: string | null
+          source_url?: string | null
+        }
+        Update: {
+          closes?: string
+          created_at?: string
+          day_of_week?: number
+          id?: string
+          market_id?: string
+          note?: string | null
+          opens?: string
+          source?: string
+          source_note?: string | null
+          source_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "market_hours_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      market_watchers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          market_id: string
+          profile_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          market_id: string
+          profile_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          market_id?: string
+          profile_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "market_watchers_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "market_watchers_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      markets: {
+        Row: {
+          address_text: string | null
+          city: string | null
+          created_at: string
+          facebook_url: string | null
+          hours_text: string | null
+          id: string
+          image_path: string | null
+          image_rejected_source_url: string | null
+          image_source: string | null
+          image_source_url: string | null
+          image_url: string | null
+          location: unknown
+          name: string
+          phone: string | null
+          postal_code: string | null
+          season_text: string | null
+          slug: string
+          source: string
+          source_id: string | null
+          source_updated_at: string | null
+          state: string
+          status: string
+          updated_at: string
+          website_check_note: string | null
+          website_checked_at: string | null
+          website_source: string | null
+          website_status: string | null
+          website_url: string | null
+        }
+        Insert: {
+          address_text?: string | null
+          city?: string | null
+          created_at?: string
+          facebook_url?: string | null
+          hours_text?: string | null
+          id?: string
+          image_path?: string | null
+          image_rejected_source_url?: string | null
+          image_source?: string | null
+          image_source_url?: string | null
+          image_url?: string | null
+          location?: unknown
+          name: string
+          phone?: string | null
+          postal_code?: string | null
+          season_text?: string | null
+          slug: string
+          source?: string
+          source_id?: string | null
+          source_updated_at?: string | null
+          state: string
+          status?: string
+          updated_at?: string
+          website_check_note?: string | null
+          website_checked_at?: string | null
+          website_source?: string | null
+          website_status?: string | null
+          website_url?: string | null
+        }
+        Update: {
+          address_text?: string | null
+          city?: string | null
+          created_at?: string
+          facebook_url?: string | null
+          hours_text?: string | null
+          id?: string
+          image_path?: string | null
+          image_rejected_source_url?: string | null
+          image_source?: string | null
+          image_source_url?: string | null
+          image_url?: string | null
+          location?: unknown
+          name?: string
+          phone?: string | null
+          postal_code?: string | null
+          season_text?: string | null
+          slug?: string
+          source?: string
+          source_id?: string | null
+          source_updated_at?: string | null
+          state?: string
+          status?: string
+          updated_at?: string
+          website_check_note?: string | null
+          website_checked_at?: string | null
+          website_source?: string | null
+          website_status?: string | null
+          website_url?: string | null
+        }
+        Relationships: []
       }
       messages: {
         Row: {
@@ -397,6 +674,8 @@ export type Database = {
       order_items: {
         Row: {
           category_snapshot: string | null
+          drop_id: string | null
+          drop_snapshot: string | null
           id: string
           line_total: number
           order_id: string
@@ -405,9 +684,13 @@ export type Database = {
           tax_code: string | null
           title_snapshot: string
           unit_price: number
+          variant_id: string | null
+          variant_snapshot: string | null
         }
         Insert: {
           category_snapshot?: string | null
+          drop_id?: string | null
+          drop_snapshot?: string | null
           id?: string
           line_total: number
           order_id: string
@@ -416,9 +699,13 @@ export type Database = {
           tax_code?: string | null
           title_snapshot: string
           unit_price: number
+          variant_id?: string | null
+          variant_snapshot?: string | null
         }
         Update: {
           category_snapshot?: string | null
+          drop_id?: string | null
+          drop_snapshot?: string | null
           id?: string
           line_total?: number
           order_id?: string
@@ -427,8 +714,17 @@ export type Database = {
           tax_code?: string | null
           title_snapshot?: string
           unit_price?: number
+          variant_id?: string | null
+          variant_snapshot?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "order_items_drop_id_fkey"
+            columns: ["drop_id"]
+            isOneToOne: false
+            referencedRelation: "product_drops"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "order_items_order_id_fkey"
             columns: ["order_id"]
@@ -441,6 +737,13 @@ export type Database = {
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_variant_id_fkey"
+            columns: ["variant_id"]
+            isOneToOne: false
+            referencedRelation: "product_variants"
             referencedColumns: ["id"]
           },
         ]
@@ -503,6 +806,9 @@ export type Database = {
           discount_total: number
           fulfillment_type: string
           id: string
+          pickup_location_id: string | null
+          pickup_location_text: string | null
+          pickup_window: string | null
           promo_code_id: string | null
           revenue_recorded_at: string | null
           seller_id: string
@@ -527,6 +833,9 @@ export type Database = {
           discount_total?: number
           fulfillment_type?: string
           id?: string
+          pickup_location_id?: string | null
+          pickup_location_text?: string | null
+          pickup_window?: string | null
           promo_code_id?: string | null
           revenue_recorded_at?: string | null
           seller_id: string
@@ -551,6 +860,9 @@ export type Database = {
           discount_total?: number
           fulfillment_type?: string
           id?: string
+          pickup_location_id?: string | null
+          pickup_location_text?: string | null
+          pickup_window?: string | null
           promo_code_id?: string | null
           revenue_recorded_at?: string | null
           seller_id?: string
@@ -579,6 +891,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "orders_pickup_location_id_fkey"
+            columns: ["pickup_location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "orders_promo_code_id_fkey"
             columns: ["promo_code_id"]
             isOneToOne: false
@@ -590,6 +909,176 @@ export type Database = {
             columns: ["seller_id"]
             isOneToOne: false
             referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payouts: {
+        Row: {
+          amount: number
+          arrival_date: string | null
+          created_at: string
+          currency: string
+          failure_code: string | null
+          failure_message: string | null
+          id: string
+          method: string | null
+          seller_id: string
+          statement_descriptor: string | null
+          status: string
+          stripe_created_at: string | null
+          stripe_payout_id: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          arrival_date?: string | null
+          created_at?: string
+          currency: string
+          failure_code?: string | null
+          failure_message?: string | null
+          id?: string
+          method?: string | null
+          seller_id: string
+          statement_descriptor?: string | null
+          status: string
+          stripe_created_at?: string | null
+          stripe_payout_id: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          arrival_date?: string | null
+          created_at?: string
+          currency?: string
+          failure_code?: string | null
+          failure_message?: string | null
+          id?: string
+          method?: string | null
+          seller_id?: string
+          statement_descriptor?: string | null
+          status?: string
+          stripe_created_at?: string | null
+          stripe_payout_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payouts_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pickup_locations: {
+        Row: {
+          address_id: string | null
+          city: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          label: string
+          market_id: string | null
+          postal_code: string | null
+          prep_hours: number
+          seller_id: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          address_id?: string | null
+          city?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          label: string
+          market_id?: string | null
+          postal_code?: string | null
+          prep_hours?: number
+          seller_id: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          address_id?: string | null
+          city?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          label?: string
+          market_id?: string | null
+          postal_code?: string | null
+          prep_hours?: number
+          seller_id?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pickup_locations_address_id_fkey"
+            columns: ["address_id"]
+            isOneToOne: false
+            referencedRelation: "addresses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pickup_locations_market_id_fkey"
+            columns: ["market_id"]
+            isOneToOne: false
+            referencedRelation: "markets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pickup_locations_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pickup_slots: {
+        Row: {
+          closes: string
+          created_at: string
+          day_of_week: number | null
+          id: string
+          location_id: string
+          opens: string
+          specific_date: string | null
+          weeks_of_month: number[]
+        }
+        Insert: {
+          closes: string
+          created_at?: string
+          day_of_week?: number | null
+          id?: string
+          location_id: string
+          opens: string
+          specific_date?: string | null
+          weeks_of_month?: number[]
+        }
+        Update: {
+          closes?: string
+          created_at?: string
+          day_of_week?: number | null
+          id?: string
+          location_id?: string
+          opens?: string
+          specific_date?: string | null
+          weeks_of_month?: number[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pickup_slots_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
             referencedColumns: ["id"]
           },
         ]
@@ -623,6 +1112,79 @@ export type Database = {
           },
         ]
       }
+      product_drops: {
+        Row: {
+          cancelled_at: string | null
+          closes_at: string
+          created_at: string
+          fulfillment_date: string
+          id: string
+          name: string
+          opens_at: string | null
+          pickup_location_id: string | null
+          pickup_window: string | null
+          product_id: string
+          seller_id: string
+          unit_cap: number
+          units_claimed: number
+          updated_at: string
+        }
+        Insert: {
+          cancelled_at?: string | null
+          closes_at: string
+          created_at?: string
+          fulfillment_date: string
+          id?: string
+          name: string
+          opens_at?: string | null
+          pickup_location_id?: string | null
+          pickup_window?: string | null
+          product_id: string
+          seller_id: string
+          unit_cap: number
+          units_claimed?: number
+          updated_at?: string
+        }
+        Update: {
+          cancelled_at?: string | null
+          closes_at?: string
+          created_at?: string
+          fulfillment_date?: string
+          id?: string
+          name?: string
+          opens_at?: string | null
+          pickup_location_id?: string | null
+          pickup_window?: string | null
+          product_id?: string
+          seller_id?: string
+          unit_cap?: number
+          units_claimed?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_drops_pickup_location_id_fkey"
+            columns: ["pickup_location_id"]
+            isOneToOne: false
+            referencedRelation: "pickup_locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_drops_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_drops_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       product_tags: {
         Row: {
           product_id: string
@@ -649,6 +1211,59 @@ export type Database = {
             columns: ["tag_id"]
             isOneToOne: false
             referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_variants: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          net_weight_unit: string | null
+          net_weight_value: number | null
+          price: number
+          product_id: string
+          quantity_available: number | null
+          sku: string | null
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
+          price: number
+          product_id: string
+          quantity_available?: number | null
+          sku?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          net_weight_unit?: string | null
+          net_weight_value?: number | null
+          price?: number
+          product_id?: string
+          quantity_available?: number | null
+          sku?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_variants_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
             referencedColumns: ["id"]
           },
         ]
@@ -1176,6 +1791,7 @@ export type Database = {
           responded_at: string | null
           response: string | null
           reviewer_id: string
+          reviewer_name: string | null
           seller_id: string
         }
         Insert: {
@@ -1187,6 +1803,7 @@ export type Database = {
           responded_at?: string | null
           response?: string | null
           reviewer_id: string
+          reviewer_name?: string | null
           seller_id: string
         }
         Update: {
@@ -1198,6 +1815,7 @@ export type Database = {
           responded_at?: string | null
           response?: string | null
           reviewer_id?: string
+          reviewer_name?: string | null
           seller_id?: string
         }
         Relationships: [
@@ -1386,8 +2004,48 @@ export type Database = {
           },
         ]
       }
+      seller_posts: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          image_path: string | null
+          image_url: string | null
+          seller_id: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          image_path?: string | null
+          image_url?: string | null
+          seller_id: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          image_path?: string | null
+          image_url?: string | null
+          seller_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_posts_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       seller_profiles: {
         Row: {
+          avatar_path: string | null
+          avatar_url: string | null
           avg_rating: number | null
           bio: string | null
           business_name: string
@@ -1395,6 +2053,8 @@ export type Database = {
           connect_details_submitted: boolean
           connect_payouts_enabled: boolean
           contact_phone: string | null
+          cover_path: string | null
+          cover_url: string | null
           created_at: string
           delivery_base_fee: number
           delivery_enabled: boolean
@@ -1407,16 +2067,21 @@ export type Database = {
           id: string
           is_paused: boolean
           mailing_address: string | null
+          on_vacation: boolean
           pause_reason: string | null
           pickup_address_id: string | null
           preparation_county: string | null
           producer_id_number: string | null
           profile_id: string
           storefront_slug: string
+          story: string | null
+          story_on_home: boolean
           stripe_account_id: string | null
           updated_at: string
         }
         Insert: {
+          avatar_path?: string | null
+          avatar_url?: string | null
           avg_rating?: number | null
           bio?: string | null
           business_name: string
@@ -1424,6 +2089,8 @@ export type Database = {
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
           contact_phone?: string | null
+          cover_path?: string | null
+          cover_url?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -1436,16 +2103,21 @@ export type Database = {
           id?: string
           is_paused?: boolean
           mailing_address?: string | null
+          on_vacation?: boolean
           pause_reason?: string | null
           pickup_address_id?: string | null
           preparation_county?: string | null
           producer_id_number?: string | null
           profile_id: string
           storefront_slug: string
+          story?: string | null
+          story_on_home?: boolean
           stripe_account_id?: string | null
           updated_at?: string
         }
         Update: {
+          avatar_path?: string | null
+          avatar_url?: string | null
           avg_rating?: number | null
           bio?: string | null
           business_name?: string
@@ -1453,6 +2125,8 @@ export type Database = {
           connect_details_submitted?: boolean
           connect_payouts_enabled?: boolean
           contact_phone?: string | null
+          cover_path?: string | null
+          cover_url?: string | null
           created_at?: string
           delivery_base_fee?: number
           delivery_enabled?: boolean
@@ -1465,12 +2139,15 @@ export type Database = {
           id?: string
           is_paused?: boolean
           mailing_address?: string | null
+          on_vacation?: boolean
           pause_reason?: string | null
           pickup_address_id?: string | null
           preparation_county?: string | null
           producer_id_number?: string | null
           profile_id?: string
           storefront_slug?: string
+          story?: string | null
+          story_on_home?: boolean
           stripe_account_id?: string | null
           updated_at?: string
         }
@@ -1494,6 +2171,70 @@ export type Database = {
             columns: ["profile_id"]
             isOneToOne: true
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seller_questions: {
+        Row: {
+          answer: string | null
+          answered_at: string | null
+          asker_id: string
+          asker_name: string | null
+          body: string
+          created_at: string
+          id: string
+          product_id: string | null
+          seller_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          answer?: string | null
+          answered_at?: string | null
+          asker_id: string
+          asker_name?: string | null
+          body: string
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          seller_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          answer?: string | null
+          answered_at?: string | null
+          asker_id?: string
+          asker_name?: string | null
+          body?: string
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          seller_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_questions_asker_id_fkey"
+            columns: ["asker_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_questions_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "seller_questions_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "seller_profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -2134,6 +2875,9 @@ export type Database = {
           discount_total: number
           fulfillment_type: string
           id: string
+          pickup_location_id: string | null
+          pickup_location_text: string | null
+          pickup_window: string | null
           promo_code_id: string | null
           revenue_recorded_at: string | null
           seller_id: string
@@ -2160,6 +2904,10 @@ export type Database = {
           retry_after: number
         }[]
       }
+      claim_drop_units: {
+        Args: { p_drop_id: string; p_units: number }
+        Returns: number
+      }
       compliance_change_impact: {
         Args: { p_program_id: string }
         Returns: {
@@ -2177,6 +2925,10 @@ export type Database = {
       }
       decrement_product_quantity: {
         Args: { p_product_id: string; p_qty: number }
+        Returns: undefined
+      }
+      decrement_variant_quantity: {
+        Args: { p_qty: number; p_variant_id: string }
         Returns: undefined
       }
       delivery_route_inputs: {
@@ -2208,6 +2960,19 @@ export type Database = {
         }
         Returns: boolean
       }
+      follower_counts: {
+        Args: { p_target_ids: string[]; p_target_type: string }
+        Returns: {
+          follower_count: number
+          target_id: string
+        }[]
+      }
+      followers_to_notify: {
+        Args: { p_target_id: string; p_target_type: string }
+        Returns: {
+          profile_id: string
+        }[]
+      }
       get_or_create_conversation: {
         Args: { p_order_id?: string; p_seller_id: string }
         Returns: string
@@ -2227,11 +2992,41 @@ export type Database = {
       }
       is_platform_context: { Args: never; Returns: boolean }
       is_service_role: { Args: never; Returns: boolean }
+      lat: {
+        Args: { m: Database["public"]["Tables"]["markets"]["Row"] }
+        Returns: number
+      }
+      lng: {
+        Args: { m: Database["public"]["Tables"]["markets"]["Row"] }
+        Returns: number
+      }
       mark_conversation_read: {
         Args: { p_conversation_id: string }
         Returns: undefined
       }
       mark_notifications_read: { Args: never; Returns: undefined }
+      nearby_sellers: {
+        Args: {
+          p_lat?: number
+          p_limit?: number
+          p_lng?: number
+          p_state: string
+        }
+        Returns: {
+          approx_lat: number
+          approx_lng: number
+          avatar_url: string
+          avg_rating: number
+          business_name: string
+          delivery_enabled: boolean
+          delivery_radius_miles: number
+          distance_miles: number
+          is_market: boolean
+          location_label: string
+          seller_id: string
+          storefront_slug: string
+        }[]
+      }
       open_referral_cycle: {
         Args: {
           p_period_end: string
@@ -2239,6 +3034,19 @@ export type Database = {
           p_seller_id: string
         }
         Returns: string
+      }
+      order_pickup_address: {
+        Args: { p_order_id: string }
+        Returns: {
+          city: string
+          description: string
+          label: string
+          line1: string
+          line2: string
+          postal_code: string
+          source: string
+          state: string
+        }[]
       }
       product_label_disclosure: {
         Args: { p_product_id: string }
@@ -2302,6 +3110,14 @@ export type Database = {
         Args: { p_product_ids?: string[]; p_seller_id: string }
         Returns: undefined
       }
+      release_drop_units: {
+        Args: { p_drop_id: string; p_units: number }
+        Returns: number
+      }
+      release_drop_units_for_order: {
+        Args: { p_order_id: string }
+        Returns: number
+      }
       seller_allows_online_food_sales: {
         Args: { p_seller_id: string }
         Returns: boolean
@@ -2325,6 +3141,10 @@ export type Database = {
       set_referral_reward_coupon: {
         Args: { p_coupon_id: string; p_cycle_id: string }
         Returns: undefined
+      }
+      set_seller_vacation: {
+        Args: { p_on: boolean; p_seller_id: string }
+        Returns: string
       }
       stale_compliance_sources: {
         Args: never
@@ -2362,6 +3182,26 @@ export type Database = {
           p_lng?: number
           p_postal?: string
           p_state?: string
+        }
+        Returns: string
+      }
+      upsert_market: {
+        Args: {
+          p_address: string
+          p_city: string
+          p_hours: string
+          p_lat: number
+          p_lng: number
+          p_name: string
+          p_phone: string
+          p_postal: string
+          p_season: string
+          p_slug: string
+          p_source: string
+          p_source_id: string
+          p_source_updated_at?: string
+          p_state: string
+          p_website: string
         }
         Returns: string
       }

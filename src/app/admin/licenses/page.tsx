@@ -26,7 +26,7 @@ export default async function AdminLicensesPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Licenses</h1>
+        <h1 className="text-2xl sm:text-3xl">Licenses</h1>
         <p className="text-muted-foreground text-sm">
           Cottage-food permits and IDs sellers have uploaded. Verifying one is what puts it in front
           of the daily expiry scan — renewal reminders and the auto-pause at expiry only run on

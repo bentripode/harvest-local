@@ -63,7 +63,7 @@ export function ProgramPicker({
     <div className="space-y-8">
       <section className="space-y-3">
         <div>
-          <h2 className="text-sm font-medium">What do you want to make?</h2>
+          <h2 className="text-lg">What do you want to make?</h2>
           <p className="text-muted-foreground text-sm">
             Pick everything you might sell. This decides which programs can cover you — you can
             change it later.
@@ -89,7 +89,7 @@ export function ProgramPicker({
 
       <section className="space-y-3">
         <div>
-          <h2 className="text-sm font-medium">
+          <h2 className="text-lg">
             {programs.length === 1
               ? "Your state's cottage food program"
               : `Your state runs ${programs.length} programs`}
