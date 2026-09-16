@@ -1,0 +1,554 @@
+[
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "bangor-european-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Year-round (the winter list gives an 8:30 opening)",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "bangor-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May through the end of November, 140 Harlow St",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "bar-harbor-eden-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Mid-May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "berwick-winter-farmers-market",
+    "notes": "Meets on the second Sunday of the month (and one more Sunday), per the federation; not weekly."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "blue-hill-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Memorial Day to October, fairgrounds",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "brewer-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "bridgton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October, 1 Depot St",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "brunswick-topsham-land-trust-farmers-market-at-crystal-spring-farm",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "First Saturday in May to the last Saturday in October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "brunswick-winter-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Second Saturday in November to the last Saturday in April",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "calais-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "casco-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "castine-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "cumberland-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "downtown-waterville-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "December through April, 150 Main St",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "east-vassalboro-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "eastport-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "ellsworth-farmers-market",
+    "notes": "The federation's schedule still shows 2024 dates for Ellsworth; not confirmed since."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "falmouth-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-mill-park",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "gateway-winter-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "greater-gorham-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May through October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "hampden-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "17:30"
+      }
+    ],
+    "season": "Summer season, 70 Western Ave",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "hampden-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "17:30"
+      }
+    ],
+    "season": "November to April, 177 Coldbrook Rd",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "kittery-community-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June through November",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "lewiston-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-May through late November, 2 Oxford St",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "madison-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "north-berwick-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "ohio-street-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "orono-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to November, Steam Plant lot on College Ave",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "orono-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "December through April",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "oxford-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "poland-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-April to late November, Deering Oaks Park",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "portland-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "December to April, 631 Stevens Ave",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "presque-isle-farmers-market",
+    "notes": "Presque Isle's market meets on Riverside St (see presque-isle-riverside-public-market), not at the mall."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "presque-isle-riverside-public-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Mid-May through early October, 19 Riverside St",
+    "notes": "The federation lists it as the Presque Isle Farmers' Market.",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "saco-farmers-and-artisans-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From the Saturday before Mother's Day to the end of October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "saco-river-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "sanford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Summer season, 919 Main St",
+    "notes": "The federation lists it at 919 Main St, not School St.",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "scarborough-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "sunrise-country-farmers-market-eastport",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "the-gateway-york-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October",
+    "notes": "Same market as york-gateway-farmers-market.",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "union-farmers-market",
+    "notes": "Not in the Maine Federation of Farmers' Markets' 2025-26 schedule; no current schedule found."
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "united-farmers-market-of-maine",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 18 Spring St",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "wells-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "13:30",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Mid-June to August, 1434 Post Rd",
+    "notes": "The federation lists it on Post Rd, not at Town Hall.",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  },
+  {
+    "state": "ME",
+    "checked": "2026-09-15",
+    "slug": "york-gateway-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October",
+    "notes": "The federation's list prints the close as 1:00 AM; read as 1 PM.",
+    "hoursSourceNote": "Maine Federation of Farmers' Markets, Market Schedule 2025-2026",
+    "hoursSourceUrl": "https://mainefarmersmarkets.org/market-schedule-2025-2026/"
+  }
+]

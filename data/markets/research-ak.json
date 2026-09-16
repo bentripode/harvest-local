@@ -1,0 +1,360 @@
+[
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "alaska-pacific-university-farmers-market",
+    "notes": "The university's farm programme page carries no market schedule."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "anchor-point-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "anchorage-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to Oct 10, 2026, 15th Avenue at Cordova Street",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.anchoragefarmersmarket.org/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "anchorage-market-and-festival",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "anchorage-midtown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "central-kenai-peninsula-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "depot-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "eagle-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "ester-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "ester-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "farmers-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "girdwood-farmers-market",
+    "notes": "The organiser's page for this market carries no readable day or hours."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "glennallen-wednesday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "haines-farmer-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "healy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "homer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026, Ocean Drive across from the Washboard",
+    "website": "https://homerfarmersmarket.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://homerfarmersmarket.org/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "kenai-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "kenney-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "kenny-lake-harvest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "kgb-corner-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "meadow-drive-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "muldoon-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 27 to Sep 26, 2026",
+    "website": "https://www.muldooncommunitymarket.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.muldooncommunitymarket.org/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "nenana-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "ninilchik-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "north-peninsula-recreation-service-area-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "northway-mall-wednesday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "o-malley-castle-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "pena-park-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "petersburg-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "salt-and-soil-marketplace",
+    "notes": "The domain in the USDA listing is unreachable; no current schedule found."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "saturday-art-and-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "seward-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "sitka-farmers-market",
+    "notes": "Sitka Local Foods Network's site carries market news but publishes no weekly day and hours."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "soldotna-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "soldotna-wednesday-farmers-market",
+    "notes": "Its USDA link goes to a tourism shopping page, which carries no market schedule."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "south-anchorage-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "O'Malley Road and Old Seward Highway",
+    "website": "https://www.safm.org/",
+    "notes": "The southanchoragefarmersmarket.com domain in the USDA listing now serves unrelated syndicated articles; the market's own site is safm.org.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.safm.org/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "south-anchorage-wednesday-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "At the Dimond Center",
+    "website": "https://www.safm.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.safm.org/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "southside-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "spenard-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "tanana-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "2600 College Rd, Fairbanks",
+    "website": "https://www.tvfmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.tvfmarket.com/"
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-center-market",
+    "notes": "The domain in the USDA listing now serves gambling content, not the market."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-at-alaska-pacific-university",
+    "notes": "Its USDA link goes to a university farm programme page, which carries no market schedule."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-highway-s-end-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-petersburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-outdoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "the-salt-and-soil-marketplace",
+    "notes": "The marketplace's own \"when and where\" page carries no readable day or hours."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "tyonek-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AK",
+    "checked": "2026-09-15",
+    "slug": "upper-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

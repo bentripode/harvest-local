@@ -1,0 +1,507 @@
+[
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "aquidneck-growers-market-saturday-summer",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, Newport County YMCA, 792 Valley Rd",
+    "notes": "Now at the Newport County YMCA rather than Enterprise Drive.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "aquidneck-growers-market-saturday-summer-middletown",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, Newport County YMCA, 792 Valley Rd",
+    "notes": "Duplicate USDA listing of aquidneck-growers-market-saturday-summer.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "aquidneck-growers-market-wednesday",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "2026 season, Memorial Blvd between Edgar Ct and Chapel St",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "armory-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Oct 29, 2026 (closes at dusk if earlier), Dexter Training Grounds",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "broad-st-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026, outside the Algonquin House",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "brown-university-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "burrillville-farmers-market",
+    "notes": "Seven select Saturdays in 2026 (Farm Fresh RI's guide), not weekly, so no hours."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "central-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jul 7 to Oct 27, 2026, Children's Friend, 621 Dexter St",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "charlestown-land-trust-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 28 to Sep 20, 2026, General Stanton Inn",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "coastal-growers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026",
+    "notes": "Farm Fresh RI lists the market at this address (Casey Farm) as the Casey Farm Market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "fisherman-s-memorial-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "goddard-memorial-state-park-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "hope-and-main-s-schoolyard-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 26 to Aug 28, 2026",
+    "notes": "Listed for 2026 as the Hope & Main Makers Market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "hope-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Lippitt Park",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "mount-hope-year-round-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Year-round (outdoors from April 4, 2026)",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "neutaconkanut-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "northwest-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "pawtucket-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "May 22 to Sep 4, 2026, Jordan's Jungle, 545 Pawtucket Ave",
+    "notes": "The 2026 market meets at Jordan's Jungle, not the Main St address USDA holds.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "pawtucket-farmers-market-pawtucket",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "May 22 to Sep 4, 2026, Jordan's Jungle",
+    "notes": "Same market as pawtucket-farmers-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "pawtucket-wintertime-farmers-market",
+    "notes": "Farm Fresh RI's winter market now runs at its 10 Sims Ave building in Providence; no Pawtucket winter market found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "pawtuxet-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026, Rhodes on the Pawtuxet",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "providence-broad-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026",
+    "notes": "Same market as broad-st-farmers-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "providence-downtown-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "providence-hope-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Lippitt Park",
+    "notes": "Same market as hope-street-farmers-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "providence-neutaconkanut-hill-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "ri-grown-farmers-market-at-fishermen-s-memorial-state-park-and-campground",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "Same market as fisherman-s-memorial-park-farmers-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "ri-grown-farmers-market-at-goddard-memorial-state-park",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "Same market as goddard-memorial-state-park-farmers-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "sakonnet-green-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "sankofa-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to Oct 2026, Knight Memorial Library",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "sankofa-world-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to Oct 2026, Knight Memorial Library (275 Elmwood Ave)",
+    "notes": "Same market as sankofa-market; it meets at the library, not Dexter St.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "scituate-rotary-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Sep 26, 2026, Village Green",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "south-kingstown-farmers-market-at-marina-park",
+    "notes": "Farm Fresh RI's 2026 guide lists the South Kingstown market on Saturdays at 25 W Independence Way, Kingston, not Marina Park; not recorded for this location."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "tilted-barn-brewery-s-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Aug 26, 2026",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "tiverton-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026 at the Town Farm; winter market Sundays at Tiverton Middle School from Oct 18",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "tiverton-farmer-s-market-2",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026 at the Town Farm; winter market Sundays at Tiverton Middle School from Oct 18",
+    "notes": "Duplicate USDA listing of tiverton-farmer-s-market.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "wakefield-riverfire-and-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "weaver-library-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "west-warwick-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jul 1 to Oct 28, 2026, West Warwick Public Library (1043 Main St)",
+    "notes": "Now at the library rather than Providence St.",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "westerly-land-trust-farmers-market",
+    "notes": "Not in Farm Fresh Rhode Island's 2026 summer market guide; no current schedule found."
+  },
+  {
+    "state": "RI",
+    "checked": "2026-09-15",
+    "slug": "woonsocket-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jul 7 to Oct 27, 2026, John A. Cummings Way at Clinton St",
+    "hoursSourceNote": "Farm Fresh Rhode Island's Summer Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://www.farmfreshri.org/programs/farmers-markets/rimarketguide/"
+  }
+]

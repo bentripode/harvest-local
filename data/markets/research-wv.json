@@ -1,0 +1,454 @@
+[
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "alderson-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "almost-heaven-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "arnettsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "barbour-county-community-garden-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "beckley-uptown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "berkeley-springs-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "April to mid-December at Route 522 and Fairfax Street; a Thursday market also runs, but no times are published for it",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://berkeleyspringsfarmersmarket.org/"
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "berkeley-springs-farmers-market-berkeley-springs",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "braxton-county-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "bridgeport-farmers-market",
+    "notes": "Its USDA link goes to a link-tree page, which carries no market schedule."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "brooke-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "capitol-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, Charleston",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://capitolmarket.net/"
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "charles-town-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "crook-brothers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "east-wheeling-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "fairview-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "farm-to-table-market-at-greenbrier",
+    "notes": "Its USDA link goes to a nursery's site, which carries no farmers market schedule."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-boone-county",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "fayette-co-farmers-market-wv",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "fayette-co-farmers-market-wv-fayetteville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "fayette-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "gilmer-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "greenbrier-valley-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "greenfields-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "grow-ov-mobile-farmers-market",
+    "notes": "The organiser's site carries no readable market day or hours."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "happy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "hometown-marketers",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "inwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "kimball-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "kingwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "lewisburg-farmers-market",
+    "notes": "The lewisburgfarmersmarket.com website in this listing belongs to the Lewisburg market in Pennsylvania, not the West Virginia town."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "logan-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "lost-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "mainstreet-martinsburg-farmers-market",
+    "notes": "Its USDA link goes to a Main Street site, which carries no market schedule."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "market-at-hendricks-station",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "martinsburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "mason-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "mercer-county-tailgate-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "mineral-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "montgomery-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "montwell-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "morgantown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "pocahontas-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "point-park-marketplace",
+    "notes": "The domain in the USDA listing now serves unrelated syndicated articles, not the market."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "preston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "pullman-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "putnam-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to September, in the field next to the Exxon on Route 34, Hurricane",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.pfmwv.com/"
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "putnam-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to September, Route 34, Hurricane",
+    "website": "https://www.pfmwv.com/",
+    "notes": "Same market as putnam-farmer-s-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.pfmwv.com/"
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "ridge-runner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "ritchie-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "romney-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "shepherdstown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "south-morgantown-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "summers-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "summersville-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "the-lewisburg-farmers-market",
+    "notes": "The lewisburgfarmersmarket.com website in this listing belongs to the Lewisburg market in Pennsylvania, not the West Virginia town."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "the-serbian-sun-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "wayne-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "webster-springs-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "weirton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "west-side-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "westover-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "williamson-farmers-market",
+    "notes": "Its USDA link goes to a health programme's site, which carries no market schedule."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "willow-bourn-farms",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WV",
+    "checked": "2026-09-15",
+    "slug": "wvu-healthcare-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

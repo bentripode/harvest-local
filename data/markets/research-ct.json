@@ -1,0 +1,1575 @@
+[
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "andover-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bantam-community-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 15 to Oct 9, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "berlin-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bethel-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From Jun 20, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "billings-forge-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bishop-s-orchards-farm-market-and-winery",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "black-rock-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 31, 2026, St. Ann Church",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bozrah-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "July to Oct 2026, Maple Farms Park",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "brass-city-market-on-field",
+    "notes": "Not in the state's 2026 list; Brass City Harvest's 2026 markets are at the Waterbury Senior Center (Tue) and the Green (Thu)."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "brickwalk-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bridgeport-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:30",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jul 9 to Oct 29, 2026, McLevy Green",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bridgeport-farmers-market-east-end",
+    "notes": "Not in the state's 2026 list; Bridgeport's east side market now meets in Washington Park on Wednesdays."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bridgeport-south-end-fresh-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "bristol-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 10, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "brookfield-ct-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 26 to Oct 16, 2026, Town Hall",
+    "notes": "Duplicate USDA listing of brookfield-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "brookfield-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 26 to Oct 16, 2026, Town Hall",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "brooklyn-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 17 to Oct 28, 2026, Brooklyn Commons Shopping Center",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "chester-summer-sunday-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 14 to Oct 11, 2026",
+    "notes": "Same market as chester-sunday-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "chester-sunday-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 14 to Oct 11, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "cityseed-indoor-winter-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "cityseed-s-dixwell-q-house-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 27 to Oct 24, 2026 (CitySeed's Dixwell mobile market)",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "cityseed-s-edgewood-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026",
+    "notes": "The state list prints the close as 1:00 AM; read as 1 PM.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "cityseed-s-wooster-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 21, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "collinsville-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "connecticut-valley-farmers-market-i",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "coventry-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 31 to Oct 25, 2026, Nathan Hale Homestead",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "cromwell-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "From Jun 26, 2026, Riverport Park",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "danbury-city-center-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 17, 2026, CityCenter Danbury",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "danbury-farmers-market",
+    "notes": "The state lists one Danbury market, at CityCenter (see danbury-city-center-farmers-market)."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "danielson-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Nov 14, 2026, Killingly Library",
+    "notes": "The state list prints the close as 12:00 AM; read as noon.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "denison-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 14 to Sep 27, 2026, Denison Homestead",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "downtown-new-britain-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "July to Sep 29, 2026, Central Park",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "dudley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "durham-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "east-granby-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "east-haven-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 14 to Oct 11, 2026, Town Green",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "east-windsor-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "edgewood-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026",
+    "notes": "Same market as cityseed-s-edgewood-park-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "ellington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 72 Maple St",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "ellington-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 72 Maple St",
+    "notes": "The state lists one Ellington market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "enfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 17 to Sep 27, 2026, Enfield Town Hall (820 Enfield St)",
+    "notes": "Now at Town Hall rather than the Grange address USDA holds.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "fairfield-brickwalk-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "fairfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "75 Hillside Rd is the Greenfield Hill market in the state list.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-sun-valley-resort",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Sep 26, 2026",
+    "notes": "The state lists it as the Stafford Farmers' Market at Sun Valley Beach.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-billings-forge",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "first-presbyterian-church-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "forge-city-works-year-round-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "goshen-farmers-holiday-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "goshen-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "greenfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "Same market as greenfield-hill-summer-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "greenfield-hill-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "greenwich-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Nov 21, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hamden-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hartford-capitol-ave-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hartford-farmers-market-at-billings-forge",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hartford-park-street-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hartford-regional-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "09:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "06:00",
+        "closes": "09:00"
+      }
+    ],
+    "season": "April to October 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hartford-s-north-end-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 24 to Oct 28, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hebron-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "higganum-village-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hill-market-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "hill-stead-museum-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "homestead-avenue-farmers-market-at-the-ch",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Jun 17 to Oct 14, 2026 (a farm stand)",
+    "notes": "The state list prints the opening as 11:30 PM; read as 11:30 AM.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "kent-ct-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to Oct 30, 2026, Kent Welcome Center",
+    "notes": "Same market as kent-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "kent-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to Oct 30, 2026, Kent Welcome Center",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "larson-s-farm-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "lebanon-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Oct 10, 2026, 862 Trumbull Hwy",
+    "notes": "The state lists it at Trumbull Hwy, not the Exeter Rd address USDA holds.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "ledyard-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 16, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "lisbon-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 25 to Sep 24, 2026, Newent Meeting House",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "litchfield-hills-farm-fresh-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "2026 season, 258 West St",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "litchfield-hills-year-round-farmers-market-2022",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "lyme-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "manchester-community-farmer-s-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "manchester-s-spruce-street-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 7, 2026",
+    "notes": "The state lists it as the Eastside Farmers' Market, 153 Spruce St.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "meriden-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jul 11 to Oct 17, 2026, Meriden Green",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "middletown-farmers-market",
+    "notes": "The state lists a Friday market on the Union Green from Jun 26, 2026, but its closing time is misprinted; not recorded."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "milford-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026, Wasson Field",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "milford-woodmont-farmers-market-at-the-robert-treat-farm",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "monroe-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "From Jun 19, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "mystic-denison-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 14 to Sep 27, 2026",
+    "notes": "Same market as denison-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "naugatuck-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 21 to Oct 25, 2026, 21 Maple St",
+    "notes": "The state lists it at 21 Maple St.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-britain-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "July to Sep 29, 2026, Central Park",
+    "notes": "The state lists one New Britain market, in Central Park; probably this one.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-canaan-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 11 to Dec 19, 2026, 244 Elm St",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-canaan-winter-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-haven-farmers-market-ii",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-london-field-of-greens-l-and-m-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-london-field-of-greens-markets",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "new-milford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Nov 21, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "newington-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "niantic-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 18 to Oct 22, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "norfolk-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "north-end-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "norwalk-farmers-market",
+    "notes": "The state lists a Rainbow Plaza farm stand at this address (Wed 11-3), not a farmers market."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "old-greenwich-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "old-saybrook-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "12:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 27 to Oct 31, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "old-saybrook-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "12:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 27 to Oct 31, 2026",
+    "notes": "Same market as old-saybrook-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "orange-community-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 25 to Sep 24, 2026, Orange Fairgrounds",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "oxford-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "plainfield-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 16 to Oct 27, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "plainville-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "putnam-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays Jun 6 to Oct 31; Thursdays Jul 9 to Sep 3, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "salem-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "seymour-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "12:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 12 to Nov 17, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "shelton-ct-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "simsbury-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "south-windsor-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 3, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "southbury-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 18 to Nov 19, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "southington-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 26 to Sep 25, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "spruce-street-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 7, 2026",
+    "notes": "Same market as manchester-s-spruce-street-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "stamford-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 10, 2026, Veterans Memorial Park",
+    "notes": "Now at Veterans Memorial Park rather than Bedford St.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "stamford-museum-and-nature-center-friday-farm-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "stratford-farmers-market",
+    "notes": "Not in the state's 2026 list; Stratford's 2026 market is the Paradise Green Market (Mondays), at a different location."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "suffield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 20 to Sep 26, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "the-morris-marketplace",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "thomaston-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "torrington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From Jun 6, 2026, 713 Torringford West St",
+    "notes": "The state lists it at Torringford West St, not East Main St.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "trumbull-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Oct 15, 2026, Twin Brooks Park",
+    "notes": "Now at Twin Brooks Park.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "upper-state-street-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "vernon-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jul 23 to Aug 20, 2026, Henry Park pavilion",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "village-of-devon-farmer-s-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "voluntown-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jul 12 to Oct 4, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "wallingford-farmers-market",
+    "notes": "Not in the state's 2026 list; Wallingford's 2026 listings are the Garden Market on S Elm St and a Gaylord Hospital market."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "waterford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 24, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "watertown-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 28 to Oct 25, 2026, 702 Woodbury Rd",
+    "notes": "The state lists it at Woodbury Rd, not Main St.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "west-end-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Oct 27, 2026",
+    "notes": "The state list prints the close as 7:00 AM; read as 7 PM.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "west-hartford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Nov 28, 2026, Town Hall parking lot",
+    "notes": "Now in the Town Hall lot rather than LaSalle Rd.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "west-haven-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jul 9 to Oct 8, 2026, West Haven Green",
+    "notes": "The state lists it as the Tony Inerzo Thursday market on the Green (a Saturday market meets at Oak St Beach).",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "westport-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 7 to Nov 5, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "westport-summer-evening-market-series",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "wethersfield-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 28 to Oct 15, 2026",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "whole-foods-market-of-westport-winter-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "wilton-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026, Old Ridgefield Rd",
+    "notes": "The state lists it on Old Ridgefield Rd.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "winsted-farmers-market",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "winter-farmers-market-greenfield-hill-grange-fairfield-ct",
+    "notes": "Not in the Connecticut Department of Agriculture's 2026 farmers market list; no current schedule found."
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "wooster-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 21, 2026",
+    "notes": "Same market as cityseed-s-wooster-square-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  },
+  {
+    "state": "CT",
+    "checked": "2026-09-15",
+    "slug": "wooster-square-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 21, 2026",
+    "notes": "Same market as cityseed-s-wooster-square-farmers-market.",
+    "hoursSourceNote": "Connecticut Department of Agriculture, 2026 Farmers Markets and Farm Stands list",
+    "hoursSourceUrl": "https://portal.ct.gov/doag/-/media/doag/adarc/farmers-markets/2026/2026-farmers-markets-and-farm-stands.pdf"
+  }
+]

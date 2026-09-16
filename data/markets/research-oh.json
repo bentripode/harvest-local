@@ -1,0 +1,601 @@
+[
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "all-life-community-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays year-round; Wednesdays Apr 15 to Nov 25, 2026, 701 E State St",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "barnersville-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "bath-church-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "bellville-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "belpre-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "blue-ash-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "brookville-community-farmers-market",
+    "notes": "The domain in the USDA listing belongs to a grocery shop in Chevy Chase, Maryland, not this market."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "brown-county-farmers-markets",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "brunswick-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Weekly through Oct 4, 2026, at the Heritage Farm",
+    "website": "https://brunswickhistory.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://brunswickhistory.com/"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market-marion-family-ymca-marion-oh",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 2 to Aug 25, 2026, 645 Barks Rd E, Marion",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market-public-square-caledonia-ohio",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 30 to Sep 26, 2026, 110 E Marion St",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "clifton-plaza-farmer-s-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "cuyahoga-valley-summer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 4040 Riverview Rd, Peninsula",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "cuyahoga-valley-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Nov 1, 2025 to Apr 30, 2026, 2315 Ira Rd",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "downtown-troy-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 13 to Sep 26, 2026",
+    "notes": "The state directory lists Troy's Saturday market as the Cherry Street Local Farmers' Market on South Cherry Street.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "euclid-community-farmer-s-market",
+    "notes": "The state directory's Euclid market is City Fresh's stall at 605 E 222nd St, a different address from this listing's; no schedule recorded."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "euclid-farmers-market",
+    "notes": "The state directory's Euclid market is City Fresh's stall at 605 E 222nd St, a different address from this listing's; no schedule recorded."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-medina-county",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Nov 14, 2026, 3939 Granger Rd",
+    "notes": "Same market as farmers-market-of-medina-county-medina.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-medina-county-medina",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Nov 14, 2026, 3939 Granger Rd, Medina",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "findlay-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round farmers' market at 1801 Race St, Cincinnati (the indoor public market keeps longer hours, Tuesday to Sunday)",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "fremont-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "garrettsville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Aug 27, 2026, Main and High St",
+    "notes": "The state directory prints \"4AM-7PM\"; the market runs 4 pm to 7 pm.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "german-village-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "haymaker-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 28, 2026, Franklin Ave and Summit St, Kent",
+    "notes": "Same market as haymaker-farmers-market-summer-season.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "haymaker-farmers-market-summer-season",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 28, 2026 at Franklin Ave and Summit St, Kent (10-1 in April and November)",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "haymaker-farmers-market-winter-season",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "The Haymaker market's April and November hours",
+    "notes": "The state directory lists one Haymaker market running April to November, with 10-1 hours in April and November, rather than a separate winter market.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "heart-of-ohio-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "hillside-orchard-and-farm-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "jefferson-community-farmers-market",
+    "notes": "Its USDA link goes to a township site that carries no market schedule."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "lettuce-eat-well",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "lunken-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "main-street-portsmouth-in-bloom-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "mclaughlin-s-greenhouse-and-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "merion-village-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "mount-vernon-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 1 Public Square",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "mt-gilead-farmer-s-market",
+    "notes": "The market's own site carries no current day or hours."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "mt-washington-farmers-market",
+    "notes": "Its USDA link goes to a community council site that carries no market schedule."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "north-canton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026 at 340 4th St NW, Canton (an indoor market runs on third Saturdays, December to May)",
+    "notes": "The market's own site gives a Canton address, not the North Canton one in the USDA listing.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cantonfarmersmarket.com/"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "northside-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jan 1 to Oct 31, 2026, Hamilton Ave, Cincinnati (a winter market runs 4-6 November to March at a location to be announced)",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "northside-farmers-market-youngstown",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "ohio-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "ohio-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Oct 31, 2026, Bellaire",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "ohio-valley-farmers-market-belmont",
+    "notes": "The state directory lists one Ohio Valley Farmers' Market, in Bellaire; no separate Belmont schedule found."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "ohio-valley-farmers-market-saint-clairsville",
+    "notes": "The state directory lists one Ohio Valley Farmers' Market, in Bellaire; no separate St Clairsville schedule found."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "outdoor-y-farmers-market",
+    "notes": "Its USDA link goes to a YMCA class schedule that carries no market hours."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "pearl-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "portsmouth-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "ralph-s-joy-of-living-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "river-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 200 Butler St, Marietta",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "salem-farm-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "springboro-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "springhill-orchards-and-farm-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "stearns-homestead-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to mid-October, 6975 Ridge Rd, Parma",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://stearnshomestead.com/event/farmers-market/"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "sunshine-golden-acres",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "t-and-oc-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "the-original-talawanda-farmers-market",
+    "notes": "The state directory lists Oxford's Uptown market at High and Church Streets, which is a different market from this listing."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "the-woodruff-farm-connection-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "trotwood-community-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "union-county-farmers-market-richwood-location",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 8, 2026",
+    "notes": "The state directory gives 4 Lynn Street, Richwood, not the Ottawa Street address in the USDA listing.",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "wegerzyn-horticultural-association-farmers-market",
+    "notes": "Not listed in Ohio's 2026 state farmers' market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "worthington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026 at 646 High St; the indoor market runs Saturdays 9-12, Nov 1 to Apr 1, at 7227 N High St",
+    "hoursSourceNote": "the Ohio Department of Job and Family Services' 2026 Farmers' Market Directory (revised April 2026)",
+    "hoursSourceUrl": "https://dam.assets.ohio.gov/image/upload/v1776186673/jfs.ohio.gov/ofam/FarmersMarketDirectory2026.pdf"
+  },
+  {
+    "state": "OH",
+    "checked": "2026-09-15",
+    "slug": "wyoming-farmers-market",
+    "notes": "The domain in the USDA listing now serves an unrelated resort site, not the market."
+  }
+]

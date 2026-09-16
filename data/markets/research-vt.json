@@ -1,0 +1,1105 @@
+[
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "arlington-village-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 4, 2026, Town Hall (3828 VT-7A)",
+    "notes": "Now at Town Hall rather than Rec Park Road.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/arlington-village-farmers-market",
+    "website": "https://www.arlingtonvillagefarmersmarket.com/",
+    "facebook": "https://www.facebook.com/AVFMVT/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "barre-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, Currier Park",
+    "notes": "Now in Currier Park rather than at the granite museum.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/barre-farmers-market",
+    "website": "https://www.thebarrepartnership.com/farmers-market",
+    "facebook": "https://www.facebook.com/BarreVTFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "bennington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 17, 2026, 239 Main St",
+    "notes": "The town's 2026 market is the Bennington Community Farmers Market at 239 Main St.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/bennington-community-farmers-market",
+    "website": "https://www.benningtonmarket.com/",
+    "facebook": "https://facebook.com/benningtonmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "brandon-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Jun 5 to Oct 9, 2026, Central Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/brandon-farmers-market",
+    "website": "https://www.brandonfarmersmarketvt.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "brattleboro-area-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/brattleboro-area-farmers-market",
+    "website": "https://www.brattleboroareafarmersmarket.com/",
+    "facebook": "https://www.facebook.com/brattleborofarmersmarket/om/brattleborofarmer"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "brattleboro-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Winter season, Croker Hall on the Winston Prouty campus",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/brattleboro-winter-farmers-market"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "burlington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, 345 Pine St",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/burlington-farmers-market",
+    "website": "https://www.burlingtonfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/burlingtonfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "burlington-south-end-farmers-market",
+    "notes": "Not in NOFA's 2026 directory; the Burlington Farmers Market's winter market meets nearby at 180 Flynn Ave."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market-association",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, Pearl Street lot",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/caledonia-farmers-market-association-saturday",
+    "website": "https://www.caledoniafarmersmarket.com/",
+    "facebook": "https://www.facebook.com/St.J.Farmers.Market/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market-association-danville",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 10 to Oct 14, 2026, Town Green",
+    "notes": "Now listed as the Danville Farmers Market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/danville-farmers-market",
+    "website": "https://www.danvillevtfarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market-association-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Winter season, St. Johnsbury Welcome Center (51 Depot Square)",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/saint-johnsbury-farmers-market-winter",
+    "website": "https://www.caledoniafarmersmarket.com/",
+    "facebook": "https://www.facebook.com/St.J.Farmers.Market"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "capital-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, next to the Capitol Green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/capital-city-farmers-market",
+    "website": "https://www.capitalcityfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/montpelierfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "capital-city-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Winter season, Alumni Hall on the VCFA campus",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/capital-city-farmers-market-winter",
+    "website": "https://www.capitalcityfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/montpelierfarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "capitol-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "notes": "Same market as capital-city-farmers-market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/capital-city-farmers-market",
+    "website": "https://www.capitalcityfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/montpelierfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "champlain-islands-farmers-market-saturday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026, St. Joseph's Church",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/champlain-islands-farmers-market-saturday",
+    "website": "https://champlainislandsfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/ChamplainIslandsFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "champlain-islands-farmers-market-wednesday",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Late May to Sep 10, 2026, St. Rose of Lima Church",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/champlain-islands-farmers-market-wednesday",
+    "website": "https://www.champlainislandsfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/ChamplainIslandsFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "champlain-islands-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Winter season, Congregational Church of South Hero",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/champlain-islands-farmers-market-winter",
+    "website": "https://champlainislandsfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/ChamplainIslandsFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "chelsea-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to Oct 9, 2026, North Common",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/chelsea-farmers-market",
+    "website": "https://www.chelseafarmersmarket.org/",
+    "facebook": "https://www.facebook.com/chelseafarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "chester-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "craftsbury-common-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026",
+    "notes": "Same market as craftsbury-farmers-market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/craftsbury-farmers-market",
+    "website": "https://www.craftsburyfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/share/1B6SmqhXCi/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "craftsbury-common-winter-farmers-market",
+    "notes": "No 2026 winter schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "craftsbury-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026, Craftsbury Common green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/craftsbury-farmers-market",
+    "website": "https://www.craftsburyfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/share/1B6SmqhXCi/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "danville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 10 to Oct 14, 2026, Town Green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/danville-farmers-market",
+    "website": "https://www.danvillevtfarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "dorset-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 10 to Oct 11, 2026, H.N. Williams Store",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/dorset-farmers-market",
+    "website": "https://www.dorsetfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/Dorsetfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "dorset-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Winter season, J.K. Adams kitchen store",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/dorset-farmers-market-winter",
+    "website": "https://www.dorsetfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/Dorsetfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "enosburg-falls-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "fairfax-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "five-corners-farmers-market",
+    "notes": "Not in NOFA's 2026 directory; Essex's listed 2026 market is the Parks and Rec market at Sand Hill Park (Wednesdays)."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "glover-farmers-market",
+    "notes": "NOFA's directory gives Sundays 11-2 but dates that fall on Wednesdays; sources disagree, nothing recorded."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "groton-growers-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "groton-s-happy-tourist-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "hardwick-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to Oct 9, 2026, Atkins Field",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/hardwick-farmers-market",
+    "website": "https://www.hardwickfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/hardwickfarmersmarketvt/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "hartland-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 29 to Sep 4, 2026, Library Field (153 US-5, Hartland)",
+    "notes": "Now at Library Field in Hartland, not the Windsor address USDA holds.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/hartland-farmers-market",
+    "website": "https://www.hartlandfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/people/Hartland-VT-Farmers-Market/61587832004"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "isham-family-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "jay-village-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "jeffersonville-farmers-and-artisan-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, Cambridge Greenway",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/jeffersonville-farmers-market",
+    "website": "https://www.jeffersonvillefarmmarket.com/",
+    "facebook": "https://www.facebook.com/people/Jeffersonville-Farmers-Market/61556808"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "jericho-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 21 to Oct 8, 2026, Mills Riverside Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/jericho-farmers-market",
+    "website": "https://www.jerichofarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "killington-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "lakes-region-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "ludlow-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 24 to Oct 11, 2026, 37 S Depot St",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/ludlow-farmers-market",
+    "website": "https://www.ludlowmarket.org/",
+    "facebook": "https://www.facebook.com/ludlowfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "lyndon-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 5 to Oct 2, 2026, Bandstand Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/lyndon-farmers-market",
+    "website": "https://www.lyndonfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/lyndonmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "manchester-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 21 to Oct 15, 2026, Depot St",
+    "notes": "Now on Depot St rather than Adams Park.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/manchester-vermont-farmers-market",
+    "website": "https://www.manchesterfarmers.org/",
+    "facebook": "https://www.facebook.com/profile.php?id=61575367032394"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-green-woodstock",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 14, 2026, Village Green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/market-green-woodstock",
+    "website": "https://www.woodstockvt.com/chamber-of-commerce/",
+    "facebook": "https://www.facebook.com/Woodstockvt"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "middlebury-farmers-market-association-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Winter season, VFW Post 7823",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/middlebury-farmers-market-winter",
+    "website": "https://www.middleburyfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/MiddleburyFarmersMarketAssoc"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "morrisville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Sep 26, 2026",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/morrisville-farmers-market",
+    "website": "https://morrisvillefarmersmarket.org/",
+    "facebook": "https://www.facebook.com/Morrisvillefarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "newfane-flea-and-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "newport-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026",
+    "notes": "NOFA also lists a Wednesday market whose dates fall on Thursdays; not recorded.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/newport-farmers-market-saturday",
+    "facebook": "https://www.facebook.com/NewportVermontFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "northfield-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 19 to Oct 13, 2026, Depot Square",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/northfield-farmers-market",
+    "website": "https://northfieldfm.eatfromfarms.com/",
+    "facebook": "https://www.facebook.com/NorthfieldFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "norwich-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/norwich-farmers-market",
+    "website": "https://www.norwichfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/NFMVT/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "norwich-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Winter season, Tracy Hall",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/norwich-farmers-market-winter",
+    "website": "https://www.norwichfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/NFMVT/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "old-north-end-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 2 to Oct 27, 2026, Dewey Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/old-north-end-farmers-market",
+    "website": "https://onefarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "one-burlington-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 2 to Oct 27, 2026, Dewey Park",
+    "notes": "Same market as old-north-end-farmers-market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/old-north-end-farmers-market",
+    "website": "https://onefarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "peacham-farmers-market",
+    "notes": "NOFA's directory lists it as irregular (Saturdays 10-1 on some dates); not weekly."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "pittsford-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "plainfield-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Grace United Methodist Church",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/plainfield-farmers-market",
+    "facebook": "https://www.facebook.com/PlainfieldFarmersMarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "putney-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 10 to Oct 18, 2026",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/putney-farmers-market",
+    "website": "https://www.putneyfarmersmarketvt.org/",
+    "facebook": "https://www.facebook.com/putneyfarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "putney-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Winter season, Green Mountain Orchard farm store",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/putney-farmers-market-winter",
+    "website": "https://www.putneyfarmersmarketvt.org/",
+    "facebook": "https://www.facebook.com/putneyfarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "randolph-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/randolph-farmers-market",
+    "website": "https://randfarmmarket.wixsite.com/rfm1",
+    "facebook": "https://www.facebook.com/randolphfarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "richmond-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 29 to Oct 9, 2026, Volunteers Green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/richmond-farmers-market",
+    "website": "https://www.richmondfarmersmarketvt.org/",
+    "facebook": "https://www.facebook.com/richmondfarmersmarketvt"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "rochester-farmers-market-and-exchange",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "rutland-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, Depot Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/rutland-county-farmers-market",
+    "website": "https://www.rutlandcountyfarmersmarket.com/",
+    "facebook": "https://facebook.com/rutlandcountyfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "shelburne-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026, Shelburne Parade Ground",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/shelburne-farmers-market",
+    "website": "https://experienceshelburne.org/market-vendors.html",
+    "facebook": "https://www.facebook.com/shelburnefarmersmarketVT"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "shelburne-vt-farmers-market",
+    "notes": "Not in NOFA's 2026 directory at this address; Shelburne's market meets on the Parade Ground (see shelburne-farmers-market)."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "south-burlington-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 12 to Sep 18, 2026, on the airport recreation path",
+    "notes": "Now run by South Burlington Recreation on the airport path, not at Dorset St.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/south-burlington-farmers-market",
+    "website": "https://vt-southburlington.civicplus.com/702/South-Burlingto",
+    "facebook": "https://www.facebook.com/SouthBurlingtonRec"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "stowe-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 10 to Oct 18, 2026, 3420 Mountain Rd",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/stowe-farmers-market",
+    "website": "https://www.stowefarmersmarket.com/",
+    "facebook": "https://www.facebook.com/stowefarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "stowe-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Winter season, ZenBarn (Waterbury Center)",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/stowe-farmers-market-winter",
+    "website": "https://stowefarmersmarket.com/",
+    "facebook": "https://www.facebook.com/stowefarmersmarket/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "the-west-river-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Oct 10, 2026",
+    "notes": "Same market as west-river-farmers-market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/west-river-farmers-market",
+    "website": "https://www.westriverfarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "townshend-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 22 to Oct 9, 2026, West Townshend Country Store",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/townshend-farmers-market",
+    "website": "https://westtownshend.org/farmers-market"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "townshend-farmers-market-west-townshend",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 22 to Oct 9, 2026",
+    "notes": "Same market as townshend-farmers-market.",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/townshend-farmers-market",
+    "website": "https://westtownshend.org/farmers-market"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "vergennes-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 1, 2026, City Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/vergennes-farmers-market",
+    "website": "https://www.bearmoonbotanica.com/summer-farmers-markets",
+    "facebook": "https://www.facebook.com/profile.php?id=61574131422439"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "vermont-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, Depot Park",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/vermont-farmers-market",
+    "website": "https://www.vtfarmersmarket.org/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "vermont-farmers-market-winter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Winter season, Farmers Hall (251 West St)",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/vermont-farmers-market-winter",
+    "website": "https://vtfarmersmarket.org/",
+    "facebook": "https://www.facebook.com/VTFARMERSMARKET/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "waitsfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026, Mad River Green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/waitsfield-farmers-market",
+    "website": "https://www.waitsfieldfarmersmarket.com/",
+    "facebook": "https://www.facebook.com/waitsfieldfarmersmarket"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "walloomsac-farmers-market",
+    "notes": "Bennington's 2026 market is the Bennington Community Farmers Market at 239 Main St (see bennington-farmers-market); no separate Walloomsac market found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "waterbury-farmers-market",
+    "notes": "Not in NOFA Vermont's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "west-river-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Oct 10, 2026, Routes 100 and 11 in Londonderry",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/west-river-farmers-market",
+    "website": "https://www.westriverfarmersmarket.com/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "westford-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, Town Common",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/westford-farmers-market",
+    "facebook": "https://www.facebook.com/westfordfarmersmarketvt/"
+  },
+  {
+    "state": "VT",
+    "checked": "2026-09-15",
+    "slug": "winooski-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 17 to Oct 25, 2026, Champlain Mill green",
+    "hoursSourceNote": "NOFA Vermont's farmers market directory (VTFMA member markets, 2026 dates)",
+    "hoursSourceUrl": "https://www.nofavt.org/winooski-farmers-market",
+    "website": "https://downtownwinooski.org/winooski-farmers-market/",
+    "facebook": "https://www.facebook.com/winooskifarmersmarket"
+  }
+]

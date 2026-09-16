@@ -1,0 +1,515 @@
+[
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "antrim-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "barnstead-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026, 91 Maple St",
+    "notes": "The state lists it as the Suncook Valley Farmers Market.",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "bedford-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to October 2026, Murphy's Taproom (393 Route 101)",
+    "notes": "Now at Murphy's Taproom rather than 209 Route 101.",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "berlin-local-works-farmers-marketplace",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "bethlehem-local-works-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "bradford-nh-community-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "canterbury-community-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "June to September 2026",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "colebrook-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "contoocook-farmers-market-summer",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "danbury-winter-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "deerfield-nh-farmer-s-market",
+    "notes": "Deerfield's 2026 market (Blooms Market) meets on the 2nd and 4th Saturdays only (state directory); not weekly."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "derry-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "derry-homegrown-farm-and-artisan-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, 1 West Broadway",
+    "hoursSourceNote": "Town of Derry, market information (2026 season)",
+    "hoursSourceUrl": "https://www.derrynh.gov/public-health/pages/derry-homegrown-farm-artisan-market"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "derry-main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, 1 West Broadway",
+    "notes": "Same market as derry-homegrown-farm-and-artisan-market.",
+    "hoursSourceNote": "Town of Derry, market information (2026 season)",
+    "hoursSourceUrl": "https://www.derrynh.gov/public-health/pages/derry-homegrown-farm-artisan-market"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "dover-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "June to October 2026, Nebi Park on River St",
+    "notes": "Now at Nebi Park rather than the Chamber lot.",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "everybody-s-farm-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "franklin-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 18 to Sep 10, 2026, Marceau Park",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "gilmanton-community-farmers-market-association",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June to October 2026",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "great-north-woods-nh-farmers-markets",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "hanover-area-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "July to mid-October, the Dartmouth Green",
+    "hoursSourceNote": "Dartmouth's event calendar",
+    "hoursSourceUrl": "https://home.dartmouth.edu/events/event?event=24030"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "holiday-winter-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "lisbon-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "littleton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026, River Glen Lane (over the covered bridge)",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "local-works-farmers-market-at-wren",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "main-street-bridge-farmer-s-market",
+    "notes": "Published dates for the Main Street Bridge market are from an earlier year; Nashua's 2026 market is on the Riverwalk (see nashua-farmers-market)."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-green",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "mwv-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 23 to Sep 29, 2026",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "nashua-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 24 to Oct 18, 2026, Nashua Riverwalk (Bicentennial Park to Renaissance Park)",
+    "hoursSourceNote": "Downtown Nashua Association, who run it (2026 season)",
+    "hoursSourceUrl": "https://downtownnashua.org/nashua-farmers-market/"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "new-durham-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "newmarket-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "peterborough-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "April to October (3-5 pm indoors November to March), Community Center",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://peterboroughnhfarmersmarket.org/"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "portsmouth-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, City Hall lot",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "rindge-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October 2026, West Rindge Common Park",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "rochester-downtown-farmers-market",
+    "notes": "Rochester's 2026 market is a September-only harvest market at the Elks (state directory)."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "rolling-green-nursery-winter-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "rye-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "salem-farmers-market",
+    "notes": "Salem's 2026 summer market is at the Mall at Rockingham Park (see salem-nh-farmers-market-summer-market)."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "salem-nh-farmers-market",
+    "notes": "Salem's 2026 summer market is at the Mall at Rockingham Park (see salem-nh-farmers-market-summer-market)."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "salem-nh-farmers-market-summer-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "From May 3, 2026, next to the Field at the Mall at Rockingham Park",
+    "hoursSourceNote": "the market's own site, on the 2026 summer season",
+    "hoursSourceUrl": "https://www.salemnhfarmersmarket.org/2026/04/18/summer-season-26/"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "seacoast-eat-local-winter-farmers-market-exeter-high-school",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "seacoast-eat-local-winter-farmers-markets",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "somersworth-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "stratham-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "summer-farmers-market-at-rolling-green-nu",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "sunapee-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Memorial Day weekend to Labor Day weekend 2026, Ben Mere Park",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "the-we-are-one-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "tilton-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to September 2026, 45 Sanborn Rd",
+    "notes": "Same market as tilton-farmers-market-tilton; now on Sanborn Rd.",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "tilton-farmers-market-tilton",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to September 2026, 45 Sanborn Rd",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "warner-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "hoursSourceNote": "New Hampshire Department of Agriculture, Markets and Food, 2026 Summer Farmers' Market Directory",
+    "hoursSourceUrl": "https://mm.nh.gov/files/uploads/agriculture/documents/nh-farmers-market-directory-2026-summer.pdf"
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "weare-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "wentworth-greenhouses-summer-farmers-market",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "winter-farmers-market-at-cole-gardens",
+    "notes": "Not in the New Hampshire Department of Agriculture's 2026 summer directory, and no dated 2026 schedule found."
+  },
+  {
+    "state": "NH",
+    "checked": "2026-09-15",
+    "slug": "wolfeboro-area-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Early May to end of October, The Nick (10 Trotting Track Rd)",
+    "notes": "Its listed website now belongs to someone else.",
+    "hoursSourceNote": "Wolfeboro Area Chamber of Commerce",
+    "hoursSourceUrl": "https://www.wolfeborochamber.com/events/wolfeboro-area-farmers-market-8kx5e"
+  }
+]

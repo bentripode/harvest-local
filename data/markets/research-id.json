@@ -1,0 +1,287 @@
+[
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "12th-avenue-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "abc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "alpha-nursery-farmer-s-market",
+    "notes": "Its USDA link goes to a nursery's site, which carries no farmers market schedule."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "american-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "athol-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "boise-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "bonners-ferry-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "caldwell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "cambridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "capital-city-public-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 11 to Dec 19, 2026, 827 W Main St, Boise",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.capitalcitypublicmarket.com/"
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "challis-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "crossroads-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "crouch-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "donnelly-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "eagle-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "farm-to-fork-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 19 to Sep 29, 2026, Indian Creek Plaza, Caldwell",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.indiancreekplaza.com/farm-to-fork-farmers-market"
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-downtown-alive",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-sandpoint",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-mall",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-liberty-square-in-ammon",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "gooding-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "henry-s-fork-farmers-market-in-ashton",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "hope-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "idaho-falls-farmers-market",
+    "notes": "The market's own site publishes only its first-Saturday winter indoor markets, so no weekly hours are recorded."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "jerome-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "ketchum-farmers-market",
+    "notes": "The organiser's page for this market still carries its 2019 dates."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "kootenai-county-farmers-markets-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "kuna-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "latah-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "16:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "June to early October, Troy City Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.latahfarmersmarket.com/"
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "lemhi-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "mccall-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "meridian-farmers-market-and-bazaar",
+    "notes": "The domain in the USDA listing has been re-registered and carries no market information."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "moscow-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "mountain-home-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "nampa-farmers-market",
+    "notes": "The market's own site says it runs every Saturday at Lloyd Square Park from April to November but publishes no opening times."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "north-end-organic-nursery-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "oregon-trail-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "parma-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "portneuf-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "potlatch-idaho-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "teton-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "tuesday-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "ID",
+    "checked": "2026-09-15",
+    "slug": "wood-river-farmers-market-association-hailey-ketchum",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

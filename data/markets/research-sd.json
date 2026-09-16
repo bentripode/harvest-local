@@ -1,0 +1,119 @@
+[
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "aberdeen-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "black-hills-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "brookings-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Saturday May to October on the 300 block of 6th Ave; first and third Saturdays November to April at the 5th St Gym",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.brookingsfarmersmarket.com/"
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "burke-area-farmers-market",
+    "notes": "The market's own site says it runs Thursday afternoons from July to September but publishes no opening times."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "burke-area-farmers-market-burke",
+    "notes": "The market's own site says it runs Thursday afternoons from July to September but publishes no opening times."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "callaway-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "country-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "deadwood-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "elk-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "freeman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "gages-gardens-and-greenhouses-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "huron-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "hyde-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "madison-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "miller-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "sioux-empire-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "the-prairie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "SD",
+    "checked": "2026-09-15",
+    "slug": "watertown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

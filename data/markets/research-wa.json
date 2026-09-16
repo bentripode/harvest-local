@@ -1,0 +1,1205 @@
+[
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "6th-avenue-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October, 6th Ave and Pine St",
+    "website": "https://tacomafarmersmarket.com/",
+    "hoursSourceNote": "Tacoma Farmers Market, who run them (2026 season)",
+    "hoursSourceUrl": "https://tacomafarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "anacortes-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "arlington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "auburn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "ballard-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, rain or shine, along Ballard Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.sfmamarkets.com/visit-ballard-farmers-market"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bayview-farmers-market",
+    "notes": "The market's own site carries vendor information but no published day or hours."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "belfair-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bellevue-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:30"
+      }
+    ],
+    "season": "May 21 to Oct 1, 2026 (closing at 7 pm in September)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://bellevuefarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bellingham-farmers-market",
+    "notes": "The market's own site publishes no day or hours on the pages that could be read."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "benton-city-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "blaine-gardener-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bothell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bow-little-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "bremerton-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "broadway-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 2 to Sep 24, 2026 (no market April 23), Broadway between 9th and 11th",
+    "notes": "This listing is the downtown Tacoma market run by Tacoma Farmers Market.",
+    "hoursSourceNote": "Tacoma Farmers Market, who run them (2026 season)",
+    "hoursSourceUrl": "https://tacomafarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "carnation-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June, July and August at Tolt-MacDonald Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://carnationfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "cascade-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "cashmere-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "chewelah-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "chewelah-farmers-market-chewelah",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "clarkston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "clayton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "college-place-farmers-and-artisan-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 28 to Sep 24, 2026, Lions Park, SE 8th St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cpwa.us/residents/events/farmers_and_artisans_market.php"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "country-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "crossroads-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "12:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 29, 2026, Crossroads Bellevue",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://crossroadsbellevue.com/SpecialEvents/FarmersMarket"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "davenport-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "delridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "des-moines-waterfront-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "From Jun 6, 2026, the Des Moines Marina waterfront",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://dmfm.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "downtown-yakima-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 10 to Oct 18, 2026, 15 W Yakima Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://downtownyakimafarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "dragonfly-farms-summer-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "duvall-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 7 to mid-October 2026, Taylor Landing, 16201 Main St NE",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://duvallfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "east-vancouver-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "edmonds-museum-summer-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "emerson-garfield-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Emerson Park, 1116 W Alice Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://market.emersongarfield.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "enumclaw-plateau-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "ephrata-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "everett-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:30",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Wetmore Ave between Hewitt and Pacific",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://everettfarmersmarket.com/directions/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "farmboat-floating-markets-and-maritime-heritage-events",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "farmhouse-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "federal-way-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "ferndale-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "fife-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "friday-night-market-at-juanita-beach",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Juanita Beach Park",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "gig-harbor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "glenrose-summer-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "goldendale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "greater-lewis-county-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "jefferson-county-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "kelso-bridge-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "kent-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 17, 2026, downtown Kent",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://kentfarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "kirkland-wednesday-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, Marina Park",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lake-forest-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Mother's Day to the third Sunday in October, 17171 Bothell Way NE",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thirdplacecommons.org/farmers-market/directions-to-the-lake-forest-park-farmers-market/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lakewood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "leavenworth-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lewis-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "liberty-lake-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 10, 2026, Town Square Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.libertylakefarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lopez-island-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lummi-island-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "lynnwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "madrona-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 15 to Oct 30, 2026",
+    "notes": "The market is now the Central District Farmers Market, at MLK Way and E Union St.",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "maple-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "maple-valley-farmers-market-maple-valley",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "market-at-the-parkway",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "marysville-farmers-market",
+    "notes": "Its site's latest season is 2019; no current schedule found."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "millwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "morgan-acres-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "moses-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "moses-lake-farmers-market-moses-lake",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "mukilteo-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "n-e-w-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From May 2, 2026, downtown Colville at Main St and Astor Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.newfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "northeast-washington-new-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From May 2, 2026, downtown Colville",
+    "website": "https://www.newfarmersmarket.org/",
+    "notes": "Same market as n-e-w-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.newfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "okanogan-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "olympia-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "April to October four days a week at 700 Capitol Way N; the market is open year-round on a reduced winter schedule",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.olympiafarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "orcas-island-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Outdoors on the Village Green from the first weekend in May to the last in September; indoors at the public school cafeteria in October and November",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://orcasislandfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "oroville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "packwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "pateros-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "pike-place-market-express-seattle-city-hall",
+    "notes": "Pike Place Market's site publishes the main market's hours, not a schedule for this express stall."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "pike-place-market-express-south-lake-union",
+    "notes": "Pike Place Market's site publishes the main market's hours, not a schedule for this express stall."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "pomeroy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "port-angeles-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Year-round at the Gateway Transit Center Pavilion; summer hours 9:30-2:30",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.portangelesfarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "port-townsend-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 4 to Oct 31, 2026 (a winter market runs 10-2, Nov 7 to Dec 19); the Port Townsend Wednesday market runs 3-6, Jun 3 to Sep 30",
+    "website": "https://jcfmarkets.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://jcfmarkets.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "poulsbo-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Mar 28 to Dec 12, 2026, 18901 8th Ave NE",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.poulsbofarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "proctor-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 4 to Dec 19, 2026 at N 27th and N Proctor (a winter market runs 10-1 on selected Saturdays January to March)",
+    "website": "https://proctorfarmersmarket.com/",
+    "hoursSourceNote": "Tacoma Farmers Market, who run them (2026 season)",
+    "hoursSourceUrl": "https://proctorfarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "public-market-on-the-willapa",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "pullman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "puyallup-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "queen-anne-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:30"
+      }
+    ],
+    "season": "May 28 to Oct 8, 2026, Queen Anne Ave N and W Crockett St",
+    "notes": "The market's own site still shows its 2024 season dates.",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "redmond-saturday-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 9900 Willows Rd NE",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "renton-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 29, 2026, Piazza Park, 233 Burnett Ave S",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "salmon-creek-farmers-markets",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 1, 2026, Legacy Hospital, 2211 NE 139th St, Vancouver",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://salmoncreekfarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "sammamish-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May to September at Sammamish Commons (4-7 pm in September)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sammamishfarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "san-juan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "saturday-market-at-the-port-of",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "sequim-open-aire-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 152 W Cedar St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sequimmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "shoreline-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026, the BikeLink Park & Ride at 192nd and Aurora",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://shorelinefarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "silverdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "snohomish-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Cedar and Pearl in historic downtown Snohomish",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.snohomishfarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "south-county-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "south-perry-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to October, 1000 S Perry",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thursdaymarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "south-tacoma-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "south-whidbey-tilth-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 3 to Oct 18, 2026, 2812 Thompson Rd, Langley",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.southwhidbeytilth.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "southridge-farmers-market",
+    "notes": "Its blog's latest season is 2015; no current schedule found."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "spokane-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays May 9 to Oct 31, 2026 (10-1, Nov 7 to 21); a Wednesday farmstand runs Jul 1 to Oct 28",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.spokanefarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "spokane-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "spokane-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "stevenson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "sunnyside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "suquamish-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "tacoma-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 2 to Sep 24, 2026, Broadway between 9th and 11th",
+    "notes": "Same market as broadway-farmers-market.",
+    "hoursSourceNote": "Tacoma Farmers Market, who run them (2026 season)",
+    "hoursSourceUrl": "https://tacomafarmersmarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "tenino-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May to September 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://teninofarmersmarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "thursday-market-in-the-south-perry-district",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to October, 1000 S Perry",
+    "website": "https://www.thursdaymarket.org/",
+    "notes": "Same market as south-perry-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thursdaymarket.org/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "thursday-winter-market-in-the-south-perry-district",
+    "notes": "The Thursday Market publishes only its May-to-October Thursday schedule, not a separate winter one."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "toledo-thursday-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June to October, Steamboat Landing, 115 Ramsey Way",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.toledothursdaymarket.com/"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "tumwater-farmers-market",
+    "notes": "Its domain now redirects to an advertising parking page."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "university-place-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "urban-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "vancouver-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "vancouver-farmers-market-vancouver",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "vashon-farmers-market-saturday",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "wallingford-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 27 to Sep 30, 2026, 4800 Meridian Ave N",
+    "hoursSourceNote": "a 2026 Seattle and Eastside farmers market roundup",
+    "hoursSourceUrl": "https://www.marianneparks.com/2026/05/18/2026-seattle-eastside-farmers-markets"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "waterfront-farmers-market-of-gig-harbor",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 21 to Aug 27, 2026",
+    "website": "https://www.waterfrontfarmersmarket.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.waterfrontfarmersmarket.org/services-2"
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "wenatchee-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "west-olympia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "west-valley-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "white-salmon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "woodland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WA",
+    "checked": "2026-09-15",
+    "slug": "yelm-earthworm-and-castings-farmers-market",
+    "notes": "The domain in the USDA listing now serves gambling spam, not the market."
+  }
+]

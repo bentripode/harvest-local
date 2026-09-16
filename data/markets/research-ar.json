@@ -1,0 +1,585 @@
+[
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "argenta-certified-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "argenta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "arkansas-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "arkansas-home-grown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "asu-regional-farmers-market",
+    "notes": "The market's own site is returning a server error."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "bella-vista-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "bentonville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 11 to Oct 31, 2026, the Bentonville Square",
+    "website": "https://downtownbentonville.org/events",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://downtownbentonville.org/events"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "bernice-garden-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-April to November, 1401 Main St, Little Rock",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thebernicegarden.org/farmers-market/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "berryville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "cabot-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "calico-rock-downtown-market",
+    "notes": "The domain in the USDA listing now serves unrelated content, not the market."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "camden-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "camden-ouachita-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "certified-arkansas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "charleston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "city-of-gravette-parks-department-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "conway-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "conway-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "cross-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "dallas-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "dardanelle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "downtown-conway-farmers-and-crafts-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "downtown-newport-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "downtown-rogers-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "downtown-springdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "eureka-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-gravette",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "fatto-a-mano-artwalk-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "fayetteville-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "On the Downtown Square",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.fayettevillefarmersmarket.org/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "ferndale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "forrest-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "fort-smith-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "gateway-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "602 E Jefferson Ave, Texarkana",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thegatewayfarmersmarket.com/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "gentry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "grand-prairie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "green-forest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "green-fork-farmers-market",
+    "notes": "Its Locally Grown page is marked closed."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "greenwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "harrison-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "historic-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "hope-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "hot-springs-county-farmers-market",
+    "notes": "The market's own site says it runs every Saturday but publishes no opening times."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "hot-springs-historic-downtown-farmers-market",
+    "notes": "The market's own site says it runs every Saturday but publishes no opening times."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "howard-county-farmers-market",
+    "notes": "Its USDA link goes to a city site, which carries no market schedule."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "jacksonville-farmers-market",
+    "notes": "Its USDA link goes to the city's site, which carries no market schedule."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "jasper-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "johnson-county-farmers-market",
+    "notes": "The domain in the USDA listing is now a HugeDomains for-sale page."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "lafayette-county-farmers-market-at-lewisville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "lake-saracen-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "little-river-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "little-rock-river-market",
+    "notes": "Its USDA link goes to a visitor-guide page about the River Market district, not a market schedule."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "lockesburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "madison-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "melbourne-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "mountain-home-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "old-washington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "paragould-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "paragould-farmers-market-paragould",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "paris-arkansas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "perryville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "petit-jean-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "polk-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "pope-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "randolph-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "river-market-farmers-market",
+    "notes": "Its USDA link goes to a visitor-guide page about the River Market district, not a market schedule."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "rogers-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "One Uptown, Rogers, rain or shine",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rogersfarmersmarket.com/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "russellville-community-market",
+    "notes": "Its Locally Grown page carries no published day or hours."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "saracen-landing-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "searcy-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "siloam-springs-farmers-market",
+    "notes": "Its Locally Grown page is marked closed."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "springdale-farmers-market",
+    "notes": "Its Locally Grown page is marked closed."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "stone-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to November, 507 Sylamore Ave, Mountain View",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.stonecountyfarmersmarket.com/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "texarkana-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "the-bernice-garden-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-April to November, 1401 Main St",
+    "website": "https://www.thebernicegarden.org/farmers-market/",
+    "notes": "Same market as bernice-garden-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thebernicegarden.org/farmers-market/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "the-central-ozarks-farmers-and-artisans-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "the-dirty-farmers-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-mccrory",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "tontitown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 10, 2026, Harry Sbanotto Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.tontitown.com/tontitown-farmers-market/"
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "tri-peaks-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "west-fork-garden-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "west-little-rock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "white-st-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AR",
+    "checked": "2026-09-15",
+    "slug": "yellville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

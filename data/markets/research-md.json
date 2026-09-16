@@ -1,0 +1,1082 @@
+[
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "allegany-college-farmers-market",
+    "notes": "Not in the state's 2026 directory; the nearby UPMC Western Maryland farm stand (Tuesdays) is a different market."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "allegany-mountain-fresh-farmers-market-downtown-cumberland-maryland",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "anne-arundel-medical-center-farmers-market-luminis-health",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "baltimore-museum-of-industry-bmi-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Late May to Nov 21, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "bel-air-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 11 to Dec 19, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "bethesda-central-farm-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round (opens 9:30 in January and February; closed the weekend after Thanksgiving)",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "bmi-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Late May to Nov 21, 2026",
+    "notes": "Same market as baltimore-museum-of-industry-bmi-farmers-market.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "boordy-vineyards-good-life-thursday-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "bowie-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 17 to Oct 25, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "briggs-chaney-greencastle-farmers-and-artisans-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "brunswick-area-farmers-market",
+    "notes": "Second and last Fridays only in 2026 (state directory), so no weekly hours."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "camden-avenue-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:30",
+        "closes": "17:30"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "canal-place-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Thursdays Apr 30 to Oct 29; Saturdays Jun 20 to Oct 31, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "carroll-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Mar 7 to Dec 19, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "catonsville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, The Christian Temple",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "catonsville-sunday-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "cecil-county-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "clarksville-commons-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 14, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "clock-tower-place-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "cms-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "crofton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026, Crofton Library (1681 Riedel Rd)",
+    "notes": "Now at the Crofton Library, not the Route 3 address USDA holds.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "crossroads-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:30",
+        "closes": "14:30"
+      }
+    ],
+    "season": "Apr 22 to Nov 25, 2026, Anne St at University Blvd",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "damascus-ffa-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "dawson-s-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "deale-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "denton-st-luke-s-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "derwood-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Oct 11, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "dnr-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "downtown-college-park-farmers-market",
+    "notes": "Not in the state's 2026 directory at this address; College Park's Saturday market is at 5211 Campus Dr."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "downtown-cumberland-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "downtown-denton-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "eastern-shore-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "eastpoint-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "ellicott-city-old-town-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "emmitsburg-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "frederick-city-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026, 622 N Market St",
+    "notes": "The state lists the City of Frederick market at 622 N Market St.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "frederick-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "freedom-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-downtown-silver-spring",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (opens 10 am January to March)",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "frostburg-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 15 to Oct 30, 2026; every other Saturday 10-12 in winter",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "glen-burnie-town-center-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "govanstowne-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun to Oct 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "grace-community-church-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "great-frederick-fair-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 25 to Nov 21, 2026, Lot A at the fairgrounds",
+    "notes": "The state lists the fairgrounds market as the Field Fresh Farmers Market.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "greater-dundalk-chamber-of-commerce-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Mid-June to October 2026, Dunmanway and Shipping Place",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "greenbelt-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 10 to Dec 6, 2026 (closed Labor Day Sunday and the Sunday after Thanksgiving)",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "hampstead-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun to Sep 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "hereford-farm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Nov 21, 2026, 17301 York Rd",
+    "notes": "Same market as hereford-farmers-market.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "hereford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Nov 21, 2026, 17301 York Rd",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "historic-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 31 to Sep 27, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "hollywood-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 11 to Nov 21, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "howard-county-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to Nov 2026, Miller Branch Library",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "howard-county-farmers-market-at-east-columbia",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "howard-county-farmers-market-at-oakland-mills",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Nov 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "hyattsville-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "kensington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 10417 Howard Ave",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "laurel-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Apr 2 to Oct 29, 2026, the Quill Lot (378 Main St)",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "lavale-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "The state lists it as the MainStreet Farmers and Artists Market.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "maple-lawn-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "marketplace-on-main",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "meritus-medical-center-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "merriweather-district-s-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "middletown-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to mid-October 2026, Christ Reformed UCC lot",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "milk-lady-derwood-fall-2020-pickup-delivery",
+    "notes": "A vendor's 2020 pickup listing, not a market."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "milk-lady-derwood-farmers-market",
+    "notes": "A vendor's listing at the Derwood market (see derwood-farmers-market), not a market of its own."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "milk-lady-shady-grove-farmers-market",
+    "notes": "A vendor's listing at the Shady Grove market (Wednesdays at 9605 Medical Center Dr), not a market of its own."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "montgomery-farm-women-s-co-op-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "montgomery-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "mount-airy-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 6 to Sep 23, 2026, 615 Center St",
+    "notes": "The state lists it at Center St, not Main St.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "mount-rainier-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "mountain-fresh-oakland-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Summer market May to Oct 2026; Saturdays only in April and on selected winter Saturdays",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "mt-washington-whole-foods-market",
+    "notes": "Not in the state's 2026 directory; Mt. Washington's market meets on W Rogers Ave, not at this address."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "new-owings-mills-farmers-market",
+    "notes": "Not in the state's 2026 directory at this address; Owings Mills' Wednesday market is at 4770 Owings Mills Blvd."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "north-st-mary-s-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "ocean-pines-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to August (9 to noon September to March), White Horse Park",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "old-ellicott-city-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "overlea-farmers-market",
+    "notes": "Every other Saturday in 2026 (state directory), so no weekly hours."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "park-heights-community-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "perryville-farmers-market",
+    "notes": "First Saturdays only in 2026 (state directory), so no weekly hours."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "pike-central-farm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Apr 25 to Nov 21, 2026, 935 Prose St",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "piney-orchard-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 2 to Oct 28, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "potomac-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 14 to Nov 19, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "reisterstown-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "riverdale-park-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Year-round, 6220 Rhode Island Ave (closes 6:30 pm Nov 12 to Feb 25; closed Thanksgiving)",
+    "notes": "The state lists it on Rhode Island Ave, not Queensbury Rd.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "route-1-farmers-market-and-bazaar",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 18 to Nov 21, 2026, 3716 Rhode Island Ave",
+    "notes": "The state lists the Brentwood market as the Gateway Farmers Market, a few blocks away.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "salisbury-shore-fresh-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Nov 2026, 221 East Market St",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "savage-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 27 to Sep 28, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "severna-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 25 to Oct 31, 2026, Park and Ride at Route 2 and Jones Station Rd",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "sharpsburg-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "smvwinery-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "state-center-community-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "takoma-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "taneytown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, 4337 Old Taneytown Rd",
+    "notes": "The state lists it on Old Taneytown Rd.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "the-berlin-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "the-village-of-cross-keys-farmers-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "tuesday-market-in-lauraville",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Jun to Oct 2026",
+    "notes": "The market at 4500 Harford Rd now runs on Thursdays as the Main Street market in Lauraville.",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "usda-farmers-market-at-beltsville",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "wildberry-farm-market",
+    "notes": "Not in the Maryland Department of Agriculture's 2026 farmers market directory; no current schedule found."
+  },
+  {
+    "state": "MD",
+    "checked": "2026-09-15",
+    "slug": "ymca-in-frederick-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 19 to Oct 27, 2026",
+    "hoursSourceNote": "Maryland Department of Agriculture, 2026 Maryland Farmers Market Directory (Spanish edition)",
+    "hoursSourceUrl": "https://mda.maryland.gov/maryland_products/Documents/Guia%20de%20los%20Mercados%20Agricolas%202026.docx%20%281%29.pdf"
+  }
+]

@@ -1,0 +1,2832 @@
+[
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "3rd-day-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "acorn-farmers-market-and-cafe",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ada-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "adrian-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 10, Toledo Street Pavilion",
+    "hoursSourceNote": "City of Adrian",
+    "hoursSourceUrl": "https://www.adriancity.com/community/adrian_city_market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "alamo-farmers-and-crafters-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "albion-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "alcona-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "alger-heights-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "allegan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "allen-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Year-round, 1629 Kalamazoo St",
+    "hoursSourceNote": "Choose Lansing's Greater Lansing farmers market list",
+    "hoursSourceUrl": "https://www.lansing.org/things-to-do/family-farms-and-markets/farmers-markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "allen-neighborhood-center-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Year-round, 1629 Kalamazoo St",
+    "notes": "Same market as allen-farmers-market.",
+    "hoursSourceNote": "Choose Lansing's Greater Lansing farmers market list",
+    "hoursSourceUrl": "https://www.lansing.org/things-to-do/family-farms-and-markets/farmers-markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "allendale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "almena-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "almont-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "alpena-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round at Mich-e-ke-wis Park (Wednesdays 8-1 in August and September)",
+    "hoursSourceNote": "Visit Alpena",
+    "hoursSourceUrl": "https://www.visitalpena.com/events/alpena-farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ann-arbor-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May to December (Saturdays only, 8-3, January to April), Kerrytown",
+    "hoursSourceNote": "City of Ann Arbor, who run it",
+    "hoursSourceUrl": "https://www.a2gov.org/parks-and-recreation/parks-and-places/ann-arbor-farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ann-arbor-farmers-market-ann-arbor",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May to December (Saturdays only, 8-3, January to April)",
+    "notes": "Duplicate USDA listing of ann-arbor-farmers-market.",
+    "hoursSourceNote": "City of Ann Arbor, who run it",
+    "hoursSourceUrl": "https://www.a2gov.org/parks-and-recreation/parks-and-places/ann-arbor-farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ara-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "armada-flea-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bangor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "barryton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bart-s-fruit-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bath-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "battle-creek-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bay-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bay-mills-brimley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "beaverton-farmers-market-ross-lake",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "belding-beatnik-bazaar",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bellaire-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bellaire-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "belleville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "benton-harbor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "benton-harbor-fruit-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "big-rapids-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "birch-run-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "birmingham-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026, public lot 6 at 660 N Old Woodward",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://downtownbirmingham.com/visit/farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "blissfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "blue-tree-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "boyne-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Outdoor season at Veterans Park, through early November 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://boynecityfarmersmarket.org/events/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "boyne-city-farmers-market-boyne-city",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bridgman-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "brighton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "bronson-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "buchanan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cadillac-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cadillac-made-in-michigan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "caledonia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "canton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 10 to Oct 11, 2026 (closed Sep 27), Preservation Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cantonmi.gov/496/Canton-Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "caro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cass-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cassopolis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cesar-e-chavez-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "charlevoix-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 21 to Oct 15, 2026, downtown on Bridge St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.charlevoixmi.gov/338/Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "charlotte-artisans-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "chassell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cheboygan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "chelsea-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026 (Saturdays at Palmer Commons, Wednesdays at Chelsea State Bank)",
+    "hoursSourceNote": "Chelsea Farmers Market (2026 season)",
+    "hoursSourceUrl": "https://chelseapost.com/may-2-chelsea-farmers-market-opens-for-the-season/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "chelsea-farmers-market-and-bushel-basket-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as chelsea-farmers-market.",
+    "hoursSourceNote": "Chelsea Farmers Market (2026 season)",
+    "hoursSourceUrl": "https://chelseapost.com/may-2-chelsea-farmers-market-opens-for-the-season/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "chesaning-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "city-of-au-gres-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "city-of-bronson-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "city-of-gladstone-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "city-of-holland-municipal-farmer-s-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 13 to Oct 31, 2026",
+    "notes": "Same market as holland-farmers-market.",
+    "hoursSourceNote": "the market's own site (2026 season)",
+    "hoursSourceUrl": "https://www.hollandfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "city-of-st-clair-shores-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "clarkston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "clawson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "clinton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "cobblestone-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "corktown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "corner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "crystal-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "csbrew-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "davison-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 8110 E Court St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://davisonfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "de-tour-village-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dearborn-farmers-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dearborn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "detroit-eastern-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Saturdays year-round; Sundays and Tuesdays June to September",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://easternmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dexter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dexter-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dimondale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dixboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "douglass-farmers-market",
+    "notes": "Its website still shows a 2014 season; no current schedule found."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "dowagiac-farm-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-allen-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-dewitt-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-houghton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-marquette-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Saturdays May 17 to Oct 25; Wednesday evenings Jun 11 to Aug 27, 2026",
+    "hoursSourceNote": "Downtown Marquette, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.downtownmarquette.org/downtown-events/saturdaymarket"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-owosso-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-petoskey-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 29 to Oct 2, 2026, Howard St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.petoskeychamber.com/downtown-petoskey-farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-rochester-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 431 Main St",
+    "hoursSourceNote": "LittleGuide Detroit, top metro Detroit farmers markets 2026",
+    "hoursSourceUrl": "https://littleguidedetroit.com/top-farmers-markets-to-visit-in-metro-detroit-2026/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-saginaw-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 22 to Oct 31, 2026 (Saturdays are added from July)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.saginawfarmersmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-sparta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "downtown-ypsilanti-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Saturdays May 16 to Oct 31; Tuesdays Jun 2 to Aug 25, 2026",
+    "hoursSourceNote": "City of Ypsilanti (2026 season)",
+    "hoursSourceUrl": "https://cityofypsilanti.com/338/Farmers-Markets"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "durand-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "east-lansing-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 17 and Jun 7 to Oct 25, 2026, Valley Court Park",
+    "hoursSourceNote": "City of East Lansing (2026 season)",
+    "hoursSourceUrl": "https://www.cityofeastlansing.com/farmersmarket"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "east-warren-avenue-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "eastern-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Saturdays year-round; Sundays and Tuesdays June to September",
+    "notes": "Same market as detroit-eastern-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://easternmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "eastside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "eaton-rapids-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "edmore-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "elsie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "empire-farmers-market",
+    "notes": "Leelanau Farmers Markets list Glen Arbor, Leland, Northport and Suttons Bay markets; no Empire market found."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "evart-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-capitol",
+    "notes": "Three dates only in 2026 (July 28, Aug 25, Sep 22, 9-2 on the Capitol lawn); not weekly."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "farmington-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "farwell-s-arts-and-crafts-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "fenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "flint-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 300 E First St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.flintfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "fowlerville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "frankenmuth-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "frankfort-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "fraser-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "fremont-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "fulton-street-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026 (Saturdays only, 10-1, Nov 7 to Apr 24)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.fultonstreetmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "g-and-a-farmers-market-and-garden-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "g-r-farmers-and-craft-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "galesburg-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "galesburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "garden-taste-fest-and-market-place",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "georgetown-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "gibraltar-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "gladwin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "glen-arbor-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 9 to Sep 15, 2026, behind Glen Arbor Township Hall",
+    "hoursSourceNote": "Leelanau Farmers Markets, who run them",
+    "hoursSourceUrl": "https://leelanaufarmersmarkets.com/markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grand-haven-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays May to October; Wednesdays June to September 2026",
+    "notes": "The market opened the 2026 season at Chinook Pier and planned to move to Mulligan's Hollow in August.",
+    "hoursSourceNote": "Grand Haven Tribune, on the 2026 season",
+    "hoursSourceUrl": "https://www.grandhaventribune.com/entertainment/food_and_drink/farmers-market-to-open-may-2-at-chinook-pier-under-new-vendor-management/article_f6df7f36-8e5d-5234-ad35-85574cde982b.html"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grand-ledge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grand-river-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 31, 2026, Grand River Brewery lot",
+    "hoursSourceNote": "Jackson Downtown Development Authority (2026 season)",
+    "hoursSourceUrl": "https://jacksondda.org/grand-river-farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grand-river-farmers-market-jackson",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 31, 2026",
+    "notes": "Same market as grand-river-farmers-market.",
+    "hoursSourceNote": "Jackson Downtown Development Authority (2026 season)",
+    "hoursSourceUrl": "https://jacksondda.org/grand-river-farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grand-valley-state-university-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grandville-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Tuesdays June to September; Thursdays June to August, behind the KDL Grandville branch",
+    "hoursSourceNote": "City of Grandville",
+    "hoursSourceUrl": "https://www.cityofgrandville.com/our_community/farmer_s_market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grant-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grass-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "grayling-back-to-our-roots-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "green-boots-veteran-community-hotriculture-gardens-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "green-oak-farmers-and-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "greenville-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "greenville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "gypsy-farms-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hancock-tori-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "harbor-beach-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "harbor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "harrison-city-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hartland-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hastings-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hazel-park-growers-and-makers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hemlock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hensler-s-country-market-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hillsdale-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hillsdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hillsdale-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "historic-farmers-market-of-lapeer-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "holland-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 13 to Oct 31, 2026, 8th Street Marketplace",
+    "hoursSourceNote": "the market's own site (2026 season)",
+    "hoursSourceUrl": "https://www.hollandfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "holly-farm-and-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hubbard-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "hudsonville-farmers-market-and-crafts",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "huron-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "huss-project-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "imlay-city-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Through Oct 9, at the Downtown Depot Pavilion",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.icdda.com/about-us/news/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "indian-river-grower-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ionia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ionia-harvest-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "iron-mountain-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "islandview-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ithaca-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "jefferson-chalmers-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "jewett-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "kalamazoo-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays through November; Tuesdays and Thursdays June to October, 1204 Bank St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.kzoofarmmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "kalamazoo-indoor-flea-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "kentwood-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "Jun 8 to Aug 17, 2026, behind Kentwood City Hall",
+    "hoursSourceNote": "Experience Grand Rapids' 2026 West Michigan market list",
+    "hoursSourceUrl": "https://www.experiencegr.com/articles/post/west-michigan-farmers-markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "kinglsey-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "laingsburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lake-leelanau-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lake-linden-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Summer season at the gazebo near Calumet St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lakelinden.net/farmers-market.html"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lake-orion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lakeview-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lapeer-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lawrence-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "leelanau-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "leland-farmers-market",
+    "notes": "Not separately scheduled on the Leelanau Farmers Markets site; only its Glen Arbor market carries hours there."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "les-cheneaux-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lincoln-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "June to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lpfarmersmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "little-red-shed-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "livonia-wilson-barn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "lowell-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ludington-farmer-s-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to September, Legacy Plaza pavilion",
+    "notes": "Now the Ludington Artisan and Farmers Market at Legacy Plaza.",
+    "hoursSourceNote": "Downtown Ludington (2026 market)",
+    "hoursSourceUrl": "https://www.downtownludington.org/2026-farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "m-and-m-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "madison-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mancelona-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "manistique-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "marine-city-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-grand",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "marlette-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "marquette-farmers-and-artists-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 17 to Oct 25, 2026, Marquette Commons",
+    "notes": "Marquette's 2026 markets are the Saturday Morning Market and a Wednesday evening market.",
+    "hoursSourceNote": "Downtown Marquette, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.downtownmarquette.org/downtown-events/saturdaymarket"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "marshall-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "martin-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "marysville-farmers-market-and-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mason-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mason-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "melvindale-dda-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "menominee-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "menominee-historial-downtown-farmers-market-association",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "menominee-historic-downtown-farmers-market-association",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "menominee-historic-downtown-farmers-market-association-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "meridian-township-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Saturdays in season; Wednesday evenings from Jun 3, 2026",
+    "hoursSourceNote": "Choose Lansing's Greater Lansing farmers market list",
+    "hoursSourceUrl": "https://www.lansing.org/things-to-do/family-farms-and-markets/farmers-markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "metro-health-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "midland-area-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026 (Saturdays 9-12, Nov 7 to Nov 21), Dow Diamond east lot",
+    "hoursSourceNote": "Midland Business Alliance, who run it (2026 season)",
+    "hoursSourceUrl": "https://mbami.org/farmersmarket/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "midland-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "notes": "Same market as midland-area-farmers-market.",
+    "hoursSourceNote": "Midland Business Alliance, who run it (2026 season)",
+    "hoursSourceUrl": "https://mbami.org/farmersmarket/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "milan-farmers-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "milford-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to October 2026, East Liberty St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.milfordfarmersmarket.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "monroe-county-farmer-s-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to September 2026",
+    "notes": "Monroe's 2026 market runs Wednesdays at the Galaxy Theatres lot.",
+    "hoursSourceNote": "Monroe Chamber of Commerce, who run it (2026 season)",
+    "hoursSourceUrl": "https://monroechamberofcommerce.wildapricot.org/Monroe-Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "monroe-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to September 2026, Galaxy Theatres lot",
+    "hoursSourceNote": "Monroe Chamber of Commerce, who run it (2026 season)",
+    "hoursSourceUrl": "https://monroechamberofcommerce.wildapricot.org/Monroe-Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mount-clemens-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mount-clemens-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mount-clemens-farmers-market-mount-clemens",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mt-pleasant-farmers-market-broadway-street",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "mt-pleasant-farmers-market-island-park",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "07:30",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Island Park south shelter (a Saturday market also runs Jun 13 to Sep 26)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.mt-pleasant.org/departments/recreation/farmers__market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "munising-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "muskegon-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to November",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://muskegonfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "muskegon-indoor-winter-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "December to April",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://muskegonfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "native-farmers-market",
+    "notes": "Its website still shows a 2016 season; no current schedule found."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "new-baltimore-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.newbaltimorefarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "new-baltimore-farmers-market-new-baltimore",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "new-buffalo-farmers-market",
+    "notes": "Its published dates are for 2022; no 2026 schedule found."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "new-era-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "newaygo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "niles-artisan-alley-market",
+    "notes": "Its published dates are from an earlier year; no 2026 schedule found."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "niles-bensidoun-french-market-niles-main-street",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "northeast-michigan-regional-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "northport-farmers-market",
+    "notes": "Not separately scheduled on the Leelanau Farmers Markets site."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "northville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, 550 W Seven Mile Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.northville.org/farmers-market-vendors"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "novi-farmers-market-and-international-street-fair",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "oak-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "oakland-avenue-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "oakland-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "13:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May to December (Saturdays only January to April), 2350 Pontiac Lake Rd",
+    "hoursSourceNote": "Oakland County Parks, who run it",
+    "hoursSourceUrl": "https://www.oakgov.com/community/oakland-county-parks/parks-trails/farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "old-depot-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "old-school-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "old-town-emmet-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "old-town-emmet-farm-market-petoskey",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "orion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ortonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "osma-acres-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "otsego-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "owosso-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "owosso-original-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "paw-paw-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Warmer months",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.pawpaw.net/community/farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "pentwater-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "pentwater-mi-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "pickford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "pittsfield-township-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to October, Platt and Michigan Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.pittsfield-mi.gov/760/Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "plainfield-charter-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "plainfield-township-farmers-market-hale",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "plainwell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "plainwell-indoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "plymouth-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "2026 season",
+    "hoursSourceNote": "LittleGuide Detroit, top metro Detroit farmers markets 2026",
+    "hoursSourceUrl": "https://littleguidedetroit.com/top-farmers-markets-to-visit-in-metro-detroit-2026/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "pontiac-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "port-austin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "port-sanilac-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "portage-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Oct 11, 2026 (at 125 East Centre Ave from May 31)",
+    "hoursSourceNote": "City of Portage (2026 season)",
+    "hoursSourceUrl": "https://www.portagemi.gov/CivicAlerts.aspx?AID=1903"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "powers-spalding-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "redford-township-market-at-the-marquee",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "richland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "rockford-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "rogers-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "romeo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "roscommon-village-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "rose-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "royal-oak-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (an antiques market runs Sundays 8-3)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.romi.gov/1533/Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "saginaw-va-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "saline-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "saline-farmers-market-saline",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sandusky-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sanford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "saugatuck-douglas-green-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 22 to Oct 2, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://sc4a.org/markets/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sault-ste-marie-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Summer season, corner of Ashmun and Portage",
+    "hoursSourceNote": "Michigan's Upper Peninsula Travel Association",
+    "hoursSourceUrl": "https://www.uptravel.com/event/sault-ste-marie-farmers-market/11769/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "scottville-farmers-market-at-millers-ma",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "shelby-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "skip-s-european-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "solon-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "south-east-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "south-haven-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays May 9 to Oct 10, 2026; Wednesdays June to August, Dyckman Park",
+    "hoursSourceNote": "Visit South Haven (2026 season)",
+    "hoursSourceUrl": "https://www.southhaven.org/events/south-haven-farm-market1/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "south-lansing-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 14 to Sep 24, 2026 (3-6:30 pm Oct 1 to Oct 22), 5016 S MLK Jr Blvd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.southlansing.org/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "south-lyon-farmer-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "southeast-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "southfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "southgate-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "southside-community-coalition-farmers-market-lansing",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sowing-seeds-growing-futures-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "spring-lake-farm-and-garden-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "springfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "springfield-recreation-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "st-clair-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "st-clair-shores-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "st-ignace-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "st-johns-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "st-louis-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Summer season (a Saturday market, 10-2, runs November to May)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.gratiotfarmersmarkets.com/st-louis.html"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sturgis-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "summer-thyme-farmers-market-and-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "suttons-bay-farmers-market",
+    "notes": "Not separately scheduled on the Leelanau Farmers Markets site."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "swartz-creek-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "sweetwater-local-foods-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "taylor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "tecumseh-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, The Market on Evans (213 N Evans St)",
+    "hoursSourceNote": "Downtown Tecumseh",
+    "hoursSourceUrl": "https://www.downtowntecumseh.com/things-to-do/farmers-market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "tecumseh-farmers-market-at-the-market-on-evans",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October",
+    "notes": "Same market as tecumseh-farmers-market.",
+    "hoursSourceNote": "Downtown Tecumseh",
+    "hoursSourceUrl": "https://www.downtowntecumseh.com/things-to-do/farmers-market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "tecumseh-s-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October",
+    "notes": "Same market as tecumseh-farmers-market.",
+    "hoursSourceNote": "Downtown Tecumseh",
+    "hoursSourceUrl": "https://www.downtowntecumseh.com/things-to-do/farmers-market.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "terra-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "texas-township-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Saturdays from May 9, 2026; Tuesdays June to August, 7110 West Q Ave",
+    "hoursSourceNote": "Texas Charter Township, who run it",
+    "hoursSourceUrl": "https://www.texastownship.org/168/Farmers-Market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "the-congregation-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-sca-saugatuck-center-for-the-arts",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "the-market-lexington",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "the-old-winery-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "the-village-at-grand-traverse-commons-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "13:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June to October outdoors on the Piazza (indoors Saturdays 10-2, November to April)",
+    "hoursSourceNote": "The Village at Grand Traverse Commons",
+    "hoursSourceUrl": "https://www.thevillagetc.com/events/indoor-farmers-market"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "thomas-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "three-oaks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "three-rivers-scidmore-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "traverse-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays May to October; Wednesdays June to October",
+    "notes": "The city's market is the Sara Hardy Downtown Farmers Market.",
+    "hoursSourceNote": "Traverse City DDA, who run it",
+    "hoursSourceUrl": "https://dda.downtowntc.com/farmers-market/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "troy-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 10 to Sep 30, 2026, Jeanne M Stine Community Park",
+    "hoursSourceNote": "City of Troy (2026 season)",
+    "hoursSourceUrl": "https://troymi.gov/community/troy_farmers_market/index.php"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "vassar-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "vicksburg-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 22 to Oct 2, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.vicksburgfarmersmarket.com/"
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "village-of-constantine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "wacousta-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "walled-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "watershed-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "waukazoo-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "wayne-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "wayne-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "wayne-state-wednesday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "webster-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "wednesday-evening-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "west-branch-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "west-willow-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "westland-farmers-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "westland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "westside-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "westside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "westside-farmers-market-between-pine-and-walnut-steets-lansing",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "williamston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MI",
+    "checked": "2026-09-15",
+    "slug": "ymca-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

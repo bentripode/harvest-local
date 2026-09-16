@@ -1,0 +1,408 @@
+[
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "bixby-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "canadian-river-farmstand-and-community-market",
+    "notes": "Its USDA link goes to a winery's site, which carries no current market day or hours."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "cashion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "cherokee-farmers-market",
+    "notes": "Its USDA link goes to a Main Street site, which carries no market schedule."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "cherry-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "chouteau-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "city-of-moore-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "claremore-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "cleveland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "country-gals-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "cushing-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "edmond-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "guthrie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "hobart-main-street-farmers-market",
+    "notes": "Its USDA link goes to the city's site, which carries no market schedule."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "hugo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "idabel-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "jenks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "johnston-county-farmers-market-in-tishomingo",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "kincaid-farms",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "latimer-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "lawton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "marble-city-farmers-and-art-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "midwest-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "muskogee-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays from the first Saturday in April to the last in October; Wednesdays mid-May to mid-August",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.muskogeefarmersmarket.com/"
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "noble-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "norman-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "norman-farmers-market",
+    "notes": "Its USDA link goes to the county fair's site, which carries no market schedule."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "north-tulsa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "nowata-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "oklahoma-city-farmers-public-market",
+    "notes": "The market's own site could not be read (the host refuses automated requests)."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "old-town-poteau-farmer-s-market-craft-fair",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "osage-hills-farmers-market-in-skiatook",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "osu-okc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "ou-tulsa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "owasso-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "paseo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "pittsburg-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "ponca-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "pottawatomie-county-farmers-cooperative-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "rowdy-stickhorse-farmer-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "sand-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "seminole-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "stillwater-medical-center-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays April to October; Wednesdays May to October",
+    "website": "https://www.stillwaterfarmersmarket.com/",
+    "notes": "Stillwater Farmers Market publishes one set of hours for its markets.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.stillwaterfarmersmarket.com/"
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "stillwater-pioneer-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays April to October; Wednesdays May to October (a winter market runs Saturdays 10-12, November to March)",
+    "website": "https://www.stillwaterfarmersmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.stillwaterfarmersmarket.com/"
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "stillwater-strickland-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays April to October; Wednesdays May to October",
+    "website": "https://www.stillwaterfarmersmarket.com/",
+    "notes": "Stillwater Farmers Market publishes one set of hours for its markets.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.stillwaterfarmersmarket.com/"
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "sunday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "tahlequah-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "talihina-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "talihina-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-guthrie-green",
+    "notes": "Guthrie Green's site lists its events calendar but publishes no weekly market day or hours."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "the-market-place-on-broadway",
+    "notes": "Its USDA link goes to a Main Street site, which carries no market schedule."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "wagoner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "wagoner-farmers-market-and-music-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "wellston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "wildhorse-gardens-and-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June to September (except Western Days), Mustang",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://wildhorsegardensandmarket.org/"
+  },
+  {
+    "state": "OK",
+    "checked": "2026-09-15",
+    "slug": "woodward-farmers-market-association",
+    "notes": "The domain in the USDA listing has expired."
+  }
+]

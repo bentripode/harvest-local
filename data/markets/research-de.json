@@ -1,0 +1,279 @@
+[
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "bellefonte-de-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "bellefonte-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "bethany-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 31 to Sep 6, 2026, PNC Bank lot at Garfield Pkwy and Pennsylvania Ave",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "bethany-beach-farmers-market-inc",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 31 to Sep 6, 2026",
+    "notes": "Same market as bethany-beach-farmers-market (the listed address is the organiser's).",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "capital-city-farmers-market",
+    "notes": "Not in the state's 2026 guide; Dover's 2026 market is the new Downtown Dover Farmers Market on The Green (Sundays), a different location."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "delaware-avenue-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "delaware-city-farmers-market-and-galleria",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-sea-colony",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 2, 2026, Marketplace at Sea Colony lot",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "fenwick-island-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 4, 2026, 1406 Coastal Hwy",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "french-street-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "fresh-friday-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "georgetown-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 5 to Oct 27, 2026",
+    "notes": "Listed by the state as the new Georgetown Farmers and Friends Market, at the same 413 S Bedford St address.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "historic-lewes-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Sep 26, 2026 at George H.P. Smith Park; Oct 3 to Dec 5 at the Lewes School lot, 9 to noon",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "historic-lewes-farmers-market-george-h-p-smith-park",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Sep 26, 2026",
+    "notes": "Same market as historic-lewes-farmers-market.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "historic-lewes-farmers-market-lewes",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Jun 3 to Sep 2, 2026, at Crooked Hammock Brewery",
+    "notes": "The market's Kings Highway (Wednesday) location.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "historic-lewes-farmers-market-lewes-2",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Oct 3 to Dec 5, 2026",
+    "notes": "The market's fall location, the Lewes School lot at 820 Savannah Rd.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "loockerman-way-farmers-market",
+    "notes": "Not in the state's 2026 guide; Dover's 2026 market is the new Downtown Dover Farmers Market on The Green (Sundays), a different location."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "milton-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 8 to Sep 4, 2026, 514 Union St",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "new-castle-county-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 7 to Oct 15, 2026",
+    "notes": "The county's Glasgow Park market, 2275 Pulaski Hwy.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "new-castle-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round indoor market",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.newcastlefarmersmarket.com/"
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "smyrna-farmers-market",
+    "notes": "Not in the state's 2026 guide and its website was last updated in 2020."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "southbridge-farmers-market",
+    "notes": "Not in the Delaware Department of Agriculture's 2026 farmers markets guide; no current schedule found."
+  },
+  {
+    "state": "DE",
+    "checked": "2026-09-15",
+    "slug": "westside-farmers-market-at-cool-spring-park",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 10 to Oct 28, 2026",
+    "notes": "The state lists it as the West Side Grows Farmers Market.",
+    "hoursSourceNote": "Delaware Department of Agriculture's 2026 farmers markets guide",
+    "hoursSourceUrl": "https://agriculture.delaware.gov/communications-marketing/farmers-markets-guide/"
+  }
+]

@@ -1,0 +1,1273 @@
+[
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "allston-village-farmers-market",
+    "notes": "Yelp marks the Allston market closed; no 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "alternatives-heritage-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "andover-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 17, 2026, 34 Bartlet St",
+    "notes": "Now at 34 Bartlet St rather than Central St (also Patch's 2026 Andover guide).",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "arlington-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026, Russell Common lot",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "ashland-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026 (no market July 4), across from the library",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "attleboro-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 24, 2026, La Salette Shrine (947 Park St)",
+    "notes": "The 2026 market is at the La Salette Shrine, not Capron Park.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "belmont-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 4 to Oct 29, 2026 (closes 6 pm in October)",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "berkshire-grown-holiday-farmers-markets",
+    "notes": "Occasional holiday markets, not a weekly schedule."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "billerica-community-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 15 to Sep 28, 2026 (closed Labor Day)",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "boston-public-market-on-the-greenway",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Year-round indoor market, 100 Hanover St (some vendor hours vary)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://bostonpublicmarket.org/visit/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "boston-university-farmer-s-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "boylston-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "brockton-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 5 to Oct 30, 2026, City Hall Plaza",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.brocktonfarmersmarket.com/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "brookline-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "13:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 4 to Nov 19, 2026, Centre Street West lot",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "burlington-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "cambridge-winter-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "carlisle-farmers-market",
+    "notes": "The state directory's Carlisle entry (Saturdays at Kimball's) still carries 2025 dates; not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "carver-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Jun 14 to Oct 25, 2026, Shurtleff Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "chatham-farmer-s-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 19 to Oct 13, 2026, Our Lady of Grace Church",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "chelmsford-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 30 to Oct 10, 2026, Chelmsford Common",
+    "notes": "Its listed website now belongs to an unrelated gadget blog.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "community-servings-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "concerned-citizens-of-mason-s-square-farmer-s-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "concord-community-market-at-the-old-manse",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "danvers-farmers-market",
+    "notes": "Danvers' 2026 market is monthly (third Fridays, June to September, per Patch); not weekly, so no hours."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "dartmouth-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June to October, St. Mary's Parish Center (789 Dartmouth St)",
+    "notes": "The state directory lists it at St. Mary's, not St. Peter's.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "dorchester-winter-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "east-boston-farmers-market-summer-early-fall",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jul 8 to Oct 28, 2026 (closes 6 pm in October), Central Square Park",
+    "hoursSourceNote": "NeighborHealth, who run it, on the 2026 summer season",
+    "hoursSourceUrl": "https://www.neighborhealth.com/en/events/east-boston-farmers-market-summer-2026/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "east-boston-farmers-on-line-market-winter-spring",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "easthampton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 24 to Oct 11, 2026, behind the Municipal Building",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "easton-original-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "essex-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "everett-farmers-market",
+    "notes": "Its site (last updated 2016) describes a first and third Wednesday market; not weekly, and not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "farmer-s-market-at-attleboro-farms",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "florence-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 6 to Oct 28, 2026, Florence Civic Center (90 Park St)",
+    "hoursSourceNote": "the market's own site (2026 season)",
+    "hoursSourceUrl": "https://florencefarmersmarket.com/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "framingham-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 18 to Oct 8, 2026 (closes 6 pm from Sep 17), Framingham Centre Common",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "great-barrington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Nov 14, 2026, 18 Church St",
+    "hoursSourceNote": "Berkshire Grown's 2026 Berkshire farmers market list",
+    "hoursSourceUrl": "https://berkshiregrown.org/berkshire-farmers-markets/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "great-falls-farmers-market-turners-falls",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Peskeomskut Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "greenfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Apr 25 to Oct 31, 2026, Court Square",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "harvard-university-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "haverhill-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 31, 2026, Bradford Common",
+    "hoursSourceNote": "Patch, Farmers Market Guide 2026 (Burlington area)",
+    "hoursSourceUrl": "https://patch.com/massachusetts/burlington/farmers-market-guide-2026-where-go-what-know-burlington"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "hingham-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 95 Station St",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "hingham-farmers-market-hingham",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 95 Station St",
+    "notes": "Same market as hingham-farmers-market.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "holden-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 12 to Oct 27, 2026, 1174 Main St",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "holyoke-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "holyoke-farmers-market-winter-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "hopkinton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 7 to Oct 11, 2026, Town Common",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "lawrence-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Jun 10 to Oct 28, 2026 (closed July 1), Campagnone Park",
+    "notes": "Groundwork Lawrence's Wednesday market; a separate Saturday market meets at O'Connell South Common.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "leominster-marketplace",
+    "notes": "Its website domain is for sale."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 26 to Oct 27, 2026 (closes 6 pm in October), Fletcher Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "lowell-farmers-market",
+    "notes": "Not in the state directory at this address; Lowell's 2026 markets are at The Hive (Paige St) and Community Teamwork (Dutton St)."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "main-street-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "marblehead-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Nov 21, 2026",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "marshfield-farmer-s-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, at the fairgrounds grandstand",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "mattapan-farmers-market",
+    "notes": "Its listed website now serves a gambling site. Mattapan's 2026 market is at Cummins Hwy and Fairway St (see mattapan-square-farmers-market-mattapan-food-and-fitness-coaltion)."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "mattapan-square-farmers-market-mattapan-food-and-fitness-coaltion",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jul 11 to Oct 31, 2026, 882 Cummins Hwy",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "maxwell-s-winter-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "medfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 31 to Oct 25, 2026",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "medford-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Oct 15, 2026, Condon Shell",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "medway-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "melrose-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 11 to Oct 29, 2026, Bowden Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "milford-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "mission-hill-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 7 to Nov 19, 2026, Brigham Circle (Huntington Ave)",
+    "notes": "Now at Brigham Circle rather than the Tremont St address USDA holds.",
+    "hoursSourceNote": "The Boston Calendar's listing of the 2026 Brigham Circle market",
+    "hoursSourceUrl": "https://www.thebostoncalendar.com/events/brigham-circle-farmers-markets--36"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "monson-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "natick-center-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Natick Common",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "natick-winter-market",
+    "notes": "The state directory's Natick winter entry still carries 2025-26 dates only; no current schedule."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "new-bedford-brooklawn-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "newburyport-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to November 2026, Tannery Marketplace",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "newton-farmers-market",
+    "notes": "Newton runs two markets (Tuesdays at Cold Spring Park, Saturdays at Newton North High School); the Hyde Center address is the winter venue, so which one this listing means cannot be told."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "northampton-saturday-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Gothic St",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "northampton-tuesday-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Apr 14 to Nov 3, 2026, the plaza behind Thornes Marketplace",
+    "notes": "Its listed domain has expired.",
+    "hoursSourceNote": "Daily Hampshire Gazette, on the 2026 season (April 13, 2026)",
+    "hoursSourceUrl": "https://gazettenet.com/2026/04/13/grow-food-northamptons-tuesday-market-returns/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "northeastern-university-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "norwell-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "orleans-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to November (9 to noon after Labor Day), 19 Old Colony Way",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "osterville-farmers-market",
+    "notes": "The state directory's Osterville entry (Fridays at the Historical Museum) still carries 2025 dates; not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "otis-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Oct 10, 2026, 2000 East Otis Rd",
+    "hoursSourceNote": "Berkshire Grown's 2026 Berkshire farmers market list",
+    "hoursSourceUrl": "https://berkshiregrown.org/berkshire-farmers-markets/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "peabody-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "pepperell-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "petersham-friday-market",
+    "notes": "Its listed website now serves a gambling site, and the state directory's entry has no 2026 dates."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "pittsfield-farmers-market",
+    "notes": "The state directory gives Saturdays 9-1 on the Common, but Berkshire Grown's 2026 list says second Saturdays only; sources conflict, so nothing recorded."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "plymouth-farmers-market-at-plimoth-plantation",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 14 to Oct 29, 2026, Plymouth Public Library (132 South St)",
+    "notes": "The Plymouth market now meets at the public library, not Plimoth Plantation.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "plymouth-harbor-market-days-1820-courthouse-green",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "redbrook-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "rochester-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "roslindale-village-main-street-winter-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "salem-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 8, 2026, Derby Square",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "scituate-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "shirley-center-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "shrewsbury-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "somerville-mobile-farmers-market-council-on-aging",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "somerville-mobile-farmers-market-east-somerville-community-school",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "somerville-mobile-farmers-market-mystic",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "somerville-mobile-farmers-market-north-street",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "somerville-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "November to April (the 2025-26 season ran Nov 1 to Apr 11)",
+    "hoursSourceNote": "Center for the Arts at the Armory, who host it (2025-26 season)",
+    "hoursSourceUrl": "https://artsatthearmory.org/somerville-winter-farmers-market-every-saturday-through-april-11th/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "south-boston-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Jun 1 to November, 2026, 446 West Broadway",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sbndc.org/south-boston-farmers-market/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "south-hadley-farmers-market",
+    "notes": "The state directory's South Hadley entry still carries 2025 dates; not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "sweet-william-s-country-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "tewksbury-community-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026, behind the Rec Center",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "tewksbury-farmers-market",
+    "notes": "Tewksbury's 2026 market is the community market behind the Rec Center (see tewksbury-community-market)."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "the-farm-market-at-mill-no-5",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "the-marketplace-at-simpson-spring",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "the-rice-farmers-market",
+    "notes": "Wilbraham's market is listed by the state at the Scantic Valley YMCA with 2025 dates only; not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "the-winter-farmers-market-in-sandwich",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "topsfield-farmers-market",
+    "notes": "The state directory's Topsfield entry (Wednesdays on the Common) still carries 2025 dates; not confirmed for 2026."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "truro-educational-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 1 to Sep 14, 2026, Truro Center Rd",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "union-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, Union Square Plaza",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "wakefield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 31, 2026 (no market July 4), Hall Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "walpole-farmers-market",
+    "notes": "Probably the same market as walpole-farmers-market-walpole (Spring Brook Park); not confirmed."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "walpole-farmers-market-walpole",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026, Spring Brook Park",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "walpole-winter-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "waquoit-spring-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "wayland-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Jun 24 to Oct 7, 2026 (the summer market at Russell's Garden Center)",
+    "notes": "The listing names a winter market; Russell's 2026 site describes the Wednesday summer market at the same address.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.russellsgc.com/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "wellesley-farmers-market",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "west-roxbury-farmers-market",
+    "notes": "The Corey Street market's published dates are for 2025; no 2026 schedule found."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "westborough-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 8, 2026, Bay State Commons",
+    "notes": "The state directory lists it at Bay State Commons.",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "westfield-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Jun 4 to Oct 15, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersmarketwestfield.org/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "westminster-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 8 to Oct 16, 2026, Town Common",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "weymouth-farmers-market",
+    "notes": "Weymouth's summer market is every other Wednesday (state directory), and this address is its winter venue; no weekly hours."
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "wilmington-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Oct 4, 2026, Town Common",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.wilmingtonfarmersmarket.com/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "winchendon-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026, 55 Murdock Ave",
+    "hoursSourceNote": "Massachusetts Department of Agricultural Resources, Farmers Market Directory (2026 entries)",
+    "hoursSourceUrl": "https://www.mass.gov/doc/farmers-market-contacts/download"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "winthrop-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 21 to Sep 27, 2026 (no market July 5 or Sept 6), Ingleside Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.winthropfarmersmarket.com/"
+  },
+  {
+    "state": "MA",
+    "checked": "2026-09-15",
+    "slug": "woburn-farmers-and-artisan-market-spence-farm",
+    "notes": "Not in the Massachusetts Department of Agricultural Resources directory with 2026 dates, and no dated 2026 schedule found."
+  }
+]

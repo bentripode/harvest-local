@@ -1,0 +1,2214 @@
+[
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "adel-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "akron-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 17 to Oct 21, 2026 (City Park, 340 N 5th St)",
+    "notes": "The directory lists it as the Akron Area Farmers Market at City Park, not the highway address USDA holds.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "albion-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "allamakee-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "amana-colonies-farmer-s-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "amana-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ames-main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 2 to Oct 17, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ames-main-street-farmers-market-ames",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 2 to Oct 17, 2026",
+    "notes": "Duplicate USDA listing of ames-main-street-farmers-market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "anamosa-farmers-market",
+    "notes": "KCRR's 2026 guide lists an Anamosa Market on Main (Wed 3-6, Sat 8-12) but says its 2026 season was not announced; not recorded."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "anita-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ankeny-uptown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "atlantic-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "avoca-main-street-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "beaverdale-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 15, 2026, Franklin Junior High west lot",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://beaverdalefarmersmarket.org/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "belmond-area-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "bettendorf-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "14:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "14:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "bondurant-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "18:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 6 to Oct 28, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "britt-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "carlisle-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "May 30 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "carroll-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "May to Sep 2026, at the Carroll Depot (1629 Radiant Rd)",
+    "notes": "The directory has it at the Carroll Depot, not the Westgate Mall lot USDA holds.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "cartwright-downtown-farmer-s-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "cascade-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "cedar-valley-farmers-market-kimball-ridge",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to Oct 2026, behind Wells Fargo at 3025 Kimball Ave",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "centerville-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "central-city-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "charles-city-area-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026, Central Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "charles-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026, Central Park",
+    "notes": "Duplicate USDA listing of charles-city-area-farmers-market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "cherokee-area-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "clarion-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 30 to Sep 26, 2026, courthouse lawn",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "clarke-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Sat Jun 6 to Oct 17, Tue Jun 9 to Sep 15, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "clear-lake-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 3, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "college-hill-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "columbus-junction-community-farmers-market",
+    "notes": "The listed website now serves a payday-loan site; not in the state's 2026 directory."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "coon-rapids-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Sep 26, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "coralville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Aug 5, 2026, Iowa River Landing (E 2nd Ave)",
+    "notes": "Now at Iowa River Landing rather than the 7th St address USDA holds.",
+    "hoursSourceNote": "KCRR's dated guide to 2026 Eastern Iowa farmers markets (updated May 12, 2026)",
+    "hoursSourceUrl": "https://kcrr.com/ixp/675/p/2026-farmers-markets-eastern-iowa/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "corydon-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "cresco-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "creston-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 1 to Aug 31, 2026, McKinley Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "davenport-farmers-market",
+    "notes": "The Mississippi Valley Growers list a Davenport market at NorthPark Mall on Wednesdays and Saturdays, without times; not recorded."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "davis-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Oct 10, 2026, south courthouse lawn",
+    "notes": "The directory calls it the Bloomfield Farmers Market (Bloomfield is the Davis County seat).",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "decorah-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, lower lot of Oneota Co-op",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "denison-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "17:30"
+      }
+    ],
+    "season": "Jul 9 to Oct 29, 2026, Denison Crossroads parking lot",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dewitt-farmers-market-summer",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Lincoln Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dewitt-farmers-market-winter",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market-2",
+    "notes": "Cedar Rapids' downtown market runs on eight select Saturdays in 2026 (KCRR and the state directory); not weekly, so no hours."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "downtown-sioux-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "Same market as sioux-city-farmers-market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "downtown-waterloo-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, RiverLoop Expo Plaza",
+    "notes": "Same market as waterloo-urban-farmers-market, which KCRR places at the RiverLoop Expo Plaza.",
+    "hoursSourceNote": "KCRR's dated guide to 2026 Eastern Iowa farmers markets (updated May 12, 2026)",
+    "hoursSourceUrl": "https://kcrr.com/ixp/675/p/2026-farmers-markets-eastern-iowa/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dubuque-county-fairgrounds-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dubuque-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dubuque-main-street-farmers-market",
+    "notes": "Dubuque Main Street's market is the Saturday Dubuque Farmers' Market on Iowa St (see dubuque-farmers-market); the listed 13th and Central address has no 2026 schedule."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dubuque-winter-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "durant-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "dyersville-area-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "May 21 to Oct 1, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "eastside-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 12 to Oct 27, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "eldora-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "elgin-area-growers-market",
+    "notes": "The listed website now serves a gambling site; not in the state's 2026 directory."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "everly-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "farm-fresh-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "farm-king-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "farmington-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "forest-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 10 to Sep 30, 2026, Pammel Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "franklin-county-farmers-market",
+    "notes": "Probably the same market as hampton-farmer-s-market (Hampton is the Franklin County seat); not confirmed, so no hours."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "freight-house-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Outdoor season May to Oct 2026; the indoor market stays open to 2 pm Saturdays",
+    "notes": "The state directory gives Saturday 8-2 (the indoor hours); the station's 2026 report gives the outdoor market 8-1.",
+    "hoursSourceNote": "KWQC-TV, on the 2026 outdoor season (May 6, 2026)",
+    "hoursSourceUrl": "https://www.kwqc.com/2026/05/06/freight-house-farmers-market-outdoor-season-underway/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "freight-house-farmers-market-davenport",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Outdoor season May to Oct 2026",
+    "notes": "Duplicate USDA listing of freight-house-farmers-market.",
+    "hoursSourceNote": "KWQC-TV, on the 2026 outdoor season (May 6, 2026)",
+    "hoursSourceUrl": "https://www.kwqc.com/2026/05/06/freight-house-farmers-market-outdoor-season-underway/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ft-madison-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 1 to Sep 28, 2026, Santa Fe Depot complex",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "garner-farmers-market",
+    "notes": "The listed chamber page now serves a gambling site; no 2026 schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "green-hills-produce-and-crafts-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "greene-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 9 to Aug 18, 2026, county fairgrounds",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "grinnell-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to Oct 2026, Central Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "grundy-center-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "guthrie-center-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "guttenberg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 400 block of South River Park Drive",
+    "hoursSourceNote": "KCRR's dated guide to 2026 Eastern Iowa farmers markets (updated May 12, 2026)",
+    "hoursSourceUrl": "https://kcrr.com/ixp/675/p/2026-farmers-markets-eastern-iowa/"
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "hampton-community-farmers-market",
+    "notes": "Probably the same market as hampton-farmer-s-market (Central Ave W, Hampton); not confirmed, so no hours."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "hampton-farmer-s-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:30",
+        "closes": "18:30"
+      },
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 12 to Oct 16, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "harrison-county-welcome-center-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "hawarden-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 18 to Oct 29, 2026, City Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "highland-park-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "highway-34-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "historic-valley-junction-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 7 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "hudson-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "humboldt-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "huxley-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ida-area-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "independence-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Oct 10, 2026, Wapsipinicon Mill",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "indianola-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Sat May 2 to Oct 31, Wed Jul 8 to Aug 26, 2026",
+    "notes": "The directory prints Wednesday's close as 6:30 AM; read as 6:30 PM.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "indoor-farmers-market-at-the-isle",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "iowa-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Chauncey parking ramp",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "iowa-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "May 30 to Oct 3, 2026, Estes Park",
+    "notes": "The directory also lists a Wednesday 8:30-11:30 AM market as not participating; not recorded.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "iowa-falls-farmers-market-saturday",
+    "notes": "Iowa Falls' 2026 Saturday market is at Estes Park (see iowa-falls-farmers-market), not this Washington Ave address."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "iowa-food-cooperative-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "janesville-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "jefferson-st-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 7 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "johnston-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 29, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "kanawha-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "keota-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "kimball-ridge-farmers-market",
+    "notes": "Two Waterloo markets now use the Kimball Ridge name (Cedar Valley FM on Tuesdays, a Kimball Ridge Family Market on Saturdays); which one this listing is cannot be told. No hours recorded."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "knoxville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "kossuth-county-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Sat May 30 to Oct 10, Wed Jul 1 to Sep 2, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lake-mills-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lakes-area-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Sep 30, 2026, Dickinson County Fairgrounds",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lamoni-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "le-mars-area-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Oct 10, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "leclaire-river-front-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "linn-street-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lsi-global-green-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 23 to Oct 31, 2026, at 1907 Carpenter Ave",
+    "notes": "Same market as lsi-global-greens-farmers-market; the directory has it at Carpenter Ave, not University Ave.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lsi-global-greens-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 23 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lucas-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "lyons-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 20 to Nov 14, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "madison-county-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Oct 3, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "main-street-greenfield-s-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 4 to Sep 17, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "manchester-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 23 to Oct 3, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "manson-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "maquoketa-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 19 to Oct 12, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "marion-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 2 to Sep 27, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "market-in-the-park",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "market-on-central",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "marshall-county-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "mason-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Oct 3, 2026, Central Park",
+    "notes": "The city's event calendar gives the same Saturday 9-noon, May 30 to Oct 3.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "mercer-park-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "monroe-county-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 14 to Sep 3, 2026, west side of the square",
+    "notes": "The directory calls it the Albia Farmers Market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "monticello-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 9 to Oct 3, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "montrose-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 12 to Aug 25, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "mount-vernon-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "moville-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "mt-pleasant-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026, 405 E Thresher Rd",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "muscatine-area-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 3rd and Cedar St",
+    "notes": "USDA mentions a Tuesday market at the mall; the 2026 directory lists Saturday only.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "muscatine-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "nevada-s-midtown-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "newbo-city-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "newton-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 19 to Sep 15, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "noelridge-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "north-grand-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "north-iowa-winter-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "north-skunk-sawmill-and-market-inc",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "oelwein-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 22 to Oct 9, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "old-macdonald-s-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 23, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "orange-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Sep 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "original-spencer-farmer-s-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Sat Jun 6 to Oct 31, Wed Jul 15 to Oct 28, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "osage-farmers-market",
+    "notes": "The Osage chamber lists Saturdays May 2 to Oct 24, 2026 at the Mitchell County Fairgrounds but gives no times; not recorded."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "oskaloosa-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Sat May 16 to Oct 17, Tue Jun 2 to Oct 13, 2026",
+    "notes": "The directory calls it the Oskaloosa Vendor and Farmers Market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "ottumwa-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "paradise-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "parks-neighborhood-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "paullina-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "pearl-city-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "pella-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 14 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "perry-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "pleasant-hill-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 1 to Aug 31, 2026, Berean Church parking lot",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "pleasantville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jul 8 to Oct 14, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "pocahontas-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 24 to Sep 23, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "quimby-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "red-oak-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "riceville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Jun 6 to Sep 12, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "richland-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "river-city-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "riverfront-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "riverside-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "rock-valley-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "rolfe-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "shelby-county-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Sat Jun 20 to Oct 31, Wed Jul 15 to Sep 30, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "sheldon-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 1 to Sep 7, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "shellsburg-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "shenandoah-garden-city-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "14:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 17, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "sibley-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "silver-creek-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "sioux-center-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 6 to Oct 28, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "sioux-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "southridge-mall-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026",
+    "notes": "The directory lists this address as the Southside Sunday Market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "spencer-riverfront-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "springville-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "st-ansgar-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "state-center-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "storm-lake-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 10, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "stuart-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May 20 to Oct 14, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "sycamore-mall-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "the-market-place",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "the-mason-city-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "toledo-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Oct 2, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "trinity-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "union-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "university-avenue-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "uptown-ankeny-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Sep 26, 2026",
+    "notes": "Duplicate USDA listing of ankeny-uptown-farmers-market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "urbana-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 23 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "wapello-county-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "14:30",
+        "closes": "17:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "14:30",
+        "closes": "17:30"
+      }
+    ],
+    "season": "Jun 1 to Sep 28, 2026, Central Addition Park",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "waterloo-urban-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "waterloo-urban-farmers-market-waterloo",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "notes": "Duplicate USDA listing of waterloo-urban-farmers-market.",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "waukee-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "waukon-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "waverly-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 10, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "west-branch-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 12 to Oct 13, 2026",
+    "hoursSourceNote": "Iowa Department of Agriculture and Land Stewardship 2026 farmers market directory",
+    "hoursSourceUrl": "https://data.iowaagriculture.gov/fmnp/?markets="
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "west-liberty-downtown-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "williamsburg-farmers-market",
+    "notes": "Not in the Iowa Department of Agriculture's 2026 directory, KCRR's 2026 eastern Iowa guide or the Des Moines Register's 2026 metro list; no current schedule found."
+  },
+  {
+    "state": "IA",
+    "checked": "2026-09-15",
+    "slug": "winneshiek-farmers-market",
+    "notes": "Its website now serves a gambling site, and the market is not in the state's 2026 directory."
+  }
+]

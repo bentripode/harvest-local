@@ -1,0 +1,286 @@
+[
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "anaconda-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "annual-farmers-market",
+    "notes": "Its USDA link goes to a venue's events page, which carries no current market day or hours."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "bigfork-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "bogert-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Jun 16 to Sep 8, 2026, Lindley Park, 900 E Main St",
+    "website": "https://bozemanfarmersmarket.org/",
+    "notes": "The Bozeman Farmers' Market now runs at Lindley Park, not Bogert Park.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://bozemanfarmersmarket.org/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "boulder-farmers-and-artisan-s-market",
+    "notes": "Its USDA link goes to a chamber of commerce page, which carries no market schedule."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "bozeman-winter-farmers-market",
+    "notes": "The domain in the USDA listing belongs to an unrelated dental practice."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "butte-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "circle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "clark-fork-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to September in Missoula; 9-1 October to April",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.clarkforkmarket.com/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "columbia-falls-community-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 14 to Sep 24, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.cfcommunitymarket.com/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "deer-lodge-community-garden-pick-your-own-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "dillon-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "downtown-whitefish-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "17:00",
+        "closes": "19:30"
+      }
+    ],
+    "season": "Jun 2 to Sep 29, 2026, the north end of Central Avenue",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://whitefishfarmersmarket.org/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-libby",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "glasgow-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "glendive-farmers-and-flea-market",
+    "notes": "The domain in the USDA listing now serves unrelated content, not the market."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "glendive-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "great-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From the first Saturday in June to the last in September, downtown Great Falls",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersmarketgf.com/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "hardin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "harvest-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "havre-hi-line-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "helena-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "kalispell-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 2 to Jul 18, 2026 at Flathead Valley Community College; the fall season (Jul 25 to Oct 17) runs 9-3 at the Flathead County Fairgrounds",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://kalispellfarmersmarket.org/"
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "laurel-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "livingston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "miles-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "missoula-valley-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "missoula-winter-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "missouri-river-landing-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "orchard-homes-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "polson-bay-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "polson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "richland-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "stevensville-harvest-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "target-range-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "troy-farmers-market",
+    "notes": "The domain in the USDA listing is now a HugeDomains for-sale page."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "twin-bridges-all-year-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MT",
+    "checked": "2026-09-15",
+    "slug": "yellowstone-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

@@ -1,0 +1,89 @@
+[
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "adaptations-fresh-feast",
+    "notes": "Its USDA link goes to a farm delivery business's site, not a farmers market."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "forage-hawaii",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "grove-farm-market",
+    "notes": "Its USDA link goes to a land company's site, which carries no market day or hours."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "hana-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "hanalei-farmers-market-at-hale-halawai-ohana-o-hanalei",
+    "notes": "The community centre's site links to a market page but publishes no readable day or hours."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "kaiser-permanente-s-fresh-day-farmers-market",
+    "notes": "Its USDA link goes to a health plan shopping page, which carries no market schedule."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "kamuela-farmers-market",
+    "notes": "The market's own site could not be read (the host refuses automated requests)."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "keauhou-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Keauhou Shopping Center, Kailua-Kona",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://keauhoufarmersmarket.com/"
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "lipoa-street-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "makawao-marketplace",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "waianae-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "waimea-town-market-at-parker-school",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "HI",
+    "checked": "2026-09-15",
+    "slug": "windward-mall-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

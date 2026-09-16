@@ -1,0 +1,826 @@
+[
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "2600-bull-street-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "abbeville-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round (weather permitting), 112 N Main St",
+    "website": "https://agriculture.sc.gov/farmers-market/abbeville-farmers-market/",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/abbeville-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "adam-s-mobile-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "aiken-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:30",
+        "closes": "11:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:30",
+        "closes": "11:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Year-round, 115 Williamsburg St NE, Aiken",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/aiken-county-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "all-local-farmers-market-1",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "anderson-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to November, 402 N Murray Ave (craft and holiday markets on single Saturdays in May and December)",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/anderson-county-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "ashland-united-methodist-church-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "bamberg-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "barnwell-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to October, 9987 Dunbarton Blvd (a fourth-Saturday market also runs 9-1, so no Saturday hours are recorded)",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/barnwell-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "barnwell-farmers-market-barnwell",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "bluffton-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round at Martin Family Park; 10-2 in June, July and August",
+    "website": "https://www.farmersmarketbluffton.org/",
+    "notes": "Same market as farmers-market-of-bluffton.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersmarketbluffton.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "blythewood-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Apr 22 to Nov 11, 2026, 171 Langford Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://blythewoodfarmersmarket.com/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "blythewood-farmers-market-blythewood",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "charleston-farmers-market-marion-square",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "cheraw-farmers-market",
+    "notes": "Its USDA link goes to a town agriculture page that carries no market schedule."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "chester-farmers-and-artisan-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "city-center-farmers-market",
+    "notes": "The City of Florence's page describes the year-round market but publishes no day or hours."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "clemson-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to September, 578 Issaqueena Trail",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/clemson-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "clover-farmer-s-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "colleton-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "columbia-state-farmers-market",
+    "notes": "The state's page for this market gives \"Monday - Sunday, vendor hours may vary\", so no hours are recorded."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "community-artisan-and-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "conway-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Dec 5, 2026, under the Main Street bridge",
+    "hoursSourceNote": "Waccamaw Market Cooperative's 2026 market schedule",
+    "hoursSourceUrl": "https://waccamawmarkets.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "cypress-center-farmers-market-at-clarendon",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "easley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to September, 205 N 1st St, rain or shine",
+    "website": "https://agriculture.sc.gov/farmers-market/easley-farmers-market/",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/easley-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "ebenezer-lutheran-church-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "fairfield-farmers-and-artisans-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-bluffton",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round at Martin Family Park, 68 Boundary St; 10-2 in June, July and August",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersmarketbluffton.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "foothills-heritage-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to November 1, 2063 Sandifer Blvd, Westminster",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/foothills-heritage-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "fountain-inn-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Aug 8, 110 Depot St",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/fountain-inn-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "frosty-farmer-winter-market-llc",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "georgetown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, 122 Screven St",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/georgetown-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "ghs-fountain-inn-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Aug 8, 110 Depot St",
+    "website": "https://agriculture.sc.gov/farmers-market/fountain-inn-farmers-market/",
+    "notes": "Same market as fountain-inn-farmers-market.",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/fountain-inn-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "good-to-go-mobile-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "grace-united-methodist-church-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June to September, 410 Harbison Blvd, Columbia",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/grace-united-methodist-church-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "greenville-state-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 1354 Rutherford Rd (closed Thanksgiving, Christmas and New Year's Day)",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/greenville-state-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "hilton-head-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "irmo-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "james-island-presbyterian-church-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "jasper-county-farmers-market",
+    "notes": "Its USDA link goes to a county page that carries no current market day or hours."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "kershaw-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "First Saturday in April to the third Saturday in November, 906 Broad St, Camden",
+    "hoursSourceNote": "the South Carolina Department of Agriculture's farmers market directory",
+    "hoursSourceUrl": "https://agriculture.sc.gov/farmers-market/kershaw-county-farmers-market/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "kingstree-eat-smart-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "lake-city-farmers-market",
+    "notes": "Its USDA link goes to a venue's site that carries no current market day or hours."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "landrum-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "little-river-farmers-market",
+    "notes": "Waccamaw Market Cooperative lists a last-Sunday-of-the-month market from April 26, so no weekly hours are recorded."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "lowcountry-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "manning-farmers-market",
+    "notes": "The state's page for this market lists no hours of its own."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "market-common-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Apr 4 to Dec 19, 2026, Myrtle Beach",
+    "hoursSourceNote": "Waccamaw Market Cooperative's 2026 market schedule",
+    "hoursSourceUrl": "https://waccamawmarkets.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "mauldin-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "mccormick-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "moncks-corner-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "mount-pleasant-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "musc-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "north-myrtle-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Apr 3 to Dec 18, 2026",
+    "hoursSourceNote": "Waccamaw Market Cooperative's 2026 market schedule",
+    "hoursSourceUrl": "https://waccamawmarkets.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "old-town-farmers-market",
+    "notes": "Visit Rock Hill's Old Town Market page carries no published weekly day or hours."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "old-town-market",
+    "notes": "Visit Rock Hill's Old Town Market page carries no published weekly day or hours."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "orangeburg-county-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "palmetto-farmers-market",
+    "notes": "Its domain now redirects to an advertising parking page."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "pee-dee-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "pee-dee-state-farmers-market",
+    "notes": "The state's page gives office hours rather than a single market schedule, so no hours are recorded."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "pendleton-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "pick-pocket-plantation-farrmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "port-royal-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "ralph-h-johnson-medical-center-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "right-choice-fresh-start-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "rosewood-market-and-deli-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "saint-stephens-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "sandhill-farmers-market",
+    "notes": "Its USDA link returns a 404 from Clemson University."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "sc-state-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "shandon-united-methodist-church-farmers-market",
+    "notes": "The state's Seeds of Hope page for this market lists no hours of its own."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "six-mile-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "soda-city-market",
+    "notes": "The market's own site could not be read (the host refuses automated requests)."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "south-sumter-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "springs-farm-farmers-market",
+    "notes": "Its USDA link goes to a farm's own site, which carries no farmers market schedule."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "sumter-county-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "sumter-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Mar 20 to Nov 20, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sumterfarmersmarket.com/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "sunday-brunch-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "surfside-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Apr 7 to Dec 15, 2026, corner of Surfside Drive",
+    "hoursSourceNote": "Waccamaw Market Cooperative's 2026 market schedule",
+    "hoursSourceUrl": "https://waccamawmarkets.org/"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "the-american-legion-farmers-market",
+    "notes": "The domain in the USDA listing now serves gambling spam, not the market."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-inman-farms",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "the-open-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "travelers-rest-community-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "travelers-rest-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 25 to Sep 19, 2026, Trailblazer Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.travelersrestfarmersmarket.com/events"
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "tree-of-life-congregation-farmers-market",
+    "notes": "The state's Seeds of Hope page for this market lists no hours of its own."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "trinity-episcopal-church-farmers-market",
+    "notes": "The state's Seeds of Hope page for this market lists no hours of its own."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "tuesday-local-farmers-market",
+    "notes": "Its USDA link goes to a Whole Foods store page, not a farmers market."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "union-county-farm-and-craft-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "unitarian-universal-fellowship-farmers-market",
+    "notes": "The state's Seeds of Hope page for this market lists no hours of its own."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "upstate-locally-grown-online-farmer-s-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "virginia-wingard-united-methodist-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "washington-street-united-church-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "west-ashley-farmers-market-charleston-sc",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "SC",
+    "checked": "2026-09-15",
+    "slug": "whaley-street-united-methodist-church-farmers-market",
+    "notes": "Not listed with hours in the South Carolina Department of Agriculture's market directory, and no dated 2026 schedule found on the market's own site."
+  }
+]

@@ -1,0 +1,382 @@
+[
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "basin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "big-horn-basin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "buffalo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "buffalo-mainstreet-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "casper-downtown-farmers-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "casper-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "casper-summer-farmers-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "centennial-arts-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "cheyenne-farmers-market",
+    "notes": "Its USDA link goes to a community organisation's site, which carries no market schedule."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "cheyenne-winter-farmers-market",
+    "notes": "The winter market runs on the first and third Saturdays, so no weekly hours are recorded."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "cody-big-horn-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "cody-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "downtown-gillette-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "dubois-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-the-town-square",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Sep 26, 2026 on the Town Square (a Thursday market runs 4-7 at Teton Village Commons, Jul 2 to Aug 20)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.jacksonholefarmersmarket.org/"
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "food-for-thought-markets",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "gillette-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "gillette-tuesday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "goshen-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "gps-year-round-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "green-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "greybull-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "harvest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "jackalope-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "jackson-hole-farmers-market-on-the-town-square",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Sep 26, 2026 on the Town Square",
+    "website": "https://www.jacksonholefarmersmarket.org/",
+    "notes": "Same market as farmers-market-on-the-town-square.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.jacksonholefarmersmarket.org/"
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "jackson-hole-people-s-market",
+    "notes": "The market's own site announces individual market dates but publishes no weekly day and hours."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "kemmerer-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "lander-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "lander-valley-farmers-market-tuesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "landon-s-greenhouse-farmers-market",
+    "notes": "Its USDA link goes to a greenhouse's site, which carries no farmers market schedule."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "laramie-farmers-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "laramie-local-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "laramie-thursday-local-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "laramie-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "lovell-farmers-market",
+    "notes": "Its USDA link carries no readable market day or hours."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "main-street-market",
+    "notes": "Its USDA link goes to a downtown association's site, which carries no market schedule."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "natrona-county-master-gardeners-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "newcastle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "old-town-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "pine-bluffs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "pinedale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "pinedale-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "platte-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "riverton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "riverton-lander-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "riverton-wednesday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "rock-springs-farmers-market",
+    "notes": "Its USDA link goes to a downtown association's site, which carries no market schedule."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "sheridan-farmers-market",
+    "notes": "Its USDA link is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "star-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "state-fair-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "thermopolis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "thursday-afternoon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "torrington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "torrington-wy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "tuesday-farmers-market",
+    "notes": "Its USDA link is unreachable; no current schedule found."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "washakie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "wheatland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "white-mountain-mall-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WY",
+    "checked": "2026-09-15",
+    "slug": "wyoming-women-s-expo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

@@ -1,0 +1,1632 @@
+[
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "285-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "acworth-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "albany-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "albany-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "alpharetta-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "alpharetta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "amicalola-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "artistlane-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market-l-l-c",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays at Bishop Park (9-1 in January and February)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://athensfarmersmarket.net/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market-llc",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "17:00",
+        "closes": "20:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays at Bishop Park",
+    "notes": "Same market as athens-farmers-market-l-l-c.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://athensfarmersmarket.net/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "athens-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "atlanta-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "augusta-market-at-the-river",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Mar 21 to Nov 21, 2026, 8th and Reynolds St",
+    "hoursSourceNote": "Visit Augusta (2026 season)",
+    "hoursSourceUrl": "https://www.visitaugusta.com/things-to-do/shopping/augusta-market-at-the-river/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "bainbridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "barnesville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "barnesville-lamar-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "barrow-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "battlefield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "berkeley-lakeside-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "blue-ridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "bluebird-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "braselton-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Every Friday May to September 2026 (no market July 3), Town Green",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.explorebraselton.com/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "brookhaven-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "brooklet-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "byron-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cabbagetown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cairo-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "canton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cartersville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "castleberry-farmers-market-dba-castleberry-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cave-spring-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cherokee-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cherokee-market-farm-fresh-produce-and-antiques",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "christ-united-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "church-st-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "church-st-farmers-market-douglasville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "city-market-on-the-green",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "city-of-dahlonega-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "city-of-duluth-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "city-of-emerson-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "city-of-forsyth-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "clarkesville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cochran-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "columbus-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "commerce-crossing-country-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "common-ground-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "community-market-of-rabun-county",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cotton-mill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "coweta-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "coweta-county-surplus-vegetable-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "creation-health-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "cumming-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dallas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dalton-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "darien-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dawson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "decatur-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Mar 25 to Nov 18, 2026, First Baptist Church Decatur",
+    "hoursSourceNote": "Community Farmers Markets (Atlanta), 2026 season",
+    "hoursSourceUrl": "https://cfmatl.org/markets/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "decatur-saturday-farmers-market",
+    "notes": "Community Farmers Markets' Decatur market runs Wednesdays; its Saturday market is at Oakhurst (see oakhurst-farmers-market)."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dekalb-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dodge-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dodge-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dogwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "donalsonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "douglas-coffee-county-farmers-curb-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "douglasville-wic-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-alpharetta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-blakely-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-byron-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-canton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-commerce-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-dalton-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-decatur-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "downtown-sandersville-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dunwoody-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dunwoody-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "dunwoody-spruill-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "east-atlanta-village-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Mar 26 to Nov 19, 2026, East Atlanta Community Park",
+    "hoursSourceNote": "Community Farmers Markets (Atlanta), 2026 season",
+    "hoursSourceUrl": "https://cfmatl.org/markets/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "east-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "east-metro-farmers-market-at-stonecrest",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "east-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "ellijay-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "emory-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "fall-line-farmers-market-on-first-fridays",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "farm-atlanta-road-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-spruill-gallery",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-days",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-in-downtown-thomasville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "farmview-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "flowery-branch-farmers-market",
+    "notes": "Its published Thursday market details are from 2023; not confirmed for 2026."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "forsyth-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "forsyth-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, south end of Forsyth Park",
+    "notes": "Same market as forsyth-park-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.forsythfarmersmarket.com/farmers-market"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "forsyth-farmers-market-2",
+    "notes": "This listing is in Forsyth, GA (N Jackson St), not the Savannah market; no 2026 schedule found."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "forsyth-farmers-market-inc-ffm",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, south end of Forsyth Park",
+    "notes": "Same market as forsyth-park-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.forsythfarmersmarket.com/farmers-market"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "forsyth-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, south end of Forsyth Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.forsythfarmersmarket.com/farmers-market"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "freedom-farmers-market-at-the-carter",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season, the Carter Center",
+    "hoursSourceNote": "Rough Draft Atlanta's 2026 metro Atlanta farmers market guide",
+    "hoursSourceUrl": "https://roughdraftatlanta.com/2026/03/27/farmers-markets-atlanta-guide/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "fresh-off-the-farm-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "fresh-south-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gainesville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gainesville-friday-market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gertie-mae-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gha-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "13:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "At Gilliland's Heritage Alpaca Farm",
+    "notes": "Same market as gilliand-s-heritage-alpacas-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://ghafarmersmarket.weebly.com/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gilliand-s-heritage-alpacas-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "13:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "At Gilliland's Heritage Alpaca Farm",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://ghafarmersmarket.weebly.com/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "gilmer-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "grant-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; main season Mar 29 to Dec 20, 2026, The Beacon",
+    "hoursSourceNote": "Community Farmers Markets (Atlanta), 2026 season",
+    "hoursSourceUrl": "https://cfmatl.org/markets/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "green-market-at-piedmont-park",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Through Dec 12, 2026",
+    "hoursSourceNote": "Piedmont Park Conservancy, who run it (2026 season)",
+    "hoursSourceUrl": "https://piedmontpark.org/green-market/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "growers-market-at-the-curb",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "growing-augusta-pop-up-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "hall-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "13:00",
+        "closes": "15:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.hallcountyfarmersmarket.org/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "harmony-crossing-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "harmony-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "harris-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "hartwell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "harvest-moon-market-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "hawkinsville-downtown-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "hinesville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "historic-downtown-gainesville-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "hunker-downs-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "i-c-farmers-market-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "jefferson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "jersey-jodi-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "jesup-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "jonesboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "kennesaw-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "lavonia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "lawrenceville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "lenny-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "lenny-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "lilburn-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to August, 1400 Killian Hill Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lilburnfarmersmarket.org/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "little-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "locust-grove-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "mableton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "macon-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "main-street-newnan-s-market-day",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "marietta-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (closed the Saturday after Christmas), Mill Street lot",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.mariettasquarefarmersmarket.com/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "marigold-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "market-on-madison",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "market-on-main",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-green",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "metro-market-atlanta",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "midland-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "milledgeville-marketplace-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "millen-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "millen-produce-market-millen",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "milton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "milton-ga-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "monroe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "monticello-market-festival-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "monticello-market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "morningside-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "2026 season, Morningside Presbyterian Church",
+    "hoursSourceNote": "Rough Draft Atlanta's 2026 metro Atlanta farmers market guide",
+    "hoursSourceUrl": "https://roughdraftatlanta.com/2026/03/27/farmers-markets-atlanta-guide/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "mountain-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "mulberry-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 1155 College St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://mulberrymarket.org/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "municipal-market-in-sweet-auburn",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "nam-dae-mun-farmers-market-at-cobb-international",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "norcross-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "north-georgia-farmers-and-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "north-rome-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "northside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "oakhurst-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; main season Mar 28 to Dec 19, 2026, Sceptre Brewing Arts",
+    "hoursSourceNote": "Community Farmers Markets (Atlanta), 2026 season",
+    "hoursSourceUrl": "https://cfmatl.org/markets/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "oconee-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "oconee-farmers-market-watkinsville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "old-fourth-ward-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "oxford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "paper-mill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "paulding-county-farm-bureau-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "peachtree-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "peachtree-road-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season, the Cathedral of St. Philip",
+    "hoursSourceNote": "Rough Draft Atlanta's 2026 metro Atlanta farmers market guide",
+    "hoursSourceUrl": "https://roughdraftatlanta.com/2026/03/27/farmers-markets-atlanta-guide/"
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "pelham-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "perry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "ponce-city-farmers-market-on-the-beltline",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "powder-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "ptc-farmers-market-csa",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "richmond-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "ridge-ferry-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "ripe-thing-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "river-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "rockdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "rockmart-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "rome-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "sandersville-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "sandy-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "sandy-springs-farmers-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "saturday-farmers-market-on-broad",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "sewell-mill-community-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "smyrna-fresh-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "smyrna-outdoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "snellville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "snellville-farmers-market-snellville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "south-atlanta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "south-augusta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "south-augusta-market-journey-sherwood",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "southern-girls-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "sparta-hancock-cooperative-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "square-market-of-covington",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "st-marys-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "stephens-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "stewards-of-the-earth-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "stone-mountain-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "suwanee-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "swainsboro-emanuel-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "telfair-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-dallas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-green-door-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-trustees-garden",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-night-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-north-georgia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "the-savannah-starland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "thomasville-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "tifton-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "tifton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "trenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "tucker-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "umoja-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "underground-atlanta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "union-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "valdosta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "valdosta-state-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "vickery-village-thursday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "villa-rica-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "village-farmers-market-at-life-university",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "virginia-highland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "washington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "way-green-local-fare-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "wayne-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "wesleyan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "whistle-stop-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "wiregrass-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "woodbury-farmers-market",
+    "notes": "Its blog stopped in 2011; no current schedule found."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farm-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "woodville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "GA",
+    "checked": "2026-09-15",
+    "slug": "young-female-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

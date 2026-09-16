@@ -1,0 +1,223 @@
+[
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "daybreak-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market-at-ancestor-square",
+    "notes": "The domain in the USDA listing now serves an unrelated hotel booking site."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "escalante-farmers-market",
+    "notes": "Its USDA link goes to the city's site, which carries no market schedule."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-ogden",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Sep 12, 2026 on Historic 25th Street; a fall market runs 9-2 (Sep 26 to Oct 17) and a winter market 10-2 (Jan 24 to Feb 28)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://farmersmarketogden.com/"
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "garden-city-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "happy-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "happy-valley-farmers-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "herriman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "high-desert-growers-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "holladay-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "kanab-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "long-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "mapleton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "moab-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "murray-farmers-market",
+    "notes": "Its USDA link goes to a farm bureau markets index, not this market's own listing."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "murray-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "murray-park-farmers-market-murray",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "ogden-valley-open-market",
+    "notes": "The market's own site says Thursdays from 5:30 pm \"to dusk\", so no closing time is recorded."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "park-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "From May 27, 2026, Park City Mountain Resort",
+    "website": "https://parkcityfarmersmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://parkcityfarmersmarket.com/"
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "provo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "richmond-harvest-market",
+    "notes": "Its USDA link goes to a city site, which carries no current market day or hours."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "sandy-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "south-jordan-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Aug 8 to Oct 10, 2026, 1600 W Towne Center Dr",
+    "website": "https://www.sjc.utah.gov/557/South-Jordan-Farmers-Market",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sjc.utah.gov/557/South-Jordan-Farmers-Market"
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "south-towne-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "sunnyvale-farmers-market",
+    "notes": "Its USDA link goes to an organisation's FAQ page, which carries no market schedule."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "syracuse-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "thanksgiving-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "wasatch-front-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "west-jordan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "wheeler-farm-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "year-round-cedar-city-farmers-market",
+    "notes": "The domain in the USDA listing now serves unrelated content, not the market."
+  },
+  {
+    "state": "UT",
+    "checked": "2026-09-15",
+    "slug": "zion-canyon-farmers-market",
+    "notes": "Its domain now redirects to an advertising parking page."
+  }
+]
