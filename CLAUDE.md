@@ -1398,25 +1398,36 @@ found by reviewing a contact sheet of the thumbnails, not by a test, so a new st
 looked at before they ship. A picture a person removes goes in `image_rejected_source_url` and the
 scan will not copy that exact image back.
 
-**Research fills what neither source has, and the file is the record.** `data/markets/research-<state>.json`
-(one entry per market: website, Facebook link, weekly hours, season, `hoursSourceNote` +
-`hoursSourceUrl`, `checked`, and `notes` for everything *not* recorded and why) is validated by
-`scripts/lib/market-research.mjs` and published by `scripts/apply-market-research.mjs`
-(`20260914130000`: `markets.facebook_url`, `website_source`, `market_hours.source = 'research'` +
-`source_note`/`source_url`). It never replaces a working USDA website, a person's hours or a site's
-own schema.org hours, and the page prints "From other listings (…; checked Sep 2026)" with the
-source linked. **Texas was researched in full on 2026-09-14** — 234 markets, 89 weekly schedules.
-The rules that kept it honest, all learnt on Texas: **hours only from a source that names this
-market and is recent** (2025–26; undated directory sites like LocalHarvest, Foraged or CropCart
-don't count on their own); **conflicting sources = no hours**, with the conflict in `notes`
-(Troy's city page describes the *other* Troy market); **monthly or biweekly markets get no hours**
-— `market_hours` is weekly, and "Saturday 8–12" on a 2nd-and-4th-Saturday market is a false
-promise on two Saturdays a month; **check a summary's dates against the calendar** (Bay City's
-"Sep 4–Dec 18" fell on Thursdays in 2025, not 2026); and **search summaries copy templates** —
-three unrelated towns came back with the identical six "select Saturday" dates. Duplicate USDA
-listings of one market get the same entry, marked in `notes`. **Facebook is linked, never
-collected**: facebook.com/robots.txt forbids automated collection, so a market whose only logo is
-on Facebook keeps the icon until someone adds one by hand.
+**Research fills what neither source has, and the file is the record.**
+`data/markets/research-<state>.json` (one entry per market: website, Facebook link, weekly hours,
+season, `hoursSourceNote` + `hoursSourceUrl`, `checked`, and `notes` for everything *not* recorded
+and why) is validated by `scripts/lib/market-research.mjs` and published by
+`scripts/apply-market-research.mjs` (`20260914130000`: `markets.facebook_url`, `website_source`,
+`market_hours.source = 'research'` + `source_note`/`source_url`). It never replaces a working USDA
+website, a person's hours or a site's own schema.org hours, and the page prints "From other listings
+(…; checked Sep 2026)" with the source linked. **Every jurisdiction but North Dakota is now
+researched** — 7,005 listings, 2,179 with weekly hours across 2,619 day-slots, checked 2026-09-14
+(TX) and 2026-09-15 (the rest). **An official state registry is the first place to look, and how
+much a state yields turns almost entirely on whether it has one.** Iowa's agriculture department
+list, Connecticut's portal, NOFA-VT, Maryland's MDA, mass.gov, Ohio's DAM, the CDFA certified list
+and data.ny.gov each carry the bulk of their state's schedules, and those states head the table — VT
+74% of listings with hours, RI 70%, ME 63%, DC 59%, CT 57%, MD 51%, IA 50%. A state without one is
+done a city or organiser page at a time (761 distinct hosts across the fifty files) and hits a
+ceiling fast: MS 2%, WY 3%, NV 3%, NE 5%, WV 6%. **So 4,826 listings carry a note instead of hours —
+and every one of them does carry a note**: that is the field working rather than a shortfall in it,
+since a listing whose hours could not be established says so and says why. **North Dakota is a gap
+rather than a finding** — nobody has looked. The rules that kept it honest, all learnt on Texas and
+all still load-bearing: **hours only from a source that names this market and is recent** (2025–26;
+undated directory sites like LocalHarvest, Foraged or CropCart don't count on their own);
+**conflicting sources = no hours**, with the conflict in `notes` (Troy's city page describes the
+*other* Troy market); **monthly or biweekly markets get no hours** — `market_hours` is weekly, and
+"Saturday 8–12" on a 2nd-and-4th-Saturday market is a false promise on two Saturdays a month;
+**check a summary's dates against the calendar** (Bay City's "Sep 4–Dec 18" fell on Thursdays in
+2025, not 2026); and **search summaries copy templates** — three unrelated towns came back with the
+identical six "select Saturday" dates. Duplicate USDA listings of one market get the same entry,
+marked in `notes`. **Facebook is linked, never collected**: facebook.com/robots.txt forbids
+automated collection, so a market whose only logo is on Facebook keeps the icon until someone adds
+one by hand.
 
 The picture is **only** the one the site
 offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
