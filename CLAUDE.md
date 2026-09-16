@@ -352,6 +352,8 @@ src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narro
 src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
 src/lib/markets/{queries,schedule,directory}.ts   market reads (paged, with lng/lat) · hours arithmetic · search + safe website links (pure)
 src/lib/markets/card.ts                what a market card claims — season parsing, the open-today status, the monogram fallback (pure)
+src/lib/markets/places.ts             Google Places photos: fetched at render, credited, never stored
+scripts/{google-places.mjs,lib/places-match.mjs}   resolve a market's Place ID · verify a candidate really is it (pure)
 src/components/market-{directory,map,card}.tsx    /markets search + list/map toggle · clustered Mapbox map · the card
 scripts/lib/market-site.mjs            og:image / schema.org hours / robots.txt readers for the website scan (pure)
 src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
@@ -1461,6 +1463,46 @@ ended. `dayAfter` captures a day written straight after a month name, bounded to
 in "Sep 30, 2026" is not read as one; a missing day opens on the 1st and closes on the 31st, the
 generous reading at each end. It took Vermont's count from 6 markets on today to 5, and the one it
 removed was the one that was wrong.
+
+**Phase 6 — Google's photographs of a market, which we are not allowed to keep.** Only 12% of
+markets have a picture of their own and that route is exhausted — every market with a website has
+been visited, and 890 were unreachable, 618 offer no preview image, 547 are 404. So the market page
+shows Google's photograph instead, and the whole design is dictated by one sentence of Google's
+Places policy: "You must not pre-fetch, cache, or store Places API content beyond the allowed
+exceptions", where the single exception is "the place_id is exempt... You can therefore store place
+ID values indefinitely."
+
+**So `markets.google_place_id` is the only thing we hold**, and the photo, its size and the
+photographer's name are fetched on every render and thrown away. It is emphatically **not**
+`image_url`, which is our own copy of a picture a market's OWN site offered for link previews under
+that site's terms. `/api/market-photo` asks Google where the image lives (`skipHttpRedirect`) and
+307s the reader straight there, so the key never reaches the browser and the bytes never touch our
+server; it is a plain `<img>` rather than `next/image` because the optimiser would write a copy to
+disk, which is the storing we may not do.
+
+**The credit is load-bearing, not decoration.** Google requires that we "always credit the author"
+and that readers can "view the individual source photo... on Google Maps using the provided
+googleMapsUri". `MarketPhoto` has no shape in which the credit is absent and `getMarketPhoto`
+returns **null** rather than an uncredited picture, so a photo with no author cannot reach the
+component. No market picture is a fine page; an unattributed one is a licence breach.
+
+**Matching is verified, and the naive version was badly wrong.** Text Search fuzzy-matches: asking
+for "Salisbury Rowan Farmers Market, 115 S Jackson St" answers with a market at a different street.
+A candidate must clear three tests. **Google must call it a market** (`farmers_market` or `market`)
+— without this the name test alone scored a perfect 1.00 for "Peacham Farmers Market" against
+**Peacham Café**, "Brandon" against the **Town Recreation Department** and "Killington" against a
+**deli**, because the one word a market and its neighbour share is the TOWN. It must stand **within
+800m** of coordinates we already hold — a "Brandon Farmers Market" scoring 1.00 turned out to be
+1,881km away in another state. And a **qualifier only one side carries** scores 0: "North Salem" is
+the next town, not a short form of "Salem".
+
+**Two counter-intuitive findings are worth keeping.** `locationBias` made recall WORSE — biasing to
+Brandon returned a park, a town clerk and a brewery while the plain query returned the market — so
+the search is unbiased and `judgeCandidate` measures the distance itself. And **the photo cannot
+drive the card grid**: photos are the Enterprise-tier "Place Details Photos" SKU billed per
+request, caching is forbidden, and a 236-market Texas page would be ~470 billed calls per view. The
+grid keeps its monogram tiles; the photograph is a detail-page thing. **Vermont matched 31 of 78** —
+a market with no verified place keeps its tile, which is the right way to fail.
 
 **Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
 (`20260908230000`) declared `address_id ... on delete set null` alongside

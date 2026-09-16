@@ -13,7 +13,7 @@ import type { MarketHour } from "@/lib/markets/schedule";
  */
 
 const MARKET_COLUMNS =
-  "id, slug, name, state, city, address_text, postal_code, season_text, hours_text, website_url, website_status, facebook_url, phone, image_url, lng, lat";
+  "id, slug, name, state, city, address_text, postal_code, season_text, hours_text, website_url, website_status, facebook_url, phone, image_url, google_place_id, lng, lat";
 const HOURS_EMBED =
   "hours:market_hours(day_of_week, opens, closes, note, source, source_note, source_url)";
 
@@ -43,6 +43,11 @@ export interface MarketSummary {
   phone: string | null;
   /** Our thumbnail copy of the market's own link-preview image, or null. */
   imageUrl: string | null;
+  /**
+   * Google's id for this place, when we could verify one. The ONLY Places value we store — the
+   * photograph itself is fetched at render time and credited there (see `markets/places.ts`).
+   */
+  googlePlaceId: string | null;
   lng: number | null;
   lat: number | null;
   hours: MarketHour[];
@@ -63,6 +68,7 @@ type MarketRow = {
   facebook_url: string | null;
   phone: string | null;
   image_url: string | null;
+  google_place_id: string | null;
   lng: number | null;
   lat: number | null;
   hours?:
@@ -94,6 +100,7 @@ function toSummary(row: MarketRow): MarketSummary {
     facebookUrl: row.facebook_url,
     phone: row.phone,
     imageUrl: row.image_url,
+    googlePlaceId: row.google_place_id,
     lng: row.lng,
     lat: row.lat,
     hours: (row.hours ?? []).map((h) => ({

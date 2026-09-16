@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
+import { MarketGooglePhoto } from "@/components/market-google-photo";
 import { MarketNextOpen } from "@/components/market-next-open";
 import { WatchMarketForm } from "@/components/watch-market-form";
 import { getMarket } from "@/lib/markets/queries";
+import { getMarketPhoto } from "@/lib/markets/places";
 import { getMarketSellers } from "@/lib/orders/pickup";
 import { getMarketEvents } from "@/lib/events/queries";
 import { EventList, type ListedEvent } from "@/components/event-list";
@@ -42,6 +44,8 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
 
   const market = await getMarket(code, slug);
   if (!market) notFound();
+
+  const photo = await getMarketPhoto(market.googlePlaceId);
 
   const [sellers, events, followerCount, viewerFollows] = await Promise.all([
     getMarketSellers(market.id),
@@ -88,6 +92,11 @@ export default async function MarketPage({ params }: PageProps<"/markets/[state]
         </Link>{" "}
         / <span className="text-foreground">{market.name}</span>
       </nav>
+
+      {/* Google's own photograph of this market, fetched now and credited beside it. Null without
+          a key, without a verified place, or if Google gives one with no author — in which case
+          the page simply has no picture, which is better than an uncredited one. */}
+      {photo ? <MarketGooglePhoto photo={photo} alt={`${market.name}`} /> : null}
 
       <header className="space-y-2">
         {market.imageUrl ? (

@@ -29,7 +29,11 @@ const serverSchema = z.object({
   STRIPE_SELLER_TRIAL_DAYS: z.coerce.number().int().positive().default(90),
 
   // Inngest (background jobs). Neither is needed for local dev with `npm run inngest:dev`.
-  INNGEST_EVENT_KEY: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  INNGEST_EVENT_KEY: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => v || undefined),
   INNGEST_SIGNING_KEY: z
     .string()
     .startsWith("signkey-")
@@ -63,7 +67,11 @@ const serverSchema = z.object({
     .optional()
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
-  EMAIL_FROM: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  EMAIL_FROM: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => v || undefined),
 
   // SMS (Twilio). Optional — with any of these unset, notification-dispatch logs instead of texting.
   // TWILIO_FROM_NUMBER is E.164 (e.g. +15125550123).
@@ -73,10 +81,27 @@ const serverSchema = z.object({
     .optional()
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
-  TWILIO_AUTH_TOKEN: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  TWILIO_AUTH_TOKEN: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => v || undefined),
   TWILIO_FROM_NUMBER: z
     .string()
     .regex(/^\+[1-9]\d{6,14}$/)
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => (v ? v : undefined)),
+
+  // Google Places, for the photographs on a market page. Optional — with no key the market page
+  // shows its monogram tile exactly as before.
+  //
+  // Server-only, and it must stay that way: NEXT_PUBLIC_ would ship the key to every browser, and
+  // Places photos are billed per request. Nothing fetched with it is stored — Google's policy
+  // exempts only the place id from its caching ban — so the photo is fetched when a page renders
+  // and credited to the photographer there.
+  GOOGLE_MAPS_API_KEY: z
+    .string()
     .optional()
     .or(z.literal(""))
     .transform((v) => (v ? v : undefined)),
@@ -104,7 +129,11 @@ const serverSchema = z.object({
   // server-side token (Geocoding + Directions, for delivery quoting) — falls back to the public
   // one. With neither set, delivery is unavailable and pickup is unaffected.
   NEXT_PUBLIC_MAPBOX_TOKEN: z.string().optional(),
-  MAPBOX_TOKEN: z.string().optional().or(z.literal("")).transform((v) => v || undefined),
+  MAPBOX_TOKEN: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .transform((v) => v || undefined),
 
   // Anthropic, for the listing-copy assistant. Optional — with no key the assistant says so and
   // offers nothing, rather than degrading to something invented. It never writes to a product:
