@@ -1,0 +1,1203 @@
+[
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "alameda-mile-high-farmer-s-market",
+    "notes": "Its USDA link is a 2014 vendor registration page; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "alamosa-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Jul 11 to Oct 10, 2026, corner of Ross and 6th St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.alamosafarmersmarket.org/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "arvada-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, 5702 Olde Wadsworth Blvd (a holiday market runs Saturdays 11-3 in December)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.arvadafarmersmarket.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "arvada-five-parks-farmers-market",
+    "notes": "Its blog's latest season is 2014; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "aspen-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "aspen-grove-lifestyle-center-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Aspen Grove",
+    "notes": "Same market as littleton-farmers-market.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "aspen-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "aurora-south-farmers-market-ii",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "backyard-market-in-black-forest",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "backyard-market-in-black-forest-colorado-springs",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "backyard-market-in-black-forest-holiday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "backyard-market-in-black-forest-winter",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "basalt-sunday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "bennett-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "berthoud-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Sep 26, 2026",
+    "notes": "The 2026 market is at Fickel Park, 620 Mountain Ave, not the Lake Ave address in the USDA listing.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "black-forest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "boulder-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "Saturdays Apr 4 to Nov 21, 2026 at Central Park; Wednesdays May 6 to Oct 7",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "boulter-s-5280-urban-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "briargate-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "broadway-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "broomfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "buena-vista-farmers-market",
+    "notes": "The Foodshed Alliance site linked for this market publishes schedules for its Salida and Chaffee County winter markets only."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "carbondale-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, 4th and Main St",
+    "website": "https://www.carbondalefarmersmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.carbondalefarmersmarket.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "castle-rock-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 24 to Oct 11, 2026, Festival Park",
+    "notes": "Its USDA website is an unbuilt placeholder page.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "cedaredge-main-street-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "cherry-creek-fresh-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 10, 2026, Cherry Creek Shopping Center",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "cherry-creek-valley-international-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "city-of-edgewater-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "city-of-loveland-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, Fairgrounds Park",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "city-of-rifle-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "city-park-esplanade-fresh-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, 2551 E Colfax Ave",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "colorado-farm-and-art-market",
+    "notes": "Only the spring market's schedule (Sundays 11-3, Mar 22 to Apr 26, 2026) is published on the market's site; its summer markets are not dated there."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "colorado-farm-and-art-market-colorado-springs",
+    "notes": "Only the spring market's schedule is published on the market's site; its summer markets are not dated there."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "conejos-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "cortez-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "cotopaxi-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "creede-farmers-local-artisan-and-antique-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "crestone-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "delta-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market-festival",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "downtown-grand-junction-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "downtown-littleton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "downtown-mead-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "downtown-sunday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "drake-road-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "durango-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "eagle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "edwards-corner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "erie-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 7 to Sep 17, 2026, Briggs St between Wells and Moffat",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://realfarmersmarketco.com/erie-farmers-market/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "estes-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "estes-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "evergreen-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 26 to Sep 22, 2026",
+    "notes": "The 2026 market is at the Center for the Arts, not the Bergen Pkwy address in the USDA listing.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "farm-and-ranch-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-highlands-square",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 10 to Oct 25, 2026, 32nd Ave and Lowell Blvd",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "feed-denver-urban-farms-and-markets",
+    "notes": "Its site's latest posts are from 2015; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "florence-farmers-market",
+    "notes": "Its USDA link returns a 404 from the Florence chamber of commerce; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fort-collins-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fort-collins-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fort-morgan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fort-morgan-farmers-market-fort-morgan",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fountain-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "four-seasons-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "frederick-farmers-market",
+    "notes": "Frederick's market runs alongside town events on varying days and times, so no weekly hours are recorded."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "frederick-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "fruita-farmers-market",
+    "notes": "Its site's latest season is 2017; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "glenwood-downtown-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Jun 23 to Sep 8, 2026, 7th Street between Colorado and Cooper",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.glenwoodspringsdda.com/market-on-7th/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "glenwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "golden-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 30 to Oct 3, 2026, 10th and Illinois",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "golden-triangle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "granby-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "greeley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "greeley-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "highland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "highland-united-neighbors-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "highlands-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "highlands-ranch-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Nov 1, 2026",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "hoffmann-commercial-real-estate-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "idaho-springs-chamber-of-commerce-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "indian-hills-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "jax-farmer-s-market-in-lafayette",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "la-veta-local-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lafayette-farmers-market",
+    "notes": "Boulder County Farmers Markets' page for this market is titled \"Lafayette Thursday\" while Mile High on the Cheap's 2026 list gives a Sunday market, so no hours are recorded."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "landmark-greenwood-village-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "larimer-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "larimer-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "littleton-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Aspen Grove, 7301 S Santa Fe Dr",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "local-brands-farm-and-ranch-markets-cooperative",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lone-tree-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "louisville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Oct 10, 2026, Front Street in downtown Louisville",
+    "website": "https://realfarmersmarketco.com/louisville-farmers-market/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://realfarmersmarketco.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "loveland-east-farmers-market-at-jax",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "loveland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "loveland-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lowry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lulu-s-farm-roadside-market",
+    "notes": "Its site's latest season is 2020; no current schedule found."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lusk-farms-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "lyons-outdoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "memorial-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "metro-denver-farmers-market-at-littleton-s-aspen-grove",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Aspen Grove",
+    "notes": "Same market as littleton-farmers-market.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "metro-denver-farmers-market-at-wheat-ridge",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "metro-denver-farmers-market-lakewood",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 3, 2026, Mile Hi Church, 9077 W Alameda Ave",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "metro-denver-farmers-market-littleton",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Aspen Grove",
+    "notes": "Same market as littleton-farmers-market.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "metro-denver-farmers-market-wheat-ridge",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "minturn-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "monte-vista-farmers-market",
+    "notes": "The domain in the USDA listing now serves unrelated French-language content, not the market."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "montrose-farmers-market",
+    "notes": "The domain in the USDA listing is for sale and carries no market information."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "monument-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "nederland-farmers-market",
+    "notes": "The market's own site says it runs bi-weekly from the second Sunday in May to the first Sunday in October, so no weekly hours are recorded."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "noco-virtual-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "northern-colorado-winters-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "northfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "norwood-farm-and-craft-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "old-colorado-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "old-south-pearl-street-association-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Nov 8, 2026, South Pearl Street",
+    "notes": "Same market as south-pearl-farmers-market.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "olde-towne-village-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "pagosa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "pagosa-springs-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Sep 26, 2026, St Patrick's Episcopal Church lot, 225 S Pagosa Blvd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://sospagosa.org/farmers-market-pagosa-springs/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "palisade-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "parker-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 10 to Oct 25, 2026, Mainstreet in Parker",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "plateau-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "pueblo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "pueblo-farmers-market-pueblo",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "ridgway-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October, Hartwell Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://ridgwayfarmersmarket.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "rifle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "rocky-mountain-indoor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "salida-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 24, 2026 at Alpine Park (9-12 from Sep 12); a winter market runs Saturdays 10-1 at the Chaffee County Fairgrounds, Nov 14 to Dec 19",
+    "website": "https://www.foodshedalliance.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.foodshedalliance.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "salida-farmers-market-salida",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "south-fork-farmers-local-artisan-and-antique-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "south-fork-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "south-pearl-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Nov 8, 2026, South Pearl Street",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "south-university-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "southlands-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Sep 26, 2026, Southlands Shopping Center, Aurora",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "southwest-plaza-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Wadsworth and Bowles",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "stapleton-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 21 to Oct 11, 2026, Founders Green",
+    "notes": "The neighbourhood and the market are now called Central Park, not Stapleton.",
+    "hoursSourceNote": "Mile High on the Cheap's 2026 Denver and Boulder area farmers market list",
+    "hoursSourceUrl": "https://www.milehighonthecheap.com/farmers-markets-denver-boulder/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "sunday-market-on-main-street",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "telluride-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:30",
+        "closes": "15:30"
+      }
+    ],
+    "season": "May 29 to Oct 9, 2026, South Oak St in downtown Telluride",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thetelluridefarmersmarket.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "the-community-market-at-naropa",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "the-saturday-market-at-tagawa-gardens",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "tiri-s-garden-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "town-of-mancos-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "trinidad-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "union-station-farmers-market",
+    "notes": "Sources disagree on this market's 2026 day and hours, so none are recorded."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "urban-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "vail-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "walsenburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "wellington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "westcliffe-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://westcliffefarmersmarket.com/"
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "williams-family-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "CO",
+    "checked": "2026-09-15",
+    "slug": "woodland-park-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to Sep 25, 2026, Memorial Park and Henrietta Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://wpfarmersmarket.com/"
+  }
+]

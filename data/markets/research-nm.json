@@ -1,0 +1,291 @@
+[
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "alamogordo-alameda-park-farmers-market",
+    "notes": "Its USDA link goes to an undated LocalHarvest directory entry, not the market's own site."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "alamogordo-farmers-market-in-alameda-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "ardovino-s-desert-crossing-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "belen-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "bosque-farms-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "carlsbad-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "cedar-crest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "dixon-farmers-market",
+    "notes": "The market's own site's latest season is 2025 and its day and location were changing week to week; no 2026 schedule found."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "edgewood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "espanola-farmers-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "farmers-and-crafts-market-of-las-cruces",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; Saturdays across seven blocks of downtown Main Street and Wednesdays at Plaza de Las Cruces",
+    "website": "https://www.farmersandcraftsmarketoflascruces.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersandcraftsmarketoflascruces.com/"
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-otero-county",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "first-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "fort-sumner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "gallup-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "hidalgo-farmers-market-and-mercado",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "hobbs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "jemez-springs-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "lake-arthur-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "las-cruces-farmers-and-craft-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round in downtown Las Cruces",
+    "website": "https://www.farmersandcraftsmarketoflascruces.com/",
+    "notes": "Same market as farmers-and-crafts-market-of-las-cruces.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersandcraftsmarketoflascruces.com/"
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "los-ranchos-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "lovington-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "mayhill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "mile-hi-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "mimbres-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "rail-yards-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026, 777 1st St SW, Albuquerque (holiday markets in December and February)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://railyardsmarket.org/"
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "rascal-fair-white-oaks-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "roswell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "san-felipe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "silver-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season, 1120 N Main St",
+    "website": "https://www.silvercityfarmersmarket.info/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.silvercityfarmersmarket.info/"
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "silver-city-farmers-market-downtown",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season, 1120 N Main St",
+    "website": "https://www.silvercityfarmersmarket.info/",
+    "notes": "Same market as silver-city-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.silvercityfarmersmarket.info/"
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "silver-city-farmers-market-midweek-market",
+    "notes": "The market's own site publishes a Saturday schedule (9-12 at 1120 N Main St) rather than a midweek one."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "south-valley-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "the-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "timberon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "tri-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NM",
+    "checked": "2026-09-15",
+    "slug": "village-of-los-ranchos-growers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  }
+]

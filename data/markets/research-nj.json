@@ -1,0 +1,924 @@
+[
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "26th-annual-highlands-business-partnership-s-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 20 to Nov 21, 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "allendale-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "allenhurst-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "asbury-fresh",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to September 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "atlantic-city-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "barnegat-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "bedminster-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "blairstown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to November 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "blue-moon-acres-farm-market-pennington-nj",
+    "notes": "Its website now serves a gambling site."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "bordentown-city-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026, Carslake Community Center",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "brick-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "May 2 to Oct 3, 2026, Windward Beach Park",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "burlington-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Nov 14, 2026 (plus four pre-season Saturdays, 10-1, March and April)",
+    "hoursSourceNote": "the market's own site (Burlington County Agricultural Center, 2026 season)",
+    "hoursSourceUrl": "https://www.burlcoagcenter.com/farmers-market/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "burlington-county-farmers-market-moorestown",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 9 to Nov 14, 2026",
+    "notes": "Duplicate USDA listing of burlington-county-farmers-market.",
+    "hoursSourceNote": "the market's own site (Burlington County Agricultural Center, 2026 season)",
+    "hoursSourceUrl": "https://www.burlcoagcenter.com/farmers-market/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "caldwell-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "clinton-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "collingswood-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May through Thanksgiving, rain or shine",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.collingswoodmarket.com/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "cook-s-market-at-rutgers-gardens",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "cowtown-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, rain or shine (a combined farmers and flea market)",
+    "hoursSourceNote": "the market's own site (its 100th year, 2026)",
+    "hoursSourceUrl": "https://www.cowtownfarmersmarket.com/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "doctor-s-farm-market",
+    "notes": "The listed website is a medical practice's; no market schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "downtown-somerville-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "dr-s-farm-market",
+    "notes": "No market schedule found (see doctor-s-farm-market)."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "edison-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "elizabeth-avenue-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "2026 season",
+    "hoursSourceNote": "Elizabeth Avenue Partnership, who run it",
+    "hoursSourceUrl": "https://www.elizabethavenue.org/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "englishtown-auction-sales-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round (a combined auction, flea and farmers market)",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "farm-stand-at-the-urban-farm",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "fort-lee-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "golden-nugget-green-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "haddonfield-s-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "The market's site says it has moved to a new location for 2026; the Kings Hwy address USDA holds may be out of date.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://haddonfieldfarmersmarket.org/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "hamilton-park-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "From May 2026",
+    "hoursSourceNote": "Hamilton Park Neighborhood Association, who run it (updated May 4, 2026)",
+    "hoursSourceUrl": "https://hpna.wildapricot.org/Farmers-Market"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "highland-park-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "April to October 2026 (11 to 4 in March)",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "historic-downtown-jersey-city-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "15:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Apr 20 to Dec 21, 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "holland-township-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "homestead-farm-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "hopatcong-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "howell-nj-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "hunterdon-land-trust-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "king-portland-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "kirby-s-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "lacey-township-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "lambertville-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "long-valley-green-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "maggie-s-ringwood-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "margate-community-farmer-s-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Jun 18 to Sep 3, 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "metuchen-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Summer season 2026 (a winter market meets Saturdays 10-1)",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "morris-county-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "December to April, Convent Station",
+    "hoursSourceNote": "Shop Morris County, Morris County Farmers Markets 2026",
+    "hoursSourceUrl": "https://shopmorriscounty.com/morris-county-nj-farmers-markets/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "morristown-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "2026 season, Parking Authority Lot 10J at Spring and Morris Streets",
+    "hoursSourceNote": "Shop Morris County, Morris County Farmers Markets 2026",
+    "hoursSourceUrl": "https://shopmorriscounty.com/morris-county-nj-farmers-markets/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "netcong-community-marketplace-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "new-brunswick-community-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From June 2026 (a Wednesday market meets at Buccleuch Park, 11-3)",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "nofa-nj-farmers-market-at-duke-farms",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "ocean-city-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 16, 2026, Tabernacle grounds",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "ocean-city-nj-farmers-and-crafters-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "oceanport-farmer-s-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "paramus-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "paterson-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "paterson-market-growers",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "pennington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Mid-May through November 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "pennsylvania-dutch-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round indoor market, Kingston Mall",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.padutchfarmersmarket.com/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "pequannock-township-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "phillipsburg-open-air-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "point-pleasant-beach-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "princeton-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "2026 season",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "ramsey-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "December to April (the same market runs 9-2 May to November), Main Street train station",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ramseyfarmersmarket.org/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "rancocas-woods-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "riverdale-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "2026 season (its 18th), Glenburn, 211 Hamburg Tpke",
+    "hoursSourceNote": "Shop Morris County, Morris County Farmers Markets 2026",
+    "hoursSourceUrl": "https://shopmorriscounty.com/morris-county-nj-farmers-markets/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "riverview-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026, Fisk Park, 498 Palisade Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://riverviewfarmersmarket.org/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "riverview-farmers-market-jersey-city",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026, Fisk Park",
+    "notes": "Duplicate USDA listing of riverview-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://riverviewfarmersmarket.org/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "rutgers-gardens-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "salem-city-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "somerset-county-regional-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "south-orange-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026",
+    "notes": "Listed as the South Orange Downtown market.",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "south-orange-village-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026",
+    "notes": "Same market as south-orange-farmers-market.",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "springfield-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June to October 2026",
+    "notes": "Listed as the Township of Springfield market.",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "sussex-county-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "tall-oaks-farm-makers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-adventure-crossing",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "the-township-of-little-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "the-woodbury-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "thursday-organic-pavilion-at-the-columbus-farmers-market",
+    "notes": "The Columbus Farmers Market's outdoor market runs Thu, Sat and Sun 8-3; the organic pavilion's own hours were not found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "tuckerton-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "umdnj-the-university-hospital-auxiliary-s-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "wall-twp-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "June to September 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "washington-borough-farmers-market",
+    "notes": "NJ Mom lists Saturdays Jun 13 to Sep 19, 2026 from 9:30 but no closing time; not recorded."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "wenonah-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "west-amwell-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "west-end-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "west-orange-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "west-windsor-community-farmers-market-main-season",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to Thanksgiving 2026",
+    "hoursSourceNote": "NJ Mom, Farmers Markets in NJ: The Best Places to Shop in 2026",
+    "hoursSourceUrl": "https://njmom.com/list-farmers-markets-new-jersey/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "weymouth-community-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "wiley-church-farm-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "winter-market-presented-by-grow-it-green-morristown",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "December to April, Convent Station",
+    "notes": "Same market as morris-county-winter-farmers-market.",
+    "hoursSourceNote": "Shop Morris County, Morris County Farmers Markets 2026",
+    "hoursSourceUrl": "https://shopmorriscounty.com/morris-county-nj-farmers-markets/"
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "woodbine-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  },
+  {
+    "state": "NJ",
+    "checked": "2026-09-15",
+    "slug": "woodbridge-wednesdays-farmers-market",
+    "notes": "Not in NJ Mom's 2026 statewide list or the Shop Morris County and Bergen County Lifestyle 2026 lists; no current schedule found."
+  }
+]

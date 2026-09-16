@@ -1,0 +1,191 @@
+[
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "carson-farmers-market-3rd-and-curry-st",
+    "notes": "The market's own site could not be read (the host refuses automated requests)."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "clark-county-backyard-farmer-market",
+    "notes": "Its USDA link goes to a county services site, which carries no market schedule."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "connors-farmers-market",
+    "notes": "The market's own site is unreachable; no current schedule found."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "country-fresh-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "dayton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "downtown3rd-farmers-market",
+    "notes": "The domain in the USDA listing now serves unrelated Indonesian-language content, not the market."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "e-center-st-farmers-market-and-street-celebration",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "ely-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-kahle-community-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-district",
+    "notes": "Its USDA link goes to a shopping centre's site, which carries no market schedule."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "fernley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "fernley-poolside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "fresh52-farmers-and-artisan-market",
+    "notes": "Fresh52 runs several markets on different days and some only on alternate weeks; no single weekly schedule applies to this listing."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "fresh52-farmers-market",
+    "notes": "Fresh52 runs several markets on different days and some only on alternate weeks; no single weekly schedule applies to this listing."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "gardens-park-farmers-market",
+    "notes": "The Las Vegas Farmers Market site carries no readable day or hours."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "henderson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "lampe-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "las-vegas-farmers-market-at-bruce-trent-park",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "2026 summer hours at Bruce Trent Park, 1600 N Rampart Blvd",
+    "hoursSourceNote": "Fresh52, who run them (2026 summer hours)",
+    "hoursSourceUrl": "https://www.fresh52.com/locations"
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "las-vegas-farmers-market-at-floyd-lamb-park-tule-springs",
+    "notes": "The Las Vegas Farmers Market site carries no readable day or hours."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "pahrump-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "reno-summit-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "sands-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "sierra-chef-farmers-market-lampe-park",
+    "notes": "Its USDA link goes to a catering business's site, which carries no market schedule."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "sparks-tuesday-morning-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "sparks-united-methodist-church-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "tamarack-junction-casino-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "the-fernley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "the-green-chefs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "the-village-farmers-market-on-california-street",
+    "notes": "The organiser's site carries no readable day or hours for this market."
+  },
+  {
+    "state": "NV",
+    "checked": "2026-09-15",
+    "slug": "yerington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

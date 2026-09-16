@@ -1,0 +1,801 @@
+[
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "12-south-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "3000 Granny White Pike, Nashville",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.12southfarmersmarket.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "affinity-42-farmer-and-artisan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "agricenter-international-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "amqui-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "arlington-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "bartlett-station-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "W J Freeman Park, Bartlett",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.bartlettstationfarmersmarket.org/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "benton-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "boone-street-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round grocery in Jonesborough",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.jonesboroughlocallygrown.org/boone-street-market"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "bradley-county-farmers-market",
+    "notes": "Its USDA link goes to a UT Extension county page that carries no market schedule."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "brainerd-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "cannon-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "chattanooga-market",
+    "notes": "The Chattanooga Market runs several markets on different days from one events calendar, so no single weekly schedule is recorded."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "church-health-center-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "clarksville-s-downtown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "columbia-farmers-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "cookeville-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "cooper-young-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round in the First Congo car park, Memphis",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.cycfarmersmarket.org/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "country-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "decatur-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "dekalb-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "depot-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 2, 2026, 115 Academy St, Greeneville",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://depotstreetfarmersmarket.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "dickson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "dixie-lee-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From Apr 18, 2026, 12740 Kingston Pike, Farragut",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://dixieleefarmersmarket.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "dixie-lee-farmers-market-knoxville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "downtown-green-market-cookeville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "dresden-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "east-nashville-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "April to December 2026, 5th and Woodland",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.eastnashvillemarket.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "ebenezer-road-farmers-market",
+    "notes": "The easttnfarmmarkets.org domain in the USDA listing now serves an unrelated device trade-in site."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "farm-market-trenton-tn",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-gray-fairgrounds",
+    "notes": "Its USDA link goes to the Appalachian Fair's site, which carries the fair's dates rather than a market schedule."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-crossings",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-garden",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-livery-stables",
+    "notes": "The market's own site carries only a contact form."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "fayetteville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "fentress-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "forest-hills-umc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "gallatin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "gatlinburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "germantown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "giles-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "goodlettsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "greeneville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.greenevillefarmersmarket.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "hendersonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "hickory-point-umc-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "hip-donelson-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Nashville",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.hipdonelsonfarmersmarket.org/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "hwy-79-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "johnson-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "johnson-county-farmers-market",
+    "notes": "The market's own site is now filled with unrelated syndicated articles; its stated Saturday hours are not dated to 2026."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "jonesborough-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026 (no market July 4 or October 3)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.jonesboroughlocallygrown.org/jonesborough-farmers-market"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "kingston-springs-farmers-and-artisans-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Aug 29, 2026, downtown Kingston Springs",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://ksfarmersmarket.org/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "lakeshore-park-farmers-market",
+    "notes": "The easttnfarmmarkets.org domain in the USDA listing now serves an unrelated device trade-in site."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "lightfoot-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "lookout-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "loretto-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to October, 202 W Commerce St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://lorettofarmersmarket.wordpress.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "madison-church-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "main-st-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "main-street-dyersburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "main-street-dyersburg-farmers-market-dyersburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "main-street-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "manchester-locally-grown-farmers-market",
+    "notes": "Its Locally Grown page is marked closed."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "marble-springs-farmers-market",
+    "notes": "Its USDA link goes to the state historic site's own visiting hours, not a market schedule."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "market-park-farmers-market-of-athens",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "market-square-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From May 2, 2026 through October on Market Square; from November the market is Saturdays only, 10-2, through March",
+    "hoursSourceNote": "Visit Knoxville, on Nourish Knoxville's 2026 season",
+    "hoursSourceUrl": "https://www.visitknoxville.com/articles/post/the-market-square-farmers-market-returns-to-downtown-knoxville-on-may-2-with-140-local-vendors/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "martin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "maryville-farmers-market-saturdays",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "11:30"
+      }
+    ],
+    "season": "Apr 18 to Nov 14, 2026 (a winter market runs on the first and third Saturdays, December to March)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.farmersmarketmaryville.com/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "medina-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "memphis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "milan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "millington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "nashville-farmers-market",
+    "notes": "The market house is open daily with hours that vary by business and the outdoor farm sheds' weekday hours vary by vendor, so no weekly schedule is recorded."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "new-harvest-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "April to September 2026, New Harvest Park",
+    "hoursSourceNote": "WVLT, on Knoxville's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.wvlt.tv/2026/04/30/farmers-markets-helping-make-your-dollar-stretch-further/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "new-harvest-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "newport-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "nolensville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "north-nashville-farmers-market-at-davidson-farmers-co-op",
+    "notes": "The domain in the USDA listing is now a HugeDomains for-sale page."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "northside-farmers-market-on-mississippi",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "nourish-knoxville-s-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "November to March, Market Square",
+    "hoursSourceNote": "Visit Knoxville, on Nourish Knoxville's 2026 season",
+    "hoursSourceUrl": "https://www.visitknoxville.com/articles/post/the-market-square-farmers-market-returns-to-downtown-knoxville-on-may-2-with-140-local-vendors/"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "oak-ridge-farmers-market",
+    "notes": "The easttnfarmmarkets.org domain in the USDA listing now serves an unrelated device trade-in site."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "onion-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "ooltewah-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "April to October at Ooltewah Nursery (3-5 pm November to March)",
+    "website": "https://www.ooltewahnursery.com/farmers-market",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ooltewahnursery.com/farmers-market"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "pikeville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "richland-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "ripley-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "rutherford-county-farmers-market-2021",
+    "notes": "Its UT Extension page carries no current market day or hours."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "smith-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "south-memphis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "spring-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "springfield-robertson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "st-albans-hixson-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "On the St Albans church grounds in Hixson",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://saintalbanschatt.com/farmers-market"
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "state-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "stones-river-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "the-farm-market-day",
+    "notes": "Its site's latest season is 2021; no current schedule found."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "the-pavilion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "thompson-s-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "tullahoma-locally-grown-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "union-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "west-tennessee-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "white-house-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "winter-farmers-market-by-grow-oak-ridge",
+    "notes": "Grow Oak Ridge's site carries no readable 2026 market day or hours."
+  },
+  {
+    "state": "TN",
+    "checked": "2026-09-15",
+    "slug": "winter-market",
+    "notes": "Jonesborough Locally Grown publishes its May-to-October Saturday market schedule but not a separate winter market's."
+  }
+]

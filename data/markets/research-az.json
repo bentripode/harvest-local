@@ -1,0 +1,825 @@
+[
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "ahwatukee-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; 8-11 June to September",
+    "website": "https://arizonacommunityfarmersmarkets.com/ahwatukee-farmers-market",
+    "hoursSourceNote": "Arizona Community Farmers Markets, who run them",
+    "hoursSourceUrl": "https://arizonacommunityfarmersmarkets.com/ahwatukee-farmers-market"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "asu-tempe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "bisbee-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "carefree-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; 8-11 June to September",
+    "website": "https://arizonacommunityfarmersmarkets.com/carefree-farmers-market",
+    "hoursSourceNote": "Arizona Community Farmers Markets, who run them",
+    "hoursSourceUrl": "https://arizonacommunityfarmersmarkets.com/carefree-farmers-market"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "casa-grande-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "cave-creek-farmers-and-crafts-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "central-city-south-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "chadwick-s-urban-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "clark-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "corte-bella-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "cottonwood-farmers-market-and-jamboree",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "downtown-chandler-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "downtown-mesa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "downtown-phoenix-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Main season from the third Saturday in October to the second Saturday in May; the summer season runs 7:30-11:30",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://downtownphoenixfarmersmarket.org/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "downtown-phoenix-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "el-pueblo-seasonal-mobile-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "elfrida-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "farm-to-fantastic-farmers-market-superior",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-cashman-park-at-desert",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "flagstaff-community-markets",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026, City Hall, 211 W Aspen Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.flagstaffmarket.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "florence-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "food-bank-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "fountain-hills-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "gaslight-square-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "get-local-arizona-events-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "gila-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "gilbert-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Now at Chandler-Gilbert Community College",
+    "website": "https://gilbertmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://gilbertmarket.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "globe-miami-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "green-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Wednesday at Green Valley Village; 9-1 October to April",
+    "website": "https://www.heirloomfm.org/markets/green-valley/",
+    "notes": "Heirloom Farmers Markets runs Green Valley's Wednesday market; this listing's own domain is now a HugeDomains for-sale page.",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/green-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-market-green-valley-village",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Wednesday at Green Valley Village, 101 S La Cañada Dr; 9-1 October to April",
+    "website": "https://www.heirloomfm.org/markets/green-valley/",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/green-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-market-oro-valley-steam-pump-ranch",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Saturday at Steam Pump Ranch; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/oro-valley/",
+    "notes": "Same market as oro-valley-farmers-market.",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/oro-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-market-rillito-park",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Sunday at Rillito Park; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/rillito-park/",
+    "notes": "Same market as rillito-park-farmers-market.",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/rillito-park/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-market-rincon-valley",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Saturday at Rincon Valley; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/rincon-valley/",
+    "notes": "Same market as rincon-valley-farmers-market.",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/rincon-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-markets-udall-park",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Friday at Udall Park; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/udall-park/",
+    "notes": "Same market as udall-park-farmers-market.",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/udall-park/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "jj-s-old-west-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "kingman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "lake-havasu-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2144 McCulloch Blvd N",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lakehavasufarmersmarket.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "lake-havasu-farmers-market-lake-havasu-city",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "local-harvest-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "marana-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "market-in-carver-park",
+    "notes": "Its USDA link goes to the Yuma food bank's site, which carries no market schedule."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "maynards-twilight-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "mercado-del-lago-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "mesa-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "mesa-riverview-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "momma-s-organic-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "mother-road-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "nogales-mercado-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "north-scottsdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "northwest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "old-town-scottsdale-farmers-market",
+    "notes": "Arizona Community Farmers Markets' site no longer carries a page for this market."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "oracle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "oro-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Saturday at Steam Pump Ranch, 10901 N Oracle Rd; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/oro-valley/",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/oro-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "page-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "palominas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "park-west-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "patriots-square-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "payson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "penlina-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "phoenix-public-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "pine-strawberry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "power-road-farmers-market",
+    "notes": "The market's own site carries no day or hours."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "prescott-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "prescott-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "rancho-sahuarita-twilight-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "reata-pass-and-greasewood-flats-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "reese-family-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "rillito-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Sunday at the Farmers Market Food Pavilions, 4502 N 1st Ave, Tucson; 8-12 April to September and 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/rillito-park/",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/rillito-park/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "rincon-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Saturday at 12500 E Old Spanish Trail; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/rincon-valley/",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/rincon-valley/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "roadrunner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "roadrunner-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "san-tan-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "santa-cruz-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "scottsdale-old-town-farmers-market",
+    "notes": "Arizona Community Farmers Markets' site no longer carries a page for this market."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "second-sunday-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sedona-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Summer 2026 at the Wells Fargo car park, 2201 W SR 89A in West Sedona",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://sedona-farmers-market.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sedona-community-farmers-market-at-tlaquepaque-creekside",
+    "notes": "Sedona's market has moved to the Wells Fargo car park on W SR 89A; no separate Tlaquepaque schedule is published."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "show-low-main-street-farmers-market-and-art-walk",
+    "notes": "The market's own site is broken and shows only a server diagnostics page."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sierra-vista-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Veterans Memorial Park, Sierra Vista",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sierravistafarmersmarkets.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "skull-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "smith-s-local-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "st-phillips-plaza-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sun-city-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round; 7-10 June to September",
+    "website": "https://arizonacommunityfarmersmarkets.com/sun-city-farmers-market",
+    "hoursSourceNote": "Arizona Community Farmers Markets, who run them",
+    "hoursSourceUrl": "https://arizonacommunityfarmersmarkets.com/sun-city-farmers-market"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sunnyside-farmers-market-market-of-dreams",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "sunsites-farmers-market",
+    "notes": "Its USDA link goes to a golf club's site, which carries no market schedule."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "super-farm-market",
+    "notes": "Its USDA link goes to a farm's own site, which carries no farmers market schedule."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "superior-farm-to-fantastic-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "tatum-ranch-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "tempe-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "the-camelback-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-at-vincent-s-on-camelback",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-of-dove-mountain",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "the-mother-road-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "thursday-market-at-the-seville",
+    "notes": "Arizona Community Farmers Markets' site no longer carries a page for this market."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "town-and-country-farmers-market",
+    "notes": "Its USDA link goes to a shopping centre's customer service page, which carries no market schedule."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "udall-park-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Every Friday at Morris K Udall Park, Tucson; 9-1 October to March",
+    "website": "https://www.heirloomfm.org/markets/udall-park/",
+    "hoursSourceNote": "Heirloom Farmers Markets, who run them",
+    "hoursSourceUrl": "https://www.heirloomfm.org/markets/udall-park/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "uptown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Year-round in Phoenix; its Wednesday market is closed for the summer and reopens in October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://uptownmarketaz.com/"
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "verde-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "wesley-bolin-plaza-farmers-market",
+    "notes": "The arizonafarmersmarkets.com site no longer carries a page for this market."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "white-mountains-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "wigwam-farmer-s-market",
+    "notes": "Its USDA link goes to an events promoter's site, which carries no market schedule."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "windmill-park-farmers-market-in-cornville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "AZ",
+    "checked": "2026-09-15",
+    "slug": "yuma-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

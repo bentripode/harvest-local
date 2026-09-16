@@ -1,0 +1,1353 @@
+[
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "18th-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "a-kentucky-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "adair-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "allen-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "anderson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "anderson-county-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "annville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bardstown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bardstown-road-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 1722 Bardstown Rd",
+    "hoursSourceNote": "Louisville Family Fun's 2026 Louisville-area farmers market list",
+    "hoursSourceUrl": "https://louisvillefamilyfun.net/2026/04/louisville-farmers-markets.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "barren-county-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bath-county-farmers-market-owingsville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bath-county-farmers-market-sharpsburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "beattyville-main-street-marketplace-locally-made-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "beaver-dam-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "beech-bend-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "beechmont-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "belknap-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bellevue-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "blue-licks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bluegrass-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "boone-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026, 1961 Burlington Pike (10-2 in spring and autumn)",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bounty-of-the-barrens-winter-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Summer and fall 2026 at 400 W Water St, Glasgow",
+    "website": "https://www.sustainableglasgow.org/",
+    "notes": "Sustainable Glasgow publishes one Saturday schedule for the Bounty of the Barrens market rather than separate summer and winter ones.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sustainableglasgow.org/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bowling-green-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "boyd-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "boyd-county-farmers-market-king-s-daughters-medical-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "boyd-county-farmers-market-kyova-mall",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bracken-county-farmers-market-augusta",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bracken-county-farmers-market-brooksville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "breathitt-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "breckinridge-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "broadway-baptist-church-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "brown-s-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "bullitt-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "butler-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "cadiz-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "cadiz-trigg-county-farmers-market",
+    "notes": "Its USDA link goes to the county tourism commission's page, which carries no market schedule."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "calhoun-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "campbell-county-farmers-market-association",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Through October 2026, 7634 Alexandria Pike, Alexandria",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "campbell-county-farmers-market-association-highland-heights",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Through October 2026, 3504 Alexandria Pike, Highland Heights",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "campbell-county-farmers-market-association-newport",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Through October 2026, 709 Monmouth St, Newport",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "carter-county-farmers-market-grayson",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "carter-county-farmers-market-olive-hill",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "cave-city-regional-farmers-market",
+    "notes": "Its USDA link goes to the Cave City tourism site, which carries no market schedule."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 2319 Nashville Rd, Bowling Green",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.communityfarmersmarketbg.com/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "country-fresh-farmers-market-morganfield",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "country-fresh-farmers-market-sturgis",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "cumberland-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "dawson-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "dawson-springs-main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "delafield-co-op-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "dixie-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Through October 2026, 116 Commonwealth Ave, Erlanger",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "douglas-loop-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 4 to December 2026, 2005 Douglass Blvd",
+    "hoursSourceNote": "Louisville Family Fun's 2026 Louisville-area farmers market list",
+    "hoursSourceUrl": "https://louisvillefamilyfun.net/2026/04/louisville-farmers-markets.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "The Murray market's site describes Saturday mornings on the downtown square but publishes no opening times."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "downtown-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "elliott-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "family-roadside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-mellwood-arts-and-entertainment-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-depot",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-murray-calloway-county",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-green-river",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "fern-creek-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "fleming-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "floyd-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "fourth-street-live-farmers-market",
+    "notes": "Its USDA link goes to the Fourth Street Live entertainment complex, whose listed hours are its bars', not a market's."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "frankfort-habilitation-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "franklin-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays to mid-November; a Tuesday market runs May 5 to mid-September (a winter market runs every other Saturday January to mid-April, so no Saturday winter hours are recorded)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.franklincountyfarmersmarket.org/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "franklin-simpson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "ft-thomas-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Apr 15 to Dec 16, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.fortthomasfarmersmarket.com/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "garrard-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "grant-county-farmers-market-crittenden",
+    "notes": "Its Kentucky Department of Agriculture listing says opening hours are \"flexible\" and depend on weather, so none are recorded."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "grant-county-farmers-market-williamstown",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "graves-county-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "graves-county-farmers-market-wednesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "gray-street-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "June to September at LouMed Commons, 316 E Chestnut St",
+    "notes": "The market moved from Gray Street to LouMed Commons; its USDA link goes to a university page that no longer carries the schedule.",
+    "hoursSourceNote": "Louisville Family Fun's 2026 Louisville-area farmers market list",
+    "hoursSourceUrl": "https://louisvillefamilyfun.net/2026/04/louisville-farmers-markets.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "grayson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "green-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "greenup-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hancock-co-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hardin-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "harrison-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "harrison-county-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "harrison-county-farmers-market-wednesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hart-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hazard-perry-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "henderson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "henry-county-farmers-market-eminence",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "henry-county-farmers-market-new-castle",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "heritage-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hodgenville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hometown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hopkins-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hopkinsville-christian-county-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "hopkinsville-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "imogene-stout-market-on-main",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "independence-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Spring to October 2026",
+    "notes": "The 2026 market is at 2001 Jack Woods Parkway, not the Madison Pike address in the USDA listing.",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jackson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jackson-county-farmers-market-sand-gap",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jackson-county-farmers-market-tyner",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jeffersontown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From Apr 25, 2026, 10434 Watterson Trail",
+    "hoursSourceNote": "Louisville Family Fun's 2026 Louisville-area farmers market list",
+    "hoursSourceUrl": "https://louisvillefamilyfun.net/2026/04/louisville-farmers-markets.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jessamine-county-farmers-market-nicholasville-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jessamine-county-farmers-market-nicholasville-wednesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "jessamine-county-farmers-market-wilmore",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "johnson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "knox-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "la-center-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "la-grange-farmers-market-and-artisans",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 25 to Oct 31, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://lagrangefarmersmarket.com/index.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "la-grange-farmers-market-and-artisans-la-grange",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lagrange-farmers-market-and-artisans",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 25 to Oct 31, 2026",
+    "website": "http://lagrangefarmersmarket.com/index.html",
+    "notes": "Same market as la-grange-farmers-market-and-artisans.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://lagrangefarmersmarket.com/index.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lebanon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "letcher-county-farmers-market",
+    "notes": "The website in the USDA listing now serves gambling spam, not the market."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays on Main Street (9-1 in winter); Sundays at 398 Southland Drive; Tuesday and Thursday markets at 737 National Ave run \"7 am to sell out\", so no closing time is recorded for them",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lexingtonfarmersmarket.com/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market-alexandria-dr",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market-main-st",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market-national-ave",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lexington-farmers-market-southland-dr",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "logan-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "louisville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "lyndon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "madison-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mandolin-farm-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "marshall-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mason-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mccreary-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "meade-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "menifee-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mercer-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "metcalfe-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "middletown-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "monroe-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "montgomery-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mt-washington-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mt-washington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "mt-washington-farmers-market-mt-washington",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "muhlenberg-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "muhlenberg-county-farmers-market-central-city",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "muhlenberg-county-farmers-market-greenville-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "muhlenberg-county-farmers-market-greenville-tuesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "new-boyle-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "nicholas-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "northern-kentucky-regional-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, Washington St between W 6th and W Pike, Covington",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "old-louisville-farm-works-market",
+    "notes": "The Old Lou Farmers Market runs on alternating Saturdays in 2026, so no weekly hours are recorded."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "owen-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "paducah-s-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "paris-bourbon-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "pendleton-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, the fairgrounds in Falmouth",
+    "hoursSourceNote": "the NKY Guide's 2026 Northern Kentucky farmers market list",
+    "hoursSourceUrl": "https://nkyguide.com/northern-kentucky-farmers-markets/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "phoenix-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "phoenix-hill-nulu-farmers-market",
+    "notes": "Louisville Family Fun lists this Tuesday market as running mid-April to mid-November but gives no hours."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "pikeville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "powell-county-farmers-market-stanton",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "prospect-area-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "rainbow-blossom-farmers-market",
+    "notes": "Its USDA link goes to a natural food shop chain, not a farmers market."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "red-bird-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "riverview-farmers-market-wednesday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "rockcastle-farmers-market-livingston",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "rowan-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "schoolyard-winery-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "scott-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "shelby-county-farmers-market-shelbyville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "shepherdsville-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "simon-kenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "simpson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "simpsonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "sky-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "smoketown-shelby-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "soky-marketplace-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "southern-kentucky-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "southwest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "st-matthews-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Sep 26, 2026, 4100 Shelbyville Rd at Beargrass Christian Church",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://smfarmersmarket.com/"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "stamping-ground-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "taylorsville-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "taylorsville-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "taylorsville-main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "the-dixie-farmers-market",
+    "notes": "The website in the USDA listing belongs to a Florida concert hall, not the market."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "the-louisville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "the-louisville-farmers-market-landis-lakes",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "thomas-dairy-farm-and-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "versailles-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "victory-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "vine-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "wayne-county-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "westport-rd-baptist-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 9705 Westport Rd",
+    "hoursSourceNote": "Louisville Family Fun's 2026 Louisville-area farmers market list",
+    "hoursSourceUrl": "https://louisvillefamilyfun.net/2026/04/louisville-farmers-markets.html"
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "whitley-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "whitley-county-farmers-market-wcfm",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "williamstown-main-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "wolfe-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "woodford-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "woodford-county-farmers-market-monday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "woodford-county-farmers-market-saturday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "KY",
+    "checked": "2026-09-15",
+    "slug": "woodford-county-farmers-market-versailles",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

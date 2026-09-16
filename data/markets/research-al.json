@@ -1,0 +1,1008 @@
+[
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "abbeville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "abita-springs-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "adamsville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "alabama-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "05:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "05:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Open every day of the year at 344 Finley Ave W, Birmingham; the gates close earlier in some seasons",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://alabamafarmersmarket.org/"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "alabaster-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "albertville-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 2, 2026, downtown Albertville",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "alexander-city-downtown-market",
+    "notes": "Its USDA link goes to a Main Street site that carries no market schedule."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "andalusia-power-plant-farmers-market",
+    "notes": "Its USDA link goes to a city leisure services page that carries no market schedule."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "anniston-downtown-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 2 to Sep 26, 2026, 126 W 11th St (plus selected Thursday evenings in October and November)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.annistonmarket.com/"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "arab-farmers-market",
+    "notes": "Its USDA link goes to the city's home page, which carries no market schedule."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 5 to Sep 26, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "attalla-downtown-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "bailey-cove-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "bay-minette-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "bayou-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "bessemer-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From Jun 27, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "big-d-s-curb-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "blount-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "brewton-choo-choo-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "butler-county-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From May 23, 2026, Greenville",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "calera-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "calhoun-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "center-point-parkway-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "chicago-street-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "city-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May 23 to Aug 29, 2026, Auburn",
+    "website": "https://www.auburnal.gov/parks/programs/city-market/",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "city-of-centre-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "12:00",
+        "closes": "15:30"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "10:00"
+      }
+    ],
+    "season": "May 18 to Sep 28, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "clio-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From May 26, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "coastal-alabama-farmers-and-fishermen-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 781 Farmers Market Ln, Foley",
+    "website": "https://www.coastalalabamamarket.com/home",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "college-street-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "cumc-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "daleville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "dekalb-county-farmers-market",
+    "notes": "Sweet Grown Alabama lists this market as running Tuesdays and Fridays from 3 pm \"until sold out\", so no closing time is recorded."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "east-wilcox-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "eastchase-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "elberta-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "enterprise-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "11:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "11:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "Year-round when produce is available",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.enterpriseal.gov/services/farmers_market/index.php"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "fairhope-outdoor-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "fairview-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-latham-umc",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-mobile",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "fayette-co-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "fitzpen-place-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "flomaton-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "florence-lauderdale-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "forland-family-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "franklin-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "gadsden-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 4, 2026",
+    "notes": "Sweet Grown Alabama lists Gadsden's market as the 5th Street Farmers Market.",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "gardendale-farmers-market",
+    "notes": "The domain in the USDA listing has expired."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "glencoe",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "greene-street-market-at-nativity",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, 208 Eustis Ave, Huntsville (closing at sundown in September and October)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://greenestreetmarket.com/"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "greene-sumter-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "guntersville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "halls-mill-road-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "healthworks-farmers-market-huntsville-hospital",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "helena-market-days",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 2, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "highway-45-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "historic-langdale-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "homegrown-alabama-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "houston-co-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "jackson-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "jacksonville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "latham-umc-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "lawrence-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "leeds-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "limestone-county-farmers-market",
+    "notes": "Sweet Grown Alabama lists one Athens market (Tuesdays and Saturdays); no separate Limestone County schedule found."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "locust-grove-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "macon-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "madison-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 11 to Nov 21, 2026",
+    "website": "http://www.madisoncityfarmersmarket.com/index.html",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "madison-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "From May 23, 2026, 1022 Cook Ave, Huntsville",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "main-street-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "market-at-dothan",
+    "notes": "Its Locally Grown page carries no published day or hours."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "market-in-the-park",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "market-in-the-park-lavretta-park",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-hill",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-square",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "microgreen-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "millbrook-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 12 to Aug 11, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "montevallo-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 1 to Aug 17, 2026",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "montgomery-curb-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "montgomery-state-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "morgan-county-decatur-farmers-market",
+    "notes": "The domain in the USDA listing now serves gambling spam, not the market."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "moundville-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "mt-laurel-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "northport-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From Mar 28, 2026, 4150 5th St, Northport",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "ozark-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "pepper-place-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jan 31 to Dec 12, 2026 in Birmingham; the Wednesday market runs April to June",
+    "website": "https://pepperplacemarket.com/",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "pickens-county-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 21, 2026, Carrollton",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "pinson-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "poplar-head-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "red-bay-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "riverchase-united-methodist-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "rocky-ridge-church-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "ross-bridge-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 8 to Jul 31, 2026, Hoover",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "russell-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "satsuma-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "section-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "selma-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "spring-park-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "st-clair-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "sylacauga-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "talladega-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "tallassee-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "terry-heights-hillendale-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "the-bee-hive-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-good-shepherd",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-pepper-place",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jan 31 to Dec 12, 2026; the Wednesday market runs April to June",
+    "website": "https://pepperplacemarket.com/",
+    "notes": "Same market as pepper-place-market.",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "the-marketplace-at-lee-branch-lee-branch-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "the-summit-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "town-creek-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "trinity-episcopal-farmers-market",
+    "notes": "Sweet Grown Alabama lists a City of Wetumpka Thursday market; this listing is a different Wetumpka market, so no hours are recorded."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "trussville-fresh-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "tuscaloosa-river-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, Tuscaloosa",
+    "notes": "Sweet Grown Alabama lists this as the City of Tuscaloosa Farmers Market.",
+    "hoursSourceNote": "Sweet Grown Alabama's 2026 farmers market list",
+    "hoursSourceUrl": "https://www.sweetgrownalabama.org/posts/2026/03/26/farmersmarket26"
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "uab-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "valleydale-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "walker-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "westside-tailgate-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  },
+  {
+    "state": "AL",
+    "checked": "2026-09-15",
+    "slug": "winston-county-farmers-market",
+    "notes": "Not listed in Sweet Grown Alabama's 2026 farmers market roundup, and no dated 2026 schedule found on the market's own site."
+  }
+]

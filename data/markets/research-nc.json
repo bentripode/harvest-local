@@ -1,0 +1,1512 @@
+[
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "alleghany-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "apex-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to October (9-12 November to March), The Depot",
+    "hoursSourceNote": "Shop Local Raleigh's 2026 guide to farmers markets around Raleigh",
+    "hoursSourceUrl": "https://shoplocalraleigh.org/article_type/your-guide-to-farmers-markets-around-raleigh-2026-edition/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "archdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "archer-lodge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "asheboro-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "atherton-mill-and-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "avery-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "bakersville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "bakersville-main-street-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "belmont-nc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "big-ivy-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "black-mountain-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "black-mountain-tailgate-market-black-mountain",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "black-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "blowing-rock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "boone-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "burke-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "burlington-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "burlington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cabin-branch-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "campus-farmers-market-at-ncsu",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cape-fear-farmers-market-of-bladen",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "carolina-brewery-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "carrboro-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Saturdays April to October (9-12 November to March); Wednesdays in season",
+    "hoursSourceNote": "Shop Local Raleigh's 2026 guide to farmers markets around Raleigh",
+    "hoursSourceUrl": "https://shoplocalraleigh.org/article_type/your-guide-to-farmers-markets-around-raleigh-2026-edition/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cary-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Traditional season, 160 E Park St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.caryfarmersmarket.com/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "caswell-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Apr 23 to Sep 17, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://caswelllocalfoods.org/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "catawba-county-public-health-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cedar-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cedar-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "chapel-hill-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "At University Place, 201 S Estes Dr",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thechapelhillfarmersmarket.com/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "charlotte-regional-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 1801 Yorkmont Rd",
+    "hoursSourceNote": "North Carolina Department of Agriculture (state market pages)",
+    "hoursSourceUrl": "https://www.ncagr.gov/markets/facilities"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "charlotte-tailgate-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "chatham-mills-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "cherryville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "china-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "claremont-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "clayton-farm-and-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "columbus-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "columbus-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "conover-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "crossroads-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "davidson-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Weekly through Thanksgiving; every other Saturday December to March",
+    "hoursSourceNote": "Off the Eaten Path's 2026 Charlotte area farmers market guide",
+    "hoursSourceUrl": "https://www.offtheeatenpathblog.com/charlotte-farmers-market-guide/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "deans-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "denton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "dobson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "downtown-asheboro-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market-reidsville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "downtown-hickory-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "durham-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Saturdays April to November (9-12 December to March); Wednesdays Apr 15 to Oct 15, 501 Foster St",
+    "hoursSourceNote": "Shop Local Raleigh's 2026 guide to farmers markets around Raleigh",
+    "hoursSourceUrl": "https://shoplocalraleigh.org/article_type/your-guide-to-farmers-markets-around-raleigh-2026-edition/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "eden-st-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "edenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "efland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "elkin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "enka-candler-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "eno-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "erwin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "faison-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-center-united-methodist-church",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-wallace-depot",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "farmington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "fayetteville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "flat-rock-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "foothills-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "foothills-farmers-market-kings-mountain",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "foothills-farmers-market-shelby",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "franklin-county-local-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "french-broad-co-op-wednesday-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "fuquay-varina-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "gates-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "get-right-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "greensboro-farmers-curb-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Saturdays year-round; Tuesdays seasonal, 501 Yanceyville St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://gsofarmersmarket.org/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "greenworks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "growers-market-of-fuquay-varina",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "guilford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hammond-s-grandson-s-produce",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hampstead-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hampstead-farmers-market-hampstead",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hayesville-evening-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "haywood-s-historic-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "healthy-harvest-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "henderson-county-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hendersonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "hildebran-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "historic-marion-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "holly-springs-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.hollyspringsnc.gov/319/Farmers-Market"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "huntersville-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "jones-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "joseph-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "josh-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "kernersville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "kernsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "king-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "king-street-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to October, 126 Poplar Grove Connector",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.brwia.org/ksm.html"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "kings-drive-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "krankies-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "kure-beach-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "l-a-reynolds-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "lenoir-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "lenoir-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "leroy-james-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "lincoln-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "marion-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "market-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "mars-hill-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "matthews-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to November (year-round market)",
+    "hoursSourceNote": "Off the Eaten Path's 2026 Charlotte area farmers market guide",
+    "hoursSourceUrl": "https://www.offtheeatenpathblog.com/charlotte-farmers-market-guide/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "meeting-street-farmers-market-at-morriosn-plantation",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "meeting-street-market-at-elon-park-elementary-school",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "meeting-street-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "midtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "mills-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "mint-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "mocksville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "montgomery-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "moore-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "morehead-city-curb-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "morganton-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "murchison-road-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "nash-county-farmers-market-in-rocky-mount",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "new-bern-craven-county-area-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "newell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "nw-guilford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "oak-island-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "oakley-farmers-market",
+    "notes": "Its site's latest season is 2017; no current schedule found."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "obx-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "olde-beaufort-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "onslow-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "oriental-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "oxford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "peachtree-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "pickles-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "piedmont-farmer-s-market-harrisburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "piedmont-farmers-market-concord",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "piedmont-triad-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 2914 Sandy Ridge Rd, Colfax",
+    "hoursSourceNote": "North Carolina Department of Agriculture (state market pages)",
+    "hoursSourceUrl": "https://www.ncagr.gov/markets/facilities"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "pitt-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "pleasant-garden-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "red-barn-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "reedy-fork-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "riverfront-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "riverfront-farmers-market-wilmington",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "rosa-parks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "rutherford-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "salisbury-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "salisbury-rowan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "salisbury-rowan-farmers-market-salisbury",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "saluda-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "sampson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "sandhills-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "sandhills-farmers-market-of-spring-lake",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "secotan-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "serenbe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "shacktown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "shallotte-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "shallotte-farmers-market-market-on-mulberry",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "siler-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "smithfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "south-durham-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "south-elm-urban-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "south-end-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "south-end-market-at-atherton",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "spring-run-market-and-cafe",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "spruce-pine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "stanly-commons-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "stanly-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "stecoah-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "stokes-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "sunset-beach-waterfront-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "sylva-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "tanglewood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "tarboro-edgecombe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-chapel-hill-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "At University Place, 201 S Estes Dr",
+    "notes": "Same market as chapel-hill-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.thechapelhillfarmersmarket.com/"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-corner-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-evening-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-in-star",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-fayetteville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-friendly-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-gibsonville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-urban-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-whee-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "the-wilmington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "thomasville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "transylvania-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "troutman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "union-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "uptown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "uptown-greenville-umbrella-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "uptown-wadesboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "uptowne-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "valdese-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "vance-county-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "village-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wake-forest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wallace-community-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "washington-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "watauga-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "waverly-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "waxhaw-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "waynesville-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "weaverville-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wendell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "west-asheville-tailgate-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "west-rock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "western-wake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wilkes-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wilkesboro-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wilson-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "winton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wnc-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 570 Brevard Rd",
+    "hoursSourceNote": "Explore Asheville",
+    "hoursSourceUrl": "https://www.exploreasheville.com/asheville/shopping/farmers-markets/wnc-farmers-market"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "wrightsville-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 4 to Dec 7, 2026, Wrightsville Beach Park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.townofwrightsvillebeach.com/183/Farmers-Market"
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "ymca-and-gowaynego-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "NC",
+    "checked": "2026-09-15",
+    "slug": "zebulon-farm-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

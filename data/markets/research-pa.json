@@ -1,0 +1,1852 @@
+[
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "abington-winter-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "abv-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "adams-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "adams-ricci-farmers-market",
+    "notes": "Its site's latest season is 2024; no 2026 schedule found."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "allentown-fairgrounds-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 1825 Chew St",
+    "hoursSourceNote": "Lehigh Valley Moms' 2026 farmers market guide",
+    "hoursSourceUrl": "https://lehighvalleymoms.com/guides/farmers-market-guide/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "allison-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ambler-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Oct 31, 2026 (plus Nov 21), 29 W Butler Pike",
+    "hoursSourceNote": "Montgomery County, PA's 2026 Montco Farmers Markets list",
+    "hoursSourceUrl": "https://www.montgomerycountypa.gov/departments/health-human-services/office-public-health/programs-services/food-policy-programs/montco-farmers-markets"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ambridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "anselma-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "artisan-exchange-west-chester-indoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "back-mountain-library-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "beaver-county-courthouse-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "beaver-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bellevue-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026, Bayne Park, 34 N Balph Ave",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bethel-park-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 5 to September 2026, South Park off Corrigan Drive",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bethel-park-municipal-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 5 to September 2026, South Park off Corrigan Drive",
+    "notes": "Same market as bethel-park-farmers-market.",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bethlehem-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 23 to Nov 12, 2026, Farrington Square",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://sustainability.lehigh.edu/bethlehem-farmers-market"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "birdsboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "blairsville-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bloomfield-saturday-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 5050 Liberty Ave",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "boalsburg-winter-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Winter market at the Boalsburg Fire Company Hall, 113 E Pine St (the summer market is Tuesdays at the PA Military Museum)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.boalsburgfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "boscov-s-fairgrounds-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, 2934 N 5th Street Hwy, Reading",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://fairgroundsfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "boyertown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "broad-street-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Stone building hours year-round; the tent closes earlier (Thu/Fri 5 pm, Sat 4 pm) and the brick building reopens in 2027",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.broadstreetmarket.org/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "brookhaven-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "bryn-mawr-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to December 2026",
+    "notes": "The 2026 market is at 7 N Bryn Mawr Ave, not the Lancaster Ave address in the USDA listing.",
+    "hoursSourceNote": "Montgomery County, PA's 2026 Montco Farmers Markets list",
+    "hoursSourceUrl": "https://www.montgomerycountypa.gov/departments/health-human-services/office-public-health/programs-services/food-policy-programs/montco-farmers-markets"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "butler-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "canonsburg-pike-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "carlin-farm-4-seasons-farm-market-carlin-farm",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "carlisle-country-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "carlisle-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "central-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round in York; doors open 7 am (6 am Saturday), core vendor hours 9-2, plus First Fridays 5-9",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.centralmarketyork.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "central-market-2",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "06:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "06:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, 23 N Market St",
+    "website": "https://centralmarketlancaster.com/",
+    "notes": "Same market as lancaster-central-market; its USDA link to the city website is dead.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://centralmarketlancaster.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "chestnut-hill-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "chippewa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "city-of-pittsburgh-carrick-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 27 to Oct 28, 2026, Community Pavilion, 1529 Brownsville Rd",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "clarion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "co-operative-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Mid-July to Thanksgiving, 900 Barring Ave, Scranton (new 2026 hours)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://coopfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "columbia-market-house",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "coopersburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "coraopolis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "corn-crib-main-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "country-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "cowtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "cross-creek-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "cvfc-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "dickinson-square-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "dillsburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "downtown-bedford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "downtown-indiana-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "downtown-lititz-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "downtown-sharon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "doylestown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "dutch-country-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "eagleview-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Tree Grove across from Restaurant Row, 570 Wellington Square, Exton",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.growingrootspartners.com/eagleview-farmers-market/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "east-bayfront-eats-and-arts-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "east-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "east-goshen-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "easton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Dec 19, 2026 on the riverfront at Scott Park (10-12 in December; a winter market runs Saturdays 10-12 January to April on Northampton St)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://eastonfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ebensburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "emmaus-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to November at Emmaus Triangle Park; a winter market runs Sundays 10-12 from December",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://emmausmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "essential-eating-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farm-fresh-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-morgan-log-house",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-cooperative-of-east-liberty",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-4th",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farmers-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "farmstead-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "fencerow-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ferry-street-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "forest-hills-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 22 to October 2026, 4400 Greensburg Pike",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "forks-farm",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "fox-chapel-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "frankie-and-may-farmer-s-market-in-the-courtyard",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "fresh-marketplace-new-wilmington-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "from-around-here-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "gorgas-park-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "greater-canonsburg-chamber-of-commerce-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "greater-washington-county-food-bank-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "green-dragon",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "green-tree-farmers-market-in-the",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 21 to Oct 22, 2026, Green Tree Park, 905 Greentree Rd",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hanover-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hanover-market-house",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hatboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hawley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hillside-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "hollidaysburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "huntingdon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "indiana-county-farmers-market",
+    "notes": "Its blog's latest season is 2021; no current schedule found."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "jabali-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "jefferson-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "jim-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "johnstown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "kamaw-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "kennett-square-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Every Friday at Kennett Square Borough Hall, 600 S Broad St",
+    "website": "https://www.ksqfarmersmarket.com/",
+    "notes": "Historic Kennett Square's page for this listing is gone; the town's market is the KSQ Farmers Market (see ksq-farmers-market).",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ksqfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ksq-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Every Friday, rain or shine, Kennett Square Borough Hall, 600 S Broad St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ksqfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "kutztown-main-street-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lancaster-central-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "06:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "06:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, 23 N Market St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://centralmarketlancaster.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lancaster-county-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "06:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "06:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "06:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, 389 W Lancaster Ave, Wayne",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lancastercountyfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "langhorne-borough-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lansdale-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 9 to Dec 19, 2026, 400 Penn St",
+    "hoursSourceNote": "Montgomery County, PA's 2026 Montco Farmers Markets list",
+    "hoursSourceUrl": "https://www.montgomerycountypa.gov/departments/health-human-services/office-public-health/programs-services/food-policy-programs/montco-farmers-markets"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lansdowne-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lebanon-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lebanonfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "leesport-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Year-round, 312 Gernants Church Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.leesportmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lemont-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lewisburg-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, 499 Fairground Rd, Lewisburg",
+    "website": "https://www.lewisburgfarmersmarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lewisburgfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lewisburg-farmers-market-lewisburg",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round, 499 Fairground Rd",
+    "website": "https://www.lewisburgfarmersmarket.com/",
+    "notes": "Same market as lewisburg-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.lewisburgfarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lifestyle-market-at-greenable",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lititz-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "little-italy-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "At 430 W 19th St, Erie; run by the Sisters of St Joseph Neighborhood Network",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ssjnn.org/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "local-organic-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "lower-burrell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "market-and-penn-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mars-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "media-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mercer-mainstreet-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "millersville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "millheim-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "millheim-indoor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mindful-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "monroeville-lions-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Nov 21, 2026",
+    "notes": "The 2026 market is at Monroeville Mall, not the Tilbrook Rd address in the USDA listing.",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "moon-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "morningstar-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mount-lebanon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mt-airy-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mt-lebanon-lion-s-club-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 28, 2026, 975 Washington Rd",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "mt-lebanon-uptown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to Oct 24, 2026, Washington Road uptown district",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "murrysville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026, 3235 Sardis Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://murrysvilleparecreation.com/190/Farmers-Market"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "new-brighton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "new-eastern-market",
+    "notes": "The market's site says it opens at 7 am every Friday at 201 Memory Ln, York, but publishes no closing time, so no hours are recorded."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "new-freedom-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "new-sheffield-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "newtown-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ngozi-lets-get-dirty-farmers-markets-festivals-and-events",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "norristown-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "north-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "nuangola-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "oakmont-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "oil-city-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "June to August, Central Avenue Plaza (the Oil City Curb Market)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://oilcitymainstreet.org/signature-events/oil-city-curb-market/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "old-pomfret-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "olde-town-grove-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ottsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "oxford-circle-farmers-market",
+    "notes": "The Food Trust's 2026 market list no longer includes an Oxford Circle market."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "pa-dutch-farmers-market-of-wyomissing",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "palmyra-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "palmyra-producers-only-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "patch-and-pasture-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "paulus-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "penn-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "pennsylvania-farmers-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "peters-township-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "phoenixville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "plaza-growers-market-in-allentown",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "poorman-s-island-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "pottstown-farmers-market",
+    "notes": "Montgomery County lists this as an every-other-Saturday market (May 16 to Oct 17, 2026), so no weekly hours are recorded."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "pretzel-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "quakertown-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 201 Station Rd",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://quakertownfarmersmkt.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "renningers-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "rittenhouse-saturday-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 1800 Walnut St (10-2 in the winter season)",
+    "hoursSourceNote": "Billy Penn's 2026 guide to Philadelphia farmers markets",
+    "hoursSourceUrl": "https://billypenn.com/2026/08/17/farmers-markets-philadelphia-guide/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "rittenhouse-tuesday-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 1800 Walnut St",
+    "hoursSourceNote": "Billy Penn's 2026 guide to Philadelphia farmers markets",
+    "hoursSourceUrl": "https://billypenn.com/2026/08/17/farmers-markets-philadelphia-guide/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "root-s-country-market-and-auction",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "season": "Every Tuesday year-round; 9-9 April to October, 9-8 November to March",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rootsmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "ross-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 13 to Oct 28, 2026, 920 Perry Hwy",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "saturday-market-at-paradise",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "saturday-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "shillington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "sideling-hill-service-plaza-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "simeral-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "slippery-rock-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "slippery-rock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "somerset-county-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "somerset-county-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "south-side-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "stewartstown-night-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "strite-s-orchard-farm-market-and-bakery",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Farm market at 1000 Strites Rd, Harrisburg",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.stritesorchard.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "stroudsburg-old-time-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "summer-marketplace-at-mohegan-sun-arena",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "sunbury-market-house",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "swarthmore-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "swissvale-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026",
+    "notes": "The 2026 market is at 1400 S Braddock Ave, not the Schoyer Ave lot in the USDA listing.",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-at-elverson",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "the-fountain-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "the-markets-at-shrewsbury",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, 12025 Susquehanna Trail S",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://marketsatshrewsbury.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "the-minted-market-grampian-s-community-farmers",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "thornton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "titusville-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "trexlertown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "2026 season opened May 9",
+    "hoursSourceNote": "Lehigh Valley Moms' 2026 farmers market guide",
+    "hoursSourceUrl": "https://lehighvalleymoms.com/guides/farmers-market-guide/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "tuesday-state-college-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "tuesday-state-college-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "university-square-farmers-market",
+    "notes": "Farm to City now runs only the two Rittenhouse markets; no 2026 schedule found for this one."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "upper-merion-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 30 to Sep 26, 2026, 670 N Henderson Rd, King of Prussia",
+    "hoursSourceNote": "Montgomery County, PA's 2026 Montco Farmers Markets list",
+    "hoursSourceUrl": "https://www.montgomerycountypa.gov/departments/health-human-services/office-public-health/programs-services/food-policy-programs/montco-farmers-markets"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "vandergrift-farmers-market",
+    "notes": "Its site's latest season is 2024; no 2026 schedule found."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "village-craft-country-peddlers-and-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "wayne-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "waynesburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "weavers-way-farm-market",
+    "notes": "The Food Trust lists this farm stand as open Tuesdays, Fridays, Saturdays and Sundays but publishes no times."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "wednesday-indiana-county-farmers-market",
+    "notes": "Its blog's latest season is 2021; no current schedule found."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "west-chester-growers-market-regular-season",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "west-erie-plaza-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "west-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "west-reading-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "west-shore-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round, 900 Market St, Lemoyne",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://westshorefarmersmarket.com/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "whitehall-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "wilkinsburg-thursday-open-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 18 to Oct 29, 2026",
+    "notes": "The 2026 market is at 739 Penn Ave, not the Ross Ave church in the USDA listing.",
+    "hoursSourceNote": "NEXTpittsburgh's 2026 guide to Pittsburgh farmers markets",
+    "hoursSourceUrl": "https://nextpittsburgh.com/latest-news/the-nextpittsburgh-guide-to-pittsburgh-farmers-markets/"
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "williamsport-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "wrightstown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "yardley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "PA",
+    "checked": "2026-09-15",
+    "slug": "yoga-nature-s-organic-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

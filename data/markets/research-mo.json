@@ -1,0 +1,999 @@
+[
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "3rd-saturday-ferguson-winter-farmers-market",
+    "notes": "Ferguson's market publishes only its May-to-October Saturday schedule; this listing is a third-Saturday winter market, so no weekly hours are recorded."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "albany-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "arcadia-valley-farmers-market",
+    "notes": "Its USDA link goes to the Missouri Grown directory home page rather than a market listing."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ash-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "b2b-jane-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "badseed-farmers-market",
+    "notes": "Its domain now redirects to an advertising parking page."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "bethany-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "bloomfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "boone-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "briarcliff-farmer-s-market",
+    "notes": "Its domain now redirects to an advertising parking page."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "briarcliff-village-organic-and-locally-grown-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "brookside-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Through Oct 31, 2026, HJ's Community Center, Kansas City",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.brooksidefarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "brookside-farmers-market-summer",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Through Oct 31, 2026",
+    "website": "https://www.brooksidefarmersmarket.com/",
+    "notes": "Same market as brookside-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.brooksidefarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "c-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "camdenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "cape-riverfront-market",
+    "notes": "The market's page could not be read (the host refuses automated requests)."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "carrollton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "carthage-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "cass-county-farmers-market",
+    "notes": "The market's own site confirms a 2026 season but publishes no day or hours."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "cass-county-farmers-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "chandler-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "city-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round in the River Market",
+    "notes": "Same market as the-city-market-kansas-city.",
+    "hoursSourceNote": "KCTV5, on the Kansas City area's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.kctv5.com/2026/04/03/these-kansas-city-area-farmers-markets-see-changes-2026/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "city-of-union-farmers-market",
+    "notes": "Union's 2026 market runs on selected Fridays rather than weekly, so no weekly hours are recorded."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "clayton-farmers-market",
+    "notes": "Its USDA link goes to the Missouri Grown directory home page rather than a market listing."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "clinton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "columbia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "crane-creek-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "creve-coeur-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "crown-center-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "crown-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "crystal-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "de-soto-farmers-market",
+    "notes": "Its USDA link goes to a community health site that carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "dixie-lee-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "downtown-lee-s-summit-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "downtown-poplar-bluff-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "downtown-sikeston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "empire-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "excelsior-springs-farmer-s-market",
+    "notes": "Its USDA link goes to a tourism site that carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "excelsior-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-boundary",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-food-fair",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-greenview-mo",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-laclede-county",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-the-ozarks",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round in Springfield; 9-1 from January to the Saturday before 21 March",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.loveyourfarmer.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-of-wildwood",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Oct 3, 2026, 221 Plaza, Wildwood",
+    "hoursSourceNote": "St. Louis Magazine's 2026 guide to St Louis area farmers markets",
+    "hoursSourceUrl": "https://www.stlmag.com/dining/st-louis-farmers-markets-guide/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "farmington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "fayette-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "fenton-community-and-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to September at the Meramec Greenway Pavilion, Fenton City Park",
+    "website": "http://fentonmo.org/1116/Farmers-Market",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://fentonmo.org/1116/Farmers-Market"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ferguson-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October, Plaza at 501, 501 S Florissant",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://fergusonfarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "fulton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "gladstone-farmers-market",
+    "notes": "Its USDA link goes to the city's home page, which carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "golden-valley-produce-and-craft-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "grain-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "greater-ozark-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "hermann-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "houston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "independence-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "12:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Saturdays Apr 25 to Oct 31, 2026; Wednesdays Jun 10 to Sep 9",
+    "hoursSourceNote": "KCTV5, on the Kansas City area's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.kctv5.com/2026/04/03/these-kansas-city-area-farmers-markets-see-changes-2026/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "iron-mountain-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ivanhoe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ivanhoe-farmers-market-kansas-city",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "jefferson-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "joplin-farmers-market",
+    "notes": "Its USDA link goes to Joplin Memorial Hall's site, which carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "kirkwood-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "09:30",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Mar 28 to October 2026, 150 E Argonne",
+    "hoursSourceNote": "St. Louis Magazine's 2026 guide to St Louis area farmers markets",
+    "hoursSourceUrl": "https://www.stlmag.com/dining/st-louis-farmers-markets-guide/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "knox-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "la-chalupa-farmers-market",
+    "notes": "Its USDA link goes to a community organisation's site, which carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "lawson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "lee-s-summit-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "liberty-area-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, Feldman's car park",
+    "website": "https://www.libertyfarmersmarket.com/",
+    "notes": "Same market as liberty-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.libertyfarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "liberty-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, Feldman's car park, Liberty",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.libertyfarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "lincoln-university-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "lincoln-university-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "louisiana-community-betterment-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "maryland-heights-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "mcb-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "midtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "moberly-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "nevada-vernon-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "nixa-ozark-area-farmers-market",
+    "notes": "The domain in the USDA listing now serves an unrelated site, not the market."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "northeast-farmers-market",
+    "notes": "Its blog's latest season is 2018; no current schedule found."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "olde-towne-fenton-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to September at Fenton City Park",
+    "website": "http://www.fentonmo.org/1116/Farmers-Market",
+    "notes": "Same market as fenton-community-and-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.fentonmo.org/1116/Farmers-Market"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "one-african-one-nation-farmers-market",
+    "notes": "St Louis Magazine lists this market on five selected Sundays in 2026, so no weekly hours are recorded."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "orscheln-farm-and-home-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "overland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ozark-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "palmyra-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "parkville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays April to September (8-12 October and November); Wednesdays June to early September",
+    "hoursSourceNote": "KCTV5, on the Kansas City area's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.kctv5.com/2026/04/03/these-kansas-city-area-farmers-markets-see-changes-2026/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "paul-s-farm-fresh-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "peculiar-chamber-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "pierce-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "raytown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "rolla-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "route-66-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "rt-66-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "salem-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "schlafly-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "sedalia-area-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "sikeston-farmers-market",
+    "notes": "Its USDA link goes to a downtown association site that carries no market schedule."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "soulard-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round, 730 Carroll St",
+    "hoursSourceNote": "St. Louis Magazine's 2026 guide to St Louis area farmers markets",
+    "hoursSourceUrl": "https://www.stlmag.com/dining/st-louis-farmers-markets-guide/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "southern-boone-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "southside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "southwest-farmers-market-at-great-southern",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "st-charles-lions-club-farmers-market",
+    "notes": "St Louis Magazine lists a Saturday St Charles market on Main Street, a different location from this listing's Riverside Drive address; no schedule recorded."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "st-clair-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "steelville-farmer-and-artist-saturday-morning-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "steelville-farmer-and-artist-wednesday-night-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "steelville-morning-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "sunrise-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "the-city-market-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round in the River Market",
+    "notes": "Same market as the-city-market-kansas-city.",
+    "hoursSourceNote": "KCTV5, on the Kansas City area's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.kctv5.com/2026/04/03/these-kansas-city-area-farmers-markets-see-changes-2026/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "the-city-market-kansas-city",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Year-round in the River Market; the summer and autumn season runs through October",
+    "hoursSourceNote": "KCTV5, on the Kansas City area's 2026 farmers market season",
+    "hoursSourceUrl": "https://www.kctv5.com/2026/04/03/these-kansas-city-area-farmers-markets-see-changes-2026/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "the-post-farmers-market",
+    "notes": "Its USDA link goes to a CrossFit gym's site, not a farmers market."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "ville-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "waldo-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "walnut-grove-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "warren-county-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "warrensburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "washington-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "washington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "washington-tailgate-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to October, 317 W Main St, Washington",
+    "website": "https://www.washmomarket.com/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.washmomarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "webb-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays year-round; Tuesdays mid-April to mid-October (a Thursday market runs 11-2 in July only)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.webbcityfarmersmarket.com/"
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "west-plains-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "west-plains-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "weston-mo-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "MO",
+    "checked": "2026-09-15",
+    "slug": "willow-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

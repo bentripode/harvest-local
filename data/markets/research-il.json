@@ -1,0 +1,3419 @@
+[
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "18th-street-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "4-veggies-and-3-fruits-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "61st-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "95th-st-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "abundant-market-tuscola-s-downtown-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "aledo-main-street-farmer-s-market-and-bake-sale",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "alsip-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "alton-farmers-and-artisans-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 9, 2026, Landmarks Blvd and Henry St",
+    "hoursSourceNote": "Belleville News-Democrat's guide to metro-east farmers markets (2026, via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/first-tomatoes-fresh-bread-guide-101500310.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "andersonville-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 13 to Oct 21, 2026, 1500 W Winona St",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "andersonville-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "antioch-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "antioch-s-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "arlington-heights-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 9 to Oct 17, 2026, 110 W Fremont St",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ashburn-chicago-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "assumption-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "athens-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "aurora-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 3, 2026, 65 Water St",
+    "notes": "Aurora's downtown market is at 65 Water St in 2026.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "aurora-s-farmers-market-east",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "aurora-s-farmers-market-west",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "austin-city-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "austin-town-hall-city-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 11 to Oct 29, 2026, 5610 W Lake St",
+    "hoursSourceNote": "City of Chicago, 2026 farmers markets",
+    "hoursSourceUrl": "https://www.chicago.gov/city/en/depts/dca/supp_info/farmers_market.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "barrington-farmers-market",
+    "notes": "The village says 2026 dates are to be announced; no schedule recorded."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "barrington-village-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "batavia-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 17, 2026, N River St",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "batavia-indoor-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "beardstown-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "belleville-old-town-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "belvidere-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "belvidere-s-hometown-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "bensenville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "berwyn-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "bethalto-market-in-the-park",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "beverly-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026, 1835 W 95th St",
+    "notes": "Listed as the 95th Street Farmers Market.",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "bolingbrook-farmers-market",
+    "notes": "Bolingbrook's 2026 market at the Promenade is every other Thursday (Patch); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "breese-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "bronzeville-city-of-chicago-markets",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, South Side Sanctuary (4702 S King Dr)",
+    "hoursSourceNote": "City of Chicago, 2026 farmers markets",
+    "hoursSourceUrl": "https://www.chicago.gov/city/en/depts/dca/supp_info/farmers_market.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "brookfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026, 8820 Brookfield Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "brookfield-farmers-market-brookfield",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026",
+    "notes": "Duplicate USDA listing of brookfield-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "brookfield-farmers-market-il",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026",
+    "notes": "Duplicate USDA listing of brookfield-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "buffalo-grove-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 14 to Oct 11, 2026, Mike Rylko Community Park (951 McHenry Rd)",
+    "notes": "Now at Mike Rylko Park; Patch's 2026 dates fall on Sundays.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "burr-ridge-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "camp-point-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "cannon-park-community-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "canton-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "carbondale-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Last Saturday in March to first Saturday in December, Westowne Shopping Centre",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://farmersmarketcarbondale.com/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "carlinville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "carlyle-courthouse-square-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "carthage-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "centralia-il-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "champaign-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to October 2026, plaza at Neil and Main",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://thelandconnection.org/champaign-farmers-market/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "champaign-farmers-market-champaign",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as champaign-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://thelandconnection.org/champaign-farmers-market/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "champaign-urbana-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "chicago-nettlehorst-french-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 18 to Oct 31, 2026, 3252 N Broadway",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "chicago-street-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 22 to Sep 18, 2026, City Square (Clinton and Chicago St)",
+    "hoursSourceNote": "City of Joliet event calendar (2026 season)",
+    "hoursSourceUrl": "https://www.joliet.gov/Home/Components/Calendar/Event/10903/3617?toggle=allupcoming&npage=2"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "city-market-at-federal-plaza",
+    "notes": "Not on the City of Chicago's 2026 farmers market page."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "city-of-la-salle-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "cl-farms-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "clc-farm-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "clinton-area-farmers-and-artisans-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "colonial-village-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "columbus-park-city-of-chicago-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "community-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "community-winter-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "crete-european-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "crystal-lake-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Sep 26, 2026, Depot Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "cuba-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "daley-plaza-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 21 to Oct 22, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "danville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 3, 2026, 2721 N Vermilion St",
+    "notes": "Danville's 2026 market meets at the former Kmart lot on N Vermilion St.",
+    "hoursSourceNote": "WCIA, on the 2026 season",
+    "hoursSourceUrl": "https://www.wcia.com/news/vermilion-county/when-does-danvilles-farmers-market-kick-off-for-the-2026-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "davis-junction-farmer-s-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "deerfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 13 to Oct 2026, Park Ave between Jewett Park Dr and Hazel Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "dekalb-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 3, 2026 (12-6 on Jun 18, Jul 16, Aug 13; no market Aug 27), Van Buer Plaza",
+    "hoursSourceNote": "DeKalb Chamber of Commerce, who run it (2026 season)",
+    "hoursSourceUrl": "https://dekalb.org/dekalb-farmers-market/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "des-plaines-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "desoto-community-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "devon-avenue-community-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "discover-sycamore-farmer-s-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 1, 2026",
+    "notes": "Same market as sycamore-farmers-market.",
+    "hoursSourceNote": "Shaw Local (Daily Chronicle), May 24, 2026",
+    "hoursSourceUrl": "https://www.shawlocal.com/daily-chronicle/2026/05/24/sycamore-farmers-market-to-return-june-2/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "division-street-city-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 24, 2026",
+    "notes": "Same market as division-street-farmers-market.",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "division-street-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 16 to Oct 24, 2026 (closed July 4), 100 W Division St",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "dixon-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 10, 2026, John Dixon Park",
+    "notes": "John Dixon Park is a new location for 2026.",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "dixon-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downs-village-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-bloomington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, 200 N Main St",
+    "hoursSourceNote": "Downtown Bloomington Association, who run it",
+    "hoursSourceUrl": "https://www.downtownbloomington.org/farmers-market"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-bloomington-farmers-market-bloomington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as downtown-bloomington-farmers-market.",
+    "hoursSourceNote": "Downtown Bloomington Association, who run it",
+    "hoursSourceUrl": "https://www.downtownbloomington.org/farmers-market"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-bloomington-farmers-market-indoor",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-downers-grove-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Mid-May to late October 2026, Main Street train station lot",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-elgin-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 25, 2026, Spring St between Chicago and Fulton",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-elgin-winter-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-evanston-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 1800 Maple Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "downtown-paris-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "du-quoin-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "duquoin-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "dwight-main-street-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "east-dundee-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "east-moline-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "east-peoria-farmer-s-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Aug 28, 2026 (no market Jul 3), Levee Park",
+    "hoursSourceNote": "Discover Peoria, Greater Peoria farmers markets (2026)",
+    "hoursSourceUrl": "https://peoria.org/blog/post/farmersmarkets/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "edgebrook-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "edgebrook-neighborhood-farmers-market",
+    "notes": "Now the North Branch Farmers Market, biweekly in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "edgewater-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 1 to Sep 28, 2026, 5917 N Broadway",
+    "notes": "Listed for 2026 as the Edgewater Monday Market.",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "effingham-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 30 to the end of October 2026, Old Courthouse lawn",
+    "hoursSourceNote": "Visit Effingham (2026 season)",
+    "hoursSourceUrl": "https://www.visiteffinghamil.com/event/effingham-farmers-market/1340/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "eli-s-cheesecake-wright-college-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "elk-grove-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "elmhurst-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 3 to October 2026, 149 W Brush Hill Rd",
+    "notes": "Same market as elmhurst-farmers-market-elmhurst; it now meets on Brush Hill Rd.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "elmhurst-farmers-market-elmhurst",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 3 to October 2026, Elmhurst Christian Reformed Church lot",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "englewood-anchor-house-city-of-chicago-market",
+    "notes": "The Englewood Village market runs on select Saturdays in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "englewood-city-market",
+    "notes": "The Englewood Village market runs on select Saturdays in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ep-c-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "evanston-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 1800 Maple Ave",
+    "notes": "Same market as downtown-evanston-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "evergreen-park-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026, Yukich Fields (89th St and Kedzie Ave)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "faith-in-place-winter-farmers-markets-chicago-area",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "fall-harvest-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-country-fair",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-st-john-s",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-the-square",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "federal-plaza-chicago-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "first-market-in-mahomet",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "flossmoor-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "fox-lake-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "frankfort-country-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 26 to Oct 25, 2026, Breidert Green",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "freeport-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "11:00"
+      }
+    ],
+    "season": "May to Oct 10, 2026, CVS lot on South St",
+    "hoursSourceNote": "Visit Freeport (2026 season)",
+    "hoursSourceUrl": "https://www.visitfreeport.com/events/freeportcan-freeport-farmers-market/2026-06-26/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "galana-summer-marketplace",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "galena-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "galesburg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to September 2026, 362 E Simmons St",
+    "hoursSourceNote": "WGIL, on the 2026 opening day (April 29, 2026)",
+    "hoursSourceUrl": "https://www.wgil.com/2026/04/29/galesburg-farmers-market-2026-opening-day/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "garfield-park-neighborhood-market-indoor-season",
+    "notes": "2nd and 4th Saturdays only in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "gately-pullman-chicago-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jul 8 to Oct 28, 2026, 11100 S Cottage Grove Ave",
+    "notes": "Same market as pullman-farmers-market.",
+    "hoursSourceNote": "City of Chicago, 2026 farmers markets",
+    "hoursSourceUrl": "https://www.chicago.gov/city/en/depts/dca/supp_info/farmers_market.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "geneva-french-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 12 to Oct 25, 2026 (9-1 Nov 1 to Nov 16)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "geneva-green-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "October to April (the winter market)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.geneva-green-market.org/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "geneva-winter-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "glen-ellyn-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "glencoe-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "glenview-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June to October 2026, Historic Wagner Farm",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "glenwood-sunday-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 7 to Oct 25, 2026 (no market Jun 28, Aug 16)",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "golconda-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "grayslake-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Summer market from Jun 3, 2026 (spring market Saturdays 10-2, Apr 11 to May 30)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "green-city-market-lincoln-park",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays Apr 4 to Nov 21 (8 am opening in April and November); Wednesdays May 6 to Oct 28, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "green-city-market-west-loop",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 21, 2026, 900 W Monroe St",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "gurnee-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 6, 2026, Saratoga Square (5101 Washington St)",
+    "notes": "Now at Saratoga Square.",
+    "hoursSourceNote": "Gurnee Chamber of Commerce (2026 season)",
+    "hoursSourceUrl": "https://business.gurneechamber.com/events/details/2026-gurnee-farmers-market-1661126"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hanover-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hawthorn-woods-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hcc-realty-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hegewisch-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 13 to Oct 17, 2026 (no market Aug 1)",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "heirloom-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "heritage-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "herrin-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "highwoods-evening-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "16:30",
+        "closes": "21:00"
+      }
+    ],
+    "season": "Jun 3 to Aug 26, 2026, Everts Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hills-farmers-market-and-more",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 5 to Aug 28, 2026",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hinsdale-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to Oct 12, 2026, Burlington Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "homewood-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 30 to Oct 10, 2026, Martin Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "horner-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 10, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "humpday-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "humpday-farmers-market-carbondale",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "humpday-farmers-market-llc",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "huntley-farmers-market",
+    "notes": "Patch says second Saturdays, Shaw Local says every Saturday 8-1; the two disagree, so nothing recorded."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "hyde-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, Hyde Park Bank lot",
+    "notes": "The 2026 Hyde Park market meets in the Hyde Park Bank lot, not at Harper Court.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "illinois-farmers-market-association",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "illinois-products-farmers-market-illinois-department-of-agriculture",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "iman-fresh-beats-and-eats-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "iman-health-and-wellness-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "independence-park-farmers-market",
+    "notes": "2nd and 4th Sundays only in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "iron-street-urban-farm-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "jacksonville-farmers-market-at-lincoln-square",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Saturdays May 2 to Oct 31; Tuesdays May 19 to Sep 8; Wednesdays May 20 to Sep 9, 2026",
+    "hoursSourceNote": "America's Farmers Market Celebration listing (2026 dates)",
+    "hoursSourceUrl": "https://markets.farmland.org/market/jacksonville-farmers-market-at-lincoln-square/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "jacksonville-main-street-farmers-market-on-the-square",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "jbj-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "jefferson-park-sunday-market",
+    "notes": "2nd and 4th Sundays only in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "jerseyville-farmers-and-artisan-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 1, 2026 (no market Jul 14), City Center",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://jcba-il.us/market/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "joliet-city-center-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 22 to Sep 18, 2026, City Square",
+    "notes": "Same market as chicago-street-farmers-market.",
+    "hoursSourceNote": "City of Joliet event calendar (2026 season)",
+    "hoursSourceUrl": "https://www.joliet.gov/Home/Components/Calendar/Event/10903/3617?toggle=allupcoming&npage=2"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "joliet-junior-college-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "joliet-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "junction-city-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "kankakee-county-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as kankakee-farmers-market.",
+    "hoursSourceNote": "Shaw Local (Daily Journal), on its 28th year (April 30, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/daily-journal/2026/04/30/kankakee-farmers-market-returns-for-28th-year/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "kankakee-county-farmers-market-1",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as kankakee-farmers-market.",
+    "hoursSourceNote": "Shaw Local (Daily Journal), on its 28th year (April 30, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/daily-journal/2026/04/30/kankakee-farmers-market-returns-for-28th-year/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "kankakee-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, S Schuyler Ave and Merchant St",
+    "hoursSourceNote": "Shaw Local (Daily Journal), on its 28th year (April 30, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/daily-journal/2026/04/30/kankakee-farmers-market-returns-for-28th-year/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lafollette-park-farmers-market-pop-up",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lake-bluff-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 5 to Oct 9, 2026, Village Green",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lake-forest-open-air-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lake-zurich-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 5 to Sep 11, 2026 (no market Jul 3), Paulus Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lanark-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "land-of-goshen-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "From May 9, 2026, 100 St. Louis St",
+    "hoursSourceNote": "Belleville News-Democrat's guide to metro-east farmers markets (2026, via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/first-tomatoes-fresh-bread-guide-101500310.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lasalle-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lawndale-chicago-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "leaf-food-hub",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lemont-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lewistown-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "libertyville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 28 to Oct 15, 2026 (no market Jun 18), Cook Park",
+    "notes": "Same market as libertyville-s-main-street-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "libertyville-s-main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 28 to Oct 15, 2026 (no market Jun 18), Cook Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lincoln-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lincoln-square-chicago-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Tuesdays May to November; Thursdays May to October 2026, 2301 W Leland Ave",
+    "notes": "Same market as lincoln-square-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lincoln-square-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Tuesdays May to November; Thursdays May to October 2026, 2301 W Leland Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "lockport-farmers-market",
+    "notes": "Lockport has two 2026 Saturday markets (Trackside at the Metra station 9-1, and a community market at 69 Canal St 9-2); which this listing is cannot be told."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "low-line-market-at-southport",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 29, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "loyola-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "macomb-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market-downtown-aledo",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market-of-olney",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "main-street-paris-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mainstreet-libertyville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 28 to Oct 15, 2026 (no market Jun 18), Cook Park",
+    "notes": "Same market as libertyville-s-main-street-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "manteno-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "marengo-brookfield-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "marengo-friday-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "marion-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "market-in-the-park",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "marseilles-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "maryville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to August 2026, 300 N Donk Ave",
+    "hoursSourceNote": "Belleville News-Democrat's guide to metro-east farmers markets (2026, via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/first-tomatoes-fresh-bread-guide-101500310.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mattoon-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "maxwell-street-market",
+    "notes": "Monthly on six select Sundays in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "maywood-multicultural-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mchenry-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "17:00",
+        "closes": "19:30"
+      }
+    ],
+    "season": "May 14 to Sep 3, 2026, Veterans Memorial Park",
+    "notes": "Listed for 2026 as the Pearl Street Market.",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mendota-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "midtown-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "milledgeville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mokena-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mokena-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "momence-farmer-s-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "momence-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "monroe-county-farmer-s-market-columbia",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "monroe-county-farmer-s-market-waterloo",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "monticello-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "morrison-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "morton-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "June to August 2026, lot across from Jefferson Elementary",
+    "hoursSourceNote": "Discover Peoria, Greater Peoria farmers markets (2026)",
+    "hoursSourceUrl": "https://peoria.org/blog/post/farmersmarkets/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "morton-grove-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mount-carroll-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mount-carroll-farmers-market-mount-carroll",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-carmel-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-carmel-farmers-market-market-street-mercantile",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-carroll-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-morris-community-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-morris-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-prospect-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Oct 25, 2026, west Metra commuter lot",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-vernon-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mt-vernon-market-days",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "mundelein-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Sep 19, 2026, 10 W Park St",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "murphysboro-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "museum-of-contemporary-art-streeterville-chicago-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 19 to Nov 4, 2026",
+    "notes": "Same market as soar-farmers-market-mca.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://soarchicago.org/soarfarmersmarket/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "naper-settlement-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jul 1 to Sep 23, 2026",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "naperville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 31, 2026, next to the Fifth Avenue train station",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "nashville-chamber-of-commerce-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "navarro-farm",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "new-lenox-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May 21 to Sep 24, 2026, 1 Veterans Pkwy",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "nokomis-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "north-end-city-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "north-end-commons-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "north-valley-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "northbrook-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 17 to Oct 14, 2026, Meadow Plaza lot",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "northcenter-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 20 to Oct 24, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "northfield-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "northwest-side-farmers-market-collective",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oak-forest-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oak-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 23 to Nov 14, 2026, Pilgrim Church lot (460 Lake St)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "old-capitol-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:30"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 13 to Oct 31, 2026, Adams St between 2nd and 4th",
+    "hoursSourceNote": "Downtown Springfield Inc., who run it (2026 season)",
+    "hoursSourceUrl": "https://www.downtownspringfield.org/old-capitol-farmers-market"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "old-capitol-farmers-market-holiday-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "old-dundee-sunday-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "olde-schaumburg-centre-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 5 to Oct 30, 2026, Trickster Cultural Center lot (190 S Roselle Rd)",
+    "notes": "Listed for 2026 as the Schaumburg Farmers Market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oneida-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "open-air-farmers-market-at-the-dole-mansion",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 24 to Oct 25, 2026 (no market Jun 28 or Jul 5)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "orangeville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oregon-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oregon-park-district-oregon-illinois-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "oswego-country-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, 15 Main St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.oswegolandparkdistrict.org/programs-events/special-events/oswego-country-market/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ottawa-s-old-town-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 30 to Oct 17, 2026, Jackson St south of Washington Park",
+    "notes": "Listed for 2026 as the Ottawa Farmers and Makers Market.",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "palatine-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "palos-heights-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 13 to Oct 14, 2026, municipal lot at 12217 S Harlem Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "palos-heights-farmers-market-palos-heights",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 13 to Oct 14, 2026",
+    "notes": "Duplicate USDA listing of palos-heights-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "palos-park-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "patoka-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pekin-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:30",
+        "closes": "18:30"
+      }
+    ],
+    "season": "Jun 4 to Aug 27, 2026, Miller Center lot (551 S 14th St)",
+    "notes": "Pekin's 2026 market meets at the Miller Center, not downtown.",
+    "hoursSourceNote": "Discover Peoria, Greater Peoria farmers markets (2026)",
+    "hoursSourceUrl": "https://peoria.org/blog/post/farmersmarkets/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "peoria-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "peoria-heights-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "peoria-riverfront-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to late September 2026, 200 block of Water St",
+    "hoursSourceNote": "Discover Peoria, Greater Peoria farmers markets (2026)",
+    "hoursSourceUrl": "https://peoria.org/blog/post/farmersmarkets/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pfeiffer-farms-fresh-market-inc",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pilsen-community-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pinckneyville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "plainfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 13, 2026, library lot",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "plant-chicago-farmers-market",
+    "notes": "2nd Saturdays only in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "polo-chamber-of-commerce-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pontiac-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "portage-park-farmers-market",
+    "notes": "1st, 3rd and 5th Sundays only in 2026 (WBEZ); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "princeton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, Soldiers and Sailors Park",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "printers-row-chicago-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 16 to Oct 31, 2026, 632 S Dearborn St",
+    "notes": "Listed for 2026 as the South Loop Farmers Market at Printers Row.",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "pullman-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jul 8 to Oct 28, 2026, 11100 S Cottage Grove Ave",
+    "hoursSourceNote": "City of Chicago, 2026 farmers markets",
+    "hoursSourceUrl": "https://www.chicago.gov/city/en/depts/dca/supp_info/farmers_market.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "qc-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Through late October, 1800 block of 2nd Ave, downtown Rock Island",
+    "notes": "The market has moved to downtown Rock Island.",
+    "hoursSourceNote": "WQAD, on the market's move to downtown Rock Island",
+    "hoursSourceUrl": "https://www.wqad.com/article/news/community/qc-farmers-market-rock-island-moving/526-ca426383-1c4d-471e-ae11-0542123d9915"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "quad-cities-growers-markets",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "quincy-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to October 2026 (except May 9 and the last Saturday of each month), Sixth St between Maine and Hampshire",
+    "hoursSourceNote": "The District, Quincy, on the 2026 season",
+    "hoursSourceUrl": "https://www.thedistrictquincy.com/2026-the-district-quincy-farmers-market-returns-for-44th-year/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rantoul-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ravenswood-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:30",
+        "closes": "19:30"
+      }
+    ],
+    "season": "Jun 3 to Oct 21, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ravinia-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026, Jens Jensen Park",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "richland-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ridgeville-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "river-s-edge-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "riverside-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rochester-public-library-farmers-market",
+    "notes": "Every 2nd and 4th Sunday in 2026 (library's own page); not weekly."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rock-falls-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rockford-city-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Summer season, 100 N Water St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.rockfordcitymarket.com/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rockford-midtown-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 4 to Sep 24, 2026, indoors at Katie's Cup (502 Seventh St)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://rockfordmidtownmarket.com/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "rockford-shumway-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "roscoe-village-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "roseland-city-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "sainte-marie-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "saturday-produce-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "seaway-bank-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "seguin-gardens-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "sidetrack-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "skokie-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "07:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "From May 31, 2026, 5127 Oakton St",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "soar-farmers-market-mca",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 19 to Nov 4, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://soarchicago.org/soarfarmersmarket/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "southport-green-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "spears-family-market-farmer-s-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "st-charles-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October, Riverside Ave north of the Municipal Center",
+    "hoursSourceNote": "City of St. Charles",
+    "hoursSourceUrl": "https://www.stcharlesil.gov/News-Events/Farmers-Market"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "stade-s-farm-and-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "star-farm-back-of-the-yards-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "steeleville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "streator-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026, Streator City Park",
+    "notes": "Same market as streator-farmers-market.",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "streator-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October 2026, Streator City Park",
+    "hoursSourceNote": "Shaw Local, Fresh Finds: farmers markets in northern Illinois (May 31, 2026)",
+    "hoursSourceUrl": "https://www.shawlocal.com/thescene/2026/05/04/fresh-finds-farmers-markets-to-visit-in-northern-illinois-this-season/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "sugar-grove-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "summit-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "swansea-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "sycamore-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Jun 2 to Sep 1, 2026, front lawn of the DeKalb County History Center",
+    "notes": "Now hosted by the DeKalb County History Center.",
+    "hoursSourceNote": "Shaw Local (Daily Chronicle), May 24, 2026",
+    "hoursSourceUrl": "https://www.shawlocal.com/daily-chronicle/2026/05/24/sycamore-farmers-market-to-return-june-2/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "taste-of-eden-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "taylorville-farmers-marketplace",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "taylorville-market-day",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "the-abraham-lincoln-memorial-hospital-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "the-hyde-park-farmer-s-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 7 to Sep 27, 2026, 1516 E 54th St",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "the-lincoln-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 25 to Nov 21, 2026, enter at Armitage and Orchard",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "the-lmh-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "the-territory-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "thornton-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "tinley-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Oct 24, 2026, Zabrocki Plaza (17375 S Oak Park Ave)",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "tinley-park-farmers-market-tinley-park",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Oct 24, 2026, Zabrocki Plaza",
+    "notes": "Duplicate USDA listing of tinley-park-farmers-market.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "tower-island-chute-farmer-s-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "twice-s-belmont-cragin-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "twin-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round indoors at 106 Avenue A, outdoors May to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://twincityfarmersmarket.com/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "ujamaa-co-op-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "uncommon-ground-farmer-friday-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "union-county-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "uptown-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 6 to Nov 4, 2026, 1250 W Sunnyside Ave",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "uptown-farmers-market-chicago",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:30",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 6 to Nov 4, 2026",
+    "notes": "Same market as uptown-farmers-market.",
+    "hoursSourceNote": "WBEZ Chicago, 2026 guide to farmers markets throughout Chicago (May 20, 2026)",
+    "hoursSourceUrl": "https://www.wbez.org/food-drink/2026/05/20/2026-farmers-market-guide-chicago"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "urbana-market-at-the-square",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026, Illinois and Vine St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://urbanamarket.org/"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "vandalia-illinois-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "vernon-hills-park-district-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "villa-park-french-market",
+    "notes": "Yelp marks the Villa Park French Market closed (August 2025); no 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "village-of-lakemoor-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "village-of-lemont-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "village-of-orland-park-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "June to August 2026, Centennial Park West",
+    "notes": "Listed for 2026 as Orland Park's Market at the Park.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "village-of-park-forest-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 30 to Oct 3, 2026",
+    "notes": "Patch lists Park Forest's 2026 market at 26th and Western Ave.",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "village-of-thornton-market-in-the-park",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "vine-street-market-at-o-fallon-station",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, 212 E 1st St",
+    "hoursSourceNote": "Belleville News-Democrat's guide to metro-east farmers markets (2026, via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/first-tomatoes-fresh-bread-guide-101500310.html"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "warrenville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "watseka-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "wauconda-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 18 to Oct 1, 2026, 100 N Main St",
+    "hoursSourceNote": "Wauconda Area Chamber of Commerce (2026 season)",
+    "hoursSourceUrl": "https://business.waucondachamber.org/events/details/farmer-s-market-2026-18661"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "wellness-rising-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "west-frankfort-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "west-humbolt-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "west-town-health-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "westmont-open-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "wheaton-french-market",
+    "notes": "Patch gives Saturdays 8-1 and Shaw Local 8-2 for 2026; the two disagree, so nothing recorded."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "wicker-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October 2026, 1425 N Damen Ave",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "wilmette-french-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 18 to Oct 31, 2026",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "winfield-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "From June 2026, 27W171 Geneva Rd",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "winter-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays May to October; Tuesdays May to September 2026, Woodstock Square",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market-indoor",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market-saturday-summer",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October 2026, Woodstock Square",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market-tuesday-summer",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to September 2026, Woodstock Square",
+    "hoursSourceNote": "Patch, IL Farmers Market Guide 2026",
+    "hoursSourceUrl": "https://patch.com/illinois/across-il/il-farmers-market-guide-2026-where-go-what-know"
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market-winter",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "woodstock-winter-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "yorkville-farmers-market",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  },
+  {
+    "state": "IL",
+    "checked": "2026-09-15",
+    "slug": "zion-market-days",
+    "notes": "Not in Patch's 2026 Illinois guide, WBEZ's 2026 Chicago guide, Shaw Local's 2026 northern Illinois list or the City of Chicago's 2026 page, and no dated 2026 schedule found."
+  }
+]

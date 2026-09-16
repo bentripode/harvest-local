@@ -1,0 +1,2429 @@
+[
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "17th-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "abingdon-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Saturdays year-round; Tuesdays April to September",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.abingdonfarmersmarket.com/vendors/2019-afm-application-packet-docx/2026-market-rules/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "albemarle-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Sep 12, 2026, Hollymead Towncenter",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://albemarlefarmersmarket.com/about"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "alexandria-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "altavista-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "annandale-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Mason District Park",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "appomattox-gallery-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "archwood-green-barns-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "arlington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 1400 N Courthouse Rd (9 am opening January to March)",
+    "hoursSourceNote": "Arlington Magazine's farmers market guide",
+    "hoursSourceUrl": "https://www.arlingtonmagazine.com/farmers-markets-arlington-virginia/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "ballston-freshfarm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "bec-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "bedford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "bedford-va-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "birdhouse-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to November, 1507 Grayland Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://birdhousefarmersmarket.org/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "blacksburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "bland-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "bowling-green-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "brandermill-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "broadway-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "broadway-va-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "brookland-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "buckland-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "buckroe-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to September 2026, 100 S 1st St",
+    "hoursSourceNote": "MyActiveChild Hampton Roads' 2026 market guide",
+    "hoursSourceUrl": "https://hamptonroads.myactivechild.com/blog/hampton-roads-farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "burke-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 18 to Nov 21, 2026, VRE parking lot",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "busfarm-indoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "byrd-house-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "cartersville-farm-and-art-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "cascades-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October, 21060 Whitfield Place",
+    "hoursSourceNote": "Loudouner's guide to Loudoun County farmers markets",
+    "hoursSourceUrl": "https://loudouner.com/farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "catawba-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "cedar-lane-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "charlottesville-city-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to November 2026, downtown Charlottesville",
+    "hoursSourceNote": "City of Charlottesville, on the 2026 season",
+    "hoursSourceUrl": "https://charlottesville.org/CivicAlerts.asp?AID=2501"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesapeake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesapeake-farmers-market-chesapeake-city-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesapeake-farmers-marketplace-at-city-hall",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesapeake-health-department-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesapeake-health-department-wednesday-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chester-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesterfield-berry-farm-and-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chesterfield-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chilhowie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chincoteague-island-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "chincoteague-island-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "christopher-newport-university-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "city-center-farmers-market-oyster-point",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "city-of-manassas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "city-of-virginia-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as the-virginia-beach-farmers-market.",
+    "hoursSourceNote": "City of Virginia Beach",
+    "hoursSourceUrl": "https://agriculture.virginiabeach.gov/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "clarendon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "clifton-forge-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "coleman-nursery-and-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "colonial-heights-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "columbia-pike-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 2820 Columbia Pike",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.columbia-pike.org/farmersmarket/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "community-farmers-market-of-blacksburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "cornerstone-farm-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "covington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "crozet-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "cullipher-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "culpeper-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "damascus-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "danville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "daughter-of-the-stars-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "dayton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "deltaville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "dorey-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "downtown-hampton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "downtown-south-boston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "draper-valley-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "earlysville-farmers-market",
+    "notes": "Its site's latest posts are from 2015; no current schedule found."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "east-beach-eov-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "eastern-orange-farmers-market",
+    "notes": "Its blog stopped in 2020; no current schedule found."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fairfax-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fairfax-county-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fairfax-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fairlington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "falls-church-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, City Hall lot at 300 Park Ave",
+    "hoursSourceNote": "City of Falls Church",
+    "hoursSourceUrl": "https://www.fallschurchva.gov/FarmersMarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "famers-market-in-christiansburg",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-in-the-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-citizen-s-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-city-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-new-highland-baptist-church",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-st-stephens",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-st-stephen-s",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-woodbridge",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "farmville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "floyd-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fluvanna-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "forest-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "forest-lakes-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "four-mile-run-farmers-and-artisans-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Alexandria's Sunday market at Four Mile Run Park",
+    "notes": "The city lists Sunday hours for the Four Mile Run market.",
+    "hoursSourceNote": "City of Alexandria's farmers markets",
+    "hoursSourceUrl": "https://alexandriava.gov/FarmersMarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "four-seasons-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "franklin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "franklin-s-market-on-main",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fredericksburg-farmers-market-mary-washington-healthcare",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fredericksburg-va-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freight-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-arlington-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 1400 N Courthouse Rd",
+    "notes": "Same market as arlington-farmers-market.",
+    "hoursSourceNote": "Arlington Magazine's farmers market guide",
+    "hoursSourceUrl": "https://www.arlingtonmagazine.com/farmers-markets-arlington-virginia/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-ballston-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-mosaic-sunday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-oakton",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-reston",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-rosslyn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "fries-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "front-royal-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "galax-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "galax-farmers-market-galax",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "game-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "ghent-farmers-market",
+    "notes": "First and third Fridays only, April to September (the market's own site); not weekly."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "goochland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "grandin-village-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "great-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "green-bay-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "green-mills-market-at-potomac",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "greene-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "halifax-market-place-and-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "harrisonburg-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to November (Saturdays 9-1, December to March)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.harrisonburgfarmersmarket.com/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "haymarket-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "haymarket-thursday-afternoon-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "heart-of-virginia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "heathsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "herndon-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Old Town Herndon by the red caboose",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "hillsboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "historic-manassas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "historic-roanoke-city-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round; most farm vendors set up Friday and Saturday mornings",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.downtownroanoke.org/explore/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "hopewell-s-third-thursday-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "huguenot-robious-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "huguenot-robious-farmers-market-the-great-big-greenhouse",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "isle-of-wight-and-smithfield-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "j-and-e-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "kenbridge-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "king-george-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "king-street-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "kingstowne-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 1 to Oct 23, 2026, Giant parking lot at Kingstowne Towne Center",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "kqcd-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "la-plaza-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "lakeside-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 6110 Lakeside Ave",
+    "hoursSourceNote": "RVA on the Cheap's Richmond farmers market guide",
+    "hoursSourceUrl": "https://www.rvaonthecheap.com/richmonds-farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "leap-mobile-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "lebanon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "leesburg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 30 Catoctin Circle SE",
+    "hoursSourceNote": "Loudouner's guide to Loudoun County farmers markets",
+    "hoursSourceUrl": "https://loudouner.com/farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "lf-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "local-apx-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "long-family-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "long-family-markets-stafford",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "long-family-markets-woodbridge",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "long-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "loudoun-station-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "louisa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "lovettsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "lynchburg-community-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "07:00",
+        "closes": "14:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round (the farmers market itself runs Saturdays 8-1)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://lynchburgcommunitymarket.com/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "manassas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "manassas-farmers-market-thursday",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "marion-regional-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "marker-miller-orchards-farm-market-and-bakery",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "market-at-la-grange",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "marshall-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "martinsville-uptown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "mary-washington-hospital-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "marymount-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "mccutcheon-mount-vernon-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 22 to Nov 25, 2026, Sherwood Library",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "mclean-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 1 to Oct 30, 2026 (closed May 15), Lewinsville Park",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "middleburg-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "At Middleburg Community Charter School",
+    "notes": "Loudouner gives the market's day and venue; its hours are from the same guide.",
+    "hoursSourceNote": "Loudouner's guide to Loudoun County farmers markets",
+    "hoursSourceUrl": "https://loudouner.com/farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "midlothian-mines-farmers-market",
+    "notes": "GrowRVA's Sunday market at Forest Hill Park is the South of the James market; no separate schedule found for Midlothian Mines Park."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "mineral-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "mineral-farmer-s-market-mineral",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "montross-market-days",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "narrows-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "new-highland-baptist-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "new-market-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "nokesville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "north-garden-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "north-stafford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "norton-friends-and-farmer-s-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "16:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "June to September, Norton Expo Center",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.nortonva.gov/431/Farmers-Market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "nova-central-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "oak-marr-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 6 to Oct 28, 2026, Oakmont Recreation Center",
+    "notes": "The county lists this as its Oakmont market.",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "oakton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "old-town-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "old-town-farmers-market-2",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, 100 block of N Royal St",
+    "hoursSourceNote": "City of Alexandria's farmers markets",
+    "hoursSourceUrl": "https://alexandriava.gov/FarmersMarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "olde-towne-curb-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "onthesquareva-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pamplin-depot-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pearisburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pike-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 2820 Columbia Pike",
+    "notes": "Same market as columbia-pike-farmers-market (Arlington's Columbia Pike market at Pike Park).",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.columbia-pike.org/farmersmarket/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pop-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "portsmouth-farmer-s-market-portsevents",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "powhatan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "powhatan-village-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "prince-george-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pulaski-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pulaski-farmers-market-the-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "purcellville-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "11:00"
+      }
+    ],
+    "season": "April to October, behind Nostalgia Boutique (142 E Main St)",
+    "hoursSourceNote": "Loudouner's guide to Loudoun County farmers markets",
+    "hoursSourceUrl": "https://loudouner.com/farmers-markets/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "pure-harvest-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "radford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "red-mill-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "remington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "reston-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Apr 25 to Nov 21, 2026, 1609 Washington Plaza N (Lake Anne)",
+    "hoursSourceNote": "Fairfax County Park Authority's 2026 farmers market schedule",
+    "hoursSourceUrl": "https://www.fairfaxcounty.gov/parks/farmersmarkets"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "reston-farmers-market-by-freshfarm",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "river-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "roanoke-city-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as historic-roanoke-city-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.downtownroanoke.org/explore/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "roanoke-historic-city-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as historic-roanoke-city-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.downtownroanoke.org/explore/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "rocky-mount-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "rosslyn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "rt-639-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "rural-retreat-farmers-market-at-the-depot",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "salem-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "saturday-community-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round, City Hall lot",
+    "notes": "Falls Church runs one Saturday market, at City Hall.",
+    "hoursSourceNote": "City of Falls Church",
+    "hoursSourceUrl": "https://www.fallschurchva.gov/FarmersMarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "scottsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "second-street-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "shawsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "shenandoah-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "shore-drive-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "sister-cities-french-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "skinquarter-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-bristow",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-chantilly",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-huntington",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-lake-ridge",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-oakton",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-reston",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-springfield",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smart-markets-tysons",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "smithfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "south-boston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "south-hill-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "south-of-the-james-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, Forest Hill Park",
+    "hoursSourceNote": "GrowRVA, who run the South of the James market",
+    "hoursSourceUrl": "https://www.growrva.com/sojmarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "south-of-the-james-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "south-street-barn-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "southwest-virginia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "spotsylvania-farmers-market-at-spotsylvania-regional-medical",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "April to September 2026 (a Sunday market, 9-2, runs April to Dec 20 at Spotsylvania High School)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.spotsylvania.va.us/2881/SPOTSYLVANIA-FARMERS-MARKET"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "spotsylvania-farmers-market-vdot-commuter-lot",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "springfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "st-andrews-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "st-paul-s-downtown-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "st-stephen-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "staunton-augusta-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "April to September 2026 at 2020 W Beverley St (8-12 October to mid-November)",
+    "notes": "The market moved from The Wharf to a temporary West End site for 2026.",
+    "hoursSourceNote": "WHSV, on the market's 2026 move",
+    "hoursSourceUrl": "https://www.whsv.com/2026/04/03/staunton-farmers-market-will-be-moving-locations-starting-april-4/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "strasburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "stuart-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "suffolk-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "sunflower-cottage-gourmet-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "surry-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "talbot-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "tappahannock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "tazewell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-albemarle-farmers-market",
+    "notes": "Charlottesville's City Market runs Saturdays downtown; this listing's own market was not separately scheduled."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-bedford-farmer-managed-market-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-carytown-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026, City Stadium",
+    "hoursSourceNote": "the market's own site (2026 season)",
+    "hoursSourceUrl": "https://www.carytownmarket.com/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-farmfarm-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-historic-city-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-magnolia-green",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-second-stage",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-markets-fare-at-east-beach",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-montpelier-center-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-national-drive-thru-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-onancock-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October, Market and Ames Streets (a Tuesday afternoon market runs on first and third Tuesdays)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.onancockmarket.com/"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-south-of-the-james-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, Forest Hill Park",
+    "notes": "Same market as south-of-the-james-farmers-market.",
+    "hoursSourceNote": "GrowRVA, who run the South of the James market",
+    "hoursSourceUrl": "https://www.growrva.com/sojmarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-surry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-town-of-pamplin-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "the-virginia-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round, Dam Neck and Princess Anne Roads",
+    "hoursSourceNote": "City of Virginia Beach",
+    "hoursSourceUrl": "https://agriculture.virginiabeach.gov/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "town-of-gate-city-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "town-of-halifax-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "town-of-hillsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "town-of-mount-jackson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "tricycle-gardens-four-season-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "uptown-martinsville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "urbanna-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "verona-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "vienna-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026, Vienna Community Center",
+    "hoursSourceNote": "Optimist Club of Greater Vienna, who run it",
+    "hoursSourceUrl": "https://www.optimistclubofgreatervienna.org/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "vienna-saturday-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May to October 2026",
+    "notes": "Same market as vienna-farmers-market.",
+    "hoursSourceNote": "Optimist Club of Greater Vienna, who run it",
+    "hoursSourceUrl": "https://www.optimistclubofgreatervienna.org/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "vinton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "virginia-beach-farmers-market",
+    "hours": [
+      {
+        "day": "Mon",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "16:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as the-virginia-beach-farmers-market.",
+    "hoursSourceNote": "City of Virginia Beach",
+    "hoursSourceUrl": "https://agriculture.virginiabeach.gov/farmers-market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "virginia-grown-farmers-market-at-the-olde-dominion-ag-ctr",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wakefield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wallops-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "warrenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "warsaw-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "waynesboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wayside-inn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wellness-connection-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "west-end-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "west-end-farmers-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "west-end-farmers-market-3",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, Ben Brenman Park",
+    "hoursSourceNote": "City of Alexandria's farmers markets",
+    "hoursSourceUrl": "https://alexandriava.gov/FarmersMarket"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "west-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "westchester-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "westlake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "westover-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "williamsburg-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Feb 7 to December 2026, Duke of Gloucester St",
+    "hoursSourceNote": "City of Williamsburg, on the 2026 season",
+    "hoursSourceUrl": "https://www.williamsburgva.gov/1182/Farmers-Market"
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "winchester-city-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "winchester-freight-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "windsor-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wise-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "woodbine-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "woods-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wytheville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "wytheville-farmers-market-wytheville",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "ynot-wednesday-farmers-market-at-town-center",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "yorktown-market-days",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "VA",
+    "checked": "2026-09-15",
+    "slug": "zion-crossroads-farmers-and-flea-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

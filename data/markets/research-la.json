@@ -1,0 +1,548 @@
+[
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "abbeville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "abita-springs-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "acadiana-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "alexandria-farmers-market",
+    "notes": "Its Louisiana Central page carries no readable day or hours."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "barcelo-gardens-and-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "bossier-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to November 2026 (no breaks), Pierre Bossier Mall car park",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.bossiercityfarmersmarket.com/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "bossier-city-farmers-market-bossier-city",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "April to November 2026, Pierre Bossier Mall car park",
+    "website": "https://www.bossiercityfarmersmarket.com/",
+    "notes": "Same market as bossier-city-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.bossiercityfarmersmarket.com/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "bounyful-green-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "boyce-farmers-market",
+    "notes": "Its USDA link goes to a church's site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "cajun-farmers-market-of-houma-terrebonne",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "camellia-city-farmers-market",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "cane-river-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "cash-and-carry-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "charlestown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "covington-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Saturdays at Covington City Hall, 609 N Columbia St; Wednesdays at the Covington Trailhead",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.covingtonfarmersmarket.org/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "crescent-city-farmers-market",
+    "notes": "Market Umbrella runs three Crescent City markets on different days from this address; the individual markets are listed separately."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "crescent-city-farmers-market-i",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "The Uptown Tuesday market at The Batture, New Orleans",
+    "website": "https://www.crescentcityfarmersmarket.org/uptown-tuesday-market",
+    "hoursSourceNote": "Crescent City Farmers Market (Market Umbrella), who run them",
+    "hoursSourceUrl": "https://www.crescentcityfarmersmarket.org/uptown-tuesday-market"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "crescent-city-farmers-market-iii",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "The Mid-City Thursday market on the Lafitte Greenway; winter hours are 3-6 until mid-March",
+    "website": "https://www.crescentcityfarmersmarket.org/mid-city-thursday-market",
+    "hoursSourceNote": "Crescent City Farmers Market (Market Umbrella), who run them",
+    "hoursSourceUrl": "https://www.crescentcityfarmersmarket.org/mid-city-thursday-market"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "delcambre-seafood-and-farmers-market",
+    "notes": "The market runs on the first Saturday of the month from March to December, so no weekly hours are recorded."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "eunice-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-gardening-and-gift-shop",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "fightingville-fresh",
+    "notes": "The market's own site carries no readable day or hours."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "franklin-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "george-brooks-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "german-coast-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "greenwood-farmers-market",
+    "notes": "Its USDA link goes to the town's site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "hammond-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "hammond-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "harahan-framers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "harvest-moon-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "haughton-farmers-market-and-artisan-fair",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "hub-city-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "inglewood-harvest-barn-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "lafayette-farmers-and-artisan-market-at-the-horse-farm",
+    "notes": "The domain in the USDA listing now serves unrelated content, not the market."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "lafayette-farmers-and-artisans-market",
+    "notes": "The domain in the USDA listing now serves unrelated content, not the market."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "lafayette-s-hub-city-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "lafourche-central-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "lafreniere-park-farmers-arts-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "mandeville-trailhead-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "marksville-main-street-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "merryville-fresh-produce-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "morehouse-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "new-orleans-east-hospital-farmer-s-market",
+    "notes": "Its USDA link goes to the hospital's own site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "oakdale-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "old-algiers-harvest-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "opelousas-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "open-air-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "our-school-at-blair-grocery-farmers-market",
+    "notes": "Its blog carries no current day or hours."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "provenance-fall-farmers-market",
+    "notes": "Its USDA link goes to a property developer's site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "red-stick-farmers-market-ii",
+    "notes": "BREADA lists Saturday, Thursday and seasonal Tuesday markets; this listing's Goodwood Blvd address matches the seasonal Tuesday market, which is recorded separately."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "red-stick-farmers-market-iii",
+    "notes": "BREADA lists Saturday, Thursday and seasonal Tuesday markets; this listing's Perkins Road address matches the Thursday market, which is recorded separately."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "red-stick-farmers-market-saturday-downtown-year-round",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round at the Main Street Market, 5th and Main",
+    "hoursSourceNote": "BREADA, who run the Red Stick markets",
+    "hoursSourceUrl": "https://breada.org/red-stick-farmers-market/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "red-stick-farmers-market-seasonal-tuesdays",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "April to June at the Main Library at Goodwood, 7711 Goodwood Blvd",
+    "hoursSourceNote": "BREADA, who run the Red Stick markets",
+    "hoursSourceUrl": "https://breada.org/red-stick-farmers-market/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "red-stick-farmers-market-thursday-year-round",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Year-round at the Pennington Biomedical Research Center, 6400 Perkins Rd",
+    "hoursSourceNote": "BREADA, who run the Red Stick markets",
+    "hoursSourceUrl": "https://breada.org/red-stick-farmers-market/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "refresh-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "rivertown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "ruston-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "220 E Mississippi Ave, Ruston",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rustonfarmersmarket.org/"
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "sankofa-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "shreveport-farmers-market",
+    "notes": "Red River Revel's published Saturday hours (7:30-12:30 at Festival Plaza) are from an earlier season and are not dated to 2026."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "south-bossier-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "st-bernard-seafood-and-farmers-market",
+    "notes": "Its USDA link goes to a tourism site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "st-landry-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "tech-area-farmers-market",
+    "notes": "Its USDA link goes to the City of New Iberia's site, which carries no market schedule."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "the-market-at-saint-thomas",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "the-market-nhumc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "thibidoux-main-st-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "thibodaux-main-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "third-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "town-of-greenwood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "ville-platte-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "welsh-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "west-monroe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "westwego-farmers-and-fisheries-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "winn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "LA",
+    "checked": "2026-09-15",
+    "slug": "zachary-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

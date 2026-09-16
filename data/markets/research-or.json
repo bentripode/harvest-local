@@ -1,0 +1,1156 @@
+[
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "albany-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 18 to Nov 21, 2026, Water and Ferry",
+    "website": "https://locallygrown.org/",
+    "hoursSourceNote": "Corvallis-Albany Farmers' Markets, who run them (2026 season)",
+    "hoursSourceUrl": "https://locallygrown.org/markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "aloha-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "ashland-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "March to November in downtown Ashland",
+    "website": "https://www.rvgrowersmarket.com/ashland-saturday-market/",
+    "hoursSourceNote": "Rogue Valley Growers & Crafters Market, who run it",
+    "hoursSourceUrl": "https://www.rvgrowersmarket.com/ashland-saturday-market/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "ashland-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "ashland-tuesday-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "March to November at ScienceWorks, 1500 E Main St",
+    "website": "https://www.rvgrowersmarket.com/ashland-tuesday-market/",
+    "notes": "The market's page still carries 2025 season dates.",
+    "hoursSourceNote": "Rogue Valley Growers & Crafters Market, who run it",
+    "hoursSourceUrl": "https://www.rvgrowersmarket.com/ashland-tuesday-market/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "astoria-sunday-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Mother's Day to mid-October, 12th St in downtown Astoria",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.astoriasundaymarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "beaverton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "April to Nov 21, 2026 at 12375 SW 5th St (10-1:30 in February and March)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.beavertonfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "bend-farmers-market-friday",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "May 6 to Oct 14, 2026 in downtown Bend",
+    "notes": "The market runs on Wednesdays, not the Friday in this listing's name.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.bendfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "boring-saturday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "brookings-harbor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "brookings-harbor-farmers-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "brookings-midtown-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "canyonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "cave-junction-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "clatskanie-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June to September in Cope's Park",
+    "website": "https://www.clatskaniefarmercollective.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.clatskaniefarmercollective.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "colton-farmers-and-crafters-market",
+    "notes": "Its site's latest season is 2019; no current schedule found."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "come-thru-market",
+    "notes": "The market's own site says it runs the first and third Mondays, June to October, so no weekly hours are recorded."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "coos-bay-downtown-association-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "coos-bay-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "cornelius-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "corvallis-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays Apr 18 to Nov 21, 2026 at 1st and Jackson; Wednesdays Apr 22 to Nov 25",
+    "hoursSourceNote": "Corvallis-Albany Farmers' Markets, who run them (2026 season)",
+    "hoursSourceUrl": "https://locallygrown.org/markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "corvallis-indoor-winter-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jan 9 to Apr 10, 2027, 110 SW 53rd St",
+    "website": "https://corvalliswintermarket.org/",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://corvalliswintermarket.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "creswell-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "crop-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "cully-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "May to September 2026, NE 42nd Ave and NE Alberta St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://cullyfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "damascus-fresh-and-local-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "downtown-hillsboro-saturday-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Through October 2026, downtown Hillsboro",
+    "website": "https://hillsboromarkets.org/downtown",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://hillsboronewstimes.com/2026/04/22/hillsboro-farmers-markets-new-tanasbourne-market-to-pop-up-this-spring/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "estacada-farmers-market",
+    "notes": "The domain in the USDA listing now serves unrelated syndicated articles, not the market."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "fairview-farmers-and-artist-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "farmers-friday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-at-the-grange",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "florence-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "forest-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "glide-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "goble-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "grants-pass-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "gresham-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hayden-island-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hermiston-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hideaway-farmers-market",
+    "notes": "Its USDA link goes to an Italian restaurant's site, not a farmers market."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hillsboro-farmers-markets-downtown-hillsboro",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Through October 2026, downtown Hillsboro",
+    "website": "https://hillsboromarkets.org/downtown",
+    "notes": "Same market as downtown-hillsboro-saturday-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://hillsboronewstimes.com/2026/04/22/hillsboro-farmers-markets-new-tanasbourne-market-to-pop-up-this-spring/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hillsboro-farmers-markets-orenco-station",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 26 to Oct 25, 2026, 6125 NE Cornell Rd",
+    "website": "https://hillsboromarkets.org/orenco",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://hillsboromarkets.org/orenco"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hillsboro-farmers-markets-orenco-station-hillsboro",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 26 to Oct 25, 2026, 6125 NE Cornell Rd",
+    "website": "https://hillsboromarkets.org/orenco",
+    "notes": "Same market as hillsboro-farmers-markets-orenco-station.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://hillsboromarkets.org/orenco"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hillsdale-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, between Ida B Wells High School and Rieke Elementary",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.hillsdalefarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hollywood-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hood-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hood-river-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "hoodland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "irrigon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "kaiser-hospital-farmers-market",
+    "notes": "Hillsboro Farmers' Markets no longer lists a market at the Kaiser hospital site."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "kensington-metropark-s-farmers-market",
+    "notes": "This listing is a Michigan metropark's farm centre, wrongly filed under Oregon; no Oregon market schedule found."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "kenton-portland-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, N McClellan St and Denver Ave",
+    "notes": "Same market as portland-farmers-market-kenton.",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "klamath-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October, 100 S 9th St in downtown Klamath Falls",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://klamathfallsfarmersmarket.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "klamath-falls-farmers-market-klamath-falls",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October, 100 S 9th St",
+    "website": "https://klamathfallsfarmersmarket.org/",
+    "notes": "Same market as klamath-falls-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://klamathfallsfarmersmarket.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lake-oswego-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lake-oswego-reunion-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lane-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lane-county-holiday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lookingglass-grange-farmers-market",
+    "notes": "Its site's latest season is 2022; no current schedule found."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "lower-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "manzanita-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "16:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 15 to Sep 25, 2026, 635 Manzanita Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.manzanitafarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "mcminnville-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 21 to Oct 22, 2026, First and Cowls next to City Hall",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://downtownmcminnville.com/farmersmarket/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "milwaukie-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "molalla-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "montavilla-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Every Sunday May to Dec 20; every other Sunday January to April, 7700 SE Stark St",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.montavillamarket.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "mosier-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "new-heritage-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "north-albany-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "north-coast-online-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "north-powder-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "north-umpqua-farmers-and-artisans-regional-marketplace-nufarm",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "oakridge-oregon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "ohsu-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June to September 2026, the OHSU Auditorium courtyard",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ohsu.edu/farmers-market"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "old-town-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "ontario-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "oregon-city-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "website": "https://orcityfarmersmarket.com/",
+    "notes": "The market has moved to Clackamas Community College (Green Lots 1 on Clairmont Drive), not the Kaen Rd address in the USDA listing.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://orcityfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "oregon-city-year-round-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "parkrose-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "philomath-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "polk-county-bounty-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "polk-county-bounty-market-2",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market-kenton",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Jun 3 to Sep 30, 2026, N McClellan St and Denver Ave",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market-king",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 3 to Nov 22, 2026, NE 7th Ave and Wygant St",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market-lents-international",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 7 to Nov 22, 2026, SE 92nd Ave and Reedway St",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market-portland-state-university",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Year-round at SW Park Ave and Montgomery St; 8:30-2 to Oct 30, 2026 and 9-2 from Nov 7",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "portland-farmers-market-shemanski-park",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 6 to Oct 28, 2026 (plus Nov 25), SW Park Ave and Main St",
+    "hoursSourceNote": "Portland Farmers Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.portlandfarmersmarket.org/our-markets/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "river-people-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rockwood-farmers-market-and-international-marketplace",
+    "notes": "Its blog's latest season is 2015; no current schedule found."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rocky-butte-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, NE Siskiyou and NE 80th Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rockybuttemarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rocky-butte-farmers-market-portland",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May to October, NE Siskiyou and NE 80th Ave",
+    "website": "https://www.rockybuttemarket.com/",
+    "notes": "Same market as rocky-butte-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.rockybuttemarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-growers-and-crafters-market-indoor-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-growers-and-crafters-market-saturday-ashland-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-growers-and-crafters-market-saturday-downtown-ashland-farmers-marke",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-growers-and-crafters-market-thursday-medford-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Mar 5 to Nov 19, 2026",
+    "website": "https://www.rvgrowersmarket.com/medford-thursday-market/",
+    "hoursSourceNote": "Rogue Valley Growers & Crafters Market, who run it",
+    "hoursSourceUrl": "https://www.rvgrowersmarket.com/medford-thursday-market/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-growers-and-crafters-market-tuesday-ashland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "rogue-valley-indoor-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "salem-monday-market",
+    "notes": "Salem Community Markets publishes hours for its Saturday market (9-2 at 865 Marion St NE) but not for a Monday market at Salem Hospital."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "salem-public-market",
+    "notes": "The domain in the USDA listing now serves gambling spam, not the market."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "saturday-willamette-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "sauvie-island-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "scappoose-farmers-market",
+    "notes": "Its site's latest season is 2010; no current schedule found."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "seaside-farmers-market",
+    "notes": "The Sunset Empire parks district page describes the market but publishes no 2026 day or hours."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "sherwood-saturday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "siletz-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "silverton-farmers-market",
+    "notes": "The market's own site carries vendor stories but no published day or hours."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "silverton-farmers-market-summer",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "silverton-farmers-market-winter",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "sisters-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "June to October (no market Sep 27 or Oct 11)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.sistersfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "small-farms-market-day",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "south-valley-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October, 7th and Main St in downtown Cottage Grove",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.southvalleyfarmersmarket.org/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "south-valley-farmers-winter-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "south-waterfront-farmers-market",
+    "notes": "Its published Thursday summer hours (12-5) are from the 2025 season; not confirmed for 2026."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "south-waterfront-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "spencer-creek-growers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "springfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "springfield-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "stayton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "sunnyside-grange-farmers-and-artists-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "sutherlin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "talent-evening-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "the-dalles-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "the-farmers-market-mhcc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "the-original-gresham-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October, Center for the Arts Plaza, NE 3rd St and NE Hood Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.greshamfarmersmarket.com/"
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "the-village-indoor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "tigard-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "troutdale-farmers-and-artists-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "umpqua-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "vegetable-man-of-la-pine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "village-gardens-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "villebois-sunday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "wallowa-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "wednesdays-in-willamette-summer-street-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "wellspring-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "whiteaker-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "wilsonville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "woodlawn-holiday-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "OR",
+    "checked": "2026-09-15",
+    "slug": "woodstock-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]

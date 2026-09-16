@@ -1,0 +1,894 @@
+[
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "14-and-u-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "14-and-u-farmers-market-washington",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "14-and-u-market-nw-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "14th-and-kennedy-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Nov 21, 2026",
+    "notes": "Now FRESHFARM's Uptown market, 5501 Colorado Ave NW at 14th and Kennedy.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "adams-morgan-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Dec 19, 2026, Unity Park (Euclid St and Columbia Rd NW)",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "anacostia-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "arcadia-mobile-market",
+    "notes": "Arcadia's mobile market makes a dozen stops a week; this listing does not say which."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "aya-community-markets",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "bloomingdale-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, in front of Big Bear Cafe, 105 R St NW",
+    "hoursSourceNote": "FRESHFARM's 2026 FreshMatch partner-market list",
+    "hoursSourceUrl": "https://www.freshfarm.org/fresh-match/fresh-match-locations"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "broad-branch-chevy-chase-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "brookland-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "burleith-glover-park-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "capital-harvest-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "chevy-chase-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as broad-branch-chevy-chase-farmers-market.",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "city-center-dc-freshfarm-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 5 to Oct 27, 2026",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "cleveland-park-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Dec 19, 2026",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "cleveland-park-farmers-market-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 4 to Dec 19, 2026",
+    "notes": "Duplicate USDA listing of cleveland-park-farmers-market.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "columbia-heights-community-marketplace",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Saturdays year-round; Wednesdays May 6 to Nov 25, 2026",
+    "notes": "The market at 14th St and Park Rd is now FRESHFARM Columbia Heights.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "community-foodworks-reston-farmers-market",
+    "notes": "This is FRESHFARM's Reston, Virginia market listed at its DC office address; not a DC market."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "d-c-open-air-farmers-market-at",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 1 to Nov 30, 2026, RFK lot at 2615 Benning Rd NE",
+    "notes": "Same market as rfk-stadium-open-air-market.",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "dc-farmers-market",
+    "notes": "The historic wholesale/retail market at Florida Ave; no farmers market schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "dupont-circle-freshfarm-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as freshfarm-dupont-circle-sunday.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "eastern-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Fri",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "season": "Year-round (indoor hall); the outdoor farmers' line runs Sat and Sun 9-4 and Tue 12-4",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "foggy-bottom-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as freshfarm-foggy-bottom.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "forest-hills-row-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-columbia-heights-saturday",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (opens 10 am January to March)",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-columbia-heights-saturday-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (opens 10 am January to March)",
+    "notes": "Duplicate USDA listing of freshfarm-columbia-heights-saturday.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-dupont-circle-sunday",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-dupont-circle-sunday-washington",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Duplicate USDA listing of freshfarm-dupont-circle-sunday.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-dupont-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as freshfarm-dupont-circle-sunday.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-dupont-market-washington",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "13:30"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Same market as freshfarm-dupont-circle-sunday.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-foggy-bottom",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-foggy-bottom-washington",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Duplicate USDA listing of freshfarm-foggy-bottom.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-h-st-ne",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-h-st-ne-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Duplicate USDA listing of freshfarm-h-st-ne.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-market-at-citycenterdc",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May 5 to Oct 27, 2026",
+    "notes": "Duplicate USDA listing of city-center-dc-freshfarm-market.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-market-by-the-white-house",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 2 to Nov 19, 2026",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-monroe-street",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-monroe-street-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Duplicate USDA listing of freshfarm-monroe-street.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-mount-vernon-triangle",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-mount-vernon-triangle-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "notes": "Duplicate USDA listing of freshfarm-mount-vernon-triangle.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-penn-quarter",
+    "notes": "Not on FRESHFARM's 2026 market schedule."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "freshfarm-penn-quarter-2",
+    "notes": "Not on FRESHFARM's 2026 market schedule."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "georgetown-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "notes": "Same market as georgetown-market-in-rose-park (Rose Park, 26th and O St NW).",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "georgetown-market-in-rose-park",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May to Oct 2026",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "glover-park-burleith-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "h-street-ne-freshfarm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Year-round, now at 800 13th St NE",
+    "notes": "Same market as freshfarm-h-st-ne.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "half-street-central-farm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Apr 18 to Nov 21, 2026",
+    "hoursSourceNote": "Central Farm Markets, who run it",
+    "hoursSourceUrl": "https://www.centralfarmmarkets.com/half-street"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "historic-brookland-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "historic-brookland-farmers-market-sunday",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "historic-brookland-farmers-market-tuesday",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "mount-pleasant-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (opens 10 am January to March)",
+    "hoursSourceNote": "FRESHFARM's 2026 FreshMatch partner-market list",
+    "hoursSourceUrl": "https://www.freshfarm.org/fresh-match/fresh-match-locations"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "mount-pleasant-farmers-market-washington",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round (opens 10 am January to March)",
+    "notes": "Duplicate USDA listing of mount-pleasant-farmers-market.",
+    "hoursSourceNote": "FRESHFARM's 2026 FreshMatch partner-market list",
+    "hoursSourceUrl": "https://www.freshfarm.org/fresh-match/fresh-match-locations"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "mount-vernon-triangle-freshfarm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round, 499 I St NW",
+    "notes": "Same market as freshfarm-mount-vernon-triangle.",
+    "hoursSourceNote": "FRESHFARM's own 2026 market schedule",
+    "hoursSourceUrl": "https://www.freshfarm.org/markets"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "new-morning-farmers-market-saturday",
+    "notes": "New Morning Farm's stand at Sheridan School is described in 2026 as recently relocated; no current address and hours confirmed."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "noma-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Apr 30 to Oct 29, 2026, 3rd St NE between M and N",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "noma-farmers-market-on-third-street",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "16:00",
+        "closes": "20:00"
+      }
+    ],
+    "season": "Apr 30 to Oct 29, 2026",
+    "notes": "Same market as noma-farmers-market.",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "open-air-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 1 to Nov 30, 2026, RFK lot at 2615 Benning Rd NE",
+    "notes": "Same market as rfk-stadium-open-air-market.",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "palisades-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Year-round",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "pcdc-edgewood-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "penn-quarter-freshfarm-market",
+    "notes": "Not on FRESHFARM's 2026 market schedule."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "petworth-community-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to Nov 28, 2026 (Not Bored in DC says year-round), 9th and Upshur St NW",
+    "hoursSourceNote": "FRESHFARM's 2026 FreshMatch partner-market list",
+    "hoursSourceUrl": "https://www.freshfarm.org/fresh-match/fresh-match-locations"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "rfk-stadium-open-air-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 1 to Nov 30, 2026",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "riverside-heritage-park-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "stanton-and-turner-open-air-farmers-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "tenley-town-farmers-market-whole-foods-market",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "the-marketplace-in-woodrige",
+    "notes": "Not in FRESHFARM's 2026 schedules or Not Bored in DC's 50-market 2026 guide; no current schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "udc-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Apr 25 to Dec 31, 2026, in front of the UDC Student Center",
+    "hoursSourceNote": "Not Bored in DC, 50 Farmers Markets in DC for 2026 (updated Apr 15, 2026)",
+    "hoursSourceUrl": "https://notboredindc.com/farmers-markets-in-dc/"
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "union-market",
+    "notes": "Union Market is a daily food hall; FRESHFARM's Sunday market nearby (1349 6th St NE) is a separate market."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "us-dept-of-health-and-human-services-freshfarm-market",
+    "notes": "Not on FRESHFARM's 2026 market schedule."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "usda-farmers-market",
+    "notes": "Only 2025 dates published (Fridays 10-2); no 2026 schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "usda-farmers-market-at-dept-of-transportation",
+    "notes": "No 2026 schedule found."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "ward-8-farmers-market",
+    "notes": "The Ward 8 market now meets at St Elizabeths East (see ward-8-farmers-market-at-st-elizabeth-s-hopital-east); this address is FRESHFARM's THEARC farm stand."
+  },
+  {
+    "state": "DC",
+    "checked": "2026-09-15",
+    "slug": "ward-8-farmers-market-at-st-elizabeth-s-hopital-east",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 6 to Sep 26, 2026, 2724 Martin Luther King Jr Ave SE",
+    "hoursSourceNote": "FRESHFARM's 2026 FreshMatch partner-market list",
+    "hoursSourceUrl": "https://www.freshfarm.org/fresh-match/fresh-match-locations"
+  }
+]

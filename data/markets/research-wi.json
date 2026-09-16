@@ -1,0 +1,1700 @@
+[
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "abbotsford-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "algoma-sunday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "allenton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "alpha-burnett-county-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "antigo-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "appleton-downtown-farm-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026, College Ave",
+    "notes": "Same market as downtown-appleton-farmers-market.",
+    "hoursSourceNote": "Appleton Downtown Inc. (2026 season)",
+    "hoursSourceUrl": "https://appletondowntown.org/events/downtown-appleton-farm-market/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "appleton-indoor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "appleton-wednesday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "arcadia-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "ashland-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "baldwin-s-main-st-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "balsam-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "barker-s-island-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "beloit-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "berlin-farmers-and-artists-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "black-river-falls-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "blackhawk-junction-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "bridgeview-plaza-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "bristol-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "brookfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 2 to Oct 31, 2026",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "brown-deer-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 24 to Oct 14, 2026 (closes at 2 pm in October)",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "bruce-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "burlington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "burnett-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "butler-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "cadott-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "caledonia-outdoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "cambridge-open-air-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "cedarburg-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "chippewa-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "clare-oasis-indoor-outdoor-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "columbus-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "country-lane-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "cudahy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "dane-county-farmers-market-saturday-on-the-square",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "06:15",
+        "closes": "13:45"
+      }
+    ],
+    "season": "Apr 11 to Nov 14, 2026, Capitol Square (a Wednesday market runs 8:30-1:15, Apr 22 to Nov 4)",
+    "hoursSourceNote": "Dane County Farmers' Market, who run it (2026 season)",
+    "hoursSourceUrl": "https://dcfm.org/markets/saturday-on-the-square"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "de-pere-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "deforest-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "delafield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "delavan-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "dodgeville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "dousman-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "dousman-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-appleton-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "Jun 6 to Oct 17, 2026, College Ave",
+    "hoursSourceNote": "Appleton Downtown Inc. (2026 season)",
+    "hoursSourceUrl": "https://appletondowntown.org/events/downtown-appleton-farm-market/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-beloit-farmers-market-summer",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-beloit-farmers-market-winter",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-fond-du-lac-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-racine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "downtown-west-bend-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "eagle-river-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "east-side-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "east-town-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "east-troy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "eastside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "eau-claire-downtown-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "07:30",
+        "closes": "13:00"
+      },
+      {
+        "day": "Thu",
+        "opens": "12:00",
+        "closes": "17:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "07:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "June to October",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ecdowntownfarmersmarket.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "eau-claire-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "elk-mound-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "elkhart-lake-farmers-and-artisans-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "elver-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "enderis-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "evansville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "farmers-market-on-broadway",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "ferryville-market-in-the-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-darboy-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-eau-claire-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-marshfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-neenah-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-northland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-oshkosh-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-sheboygan-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "festival-foods-suamico-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fish-creek-settlement-shops-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fitchburg-center-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "May 7 to Oct 29, 2026, Agora Pavilion",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://fitchburgmarket.wordpress.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fondy-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 3, 2026 (night markets and Tasty Tuesdays on selected dates)",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fort-atkinson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fort-healthcare-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "fox-point-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 13 to Sep 26, 2026",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "future-neenah-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "garden-district-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "general-store-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "germantown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "grantsburg-burnett-county-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "great-lakes-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "green-bay-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "May 23 to Oct 31, 2026, 200 S Washington St",
+    "hoursSourceNote": "Downtown Green Bay, who run it (2026 season)",
+    "hoursSourceUrl": "https://downtowngreenbay.com/do/saturday-farmers-market"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "green-bay-farmers-market-on-broadway",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "greendale-open-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "greenfield-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ],
+    "season": "May to October (closed Memorial Day weekend)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ci.greenfield.wi.us/1518/Farmers-Market"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "greenway-station-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "grow-it-forward-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "hartland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "hayward-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "hayward-farmers-market-wisconsin",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "hillsboro-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "hmong-mutual-assistance-association-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "jackson-food-and-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "jackson-park-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "janesville-farmers-market-inc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "jefferson-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kaukauna-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-farmers-market-baker-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-farmers-market-columbus-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-farmers-market-lincoln-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-farmers-market-pennoyer-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-harbor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-public-market-kenosha",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-public-market-summer-outdoor",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kenosha-public-market-winter-indoor",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kewaskum-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kewaunee-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kiel-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "kronenwetter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "lake-geneva-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "lodi-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "lomira-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "luxemburg-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "madeline-island-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "main-street-marshfield-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "main-street-marshfield-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "manitowoc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "manitowoc-festival-foods-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "marinette-artisan-and-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "marketplace-thursdays",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mauston-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mcfarland-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "menasha-farm-fresh-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "menomonee-falls-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "14:00",
+        "closes": "18:00"
+      },
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Wednesdays Jun 5 to Oct 15; Sundays Jul 14 to Sep 14",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.menomoneefallsdowntown.com/events"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "merrill-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "milwaukee-county-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "milwaukee-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "milwaukee-riverwest-gardeners-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "milwaukee-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mineral-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "monroe-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "monroe-farmers-market-on-the-square",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "monroe-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mosinee-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mount-horeb-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to October 2026, Main Street",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.mthorebfarmersmarket.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mt-horeb-farmers-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "18:30"
+      }
+    ],
+    "season": "May to October 2026, Main Street",
+    "notes": "Same market as mount-horeb-farmers-market.",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.mthorebfarmersmarket.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mukwonago-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "mukwonago-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "muskego-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "new-berlin-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "new-holstein-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "new-richmond-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "May 2 to October, at the Barn",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.nrheritagecenter.org/events.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "northside-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "08:30",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 3 to Oct 25, 2026, Northside TownCenter",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://northsidefarmersmarket.org/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "northwind-perennial-farm-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oak-creek-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oak-creek-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oconomowoc-chamber-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oconomowoc-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oconomowoc-mid-week-marketplace",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "omro-thursday-night-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oneida-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oregon-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oshkosh-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:30"
+      }
+    ],
+    "season": "May 30 to Oct 31, 2026 (no market July 4), N Main St",
+    "hoursSourceNote": "the market's own site (2026 season)",
+    "hoursSourceUrl": "https://www.osfmi.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oshkosh-farmers-market-in-the-park",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "oshkosh-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "park-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "peach-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "phillips-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "port-washington-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "port-washington-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "portage-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "poynette-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "princeton-farm-to-fork-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "racine-county-indoor-outdoor-farmers-market-llc",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "racine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "reedsburg-area-medical-center-farmers-market",
+    "hours": [
+      {
+        "day": "Fri",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Summer season, 2000 N Dewey Ave",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "http://www.reedsburg.org/pages/FarmersMarket1"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "rice-lake-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "richfield-wi-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "richland-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "ridgeway-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "10:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Summer season at the Ridgeway Ballpark (winter markets on select Saturdays, 10-12)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.ridgewayfarmersmarket.org/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "river-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "rock-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "rome-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "roosevelt-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "rusk-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "scio-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 31, 2026",
+    "hoursSourceNote": "Sheboygan County Interfaith Organization, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.sheboygancountyinterfaith.org/farmers-market/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "shawano-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sheboygan-farmers-market",
+    "hours": [
+      {
+        "day": "Wed",
+        "opens": "08:00",
+        "closes": "13:00"
+      },
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 3 to Oct 31, 2026",
+    "notes": "Sheboygan's 2026 market is run by the Sheboygan County Interfaith Organization.",
+    "hoursSourceNote": "Sheboygan County Interfaith Organization, who run it (2026 season)",
+    "hoursSourceUrl": "https://www.sheboygancountyinterfaith.org/farmers-market/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sheboygan-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "shorewood-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "09:30",
+        "closes": "13:00"
+      }
+    ],
+    "season": "Jun 14 to Oct 25, 2026, 4100 Estabrook Pkwy",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.shorewoodfarmersmarket.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "siren-burnett-county-farmers-markets",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "somerset-farmers-market-and-craft",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "south-madison-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "south-madison-farmers-market",
+    "hours": [
+      {
+        "day": "Sun",
+        "opens": "11:00",
+        "closes": "15:00"
+      },
+      {
+        "day": "Mon",
+        "opens": "14:00",
+        "closes": "18:00"
+      }
+    ],
+    "season": "Apr 27 to Oct 26, 2026 (Sundays at the Labor Temple, Mondays at Novation Centre)",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://southmadisonfarmersmarket.com/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "south-milwaukee-downtown-market",
+    "hours": [
+      {
+        "day": "Thu",
+        "opens": "15:00",
+        "closes": "19:00"
+      }
+    ],
+    "season": "May 28 to Oct 1, 2026, Bucyrus Commons",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://smmarket.org/"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "south-shore-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "June to October 2026, South Shore Park",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "southern-price-county-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "southshore-outdoor-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "spring-valley-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "st-andrew-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "st-croix-falls-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "st-john-s-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "star-prairie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "stevens-point-area-winter-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "stevens-point-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "stoughton-community-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "stoughton-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sturgeon-bay-farm-and-craft-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sturtevant-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sun-prairie-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "superior-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "superior-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "sustain-greenville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "the-beaver-dam-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "thiensville-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "tomahawk-main-street-farmers-market",
+    "hours": [
+      {
+        "day": "Tue",
+        "opens": "11:00",
+        "closes": "15:00"
+      }
+    ],
+    "season": "Jun 2 to Oct 6, 2026",
+    "hoursSourceNote": "the market's own site",
+    "hoursSourceUrl": "https://www.tomahawkmainstreet.org/farmers-market"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "tosa-farmers-market",
+    "hours": [
+      {
+        "day": "Sat",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ],
+    "season": "Jun 6 to Oct 24, 2026 (no market July 4)",
+    "hoursSourceNote": "Milwaukee Journal Sentinel's 2026 guide to Milwaukee-area farmers markets (via AOL)",
+    "hoursSourceUrl": "https://www.aol.com/news/guide-milwaukee-area-farmers-markets-100322752.html"
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "tuesday-eastside-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "turner-s-corners-hwy-12-growers-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "two-rivers-farmers-and-crafters-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "union-grove-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "upper-northwoods-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "verona-downtown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "verona-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "village-shopping-center-friday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "viroqua-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "viroqua-public-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "virtumarket-waterloo-producer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "vliet-street-green-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "wagners-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "walker-square-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "washburn-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "watertown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "watson-street-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "waukesha-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "waupun-area-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "wednesday-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "west-allis-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "west-racine-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "west-salem-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "westown-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "westside-community-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "westside-community-market-madison",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "whitefish-bay-farmer-s-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  },
+  {
+    "state": "WI",
+    "checked": "2026-09-15",
+    "slug": "winter-viroqua-farmers-market",
+    "notes": "No dated 2026 schedule found on the market's own site or in regional 2026 market guides."
+  }
+]
