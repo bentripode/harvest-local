@@ -209,7 +209,7 @@ export function MarketMap({ markets, token }: { markets: MarketSummary[]; token:
       />
       {selected ? (
         <div className="max-w-md">
-          <MarketCard market={selected} />
+          <MarketCard market={selected} compact />
         </div>
       ) : (
         <p className="text-muted-foreground text-sm">Tap a market to see its details.</p>

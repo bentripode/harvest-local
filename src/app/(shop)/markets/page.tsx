@@ -34,14 +34,13 @@ export default async function MarketsPage({ searchParams }: PageProps<"/markets"
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Farmers markets in {stateName(state)}
-          </h1>
-          {markets.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Where local sellers set up in person.</p>
-          ) : null}
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="max-w-xl space-y-1">
+          <h1 className="text-3xl font-semibold tracking-tight">Explore markets</h1>
+          <p className="text-muted-foreground">
+            Farmers markets in {stateName(state)} — when they run, where they are, and the local
+            sellers you can order from.
+          </p>
           {source === "geo" ? (
             <p className="text-muted-foreground pt-1 text-xs">
               We guessed {stateName(state)} from your connection. Not right? Pick your state.

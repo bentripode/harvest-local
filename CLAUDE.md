@@ -351,6 +351,7 @@ src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) 
 src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narrows nearby_sellers(state), never widens it (pure)
 src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
 src/lib/markets/{queries,schedule,directory}.ts   market reads (paged, with lng/lat) · hours arithmetic · search + safe website links (pure)
+src/lib/markets/card.ts                what a market card claims — season parsing, the open-today status, the monogram fallback (pure)
 src/components/market-{directory,map,card}.tsx    /markets search + list/map toggle · clustered Mapbox map · the card
 scripts/lib/market-site.mjs            og:image / schema.org hours / robots.txt readers for the website scan (pure)
 src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
@@ -1423,8 +1424,43 @@ offers for link previews (og:image → twitter:image → its organisation's JSON
 480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
 `openingHours(Specification)`, only when the page has exactly one schedule that parses completely,
 written as `market_hours.source = 'website'`, and never over a person's (`admin`) rows. The card and
-the market page both say when hours came from the website. A market with no picture shows an icon —
-never a stock photo, which on a named market's card would read as that market.
+the market page both say when hours came from the website. A market with no picture shows a
+monogram tile (see below) — never a stock photo, which on a named market's card would read as that
+market.
+
+**Phase 6 — the market directory, picture-led, and the badge that had to be taught about winter.**
+`/markets` and `/markets/<state>` are a card grid rather than a list of thumbnails with four rows of
+text beside each — the same rescue the product card had, for the same reason.
+
+**Only 12% of markets have a picture** (841 of 7,032), so the fallback is what most cards actually
+show and a grey box would be the page. It is a tinted monogram tile keyed to the slug
+(`tileTone`, FNV-1a with a final avalanche, for the reason `stories/select.ts` records): stable per
+market, varied across a grid, and unmistakably not a photograph — which matters, because a stock
+photo on a named market's card reads as a picture of THAT market. `marketInitials` drops the words
+every market shares, or every tile would read "FM", and drops a street number, or 6701 Burnet Road
+Market reads "6B". Real pictures stay CONTAINED: most are logos and a crop cut one mid-word.
+
+**The "open today" ribbon is the one claim on this page a reader acts on by getting in a car**, so
+two things must line up. First the weekday, which is why `todayStatus` takes `now` as an argument
+and `MarketDirectory` supplies the READER's clock through `useSyncExternalStore` (a minute number,
+not a `Date` — the store compares snapshots by identity, and `new Date()` would loop). Null on the
+server, because the server is UTC and at 8pm Pacific already believes it is tomorrow.
+
+**Second the SEASON, which is the part that is easy to miss.** Most markets shut for the winter, so
+a badge keyed on the weekday alone is wrong for half the year in the direction that sends somebody
+to an empty car park. `market_hours.note` is free prose — 741 distinct strings across 1,000 rows,
+mixing season with address and exceptions — so `parseSeason` is deliberately timid: year-round, or
+exactly two month names with a range word between them, and nothing else. Three month names means
+the note describes more than one arrangement and comes back `unknown`. An unknown season does not
+suppress the badge, it **downgrades** it — "Usually open today" rather than "Open today" — so the
+page says what it knows and marks what it is guessing instead of rounding either up.
+
+**And it reads the DAY, not just the month.** "Late May to Sep 10, 2026" parses to September, and a
+month-precision check called that Vermont market open on 16 September — six days after its season
+ended. `dayAfter` captures a day written straight after a month name, bounded to 1–31 so the year
+in "Sep 30, 2026" is not read as one; a missing day opens on the 1st and closes on the 31st, the
+generous reading at each end. It took Vermont's count from 6 markets on today to 5, and the one it
+removed was the one that was wrong.
 
 **Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
 (`20260908230000`) declared `address_id ... on delete set null` alongside

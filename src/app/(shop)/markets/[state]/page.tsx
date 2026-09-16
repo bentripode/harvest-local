@@ -47,13 +47,13 @@ export default async function StateMarketsPage({
         / <span className="text-foreground">{name}</span>
       </nav>
 
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Farmers markets in {name}</h1>
-        {markets.length === 0 ? (
-          <p className="text-muted-foreground text-sm">
-            We don&apos;t have any {name} markets listed yet.
-          </p>
-        ) : null}
+      <div className="max-w-xl space-y-1">
+        <h1 className="text-3xl font-semibold tracking-tight">Explore markets</h1>
+        <p className="text-muted-foreground">
+          {markets.length === 0
+            ? `We don't have any ${name} markets listed yet.`
+            : `Farmers markets in ${name} — when they run, where they are, and the local sellers you can order from.`}
+        </p>
       </div>
 
       {markets.length === 0 ? (
