@@ -106,5 +106,89 @@
     "height": 1185,
     "avgColor": "#6C472D",
     "downloaded": "2026-09-14"
+  },
+  "/stock/market-bread.jpg": {
+    "kind": "photo",
+    "pexelsId": 38339431,
+    "pexelsUrl": "https://www.pexels.com/photo/artisan-bread-display-in-rustic-wicker-baskets-38339431/",
+    "author": "Magda Ehlers",
+    "authorUrl": "https://www.pexels.com/@magda-ehlers-pexels",
+    "alt": "A selection of artisan loaves and rolls in wicker baskets, perfect for rustic bakery settings.",
+    "width": 1400,
+    "height": 934,
+    "avgColor": "#8C674D",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-greens.jpg": {
+    "kind": "photo",
+    "pexelsId": 7456521,
+    "pexelsUrl": "https://www.pexels.com/photo/green-vegetables-in-close-up-photography-7456521/",
+    "author": "Kindel Media",
+    "authorUrl": "https://www.pexels.com/@kindelmedia",
+    "alt": "A vibrant mix of fresh kale, spinach, and textured greens in a close-up shot.",
+    "width": 1400,
+    "height": 789,
+    "avgColor": "#4C6D4B",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-preserves.jpg": {
+    "kind": "photo",
+    "pexelsId": 10660384,
+    "pexelsUrl": "https://www.pexels.com/photo/jams-in-glass-jars-10660384/",
+    "author": "Valerie Sidorova",
+    "authorUrl": "https://www.pexels.com/@valerie-sidorova-155326386",
+    "alt": "Close-up of glass jars filled with dark homemade preserves displayed on a vintage wooden surface.",
+    "width": 1400,
+    "height": 933,
+    "avgColor": "#534842",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-produce.jpg": {
+    "kind": "photo",
+    "pexelsId": 7456552,
+    "pexelsUrl": "https://www.pexels.com/photo/vegetables-on-display-7456552/",
+    "author": "Kindel Media",
+    "authorUrl": "https://www.pexels.com/@kindelmedia",
+    "alt": "Vibrant variety of vegetables including bell peppers, zucchini, and cauliflower on display.",
+    "width": 1400,
+    "height": 679,
+    "avgColor": "#787357",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-pumpkins.jpg": {
+    "kind": "photo",
+    "pexelsId": 34180009,
+    "pexelsUrl": "https://www.pexels.com/photo/autumn-harvest-of-colorful-pumpkins-on-hay-34180009/",
+    "author": "Kendall Hoopes",
+    "authorUrl": "https://www.pexels.com/@ken123films",
+    "alt": "A variety of pumpkins displayed on hay bales, showcasing autumn colors in an outdoor setting.",
+    "width": 1400,
+    "height": 933,
+    "avgColor": "#736250",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-tomatoes.jpg": {
+    "kind": "photo",
+    "pexelsId": 7454690,
+    "pexelsUrl": "https://www.pexels.com/photo/fruits-in-the-baskets-7454690/",
+    "author": "Mackinac Design",
+    "authorUrl": "https://www.pexels.com/@mackinacdesign",
+    "alt": "Baskets of freshly harvested yellow cherry tomatoes on a rustic table, showcasing a vibrant summer bounty.",
+    "width": 1400,
+    "height": 1050,
+    "avgColor": "#8D7550",
+    "downloaded": "2026-09-17"
+  },
+  "/stock/market-vegetables.jpg": {
+    "kind": "photo",
+    "pexelsId": 5084088,
+    "pexelsUrl": "https://www.pexels.com/photo/variety-of-fresh-vegetables-on-wooden-table-5084088/",
+    "author": "Yaroslav Shuraev",
+    "authorUrl": "https://www.pexels.com/@yaroslav-shuraev",
+    "alt": "A colorful assortment of fresh vegetables including carrots, leeks, and radishes displayed on a wooden table.",
+    "width": 1400,
+    "height": 933,
+    "avgColor": "#88795C",
+    "downloaded": "2026-09-17"
   }
 }

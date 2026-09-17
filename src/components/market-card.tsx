@@ -4,6 +4,7 @@ import { MapPin, Store } from "lucide-react";
 
 import { MarketTilePattern, MOTIF_COUNT } from "@/components/market-tile-pattern";
 import {
+  marketFallbackPhoto,
   marketInitials,
   tileMotif,
   tileTone,
@@ -22,11 +23,14 @@ import type { MarketSummary } from "@/lib/markets/queries";
  * had to be rescued from.
  *
  * The catch is that only 12% of markets have a picture (841 of 7,032), so the fallback is what
- * most cards actually show and a grey box would be the whole page. It is a tinted monogram tile
- * instead: keyed to the slug so a market looks the same on every visit, varied across a grid, and
- * unmistakably not a photograph — which matters, because a stock photo on a named market's card
- * would read as a picture of that market. Real pictures stay CONTAINED rather than cropped: most
- * are logos, and a crop cut a wide one mid-word ("GOOD LOCA").
+ * most cards actually show and a grey box would be the whole page. It is a generic stock
+ * photograph, cycled by the card's `position` so the grid varies down the page.
+ *
+ * That is a knowing trade and the reasoning lives on `marketFallbackPhoto`: a photograph under a
+ * named market's heading reads as a picture OF that market, and none of these is. The monogram
+ * tile it replaced claimed nothing, and it is still what the compact card uses. Real pictures stay
+ * CONTAINED rather than cropped: most are logos, and a crop cut a wide one mid-word ("GOOD LOCA").
+ * A stock one is COVERED — it has no words to lose.
  *
  * `today` is the open-today ribbon and is null on the server on purpose — whether a market is open
  * today depends on the reader's own clock, not the UTC server's. See `markets/card.ts`, which also
@@ -48,7 +52,20 @@ const TONES = [
   "from-primary/18 to-accent/22",
 ];
 
-function MarketMedia({ market, className }: { market: MarketSummary; className: string }) {
+function MarketMedia({
+  market,
+  className,
+  position,
+}: {
+  market: MarketSummary;
+  className: string;
+  /**
+   * The card's index in the rendered list, which is what picks the stock photograph — see
+   * `marketFallbackPhoto`. Omitted (the compact card) means no photograph: at 64px one is a
+   * coloured blob and the monogram's two letters still read.
+   */
+  position?: number;
+}) {
   if (market.imageUrl) {
     return (
       <div className={`relative overflow-hidden bg-white ${className}`}>
@@ -58,6 +75,25 @@ function MarketMedia({ market, className }: { market: MarketSummary; className: 
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-contain p-4"
+        />
+      </div>
+    );
+  }
+
+  // A generic photograph, which is NOT a picture of this market — see `marketFallbackPhoto`, which
+  // carries the reasoning and the checks. Decorative, so `alt=""`: the heading below is the
+  // accessible name, and alt text here would assert something about the market that isn't true.
+  const stock = position === undefined ? null : marketFallbackPhoto(position);
+  if (stock) {
+    return (
+      <div className={`relative overflow-hidden ${className}`}>
+        <Image
+          src={stock.src}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+          style={{ backgroundColor: stock.avgColor }}
         />
       </div>
     );
@@ -144,12 +180,19 @@ export function MarketCard({
   market,
   today = null,
   compact = false,
+  position,
 }: {
   market: MarketSummary;
   /** Today's session as of the READER's clock, or null on the server. See `markets/card.ts`. */
   today?: MarketToday | null;
   /** The map popup, where a full-height picture would push the details off screen. */
   compact?: boolean;
+  /**
+   * The card's index in the grid. A market with no picture of its own gets a generic stock
+   * photograph chosen from it, so the grid cycles rather than repeating — see
+   * `marketFallbackPhoto` for why this is position-based and not keyed to the market.
+   */
+  position?: number;
 }) {
   const href = `/markets/${market.state.toLowerCase()}/${market.slug}`;
   const nameLink = (
@@ -187,7 +230,7 @@ export function MarketCard({
         today ? "border-accent/60 shadow-sm" : "hover:border-primary/40"
       }`}
     >
-      <MarketMedia market={market} className="aspect-[16/9] w-full border-b" />
+      <MarketMedia market={market} position={position} className="aspect-[16/9] w-full border-b" />
 
       {today ? (
         <p

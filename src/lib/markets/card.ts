@@ -1,4 +1,5 @@
 import { MONTH_ABBR } from "@/lib/time/wall-clock";
+import { MARKET_FALLBACK_PHOTOS, stockPhoto } from "@/lib/stock/photos";
 import {
   formatSpan,
   formatTime,
@@ -186,10 +187,10 @@ export function todayLabel(status: MarketToday): string {
 /**
  * Up to two letters for a market with no picture of its own.
  *
- * 88% of markets have no image (841 of 7,032), so the fallback is what most cards actually show
- * and it cannot be a grey box - that is the mistake the seller story cards already made. Words
- * like "farmers" and "market" are dropped because initialising every card to "FM" would defeat
- * the point of having initials at all.
+ * 88% of markets have no image (841 of 7,032). The grid fills that with `marketFallbackPhoto`;
+ * this is what the compact card and the map popup still use, where a photograph at 64px is a
+ * coloured blob and two letters still read. Words like "farmers" and "market" are dropped because
+ * initialising every card to "FM" would defeat the point of having initials at all.
  */
 const SKIP = new Set([
   "farmers",
@@ -246,10 +247,46 @@ export function tileTone(slug: string, tones: number, salt = ""): number {
  * Which decorative motif sits behind the monogram.
  *
  * Salted so it does not track the tone: 4 tones × 5 motifs reads as 20 different tiles down a page,
- * where a correlated pair would read as 5 repeated ones. It is drawn, never photographed — a
- * photograph under a named market's heading claims to BE that market, which is the rule this whole
- * fallback exists to keep.
+ * where a correlated pair would read as 5 repeated ones. It is drawn, never photographed, so it
+ * claims nothing about the market it stands for — which is why the compact card still uses it
+ * where the grid now shows `marketFallbackPhoto` instead.
  */
 export function tileMotif(slug: string, motifs: number): number {
   return tileTone(slug, motifs, "motif:");
+}
+
+/**
+ * A generic market photograph for a market with no picture of its own, chosen by the card's
+ * POSITION in the rendered list.
+ *
+ * This is the pick the monogram tile used to make, and it is worth being clear about what changed.
+ * A drawn tile claims nothing; a photograph under the heading "Abbeville Farmers Market" reads as a
+ * picture OF Abbeville, and none of these is a picture of anywhere in the directory. That is a real
+ * cost, accepted deliberately: 88% of markets have no image, so the fallback was most of the page,
+ * and a grid of drawings does not read as somewhere worth browsing. The mitigations are that every
+ * photo is checked at FULL SIZE for a business name, a price, a legible sign or an identifiable
+ * person (see `MARKET_FALLBACK_PHOTOS`), and that `/credits` names every photographer.
+ *
+ * **Position, not the slug, and that is the second thing that changed.** Hashing the slug is what
+ * `tileTone` does and it is right for a tile, which is an identity: stable per market, varied
+ * across a grid. With only seven photographs it is wrong, because a hash collides locally — the
+ * first Vermont grid put the same cauliflower crate on Brattleboro Winter and on both cards
+ * beneath it, which reads as a broken page rather than a varied one. Cycling by position cannot
+ * collide: seven photos and a three-column grid are coprime, so no two neighbours and no column
+ * repeat.
+ *
+ * The cost is that a market's picture moves when the list is searched or re-sorted, and for a
+ * TILE that would be a real loss. Here it is not: the photograph is generic and says nothing about
+ * the market, so per-market stability was only ever promising an identity these files cannot
+ * carry. A market with a picture OF ITSELF is unaffected — that one is keyed to the market.
+ *
+ * The compact card passes no position and keeps the monogram: at 64px a photograph is a coloured
+ * blob and two letters still read.
+ */
+export function marketFallbackPhoto(position: number) {
+  const n = MARKET_FALLBACK_PHOTOS.length;
+  // Negative and non-integer positions are not expected, but a wrong index here would throw in a
+  // render rather than degrade, so it is floored and wrapped.
+  const i = ((Math.floor(position) % n) + n) % n;
+  return stockPhoto(MARKET_FALLBACK_PHOTOS[i]);
 }

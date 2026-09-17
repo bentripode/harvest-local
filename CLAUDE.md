@@ -301,6 +301,12 @@ Never write an order, or code a path that could write an order, that crosses sta
   inline where the layout allows. **Look at the full-size file before using it**: the preview
   thumbnails hid a Vietnamese price list, a "VEGAN" sign, a brand on bread paper and a jam lid
   stamped "EXP DATE 2023" — all found only at full size, all wrong for a food marketplace.
+  **The market card is the one deliberate exception** (`MARKET_FALLBACK_PHOTOS`,
+  `marketFallbackPhoto`): a generic market photograph stands in for a *named* market that has no
+  picture of its own, which is exactly the "reads as this one's goods" problem above, accepted
+  because 88% of markets have no image and the fallback was most of the directory. It does not
+  extend to sellers, and the full-size read caught three more names at that step — "Tanaka Farms"
+  on a chalkboard, a "Courtland 99 lb" price tag and a "Senter's Nursery" banner.
 
 ## Commands
 
@@ -1426,27 +1432,41 @@ offers for link previews (og:image → twitter:image → its organisation's JSON
 480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
 `openingHours(Specification)`, only when the page has exactly one schedule that parses completely,
 written as `market_hours.source = 'website'`, and never over a person's (`admin`) rows. The card and
-the market page both say when hours came from the website. A market with no picture shows a
-monogram tile (see below) — never a stock photo, which on a named market's card would read as that
-market.
+the market page both say when hours came from the website. A market with no picture of its own
+shows a generic stock photograph on the grid (see below) and a monogram tile on the compact card.
 
 **Phase 6 — the market directory, picture-led, and the badge that had to be taught about winter.**
 `/markets` and `/markets/<state>` are a card grid rather than a list of thumbnails with four rows of
 text beside each — the same rescue the product card had, for the same reason.
 
 **Only 12% of markets have a picture** (841 of 7,032), so the fallback is what most cards actually
-show and a grey box would be the page. It is a tinted monogram tile over a DRAWN motif — awning
-stripes, a leaf, crates, an apple, bunting (`market-tile-pattern.tsx`, inline SVG, no dependency,
-themed through `currentColor`). Drawn rather than photographed on purpose: a stock photo of *a*
-farmers market under the heading "Abbeville Farmers Market" reads as a picture OF Abbeville, and
-a drawing claims nothing. Motif is salted apart from tone (`tileMotif`), so 4 tones × 5 motifs
+show and a grey box would be the page. **The grid fills it with a generic stock photograph**
+(`MARKET_FALLBACK_PHOTOS` — seven of them, `marketFallbackPhoto` picks one per slug), and the
+compact card and map popup keep the tinted monogram tile over a DRAWN motif — awning stripes, a
+leaf, crates, an apple, bunting (`market-tile-pattern.tsx`, inline SVG, no dependency, themed
+through `currentColor`), because at 64px a photograph is a coloured blob and two letters still read.
+
+**The photograph is a knowing trade and the tile's reasoning still stands against it**: a stock
+photo of *a* farmers market under the heading "Abbeville Farmers Market" reads as a picture OF
+Abbeville, and a drawing claims nothing. It was taken anyway, because a grid of drawings does not
+read as somewhere worth browsing and the drawing was 88% of the page. What keeps it defensible is
+narrow and has to be maintained: **no photo may contain a business name, a price, a legible sign or
+an identifiable person**, which the full-size read is for — three candidates that looked fine as
+thumbnails carried "Tanaka Farms", "Courtland 99 lb" and "Senter's Nursery", and `market-produce.jpg`
+is 1400×679 rather than 1400×789 because the farm name was cropped off its top edge. Searches also
+return a great many non-US markets — Hong Kong price tags, a Dutch grower stencilled on a crate,
+Czech flower signs — which read wrong under an American market's name. `/credits` names every
+photographer; a per-card inline credit is not possible across seven photos and hundreds of cards,
+which is a real cost of this route. Photo choice is salted apart from tone and motif
+(`"photo:"`), so the grid picture and the popup tile do not vary together.
+
+Motif is salted apart from tone (`tileMotif`), so 4 tones × 5 motifs
 read as 20 tiles down a page rather than 5 repeated ones — and the salt goes in FIRST, because
 FNV barely moves for whatever is appended last. Two passes were needed: small motifs made every
 card busy wallpaper the monogram vanished into, so they are large and sparse with a radial scrim
 behind the letters. The tile is keyed to the slug
 (`tileTone`, FNV-1a with a final avalanche, for the reason `stories/select.ts` records): stable per
-market, varied across a grid, and unmistakably not a photograph — which matters, because a stock
-photo on a named market's card reads as a picture of THAT market. `marketInitials` drops the words
+market, varied across a grid, and unmistakably not a photograph. `marketInitials` drops the words
 every market shares, or every tile would read "FM", and drops a street number, or 6701 Burnet Road
 Market reads "6B". Real pictures stay CONTAINED: most are logos and a crop cut one mid-word.
 

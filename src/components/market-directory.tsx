@@ -147,9 +147,11 @@ export function MarketDirectory({
         <MarketMap markets={results} token={mapboxToken} />
       ) : (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((m) => (
+          {results.map((m, i) => (
             <li key={m.id}>
-              <MarketCard market={m} today={today.get(m.id) ?? null} />
+              {/* `position` picks the stock photograph for a market with no picture of its own, so
+                  the grid cycles through them instead of repeating one three cards in a row. */}
+              <MarketCard market={m} today={today.get(m.id) ?? null} position={i} />
             </li>
           ))}
         </ul>

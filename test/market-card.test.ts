@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   inSeason,
+  marketFallbackPhoto,
   marketInitials,
   parseSeason,
   tileMotif,
@@ -11,6 +12,7 @@ import {
   type Season,
 } from "@/lib/markets/card";
 import type { MarketHour } from "@/lib/markets/schedule";
+import { MARKET_FALLBACK_PHOTOS, stockPhoto } from "@/lib/stock/photos";
 
 /** Local-time constructor — every assertion here is wall-clock, never UTC. */
 const at = (y: number, m: number, d: number, h = 0, min = 0) => new Date(y, m - 1, d, h, min);
@@ -289,5 +291,42 @@ describe("tileMotif", () => {
     const slugs = Array.from({ length: 200 }, (_, i) => `market-${i}`);
     const differing = slugs.filter((s) => tileTone(s, 5) !== tileMotif(s, 5)).length;
     expect(differing).toBeGreaterThan(120);
+  });
+});
+
+describe("marketFallbackPhoto", () => {
+  const n = MARKET_FALLBACK_PHOTOS.length;
+
+  it("never repeats within a row or a column of a three-column grid", () => {
+    // The reason this is position-based rather than slug-hashed: a hash collides locally, and the
+    // first Vermont grid showed the same photo on three adjacent cards. A card's neighbours in a
+    // 3-column grid are at +/-1 (beside) and +/-3 (above and below).
+    for (let i = 0; i < 300; i++) {
+      const here = marketFallbackPhoto(i).src;
+      for (const offset of [1, 2, 3, 4, 6]) {
+        expect(marketFallbackPhoto(i + offset).src).not.toBe(here);
+      }
+    }
+  });
+
+  it("uses every photo it has, so none of them is dead weight", () => {
+    const used = new Set(Array.from({ length: n }, (_, i) => marketFallbackPhoto(i).src));
+    expect(used.size).toBe(n);
+  });
+
+  it("wraps rather than throwing on an index past the end", () => {
+    expect(marketFallbackPhoto(n).src).toBe(marketFallbackPhoto(0).src);
+    expect(marketFallbackPhoto(n * 7 + 2).src).toBe(marketFallbackPhoto(2).src);
+    // Not expected from the grid, but a throw here would blank a page rather than degrade.
+    expect(marketFallbackPhoto(-1).src).toBe(marketFallbackPhoto(n - 1).src);
+    expect(() => marketFallbackPhoto(1.7)).not.toThrow();
+  });
+
+  it("carries a photographer for every photo, because /credits has to name one", () => {
+    for (const path of MARKET_FALLBACK_PHOTOS) {
+      const photo = stockPhoto(path);
+      expect(photo.author.length).toBeGreaterThan(0);
+      expect(photo.pexelsUrl).toMatch(/^https:\/\/www\.pexels\.com\//);
+    }
   });
 });

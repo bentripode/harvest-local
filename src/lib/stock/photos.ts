@@ -47,3 +47,29 @@ export function categoryPhoto(slug: string) {
 export function allStockCredits() {
   return (Object.keys(credits) as StockPath[]).map((path) => ({ path, ...stockPhoto(path) }));
 }
+
+/**
+ * Generic market photographs, used on a market card when the market has no picture of its own.
+ *
+ * These are stock: none of them is a photograph of any market in the directory. That is a
+ * deliberate exception to the rule that a stock photo never stands in for a named thing — see the
+ * market-directory section of CLAUDE.md for the trade and `marketFallbackPhoto` for the picker.
+ *
+ * Every one was checked at FULL SIZE before it was added, and three candidates were thrown out at
+ * that step, having looked fine as thumbnails: a chalkboard reading "Tanaka Farms" (cropped off
+ * the top of `market-produce.jpg`, which is why that file is 1400x679 and not 1400x789), a price
+ * tag reading "Courtland 99 lb", and a banner reading "Senter's Nursery". A real business's name
+ * or a price on a card headed with a DIFFERENT market's name is the specific harm here, and it is
+ * invisible in a preview thumbnail. Searches also return a lot of non-US markets — Hong Kong
+ * price tags, Dutch crate stencils, Czech flower signs — which read wrong under an American
+ * market's name. Anything added here gets the same full-size read.
+ */
+export const MARKET_FALLBACK_PHOTOS = [
+  "/stock/market-produce.jpg",
+  "/stock/market-greens.jpg",
+  "/stock/market-tomatoes.jpg",
+  "/stock/market-vegetables.jpg",
+  "/stock/market-preserves.jpg",
+  "/stock/market-bread.jpg",
+  "/stock/market-pumpkins.jpg",
+] as const satisfies readonly StockPath[];
