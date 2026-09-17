@@ -4,6 +4,7 @@ import {
   inSeason,
   marketInitials,
   parseSeason,
+  tileMotif,
   tileTone,
   todayLabel,
   todayStatus,
@@ -257,5 +258,36 @@ describe("tileTone", () => {
     const slugs = Array.from({ length: 60 }, (_, i) => `city-${i}-farmers-market`);
     const used = new Set(slugs.map((s) => tileTone(s, 4)));
     expect(used.size).toBe(4);
+  });
+
+  it("is unchanged by an empty salt, so the existing tones do not all shuffle", () => {
+    expect(tileTone("ada-farmers-market", 4)).toBe(tileTone("ada-farmers-market", 4, ""));
+  });
+});
+
+describe("tileMotif", () => {
+  it("is stable for a slug and inside the range", () => {
+    for (const slug of ["ada-farmers-market", "dorset-farmers-market", "zzz"]) {
+      const m = tileMotif(slug, 5);
+      expect(m).toBe(tileMotif(slug, 5));
+      expect(m).toBeGreaterThanOrEqual(0);
+      expect(m).toBeLessThan(5);
+    }
+  });
+
+  it("does not track the tone, so a page reads as 20 tiles rather than 5", () => {
+    // Salted apart on purpose. If motif were a function of tone, every amber tile would carry the
+    // same drawing and the grid would look like five cards repeated.
+    const slugs = Array.from({ length: 400 }, (_, i) => `market-${i}-farmers-market`);
+    const pairs = new Set(slugs.map((s) => `${tileTone(s, 4)}:${tileMotif(s, 5)}`));
+    expect(pairs.size).toBe(20);
+  });
+
+  it("puts the salt where FNV can still see it", () => {
+    // Appending the salt barely moves an FNV accumulator — the bug stories/select.ts records — so
+    // a salted index must actually differ from the unsalted one for most inputs.
+    const slugs = Array.from({ length: 200 }, (_, i) => `market-${i}`);
+    const differing = slugs.filter((s) => tileTone(s, 5) !== tileMotif(s, 5)).length;
+    expect(differing).toBeGreaterThan(120);
   });
 });

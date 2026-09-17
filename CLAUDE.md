@@ -1435,7 +1435,15 @@ market.
 text beside each — the same rescue the product card had, for the same reason.
 
 **Only 12% of markets have a picture** (841 of 7,032), so the fallback is what most cards actually
-show and a grey box would be the page. It is a tinted monogram tile keyed to the slug
+show and a grey box would be the page. It is a tinted monogram tile over a DRAWN motif — awning
+stripes, a leaf, crates, an apple, bunting (`market-tile-pattern.tsx`, inline SVG, no dependency,
+themed through `currentColor`). Drawn rather than photographed on purpose: a stock photo of *a*
+farmers market under the heading "Abbeville Farmers Market" reads as a picture OF Abbeville, and
+a drawing claims nothing. Motif is salted apart from tone (`tileMotif`), so 4 tones × 5 motifs
+read as 20 tiles down a page rather than 5 repeated ones — and the salt goes in FIRST, because
+FNV barely moves for whatever is appended last. Two passes were needed: small motifs made every
+card busy wallpaper the monogram vanished into, so they are large and sparse with a radial scrim
+behind the letters. The tile is keyed to the slug
 (`tileTone`, FNV-1a with a final avalanche, for the reason `stories/select.ts` records): stable per
 market, varied across a grid, and unmistakably not a photograph — which matters, because a stock
 photo on a named market's card reads as a picture of THAT market. `marketInitials` drops the words

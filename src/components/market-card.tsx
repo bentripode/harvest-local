@@ -2,7 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Store } from "lucide-react";
 
-import { marketInitials, tileTone, todayLabel, type MarketToday } from "@/lib/markets/card";
+import { MarketTilePattern, MOTIF_COUNT } from "@/components/market-tile-pattern";
+import {
+  marketInitials,
+  tileMotif,
+  tileTone,
+  todayLabel,
+  type MarketToday,
+} from "@/lib/markets/card";
 import { facebookToShow, websiteLabel, websiteToShow } from "@/lib/markets/directory";
 import { hoursProvenance, shortSummary } from "@/lib/markets/schedule";
 import type { MarketSummary } from "@/lib/markets/queries";
@@ -62,7 +69,15 @@ function MarketMedia({ market, className }: { market: MarketSummary; className: 
       aria-hidden
       className={`relative overflow-hidden bg-gradient-to-br ${TONES[tileTone(market.slug, TONES.length)]} ${className}`}
     >
-      <span className="text-primary/55 absolute inset-0 flex items-center justify-center text-5xl font-semibold tracking-tight select-none">
+      {/* Drawn, never photographed — see market-tile-pattern.tsx. Tone and motif are salted apart,
+          so a page of these reads as 20 different tiles rather than 5 repeated ones. */}
+      <span className="text-primary/15">
+        <MarketTilePattern motif={tileMotif(market.slug, MOTIF_COUNT)} seed={market.slug} />
+      </span>
+      {/* A soft scrim, so the monogram reads whichever motif happens to sit behind it rather than
+          only on the quiet ones. */}
+      <span className="from-card/75 absolute inset-0 bg-radial to-transparent to-65%" />
+      <span className="text-primary/70 absolute inset-0 flex items-center justify-center text-5xl font-semibold tracking-tight select-none">
         {initials || <Store className="size-8" />}
       </span>
     </div>

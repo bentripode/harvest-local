@@ -209,7 +209,9 @@ export function marketInitials(name: string): string {
   const words = name
     .replace(/[^\p{L}\p{N}\s'-]/gu, " ")
     .split(/\s+/)
-    .filter(Boolean);
+    // A bare "-" survives the replace as its own word, and "Alpha - Burnett County Farmers'
+    // Markets" was rendering a tile that read "A-".
+    .filter((w) => /[\p{L}\p{N}]/u.test(w));
   // A street number is not an initial: "6701 Burnet Road Market" gave "6B".
   const meaningful = words.filter((w) => !SKIP.has(w.toLowerCase()) && !/^\d+$/.test(w));
   const use = meaningful.length > 0 ? meaningful : words;
@@ -224,14 +226,30 @@ export function marketInitials(name: string): string {
  * of them is varied rather than striped. FNV-1a over the slug, mixed at the end - the plain hash
  * correlates badly across short similar ids, which is the bug `stories/select.ts` records.
  */
-export function tileTone(slug: string, tones: number): number {
+export function tileTone(slug: string, tones: number, salt = ""): number {
+  // The salt goes in FIRST. FNV mixes bytes into an accumulator and whatever goes in last barely
+  // moves the result, so appending it would leave every salt picking nearly the same index — the
+  // bug `stories/select.ts` records about its day key.
+  const source = salt + slug;
   let h = 0x811c9dc5;
-  for (let i = 0; i < slug.length; i++) {
-    h ^= slug.charCodeAt(i);
+  for (let i = 0; i < source.length; i++) {
+    h ^= source.charCodeAt(i);
     h = Math.imul(h, 0x01000193);
   }
   h ^= h >>> 15;
   h = Math.imul(h, 0x2545f491);
   h ^= h >>> 13;
   return Math.abs(h) % tones;
+}
+
+/**
+ * Which decorative motif sits behind the monogram.
+ *
+ * Salted so it does not track the tone: 4 tones × 5 motifs reads as 20 different tiles down a page,
+ * where a correlated pair would read as 5 repeated ones. It is drawn, never photographed — a
+ * photograph under a named market's heading claims to BE that market, which is the rule this whole
+ * fallback exists to keep.
+ */
+export function tileMotif(slug: string, motifs: number): number {
+  return tileTone(slug, motifs, "motif:");
 }
