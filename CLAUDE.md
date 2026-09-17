@@ -323,6 +323,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
 | `node scripts/import-markets.mjs --contacts --state TX` | Fill market websites + phones from the keyed USDA API (`USDA_API_KEY`); updates only, never clears. `--all-states`, `--file <saved.json>`, `--dry-run` |
+| `node scripts/check-market-leads.mjs` | Validate `data/markets/*-leads.json` and count what is left to verify. Exits non-zero on a malformed record; `--pending` lists the unread. Never writes |
 | `node scripts/market-websites.mjs --state TX` | Visit each market's own site: copy its link-preview image to `market-images`, read schema.org opening hours. Obeys robots.txt; `--url <site>` inspects one and writes nothing; `--dry-run`, `--limit`, `--recheck-days` |
 | `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
@@ -1426,6 +1427,35 @@ three unrelated towns came back with the identical six "select Saturday" dates. 
 listings of one market get the same entry, marked in `notes`. **Facebook is linked, never
 collected**: facebook.com/robots.txt forbids automated collection, so a market whose only logo is
 on Facebook keeps the icon until someone adds one by hand.
+
+**A LEAD LIST is a third kind of file, and the first one was unusable.** `data/markets/*-leads.json`
+holds markets some directory names that we have no row for — validated by
+`scripts/lib/market-leads.mjs`, counted by `node scripts/check-market-leads.mjs`, and written to the
+database by **nothing**: a lead is a name to go and check. It is not shaped like
+`research-<state>.json`, which annotates a market we already have and is keyed on its `slug`. Each
+lead carries `checked` / `verdict` / `notes`, the verdict comes from a fixed vocabulary
+(`pending`, `confirmed`, `bad_address`, `bad_state`, `duplicate`, `closed`, `not_a_market`,
+`unverifiable`), and **any verdict but `pending` must carry a date and a reason** — a finding nobody
+can audit is worse than an unread lead, because it looks like work that was done.
+
+**`homesteading-new-leads.json` is 37 entries, 35 distinct, and 0 usable.** Four were read against
+their own source pages on 2026-09-17 and all four were wrong, in **two classes that must not be
+collapsed**. *Ours:* `parseListings` takes `block.slice(0, 8000)` after each title, so a listing
+whose card has no address element has `field()` reach forward and borrow a LATER listing's — index 2
+is "Vancouver Farmers' Market", whose own page says 605 Esther Street, Vancouver **WA**, recorded as
+Wilmington DE. The website survived because its regex window is 400 chars rather than 8000, which is
+the tell: **a lead whose address disagrees with its own name and website is the borrowed-address
+bug.** Also ours: `splitAddress`'s comma-delimited branch accepts a **DC quadrant suffix as a
+state** — "3001 Bladensburg Road, NE, Washington, DC" parsed to `state: "NE"`, city "3001
+Bladensburg Road". *Theirs:* index 1's page genuinely reads "500 Duncan Rd., Wilmington, DE" under
+the name "Arlington Farmers Market" with a chamber-of-commerce site in Arlington **Washington** —
+name, address and website each plausible and describing three different markets. And a real state
+code can still be the wrong one: index 20 is Middlebury, ZIP 05753, filed `VI` (US Virgin Islands)
+where Vermont was meant, which no schema can catch because VI is real. **Neither parser bug is
+fixed** — nothing reads these files, so it was recorded rather than repaired. The 2.5MB full scrape
+is deliberately **not committed**: it is regenerable, nothing reads it, and it is a wholesale copy
+of someone's compiled directory. The 37-row file is committed because the ad-hoc filter that made
+it was not kept, so it cannot be regenerated.
 
 The picture is **only** the one the site
 offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
