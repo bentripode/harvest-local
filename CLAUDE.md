@@ -301,6 +301,12 @@ Never write an order, or code a path that could write an order, that crosses sta
   inline where the layout allows. **Look at the full-size file before using it**: the preview
   thumbnails hid a Vietnamese price list, a "VEGAN" sign, a brand on bread paper and a jam lid
   stamped "EXP DATE 2023" — all found only at full size, all wrong for a food marketplace.
+  **The market card is the one deliberate exception** (`MARKET_FALLBACK_PHOTOS`,
+  `marketFallbackPhoto`): a generic market photograph stands in for a *named* market that has no
+  picture of its own, which is exactly the "reads as this one's goods" problem above, accepted
+  because 88% of markets have no image and the fallback was most of the directory. It does not
+  extend to sellers, and the full-size read caught three more names at that step — "Tanaka Farms"
+  on a chalkboard, a "Courtland 99 lb" price tag and a "Senter's Nursery" banner.
 
 ## Commands
 
@@ -317,6 +323,7 @@ Never write an order, or code a path that could write an order, that crosses sta
 | `node scripts/verify-disclaimers.mjs` | Check all 55 quoted-law strings against the documents they cite. Fetches; run by hand |
 | `node scripts/pdftext.mjs <file.pdf> "<regex>"` | Read a statute PDF (pdf.js). Handles hex strings, CID fonts and object streams — the hand-rolled version did not, and left AR and CO unverified |
 | `node scripts/import-markets.mjs --contacts --state TX` | Fill market websites + phones from the keyed USDA API (`USDA_API_KEY`); updates only, never clears. `--all-states`, `--file <saved.json>`, `--dry-run` |
+| `node scripts/check-market-leads.mjs` | Validate `data/markets/*-leads.json` and count what is left to verify. Exits non-zero on a malformed record; `--pending` lists the unread. Never writes |
 | `node scripts/market-websites.mjs --state TX` | Visit each market's own site: copy its link-preview image to `market-images`, read schema.org opening hours. Obeys robots.txt; `--url <site>` inspects one and writes nothing; `--dry-run`, `--limit`, `--recheck-days` |
 | `node scripts/pexels.mjs search "<query>" --preview <dir>` | Search Pexels stock photos (`search-videos` for video); `photo <id> --out public/stock/x.jpg` / `video <id> --out …mp4` downloads and records the credit in `src/lib/stock/credits.json`. Needs `PEXELS_API_KEY` |
 | `npx supabase db diff -f <name>` | Generate a migration from schema changes |
@@ -351,6 +358,9 @@ src/lib/products/{card,quick-view}.ts   what a listing says about itself (pure) 
 src/lib/products/category-filter.ts    /shop?category=<top-level slug> — narrows nearby_sellers(state), never widens it (pure)
 src/lib/stock/{photos.ts,credits.json} Pexels stock photos: typed lookup, category tile map, credits (written by scripts/pexels.mjs)
 src/lib/markets/{queries,schedule,directory}.ts   market reads (paged, with lng/lat) · hours arithmetic · search + safe website links (pure)
+src/lib/markets/card.ts                what a market card claims — season parsing, the open-today status, the monogram fallback (pure)
+src/lib/markets/places.ts             Google Places photos: fetched at render, credited, never stored
+scripts/{google-places.mjs,lib/places-match.mjs}   resolve a market's Place ID · verify a candidate really is it (pure)
 src/components/market-{directory,map,card}.tsx    /markets search + list/map toggle · clustered Mapbox map · the card
 scripts/lib/market-site.mjs            og:image / schema.org hours / robots.txt readers for the website scan (pure)
 src/lib/ai/{claims,prompt,response,generate}.ts   the claim screen (pure) · grounded prompt · unwrapping · the API call
@@ -1418,13 +1428,139 @@ listings of one market get the same entry, marked in `notes`. **Facebook is link
 collected**: facebook.com/robots.txt forbids automated collection, so a market whose only logo is
 on Facebook keeps the icon until someone adds one by hand.
 
+**A LEAD LIST is a third kind of file, and the first one was unusable.** `data/markets/*-leads.json`
+holds markets some directory names that we have no row for — validated by
+`scripts/lib/market-leads.mjs`, counted by `node scripts/check-market-leads.mjs`, and written to the
+database by **nothing**: a lead is a name to go and check. It is not shaped like
+`research-<state>.json`, which annotates a market we already have and is keyed on its `slug`. Each
+lead carries `checked` / `verdict` / `notes`, the verdict comes from a fixed vocabulary
+(`pending`, `confirmed`, `bad_address`, `bad_state`, `duplicate`, `closed`, `not_a_market`,
+`unverifiable`), and **any verdict but `pending` must carry a date and a reason** — a finding nobody
+can audit is worse than an unread lead, because it looks like work that was done.
+
+**`homesteading-new-leads.json` is 37 entries, 35 distinct, and 0 usable.** Four were read against
+their own source pages on 2026-09-17 and all four were wrong, in **two classes that must not be
+collapsed**. *Ours:* `parseListings` takes `block.slice(0, 8000)` after each title, so a listing
+whose card has no address element has `field()` reach forward and borrow a LATER listing's — index 2
+is "Vancouver Farmers' Market", whose own page says 605 Esther Street, Vancouver **WA**, recorded as
+Wilmington DE. The website survived because its regex window is 400 chars rather than 8000, which is
+the tell: **a lead whose address disagrees with its own name and website is the borrowed-address
+bug.** Also ours: `splitAddress`'s comma-delimited branch accepts a **DC quadrant suffix as a
+state** — "3001 Bladensburg Road, NE, Washington, DC" parsed to `state: "NE"`, city "3001
+Bladensburg Road". *Theirs:* index 1's page genuinely reads "500 Duncan Rd., Wilmington, DE" under
+the name "Arlington Farmers Market" with a chamber-of-commerce site in Arlington **Washington** —
+name, address and website each plausible and describing three different markets. And a real state
+code can still be the wrong one: index 20 is Middlebury, ZIP 05753, filed `VI` (US Virgin Islands)
+where Vermont was meant, which no schema can catch because VI is real. **Neither parser bug is
+fixed** — nothing reads these files, so it was recorded rather than repaired. The 2.5MB full scrape
+is deliberately **not committed**: it is regenerable, nothing reads it, and it is a wholesale copy
+of someone's compiled directory. The 37-row file is committed because the ad-hoc filter that made
+it was not kept, so it cannot be regenerated.
+
 The picture is **only** the one the site
 offers for link previews (og:image → twitter:image → its organisation's JSON-LD image), copied at
 480px into `market-images` with provenance in `image_source_url`; hours are **only** schema.org
 `openingHours(Specification)`, only when the page has exactly one schedule that parses completely,
 written as `market_hours.source = 'website'`, and never over a person's (`admin`) rows. The card and
-the market page both say when hours came from the website. A market with no picture shows an icon —
-never a stock photo, which on a named market's card would read as that market.
+the market page both say when hours came from the website. A market with no picture of its own
+shows a generic stock photograph on the grid (see below) and a monogram tile on the compact card.
+
+**Phase 6 — the market directory, picture-led, and the badge that had to be taught about winter.**
+`/markets` and `/markets/<state>` are a card grid rather than a list of thumbnails with four rows of
+text beside each — the same rescue the product card had, for the same reason.
+
+**Only 12% of markets have a picture** (841 of 7,032), so the fallback is what most cards actually
+show and a grey box would be the page. **The grid fills it with a generic stock photograph**
+(`MARKET_FALLBACK_PHOTOS` — seven of them, `marketFallbackPhoto` picks one per slug), and the
+compact card and map popup keep the tinted monogram tile over a DRAWN motif — awning stripes, a
+leaf, crates, an apple, bunting (`market-tile-pattern.tsx`, inline SVG, no dependency, themed
+through `currentColor`), because at 64px a photograph is a coloured blob and two letters still read.
+
+**The photograph is a knowing trade and the tile's reasoning still stands against it**: a stock
+photo of *a* farmers market under the heading "Abbeville Farmers Market" reads as a picture OF
+Abbeville, and a drawing claims nothing. It was taken anyway, because a grid of drawings does not
+read as somewhere worth browsing and the drawing was 88% of the page. What keeps it defensible is
+narrow and has to be maintained: **no photo may contain a business name, a price, a legible sign or
+an identifiable person**, which the full-size read is for — three candidates that looked fine as
+thumbnails carried "Tanaka Farms", "Courtland 99 lb" and "Senter's Nursery", and `market-produce.jpg`
+is 1400×679 rather than 1400×789 because the farm name was cropped off its top edge. Searches also
+return a great many non-US markets — Hong Kong price tags, a Dutch grower stencilled on a crate,
+Czech flower signs — which read wrong under an American market's name. `/credits` names every
+photographer; a per-card inline credit is not possible across seven photos and hundreds of cards,
+which is a real cost of this route. Photo choice is salted apart from tone and motif
+(`"photo:"`), so the grid picture and the popup tile do not vary together.
+
+Motif is salted apart from tone (`tileMotif`), so 4 tones × 5 motifs
+read as 20 tiles down a page rather than 5 repeated ones — and the salt goes in FIRST, because
+FNV barely moves for whatever is appended last. Two passes were needed: small motifs made every
+card busy wallpaper the monogram vanished into, so they are large and sparse with a radial scrim
+behind the letters. The tile is keyed to the slug
+(`tileTone`, FNV-1a with a final avalanche, for the reason `stories/select.ts` records): stable per
+market, varied across a grid, and unmistakably not a photograph. `marketInitials` drops the words
+every market shares, or every tile would read "FM", and drops a street number, or 6701 Burnet Road
+Market reads "6B". Real pictures stay CONTAINED: most are logos and a crop cut one mid-word.
+
+**The "open today" ribbon is the one claim on this page a reader acts on by getting in a car**, so
+two things must line up. First the weekday, which is why `todayStatus` takes `now` as an argument
+and `MarketDirectory` supplies the READER's clock through `useSyncExternalStore` (a minute number,
+not a `Date` — the store compares snapshots by identity, and `new Date()` would loop). Null on the
+server, because the server is UTC and at 8pm Pacific already believes it is tomorrow.
+
+**Second the SEASON, which is the part that is easy to miss.** Most markets shut for the winter, so
+a badge keyed on the weekday alone is wrong for half the year in the direction that sends somebody
+to an empty car park. `market_hours.note` is free prose — 741 distinct strings across 1,000 rows,
+mixing season with address and exceptions — so `parseSeason` is deliberately timid: year-round, or
+exactly two month names with a range word between them, and nothing else. Three month names means
+the note describes more than one arrangement and comes back `unknown`. An unknown season does not
+suppress the badge, it **downgrades** it — "Usually open today" rather than "Open today" — so the
+page says what it knows and marks what it is guessing instead of rounding either up.
+
+**And it reads the DAY, not just the month.** "Late May to Sep 10, 2026" parses to September, and a
+month-precision check called that Vermont market open on 16 September — six days after its season
+ended. `dayAfter` captures a day written straight after a month name, bounded to 1–31 so the year
+in "Sep 30, 2026" is not read as one; a missing day opens on the 1st and closes on the 31st, the
+generous reading at each end. It took Vermont's count from 6 markets on today to 5, and the one it
+removed was the one that was wrong.
+
+**Phase 6 — Google's photographs of a market, which we are not allowed to keep.** Only 12% of
+markets have a picture of their own and that route is exhausted — every market with a website has
+been visited, and 890 were unreachable, 618 offer no preview image, 547 are 404. So the market page
+shows Google's photograph instead, and the whole design is dictated by one sentence of Google's
+Places policy: "You must not pre-fetch, cache, or store Places API content beyond the allowed
+exceptions", where the single exception is "the place_id is exempt... You can therefore store place
+ID values indefinitely."
+
+**So `markets.google_place_id` is the only thing we hold**, and the photo, its size and the
+photographer's name are fetched on every render and thrown away. It is emphatically **not**
+`image_url`, which is our own copy of a picture a market's OWN site offered for link previews under
+that site's terms. `/api/market-photo` asks Google where the image lives (`skipHttpRedirect`) and
+307s the reader straight there, so the key never reaches the browser and the bytes never touch our
+server; it is a plain `<img>` rather than `next/image` because the optimiser would write a copy to
+disk, which is the storing we may not do.
+
+**The credit is load-bearing, not decoration.** Google requires that we "always credit the author"
+and that readers can "view the individual source photo... on Google Maps using the provided
+googleMapsUri". `MarketPhoto` has no shape in which the credit is absent and `getMarketPhoto`
+returns **null** rather than an uncredited picture, so a photo with no author cannot reach the
+component. No market picture is a fine page; an unattributed one is a licence breach.
+
+**Matching is verified, and the naive version was badly wrong.** Text Search fuzzy-matches: asking
+for "Salisbury Rowan Farmers Market, 115 S Jackson St" answers with a market at a different street.
+A candidate must clear three tests. **Google must call it a market** (`farmers_market` or `market`)
+— without this the name test alone scored a perfect 1.00 for "Peacham Farmers Market" against
+**Peacham Café**, "Brandon" against the **Town Recreation Department** and "Killington" against a
+**deli**, because the one word a market and its neighbour share is the TOWN. It must stand **within
+800m** of coordinates we already hold — a "Brandon Farmers Market" scoring 1.00 turned out to be
+1,881km away in another state. And a **qualifier only one side carries** scores 0: "North Salem" is
+the next town, not a short form of "Salem".
+
+**Two counter-intuitive findings are worth keeping.** `locationBias` made recall WORSE — biasing to
+Brandon returned a park, a town clerk and a brewery while the plain query returned the market — so
+the search is unbiased and `judgeCandidate` measures the distance itself. And **the photo cannot
+drive the card grid**: photos are the Enterprise-tier "Place Details Photos" SKU billed per
+request, caching is forbidden, and a 236-market Texas page would be ~470 billed calls per view. The
+grid keeps its monogram tiles; the photograph is a detail-page thing. **Vermont matched 31 of 78** —
+a market with no verified place keeps its tile, which is the right way to fail.
 
 **Phase 6 — account deletion was impossible, and the test harness hid it.** `pickup_locations`
 (`20260908230000`) declared `address_id ... on delete set null` alongside
